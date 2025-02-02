@@ -221,7 +221,7 @@
     "href": "T1_Introduction/Tools.slides.html#python-is-strict",
     "title": "Tools to construct graphs",
     "section": "Python is strict",
-    "text": "Python is strict\nPython, like all programming languages, is very strict. For example, if you write\n\nsum([1, 100])\n\n101\n\n\nit will tell you the answer, 101.\n\nBut if you write\n\nSum([1, 100])\n\n\n---------------------------------------------------------------------------\nNameError                                 Traceback (most recent call last)\nCell In[93], line 1\n----&gt; 1 Sum([1, 100])\n\nNameError: name 'Sum' is not defined\n\n\n\nwith the “s” capitalized, he will act like he has no idea what we are talking about!\n\nlo mismo si olvidas incluir un parentesis"
+    "text": "Python is strict\nPython, like all programming languages, is very strict. For example, if you write\n\nsum([1, 100])\n\n101\n\n\nit will tell you the answer, 101.\n\nBut if you write\n\nSum([1, 100])\n\n\n---------------------------------------------------------------------------\nNameError                                 Traceback (most recent call last)\nCell In[233], line 1\n----&gt; 1 Sum([1, 100])\n\nNameError: name 'Sum' is not defined\n\n\n\nwith the “s” capitalized, he will act like he has no idea what we are talking about!\n\nlo mismo si olvidas incluir un parentesis"
   },
   {
     "objectID": "T1_Introduction/Tools.slides.html#save-your-work-in-python-objects",
@@ -424,7 +424,7 @@
     "href": "T1_Introduction/Tools.slides.html#agenda",
     "title": "Tools to construct graphs",
     "section": "Agenda",
-    "text": "Agenda\n\nIntroduction to python\nReading data with python"
+    "text": "Agenda\n\nIntroduction to python\nReading data with python\nCreating our first plot"
   },
   {
     "objectID": "T2_Type_of_Variables/Types.slides.html#agenda",
@@ -663,5 +663,75 @@
     "title": "Types of variables",
     "section": "",
     "text": "To sort in descending order, use ascending=False inside sort_values().\n\n(penguins_data\n  .sort_values(\"bill_length_mm\", ascending=False)\n  .head()\n)\n\n\n\n\n\n\n\n\nspecies\nisland\nbill_length_mm\nbill_depth_mm\nflipper_length_mm\nbody_mass_g\nsex\nyear\n\n\n\n\n185\nGentoo\nBiscoe\n59.6\n17.0\n230.0\n6050.0\nmale\n2007\n\n\n293\nChinstrap\nDream\n58.0\n17.8\n181.0\n3700.0\nfemale\n2007\n\n\n253\nGentoo\nBiscoe\n55.9\n17.0\n228.0\n5600.0\nmale\n2009\n\n\n339\nChinstrap\nDream\n55.8\n19.8\n207.0\n4000.0\nmale\n2009\n\n\n267\nGentoo\nBiscoe\n55.1\n16.0\n230.0\n5850.0\nmale\n2009"
+  },
+  {
+    "objectID": "T1_Introduction/Tools.slides.html#matplotlib-library",
+    "href": "T1_Introduction/Tools.slides.html#matplotlib-library",
+    "title": "Tools to construct graphs",
+    "section": "matplotlib library",
+    "text": "matplotlib library\n\nmatplotlib is a comprehensive library for creating static, animated, and interactive visualizations in Python\nIt is widely used in the data science community for plotting data in various formats\nIdeal for creating simple visualizations like line plots, bar charts, scatter plots, and more\nhttps://matplotlib.org/"
+  },
+  {
+    "objectID": "T1_Introduction/Tools.slides.html#seaborn-library",
+    "href": "T1_Introduction/Tools.slides.html#seaborn-library",
+    "title": "Tools to construct graphs",
+    "section": "seaborn library",
+    "text": "seaborn library\n\nseaborn is a Python library built on top of Matplotlib\nDesigned to make statistical data visualization easy and beautiful\nIdeal for creating informative and attractive visualizations with minimal code\nhttps://seaborn.pydata.org/index.html"
+  },
+  {
+    "objectID": "T1_Introduction/Tools.slides.html#importing-the-libraries",
+    "href": "T1_Introduction/Tools.slides.html#importing-the-libraries",
+    "title": "Tools to construct graphs",
+    "section": "Importing the libraries",
+    "text": "Importing the libraries\n\nThe matplotlib and seaborn libraries are pre-installed in Google Colab. However, we need to inform Google Colab that we want to use them and its functions using the following command:\n\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\nSimilar to pandas, the command as sns allows us to have a short name for seaborn. Similarly, we rename matplotlib as plt."
+  },
+  {
+    "objectID": "T1_Introduction/Tools.slides.html#seaborn-plot-structure",
+    "href": "T1_Introduction/Tools.slides.html#seaborn-plot-structure",
+    "title": "Tools to construct graphs",
+    "section": "Seaborn Plot Structure",
+    "text": "Seaborn Plot Structure\nSeaborn has a structured approach to creating visualizations.\nsns.PLOTTYPE(data=my_data, x=“Variable1”, y=“Variable2”, hue=“Variable3”, MOREOPTIONS)\nplt.title(“Title”)\nplt.xlabel(“X-axis label”)\nplt.ylabel(“Y-axis label”)\nplt.MOREOPTIONS()\nplt.show()"
+  },
+  {
+    "objectID": "T1_Introduction/Tools.slides.html#ejemplo",
+    "href": "T1_Introduction/Tools.slides.html#ejemplo",
+    "title": "Tools to construct graphs",
+    "section": "Ejemplo",
+    "text": "Ejemplo\nIs there a difference between bill length and bill depth across penguin species?"
+  },
+  {
+    "objectID": "T1_Introduction/Tools.slides.html#ejemplo-1",
+    "href": "T1_Introduction/Tools.slides.html#ejemplo-1",
+    "title": "Tools to construct graphs",
+    "section": "Ejemplo",
+    "text": "Ejemplo\nIs there a difference between bill length and bill depth across penguin species?\n\n# Create the scatter plot\nsns.scatterplot(data=penguins_data, x=\"bill_depth_mm\", y=\"bill_length_mm\", \nhue=\"species\")\nplt.show() # Display the plot"
+  },
+  {
+    "objectID": "T1_Introduction/Tools.slides.html#example",
+    "href": "T1_Introduction/Tools.slides.html#example",
+    "title": "Tools to construct graphs",
+    "section": "Example",
+    "text": "Example\n\nsns.scatterplot(data=penguins_data, x=\"bill_depth_mm\", y=\"bill_length_mm\", hue=\"species\")\nplt.title(\"Bill Depth vs. Bill Length\")\nplt.xlabel(\"Bill Depth (mm)\")\nplt.ylabel(\"Bill Length (mm)\")\nplt.legend(title=\"Species\")\nplt.show()"
+  },
+  {
+    "objectID": "T1_Introduction/Tools.slides.html#ejemplo-2",
+    "href": "T1_Introduction/Tools.slides.html#ejemplo-2",
+    "title": "Tools to construct graphs",
+    "section": "Ejemplo",
+    "text": "Ejemplo\n\nsns.scatterplot(data=penguins_data, x=\"bill_depth_mm\", y=\"bill_length_mm\", \nhue=\"species\", palette=\"viridis\")\nplt.title(\"Bill Depth vs. Bill Length\")\nplt.xlabel(\"Bill Depth (mm)\")\nplt.ylabel(\"Bill Length (mm)\")\nplt.legend(title=\"Species\")\nplt.show()"
+  },
+  {
+    "objectID": "T1_Introduction/Tools.slides.html#mini-actividad-solo-mode",
+    "href": "T1_Introduction/Tools.slides.html#mini-actividad-solo-mode",
+    "title": "Tools to construct graphs",
+    "section": "Mini-actividad (solo mode)",
+    "text": "Mini-actividad (solo mode)\n\nOpen the following Google Colab link:\nhttps://colab.research.google.com/drive/1c-sy5yQY1DwgaZAI6YnDLMTEYMpLCWyX?usp=sharing\nCopy the notebook to your drive.\nAnswer the questions."
+  },
+  {
+    "objectID": "T1_Introduction/Tools.slides.html#adding-titles-and-labels",
+    "href": "T1_Introduction/Tools.slides.html#adding-titles-and-labels",
+    "title": "Tools to construct graphs",
+    "section": "Adding titles and labels",
+    "text": "Adding titles and labels\n\nsns.scatterplot(data=penguins_data, x=\"bill_depth_mm\", y=\"bill_length_mm\", \nhue=\"species\")\nplt.title(\"Bill Depth vs. Bill Length\")\nplt.xlabel(\"Bill Depth (mm)\")\nplt.ylabel(\"Bill Length (mm)\")\nplt.legend(title=\"Species\")\nplt.show()"
   }
 ]

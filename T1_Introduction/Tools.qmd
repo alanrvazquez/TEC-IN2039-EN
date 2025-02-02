@@ -598,76 +598,67 @@ sub_rows_pdata
 
 # Creating our first plot
 
-# ggplot2
+## matplotlib library
 
-## ggplot2
+-   **matplotlib** is a comprehensive library for creating static, animated, and interactive visualizations in Python
+-   It is widely used in the data science community for plotting data in various formats
+-   Ideal for creating simple visualizations like line plots, bar charts, scatter plots, and more
+-   <https://matplotlib.org/>
 
-::::: columns
-::: {.column width="50%"}
-![](images/tidyverse.png){fig-align="left"}
-:::
+![](images/matplotlib.png){fig-align="center"}
 
-::: {.column width="50%"}
--   **ggplot2** es uno de los mejores paquetes gratuitos para construir gráficas.
--   Es parte de una colección de paquetes de ciencia de datos llamado *tidyverse*.
--   Está basado en la *Gramática de las Gráficas.*
--   <https://ggplot2-book.org/>
-:::
-:::::
+## seaborn library
 
-## 
+-   **seaborn** is a Python library built on top of Matplotlib
+-   Designed to make statistical data visualization easy and beautiful
+-   Ideal for creating informative and attractive visualizations with minimal code
+-   <https://seaborn.pydata.org/index.html>
 
-**ggplot2** ya está pre-instalada en Google Colab.
+![](images/seaborn.png){fig-align="center"}
+
+## Importing the libraries
 
 </br>
 
-Simplemente, la cargamos con el siguiente comando.
+The **matplotlib** and **seaborn** libraries are pre-installed in Google Colab. However, we need to inform Google Colab that we want to use them and its functions using the following command:
 
-```{r}
+```{python}
 #| echo: true
 
-library(ggplot2)
+import matplotlib.pyplot as plt
+import seaborn as sns
 ```
 
-## Una librería auxiliar
+Similar to **pandas**, the command `as sns` allows us to have a short name for **seaborn**. Similarly, we rename **matplotlib** as **plt**.
 
-Para hacer más simple nuestra interacción con **ggplot2**, usaremos una librería llamada **ggformula**.
 
-</br>
+## Seaborn Plot Structure
 
-Sin embargo, **ggformula** no está pre-instalada en Google Colab. Para instalar una librería en R, usamos el comando: `install.packages("ggformula")`
+Seaborn has a structured approach to creating visualizations.
 
-</br>
+[sns.PLOTTYPE(data=my_data, x="Variable1", y="Variable2", hue="Variable3", MOREOPTIONS)]{style="color:#619CFF;"}
 
-Una vez, hecho esto, procedemos a cargar la librería en R
+[plt.title("Title")]{style="color:#F8766D;"}
 
-```{r}
-#| echo: true
+[plt.xlabel("X-axis label")]{style="color:#F8766D;"}
 
-library(ggformula)
-```
+[plt.ylabel("Y-axis label")]{style="color:#F8766D;"}
 
-## La estructura de ggformula
+[plt.MOREOPTIONS()]{style="color:#00BA38;"}
 
-**ggformula** tiene una estructura para crear gráficas por pasos.
-
-[gf_PLOTTYPE(Variable2 \~ Variable1, data = my_data, color = \~Variable3, shape = \~Variable4)]{style="color:#619CFF;"}
-
-[+ labs(title, subtitle, caption, x, y, color, shape)]{style="color:#F8766D;"}
-
-[+ more_options()]{style="color:#00BA38;"}
+plt.show()
 
 ## Ejemplo
 
-¿Existe alguna diferencia entre la longitud y profundidad del pico de las diferentes especies de pingüinos?
+Is there a difference between bill length and bill depth across penguin species?
 
 ![](images/penguins_bill.png){fig-align="center"}
 
 ## Ejemplo
 
-¿Existe alguna diferencia entre la longitud y profundidad del pico de las diferentes especies de pingüinos?
+Is there a difference between bill length and bill depth across penguin species?
 
-```{r}
+```{python}
 #| echo: true
 #| output: true
 #| code-overflow: wrap
@@ -675,57 +666,60 @@ library(ggformula)
 #| output-location: fragment
 #| out.width: "80%"
 
-gf_point(bill_length_mm ~ bill_depth_mm, data = penguins_data,
-         color = ~species) 
+# Create the scatter plot
+sns.scatterplot(data=penguins_data, x="bill_depth_mm", y="bill_length_mm", 
+hue="species")
+plt.show() # Display the plot
 ```
 
-## Ejemplo
+## Adding titles and labels
 
-```{r}
+```{python}
 #| echo: true
 #| output: true
 #| code-overflow: wrap
 #| fig-pos: center
-#| code-line-numbers: "2-6"
+#| code-line-numbers: "3-6"
 #| output-location: fragment
 #| out.width: "80%"
 
-gf_point(bill_length_mm ~ bill_depth_mm, data = penguins_data, 
-color = ~species) + labs(title = "Profundidad y longitud del pico", 
-subtitle = "Dimensiones para pingüinos en Adelie,
-         Chinstrap, and Gentoo", 
-x = "Profundidad del pico (mm)", y = "Longitud del pico (mm)",
-color = "Especie")
+sns.scatterplot(data=penguins_data, x="bill_depth_mm", y="bill_length_mm", 
+hue="species")
+plt.title("Bill Depth vs. Bill Length")
+plt.xlabel("Bill Depth (mm)")
+plt.ylabel("Bill Length (mm)")
+plt.legend(title="Species")
+plt.show()
 ```
 
 ## Ejemplo
 
-```{r}
+```{python}
 #| echo: true
 #| output: true
 #| code-overflow: wrap
 #| fig-height: 4
 #| fig-pos: center 
-#| code-line-numbers: "6"
+#| code-line-numbers: "1-2"
 
-gf_point(bill_length_mm ~ bill_depth_mm, data = penguins_data, 
-color = ~species) + labs(title = "Profundidad y longitud del pico", 
-subtitle = "Dimensiones para pingüinos en Adelie,
-         Chinstrap, and Gentoo", 
-x = "Profundidad del pico (mm)", y = "Longitud del pico (mm)",
-color = "Especie") +  scale_color_viridis_d()
-
+sns.scatterplot(data=penguins_data, x="bill_depth_mm", y="bill_length_mm", 
+hue="species", palette="viridis")
+plt.title("Bill Depth vs. Bill Length")
+plt.xlabel("Bill Depth (mm)")
+plt.ylabel("Bill Length (mm)")
+plt.legend(title="Species")
+plt.show()
 ```
 
 ## Mini-actividad (*solo* mode)
 
-1.  Accede a la siguiente liga:
+1.  Open the following Google Colab link:
 
     <https://colab.research.google.com/drive/1c-sy5yQY1DwgaZAI6YnDLMTEYMpLCWyX?usp=sharing>
 
-2.  Copia el archivo Google Colab en tu drive.
+2.  Copy the notebook to your drive.
 
-3.  Contesta las preguntas.
+3.  Answer the questions.
 
 
 # [Return to main page](https://alanrvazquez.github.io/TEC-IN1002B-Website/)
