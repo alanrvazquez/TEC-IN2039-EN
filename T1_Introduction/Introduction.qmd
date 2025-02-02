@@ -285,10 +285,9 @@ The estimated costs are based on a twice-daily 10.4 mile one-way commute at peak
 #| fig-height: 4
 #| fig-pos: center
 
+import matplotlib.pyplot as plt
+import seaborn as sns
 import pandas as pd
-import plotly.express as px
-import plotly.io as pio # Ensure figure displays in Quarto
-pio.renderers.default = "iframe"  # Change to "notebook", "iframe", or "div"
 
 # Sample data
 data = {
@@ -300,19 +299,21 @@ data = {
 
 uber_df = pd.DataFrame(data)
 
-# Create the interactive line plot
-fig = px.line(uber_df, x="Type", y="Cost", color="City", markers=True, 
-              title="It is cheaper to take Uber than own a car in four of the five largest U.S. cities.")
+# Set the style
+sns.set_style("whitegrid")
+plt.figure(figsize=(8, 7))
 
-fig.update_layout(
-    xaxis_title="",
-    yaxis_title="Cost (USD)",
-    template="plotly_white",
-    title_x=0.5
-)
+# Create the line plot
+sns.lineplot(data=uber_df, x="Type", y="Cost", hue="City", marker="o", linewidth=2, alpha=0.7)
 
-pio.show(fig)  # Use this instead of fig.show()
+# Customize the plot
+plt.title("It is cheaper to take Uber than own a car in four of the five largest U.S. cities.", fontsize=12)
+plt.xlabel("")
+plt.ylabel("Cost (USD)")
+plt.legend(title="City", fontsize=10)
 
+# Show the plot
+plt.show()
 ```
 
 ## 
@@ -325,7 +326,6 @@ pio.show(fig)  # Use this instead of fig.show()
 #| fig-height: 4
 #| fig-pos: center
 
-
 # Define custom colors
 custom_colors = {
     "Chicago": "#619CFF", 
@@ -335,19 +335,24 @@ custom_colors = {
     "Washington D.C.": "#619CFF"
 }
 
-# Create the interactive line plot with custom colors
-fig = px.line(uber_df, x="Type", y="Cost", color="City", markers=True, 
-              title="It is cheaper to take Uber than own a car in four of the\nfive largest U.S. cities.",
-              color_discrete_map=custom_colors)
+# Set the style
+sns.set_style("whitegrid")
+plt.figure(figsize=(8, 7))
 
-fig.update_layout(
-    xaxis_title="",
-    yaxis_title="Cost (USD)",
-    template="plotly_white",
-    title_x=0.5
-)
+# Create the line plot with custom colors
+sns.lineplot(data=uber_df, x="Type", y="Cost", hue="City", marker="o", linewidth=2, alpha=0.7, 
+             palette=custom_colors)
 
-pio.show(fig)  # Use this instead of fig.show()
+# Customize the plot
+plt.title("It is cheaper to take Uber than own a car in four of the five largest U.S. cities.", fontsize=12)
+plt.xlabel("")
+plt.ylabel("Cost (USD)")
+plt.xticks(fontsize=12)
+plt.yticks(fontsize=12)
+plt.legend(title="City", fontsize=10)
+
+# Show the plot
+plt.show()
 ```
 
 ## 
