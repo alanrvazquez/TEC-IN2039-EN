@@ -292,8 +292,7 @@ Filter the data for the species "Gentoo."
 
 (penguins_data
   .query("species == 'Gentoo'")
-  .head()
-)
+).head()
 ```
 
 > The `head()` function prints the first 6 rows of the dataset.
@@ -308,8 +307,7 @@ We can also filter the data to get penguins with a body mass greater than 5000g.
 
 (penguins_data
   .query("body_mass_g > 5000")
-  .head()
-)
+).head()
 ```
 
 ## Selecting columns with `loc[]`
@@ -337,8 +335,7 @@ Select the columns `species`, `body_mass_g` and `sex`. Next, filter the data for
 (penguins_data
   .loc[:, ["species", "body_mass_g", "sex"]]
   .query("species == 'Gentoo'")
-  .head(4)
-)
+).head(4)
 ```
 
 ## Create new columns with `assign()`
@@ -354,8 +351,7 @@ With `assign()`, we can create new columns (variables) that are functions of exi
 (penguins_data
   .assign(LengthDepthRatio = lambda df: df["bill_length_mm"] / df["bill_depth_mm"])
   .loc[:, ["species", "body_mass_g", "sex", "LengthDepthRatio"]]
-  .head()
-)
+).head()
 ```
 
 ##
@@ -370,8 +366,7 @@ The new dataset has the variable `LengthDepthRatio`.
 (penguins_data
   .assign(LengthDepthRatio = lambda df: df["bill_length_mm"] / df["bill_depth_mm"])
   .loc[:, ["species", "body_mass_g", "sex", "LengthDepthRatio"]]
-  .head()
-)
+).head()
 ```
 
 
@@ -385,8 +380,7 @@ We can sort the data based on a column like `bill_length_mm`.
 
 (penguins_data
   .sort_values("bill_length_mm")
-  .head(4)
-)
+).head(4)
 ```
 
 ## 
@@ -399,8 +393,7 @@ To sort in descending order, use `ascending=False` inside `sort_values()`.
 
 (penguins_data
   .sort_values("bill_length_mm", ascending=False)
-  .head()
-)
+).head()
 ```
 
 ## Summarizing with `agg()`

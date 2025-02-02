@@ -1,0 +1,537 @@
+---
+title: "Categorical Variables"
+subtitle: "IN2039: Data Visualization for Decision Making"
+author: 
+  - name: Alan R. Vazquez
+    affiliations:
+      - name: Department of Industrial Engineering
+format: 
+  revealjs:
+    chalkboard: false
+    multiplex: true
+    footer: "Tecnologico de Monterrey"
+    logo: IN2039_logo.png
+    css: style.css
+    slide-number: True
+    html-math-method: mathjax
+editor: visual
+jupyter: python3
+---
+
+## Agenda
+
+1.  Introduction
+2.  Summary statistics
+3.  Bar chart
+4.  Pie chart
+5.  Transforming categorical variables
+
+# Review of data types and summary statistics
+
+## Types of data I
+
+</br>
+
+When a numerical quantity designating how much or how many is assigned to each item in the sample, the resulting set of values is [**numerical**]{style="color:lightblue;"} or [**quantitative**]{style="color:lightblue;"}.
+
+-   Height (in ft).
+-   Weight (in lbs).
+-   Age (in years).
+
+## Types of data II
+
+</br>
+
+When sample items are placed into categories and category names are assigned to the sample items, the data are [**categorical**]{style="color:pink;"} or [**qualitative**]{style="color:pink;"}.
+
+-   Hair color.
+-   Country of origin.
+-   ZIP code.
+
+## Data types
+
+![](images/Images.002.jpeg){fig-align="center"}
+
+## Example 1
+
+Let's load the data in "penguins.xlsx".
+
+```{python}
+#| echo: true
+
+# Load pandas.
+import pandas as pd
+
+# Load the Excel file into a pandas DataFrame.
+penguins_data = pd.read_excel("penguins.xlsx")
+
+# Print the first 4 rows of the dataset.
+penguins_data.head(4)
+```
+
+## 
+
+In python, we check the type of each variable in a dataset using the function `info()`.
+
+```{python}
+#| echo: true
+
+penguins_data.info()
+```
+
+## General python formats
+
+-   `float64` format for numerical variables with decimals.
+-   `int64` format for numerical variables with integers.
+-   `object` format for general variables with characters.
+
+## Define categorical variables
+
+Technically, the variable `sex` in `penguins_data` is [**categorical**]{style="color:pink;"}. To explicitly tell this to python, we use the following code.
+
+```{python}
+#| echo: true
+
+penguins_data['sex'] = penguins_data['sex'].astype('category')
+```
+
+Setting `sex` to categorical allows us to use effective visualization for this data.
+
+We do the same for the other categorical variables `species` and `island`.
+
+```{python}
+#| echo: true
+
+penguins_data['species'] = penguins_data['species'].astype('category')
+penguins_data['island'] = penguins_data['island'].astype('category')
+```
+
+## 
+
+Let's check the type of variables again.
+
+```{python}
+#| echo: true
+
+penguins_data.info()
+```
+
+
+# Summary statistics 
+
+## Summary statistics 
+
+> A summary statistic helps us to summarize a list of observations in a simple way.
+
+The most commonly used statistical summaries for categorical data are:
+
+-   The [**frequency**]{style="color:darkblue;"} of a category is the number of observations that belong to that category.
+
+-   The [**relative frequency**]{style="color:darkblue;"} is the frequency divided by the total number of observations.
+
+## Frequency table
+
+Summarizes a categorical variable by counting the values per category.
+
+| **Especie** | **Frecuencia** |
+|-------------|----------------|
+| Adelie      | 152            |
+| Chinstrap   | 68             |
+| Gentoo      | 124            |
+| **Total**   | **344**        |
+
+
+-   **Frequency**: Number of observations in each category.
+
+-   **Total**: Total sum of observations.
+
+::: notes
+1.  Ventajas de las frequencias.
+
+2.  Resumen claro y conciso de los datos categóricos.
+
+3.  Facilita la identificación de patrones y tendencias.
+
+4.  Ayuda en la toma de decisiones informadas.
+:::
+
+
+## Frequency table in Python
+
+To construct a frequency table in **numpy** we use the function `value_counts()` together with `loc[]`.
+
+```{python}
+#| echo: true
+#| output: true
+#| code-overflow: wrap
+
+(penguins_data
+  .loc[:, ['species']]
+  .value_counts()
+)  
+```
+
+
+## Relative Frequency Table
+
+Summarizes a categorical variable by calculating the *proportion of values* per category.
+
+::::: columns
+::: {.column width="55%"}
+```{python}
+#| echo: true
+#| output: true
+#| code-overflow: wrap
+
+# Calculate number of observations in the dataset.
+n = len(penguins_data) 
+
+# Calculate relative frequency.
+penguins_data['species'].value_counts()/n
+```
+:::
+
+::: {.column width="45%"}
+| **Specie** | **Relative Frequency** |
+|------------|------------------------|
+| Adelie     | 0.4418605              |
+| Chinstrap  | 0.1976744              |
+| Gentoo     | 0.3604651              |
+| **Suma**   | **1**                  |
+:::
+:::::
+
+-   **Relative frequency**: Number of observations in each category divided by the total.
+
+::: notes
+La ventaja de la frequencia relativa es que se puede interpretar como una probabilidad. Lo que da mas información.
+:::
+
+# Bar chart
+
+## Bar chart
+
+> A bar chart visually represents a frequency or relative frequency table.
+
+The frequency (or relative frequency) is represented by a bar with a proportional height.
+
+We create the bar chart using the function `countplot()` from **seaborn**.
+
+```{python}
+#| echo: true
+#| output: false
+#| fig-align: center
+#| code-fold: false
+
+# Create plot.
+plt.figure(figsize=(7,4)) 
+sns.countplot(data=penguins_data, x="species")
+plt.show()
+```
+
+##
+
+```{python}
+#| echo: false
+#| output: true
+#| fig-align: center
+#| code-fold: false
+
+# Create plot.
+plt.figure(figsize=(7,4)) 
+sns.countplot(data=penguins_data, x="species")
+plt.show()
+```
+
+## Plot for relative frequency
+
+If you want to plot relative frequencies, you can normalize the counts.
+
+```{python}
+#| echo: true
+#| output: true
+#| fig-align: center
+#| code-fold: false
+
+# Create plot.
+penguin_counts = penguins_data["species"].value_counts(normalize=True)
+
+sns.barplot(x=penguin_counts.index, y=penguin_counts.values)
+plt.ylabel("Relative Frequency")
+plt.show()
+```
+
+## Example: Improving the graph
+
+Using Seaborn’s customization tools, we can enhance the graph:
+
+```{python}
+#| echo: true
+#| output: true
+#| fig-align: center
+#| code-fold: false
+
+sns.barplot(x=penguin_counts.index, y=penguin_counts.values, palette="viridis")
+plt.title("Penguin Proportions")
+plt.xlabel("Species Type")
+plt.ylabel("Relative Frequency")
+plt.show()
+```
+
+# Pie chart
+
+## Pie chart
+
+:::::: columns
+:::: {.column width="50%"}
+::: incremental
+- A pie chart divides a circle into sections representing different categories of a variable.
+
+- The size of each section corresponds to the relative frequency of that category.
+
+- It provides a quick visual comparison of proportions.
+:::
+::::
+
+::: {.column width="50%"}
+![](images/clipboard-800609446.png)
+:::
+
+::: notes
+Pie charts versus bar charts.
+
+**Bar charts can serve as a good way to show comparisons between categories**. It is generally observed that new trends tend to shy away from using pie charts, as it is difficult for the human eye to judge the exact angle that shows the value of a category in a pie chart.
+:::
+
+## Mini-Activity (*solo* mode)
+
+[Ask ChatGPT]{style="color:darkgreen;"}
+
+1.  Go to <https://chat.openai.com/>
+2.  Ask ChatGPT how to create a pie chart using **matplotlib** and **seaborn** in Python
+3.  Adapt the code to create a pie chart for the `island` variable in `penguin_data`.
+
+# Transforming categorical variables
+
+> *Apply graphic design principles.*
+
+. . .
+
+We can improve categorical variable charts using these techniques:
+
+::: incremental
+- Re-label categories to make them more informative.
+- Re-order categories to follow a logical sequence.
+- Collapse categories to simplify the chart.
+:::
+
+## Example: Boston Housing Dataset
+
+This dataset contains information collected by the U.S. Census Bureau on housing in the Boston, Massachusetts area.
+
+::::: columns
+::: {.column width="60%"}
+![](images/boston_dataset.png)
+:::
+
+::: {.column width="40%"}
+![](images/clipboard-3653087831.png)
+:::
+:::::
+
+## 
+
+The dataset is in `Boston_dataset.xlsx`. Upload it to Google Colab and load it into Python using:
+
+```{python}
+#| echo: true
+#| output: true
+
+Boston_dataset = pd.read_excel("Boston_dataset.xlsx")
+Boston_dataset.head()
+```
+
+## 
+
+We concentrate on the following variables:
+
+-   `chas` : Whether the house is next to the Charles River (1: Yes and 0: No)
+
+-   `rad` : Index of accessibility to radial highways (`Low`, `Medium`, `High`).
+
+## Remember...
+
+Make sure Python correctly recognizes categorical variables.
+
+```{python}
+#| echo: true
+#| output: true
+
+Boston_dataset["chas"] = Boston_dataset["chas"].astype("category")
+Boston_dataset["rad"] = pd.Categorical(Boston_dataset["rad"], categories=["Low", "Medium", "High"], ordered=True)
+
+Boston_dataset[["chas", "rad"]].head()
+
+```
+
+## Initial graph
+
+Let's create a bar chart for `chas`.
+
+```{r}
+#| echo: true
+#| output: true
+#| fig-pos: center
+
+sns.countplot(data=Boston_dataset, x="chas")
+
+plt.show()
+```
+
+However, the categories are not very informative.
+
+## Re-labeling categories
+
+To improve readability of the bar chart, rename the categories in the `chas` variable.
+
+1.  Check the category names in the variable using the `unique()` function.
+
+```{python}
+#| echo: true
+#| output: true
+
+(Boston_dataset
+  .loc[:, ["chas"]]
+  .unique()
+)  
+```
+
+## 
+
+2.  Replace the category names using `.map()`.
+
+```{python}
+#| echo: true
+#| output: true
+
+(Boston_dataset
+  .loc[:, ["chas"]]
+  .map({0: "No", 1: "Yes"})
+).head() 
+```
+
+## Veamos que sucede ahora.
+
+```{r}
+#| echo: true
+#| output: true
+#| fig-pos: center 
+
+gf_percents( ~ chas, data = Boston_dataset)
+```
+
+Mucho mejor 😃
+
+## Re-ordenar categorías
+
+Ahora, construyamos una gráfica de barras de `rad`.
+
+```{r}
+#| echo: true
+#| output: true
+#| fig-pos: center 
+
+gf_percents( ~ rad, data = Boston_dataset)
+```
+
+Las categorías no siguen un orden natural de izquierda a derecha: `Low`, `Medium`, y `High`.
+
+## 
+
+Para tener el orden de las categorías deseado, debemos de ser más explícitos al definir la variable categórica en R.
+
+```{r}
+#| echo: true
+#| output: true
+#| fig-pos: center
+
+Boston_dataset = Boston_dataset %>% 
+      mutate(rad = factor(rad, levels = c("Low", "Medium", "High")))
+gf_percents( ~ rad, data = Boston_dataset)
+```
+
+Mucho mejor 😃
+
+## Colapsando categorías
+
+Algunas variables categóricas tienden a tener muchas categorías. Por ejemplo, los estados de un pais o códigos postales. En estos casos, puede ser difícil visualizar de todas las categórias en una sola gráfica.
+
+Una estrategia para desarrollar una visualización efectiva es colapsar categorías.
+
+Por ejemplo, en la variable `rad`, podemos collapsar las categorías `Medium` y `High` en una sola categoría llamada `Other`.
+
+## 
+
+Para colapsar categorías en **dplyr**, usamos la función `case_when()` junto con `mutate()`. La función `case_when()` permite remplazar categorías usando expreciones lógicas en variables específicas.
+
+```{r}
+#| echo: true
+#| output: true
+#| fig-pos: center
+
+Boston_dataset %>% 
+      mutate(rad = case_when(rad != "Low" ~ "Other",
+                             rad == "Low" ~ "Low")) %>% 
+      head()
+```
+
+## 
+
+El colapsamiento de categorías simplifica nuestra gráfica.
+
+```{r}
+#| echo: true
+#| output: true
+#| fig-pos: center
+
+Boston_dataset_simple = Boston_dataset %>% 
+      mutate(rad = case_when(rad != "Low" ~ "Other",
+                             rad == "Low" ~ "Low"))
+gf_percents( ~ rad, data = Boston_dataset_simple)
+```
+
+También, nos permite enfatizar alguna categoría como `Low` y ver se compara con las otras categorías (como un todo).
+
+## Guardando gráficas en ggplot2
+
+Para guardar una gráfica de ggplot2, primero guardamos la gráfica en un objeto de R.
+
+```{r}
+#| echo: true
+#| output: true
+
+mi_grafica_de_barras = gf_percents( ~ rad, data = Boston_dataset)
+```
+
+Luego, usamos la función `ggsave()`.
+
+```{r}
+#| echo: true
+#| output: true
+#| fig-pos: center
+
+ggsave(filename = "Mi_grafica.jpg", plot = mi_grafica_de_barras, 
+       width = NA, height = NA, units = "cm", dpi = 300)
+```
+
+Algunos de los argumentos arriba son:
+
+::: {style="font-size: 85%;"}
+-   `width`: ancho del gráfico.
+-   `height`: altura del gráfico.
+-   `units`: unidades de medición.
+-   `dpi`: resolución del gráfico.
+:::
+
+
+# [Return to main page](https://alanrvazquez.github.io/TEC-IN1002B-Website/)
