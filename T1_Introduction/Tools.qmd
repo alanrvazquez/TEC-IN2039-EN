@@ -782,4 +782,4 @@ plt.savefig('scatter_plot.png',dpi=300)
 3.  Answer the questions.
 
 
-# [Return to main page](https://alanrvazquez.github.io/TEC-IN1002B-EN/)
+# [Return to main page](https://alanrvazquez.github.io/TEC-IN2039-EN/)

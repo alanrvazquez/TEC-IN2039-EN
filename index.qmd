@@ -14,3 +14,4 @@ author:
 1.  Introduction ([slides](/T1_Introduction/Introduction.slides.html))
 2.  Tools ([slides](/T1_Introduction/Tools.slides.html))
 3.  Types of variables ([slides](/T2_Type_of_Variables/Types.slides.html))
+4.  Categorical data ([slides](/T2_Type_of_Variables/Types.slides.html))
