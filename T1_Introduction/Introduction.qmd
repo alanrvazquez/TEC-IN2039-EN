@@ -1,0 +1,371 @@
+---
+title: "What is data visualization?"
+subtitle: "IN1002B: Data Visualization for Decision Making"
+author: 
+  - name: Alan R. Vazquez
+    affiliations:
+      - name: Department of Industrial Engineering
+format: 
+  revealjs:
+    chalkboard: false
+    multiplex: true
+    footer: "Tecnologico de Monterrey"
+    logo: IN2039_logo.png
+    css: style.css
+    slide-number: True
+    html-math-method: mathjax
+editor: visual
+jupyter: python3
+---
+
+## Agenda
+
+1.  Introduction to data science
+2.  Three principles of data visualization
+3.  Activity
+4.  Storytelling
+
+# Introduction to data science
+
+## Data science is ...
+
+a multidisciplinary field that uses scientific methods, processes, algorithms and systems to extract knowledge and insights from vast amounts of structured and unstructured data.
+
+. . .
+
+:::::: center
+::::: columns
+::: {.column width="40%"}
+![](images/clipboard-2707460623.png){fig-align="center" width="377"}
+:::
+
+::: {.column width="50%"}
+![](images/clipboard-3242954590.png){fig-align="center" width="485"}
+:::
+:::::
+::::::
+
+
+## The scheme of data science
+
+![](images/clipboard-4096324521.png){fig-align="center"}
+
+::: {style="font-size: 50%;"}
+Provost, F., & Fawcett, T. (2013). [Data Science for Business: What you need to know about data mining and data-analytic thinking](https://www.amazon.com.mx/Data-Science-Business-Data-Analytic-Thinking/dp/1449361323). O'Reilly Media, Inc.
+:::
+
+## Business understanding
+
+</br>
+
+-   Business understanding refers to defining the business problem to be solved.
+
+-   The goal is to reframe the business problem as a data science problem.
+
+-   Often, reframing the problem and designing a solution is an iterative process.
+
+## Data understanding I
+
+::: incremental
+-   If the goal is to solve a business problem, the data that makes up the raw material available from which the solution will be built.
+
+-   The available data rarely matches the problem.
+
+-   For example, historical data is often collected for purposes unrelated to the current business problem or for no explicit purpose at all.
+:::
+
+. . .
+
+> Our goal is to turn data into information that answers useful questions.
+
+## Data types
+
+::::::: center
+:::::: columns
+::: {.column width="30%"}
+[**Text**]{style="color:green;"}
+
+![](images/clipboard-4167942809.png){width="511"}
+:::
+
+::: {.column width="30%"}
+[**Images**]{style="color:orange;"}
+
+![](images/clipboard-3296722573.png){width="527"}
+
+[**Video**]{style="color:lightblue;"}
+
+![](images/clipboard-2123600827.png){width="401"}
+:::
+
+::: {.column width="30%"}
+[**Audio**]{style="color:green;"}
+
+![](images/clipboard-2206237365.png)
+:::
+::::::
+:::::::
+
+## Numerical data
+
+Data science methodology is based on numerical data given in tables.
+
+![](images/9a292b70-64d7-475e-9ffa-22c019609752_lossy.png){fig-align="center"}
+
+> In fact, texts, images, videos or audios are transformed into this format to process them.
+
+. . .
+
+[***In this course, we will assume that the data is in a table.***]{style="color:#023562;"}
+
+## Problem Situation
+
+TBD
+
+## Goal of the problem situation
+
+TBD
+
+# The three principles of data science
+
+## What is Data Visualization?
+
+> “A visualization \[of data\] is any visual presentation intended to reveal evidence, making the invisible visible.” Alberto Cairo (2015).
+
+![](images/clipboard-3803538817.png){fig-align="center" width="814"}
+
+## 
+
+![](images/TobaccoGraph-superJumbo.png){fig-align="center"}
+
+::: {style="font-size: 50%;"}
+<https://www.nytimes.com/2019/02/28/learning/whats-going-on-in-this-graph-march-6-2019.html>
+:::
+
+## 
+
+![](images/costhurricanesLN-superJumbo.png){fig-align="center"}
+
+::: {style="font-size: 50%;"}
+<https://www.nytimes.com/2018/09/18/learning/whats-going-on-in-this-graph-sept-19-2018.html>
+:::
+
+## 
+
+![](images/GlobalFastFoodLN-superJumbo.png){fig-align="center"}
+
+::: {style="font-size: 50%;"}
+<https://www.nytimes.com/2018/10/16/learning/whats-going-on-in-this-graph-oct-17-2018.html>
+:::
+
+## 
+
+At its core, data visualization allows you to delve into complex datasets to extract meaningful insights using graphical displays.
+
+</br>
+
+Data visualizations are primarily concerned with providing evidence and enabling the audience to explore and draw their own conclusions about what the visualizations reveal about the data.
+</br>
+
+. . .
+
+[***Data visualization has 3 key principles...***]{style="color:#023562;"}
+
+::: notes
+As data scientists, we create data visualizations in order to understand our data and explain our analyses to other people. A plot should have a message, and it’s our job to communicate this message as clearly as possible.
+:::
+
+## ***Principle 1*****:** Define the Message or Question
+
+Formulate the question of interest or the message you want to convey.
+
+::::::: center
+:::::: columns
+::: {.column width="33%"}
+![](images/clipboard-1758479249.png){width="499"}
+:::
+
+::: {.column width="33%"}
+[![](https://c8.alamy.com/comp/2E5GH3G/be-ready-to-lose-all-your-money-on-bitcoin-fca-tells-consumers-financial-newspaper-headline-in-guardian-12-january-2021-great-britain-uk-europe-2E5GH3G.jpg){alt="Be ready to lose all your money on bitcoin, FCA tells consumers\" Financial newspaper  headline in Guardian 12 January 2021 Great Britain UK Europe Stock Photo -  Alamy"}](https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.alamy.com%2Fbe-ready-to-lose-all-your-money-on-bitcoin-fca-tells-consumers-financial-newspaper-headline-in-guardian-12-january-2021-great-britain-uk-europe-image399276404.html&psig=AOvVaw1j_DY1hqJ8N6YDmcJrt7O4&ust=1706894768727000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCNiE4-PUioQDFQAAAAAdAAAAABAD)
+:::
+
+::: {.column width="33%"}
+![](images/clipboard-1023529598.png)
+:::
+::::::
+:::::::
+
+::: notes
+El mensaje puede ser una pregunta
+
+- What is the key comparison?
+- How do we emphasize it?
+- Do you have reason to expect that one group/observation might be different?
+- Why might your finding about shape matter?
+- What additional comparison might add value to the investigation?
+- Are there any potentially important features to compare against?
+
+
+:::
+
+## ***Principle 2*****: *Turn Data into Information***
+
+Your graph should use data to convey the message or answer the question. In other words, it should transform data into information.
+
+![](images/TobaccoGraph-superJumbo.png){fig-align="center"}
+
+::: {style="font-size: 85%;"}
+Enhance your graph with color symbols and text to convey additional information.
+:::
+
+## *Principle 3: Apply Graphic Design Principles*
+
+:::::::: center
+::::::: columns
+::::: {.column width="55%"}
+:::: {style="font-size: 75%;"}
+::: incremental
+1. Objects are easily identifiable by color.
+2. Use direct labels instead of a legend.
+3. Elements such as text, lines, and shapes of the same nature should look similar.
+4. Balance graphics and text.
+5. Be cautious with default settings in visualization software.
+6. Use a grid-based layout to organize your visualization.
+:::
+::::
+:::::
+
+::: {.column width="45%"}
+![](images/GlobalFastFoodLN-superJumbo.png){fig-align="center"}
+:::
+:::::::
+::::::::
+
+::: notes
+Don’t limit yourself to simple elements. Enhance your graph with color symbols to convey additional information. If possible, add context with markers and reference labels.
+
+Additionally, include a legend in the graph that describes key features and summarizes its conclusions.
+:::
+
+## Example
+
+::: {style="font-size: 75%;"}
+[**Principle 1**]{style="color:#023562;"}: It is cheaper to take Uber than to own a car in four of the five largest cities in the USA.
+:::
+
+::::: columns
+::: {.column width="70%"}
+| City          | Uber | Auto |
+|-----------------|------|------|
+| New York City   | 142  | 218  |
+| Washington D.C. | 96   | 130  |
+| Chicago         | 77   | 116  |
+| Los Angeles     | 62   | 89   |
+| Dallas          | 181  | 65   |
+
+: Weekly cost (in USD) of daily commuting
+:::
+
+::: {.column width="30%"}
+![](images/clipboard-3936281418.png)
+:::
+:::::
+
+::: notes
+The estimated costs are based on a twice-daily 10.4 mile one-way commute at peak times over the course of a week using either the UberPool option (where available) or alternatively UberX vs the cost of using a personal vehicle (including any associated costs of ownership). Study conducted in February 2017.
+:::
+
+## 
+
+[**Principle 2**]{style="color:#023562;"}: Turn data into information.
+
+```{python}
+#| echo: false
+#| output: true
+#| fig-height: 4
+#| fig-pos: center
+
+import pandas as pd
+import plotly.express as px
+import plotly.io as pio # Ensure figure displays in Quarto
+pio.renderers.default = "iframe"  # Change to "notebook", "iframe", or "div"
+
+# Sample data
+data = {
+    "City": ["New York City", "New York City", "Washington D.C.", "Washington D.C.", 
+             "Chicago", "Chicago", "Los Angeles", "Los Angeles", "Dallas", "Dallas"],
+    "Type": ["Uber", "Car"] * 5,
+    "Cost": [142, 218, 96, 130, 77, 116, 62, 89, 181, 65]
+}
+
+uber_df = pd.DataFrame(data)
+
+# Create the interactive line plot
+fig = px.line(uber_df, x="Type", y="Cost", color="City", markers=True, 
+              title="It is cheaper to take Uber than own a car in four of the five largest U.S. cities.")
+
+fig.update_layout(
+    xaxis_title="",
+    yaxis_title="Cost (USD)",
+    template="plotly_white",
+    title_x=0.5
+)
+
+pio.show(fig)  # Use this instead of fig.show()
+
+```
+
+## 
+
+[**Principle 3**]{style="color:#023562;"}: Apply Graphic Design Principles.
+
+```{python}
+#| echo: false
+#| output: true
+#| fig-height: 4
+#| fig-pos: center
+
+
+# Define custom colors
+custom_colors = {
+    "Chicago": "#619CFF", 
+    "Dallas": "red", 
+    "Los Angeles": "#619CFF", 
+    "New York City": "#619CFF", 
+    "Washington D.C.": "#619CFF"
+}
+
+# Create the interactive line plot with custom colors
+fig = px.line(uber_df, x="Type", y="Cost", color="City", markers=True, 
+              title="It is cheaper to take Uber than own a car in four of the\nfive largest U.S. cities.",
+              color_discrete_map=custom_colors)
+
+fig.update_layout(
+    xaxis_title="",
+    yaxis_title="Cost (USD)",
+    template="plotly_white",
+    title_x=0.5
+)
+
+pio.show(fig)  # Use this instead of fig.show()
+```
+
+## 
+
+::::: columns
+::: {.column width="70%"}
+> "*The greatest value of a picture is when it forces us to notice what we never expected to see.*" John W. Tukey.
+:::
+
+::: {.column width="30%"}
+![](https://upload.wikimedia.org/wikipedia/en/e/e9/John_Tukey.jpg){alt="John Tukey - Wikipedia"}
+:::
+:::::
+
+. . .
+
+<https://www.storytellingwithdata.com/> is an excellent guide on data visualization.
+
+
+
+# [Return to main page](https://alanrvazquez.github.io/TEC-IN1002B-Website/)
