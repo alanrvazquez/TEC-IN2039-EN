@@ -722,4 +722,4 @@ plt.show()
 3.  Answer the questions.
 
 
-# [Return to main page](https://alanrvazquez.github.io/TEC-IN1002B-Website/)
+# [Return to main page](https://alanrvazquez.github.io/TEC-IN1002B-EN/)

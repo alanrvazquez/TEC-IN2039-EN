@@ -646,7 +646,7 @@ Alan R. Vazquez
 <section id="how-do-we-check-the-type-of-variable" class="slide level2">
 <h2>How do we check the type of variable?</h2>
 <p>Let’s load the data in “penguins.xlsx”.</p>
-<div id="fc67668c" class="cell" data-execution_count="1">
+<div id="31715b52" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a></a><span class="co"># Load pandas.</span></span>
 <span id="cb1-2"><a></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-3"><a></a></span>
@@ -740,7 +740,7 @@ Alan R. Vazquez
 <section id="section-1" class="slide level2">
 <h2></h2>
 <p>In python, we check the type of each variable in a dataset using the function <code>info()</code>.</p>
-<div id="230e9eca" class="cell" data-execution_count="2">
+<div id="8409f1ba" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a></a>penguins_data.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
@@ -797,7 +797,7 @@ memory usage: 21.6+ KB</code></pre>
 </ul>
 </div></div>
 <p>Import it in Google Colab as follows.</p>
-<div id="f0f48de5" class="cell" data-execution_count="3">
+<div id="5a8799e2" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a></a><span class="im">import</span> pandas <span class="im">as</span> pd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
@@ -828,7 +828,7 @@ memory usage: 21.6+ KB</code></pre>
 <section id="filtering-with-query" class="slide level2">
 <h2>Filtering with <code>query()</code></h2>
 <p>Filter the data for the species “Gentoo.”</p>
-<div id="6c9cb9d7" class="cell" data-execution_count="4">
+<div id="ec441410" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a></a>(penguins_data</span>
 <span id="cb5-2"><a></a>  .query(<span class="st">"species == 'Gentoo'"</span>)</span>
 <span id="cb5-3"><a></a>  .head()</span>
@@ -932,7 +932,7 @@ memory usage: 21.6+ KB</code></pre>
 <section id="section-3" class="slide level2">
 <h2></h2>
 <p>We can also filter the data to get penguins with a body mass greater than 5000g.</p>
-<div id="3099471d" class="cell" data-execution_count="5">
+<div id="f9fa210f" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a></a>(penguins_data</span>
 <span id="cb6-2"><a></a>  .query(<span class="st">"body_mass_g &gt; 5000"</span>)</span>
 <span id="cb6-3"><a></a>  .head()</span>
@@ -1033,7 +1033,7 @@ memory usage: 21.6+ KB</code></pre>
 <section id="selecting-columns-with-loc" class="slide level2">
 <h2>Selecting columns with <code>loc[]</code></h2>
 <p>Select the columns <code>species</code>, <code>body_mass_g</code> and <code>sex</code>.</p>
-<div id="42d1cae2" class="cell" data-execution_count="6">
+<div id="32498947" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a></a>(penguins_data</span>
 <span id="cb7-2"><a></a>  .loc[:, [<span class="st">"species"</span>, <span class="st">"body_mass_g"</span>, <span class="st">"sex"</span>]]</span>
 <span id="cb7-3"><a></a>  .head()</span>
@@ -1104,7 +1104,7 @@ memory usage: 21.6+ KB</code></pre>
 <section id="combining-query-and-loc" class="slide level2">
 <h2>Combining <code>query()</code> and <code>loc()</code></h2>
 <p>Select the columns <code>species</code>, <code>body_mass_g</code> and <code>sex</code>. Next, filter the data for the species “Gentoo.”</p>
-<div id="58c88ec4" class="cell" data-execution_count="7">
+<div id="73b694cb" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a></a>(penguins_data</span>
 <span id="cb8-2"><a></a>  .loc[:, [<span class="st">"species"</span>, <span class="st">"body_mass_g"</span>, <span class="st">"sex"</span>]]</span>
 <span id="cb8-3"><a></a>  .query(<span class="st">"species == 'Gentoo'"</span>)</span>
@@ -1171,7 +1171,7 @@ memory usage: 21.6+ KB</code></pre>
 <h2>Create new columns with <code>assign()</code></h2>
 <p>With <code>assign()</code>, we can create new columns (variables) that are functions of existing ones. For example, we can compute the ratio of <code>bill_length_mm</code> y <code>bill_depth_mm</code>.</p>
 <p><br></p>
-<div id="46b60f16" class="cell" data-execution_count="8">
+<div id="b260daca" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a></a>(penguins_data</span>
 <span id="cb9-2"><a></a>  .assign(LengthDepthRatio <span class="op">=</span> <span class="kw">lambda</span> df: df[<span class="st">"bill_length_mm"</span>] <span class="op">/</span> df[<span class="st">"bill_depth_mm"</span>])</span>
 <span id="cb9-3"><a></a>  .loc[:, [<span class="st">"species"</span>, <span class="st">"body_mass_g"</span>, <span class="st">"sex"</span>, <span class="st">"LengthDepthRatio"</span>]]</span>
@@ -1182,7 +1182,7 @@ memory usage: 21.6+ KB</code></pre>
 <section id="section-4" class="slide level2">
 <h2></h2>
 <p>The new dataset has the variable <code>LengthDepthRatio</code>.</p>
-<div id="43ef90fd" class="cell" data-execution_count="9">
+<div id="8d2871ae" class="cell" data-execution_count="9">
 <div class="cell-output cell-output-display" data-execution_count="8">
 <div>
 <style scoped="">
@@ -1255,7 +1255,7 @@ memory usage: 21.6+ KB</code></pre>
 <section id="sorting-with-sort_values" class="slide level2">
 <h2>Sorting with <code>sort_values()</code></h2>
 <p>We can sort the data based on a column like <code>bill_length_mm</code>.</p>
-<div id="bbcbfde3" class="cell" data-execution_count="10">
+<div id="f233e76e" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a></a>(penguins_data</span>
 <span id="cb10-2"><a></a>  .sort_values(<span class="st">"bill_length_mm"</span>)</span>
 <span id="cb10-3"><a></a>  .head(<span class="dv">4</span>)</span>
@@ -1345,7 +1345,7 @@ memory usage: 21.6+ KB</code></pre>
 <section id="section-5" class="slide level2">
 <h2></h2>
 <p>To sort in descending order, use <code>ascending=False</code> inside <code>sort_values()</code>.</p>
-<div id="8e2ffc68" class="cell" data-execution_count="11">
+<div id="d6a6583d" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a></a>(penguins_data</span>
 <span id="cb11-2"><a></a>  .sort_values(<span class="st">"bill_length_mm"</span>, ascending<span class="op">=</span><span class="va">False</span>)</span>
 <span id="cb11-3"><a></a>  .head()</span>
@@ -1446,7 +1446,7 @@ memory usage: 21.6+ KB</code></pre>
 <section id="summarizing-with-agg" class="slide level2">
 <h2>Summarizing with <code>agg()</code></h2>
 <p>We can calculate the average of the columns <code>bill_length_mm</code>, <code>bill_depth_mm</code>, and <code>body_mass_g</code>.</p>
-<div id="4165b681" class="cell" data-execution_count="12">
+<div id="38c7856a" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a></a>(penguins_data</span>
 <span id="cb12-2"><a></a>  .loc[:, [<span class="st">"bill_length_mm"</span>, <span class="st">"bill_depth_mm"</span>, <span class="st">"body_mass_g"</span>]]</span>
 <span id="cb12-3"><a></a>  .agg([<span class="st">"mean"</span>])</span>
@@ -1497,7 +1497,7 @@ memory usage: 21.6+ KB</code></pre>
 <section id="saving-results-in-new-objects" class="slide level2">
 <h2>Saving results in new objects</h2>
 <p>After performing operations on our data, we can save the modified dataset as a new object.</p>
-<div id="c16ad23f" class="cell" data-execution_count="13">
+<div id="597d10a7" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a></a>summary_penguins_data <span class="op">=</span> (penguins_data</span>
 <span id="cb13-2"><a></a>  .loc[:, [<span class="st">"bill_length_mm"</span>, <span class="st">"bill_depth_mm"</span>, <span class="st">"body_mass_g"</span>]]</span>
 <span id="cb13-3"><a></a>  .agg([<span class="st">"mean"</span>])</span>
@@ -1554,7 +1554,7 @@ memory usage: 21.6+ KB</code></pre>
 </ul>
 </section></section>
 <section id="return-to-main-page" class="title-slide slide level1 center">
-<h1><a href="https://alanrvazquez.github.io/TEC-IN1002B-Website/">Return to main page</a></h1>
+<h1><a href="https://alanrvazquez.github.io/TEC-IN1002B-EN/">Return to main page</a></h1>
 
 <div class="quarto-auto-generated-content">
 <p><img src="IN2039_logo.png" class="slide-logo"></p>
