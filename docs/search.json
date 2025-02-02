@@ -1,26 +1,5 @@
 [
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "IN2039 Data Visualization for Decision Making",
-    "section": "",
-    "text": "Course topics\n\nIntroduction (slides)"
-  },
-  {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "About this site\n\n1 + 1\n\n2"
-  },
-  {
-    "objectID": "index.slides.html#course-topics",
-    "href": "index.slides.html#course-topics",
-    "title": "IN2039 Data Visualization for Decision Making",
-    "section": "Course topics",
-    "text": "Course topics\n\nIntroduction (slides)\n\n\n\n\n\nTecnologico de Monterrey"
-  },
-  {
     "objectID": "T1_Introduction/Introduction.slides.html#agenda",
     "href": "T1_Introduction/Introduction.slides.html#agenda",
     "title": "What is data visualization?",
@@ -33,27 +12,6 @@
     "title": "What is data visualization?",
     "section": "Data science is …",
     "text": "Data science is …\na multidisciplinary field that uses scientific methods, processes, algorithms and systems to extract knowledge and insights from vast amounts of structured and unstructured data."
-  },
-  {
-    "objectID": "T1_Introduction/Introduction.slides.html#in-2004",
-    "href": "T1_Introduction/Introduction.slides.html#in-2004",
-    "title": "What is data visualization?",
-    "section": "In 2004 …",
-    "text": "In 2004 …\nHurricane Frances was sweeping through the Caribbean and threatening to make a direct hit on Florida’s Atlantic coast.\n\n\n\n\n\n\n\n\n\n\n\n\n\nResidents headed for higher ground, but in Arkansas, Wal-Mart executives saw a big opportunity for one of their newest data-driven weapons: predictive technology."
-  },
-  {
-    "objectID": "T1_Introduction/Introduction.slides.html#section",
-    "href": "T1_Introduction/Introduction.slides.html#section",
-    "title": "What is data visualization?",
-    "section": "",
-    "text": "https://www.nytimes.com/2019/02/28/learning/whats-going-on-in-this-graph-march-6-2019.html"
-  },
-  {
-    "objectID": "T1_Introduction/Introduction.slides.html#in-fact-thats-what-happened",
-    "href": "T1_Introduction/Introduction.slides.html#in-fact-thats-what-happened",
-    "title": "What is data visualization?",
-    "section": "In fact, that’s what happened!",
-    "text": "In fact, that’s what happened!\n\n\nThe New York Times reported\n\n\n“… Experts analyzed the data and found that stores would indeed need certain products, and not just the usual flashlights.”\n\n\n\nDillman said\n\n\n“We didn’t know in the past that strawberry Pop-Tarts increase their sales, like seven times their normal sales rate, before a hurricane.”"
   },
   {
     "objectID": "T1_Introduction/Introduction.slides.html#the-scheme-of-data-science",
@@ -70,27 +28,6 @@
     "text": "Business understanding\n\n\nBusiness understanding refers to defining the business problem to be solved.\nThe goal is to reframe the business problem as a data science problem.\nOften, reframing the problem and designing a solution is an iterative process."
   },
   {
-    "objectID": "T1_Introduction/Introduction.slides.html#common-data-science-problems",
-    "href": "T1_Introduction/Introduction.slides.html#common-data-science-problems",
-    "title": "What is data visualization?",
-    "section": "Common data science problems",
-    "text": "Common data science problems\nRegression attempts to estimate or predict, for each individual, the numerical value of some variable for that individual. For example, “How much will a given customer use the service?”\n\nClassification (or class probability estimation) attempts to predict, for each individual in a population, which of a (small) set of classes this individual belongs to. For example, “Among all customers of T-Mobile, which are likely to respond to a given offer?”"
-  },
-  {
-    "objectID": "T1_Introduction/Introduction.slides.html#other-problems",
-    "href": "T1_Introduction/Introduction.slides.html#other-problems",
-    "title": "What is data visualization?",
-    "section": "Other problems",
-    "text": "Other problems\n\nClustering attempts to group individuals in a population together by their similarity, but not driven by any specific purpose. For example, “Do our customers form natural groups or segments?”"
-  },
-  {
-    "objectID": "T1_Introduction/Introduction.slides.html#discussion",
-    "href": "T1_Introduction/Introduction.slides.html#discussion",
-    "title": "What is data visualization?",
-    "section": "Discussion",
-    "text": "Discussion\n\nOften, recasting the problem and designing a solution is an iterative process.\nThe initial formulation may not be complete or optimal, so multiple iterations may be necessary for an acceptable solution formulation.\nThey key to a great success is a creative problem formulation by some analyst regarding how to cast the business problem as one or more data science problems."
-  },
-  {
     "objectID": "T1_Introduction/Introduction.slides.html#data-understanding-i",
     "href": "T1_Introduction/Introduction.slides.html#data-understanding-i",
     "title": "What is data visualization?",
@@ -98,25 +35,11 @@
     "text": "Data understanding I\n\n\nIf the goal is to solve a business problem, the data that makes up the raw material available from which the solution will be built.\nThe available data rarely matches the problem.\nFor example, historical data is often collected for purposes unrelated to the current business problem or for no explicit purpose at all.\n\n\n\n\nOur goal is to turn data into information that answers useful questions."
   },
   {
-    "objectID": "T1_Introduction/Introduction.slides.html#data-understanding-ii",
-    "href": "T1_Introduction/Introduction.slides.html#data-understanding-ii",
+    "objectID": "T1_Introduction/Introduction.slides.html#data-types",
+    "href": "T1_Introduction/Introduction.slides.html#data-types",
     "title": "What is data visualization?",
-    "section": "Data understanding II",
-    "text": "Data understanding II\n\nThe costs of data vary. Some data will be available for free while others will require effort to obtain.\n\n\n\nA critical part of the data understanding phase is estimating the costs and benefits of each data source and deciding wether further investment is merited.\nEven after all datasets are acquired, collating them may require additional effort."
-  },
-  {
-    "objectID": "T1_Introduction/Introduction.slides.html#our-goal",
-    "href": "T1_Introduction/Introduction.slides.html#our-goal",
-    "title": "What is data visualization?",
-    "section": "Our goal",
-    "text": "Our goal\n\n\nOur goal is to turn data into information that answers useful questions."
-  },
-  {
-    "objectID": "T1_Introduction/Introduction.slides.html#data-classes",
-    "href": "T1_Introduction/Introduction.slides.html#data-classes",
-    "title": "What is data visualization?",
-    "section": "Data classes",
-    "text": "Data classes\n\n\n\nText\n\n\nImages\n\nVideo\n\n\nAudio"
+    "section": "Data types",
+    "text": "Data types\n\n\n\nText\n\n\nImages\n\nVideo\n\n\nAudio"
   },
   {
     "objectID": "T1_Introduction/Introduction.slides.html#numerical-data",
@@ -124,62 +47,6 @@
     "title": "What is data visualization?",
     "section": "Numerical data",
     "text": "Numerical data\nData science methodology is based on numerical data given in tables.\n\n\nIn fact, texts, images, videos or audios are transformed into this format to process them.\n\n\nIn this course, we will assume that the data is in a table."
-  },
-  {
-    "objectID": "T1_Introduction/Introduction.slides.html#notation-and-terminology",
-    "href": "T1_Introduction/Introduction.slides.html#notation-and-terminology",
-    "title": "What is data visualization?",
-    "section": "Notation and terminology",
-    "text": "Notation and terminology\nExplanatory variables or predictors:\n\n\\(X\\) represents an explanatory variable or predictor.\n\\(\\boldsymbol{X} = (X_1, X_2, \\ldots, X_p)\\) represents a whole collection of \\(p\\) predictors.\n\nOutcome or response:\n\n\\(Y\\) represents the response variable, which we’ll try to predict."
-  },
-  {
-    "objectID": "T1_Introduction/Introduction.slides.html#two-main-problems",
-    "href": "T1_Introduction/Introduction.slides.html#two-main-problems",
-    "title": "What is data visualization?",
-    "section": "Two main problems",
-    "text": "Two main problems\nRegression problems. The response \\(Y\\) is quantitative. For example, a person’s income, the value of a house, the blood pressure of a patient.\nClassification problems. The response \\(Y\\) is qualitative and has \\(K\\) different categories. For example, the brand of a product purchased (A, B, C), or whether a person defaults on a debt (yes or no).\nThe predictors (\\(\\boldsymbol{X}\\)) can be qualitative or quantitative."
-  },
-  {
-    "objectID": "T1_Introduction/Introduction.slides.html#example",
-    "href": "T1_Introduction/Introduction.slides.html#example",
-    "title": "What is data visualization?",
-    "section": "Example",
-    "text": "Example\n\nPrinciple 1: It is cheaper to take Uber than to own a car in four of the five largest cities in the USA.\n\n\n\n\nWeekly cost (in USD) of daily commuting\n\n\nCity\nUber\nAuto\n\n\n\n\nNew York City\n142\n218\n\n\nWashington D.C.\n96\n130\n\n\nChicago\n77\n116\n\n\nLos Angeles\n62\n89\n\n\nDallas\n181\n65\n\n\n\n\n\n\n\nThe estimated costs are based on a twice-daily 10.4 mile one-way commute at peak times over the course of a week using either the UberPool option (where available) or alternatively UberX vs the cost of using a personal vehicle (including any associated costs of ownership). Study conducted in February 2017."
-  },
-  {
-    "objectID": "T1_Introduction/Introduction.slides.html#a-statistical-model",
-    "href": "T1_Introduction/Introduction.slides.html#a-statistical-model",
-    "title": "What is data visualization?",
-    "section": "A statistical model",
-    "text": "A statistical model\nA statistical model is a mathematical equation that embodies statistical assumptions concerning the generation of data.\nTechnically, it has the following form:\n\\[Y = f(\\boldsymbol{X}) + \\epsilon \\]\nwhere \\(Y\\) is a quantitative response, \\(f(\\boldsymbol{X})\\) is the function that relates the predictors, \\(\\boldsymbol{X}\\), to the \\(Y\\), and \\(\\epsilon\\) is the (random) error term."
-  },
-  {
-    "objectID": "T1_Introduction/Introduction.slides.html#true-and-estimated-models",
-    "href": "T1_Introduction/Introduction.slides.html#true-and-estimated-models",
-    "title": "What is data visualization?",
-    "section": "True and estimated models",
-    "text": "True and estimated models\n\\(f(\\boldsymbol{X})\\) represents the TRUTH. The true relationship between \\(\\boldsymbol{X}\\) and \\(Y\\).\n\nUnknown\nVery complex\n\n\n\\(\\hat{f}(\\boldsymbol{X})\\) represents an approximation or estimate of the true model constructed using data.\n\nIdeally, interpretable (but not necessarily)"
-  },
-  {
-    "objectID": "T1_Introduction/Introduction.slides.html#two-datasets",
-    "href": "T1_Introduction/Introduction.slides.html#two-datasets",
-    "title": "What is data visualization?",
-    "section": "Two datasets",
-    "text": "Two datasets\n\n“Training” data are data used to construct \\(\\hat{f}(\\boldsymbol{X})\\).\n“Testing” data are data that were NOT used in the fitting process, but are used to test how well your model performs on unseen data."
-  },
-  {
-    "objectID": "T1_Introduction/Introduction.slides.html#yogi-berra",
-    "href": "T1_Introduction/Introduction.slides.html#yogi-berra",
-    "title": "What is data visualization?",
-    "section": "Yogi Berra",
-    "text": "Yogi Berra\n\n\nIt’s though to make predictions, especially about the future."
-  },
-  {
-    "objectID": "T1_Introduction/Introduction.slides.html#data-types",
-    "href": "T1_Introduction/Introduction.slides.html#data-types",
-    "title": "What is data visualization?",
-    "section": "Data types",
-    "text": "Data types\n\n\n\nText\n\n\nImages\n\nVideo\n\n\nAudio"
   },
   {
     "objectID": "T1_Introduction/Introduction.slides.html#problem-situation",
@@ -201,6 +68,13 @@
     "title": "What is data visualization?",
     "section": "What is Data Visualization?",
     "text": "What is Data Visualization?\n\n“A visualization [of data] is any visual presentation intended to reveal evidence, making the invisible visible.” Alberto Cairo (2015)."
+  },
+  {
+    "objectID": "T1_Introduction/Introduction.slides.html#section",
+    "href": "T1_Introduction/Introduction.slides.html#section",
+    "title": "What is data visualization?",
+    "section": "",
+    "text": "https://www.nytimes.com/2019/02/28/learning/whats-going-on-in-this-graph-march-6-2019.html"
   },
   {
     "objectID": "T1_Introduction/Introduction.slides.html#section-1",
@@ -245,6 +119,13 @@
     "text": "Principle 3: Apply Graphic Design Principles\n\n\n\n\n\n\nObjects are easily identifiable by color.\nUse direct labels instead of a legend.\nElements such as text, lines, and shapes of the same nature should look similar.\nBalance graphics and text.\nBe cautious with default settings in visualization software.\nUse a grid-based layout to organize your visualization.\n\n\n\n\n\n\n\n\n\n\n\n\nDon’t limit yourself to simple elements. Enhance your graph with color symbols to convey additional information. If possible, add context with markers and reference labels.\nAdditionally, include a legend in the graph that describes key features and summarizes its conclusions."
   },
   {
+    "objectID": "T1_Introduction/Introduction.slides.html#example",
+    "href": "T1_Introduction/Introduction.slides.html#example",
+    "title": "What is data visualization?",
+    "section": "Example",
+    "text": "Example\n\nPrinciple 1: It is cheaper to take Uber than to own a car in four of the five largest cities in the USA.\n\n\n\n\nWeekly cost (in USD) of daily commuting\n\n\nCity\nUber\nAuto\n\n\n\n\nNew York City\n142\n218\n\n\nWashington D.C.\n96\n130\n\n\nChicago\n77\n116\n\n\nLos Angeles\n62\n89\n\n\nDallas\n181\n65\n\n\n\n\n\n\n\nThe estimated costs are based on a twice-daily 10.4 mile one-way commute at peak times over the course of a week using either the UberPool option (where available) or alternatively UberX vs the cost of using a personal vehicle (including any associated costs of ownership). Study conducted in February 2017."
+  },
+  {
     "objectID": "T1_Introduction/Introduction.slides.html#section-4",
     "href": "T1_Introduction/Introduction.slides.html#section-4",
     "title": "What is data visualization?",
@@ -266,31 +147,24 @@
     "text": "“The greatest value of a picture is when it forces us to notice what we never expected to see.” John W. Tukey.\n\n\n\n\n\nhttps://www.storytellingwithdata.com/ is an excellent guide on data visualization."
   },
   {
-    "objectID": "T1_Introduction/Introduction.html",
-    "href": "T1_Introduction/Introduction.html",
-    "title": "What is data visualization?",
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "IN2039 Data Visualization for Decision Making",
     "section": "",
-    "text": "Introduction to data science\nThree principles of data visualization\nActivity\nStorytelling"
+    "text": "Course topics\n\nIntroduction (slides)"
   },
   {
-    "objectID": "T1_Introduction/Introduction.html#introduction-to-data-science",
-    "href": "T1_Introduction/Introduction.html#introduction-to-data-science",
-    "title": "What is data visualization?",
-    "section": "Introduction to data science",
-    "text": "Introduction to data science\n\nData science is …\na multidisciplinary field that uses scientific methods, processes, algorithms and systems to extract knowledge and insights from vast amounts of structured and unstructured data.\n. . .\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nThe scheme of data science\n\n\n\n\n\n\nProvost, F., & Fawcett, T. (2013). Data Science for Business: What you need to know about data mining and data-analytic thinking. O’Reilly Media, Inc.\n\n\n\nBusiness understanding\n\n\nBusiness understanding refers to defining the business problem to be solved.\nThe goal is to reframe the business problem as a data science problem.\nOften, reframing the problem and designing a solution is an iterative process.\n\n\n\nData understanding I\n\n\nIf the goal is to solve a business problem, the data that makes up the raw material available from which the solution will be built.\nThe available data rarely matches the problem.\nFor example, historical data is often collected for purposes unrelated to the current business problem or for no explicit purpose at all.\n\n\n. . .\n\nOur goal is to turn data into information that answers useful questions.\n\n\n\nData types\n\n\n\nText\n\n\nImages\n\nVideo\n\n\nAudio\n\n\n\n\n\n\nNumerical data\nData science methodology is based on numerical data given in tables.\n\n\n\n\n\n\nIn fact, texts, images, videos or audios are transformed into this format to process them.\n\n. . .\nIn this course, we will assume that the data is in a table.\n\n\nProblem Situation\nTBD\n\n\nGoal of the problem situation\nTBD"
+    "objectID": "index.slides.html#course-topics",
+    "href": "index.slides.html#course-topics",
+    "title": "IN2039 Data Visualization for Decision Making",
+    "section": "Course topics",
+    "text": "Course topics\n\nIntroduction (slides)\n\n\n\n\n\nTecnologico de Monterrey"
   },
   {
-    "objectID": "T1_Introduction/Introduction.html#the-three-principles-of-data-science",
-    "href": "T1_Introduction/Introduction.html#the-three-principles-of-data-science",
-    "title": "What is data visualization?",
-    "section": "The three principles of data science",
-    "text": "The three principles of data science\n\nWhat is Data Visualization?\n\n“A visualization [of data] is any visual presentation intended to reveal evidence, making the invisible visible.” Alberto Cairo (2015).\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nhttps://www.nytimes.com/2019/02/28/learning/whats-going-on-in-this-graph-march-6-2019.html\n\n\n\n\n\n\n\n\n\n\nhttps://www.nytimes.com/2018/09/18/learning/whats-going-on-in-this-graph-sept-19-2018.html\n\n\n\n\n\n\n\n\n\n\nhttps://www.nytimes.com/2018/10/16/learning/whats-going-on-in-this-graph-oct-17-2018.html\n\n\n\n\nAt its core, data visualization allows you to delve into complex datasets to extract meaningful insights using graphical displays.\n\nData visualizations are primarily concerned with providing evidence and enabling the audience to explore and draw their own conclusions about what the visualizations reveal about the data. \n. . .\nData visualization has 3 key principles…\n\nAs data scientists, we create data visualizations in order to understand our data and explain our analyses to other people. A plot should have a message, and it’s our job to communicate this message as clearly as possible.\n\n\n\nPrinciple 1: Define the Message or Question\nFormulate the question of interest or the message you want to convey.\n\n\n\n\n\n\n\n\n\n\n\n\nEl mensaje puede ser una pregunta\n\nWhat is the key comparison?\nHow do we emphasize it?\nDo you have reason to expect that one group/observation might be different?\nWhy might your finding about shape matter?\nWhat additional comparison might add value to the investigation?\nAre there any potentially important features to compare against?\n\n\n\n\nPrinciple 2: Turn Data into Information\nYour graph should use data to convey the message or answer the question. In other words, it should transform data into information.\n\n\n\n\n\n\nEnhance your graph with color symbols and text to convey additional information.\n\n\n\nPrinciple 3: Apply Graphic Design Principles\n\n\n\n\n\n\nObjects are easily identifiable by color.\nUse direct labels instead of a legend.\nElements such as text, lines, and shapes of the same nature should look similar.\nBalance graphics and text.\nBe cautious with default settings in visualization software.\nUse a grid-based layout to organize your visualization.\n\n\n\n\n\n\n\n\n\n\n\n\n\nDon’t limit yourself to simple elements. Enhance your graph with color symbols to convey additional information. If possible, add context with markers and reference labels.\nAdditionally, include a legend in the graph that describes key features and summarizes its conclusions.\n\n\n\nExample\n\nPrinciple 1: It is cheaper to take Uber than to own a car in four of the five largest cities in the USA.\n\n\n\n\nWeekly cost (in USD) of daily commuting\n\n\nCity\nUber\nAuto\n\n\n\n\nNew York City\n142\n218\n\n\nWashington D.C.\n96\n130\n\n\nChicago\n77\n116\n\n\nLos Angeles\n62\n89\n\n\nDallas\n181\n65\n\n\n\n\n\n\n\n\nThe estimated costs are based on a twice-daily 10.4 mile one-way commute at peak times over the course of a week using either the UberPool option (where available) or alternatively UberX vs the cost of using a personal vehicle (including any associated costs of ownership). Study conducted in February 2017.\n\n\n\n\nPrinciple 2: Turn data into information.\n\n\n\n\n\n\n\n\nPrinciple 3: Apply Graphic Design Principles.\n\n\n\n\n\n\n\n\n\n\n\n“The greatest value of a picture is when it forces us to notice what we never expected to see.” John W. Tukey.\n\n\n\n\n\n. . .\nhttps://www.storytellingwithdata.com/ is an excellent guide on data visualization."
-  },
-  {
-    "objectID": "T1_Introduction/Introduction.html#return-to-main-page",
-    "href": "T1_Introduction/Introduction.html#return-to-main-page",
-    "title": "What is data visualization?",
-    "section": "Return to main page",
-    "text": "Return to main page"
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site\n\n1 + 1\n\n2"
   }
 ]
