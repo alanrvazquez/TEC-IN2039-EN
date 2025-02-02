@@ -971,5 +971,187 @@
     "title": "Categorical Variables",
     "section": "",
     "text": "Collapsing categories simplifies the graph\n\nplt.figure(figsize=(5, 5))\nsns.countplot(data=Boston_dataset, x=\"rad\")\nplt.show()\n\n\n\n\n\n\n\n\nIt also allows us to emphasize a category like Low and see how it compares to the other categories (as a whole)."
+  },
+  {
+    "objectID": "T4_Numerical_Data/Numerical.slides.html#agenda",
+    "href": "T4_Numerical_Data/Numerical.slides.html#agenda",
+    "title": "Numerical Variables",
+    "section": "Agenda",
+    "text": "Agenda\n\nIntroduction to the example\nSummary statistics\nGraphs for numerical variables"
+  },
+  {
+    "objectID": "T4_Numerical_Data/Numerical.slides.html#example",
+    "href": "T4_Numerical_Data/Numerical.slides.html#example",
+    "title": "Numerical Variables",
+    "section": "Example",
+    "text": "Example\n\n\nA piston is a mechanical device found in most engines.\n\n\n\nOne measure of a piston’s performance is the time it takes to complete a cycle, which we call “cycle time” and is measured in seconds.\nThe file “CYLT.xlsx” contains 50 cycle times of a piston operating under fixed conditions."
+  },
+  {
+    "objectID": "T4_Numerical_Data/Numerical.slides.html#remember-to-import-the-required-libraries",
+    "href": "T4_Numerical_Data/Numerical.slides.html#remember-to-import-the-required-libraries",
+    "title": "Numerical Variables",
+    "section": "Remember to Import the Required Libraries",
+    "text": "Remember to Import the Required Libraries\nWe will use the libraries pandas, matplotlib, and seaborn.\nLet’s load them in Google Colab before we start.\n\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns"
+  },
+  {
+    "objectID": "T4_Numerical_Data/Numerical.slides.html#load-the-data",
+    "href": "T4_Numerical_Data/Numerical.slides.html#load-the-data",
+    "title": "Numerical Variables",
+    "section": "Load the data",
+    "text": "Load the data\nIn Google Colab, the file “CYLT.xlsx” should be placed in a folder called “content” or “contenido”.\n\n\n\n\n\n\n\n\n\ncycle_time\n\n\n\n\n0\n1.008\n\n\n1\n1.098\n\n\n2\n1.120\n\n\n3\n0.423\n\n\n4\n1.021"
+  },
+  {
+    "objectID": "T4_Numerical_Data/Numerical.slides.html#variable-type",
+    "href": "T4_Numerical_Data/Numerical.slides.html#variable-type",
+    "title": "Numerical Variables",
+    "section": "Variable Type",
+    "text": "Variable Type\nIn Python, numerical data is stored as float64.\n\n\n&lt;class 'pandas.core.frame.DataFrame'&gt;\nRangeIndex: 50 entries, 0 to 49\nData columns (total 1 columns):\n #   Column      Non-Null Count  Dtype  \n---  ------      --------------  -----  \n 0   cycle_time  50 non-null     float64\ndtypes: float64(1)\nmemory usage: 528.0 bytes\n\n\nWe can see that Python recognizes our data correctly."
+  },
+  {
+    "objectID": "T4_Numerical_Data/Numerical.slides.html#summary-statistic",
+    "href": "T4_Numerical_Data/Numerical.slides.html#summary-statistic",
+    "title": "Numerical Variables",
+    "section": "Summary statistic",
+    "text": "Summary statistic\n\nHelps us to summarize a list of observations in a simple way.\n\nFor numerical data, the most popular summary statistics are:\n\n\nSample mean\nSample variance and sample standard deviation\nSample quartiles\nSample maximum and minimum"
+  },
+  {
+    "objectID": "T4_Numerical_Data/Numerical.slides.html#sample-mean",
+    "href": "T4_Numerical_Data/Numerical.slides.html#sample-mean",
+    "title": "Numerical Variables",
+    "section": "Sample mean",
+    "text": "Sample mean\n\nIndicates the center of the data.\n\nLet \\(y_1, y_2, \\ldots, y_n\\) be an observed sample of size \\(n\\).\nThe sample mean is\n\\[\\bar{y} = \\frac{1}{n}\\sum_{i=1}^{n} y_i = \\frac{y_1 + y_2 + \\cdots + y_n}{n}.\\]"
+  },
+  {
+    "objectID": "T4_Numerical_Data/Numerical.slides.html#section",
+    "href": "T4_Numerical_Data/Numerical.slides.html#section",
+    "title": "Numerical Variables",
+    "section": "",
+    "text": "In python, we calculate the sample mean using the function mean().\n\npiston_data_mean = piston_data[\"cycle_time\"].mean()\nprint(piston_data_mean)\n\n0.6524599999999999\n\n\nWe use the function print to show the number. Otherwise, python will show the computer type of value stored in piston_data_mean."
+  },
+  {
+    "objectID": "T4_Numerical_Data/Numerical.slides.html#section-1",
+    "href": "T4_Numerical_Data/Numerical.slides.html#section-1",
+    "title": "Numerical Variables",
+    "section": "",
+    "text": "You can also round the result to, say, three decimals.\n\nprint( round(piston_data_mean, 3) )\n\n0.652\n\n\nInterpretation: On average, the piston takes 0.652 seconds to complete a cycle."
+  },
+  {
+    "objectID": "T4_Numerical_Data/Numerical.slides.html#sample-variance",
+    "href": "T4_Numerical_Data/Numerical.slides.html#sample-variance",
+    "title": "Numerical Variables",
+    "section": "Sample variance",
+    "text": "Sample variance\n\nIndicates how spread out the data are around the mean.\n\nLet \\(y_1, y_2, \\ldots, y_n\\) be an observed sample of size \\(n\\). The sample mean is\n\\[\ns^2 = \\frac{1}{n-1} \\sum_{i=1}^{n} (y_i - \\bar{y})^2 = \\frac{(y_1 - \\bar{y})^2  + \\cdots + (y_n - \\bar{y})^2}{n-1}\n\\]\n\nThe sample variance is like an average of the squared differences between each observation and the sample mean."
+  },
+  {
+    "objectID": "T4_Numerical_Data/Numerical.slides.html#section-2",
+    "href": "T4_Numerical_Data/Numerical.slides.html#section-2",
+    "title": "Numerical Variables",
+    "section": "",
+    "text": "In python, the sample variance is calculated using the function var().\n\npiston_data_var = piston_data[\"cycle_time\"].var()\nprint( round(piston_data_var, 3))\n\n0.139\n\n\nInterpretation: The variance of the piston cycle times is 0.139. A larger variance means greater dispersion of the data around the mean."
+  },
+  {
+    "objectID": "T4_Numerical_Data/Numerical.slides.html#sample-standard-deviation",
+    "href": "T4_Numerical_Data/Numerical.slides.html#sample-standard-deviation",
+    "title": "Numerical Variables",
+    "section": "Sample standard deviation",
+    "text": "Sample standard deviation\nA drawback of the sample variance is that it is not on the same scale as the actual observations.\nTo obtain a measure of spread whose units are the same as those of the sample, we simply take the squared root of the sample variance\n\\[\ns = \\left(\\frac{1}{n-1} \\sum_{i=1}^{n} (y_i - \\bar{y})^2 \\right)^{1/2}\n\\]\nThis quantity is known as the sample standard deviation. It is in the same units as the observations."
+  },
+  {
+    "objectID": "T4_Numerical_Data/Numerical.slides.html#section-3",
+    "href": "T4_Numerical_Data/Numerical.slides.html#section-3",
+    "title": "Numerical Variables",
+    "section": "",
+    "text": "In python, the sample variance is calculated using the function std().\n\npiston_data_std = piston_data[\"cycle_time\"].std()\nprint(round(piston_data_std,3))\n\n0.373\n\n\nInterpretation: On average, a piston takes 0.652 seconds to complete a cycle, with a variation of \\(\\pm 0.373\\) seconds."
+  },
+  {
+    "objectID": "T4_Numerical_Data/Numerical.slides.html#sample-quartiles",
+    "href": "T4_Numerical_Data/Numerical.slides.html#sample-quartiles",
+    "title": "Numerical Variables",
+    "section": "Sample quartiles",
+    "text": "Sample quartiles\nThe sample median is the middle number of the ordered data values.\n\nSample quartiles divide the data as nearly as possible into quarters:\n\n\nFirst quartile (\\(Q_1\\)) is the median of the lower half of the data.\nSecond quartile (\\(Q_2\\)) is the median of the data.\nThird quartile (\\(Q_3\\)) is the median of the upper half of the data."
+  },
+  {
+    "objectID": "T4_Numerical_Data/Numerical.slides.html#section-5",
+    "href": "T4_Numerical_Data/Numerical.slides.html#section-5",
+    "title": "Numerical Variables",
+    "section": "",
+    "text": "In python, the quartiles are calculated using the function quantile().\n\n# Set the quantiles.\nset_quantiles = [0.25, 0.5, 0.75]\n# Compute the quantiles.\npiston_data[\"cycle_time\"].quantile(set_quantiles)\n\n0.25    0.3050\n0.50    0.5455\n0.75    1.0690\nName: cycle_time, dtype: float64\n\n\nInterpretation:\n\n25% of cycle times are below 0.305 sec.\n50% of cycle times are below 0.546 sec.\n75% of cycle times are below 1.07 sec."
+  },
+  {
+    "objectID": "T4_Numerical_Data/Numerical.slides.html#sample-maximum-and-minimum",
+    "href": "T4_Numerical_Data/Numerical.slides.html#sample-maximum-and-minimum",
+    "title": "Numerical Variables",
+    "section": "Sample maximum and minimum",
+    "text": "Sample maximum and minimum\nWe compute the maximum and minimum using the functions max() and min(), respectively.\n\npiston_data_max = piston_data[\"cycle_time\"].max()\nprint(piston_data_max)\n\n1.141\n\n\n\n\npiston_data_min = piston_data[\"cycle_time\"].min()\nprint(piston_data_min)\n\n0.175\n\n\nInterpretation:\n\nThe maximum cycle time is 1.14 seconds.\nThe minimum cycle time is 0.175 seconds."
+  },
+  {
+    "objectID": "T4_Numerical_Data/Numerical.slides.html#average-vs.-median",
+    "href": "T4_Numerical_Data/Numerical.slides.html#average-vs.-median",
+    "title": "Numerical Variables",
+    "section": "Average vs. Median",
+    "text": "Average vs. Median\nThe average and median estimate the central value of the data in different ways.\n\nThe average is the sum of the values divided by the total.\nThe median is the central value of an ordered set of data."
+  },
+  {
+    "objectID": "T4_Numerical_Data/Numerical.slides.html#when-do-we-use-the-average",
+    "href": "T4_Numerical_Data/Numerical.slides.html#when-do-we-use-the-average",
+    "title": "Numerical Variables",
+    "section": "When do we use the average?",
+    "text": "When do we use the average?\nThe average is used when the data is symmetrically or evenly distributed and there are no significant outliers.\nFor example, the height of a large sample of people in a homogeneous population."
+  },
+  {
+    "objectID": "T4_Numerical_Data/Numerical.slides.html#when-do-we-use-the-median",
+    "href": "T4_Numerical_Data/Numerical.slides.html#when-do-we-use-the-median",
+    "title": "Numerical Variables",
+    "section": "When do we use the median?",
+    "text": "When do we use the median?\nThe median is used when there are outliers that could skew the mean.\nFor example:\n\nAnnual household income in a country (where there are a few billionaires who distort the mean).\nHouse prices in a city (where a few very expensive properties can inflate the mean)."
+  },
+  {
+    "objectID": "T4_Numerical_Data/Numerical.slides.html#activity-only-mode-part-1",
+    "href": "T4_Numerical_Data/Numerical.slides.html#activity-only-mode-part-1",
+    "title": "Numerical Variables",
+    "section": "Activity (only mode) Part 1",
+    "text": "Activity (only mode) Part 1\nA company that manufactures capacitor retaining bolts for automobile engines implemented a quality control system. As part of this quality control system, a team of engineers decided to record the number of nonconforming bolts produced each shift.\nThe file bolts.xlsx contains the number of non-conforming bolts during the last 45 shifts.\n\nCalculates and interprets the average, variance, standard deviation, quartiles, minimum and maximum."
+  },
+  {
+    "objectID": "T4_Numerical_Data/Numerical.slides.html#histogram",
+    "href": "T4_Numerical_Data/Numerical.slides.html#histogram",
+    "title": "Numerical Variables",
+    "section": "Histogram",
+    "text": "Histogram\n\nGraphical display that gives an idea of the “shape” of the sample, indicating regions where sample points are concentrated and regions where they are sparse.\n\nThe bars of the histogram touch each other. A space indicates that there are no observations in that interval."
+  },
+  {
+    "objectID": "T4_Numerical_Data/Numerical.slides.html#histogram-of-na",
+    "href": "T4_Numerical_Data/Numerical.slides.html#histogram-of-na",
+    "title": "Numerical Variables",
+    "section": "Histogram of Na",
+    "text": "Histogram of Na\nTo create a histogram, we use the function histplot() from seabron."
+  },
+  {
+    "objectID": "T4_Numerical_Data/Numerical.slides.html#box-plot",
+    "href": "T4_Numerical_Data/Numerical.slides.html#box-plot",
+    "title": "Numerical Variables",
+    "section": "Box plot",
+    "text": "Box plot\n\nA box plot is a graphic that presents the median, the first and third quartiles, and any “outliers” present in the sample.\n\nThe interquartile range (IQR) is the difference between the third quartile and the first quartile (\\(Q_3 - Q_1\\)). This is the distance needed to span the middle half of the data."
+  },
+  {
+    "objectID": "T4_Numerical_Data/Numerical.slides.html#anatomy-of-a-box-plot",
+    "href": "T4_Numerical_Data/Numerical.slides.html#anatomy-of-a-box-plot",
+    "title": "Numerical Variables",
+    "section": "Anatomy of a box plot",
+    "text": "Anatomy of a box plot\n\nSee also https://towardsdatascience.com/why-1-5-in-iqr-method-of-outlier-detection-5d07fdc82097"
+  },
+  {
+    "objectID": "T4_Numerical_Data/Numerical.slides.html#box-plot-of-na",
+    "href": "T4_Numerical_Data/Numerical.slides.html#box-plot-of-na",
+    "title": "Numerical Variables",
+    "section": "Box plot of Na",
+    "text": "Box plot of Na\nTo create a boxplot, we use the function boxplot() from seabron."
+  },
+  {
+    "objectID": "T4_Numerical_Data/Numerical.slides.html#outliers",
+    "href": "T4_Numerical_Data/Numerical.slides.html#outliers",
+    "title": "Numerical Variables",
+    "section": "Outliers",
+    "text": "Outliers\n\nOutliers are points that are much larger or smaller than the rest of the sample points.\nOutliers may be data entry errors or they may be points that really are different from the rest.\nOutliers should not be deleted without considerable thought—sometimes calculations and analyses will be done with and without outliers and then compared."
   }
 ]
