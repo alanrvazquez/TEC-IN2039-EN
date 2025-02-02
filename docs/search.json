@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "IN2039 Data Visualization for Decision Making",
     "section": "",
-    "text": "Course topics\n\nModule 2\n\nIntroduction to Data Science"
+    "text": "Course topics\n\nIntroduction (slides)"
   },
   {
     "objectID": "about.html",
@@ -18,7 +18,7 @@
     "href": "index.slides.html#course-topics",
     "title": "IN2039 Data Visualization for Decision Making",
     "section": "Course topics",
-    "text": "Course topics\nModule 2\n\nIntroduction to Data Science\n\n\n\n\n\nTecnologico de Monterrey"
+    "text": "Course topics\n\nIntroduction (slides)\n\n\n\n\n\nTecnologico de Monterrey"
   },
   {
     "objectID": "T1_Introduction/Introduction.slides.html#agenda",
@@ -264,5 +264,33 @@
     "title": "What is data visualization?",
     "section": "",
     "text": "“The greatest value of a picture is when it forces us to notice what we never expected to see.” John W. Tukey.\n\n\n\n\n\nhttps://www.storytellingwithdata.com/ is an excellent guide on data visualization."
+  },
+  {
+    "objectID": "T1_Introduction/Introduction.html",
+    "href": "T1_Introduction/Introduction.html",
+    "title": "What is data visualization?",
+    "section": "",
+    "text": "Introduction to data science\nThree principles of data visualization\nActivity\nStorytelling"
+  },
+  {
+    "objectID": "T1_Introduction/Introduction.html#introduction-to-data-science",
+    "href": "T1_Introduction/Introduction.html#introduction-to-data-science",
+    "title": "What is data visualization?",
+    "section": "Introduction to data science",
+    "text": "Introduction to data science\n\nData science is …\na multidisciplinary field that uses scientific methods, processes, algorithms and systems to extract knowledge and insights from vast amounts of structured and unstructured data.\n. . .\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nThe scheme of data science\n\n\n\n\n\n\nProvost, F., & Fawcett, T. (2013). Data Science for Business: What you need to know about data mining and data-analytic thinking. O’Reilly Media, Inc.\n\n\n\nBusiness understanding\n\n\nBusiness understanding refers to defining the business problem to be solved.\nThe goal is to reframe the business problem as a data science problem.\nOften, reframing the problem and designing a solution is an iterative process.\n\n\n\nData understanding I\n\n\nIf the goal is to solve a business problem, the data that makes up the raw material available from which the solution will be built.\nThe available data rarely matches the problem.\nFor example, historical data is often collected for purposes unrelated to the current business problem or for no explicit purpose at all.\n\n\n. . .\n\nOur goal is to turn data into information that answers useful questions.\n\n\n\nData types\n\n\n\nText\n\n\nImages\n\nVideo\n\n\nAudio\n\n\n\n\n\n\nNumerical data\nData science methodology is based on numerical data given in tables.\n\n\n\n\n\n\nIn fact, texts, images, videos or audios are transformed into this format to process them.\n\n. . .\nIn this course, we will assume that the data is in a table.\n\n\nProblem Situation\nTBD\n\n\nGoal of the problem situation\nTBD"
+  },
+  {
+    "objectID": "T1_Introduction/Introduction.html#the-three-principles-of-data-science",
+    "href": "T1_Introduction/Introduction.html#the-three-principles-of-data-science",
+    "title": "What is data visualization?",
+    "section": "The three principles of data science",
+    "text": "The three principles of data science\n\nWhat is Data Visualization?\n\n“A visualization [of data] is any visual presentation intended to reveal evidence, making the invisible visible.” Alberto Cairo (2015).\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nhttps://www.nytimes.com/2019/02/28/learning/whats-going-on-in-this-graph-march-6-2019.html\n\n\n\n\n\n\n\n\n\n\nhttps://www.nytimes.com/2018/09/18/learning/whats-going-on-in-this-graph-sept-19-2018.html\n\n\n\n\n\n\n\n\n\n\nhttps://www.nytimes.com/2018/10/16/learning/whats-going-on-in-this-graph-oct-17-2018.html\n\n\n\n\nAt its core, data visualization allows you to delve into complex datasets to extract meaningful insights using graphical displays.\n\nData visualizations are primarily concerned with providing evidence and enabling the audience to explore and draw their own conclusions about what the visualizations reveal about the data. \n. . .\nData visualization has 3 key principles…\n\nAs data scientists, we create data visualizations in order to understand our data and explain our analyses to other people. A plot should have a message, and it’s our job to communicate this message as clearly as possible.\n\n\n\nPrinciple 1: Define the Message or Question\nFormulate the question of interest or the message you want to convey.\n\n\n\n\n\n\n\n\n\n\n\n\nEl mensaje puede ser una pregunta\n\nWhat is the key comparison?\nHow do we emphasize it?\nDo you have reason to expect that one group/observation might be different?\nWhy might your finding about shape matter?\nWhat additional comparison might add value to the investigation?\nAre there any potentially important features to compare against?\n\n\n\n\nPrinciple 2: Turn Data into Information\nYour graph should use data to convey the message or answer the question. In other words, it should transform data into information.\n\n\n\n\n\n\nEnhance your graph with color symbols and text to convey additional information.\n\n\n\nPrinciple 3: Apply Graphic Design Principles\n\n\n\n\n\n\nObjects are easily identifiable by color.\nUse direct labels instead of a legend.\nElements such as text, lines, and shapes of the same nature should look similar.\nBalance graphics and text.\nBe cautious with default settings in visualization software.\nUse a grid-based layout to organize your visualization.\n\n\n\n\n\n\n\n\n\n\n\n\n\nDon’t limit yourself to simple elements. Enhance your graph with color symbols to convey additional information. If possible, add context with markers and reference labels.\nAdditionally, include a legend in the graph that describes key features and summarizes its conclusions.\n\n\n\nExample\n\nPrinciple 1: It is cheaper to take Uber than to own a car in four of the five largest cities in the USA.\n\n\n\n\nWeekly cost (in USD) of daily commuting\n\n\nCity\nUber\nAuto\n\n\n\n\nNew York City\n142\n218\n\n\nWashington D.C.\n96\n130\n\n\nChicago\n77\n116\n\n\nLos Angeles\n62\n89\n\n\nDallas\n181\n65\n\n\n\n\n\n\n\n\nThe estimated costs are based on a twice-daily 10.4 mile one-way commute at peak times over the course of a week using either the UberPool option (where available) or alternatively UberX vs the cost of using a personal vehicle (including any associated costs of ownership). Study conducted in February 2017.\n\n\n\n\nPrinciple 2: Turn data into information.\n\n\n\n\n\n\n\n\nPrinciple 3: Apply Graphic Design Principles.\n\n\n\n\n\n\n\n\n\n\n\n“The greatest value of a picture is when it forces us to notice what we never expected to see.” John W. Tukey.\n\n\n\n\n\n. . .\nhttps://www.storytellingwithdata.com/ is an excellent guide on data visualization."
+  },
+  {
+    "objectID": "T1_Introduction/Introduction.html#return-to-main-page",
+    "href": "T1_Introduction/Introduction.html#return-to-main-page",
+    "title": "What is data visualization?",
+    "section": "Return to main page",
+    "text": "Return to main page"
   }
 ]

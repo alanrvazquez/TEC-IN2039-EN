@@ -10,6 +10,5 @@ author:
 
 ## Course topics
 
-### Module 2
 
-1.  Introduction to Data Science
+1.  Introduction ([slides](/T1_Introduction/Introduction.slides.html))

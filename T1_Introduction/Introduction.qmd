@@ -368,4 +368,4 @@ pio.show(fig)  # Use this instead of fig.show()
 
 
 
-# [Return to main page](https://alanrvazquez.github.io/TEC-IN1002B-Website/)
+# [Return to main page](https://alanrvazquez.github.io/TEC-IN2039-EN/)
