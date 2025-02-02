@@ -636,6 +636,8 @@ Similar to **pandas**, the command `as sns` allows us to have a short name for *
 
 Seaborn has a structured approach to creating visualizations.
 
+plt.figure(figsize=(WIDTH, HEIGHT))
+
 [sns.PLOTTYPE(data=my_data, x="Variable1", y="Variable2", hue="Variable3", MOREOPTIONS)]{style="color:#619CFF;"}
 
 [plt.title("Title")]{style="color:#F8766D;"}
@@ -661,12 +663,13 @@ Is there a difference between bill length and bill depth across penguin species?
 ```{python}
 #| echo: true
 #| output: true
+#| fig-align: center
 #| code-overflow: wrap
 #| fig-pos: center
 #| output-location: fragment
 #| out.width: "80%"
 
-# Create the scatter plot
+plt.figure(figsize=(6, 4))
 sns.scatterplot(data=penguins_data, x="bill_depth_mm", y="bill_length_mm", 
 hue="species")
 plt.show() # Display the plot
@@ -679,10 +682,11 @@ plt.show() # Display the plot
 #| output: true
 #| code-overflow: wrap
 #| fig-pos: center
-#| code-line-numbers: "3-6"
+#| code-line-numbers: "4-7"
 #| output-location: fragment
 #| out.width: "80%"
 
+plt.figure(figsize=(6, 4))
 sns.scatterplot(data=penguins_data, x="bill_depth_mm", y="bill_length_mm", 
 hue="species")
 plt.title("Bill Depth vs. Bill Length")
@@ -692,7 +696,7 @@ plt.legend(title="Species")
 plt.show()
 ```
 
-## Ejemplo
+## Changing theme
 
 ```{python}
 #| echo: true
@@ -700,8 +704,9 @@ plt.show()
 #| code-overflow: wrap
 #| fig-height: 4
 #| fig-pos: center 
-#| code-line-numbers: "1-2"
+#| code-line-numbers: "2-3"
 
+plt.figure(figsize=(6, 4))
 sns.scatterplot(data=penguins_data, x="bill_depth_mm", y="bill_length_mm", 
 hue="species", palette="viridis")
 plt.title("Bill Depth vs. Bill Length")
@@ -710,6 +715,61 @@ plt.ylabel("Bill Length (mm)")
 plt.legend(title="Species")
 plt.show()
 ```
+
+## More options
+
+</br>
+
+We can also use other functions to improve the aspect of the figure:
+
+-   `plt.title(fontsize)`: Font size of the title.
+-   `plt.ylabel(fontsize)`: Font size of y axis title.
+-   `plt.xlabel(fontsize)`: Font size of x axis title.
+-   `plt.yticks(fontsize)`: Font size of the y axis labels.
+-   `plt.xticks(fontsize)`: Font size of the x axis labels.
+
+## 
+
+```{python}
+#| echo: true
+#| output: true
+#| fig-align: center
+#| code-fold: true
+
+plt.figure(figsize=(8, 6))
+sns.scatterplot(data=penguins_data, x="bill_depth_mm", y="bill_length_mm", 
+hue="species", palette="viridis")
+plt.title("Bill Depth vs. Bill Length", fontsize = 12)
+plt.xlabel("Bill Depth (mm)", fontsize = 12)
+plt.ylabel("Bill Length (mm)", fontsize = 12)
+plt.legend(title="Species", fontsize = 12)
+plt.xticks(fontsize = 12)
+plt.yticks(fontsize = 12)
+plt.show()
+```
+
+## Saving plots
+
+</br>
+
+We save a figure using the `save.fig` function from **matplotlib**. The `dpi` argument of this function sets the resolution of the image. The higher the `dpi`, the better the resolution.
+
+```{python}
+#| echo: true
+#| output: false
+
+plt.figure(figsize=(5, 5))
+sns.scatterplot(data=penguins_data, x="bill_depth_mm", y="bill_length_mm", 
+hue="species", palette="viridis")
+plt.title("Bill Depth vs. Bill Length", fontsize = 12)
+plt.xlabel("Bill Depth (mm)", fontsize = 12)
+plt.ylabel("Bill Length (mm)", fontsize = 12)
+plt.legend(title="Species", fontsize = 12)
+plt.xticks(fontsize = 12)
+plt.yticks(fontsize = 12)
+plt.savefig('scatter_plot.png',dpi=300)
+```
+
 
 ## Mini-actividad (*solo* mode)
 

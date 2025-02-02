@@ -466,7 +466,7 @@
     "href": "T1_Introduction/Tools.slides.html#python-is-strict",
     "title": "Tools to construct graphs",
     "section": "Python is strict",
-    "text": "Python is strict\nPython, like all programming languages, is very strict. For example, if you write\n\nsum([1, 100])\n\n101\n\n\nit will tell you the answer, 101.\n\nBut if you write\n\nSum([1, 100])\n\n\n---------------------------------------------------------------------------\nNameError                                 Traceback (most recent call last)\nCell In[9], line 1\n----&gt; 1 Sum([1, 100])\n\nNameError: name 'Sum' is not defined\n\n\n\nwith the “s” capitalized, he will act like he has no idea what we are talking about!\n\nlo mismo si olvidas incluir un parentesis"
+    "text": "Python is strict\nPython, like all programming languages, is very strict. For example, if you write\n\nsum([1, 100])\n\n101\n\n\nit will tell you the answer, 101.\n\nBut if you write\n\nSum([1, 100])\n\n\n---------------------------------------------------------------------------\nNameError                                 Traceback (most recent call last)\nCell In[349], line 1\n----&gt; 1 Sum([1, 100])\n\nNameError: name 'Sum' is not defined\n\n\n\nwith the “s” capitalized, he will act like he has no idea what we are talking about!\n\nlo mismo si olvidas incluir un parentesis"
   },
   {
     "objectID": "T1_Introduction/Tools.slides.html#save-your-work-in-python-objects",
@@ -690,7 +690,7 @@
     "href": "T1_Introduction/Tools.slides.html#seaborn-plot-structure",
     "title": "Tools to construct graphs",
     "section": "Seaborn Plot Structure",
-    "text": "Seaborn Plot Structure\nSeaborn has a structured approach to creating visualizations.\nsns.PLOTTYPE(data=my_data, x=“Variable1”, y=“Variable2”, hue=“Variable3”, MOREOPTIONS)\nplt.title(“Title”)\nplt.xlabel(“X-axis label”)\nplt.ylabel(“Y-axis label”)\nplt.MOREOPTIONS()\nplt.show()"
+    "text": "Seaborn Plot Structure\nSeaborn has a structured approach to creating visualizations.\nplt.figure(figsize=(WIDTH, HEIGHT))\nsns.PLOTTYPE(data=my_data, x=“Variable1”, y=“Variable2”, hue=“Variable3”, MOREOPTIONS)\nplt.title(“Title”)\nplt.xlabel(“X-axis label”)\nplt.ylabel(“Y-axis label”)\nplt.MOREOPTIONS()\nplt.show()"
   },
   {
     "objectID": "T1_Introduction/Tools.slides.html#ejemplo",
@@ -704,14 +704,14 @@
     "href": "T1_Introduction/Tools.slides.html#ejemplo-1",
     "title": "Tools to construct graphs",
     "section": "Ejemplo",
-    "text": "Ejemplo\nIs there a difference between bill length and bill depth across penguin species?\n\n# Create the scatter plot\nsns.scatterplot(data=penguins_data, x=\"bill_depth_mm\", y=\"bill_length_mm\", \nhue=\"species\")\nplt.show() # Display the plot"
+    "text": "Ejemplo\nIs there a difference between bill length and bill depth across penguin species?\n\nplt.figure(figsize=(6, 4))\nsns.scatterplot(data=penguins_data, x=\"bill_depth_mm\", y=\"bill_length_mm\", \nhue=\"species\")\nplt.show() # Display the plot"
   },
   {
     "objectID": "T1_Introduction/Tools.slides.html#adding-titles-and-labels",
     "href": "T1_Introduction/Tools.slides.html#adding-titles-and-labels",
     "title": "Tools to construct graphs",
     "section": "Adding titles and labels",
-    "text": "Adding titles and labels\n\nsns.scatterplot(data=penguins_data, x=\"bill_depth_mm\", y=\"bill_length_mm\", \nhue=\"species\")\nplt.title(\"Bill Depth vs. Bill Length\")\nplt.xlabel(\"Bill Depth (mm)\")\nplt.ylabel(\"Bill Length (mm)\")\nplt.legend(title=\"Species\")\nplt.show()"
+    "text": "Adding titles and labels\n\nplt.figure(figsize=(6, 4))\nsns.scatterplot(data=penguins_data, x=\"bill_depth_mm\", y=\"bill_length_mm\", \nhue=\"species\")\nplt.title(\"Bill Depth vs. Bill Length\")\nplt.xlabel(\"Bill Depth (mm)\")\nplt.ylabel(\"Bill Length (mm)\")\nplt.legend(title=\"Species\")\nplt.show()"
   },
   {
     "objectID": "T1_Introduction/Tools.slides.html#ejemplo-2",
@@ -726,5 +726,33 @@
     "title": "Tools to construct graphs",
     "section": "Mini-actividad (solo mode)",
     "text": "Mini-actividad (solo mode)\n\nOpen the following Google Colab link:\nhttps://colab.research.google.com/drive/1c-sy5yQY1DwgaZAI6YnDLMTEYMpLCWyX?usp=sharing\nCopy the notebook to your drive.\nAnswer the questions."
+  },
+  {
+    "objectID": "T1_Introduction/Tools.slides.html#changing-theme",
+    "href": "T1_Introduction/Tools.slides.html#changing-theme",
+    "title": "Tools to construct graphs",
+    "section": "Changing theme",
+    "text": "Changing theme\n\nplt.figure(figsize=(6, 4))\nsns.scatterplot(data=penguins_data, x=\"bill_depth_mm\", y=\"bill_length_mm\", \nhue=\"species\", palette=\"viridis\")\nplt.title(\"Bill Depth vs. Bill Length\")\nplt.xlabel(\"Bill Depth (mm)\")\nplt.ylabel(\"Bill Length (mm)\")\nplt.legend(title=\"Species\")\nplt.show()"
+  },
+  {
+    "objectID": "T1_Introduction/Tools.slides.html#more-options",
+    "href": "T1_Introduction/Tools.slides.html#more-options",
+    "title": "Tools to construct graphs",
+    "section": "More options",
+    "text": "More options\n\nWe can also use other functions to improve the aspect of the figure:\n\nplt.title(fontsize): Font size of the title.\nplt.ylabel(fontsize): Font size of y axis title.\nplt.xlabel(fontsize): Font size of x axis title.\nplt.yticks(fontsize): Font size of the y axis labels.\nplt.xticks(fontsize): Font size of the x axis labels."
+  },
+  {
+    "objectID": "T1_Introduction/Tools.slides.html#section-5",
+    "href": "T1_Introduction/Tools.slides.html#section-5",
+    "title": "Tools to construct graphs",
+    "section": "",
+    "text": "Code\nplt.figure(figsize=(8, 6))\nsns.scatterplot(data=penguins_data, x=\"bill_depth_mm\", y=\"bill_length_mm\", \nhue=\"species\", palette=\"viridis\")\nplt.title(\"Bill Depth vs. Bill Length\", fontsize = 12)\nplt.xlabel(\"Bill Depth (mm)\", fontsize = 12)\nplt.ylabel(\"Bill Length (mm)\", fontsize = 12)\nplt.legend(title=\"Species\", fontsize = 12)\nplt.xticks(fontsize = 12)\nplt.yticks(fontsize = 12)\nplt.show()"
+  },
+  {
+    "objectID": "T1_Introduction/Tools.slides.html#saving-plots",
+    "href": "T1_Introduction/Tools.slides.html#saving-plots",
+    "title": "Tools to construct graphs",
+    "section": "Saving plots",
+    "text": "Saving plots\n\nWe save a figure using the save.fig function from matplotlib. The dpi argument of this function sets the resolution of the image. The higher the dpi, the better the resolution.\n\nplt.figure(figsize=(5, 5))\nsns.scatterplot(data=penguins_data, x=\"bill_depth_mm\", y=\"bill_length_mm\", \nhue=\"species\", palette=\"viridis\")\nplt.title(\"Bill Depth vs. Bill Length\", fontsize = 12)\nplt.xlabel(\"Bill Depth (mm)\", fontsize = 12)\nplt.ylabel(\"Bill Length (mm)\", fontsize = 12)\nplt.legend(title=\"Species\", fontsize = 12)\nplt.xticks(fontsize = 12)\nplt.yticks(fontsize = 12)\nplt.savefig('scatter_plot.png',dpi=300)"
   }
 ]
