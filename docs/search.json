@@ -166,5 +166,502 @@
     "title": "About",
     "section": "",
     "text": "About this site\n\n1 + 1\n\n2"
+  },
+  {
+    "objectID": "T1_Introduction/Tools.slides.html#python",
+    "href": "T1_Introduction/Tools.slides.html#python",
+    "title": "Tools to construct graphs",
+    "section": "Python",
+    "text": "Python\n\n\n\nA versatile programming language.\nIt is free!\nIt is widely used for data cleaning, data visualization, and data modelling.\nIt can be extended with packages (libraries) developed by other users."
+  },
+  {
+    "objectID": "T1_Introduction/Tools.slides.html#google-colab",
+    "href": "T1_Introduction/Tools.slides.html#google-colab",
+    "title": "Tools to construct graphs",
+    "section": "Google Colab",
+    "text": "Google Colab\nGoogle’s free cloud collaboration platform for creating python documents.\n\nRun python and collaborate on Jupyter notebooks for free.\nHarness the power of GPUs for free to accelerate your data science projects.\nEasily save and upload your notebooks to Google Drive."
+  },
+  {
+    "objectID": "T1_Introduction/Tools.slides.html#lets-try-a-command-in-r",
+    "href": "T1_Introduction/Tools.slides.html#lets-try-a-command-in-r",
+    "title": "Tools to construct graphs",
+    "section": "Let’s try a command in R",
+    "text": "Let’s try a command in R\nWhat do you think will happen if we run this command?\n\nprint(\"Hello world!\")"
+  },
+  {
+    "objectID": "T1_Introduction/Tools.slides.html#lets-try-another-command",
+    "href": "T1_Introduction/Tools.slides.html#lets-try-another-command",
+    "title": "Tools to construct graphs",
+    "section": "Let’s try another command",
+    "text": "Let’s try another command\nWhat do you think will happen if we run this command?\n\nsum([1, 5, 10])"
+  },
+  {
+    "objectID": "T1_Introduction/Tools.slides.html#use-python-as-a-basic-calculator",
+    "href": "T1_Introduction/Tools.slides.html#use-python-as-a-basic-calculator",
+    "title": "Tools to construct graphs",
+    "section": "Use python as a basic calculator",
+    "text": "Use python as a basic calculator\n\n5 + 1\n\n6\n\n\n\n10 - 3\n\n7\n\n\n\n2 * 4\n\n8\n\n\n\n9 / 3\n\n3.0"
+  },
+  {
+    "objectID": "T1_Introduction/Tools.slides.html#comments",
+    "href": "T1_Introduction/Tools.slides.html#comments",
+    "title": "Tools to construct graphs",
+    "section": "Comments",
+    "text": "Comments\nSometimes we write things in the coding window that we want python to ignore. These are called comments and start with #.\n\nPython will ignore the comments and just execute the code.\n\n# you can put whatever after #\n# for example... blah blah blah\n\n\nSi desea escribir un comentario que ocupe más de una línea, es una buena idea poner un # al principio de cada línea."
+  },
+  {
+    "objectID": "T1_Introduction/Tools.slides.html#introduction-to-functions-in-r",
+    "href": "T1_Introduction/Tools.slides.html#introduction-to-functions-in-r",
+    "title": "Tools to construct graphs",
+    "section": "Introduction to functions in R",
+    "text": "Introduction to functions in R\nOne of the best things about python is that there are many built-in commands you can use. These are called functions.\n\nFunctions have two basic parts:\n\n\nThe first part is the name of the function (for example, sum).\nThe second part is the input to the function, which goes inside the parentheses (sum([1, 5, 15]))."
+  },
+  {
+    "objectID": "T1_Introduction/Tools.slides.html#python-is-strict",
+    "href": "T1_Introduction/Tools.slides.html#python-is-strict",
+    "title": "Tools to construct graphs",
+    "section": "Python is strict",
+    "text": "Python is strict\nPython, like all programming languages, is very strict. For example, if you write\n\nsum([1, 100])\n\n101\n\n\nit will tell you the answer, 101.\n\nBut if you write\n\nSum([1, 100])\n\n\n---------------------------------------------------------------------------\nNameError                                 Traceback (most recent call last)\nCell In[93], line 1\n----&gt; 1 Sum([1, 100])\n\nNameError: name 'Sum' is not defined\n\n\n\nwith the “s” capitalized, he will act like he has no idea what we are talking about!\n\nlo mismo si olvidas incluir un parentesis"
+  },
+  {
+    "objectID": "T1_Introduction/Tools.slides.html#save-your-work-in-python-objects",
+    "href": "T1_Introduction/Tools.slides.html#save-your-work-in-python-objects",
+    "title": "Tools to construct graphs",
+    "section": "Save your work in python objects",
+    "text": "Save your work in python objects\nVirtually anything, including the results of any python function, can be saved in an object.\nThis is accomplished by using an assignment operator, which can be an equals symbol (=).\n\nYou can make up any name you want for a python object. However, there are two basic rules for this:\n\n\nIt has to be different from a function name in python.\nIt has to be as specific as possible."
+  },
+  {
+    "objectID": "T1_Introduction/Tools.slides.html#for-example",
+    "href": "T1_Introduction/Tools.slides.html#for-example",
+    "title": "Tools to construct graphs",
+    "section": "For example",
+    "text": "For example\n\n# This code will assign the number 18\n# to the object called my_favorite_number\n\nmy_favorite_number = 18\n\nAfter running this code, nothing happens. But if we run the object on its own, we can see what’s inside it.\n\nmy_favorite_number\n\n18\n\n\nYou can also use print(my_favorite_number)."
+  },
+  {
+    "objectID": "T1_Introduction/Tools.slides.html#lists",
+    "href": "T1_Introduction/Tools.slides.html#lists",
+    "title": "Tools to construct graphs",
+    "section": "Lists",
+    "text": "Lists\nSo far we have used python objects to store a single number. But in statistics we are dealing with variation, which by definition needs more than one number.\n\nA python object can also store a complete set of numbers, called a list.\nYou can think of a list as a vector of numbers (or values).\n\n\nThe [] command can be used to combine several individual values into a list.\n\npuedes pensar que el c es por combinar"
+  },
+  {
+    "objectID": "T1_Introduction/Tools.slides.html#for-example-1",
+    "href": "T1_Introduction/Tools.slides.html#for-example-1",
+    "title": "Tools to construct graphs",
+    "section": "For example",
+    "text": "For example\nThis code creates two vectors\n\nmy_list = [1, 2, 3, 4, 5]\nmy_list_2 = [10, 10, 10, 10, 10]\n\nLet’s see its content\n\nmy_list\n\n[1, 2, 3, 4, 5]\n\n\n\nmy_list_2\n\n[10, 10, 10, 10, 10]"
+  },
+  {
+    "objectID": "T1_Introduction/Tools.slides.html#operations",
+    "href": "T1_Introduction/Tools.slides.html#operations",
+    "title": "Tools to construct graphs",
+    "section": "Operations",
+    "text": "Operations\nWe can do simple operations with vectors. For example, we can sum all the elements of a list.\n\nmy_list = [1, 2, 3, 4, 5]\nsum(my_list)\n\n15"
+  },
+  {
+    "objectID": "T1_Introduction/Tools.slides.html#indexing",
+    "href": "T1_Introduction/Tools.slides.html#indexing",
+    "title": "Tools to construct graphs",
+    "section": "Indexing",
+    "text": "Indexing\nWe can index a position in the vector using square brackets with a number like this: [1].\nSo, if we wanted to print the contents of the first position in my_list, we could write\n\nmy_list[1]\n\n2\n\n\nAn feature of Python is that the first element of a list or vector is indexed using the number 0.\n\nmy_list[0]\n\n1"
+  },
+  {
+    "objectID": "T1_Introduction/Tools.slides.html#a-little-more-about-objects-in-python",
+    "href": "T1_Introduction/Tools.slides.html#a-little-more-about-objects-in-python",
+    "title": "Tools to construct graphs",
+    "section": "A little more about objects in python",
+    "text": "A little more about objects in python\nYou can think of python objects as containers that hold values.\nA python object can hold a single value, or it can hold a group of values (as in a vector).\nSo far, we’ve only put numbers into python objects.\n\n\nPython objects can actually contain three types of values: numbers, characters, and booleans."
+  },
+  {
+    "objectID": "T1_Introduction/Tools.slides.html#character-values",
+    "href": "T1_Introduction/Tools.slides.html#character-values",
+    "title": "Tools to construct graphs",
+    "section": "Character values",
+    "text": "Character values\nCharacters are made up of text, such as words or sentences. An example of a list with characters as elements is:\n\n\nmany_greetings = [\"hi\", \"hello\", \"hola\", \"bonjour\", \"ni hao\", \"merhaba\"]\nmany_greetings\n\n['hi', 'hello', 'hola', 'bonjour', 'ni hao', 'merhaba']\n\n\n\n\nIt is important to know that numbers can also be treated as characters, depending on the context.\nFor example, when 20 is enclosed in quotes (\"20\") it will be treated as a character value, even though it encloses a number in quotes."
+  },
+  {
+    "objectID": "T1_Introduction/Tools.slides.html#boolean-values",
+    "href": "T1_Introduction/Tools.slides.html#boolean-values",
+    "title": "Tools to construct graphs",
+    "section": "Boolean values",
+    "text": "Boolean values\nBoolean values are True or False.\nWe may have a question like:\n\nIs the first element of the vector many_greetings \"hola\"?\n\n\nWe can ask python to find out and return the answer True or False.\n\nmany_greetings[1] == \"hola\"\n\nFalse"
+  },
+  {
+    "objectID": "T1_Introduction/Tools.slides.html#logical-operators",
+    "href": "T1_Introduction/Tools.slides.html#logical-operators",
+    "title": "Tools to construct graphs",
+    "section": "Logical operators",
+    "text": "Logical operators\nMost of the questions we ask python to answer with True or False involve comparison operators like &gt;, &lt;, &gt;=, &lt;=, and ==.\nThe double == sign checks whether two values are equal. There is even a comparison operator to check whether values are not equal: !=.\nFor example, 5 != 3 is a True statement."
+  },
+  {
+    "objectID": "T1_Introduction/Tools.slides.html#common-logical-operators",
+    "href": "T1_Introduction/Tools.slides.html#common-logical-operators",
+    "title": "Tools to construct graphs",
+    "section": "Common logical operators",
+    "text": "Common logical operators\n\n&gt; (larger than)\n&gt;= (larger than or equal to)\n&lt; (smaller than)\n&lt;= (smaller than or equal to)\n== (equal to)\n!= (not equal to)"
+  },
+  {
+    "objectID": "T1_Introduction/Tools.slides.html#question",
+    "href": "T1_Introduction/Tools.slides.html#question",
+    "title": "Tools to construct graphs",
+    "section": "Question",
+    "text": "Question\nRead this code and predict its response. Then, run the code in Google Colab and validate if you were correct.\n\nA = 1\nB = 5\ncompare = A &gt; B\ncompare"
+  },
+  {
+    "objectID": "T1_Introduction/Tools.slides.html#programming-culture-trial-and-error",
+    "href": "T1_Introduction/Tools.slides.html#programming-culture-trial-and-error",
+    "title": "Tools to construct graphs",
+    "section": "Programming culture: Trial and error",
+    "text": "Programming culture: Trial and error\nThe best way to learn programming is to try things out and see what happens. Write some code, run it, and think about why it didn’t work.\nThere are many ways to make small mistakes in programming (for example, typing a capital letter when a lowercase letter is needed).\nWe often have to find these mistakes through trial and error."
+  },
+  {
+    "objectID": "T1_Introduction/Tools.slides.html#python-libraries",
+    "href": "T1_Introduction/Tools.slides.html#python-libraries",
+    "title": "Tools to construct graphs",
+    "section": "Python libraries",
+    "text": "Python libraries\nLibraries are the fundamental units of reproducible python code. They include reusable python functions, documentation describing how to use them, and sample data.\nIn this course, we will be working mostly with the following libraries:\n\npandas for data manipulation\nmatplotlib and seaborn for data visualization\nstatsmodels and scikit-learn for data modelling"
+  },
+  {
+    "objectID": "T1_Introduction/Tools.slides.html#data-organization",
+    "href": "T1_Introduction/Tools.slides.html#data-organization",
+    "title": "Tools to construct graphs",
+    "section": "Data organization",
+    "text": "Data organization\nIn data science, we organize data into rows and columns.\n\n    Condition  Age   Wt    Wt2\n1  Uninformed   35  136  135.8\n2  Uninformed   45  162  161.8\n3    Informed   52  117  116.8\n4    Informed   29  184  182.8\n5  Uninformed   38  134  136.6\n6    Informed   39  189  183.2\n\n\nThe rows are the sampled cases. In this example, the rows are housekeepers from different hotels. There are six rows, so there are six housekeepers in this data set.\n\n\nDepending on the study, the rows could be people, states, couples, mice—any case you’re taking a sample from to study."
+  },
+  {
+    "objectID": "T1_Introduction/Tools.slides.html#section",
+    "href": "T1_Introduction/Tools.slides.html#section",
+    "title": "Tools to construct graphs",
+    "section": "",
+    "text": "The columns represent variables or attributes of each case that were measured.\n\n    Condition  Age   Wt    Wt2\n1  Uninformed   35  136  135.8\n2  Uninformed   45  162  161.8\n3    Informed   52  117  116.8\n4    Informed   29  184  182.8\n5  Uninformed   38  134  136.6\n6    Informed   39  189  183.2\n\n\n\nIn this study, housekeepers were either informed or not that their daily work of cleaning hotel rooms was equivalent to getting adequate exercise for good health.\n\n\n\nSo one of the variables, Condition, indicates whether they were informed of this fact or not."
+  },
+  {
+    "objectID": "T1_Introduction/Tools.slides.html#section-1",
+    "href": "T1_Introduction/Tools.slides.html#section-1",
+    "title": "Tools to construct graphs",
+    "section": "",
+    "text": "Other variables include the age of the housekeeper (Age), her weight before starting the study (Wt), and her weight at the end of the study (Wt2), measured four weeks later.\n\nTherefore, the values in each row represent the values of that particular case in each of the variables measured.\n    Condition  Age   Wt    Wt2\n1  Uninformed   35  136  135.8\n2  Uninformed   45  162  161.8\n3    Informed   52  117  116.8\n4    Informed   29  184  182.8\n5  Uninformed   38  134  136.6\n6    Informed   39  189  183.2\n\n¿Cuántas variables hay en este conjunto de datos?"
+  },
+  {
+    "objectID": "T1_Introduction/Tools.slides.html#loading-data-in-python",
+    "href": "T1_Introduction/Tools.slides.html#loading-data-in-python",
+    "title": "Tools to construct graphs",
+    "section": "Loading data in python",
+    "text": "Loading data in python\nIn this course, we will assume that data is stored in an Excel file with the above organization. As an example, let’s use the file penguins.xlsx.\n\n\n\n\n\n\n\nThe file must be previously uploaded to Google Colab."
+  },
+  {
+    "objectID": "T1_Introduction/Tools.slides.html#section-2",
+    "href": "T1_Introduction/Tools.slides.html#section-2",
+    "title": "Tools to construct graphs",
+    "section": "",
+    "text": "The dataset penguins.xlsx contains data from penguins living in three islands."
+  },
+  {
+    "objectID": "T1_Introduction/Tools.slides.html#pandas-library",
+    "href": "T1_Introduction/Tools.slides.html#pandas-library",
+    "title": "Tools to construct graphs",
+    "section": "pandas library",
+    "text": "pandas library\n\n\n\n\n\n\n\n\n\npandas is an open-source Python library for data manipulation and analysis.\nIt is built on top of numpy for high-performance data operations..\nIt allows the user to import, clean, transform, and analyze data efficiently\nhttps://pandas.pydata.org/"
+  },
+  {
+    "objectID": "T1_Introduction/Tools.slides.html#importing-pandas",
+    "href": "T1_Introduction/Tools.slides.html#importing-pandas",
+    "title": "Tools to construct graphs",
+    "section": "Importing pandas",
+    "text": "Importing pandas\nFortunately, the pandas library is already pre-installed in Google Colab.\n\nHowever, we need to inform Google Colab that we want to use pandas and its functions using the following command:\n\nimport pandas as pd\n\n\nThe command as pd allows us to have a short name for pandas. To use a function of pandas, we use the command pd.function()."
+  },
+  {
+    "objectID": "T1_Introduction/Tools.slides.html#loading-data-using-pandas",
+    "href": "T1_Introduction/Tools.slides.html#loading-data-using-pandas",
+    "title": "Tools to construct graphs",
+    "section": "Loading data using pandas",
+    "text": "Loading data using pandas\nThe following code shows how to read the data in the file “penguins.xlsx” into python.\n\n# Load the Excel file into a pandas DataFrame.\npenguins_data = pd.read_excel(\"penguins.xlsx\")"
+  },
+  {
+    "objectID": "T1_Introduction/Tools.slides.html#the-function-head",
+    "href": "T1_Introduction/Tools.slides.html#the-function-head",
+    "title": "Tools to construct graphs",
+    "section": "The function head()",
+    "text": "The function head()\nThe function head() allows you to print the first rows of a pandas data frame.\n\n# Print the first 4 rows of the dataset.\npenguins_data.head(4)\n\n\n\n\n\n\n\n\nspecies\nisland\nbill_length_mm\nbill_depth_mm\nflipper_length_mm\nbody_mass_g\nsex\nyear\n\n\n\n\n0\nAdelie\nTorgersen\n39.1\n18.7\n181.0\n3750.0\nmale\n2007\n\n\n1\nAdelie\nTorgersen\n39.5\n17.4\n186.0\n3800.0\nfemale\n2007\n\n\n2\nAdelie\nTorgersen\n40.3\n18.0\n195.0\n3250.0\nfemale\n2007\n\n\n3\nAdelie\nTorgersen\nNaN\nNaN\nNaN\nNaN\nNaN\n2007"
+  },
+  {
+    "objectID": "T1_Introduction/Tools.slides.html#indexing-variables-a-dataset",
+    "href": "T1_Introduction/Tools.slides.html#indexing-variables-a-dataset",
+    "title": "Tools to construct graphs",
+    "section": "Indexing variables a dataset",
+    "text": "Indexing variables a dataset\nWe can select a specific variables of a data frame using the syntaxis below.\n\npenguins_data['bill_length_mm']\n\n0      39.1\n1      39.5\n2      40.3\n3       NaN\n4      36.7\n       ... \n339    55.8\n340    43.5\n341    49.6\n342    50.8\n343    50.2\nName: bill_length_mm, Length: 344, dtype: float64\n\n\nHere, we selected the variable bill_length_mm in the penguins_data dataset."
+  },
+  {
+    "objectID": "T1_Introduction/Tools.slides.html#section-3",
+    "href": "T1_Introduction/Tools.slides.html#section-3",
+    "title": "Tools to construct graphs",
+    "section": "",
+    "text": "To index multiple variables of a data frame, we put the names of the variables in a list object. For example, we select bill_length_mm, species, and island as follows:\n\nsub_penguins_data = penguins_data[ ['bill_length_mm',  'species', 'island'] ]\nsub_penguins_data.head()\n\n\n\n\n\n\n\n\nbill_length_mm\nspecies\nisland\n\n\n\n\n0\n39.1\nAdelie\nTorgersen\n\n\n1\n39.5\nAdelie\nTorgersen\n\n\n2\n40.3\nAdelie\nTorgersen\n\n\n3\nNaN\nAdelie\nTorgersen\n\n\n4\n36.7\nAdelie\nTorgersen"
+  },
+  {
+    "objectID": "T1_Introduction/Tools.slides.html#indexing-rows",
+    "href": "T1_Introduction/Tools.slides.html#indexing-rows",
+    "title": "Tools to construct graphs",
+    "section": "Indexing rows",
+    "text": "Indexing rows\nTo index rows in a dataset, we use the argument loc from pandas. For example, we select the rows 3 to 6 of the penguins_dataset dataset:\n\nrows_penguins_data = penguins_data.loc[2:5]\nrows_penguins_data\n\n\n\n\n\n\n\n\nspecies\nisland\nbill_length_mm\nbill_depth_mm\nflipper_length_mm\nbody_mass_g\nsex\nyear\n\n\n\n\n2\nAdelie\nTorgersen\n40.3\n18.0\n195.0\n3250.0\nfemale\n2007\n\n\n3\nAdelie\nTorgersen\nNaN\nNaN\nNaN\nNaN\nNaN\n2007\n\n\n4\nAdelie\nTorgersen\n36.7\n19.3\n193.0\n3450.0\nfemale\n2007\n\n\n5\nAdelie\nTorgersen\n39.3\n20.6\n190.0\n3650.0\nmale\n2007"
+  },
+  {
+    "objectID": "T1_Introduction/Tools.slides.html#section-4",
+    "href": "T1_Introduction/Tools.slides.html#section-4",
+    "title": "Tools to construct graphs",
+    "section": "",
+    "text": "rows_penguins_data\n\n\n\n\n\n\n\n\nspecies\nisland\nbill_length_mm\nbill_depth_mm\nflipper_length_mm\nbody_mass_g\nsex\nyear\n\n\n\n\n2\nAdelie\nTorgersen\n40.3\n18.0\n195.0\n3250.0\nfemale\n2007\n\n\n3\nAdelie\nTorgersen\nNaN\nNaN\nNaN\nNaN\nNaN\n2007\n\n\n4\nAdelie\nTorgersen\n36.7\n19.3\n193.0\n3450.0\nfemale\n2007\n\n\n5\nAdelie\nTorgersen\n39.3\n20.6\n190.0\n3650.0\nmale\n2007\n\n\n\n\n\n\n\nNote that the index 2 and 5 refer to observations 3 and 7, respectively, in the dataset. This is because the first index in python is 0."
+  },
+  {
+    "objectID": "T1_Introduction/Tools.slides.html#indexing-rows-and-columns",
+    "href": "T1_Introduction/Tools.slides.html#indexing-rows-and-columns",
+    "title": "Tools to construct graphs",
+    "section": "Indexing rows and columns",
+    "text": "Indexing rows and columns\nUsing loc, we can also retrieve a subset from the dataset by selecting specific columns and rows.\n\nsub_rows_pdata = penguins_data.loc[2:5, ['bill_length_mm',  'species', 'island'] ]\nsub_rows_pdata\n\n\n\n\n\n\n\n\nbill_length_mm\nspecies\nisland\n\n\n\n\n2\n40.3\nAdelie\nTorgersen\n\n\n3\nNaN\nAdelie\nTorgersen\n\n\n4\n36.7\nAdelie\nTorgersen\n\n\n5\n39.3\nAdelie\nTorgersen"
+  },
+  {
+    "objectID": "T1_Introduction/Tools.slides.html#agenda",
+    "href": "T1_Introduction/Tools.slides.html#agenda",
+    "title": "Tools to construct graphs",
+    "section": "Agenda",
+    "text": "Agenda\n\nIntroduction to python\nReading data with python"
+  },
+  {
+    "objectID": "T2_Type_of_Variables/Types.slides.html#agenda",
+    "href": "T2_Type_of_Variables/Types.slides.html#agenda",
+    "title": "Types of variables",
+    "section": "Agenda",
+    "text": "Agenda\n\nWhat type is my data?\nData manipulation with pandas"
+  },
+  {
+    "objectID": "T2_Type_of_Variables/Types.slides.html#types-of-variables",
+    "href": "T2_Type_of_Variables/Types.slides.html#types-of-variables",
+    "title": "Types of variables",
+    "section": "Types of Variables",
+    "text": "Types of Variables\nBefore creating a graph, we must examine the type of values that our dataset variables take.\n\nThere are two main types of variables:\n\n\nNumerical variables.\nCategorical variables."
+  },
+  {
+    "objectID": "T2_Type_of_Variables/Types.slides.html#numerical-variables",
+    "href": "T2_Type_of_Variables/Types.slides.html#numerical-variables",
+    "title": "Types of variables",
+    "section": "Numerical Variables",
+    "text": "Numerical Variables\nThese take values that represent numerical measurements or quantities.\n\n\nHeight (in centimeters).\nWeight (in kilograms).\nAge (in years).\nPrice (in dollars).\nTime (in hours or seconds).\nExam score (number of points on a 100-point scale)."
+  },
+  {
+    "objectID": "T2_Type_of_Variables/Types.slides.html#types-of-numerical-variables",
+    "href": "T2_Type_of_Variables/Types.slides.html#types-of-numerical-variables",
+    "title": "Types of variables",
+    "section": "Types of Numerical Variables",
+    "text": "Types of Numerical Variables\nNumerical variables are divided into two types:\n\nDiscrete: variables that take integer values.\n\n\nExamples:\n\nNumber of children (0, 1, 2, or 3)\nNumber of students in a class (20, 30, or 35)\nNumber of books in a library (10,000, 15,000, 20,000)"
+  },
+  {
+    "objectID": "T2_Type_of_Variables/Types.slides.html#section",
+    "href": "T2_Type_of_Variables/Types.slides.html#section",
+    "title": "Types of variables",
+    "section": "",
+    "text": "[*Continuous]*]{style=“color:darkblue;”}: variables that have a large range of possible values.\n\n\nExamples:\n\nA person’s height (could be within the range of 1.60 m to 1.85 m)\nAmbient temperature (could be within the range of -30 \\(^\\circ\\)C to 50 \\(^\\circ\\)C)\nTime for an Uber to arrive (between 5 and 60 minutes)"
+  },
+  {
+    "objectID": "T2_Type_of_Variables/Types.slides.html#categorical-variables",
+    "href": "T2_Type_of_Variables/Types.slides.html#categorical-variables",
+    "title": "Types of variables",
+    "section": "Categorical Variables",
+    "text": "Categorical Variables\nThese take values that fall into categories.\n\n\nA category is a class or division of people or things that share particular characteristics.\n\n\n\n\n\n\n\n\n\n\nVariable\nCategories\n\n\nAmazon review\n1\\(\\bigstar\\), 2\\(\\bigstar\\), 3\\(\\bigstar\\), 4\\(\\bigstar\\), 5\\(\\bigstar\\)\n\n\nCountry of origin\nMéxico, Canadá, EUA\n\n\nPostal code\n72703, 90034, 3000, …"
+  },
+  {
+    "objectID": "T2_Type_of_Variables/Types.slides.html#classification-of-categorical-variables",
+    "href": "T2_Type_of_Variables/Types.slides.html#classification-of-categorical-variables",
+    "title": "Types of variables",
+    "section": "Classification of Categorical Variables",
+    "text": "Classification of Categorical Variables\nCategorical variables are divided into two important types:\n\nNominal\nOrdinal\n\n\nThe distinction depends on whether the categories have a meaningful order or not."
+  },
+  {
+    "objectID": "T2_Type_of_Variables/Types.slides.html#nominal-categorical-variables",
+    "href": "T2_Type_of_Variables/Types.slides.html#nominal-categorical-variables",
+    "title": "Types of variables",
+    "section": "Nominal Categorical Variables",
+    "text": "Nominal Categorical Variables\nA categorical variable is nominal if its categories do not have a specific order.\n\nExamples:\n\n\nPolitical party affiliation (Democrat or Republican).\nDog breed (Shepherd, Hound, Terrier, Other).\nComputer operating system (Windows, macOS, Linux)."
+  },
+  {
+    "objectID": "T2_Type_of_Variables/Types.slides.html#ordinal-categorical-variables",
+    "href": "T2_Type_of_Variables/Types.slides.html#ordinal-categorical-variables",
+    "title": "Types of variables",
+    "section": "Ordinal Categorical Variables",
+    "text": "Ordinal Categorical Variables\nA categorical variable is ordinal if its categories do have a meaningful order.\n\nExamples:\n\n\nT-shirt size (Small, Medium, Large).\nEducation level (High School, University, Postgraduate).\nIncome level (Less than $250K, $250K-$500K, More than $500K)\n\n\n\nIt is important to note that with an ordinal variable, the difference between, say, small and medium is not necessarily the same as the difference between medium and large. Additionally, the differences between consecutive categories may not be quantifiable. Think about star ratings in a restaurant review—how much better is one star compared to two stars?"
+  },
+  {
+    "objectID": "T2_Type_of_Variables/Types.slides.html#interesting-fact",
+    "href": "T2_Type_of_Variables/Types.slides.html#interesting-fact",
+    "title": "Types of variables",
+    "section": "Interesting Fact…",
+    "text": "Interesting Fact…\nInteger values (e.g., 1, 2, 3, …, 5) can represent nominal or ordinal categorical variables.\n\n\n\nRepresentation\n1\n2\n3\n4\n\n\nBlood Type\nA\nB\nAB\nO\n\n\nReview\nBad\nFair\nGood\nVery Good\n\n\n\n\n\nEn la práctica, los valores booleanos (TRUE y FALSE) a menudo representan categorías nominales."
+  },
+  {
+    "objectID": "T2_Type_of_Variables/Types.slides.html#remember",
+    "href": "T2_Type_of_Variables/Types.slides.html#remember",
+    "title": "Types of variables",
+    "section": "Remember",
+    "text": "Remember"
+  },
+  {
+    "objectID": "T2_Type_of_Variables/Types.slides.html#a-general-difference-is",
+    "href": "T2_Type_of_Variables/Types.slides.html#a-general-difference-is",
+    "title": "Types of variables",
+    "section": "A General Difference Is …",
+    "text": "A General Difference Is …\n\nQuantitative variables (discrete or continuous) are those where addition or subtraction makes sense.\nCategorical variables (nominal or ordinal) are those where addition or subtraction does NOT make sense."
+  },
+  {
+    "objectID": "T2_Type_of_Variables/Types.slides.html#types-of-data-i",
+    "href": "T2_Type_of_Variables/Types.slides.html#types-of-data-i",
+    "title": "Types of variables",
+    "section": "Types of data I",
+    "text": "Types of data I\n\nWhen a numerical quantity designating how much or how many is assigned to each item in the sample, the resulting set of values is numerical or quantitative.\n\nHeight (in ft).\nWeight (in lbs).\nAge (in years)."
+  },
+  {
+    "objectID": "T2_Type_of_Variables/Types.slides.html#types-of-data-ii",
+    "href": "T2_Type_of_Variables/Types.slides.html#types-of-data-ii",
+    "title": "Types of variables",
+    "section": "Types of data II",
+    "text": "Types of data II\n\nWhen sample items are placed into categories and category names are assigned to the sample items, the data are categorical or qualitative.\n\nHair color.\nCountry of origin.\nZIP code."
+  },
+  {
+    "objectID": "T2_Type_of_Variables/Types.slides.html#data-types",
+    "href": "T2_Type_of_Variables/Types.slides.html#data-types",
+    "title": "Types of variables",
+    "section": "Data types",
+    "text": "Data types"
+  },
+  {
+    "objectID": "T2_Type_of_Variables/Types.slides.html#how-do-we-check-the-type-of-variable",
+    "href": "T2_Type_of_Variables/Types.slides.html#how-do-we-check-the-type-of-variable",
+    "title": "Types of variables",
+    "section": "How do we check the type of variable?",
+    "text": "How do we check the type of variable?\nLet’s load the data in “penguins.xlsx”.\n\n# Load pandas.\nimport pandas as pd\n\n# Load the Excel file into a pandas DataFrame.\npenguins_data = pd.read_excel(\"penguins.xlsx\")\n\n# Print the first 4 rows of the dataset.\npenguins_data.head(4)\n\n\n\n\n\n\n\n\nspecies\nisland\nbill_length_mm\nbill_depth_mm\nflipper_length_mm\nbody_mass_g\nsex\nyear\n\n\n\n\n0\nAdelie\nTorgersen\n39.1\n18.7\n181.0\n3750.0\nmale\n2007\n\n\n1\nAdelie\nTorgersen\n39.5\n17.4\n186.0\n3800.0\nfemale\n2007\n\n\n2\nAdelie\nTorgersen\n40.3\n18.0\n195.0\n3250.0\nfemale\n2007\n\n\n3\nAdelie\nTorgersen\nNaN\nNaN\nNaN\nNaN\nNaN\n2007"
+  },
+  {
+    "objectID": "T2_Type_of_Variables/Types.slides.html#section-1",
+    "href": "T2_Type_of_Variables/Types.slides.html#section-1",
+    "title": "Types of variables",
+    "section": "",
+    "text": "In python, we check the type of each variable in a dataset using the function info().\n\npenguins_data.info()\n\n&lt;class 'pandas.core.frame.DataFrame'&gt;\nRangeIndex: 344 entries, 0 to 343\nData columns (total 8 columns):\n #   Column             Non-Null Count  Dtype  \n---  ------             --------------  -----  \n 0   species            344 non-null    object \n 1   island             344 non-null    object \n 2   bill_length_mm     342 non-null    float64\n 3   bill_depth_mm      342 non-null    float64\n 4   flipper_length_mm  342 non-null    float64\n 5   body_mass_g        342 non-null    float64\n 6   sex                333 non-null    object \n 7   year               344 non-null    int64  \ndtypes: float64(4), int64(1), object(3)\nmemory usage: 21.6+ KB"
+  },
+  {
+    "objectID": "T2_Type_of_Variables/Types.slides.html#general-python-formats",
+    "href": "T2_Type_of_Variables/Types.slides.html#general-python-formats",
+    "title": "Types of variables",
+    "section": "General python formats",
+    "text": "General python formats\n\nfloat64 format for numerical variables with decimals.\nint64 format for numerical variables with integers.\nobject format for general variables with characters."
+  },
+  {
+    "objectID": "T2_Type_of_Variables/Types.slides.html#activity-solo-mode",
+    "href": "T2_Type_of_Variables/Types.slides.html#activity-solo-mode",
+    "title": "Types of variables",
+    "section": "Activity (solo mode)",
+    "text": "Activity (solo mode)\n\nGo to the Modules section on our CANVAS website.\nComplete the Activity 2.1: Types of Variables individually."
+  },
+  {
+    "objectID": "T2_Type_of_Variables/Types.slides.html#pandas-library",
+    "href": "T2_Type_of_Variables/Types.slides.html#pandas-library",
+    "title": "Types of variables",
+    "section": "pandas library",
+    "text": "pandas library\n\n\n\n\n\n\n\n\n\npandas allows the user to import, clean, transform, and analyze data efficiently\nhttps://pandas.pydata.org/\n\n\nImport it in Google Colab as follows.\n\nimport pandas as pd"
+  },
+  {
+    "objectID": "T2_Type_of_Variables/Types.slides.html#chaining-operations-with-pandas",
+    "href": "T2_Type_of_Variables/Types.slides.html#chaining-operations-with-pandas",
+    "title": "Types of variables",
+    "section": "Chaining operations with pandas",
+    "text": "Chaining operations with pandas\nOne of the most important techniques in pandas is method chaining, which allows for cleaner and more readable data manipulation.\nThe general structure of chaining looks like this:"
+  },
+  {
+    "objectID": "T2_Type_of_Variables/Types.slides.html#key-pandas-functions",
+    "href": "T2_Type_of_Variables/Types.slides.html#key-pandas-functions",
+    "title": "Types of variables",
+    "section": "Key pandas functions",
+    "text": "Key pandas functions\npandas provides functions to solve common data manipulation tasks:\n\n\nquery() filters observations based on conditions.\nloc[] and iloc[] select specific rows and columns.\nassign() creates new variables.\nsort_values() changes the order of rows.\nagg() reduces multiple values to a single numerical summary."
+  },
+  {
+    "objectID": "T2_Type_of_Variables/Types.slides.html#section-2",
+    "href": "T2_Type_of_Variables/Types.slides.html#section-2",
+    "title": "Types of variables",
+    "section": "",
+    "text": "To practice, we will use the dataset penguins_data."
+  },
+  {
+    "objectID": "T2_Type_of_Variables/Types.slides.html#filtering-with-query",
+    "href": "T2_Type_of_Variables/Types.slides.html#filtering-with-query",
+    "title": "Types of variables",
+    "section": "Filtering with query()",
+    "text": "Filtering with query()\nFilter the data for the species “Gentoo.”\n\n(penguins_data\n  .query(\"species == 'Gentoo'\")\n  .head()\n)\n\n\n\n\n\n\n\n\nspecies\nisland\nbill_length_mm\nbill_depth_mm\nflipper_length_mm\nbody_mass_g\nsex\nyear\n\n\n\n\n152\nGentoo\nBiscoe\n46.1\n13.2\n211.0\n4500.0\nfemale\n2007\n\n\n153\nGentoo\nBiscoe\n50.0\n16.3\n230.0\n5700.0\nmale\n2007\n\n\n154\nGentoo\nBiscoe\n48.7\n14.1\n210.0\n4450.0\nfemale\n2007\n\n\n155\nGentoo\nBiscoe\n50.0\n15.2\n218.0\n5700.0\nmale\n2007\n\n\n156\nGentoo\nBiscoe\n47.6\n14.5\n215.0\n5400.0\nmale\n2007\n\n\n\n\n\n\n\n\nThe head() function prints the first 6 rows of the dataset."
+  },
+  {
+    "objectID": "T2_Type_of_Variables/Types.slides.html#section-3",
+    "href": "T2_Type_of_Variables/Types.slides.html#section-3",
+    "title": "Types of variables",
+    "section": "",
+    "text": "We can also filter the data to get penguins with a body mass greater than 5000g.\n\n(penguins_data\n  .query(\"body_mass_g &gt; 5000\")\n  .head()\n)\n\n\n\n\n\n\n\n\nspecies\nisland\nbill_length_mm\nbill_depth_mm\nflipper_length_mm\nbody_mass_g\nsex\nyear\n\n\n\n\n153\nGentoo\nBiscoe\n50.0\n16.3\n230.0\n5700.0\nmale\n2007\n\n\n155\nGentoo\nBiscoe\n50.0\n15.2\n218.0\n5700.0\nmale\n2007\n\n\n156\nGentoo\nBiscoe\n47.6\n14.5\n215.0\n5400.0\nmale\n2007\n\n\n159\nGentoo\nBiscoe\n46.7\n15.3\n219.0\n5200.0\nmale\n2007\n\n\n161\nGentoo\nBiscoe\n46.8\n15.4\n215.0\n5150.0\nmale\n2007"
+  },
+  {
+    "objectID": "T2_Type_of_Variables/Types.slides.html#selecting-columns-with-loc",
+    "href": "T2_Type_of_Variables/Types.slides.html#selecting-columns-with-loc",
+    "title": "Types of variables",
+    "section": "Selecting columns with loc[]",
+    "text": "Selecting columns with loc[]\nSelect the columns species, body_mass_g and sex.\n\n(penguins_data\n  .loc[:, [\"species\", \"body_mass_g\", \"sex\"]]\n  .head()\n)\n\n\n\n\n\n\n\n\nspecies\nbody_mass_g\nsex\n\n\n\n\n0\nAdelie\n3750.0\nmale\n\n\n1\nAdelie\n3800.0\nfemale\n\n\n2\nAdelie\n3250.0\nfemale\n\n\n3\nAdelie\nNaN\nNaN\n\n\n4\nAdelie\n3450.0\nfemale"
+  },
+  {
+    "objectID": "T2_Type_of_Variables/Types.slides.html#combining-query-and-loc",
+    "href": "T2_Type_of_Variables/Types.slides.html#combining-query-and-loc",
+    "title": "Types of variables",
+    "section": "Combining query() and loc()",
+    "text": "Combining query() and loc()\nSelect the columns species, body_mass_g and sex. Next, filter the data for the species “Gentoo.”\n\n(penguins_data\n  .loc[:, [\"species\", \"body_mass_g\", \"sex\"]]\n  .query(\"species == 'Gentoo'\")\n  .head(4)\n)\n\n\n\n\n\n\n\n\nspecies\nbody_mass_g\nsex\n\n\n\n\n152\nGentoo\n4500.0\nfemale\n\n\n153\nGentoo\n5700.0\nmale\n\n\n154\nGentoo\n4450.0\nfemale\n\n\n155\nGentoo\n5700.0\nmale"
+  },
+  {
+    "objectID": "T2_Type_of_Variables/Types.slides.html#create-new-columns-with-assign",
+    "href": "T2_Type_of_Variables/Types.slides.html#create-new-columns-with-assign",
+    "title": "Types of variables",
+    "section": "Create new columns with assign()",
+    "text": "Create new columns with assign()\nWith assign(), we can create new columns (variables) that are functions of existing ones. For example, we can compute the ratio of bill_length_mm y bill_depth_mm.\n\n\n(penguins_data\n  .assign(LengthDepthRatio = lambda df: df[\"bill_length_mm\"] / df[\"bill_depth_mm\"])\n  .loc[:, [\"species\", \"body_mass_g\", \"sex\", \"LengthDepthRatio\"]]\n  .head()\n)"
+  },
+  {
+    "objectID": "T2_Type_of_Variables/Types.slides.html#sorting-with-sort_values",
+    "href": "T2_Type_of_Variables/Types.slides.html#sorting-with-sort_values",
+    "title": "Types of variables",
+    "section": "Sorting with sort_values()",
+    "text": "Sorting with sort_values()\nWe can sort the data based on a column like bill_length_mm.\n\n(penguins_data\n  .sort_values(\"bill_length_mm\")\n  .head(4)\n)\n\n\n\n\n\n\n\n\nspecies\nisland\nbill_length_mm\nbill_depth_mm\nflipper_length_mm\nbody_mass_g\nsex\nyear\n\n\n\n\n142\nAdelie\nDream\n32.1\n15.5\n188.0\n3050.0\nfemale\n2009\n\n\n98\nAdelie\nDream\n33.1\n16.1\n178.0\n2900.0\nfemale\n2008\n\n\n70\nAdelie\nTorgersen\n33.5\n19.0\n190.0\n3600.0\nfemale\n2008\n\n\n92\nAdelie\nDream\n34.0\n17.1\n185.0\n3400.0\nfemale\n2008"
+  },
+  {
+    "objectID": "T2_Type_of_Variables/Types.slides.html#section-4",
+    "href": "T2_Type_of_Variables/Types.slides.html#section-4",
+    "title": "Types of variables",
+    "section": "",
+    "text": "The new dataset has the variable LengthDepthRatio.\n\n\n\n\n\n\n\n\n\nspecies\nbody_mass_g\nsex\nLengthDepthRatio\n\n\n\n\n0\nAdelie\n3750.0\nmale\n2.090909\n\n\n1\nAdelie\n3800.0\nfemale\n2.270115\n\n\n2\nAdelie\n3250.0\nfemale\n2.238889\n\n\n3\nAdelie\nNaN\nNaN\nNaN\n\n\n4\nAdelie\n3450.0\nfemale\n1.901554"
+  },
+  {
+    "objectID": "T2_Type_of_Variables/Types.slides.html#summarizing-with-agg",
+    "href": "T2_Type_of_Variables/Types.slides.html#summarizing-with-agg",
+    "title": "Types of variables",
+    "section": "Summarizing with agg()",
+    "text": "Summarizing with agg()\nWe can calculate the average of the columns bill_length_mm, bill_depth_mm, and body_mass_g.\n\n(penguins_data\n  .loc[:, [\"bill_length_mm\", \"bill_depth_mm\", \"body_mass_g\"]]\n  .agg([\"mean\"])\n)\n\n\n\n\n\n\n\n\nbill_length_mm\nbill_depth_mm\nbody_mass_g\n\n\n\n\nmean\n43.92193\n17.15117\n4201.754386\n\n\n\n\n\n\n\n\n\nBy default, agg() ignores missing values."
+  },
+  {
+    "objectID": "T2_Type_of_Variables/Types.slides.html#saving-results-in-new-objects",
+    "href": "T2_Type_of_Variables/Types.slides.html#saving-results-in-new-objects",
+    "title": "Types of variables",
+    "section": "Saving results in new objects",
+    "text": "Saving results in new objects\nAfter performing operations on our data, we can save the modified dataset as a new object.\n\nsummary_penguins_data = (penguins_data\n  .loc[:, [\"bill_length_mm\", \"bill_depth_mm\", \"body_mass_g\"]]\n  .agg([\"mean\"])\n)\n\nsummary_penguins_data\n\n\n\n\n\n\n\n\nbill_length_mm\nbill_depth_mm\nbody_mass_g\n\n\n\n\nmean\n43.92193\n17.15117\n4201.754386"
+  },
+  {
+    "objectID": "T2_Type_of_Variables/Types.slides.html#final-remarks",
+    "href": "T2_Type_of_Variables/Types.slides.html#final-remarks",
+    "title": "Types of variables",
+    "section": "Final Remarks",
+    "text": "Final Remarks\n\n\npandas is a Python library for data manipulation.\nUnderstanding variable types helps determine the best operations and visualizations.\nThere are specific charts for numerical and categorical variables.\nThroughout this course, we will explore various visualizations for different types of data."
+  },
+  {
+    "objectID": "T2_Type_of_Variables/Types.slides.html#section-5",
+    "href": "T2_Type_of_Variables/Types.slides.html#section-5",
+    "title": "Types of variables",
+    "section": "",
+    "text": "To sort in descending order, use ascending=False inside sort_values().\n\n(penguins_data\n  .sort_values(\"bill_length_mm\", ascending=False)\n  .head()\n)\n\n\n\n\n\n\n\n\nspecies\nisland\nbill_length_mm\nbill_depth_mm\nflipper_length_mm\nbody_mass_g\nsex\nyear\n\n\n\n\n185\nGentoo\nBiscoe\n59.6\n17.0\n230.0\n6050.0\nmale\n2007\n\n\n293\nChinstrap\nDream\n58.0\n17.8\n181.0\n3700.0\nfemale\n2007\n\n\n253\nGentoo\nBiscoe\n55.9\n17.0\n228.0\n5600.0\nmale\n2009\n\n\n339\nChinstrap\nDream\n55.8\n19.8\n207.0\n4000.0\nmale\n2009\n\n\n267\nGentoo\nBiscoe\n55.1\n16.0\n230.0\n5850.0\nmale\n2009"
   }
 ]

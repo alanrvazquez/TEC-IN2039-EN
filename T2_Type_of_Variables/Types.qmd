@@ -1,0 +1,450 @@
+---
+title: "Types of variables"
+subtitle: "IN2039: Data Visualization for Decision Making"
+author: 
+  - name: Alan R. Vazquez
+    affiliations:
+      - name: Department of Industrial Engineering
+format: 
+  revealjs:
+    chalkboard: false
+    multiplex: true
+    footer: "Tecnologico de Monterrey"
+    logo: IN2039_logo.png
+    css: style.css
+    slide-number: True
+    html-math-method: mathjax
+editor: visual
+jupyter: python3
+---
+
+## Agenda
+
+1.  What type is my data? 
+2.  Data manipulation with pandas
+
+## Types of Variables
+
+Before creating a graph, we must examine the type of values that our dataset variables take.
+
+. . .
+
+There are two main types of variables:
+
+::: incremental
+-   [Numerical variables.]{style="color:darkblue;"}
+
+-   [Categorical variables.]{style="color:darkred;"}
+:::
+
+## Numerical Variables
+
+These take values that represent numerical measurements or quantities.
+
+::: incremental
+- Height (in centimeters).
+- Weight (in kilograms).
+- Age (in years).
+- Price (in dollars).
+- Time (in hours or seconds).
+- Exam score (number of points on a 100-point scale).
+:::
+
+## Types of Numerical Variables
+
+Numerical variables are divided into two types:
+
+-   [*Discrete*]{style="color:darkblue;"}: variables that take integer values.
+
+. . .
+
+Examples:
+
+1. Number of children (0, 1, 2, or 3)
+2. Number of students in a class (20, 30, or 35)
+3. Number of books in a library (10,000, 15,000, 20,000)
+
+## 
+
+-   [*Continuous]*]{style="color:darkblue;"}: variables that have a large range of possible values.
+
+. . .
+
+Examples:
+
+1.  A person’s height (could be *within the range* of 1.60 m to 1.85 m)
+2.  Ambient temperature (could be *within the range* of -30 $^\circ$C to 50 $^\circ$C)
+3.  Time for an Uber to arrive (*between* 5 and 60 minutes)
+
+## Categorical Variables
+
+These take values that fall into *categories*.
+
+. . .
+
+> A **category** is a class or division of people or things that share particular characteristics.
+
+. . .
+
+|  |  |
+|-------------------|-----------------------------------------------------|
+| **Variable** | **Categories** |
+| Amazon review | 1$\bigstar$, 2$\bigstar$, 3$\bigstar$, 4$\bigstar$, 5$\bigstar$ |
+| Country of origin | México, Canadá, EUA |
+| Postal code | 72703, 90034, 3000, ... |
+
+## Classification of Categorical Variables
+
+Categorical variables are divided into two important types:
+
+-   [*Nominal*]{style="color:darkred;"}
+-   [*Ordinal*]{style="color:darkgreen;"}
+
+::: notes
+The distinction depends on whether the categories have a meaningful order or not.
+:::
+
+## Nominal Categorical Variables
+
+A categorical variable is nominal if its categories **do not have** a specific order.
+
+. . .
+
+Examples:
+
+::: incremental
+-   Political party affiliation (Democrat or Republican).
+-   Dog breed (Shepherd, Hound, Terrier, Other).
+-   Computer operating system (Windows, macOS, Linux).
+:::
+
+## Ordinal Categorical Variables
+
+A categorical variable is ordinal if its categories **do have a meaningful order**.
+
+. . .
+
+Examples:
+
+::: incremental
+- T-shirt size (Small, Medium, Large).
+- Education level (High School, University, Postgraduate).
+- Income level (Less than \$250K, \$250K-\$500K, More than $500K)
+:::
+
+::: notes
+It is important to note that with an ordinal variable, the difference between, say, small and medium is not necessarily the same as the difference between medium and large. Additionally, the differences between consecutive categories may not be quantifiable. Think about star ratings in a restaurant review—how much better is one star compared to two stars?
+:::
+
+## Interesting Fact...
+
+Integer values (e.g., 1, 2, 3, ..., 5) can represent nominal or ordinal categorical variables.
+
+|                    |        |           |         |             |
+|--------------------|--------|-----------|---------|-------------|
+| Representation     | 1      | 2         | 3       | 4           |
+| **Blood Type** | *A*    | *B*       | *AB*    | *O*         |
+| **Review**         | *Bad* | *Fair* | *Good* | *Very Good* |
+
+<!-- -->
+
+. . .
+
+En la práctica, los valores booleanos (`TRUE` y `FALSE`) a menudo representan categorías nominales.
+
+## Remember
+
+![](images/clipboard-2750534250.png)
+
+## A General Difference Is ...
+
+- Quantitative variables (discrete or continuous) are those where addition or subtraction makes sense.
+
+- Categorical variables (nominal or ordinal) are those where addition or subtraction does **NOT** make sense.
+
+# Review of data types and summary statistics
+
+## Types of data I
+
+</br>
+
+When a numerical quantity designating how much or how many is assigned to each item in the sample, the resulting set of values is [**numerical**]{style="color:lightblue;"} or [**quantitative**]{style="color:lightblue;"}.
+
+-   Height (in ft).
+-   Weight (in lbs).
+-   Age (in years).
+
+## Types of data II
+
+</br>
+
+When sample items are placed into categories and category names are assigned to the sample items, the data are [**categorical**]{style="color:pink;"} or [**qualitative**]{style="color:pink;"}.
+
+-   Hair color.
+-   Country of origin.
+-   ZIP code.
+
+## Data types
+
+![](images/Images.002.jpeg){fig-align="center"}
+
+## How do we check the type of variable?
+
+Let's load the data in "penguins.xlsx".
+
+```{python}
+#| echo: true
+
+# Load pandas.
+import pandas as pd
+
+# Load the Excel file into a pandas DataFrame.
+penguins_data = pd.read_excel("penguins.xlsx")
+
+# Print the first 4 rows of the dataset.
+penguins_data.head(4)
+```
+
+## 
+
+In python, we check the type of each variable in a dataset using the function `info()`.
+
+```{python}
+#| echo: true
+
+penguins_data.info()
+```
+
+## General python formats
+
+-   `float64` format for numerical variables with decimals.
+-   `int64` format for numerical variables with integers.
+-   `object` format for general variables with characters.
+
+## Activity (*solo* mode)
+
+1.  Go to the **Modules** section on our CANVAS website.
+
+2.  Complete the [**Activity 2.1: Types of Variables**]{style="color:darkblue;"} individually.
+
+
+# Data manipulation with pandas
+
+## pandas library
+
+::::: columns
+::: {.column width="30%"}
+![](images/pandas-logo-300.png){fig-align="left"}
+:::
+
+::: {.column width="70%"}
+-   **pandas** allows the user to import, clean, transform, and analyze data efficiently
+-   <https://pandas.pydata.org/>
+:::
+:::::
+
+Import it in Google Colab as follows.
+
+```{python}
+#| echo: true
+#| output: false
+
+import pandas as pd
+```
+
+## Chaining operations with pandas
+
+One of the most important techniques in pandas is method **chaining**, which allows for cleaner and more readable data manipulation.
+
+The general structure of chaining looks like this:
+
+![](images/chaining_pandas.png){fig-align="center"}
+
+## Key pandas functions
+
+pandas provides functions to solve common data manipulation tasks:
+
+::: incremental
+-   `query()` filters observations based on conditions.
+
+-   `loc[]` and `iloc[]` select specific rows and columns.
+
+-   `assign()` creates new variables.
+
+-   `sort_values()` changes the order of rows.
+
+-   `agg()` reduces multiple values to a single numerical summary.
+:::
+
+## 
+
+![](images/pandas_manipulation.png){fig-align="center"}
+
+To practice, we will use the dataset `penguins_data`.
+
+## Filtering with `query()`
+
+Filter the data for the species "Gentoo."
+
+```{python}
+#| eval: true
+#| echo: true
+
+(penguins_data
+  .query("species == 'Gentoo'")
+  .head()
+)
+```
+
+> The `head()` function prints the first 6 rows of the dataset.
+
+## 
+
+We can also filter the data to get penguins with a body mass greater than 5000g.
+
+```{python}
+#| eval: true
+#| echo: true
+
+(penguins_data
+  .query("body_mass_g > 5000")
+  .head()
+)
+```
+
+## Selecting columns with `loc[]`
+
+Select the columns `species`, `body_mass_g` and `sex`.
+
+```{python}
+#| eval: true
+#| echo: true
+
+(penguins_data
+  .loc[:, ["species", "body_mass_g", "sex"]]
+  .head()
+)
+```
+
+## Combining `query()` and `loc()`
+
+Select the columns `species`, `body_mass_g` and `sex`. Next, filter the data for the species "Gentoo."
+
+```{python}
+#| eval: true
+#| echo: true
+
+(penguins_data
+  .loc[:, ["species", "body_mass_g", "sex"]]
+  .query("species == 'Gentoo'")
+  .head(4)
+)
+```
+
+## Create new columns with `assign()`
+
+With `assign()`, we can create new columns (variables) that are functions of existing ones. For example, we can compute the ratio of  `bill_length_mm` y `bill_depth_mm`.
+
+</br>
+
+```{python}
+#| eval: false
+#| echo: true
+
+(penguins_data
+  .assign(LengthDepthRatio = lambda df: df["bill_length_mm"] / df["bill_depth_mm"])
+  .loc[:, ["species", "body_mass_g", "sex", "LengthDepthRatio"]]
+  .head()
+)
+```
+
+##
+
+The new dataset has the variable `LengthDepthRatio`.
+
+```{python}
+#| eval: true
+#| echo: false
+#| output: true
+
+(penguins_data
+  .assign(LengthDepthRatio = lambda df: df["bill_length_mm"] / df["bill_depth_mm"])
+  .loc[:, ["species", "body_mass_g", "sex", "LengthDepthRatio"]]
+  .head()
+)
+```
+
+
+## Sorting with `sort_values()`
+
+We can sort the data based on a column like `bill_length_mm`.
+
+```{python}
+#| eval: true
+#| echo: true
+
+(penguins_data
+  .sort_values("bill_length_mm")
+  .head(4)
+)
+```
+
+## 
+
+To sort in descending order, use `ascending=False` inside `sort_values()`.
+
+```{python}
+#| eval: true
+#| echo: true
+
+(penguins_data
+  .sort_values("bill_length_mm", ascending=False)
+  .head()
+)
+```
+
+## Summarizing with `agg()`
+
+We can calculate the average of the columns `bill_length_mm`, `bill_depth_mm`, and `body_mass_g`.
+
+```{python}
+#| eval: true
+#| echo: true
+
+(penguins_data
+  .loc[:, ["bill_length_mm", "bill_depth_mm", "body_mass_g"]]
+  .agg(["mean"])
+)
+```
+
+</br>
+
+> By default, `agg()` ignores missing values.
+
+## Saving results in new objects
+
+After performing operations on our data, we can save the modified dataset as a new object.
+
+```{python}
+#| eval: true
+#| echo: true
+
+summary_penguins_data = (penguins_data
+  .loc[:, ["bill_length_mm", "bill_depth_mm", "body_mass_g"]]
+  .agg(["mean"])
+)
+
+summary_penguins_data
+```
+
+
+## Final Remarks
+
+</br>
+
+- **pandas** is a Python library for data manipulation.
+- Understanding variable types helps determine the best operations and visualizations.
+- There are specific charts for numerical and categorical variables.
+- Throughout this course, we will explore various visualizations for different types of data.
+
+# [Return to main page](https://alanrvazquez.github.io/TEC-IN1002B-Website/)
