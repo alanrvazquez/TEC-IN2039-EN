@@ -1,0 +1,15 @@
+---
+title: "IN2039 Data Visualization for Decision Making"
+subtitle: "Materials for Semester FJ 2025"
+author: 
+  - name: Alan R. Vazquez
+    orcid: 0000-0002-3658-0911
+    affiliations:
+      - name: Tecnologico de Monterrey
+---
+
+## Course topics
+
+### Module 2
+
+1.  Introduction to Data Science
