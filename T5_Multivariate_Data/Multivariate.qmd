@@ -9,7 +9,7 @@ format:
   revealjs:
     chalkboard: true
     multiplex: true
-    footer: "Tecnológico de Monterrey"
+    footer: "Tecnologico de Monterrey"
     logo: IN2039_logo.png
     css: style.css
     slide-number: True
@@ -32,7 +32,7 @@ editor: visual
 
 ## Load Libraries
 
-Let's load the `readxl`, `ggplot2`, `ggformula`, and `dplyr`libraries in Google Colab and R before starting.
+Let's import the `pandas`, `matplotlib`, and `seaborn` in Google Colab and R before starting.
 
 ```{python}
 #| echo: true
@@ -41,14 +41,14 @@ Let's load the `readxl`, `ggplot2`, `ggformula`, and `dplyr`libraries in Google 
 # Don't forget to install the 'ggformula' library in Google Colab.
 # install.packages("ggformula")
 
-import pandas as pd      # Equivalent to 'readxl' for reading Excel files
-import seaborn as sns    # Equivalent to 'ggplot2' for plotting
-import matplotlib.pyplot as plt  # For plotting (used alongside seaborn)
-import numpy as np        # For data manipulation (similar to 'dplyr')
-
+import pandas as pd      
+import matplotlib.pyplot as plt  
+import seaborn as sns    
 ```
 
-## Multivariate Data
+## Multivariate data
+
+</br>
 
 Multivariate data consists of datasets that contain observations of two or more variables.
 
@@ -70,14 +70,12 @@ The data is stored in the file "auto_dataset.xlsx".
 
 ```{python}
 #| echo: true
-# Read the Excel file
-auto_data = pd.read_excel("auto_dataset.xlsx")
 
-# View the first few rows
+auto_data = pd.read_excel("auto_dataset.xlsx")
 auto_data.head()
 ```
 
-## Principle 1: Formulate the Question
+## Principle 1: Formulate the question
 
 In the context of multiple-variable data, typical questions to study include:
 
@@ -91,16 +89,16 @@ In the context of multiple-variable data, typical questions to study include:
 -   Are there any unusual observations in $X$ for a subgroup of variable $Z$?
 :::
 
-## Principle 2: Turn Data into Information
+## Principle 2: Turn data into information
 
 There are various types of graphs that help us explore relationships between two or more variables.
 
 ::: center
-| Type        | Graph Type                                                     |
-|:-----------------|:-----------------------------------------------------|
-| Numerical   | Scatter plot, line graph                    |
-| Categorical | Side-by-side bar chart, stacked bar chart   |
-| Mixed       | GSide-by-side box plot, bubble chart |
+| Type        | Graph Type                                |
+|:------------|:------------------------------------------|
+| Numerical   | Scatter plot, line graph                  |
+| Categorical | Side-by-side bar chart, stacked bar chart |
+| Mixed       | GSide-by-side box plot, bubble chart      |
 :::
 
 ::: notes
@@ -109,7 +107,7 @@ For two features, the combination of types (both quantitative, both qualitative,
 
 # Two Numerical Variables
 
-## Independent and Dependent Variables
+## Independent and dependent variables
 
 When investigating the relationship between two variables (numerical or categorical), we use specific terminology.
 
@@ -127,7 +125,9 @@ The other variable is called the *independent* or *predictor variable*, denoted 
 
 ## Scatter Plot
 
-The most common graph for examining the relationship between two numerical variables is the  [***scatter plot***]{style="color:#174062;"}.
+</br>
+
+The most common graph for examining the relationship between two numerical variables is the [***scatter plot***]{style="color:#174062;"}.
 
 . . .
 
@@ -137,51 +137,45 @@ Variables $X$ and $Y$ are placed on the horizontal and vertical axes, respective
 
 > The goal is to explore linear or non-linear relationships between variables.
 
-## 
+## Scatterplot in Python
 
-To create scatter plots, we use the function `gf_point(Y ~ X, data = data_set)`.
+To create scatter plots in **seaborn**, we use the function `scatterplot()`.
 
 . . .
 
 For example, let's create a plot to explore the relationship between a car's weight (`weight`) and its fuel efficiency in miles per gallon (`mpg`)
 
 ```{python}
-#| fig-pos: center
+#| fig-align: center
 #| echo: true
 #| output: false
 
-
-# Create the scatter plot
-sns.scatterplot(data=auto_data, x="weight", y="mpg", color="blue", s=50)
-
-# Show the plot
+plt.figure(figsize=(6, 6))
+sns.scatterplot(data = auto_data, x = "weight", y = "mpg")
 plt.show()
 ```
 
 ## 
 
 ```{python}
-#| fig-pos: center
+#| fig-align: center
 #| echo: true
 #| output: true
 
-
-# Create the scatter plot
+plt.figure(figsize=(6, 6))
 sns.scatterplot(data=auto_data, x="weight", y="mpg", color="blue", s=50)
-
-# Show the plot
 plt.show()
 ```
 
-## Principle 3: Apply Graphic Design
+## Principle 3: Apply gaphic design principles
 
 Following Principle 3, we can modify the default function values to define different colors or shapes for the points in the graph.
 
-Specifically, you can change the color, shape, and size of points using the arguments  `color`, `shape` and `size`, respectively.
+Specifically, you can change the color, shape, and size of points using the arguments `color`, `shape` and `size`, respectively.
 
 </br>
 
-`gf_point(Y ~ X, data = data_set, color, shape, size)`
+`sns.scatterplot(data=data_set, x=X, y=Y, color, marker, s)`
 
 ## 
 
@@ -189,10 +183,9 @@ Specifically, you can change the color, shape, and size of points using the argu
 #| fig-pos: center
 #| echo: true
 
-# Create the scatter plot with customized color, shape, and size
-sns.scatterplot(data=auto_data, x="weight", y="mpg", color="blue", marker="x", s=100)
-
-# Show the plot
+plt.figure(figsize=(6, 6))
+sns.scatterplot(data=auto_data, x="weight", y="mpg", color="blue", 
+                marker="x", s=100)
 plt.show()
 ```
 
@@ -960,7 +953,7 @@ plt.show()
 
 ## 
 
-The function produces a grid with 1 column and 3 rows of charts. Each row accommodates one category of  `origin`.
+The function produces a grid with 1 column and 3 rows of charts. Each row accommodates one category of `origin`.
 
 ```{python}
 #| fig-pos: center
@@ -1144,7 +1137,7 @@ plt.show()
 
 ## Area Chart
 
-An area chart is a specialized form of a line chart, where points are connected with a continuous line, and the region beneath the line is filled with a solid color. It is generated using the  `gf_area()`function from **ggformula**.
+An area chart is a specialized form of a line chart, where points are connected with a continuous line, and the region beneath the line is filled with a solid color. It is generated using the `gf_area()`function from **ggformula**.
 
 ```{python}
 #| fig-pos: center

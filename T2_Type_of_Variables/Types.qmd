@@ -20,7 +20,7 @@ jupyter: python3
 
 ## Agenda
 
-1.  What type is my data? 
+1.  What type is my data?
 2.  Data manipulation with pandas
 
 ## Types of Variables
@@ -42,12 +42,12 @@ There are two main types of variables:
 These take values that represent numerical measurements or quantities.
 
 ::: incremental
-- Height (in centimeters).
-- Weight (in kilograms).
-- Age (in years).
-- Price (in dollars).
-- Time (in hours or seconds).
-- Exam score (number of points on a 100-point scale).
+-   Height (in centimeters).
+-   Weight (in kilograms).
+-   Age (in years).
+-   Price (in dollars).
+-   Time (in hours or seconds).
+-   Exam score (number of points on a 100-point scale).
 :::
 
 ## Types of Numerical Variables
@@ -60,13 +60,13 @@ Numerical variables are divided into two types:
 
 Examples:
 
-1. Number of children (0, 1, 2, or 3)
-2. Number of students in a class (20, 30, or 35)
-3. Number of books in a library (10,000, 15,000, 20,000)
+1.  Number of children (0, 1, 2, or 3)
+2.  Number of students in a class (20, 30, or 35)
+3.  Number of books in a library (10,000, 15,000, 20,000)
 
 ## 
 
--   [*Continuous]*]{style="color:darkblue;"}: variables that have a large range of possible values.
+-   \[\*Continuous\]\*\]{style="color:darkblue;"}: variables that have a large range of possible values.
 
 . . .
 
@@ -87,7 +87,7 @@ These take values that fall into *categories*.
 . . .
 
 |  |  |
-|-------------------|-----------------------------------------------------|
+|--------------------|----------------------------------------------------|
 | **Variable** | **Categories** |
 | Amazon review | 1$\bigstar$, 2$\bigstar$, 3$\bigstar$, 4$\bigstar$, 5$\bigstar$ |
 | Country of origin | México, Canadá, EUA |
@@ -127,9 +127,9 @@ A categorical variable is ordinal if its categories **do have a meaningful order
 Examples:
 
 ::: incremental
-- T-shirt size (Small, Medium, Large).
-- Education level (High School, University, Postgraduate).
-- Income level (Less than \$250K, \$250K-\$500K, More than $500K)
+-   T-shirt size (Small, Medium, Large).
+-   Education level (High School, University, Postgraduate).
+-   Income level (Less than \$250K, \$250K-\$500K, More than \$500K)
 :::
 
 ::: notes
@@ -140,11 +140,11 @@ It is important to note that with an ordinal variable, the difference between, s
 
 Integer values (e.g., 1, 2, 3, ..., 5) can represent nominal or ordinal categorical variables.
 
-|                    |        |           |         |             |
-|--------------------|--------|-----------|---------|-------------|
-| Representation     | 1      | 2         | 3       | 4           |
-| **Blood Type** | *A*    | *B*       | *AB*    | *O*         |
-| **Review**         | *Bad* | *Fair* | *Good* | *Very Good* |
+|                |       |        |        |             |
+|----------------|-------|--------|--------|-------------|
+| Representation | 1     | 2      | 3      | 4           |
+| **Blood Type** | *A*   | *B*    | *AB*   | *O*         |
+| **Review**     | *Bad* | *Fair* | *Good* | *Very Good* |
 
 <!-- -->
 
@@ -158,9 +158,9 @@ En la práctica, los valores booleanos (`TRUE` y `FALSE`) a menudo representan c
 
 ## A General Difference Is ...
 
-- Quantitative variables (discrete or continuous) are those where addition or subtraction makes sense.
+-   Quantitative variables (discrete or continuous) are those where addition or subtraction makes sense.
 
-- Categorical variables (nominal or ordinal) are those where addition or subtraction does **NOT** make sense.
+-   Categorical variables (nominal or ordinal) are those where addition or subtraction does **NOT** make sense.
 
 # Review of data types and summary statistics
 
@@ -226,7 +226,6 @@ penguins_data.info()
 1.  Go to the **Modules** section on our CANVAS website.
 
 2.  Complete the [**Activity 2.1: Types of Variables**]{style="color:darkblue;"} individually.
-
 
 # Data manipulation with pandas
 
@@ -340,7 +339,7 @@ Select the columns `species`, `body_mass_g` and `sex`. Next, filter the data for
 
 ## Create new columns with `assign()`
 
-With `assign()`, we can create new columns (variables) that are functions of existing ones. For example, we can compute the ratio of  `bill_length_mm` y `bill_depth_mm`.
+With `assign()`, we can create new columns (variables) that are functions of existing ones. For example, we can compute the ratio of `bill_length_mm` y `bill_depth_mm`.
 
 </br>
 
@@ -354,7 +353,7 @@ With `assign()`, we can create new columns (variables) that are functions of exi
 ).head()
 ```
 
-##
+## 
 
 The new dataset has the variable `LengthDepthRatio`.
 
@@ -368,7 +367,6 @@ The new dataset has the variable `LengthDepthRatio`.
   .loc[:, ["species", "body_mass_g", "sex", "LengthDepthRatio"]]
 ).head()
 ```
-
 
 ## Sorting with `sort_values()`
 
@@ -430,14 +428,13 @@ summary_penguins_data = (penguins_data
 summary_penguins_data
 ```
 
-
 ## Final Remarks
 
 </br>
 
-- **pandas** is a Python library for data manipulation.
-- Understanding variable types helps determine the best operations and visualizations.
-- There are specific charts for numerical and categorical variables.
-- Throughout this course, we will explore various visualizations for different types of data.
+-   **pandas** is a Python library for data manipulation.
+-   Understanding variable types helps determine the best operations and visualizations.
+-   There are specific charts for numerical and categorical variables.
+-   Throughout this course, we will explore various visualizations for different types of data.
 
 # [Return to main page](https://alanrvazquez.github.io/TEC-IN2039-EN/)
