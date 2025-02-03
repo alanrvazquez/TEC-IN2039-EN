@@ -861,11 +861,11 @@
     "text": "Summary statistic\n\nHelps us to summarize a list of observations in a simple way.\n\nFor numerical data, the most popular summary statistics are:\n\n\nMean\nVariance and sample standard deviation\nQuartiles\nMaximum and minimum"
   },
   {
-    "objectID": "T4_Numerical_Data/Numerical.slides.html#sample-mean",
-    "href": "T4_Numerical_Data/Numerical.slides.html#sample-mean",
+    "objectID": "T4_Numerical_Data/Numerical.slides.html#mean",
+    "href": "T4_Numerical_Data/Numerical.slides.html#mean",
     "title": "Numerical Variables",
-    "section": "Sample mean",
-    "text": "Sample mean\n\nIndicates the center of the data.\n\nLet \\(y_1, y_2, \\ldots, y_n\\) be an observed sample of size \\(n\\).\nThe sample mean is\n\\[\\bar{y} = \\frac{1}{n}\\sum_{i=1}^{n} y_i = \\frac{y_1 + y_2 + \\cdots + y_n}{n}.\\]"
+    "section": "Mean",
+    "text": "Mean\n\nIndicates the center of the data.\n\nLet \\(y_1, y_2, \\ldots, y_n\\) be an observed sample of size \\(n\\).\nThe mean is\n\\[\\bar{y} = \\frac{1}{n}\\sum_{i=1}^{n} y_i = \\frac{y_1 + y_2 + \\cdots + y_n}{n}.\\]"
   },
   {
     "objectID": "T4_Numerical_Data/Numerical.slides.html#section",
@@ -882,11 +882,11 @@
     "text": "You can also round the result to, say, three decimals.\n\nprint( round(piston_data_mean, 3) )\n\n0.652\n\n\n\nInterpretation: On average, the piston takes 0.652 seconds to complete a cycle."
   },
   {
-    "objectID": "T4_Numerical_Data/Numerical.slides.html#sample-variance",
-    "href": "T4_Numerical_Data/Numerical.slides.html#sample-variance",
+    "objectID": "T4_Numerical_Data/Numerical.slides.html#variance",
+    "href": "T4_Numerical_Data/Numerical.slides.html#variance",
     "title": "Numerical Variables",
-    "section": "Sample variance",
-    "text": "Sample variance\n\nIndicates how spread out the data are around the mean.\n\nLet \\(y_1, y_2, \\ldots, y_n\\) be an observed sample of size \\(n\\). The sample mean is\n\\[\ns^2 = \\frac{1}{n-1} \\sum_{i=1}^{n} (y_i - \\bar{y})^2 = \\frac{(y_1 - \\bar{y})^2  + \\cdots + (y_n - \\bar{y})^2}{n-1}\n\\]\n\nThe sample variance is like an average of the squared differences between each observation and the sample mean."
+    "section": "Variance",
+    "text": "Variance\n\nIndicates how spread out the data are around the mean.\n\nLet \\(y_1, y_2, \\ldots, y_n\\) be an observed sample of size \\(n\\). The variance is\n\\[\ns^2 = \\frac{1}{n-1} \\sum_{i=1}^{n} (y_i - \\bar{y})^2 = \\frac{(y_1 - \\bar{y})^2  + \\cdots + (y_n - \\bar{y})^2}{n-1}\n\\]\n\nThe variance is like an average of the squared differences between each observation and the mean."
   },
   {
     "objectID": "T4_Numerical_Data/Numerical.slides.html#section-2",
@@ -896,11 +896,11 @@
     "text": "In python, the variance is calculated using the function var().\n\npiston_data_var = piston_data[\"cycle_time\"].var()\nprint( round(piston_data_var, 3))\n\n0.139\n\n\n\nInterpretation: The variance of the piston cycle times is 0.139. A larger variance means greater dispersion of the data around the mean."
   },
   {
-    "objectID": "T4_Numerical_Data/Numerical.slides.html#sample-standard-deviation",
-    "href": "T4_Numerical_Data/Numerical.slides.html#sample-standard-deviation",
+    "objectID": "T4_Numerical_Data/Numerical.slides.html#standard-deviation",
+    "href": "T4_Numerical_Data/Numerical.slides.html#standard-deviation",
     "title": "Numerical Variables",
-    "section": "Sample standard deviation",
-    "text": "Sample standard deviation\nA drawback of the sample variance is that it is not on the same scale as the actual observations.\nTo obtain a measure of spread whose units are the same as those of the sample, we simply take the squared root of the sample variance\n\\[\ns = \\left(\\frac{1}{n-1} \\sum_{i=1}^{n} (y_i - \\bar{y})^2 \\right)^{1/2}\n\\]\nThis quantity is known as the sample standard deviation. It is in the same units as the observations."
+    "section": "Standard deviation",
+    "text": "Standard deviation\nA drawback of the variance is that it is not on the same scale as the actual observations.\nTo obtain a measure of spread whose units are the same as those of the sample, we simply take the squared root of the variance\n\\[\ns = \\left(\\frac{1}{n-1} \\sum_{i=1}^{n} (y_i - \\bar{y})^2 \\right)^{1/2}\n\\]\nThis quantity is known as the standard deviation. It is in the same units as the observations."
   },
   {
     "objectID": "T4_Numerical_Data/Numerical.slides.html#section-3",
@@ -910,11 +910,18 @@
     "text": "In python, the standard deviation is calculated using the function std().\n\npiston_data_std = piston_data[\"cycle_time\"].std()\nprint(round(piston_data_std,3))\n\n0.373\n\n\n\nInterpretation: On average, a piston takes 0.652 seconds to complete a cycle, with a variation of \\(\\pm 0.373\\) seconds."
   },
   {
-    "objectID": "T4_Numerical_Data/Numerical.slides.html#sample-quartiles",
-    "href": "T4_Numerical_Data/Numerical.slides.html#sample-quartiles",
+    "objectID": "T4_Numerical_Data/Numerical.slides.html#quartiles",
+    "href": "T4_Numerical_Data/Numerical.slides.html#quartiles",
     "title": "Numerical Variables",
-    "section": "Sample quartiles",
-    "text": "Sample quartiles\nThe sample median is the middle number of the ordered data values.\n\nSample quartiles divide the data as nearly as possible into quarters:\n\n\nFirst quartile (\\(Q_1\\)) is the median of the lower half of the data.\nSecond quartile (\\(Q_2\\)) is the median of the data.\nThird quartile (\\(Q_3\\)) is the median of the upper half of the data."
+    "section": "Quartiles",
+    "text": "Quartiles\nThe sample median is the middle number of the ordered data values.\n\nSample quartiles divide the data as nearly as possible into quarters:\n\n\nFirst quartile (\\(Q_1\\)) is the median of the lower half of the data.\nSecond quartile (\\(Q_2\\)) is the median of the data.\nThird quartile (\\(Q_3\\)) is the median of the upper half of the data."
+  },
+  {
+    "objectID": "T4_Numerical_Data/Numerical.slides.html#section-4",
+    "href": "T4_Numerical_Data/Numerical.slides.html#section-4",
+    "title": "Numerical Variables",
+    "section": "",
+    "text": "The generalization of quartiles are percentiles or quantiles."
   },
   {
     "objectID": "T4_Numerical_Data/Numerical.slides.html#section-5",
@@ -924,11 +931,11 @@
     "text": "In python, the quartiles are calculated using the function quantile().\n\n# Set the quantiles.\nset_quantiles = [0.25, 0.5, 0.75]\n# Compute the quantiles.\npiston_data[\"cycle_time\"].quantile(set_quantiles)\n\n0.25    0.3050\n0.50    0.5455\n0.75    1.0690\nName: cycle_time, dtype: float64\n\n\nInterpretation:\n\n25% of cycle times are below 0.305 sec.\n50% of cycle times are below 0.546 sec.\n75% of cycle times are below 1.07 sec."
   },
   {
-    "objectID": "T4_Numerical_Data/Numerical.slides.html#sample-maximum-and-minimum",
-    "href": "T4_Numerical_Data/Numerical.slides.html#sample-maximum-and-minimum",
+    "objectID": "T4_Numerical_Data/Numerical.slides.html#maximum-and-minimum",
+    "href": "T4_Numerical_Data/Numerical.slides.html#maximum-and-minimum",
     "title": "Numerical Variables",
-    "section": "Sample maximum and minimum",
-    "text": "Sample maximum and minimum\nWe compute the maximum and minimum using the functions max() and min(), respectively.\n\npiston_data_max = piston_data[\"cycle_time\"].max()\nprint(piston_data_max)\n\n1.141\n\n\nInterpretation: The maximum cycle time is 1.14 seconds.\n\n\npiston_data_min = piston_data[\"cycle_time\"].min()\nprint(piston_data_min)\n\n0.175\n\n\nInterpretation: The minimum cycle time is 0.175 seconds."
+    "section": "Maximum and minimum",
+    "text": "Maximum and minimum\nWe compute the maximum and minimum using the functions max() and min(), respectively.\n\npiston_data_max = piston_data[\"cycle_time\"].max()\nprint(piston_data_max)\n\n1.141\n\n\nInterpretation: The maximum cycle time is 1.14 seconds.\n\n\npiston_data_min = piston_data[\"cycle_time\"].min()\nprint(piston_data_min)\n\n0.175\n\n\nInterpretation: The minimum cycle time is 0.175 seconds."
   },
   {
     "objectID": "T4_Numerical_Data/Numerical.slides.html#average-vs.-median",
@@ -959,6 +966,20 @@
     "text": "Activity (only mode) Part 1\nA company that manufactures capacitor retaining bolts for automobile engines implemented a quality control system. As part of this quality control system, a team of engineers decided to record the number of nonconforming bolts produced each shift.\nThe file bolts.xlsx contains the number of non-conforming bolts during the last 45 shifts.\n\nCalculates and interprets the average, variance, standard deviation, quartiles, minimum and maximum."
   },
   {
+    "objectID": "T4_Numerical_Data/Numerical.slides.html#principle-1",
+    "href": "T4_Numerical_Data/Numerical.slides.html#principle-1",
+    "title": "Numerical Variables",
+    "section": "Principle 1",
+    "text": "Principle 1\n\nFormulate the question of interest.\n\n\nTypical questions about a numeric variable \\(X\\) are:\n\n\nWhat is the shape of the observations of the variable \\(X\\)?\nAre there unusual or atypical observations in the variable \\(X\\)?\nDoes the shape of the observations of the variable \\(X\\) resemble a bell?"
+  },
+  {
+    "objectID": "T4_Numerical_Data/Numerical.slides.html#principle-2",
+    "href": "T4_Numerical_Data/Numerical.slides.html#principle-2",
+    "title": "Numerical Variables",
+    "section": "Principle 2",
+    "text": "Principle 2\n\nTransform data into information.\n\n\nTwo common types of graphs to visualize a numerical variable are:\n\nHistogram.\nBox plot.\n\n\n\nBasically, they are different ways of visualizing the “shape” or distribution of the variable."
+  },
+  {
     "objectID": "T4_Numerical_Data/Numerical.slides.html#histogram",
     "href": "T4_Numerical_Data/Numerical.slides.html#histogram",
     "title": "Numerical Variables",
@@ -966,18 +987,67 @@
     "text": "Histogram\nVisualizes the distribution of observations, indicating regions where observations are concentrated or sparse.\n\nIt is built using a frequency table.\n\nDefine a maximum number of intervals or bins (from 5 to 30).\nDefine the ranges of the intervals.\nGroup the observations in the interval to which they belong.\n\n\n\nPython automatically calculates the frequency table for numerical data. The histogram is a visualization of this table."
   },
   {
-    "objectID": "T4_Numerical_Data/Numerical.slides.html#histogram-of-na",
-    "href": "T4_Numerical_Data/Numerical.slides.html#histogram-of-na",
+    "objectID": "T4_Numerical_Data/Numerical.slides.html#section-6",
+    "href": "T4_Numerical_Data/Numerical.slides.html#section-6",
     "title": "Numerical Variables",
-    "section": "Histogram of Na",
-    "text": "Histogram of Na\nTo create a histogram, we use the function histplot() from seabron."
+    "section": "",
+    "text": "To create a histogram, we use the function histplot() from seabron.\n\nplt.figure(figsize=(10, 4))\nsns.histplot(data=piston_data, x=\"cycle_time\")\nplt.show() \n\n\n\n\n\n\n\n\n\nThe bars of the histogram touch each other. A gap indicates that there are no observations in that interval."
   },
   {
-    "objectID": "T4_Numerical_Data/Numerical.slides.html#box-plot",
-    "href": "T4_Numerical_Data/Numerical.slides.html#box-plot",
+    "objectID": "T4_Numerical_Data/Numerical.slides.html#improving-the-graph",
+    "href": "T4_Numerical_Data/Numerical.slides.html#improving-the-graph",
     "title": "Numerical Variables",
-    "section": "Box plot",
-    "text": "Box plot\n\nA box plot is a graphic that presents the median, the first and third quartiles, and any “outliers” present in the sample.\n\nThe interquartile range (IQR) is the difference between the third quartile and the first quartile (\\(Q_3 - Q_1\\)). This is the distance needed to span the middle half of the data."
+    "section": "Improving the graph",
+    "text": "Improving the graph\nTo convey a better message, we apply Principle 3: Apply the principles of graphic design.\n\n\nCode\nplt.figure(figsize=(10, 4))\nsns.histplot(data=piston_data, x=\"cycle_time\", bins=10, \n             edgecolor=\"black\", color=\"pink\")\nplt.title(\"Histogram of Cycle Time\")\nplt.xlabel(\"Cycle Time (seconds)\")\nplt.ylabel(\"Frequency\")\nplt.figtext(0.15, 0.01, \"Data from 50 pistons\", ha=\"left\", fontsize=10)\nplt.show()"
+  },
+  {
+    "objectID": "T4_Numerical_Data/Numerical.slides.html#it-is-not-the-same-as-a-bar-chart",
+    "href": "T4_Numerical_Data/Numerical.slides.html#it-is-not-the-same-as-a-bar-chart",
+    "title": "Numerical Variables",
+    "section": "It is not the same as a bar chart",
+    "text": "It is not the same as a bar chart\n\nWith categorical data, a bar chart looks similar to a histogram because it displays the frequency of categories.\nHowever, we cannot interpret the shape of a bar chart in the same way as a histogram.\n\nThe frequency of a category is represented by the height of the bar, and the width does not contain any information.\nA bar chart will not highlight outliers.\n\n\nTails and symmetry do not make sense in this setting."
+  },
+  {
+    "objectID": "T4_Numerical_Data/Numerical.slides.html#number-of-bins",
+    "href": "T4_Numerical_Data/Numerical.slides.html#number-of-bins",
+    "title": "Numerical Variables",
+    "section": "Number of bins",
+    "text": "Number of bins\n\nThe number of bins is a parameter of the histogram that affects its appearance.\n\nThis is set using the argument bins in histplot().\n\nplt.figure(figsize=(10, 4))\nsns.histplot(data=piston_data, x=\"cycle_time\", bins=5, \n             edgecolor=\"black\", color=\"white\")\nplt.show()"
+  },
+  {
+    "objectID": "T4_Numerical_Data/Numerical.slides.html#section-7",
+    "href": "T4_Numerical_Data/Numerical.slides.html#section-7",
+    "title": "Numerical Variables",
+    "section": "",
+    "text": "The left histogram uses bins = 5, and the right histogram uses bins = 30\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nIn this course, we will use the default number of bins.\n\nA histogram is a familiar type of plot that involves smoothing. A histogram aggregates data values by placing points into bins and plotting one bar for each bin. Smoothing here means that we cannot differentiate the location of individual points within a bin: the points are smoothly distributed across their bins."
+  },
+  {
+    "objectID": "T4_Numerical_Data/Numerical.slides.html#what-to-look-for-in-a-histogram",
+    "href": "T4_Numerical_Data/Numerical.slides.html#what-to-look-for-in-a-histogram",
+    "title": "Numerical Variables",
+    "section": "What to look for in a histogram?",
+    "text": "What to look for in a histogram?\n\n\nSymmetry and asymmetry of the distribution\nThe number, location, and size of high-frequency regions (bins)\nGaps where no values are observed\nUnusually large or anomalous values\nA bell-shaped form"
+  },
+  {
+    "objectID": "T4_Numerical_Data/Numerical.slides.html#the-obsession-with-bell-curves",
+    "href": "T4_Numerical_Data/Numerical.slides.html#the-obsession-with-bell-curves",
+    "title": "Numerical Variables",
+    "section": "The obsession with bell curves",
+    "text": "The obsession with bell curves\n\n\nThe normal distribution is a very important probability distribution in statistics.\n\n\n\nIt is characterized by a symmetric bell-shaped curve centered around its mean, with the highest probability density at the mean and decreasing symmetrically towards the extremes"
+  },
+  {
+    "objectID": "T4_Numerical_Data/Numerical.slides.html#section-8",
+    "href": "T4_Numerical_Data/Numerical.slides.html#section-8",
+    "title": "Numerical Variables",
+    "section": "",
+    "text": "Basically, if your observations follow a normal distribution, you can use statistical methods to draw conclusions based on mathematical theory.\n\n\n\n\n\nWhat many people don’t know is that this condition is only needed if you have few observations (less than 50)."
+  },
+  {
+    "objectID": "T4_Numerical_Data/Numerical.slides.html#boxplot",
+    "href": "T4_Numerical_Data/Numerical.slides.html#boxplot",
+    "title": "Numerical Variables",
+    "section": "Boxplot",
+    "text": "Boxplot\nA boxplot helps us visualize the distribution of observations using quartiles.\n\n\nIt is very effective for detecting “outliers.”\n\n\n\nAn important component of the boxplot is the interquartile range (IQR), which is the difference between the third quartile and the first quartile (\\(Q_3 - Q_1\\)).\n\n\nThe interquartile range is the distance needed to encompass the middle half of the data."
   },
   {
     "objectID": "T4_Numerical_Data/Numerical.slides.html#anatomy-of-a-box-plot",
@@ -987,18 +1057,32 @@
     "text": "Anatomy of a Box Plot\n\nLearn more in that league https://towardsdatascience.com/why-1-5-in-iqr-method-of-outlier-detection-5d07fdc82097"
   },
   {
-    "objectID": "T4_Numerical_Data/Numerical.slides.html#box-plot-of-na",
-    "href": "T4_Numerical_Data/Numerical.slides.html#box-plot-of-na",
-    "title": "Numerical Variables",
-    "section": "Box plot of Na",
-    "text": "Box plot of Na\nTo create a boxplot, we use the function boxplot() from seabron."
-  },
-  {
     "objectID": "T4_Numerical_Data/Numerical.slides.html#outliers",
     "href": "T4_Numerical_Data/Numerical.slides.html#outliers",
     "title": "Numerical Variables",
     "section": "Outliers",
     "text": "Outliers\n\n\nOutliers are points that are much larger or smaller than the rest of the sample points.\nOutliers may be data entry errors or they may be points that really are different from the rest.\nOutliers should not be deleted without considerable thought—sometimes calculations and analyses will be done with and without outliers and then compared."
+  },
+  {
+    "objectID": "T4_Numerical_Data/Numerical.slides.html#boxplot-in-python",
+    "href": "T4_Numerical_Data/Numerical.slides.html#boxplot-in-python",
+    "title": "Numerical Variables",
+    "section": "Boxplot in Python",
+    "text": "Boxplot in Python\n\nTo create a boxplot in seaborn, use the boxplot() function.\n\nplt.figure(figsize=(5, 4))\nsns.boxplot(y=piston_data[\"cycle_time\"])\nplt.show()"
+  },
+  {
+    "objectID": "T4_Numerical_Data/Numerical.slides.html#section-9",
+    "href": "T4_Numerical_Data/Numerical.slides.html#section-9",
+    "title": "Numerical Variables",
+    "section": "",
+    "text": "If we specify the variable in the x argument, we get a horizontal boxplot.\n\nplt.figure(figsize=(5, 4))\nsns.boxplot( x = piston_data[\"cycle_time\"])\nplt.show()"
+  },
+  {
+    "objectID": "T4_Numerical_Data/Numerical.slides.html#activity-solo-mode-part-2",
+    "href": "T4_Numerical_Data/Numerical.slides.html#activity-solo-mode-part-2",
+    "title": "Numerical Variables",
+    "section": "Activity (solo mode) Part 2",
+    "text": "Activity (solo mode) Part 2\n\nThe file bolts.xlsx contains the number of non-conforming bolts during the last 45 shifts. Using Python, create the following graphs\n\nHistogram\nBoxplot"
   },
   {
     "objectID": "T1_Introduction/Introduction.slides.html#agenda",
@@ -1146,152 +1230,5 @@
     "title": "What is data visualization?",
     "section": "",
     "text": "“The greatest value of a picture is when it forces us to notice what we never expected to see.” John W. Tukey.\n\n\n\n\n\nhttps://www.storytellingwithdata.com/ is an excellent guide on data visualization."
-  },
-  {
-    "objectID": "T4_Numerical_Data/Numerical.slides.html#section-4",
-    "href": "T4_Numerical_Data/Numerical.slides.html#section-4",
-    "title": "Numerical Variables",
-    "section": "",
-    "text": "The generalization of quartiles are percentiles or quantiles."
-  },
-  {
-    "objectID": "T4_Numerical_Data/Numerical.slides.html#mean",
-    "href": "T4_Numerical_Data/Numerical.slides.html#mean",
-    "title": "Numerical Variables",
-    "section": "Mean",
-    "text": "Mean\n\nIndicates the center of the data.\n\nLet \\(y_1, y_2, \\ldots, y_n\\) be an observed sample of size \\(n\\).\nThe mean is\n\\[\\bar{y} = \\frac{1}{n}\\sum_{i=1}^{n} y_i = \\frac{y_1 + y_2 + \\cdots + y_n}{n}.\\]"
-  },
-  {
-    "objectID": "T4_Numerical_Data/Numerical.slides.html#variance",
-    "href": "T4_Numerical_Data/Numerical.slides.html#variance",
-    "title": "Numerical Variables",
-    "section": "Variance",
-    "text": "Variance\n\nIndicates how spread out the data are around the mean.\n\nLet \\(y_1, y_2, \\ldots, y_n\\) be an observed sample of size \\(n\\). The variance is\n\\[\ns^2 = \\frac{1}{n-1} \\sum_{i=1}^{n} (y_i - \\bar{y})^2 = \\frac{(y_1 - \\bar{y})^2  + \\cdots + (y_n - \\bar{y})^2}{n-1}\n\\]\n\nThe variance is like an average of the squared differences between each observation and the mean."
-  },
-  {
-    "objectID": "T4_Numerical_Data/Numerical.slides.html#standard-deviation",
-    "href": "T4_Numerical_Data/Numerical.slides.html#standard-deviation",
-    "title": "Numerical Variables",
-    "section": "Standard deviation",
-    "text": "Standard deviation\nA drawback of the variance is that it is not on the same scale as the actual observations.\nTo obtain a measure of spread whose units are the same as those of the sample, we simply take the squared root of the variance\n\\[\ns = \\left(\\frac{1}{n-1} \\sum_{i=1}^{n} (y_i - \\bar{y})^2 \\right)^{1/2}\n\\]\nThis quantity is known as the standard deviation. It is in the same units as the observations."
-  },
-  {
-    "objectID": "T4_Numerical_Data/Numerical.slides.html#quartiles",
-    "href": "T4_Numerical_Data/Numerical.slides.html#quartiles",
-    "title": "Numerical Variables",
-    "section": "Quartiles",
-    "text": "Quartiles\nThe sample median is the middle number of the ordered data values.\n\nSample quartiles divide the data as nearly as possible into quarters:\n\n\nFirst quartile (\\(Q_1\\)) is the median of the lower half of the data.\nSecond quartile (\\(Q_2\\)) is the median of the data.\nThird quartile (\\(Q_3\\)) is the median of the upper half of the data."
-  },
-  {
-    "objectID": "T4_Numerical_Data/Numerical.slides.html#maximum-and-minimum",
-    "href": "T4_Numerical_Data/Numerical.slides.html#maximum-and-minimum",
-    "title": "Numerical Variables",
-    "section": "Maximum and minimum",
-    "text": "Maximum and minimum\nWe compute the maximum and minimum using the functions max() and min(), respectively.\n\npiston_data_max = piston_data[\"cycle_time\"].max()\nprint(piston_data_max)\n\n1.141\n\n\nInterpretation: The maximum cycle time is 1.14 seconds.\n\n\npiston_data_min = piston_data[\"cycle_time\"].min()\nprint(piston_data_min)\n\n0.175\n\n\nInterpretation: The minimum cycle time is 0.175 seconds."
-  },
-  {
-    "objectID": "T4_Numerical_Data/Numerical.slides.html#principle-1",
-    "href": "T4_Numerical_Data/Numerical.slides.html#principle-1",
-    "title": "Numerical Variables",
-    "section": "Principle 1",
-    "text": "Principle 1\n\nFormulate the question of interest.\n\n\nTypical questions about a numeric variable \\(X\\) are:\n\n\nWhat is the shape of the observations of the variable \\(X\\)?\nAre there unusual or atypical observations in the variable \\(X\\)?\nDoes the shape of the observations of the variable \\(X\\) resemble a bell?"
-  },
-  {
-    "objectID": "T4_Numerical_Data/Numerical.slides.html#principle-2",
-    "href": "T4_Numerical_Data/Numerical.slides.html#principle-2",
-    "title": "Numerical Variables",
-    "section": "Principle 2",
-    "text": "Principle 2\n\nTransform data into information.\n\n\nTwo common types of graphs to visualize a numerical variable are:\n\nHistogram.\nBox plot.\n\n\n\nBasically, they are different ways of visualizing the “shape” or distribution of the variable."
-  },
-  {
-    "objectID": "T4_Numerical_Data/Numerical.slides.html#section-6",
-    "href": "T4_Numerical_Data/Numerical.slides.html#section-6",
-    "title": "Numerical Variables",
-    "section": "",
-    "text": "To create a histogram, we use the function histplot() from seabron.\n\nplt.figure(figsize=(10, 4))\nsns.histplot(data=piston_data, x=\"cycle_time\")\nplt.show() \n\n\n\n\n\n\n\n\n\nThe bars of the histogram touch each other. A gap indicates that there are no observations in that interval."
-  },
-  {
-    "objectID": "T4_Numerical_Data/Numerical.slides.html#improving-the-graph",
-    "href": "T4_Numerical_Data/Numerical.slides.html#improving-the-graph",
-    "title": "Numerical Variables",
-    "section": "Improving the graph",
-    "text": "Improving the graph\nTo convey a better message, we apply Principle 3: Apply the principles of graphic design.\n\n\nCode\nplt.figure(figsize=(10, 4))\nsns.histplot(data=piston_data, x=\"cycle_time\", bins=10, \n             edgecolor=\"black\", color=\"pink\")\nplt.title(\"Histogram of Cycle Time\")\nplt.xlabel(\"Cycle Time (seconds)\")\nplt.ylabel(\"Frequency\")\nplt.figtext(0.15, 0.01, \"Data from 50 pistons\", ha=\"left\", fontsize=10)\nplt.show()"
-  },
-  {
-    "objectID": "T4_Numerical_Data/Numerical.slides.html#it-is-not-the-same-as-a-bar-chart",
-    "href": "T4_Numerical_Data/Numerical.slides.html#it-is-not-the-same-as-a-bar-chart",
-    "title": "Numerical Variables",
-    "section": "It is not the same as a bar chart",
-    "text": "It is not the same as a bar chart\n\nWith categorical data, a bar chart looks similar to a histogram because it displays the frequency of categories.\nHowever, we cannot interpret the shape of a bar chart in the same way as a histogram.\n\nThe frequency of a category is represented by the height of the bar, and the width does not contain any information.\nA bar chart will not highlight outliers.\n\n\nTails and symmetry do not make sense in this setting."
-  },
-  {
-    "objectID": "T4_Numerical_Data/Numerical.slides.html#number-of-bins",
-    "href": "T4_Numerical_Data/Numerical.slides.html#number-of-bins",
-    "title": "Numerical Variables",
-    "section": "Number of bins",
-    "text": "Number of bins\n\nThe number of bins is a parameter of the histogram that affects its appearance.\n\nThis is set using the argument bins in histplot().\n\nplt.figure(figsize=(10, 4))\nsns.histplot(data=piston_data, x=\"cycle_time\", bins=5, \n             edgecolor=\"black\", color=\"white\")\nplt.show()"
-  },
-  {
-    "objectID": "T4_Numerical_Data/Numerical.slides.html#section-7",
-    "href": "T4_Numerical_Data/Numerical.slides.html#section-7",
-    "title": "Numerical Variables",
-    "section": "",
-    "text": "The left histogram uses bins = 5, and the right histogram uses bins = 30\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nIn this course, we will use the default number of bins.\n\nA histogram is a familiar type of plot that involves smoothing. A histogram aggregates data values by placing points into bins and plotting one bar for each bin. Smoothing here means that we cannot differentiate the location of individual points within a bin: the points are smoothly distributed across their bins."
-  },
-  {
-    "objectID": "T4_Numerical_Data/Numerical.slides.html#what-to-look-for-in-a-histogram",
-    "href": "T4_Numerical_Data/Numerical.slides.html#what-to-look-for-in-a-histogram",
-    "title": "Numerical Variables",
-    "section": "What to look for in a histogram?",
-    "text": "What to look for in a histogram?\n\n\nSymmetry and asymmetry of the distribution\nThe number, location, and size of high-frequency regions (bins)\nGaps where no values are observed\nUnusually large or anomalous values\nA bell-shaped form"
-  },
-  {
-    "objectID": "T4_Numerical_Data/Numerical.slides.html#the-obsession-with-bell-curves",
-    "href": "T4_Numerical_Data/Numerical.slides.html#the-obsession-with-bell-curves",
-    "title": "Numerical Variables",
-    "section": "The obsession with bell curves",
-    "text": "The obsession with bell curves\n\n\nThe normal distribution is a very important probability distribution in statistics.\n\n\n\nIt is characterized by a symmetric bell-shaped curve centered around its mean, with the highest probability density at the mean and decreasing symmetrically towards the extremes"
-  },
-  {
-    "objectID": "T4_Numerical_Data/Numerical.slides.html#section-8",
-    "href": "T4_Numerical_Data/Numerical.slides.html#section-8",
-    "title": "Numerical Variables",
-    "section": "",
-    "text": "Basically, if your observations follow a normal distribution, you can use statistical methods to draw conclusions based on mathematical theory.\n\n\n\n\n\nWhat many people don’t know is that this condition is only needed if you have few observations (less than 50)."
-  },
-  {
-    "objectID": "T4_Numerical_Data/Numerical.slides.html#boxplot",
-    "href": "T4_Numerical_Data/Numerical.slides.html#boxplot",
-    "title": "Numerical Variables",
-    "section": "Boxplot",
-    "text": "Boxplot\nA boxplot helps us visualize the distribution of observations using quartiles.\n\n\nIt is very effective for detecting “outliers.”\n\n\n\nAn important component of the boxplot is the interquartile range (IQR), which is the difference between the third quartile and the first quartile (\\(Q_3 - Q_1\\)).\n\n\nThe interquartile range is the distance needed to encompass the middle half of the data."
-  },
-  {
-    "objectID": "T4_Numerical_Data/Numerical.slides.html#section-9",
-    "href": "T4_Numerical_Data/Numerical.slides.html#section-9",
-    "title": "Numerical Variables",
-    "section": "",
-    "text": "If we specify the variable in the x argument, we get a horizontal boxplot.\n\nplt.figure(figsize=(5, 4))\nsns.boxplot( x = piston_data[\"cycle_time\"])\nplt.show()"
-  },
-  {
-    "objectID": "T4_Numerical_Data/Numerical.slides.html#horizontal-boxplot",
-    "href": "T4_Numerical_Data/Numerical.slides.html#horizontal-boxplot",
-    "title": "Numerical Variables",
-    "section": "Horizontal boxplot",
-    "text": "Horizontal boxplot\n\nIf we specify the variable in the x argument, we get a horizontal boxplot.\n\nplt.figure(figsize=(5, 4))\nsns.boxplot( x = piston_data[\"cycle_time\"])\nplt.show()"
-  },
-  {
-    "objectID": "T4_Numerical_Data/Numerical.slides.html#activity-solo-mode-part-2",
-    "href": "T4_Numerical_Data/Numerical.slides.html#activity-solo-mode-part-2",
-    "title": "Numerical Variables",
-    "section": "Activity (solo mode) Part 2",
-    "text": "Activity (solo mode) Part 2\n\nThe file bolts.xlsx contains the number of non-conforming bolts during the last 45 shifts. Using Python, create the following graphs\n\nHistogram\nBoxplot"
-  },
-  {
-    "objectID": "T4_Numerical_Data/Numerical.slides.html#boxplot-in-python",
-    "href": "T4_Numerical_Data/Numerical.slides.html#boxplot-in-python",
-    "title": "Numerical Variables",
-    "section": "Boxplot in Python",
-    "text": "Boxplot in Python\n\nTo create a boxplot in seaborn, use the boxplot() function.\n\nplt.figure(figsize=(5, 4))\nsns.boxplot(y=piston_data[\"cycle_time\"])\nplt.show()"
   }
 ]
