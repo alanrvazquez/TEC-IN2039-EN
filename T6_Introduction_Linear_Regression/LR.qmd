@@ -85,7 +85,7 @@ Is there a relationship between a car's weight and its miles per gallon?
 #| code-fold: true
 
 plt.figure(figsize=(8, 6))
-mi_diagrama = sns.scatterplot(data=auto_data, x="weight", y="mpg", color="darkblue", s=50)
+sns.scatterplot(data=auto_data, x="weight", y="mpg", color="darkblue", s=50)
 plt.xlabel("Weight (lb)", fontsize=15)
 plt.ylabel("Miles per Gallon", fontsize=15)
 plt.xticks(fontsize=10)
@@ -226,60 +226,70 @@ plt.show()
 
 ## Interpretation of the Coefficients
 
-> ¿What does $\hat{\beta}_0 = 46.32$ mean?
+> What does $\hat{\beta}_0 = 46.32$ mean?
 
 . . .
 
 $\hat{\beta}_0$ is the average response value when $X_i = 0$.
 
 ```{python}
-#| fig-pos: center
+#| fig-align: center
 #| echo: false
 #| out-width: 80%
 
-# Crear la figura y los ejes
+import numpy as np
+
 fig, ax = plt.subplots()
-sns.regplot(data=auto_data, x="weight", y="mpg",  
-            scatter_kws={"color": "blue"},
-            line_kws={"linestyle": "-", "linewidth": 3, "color": "red", 
-                      "label": "Linear Fit"})
+sns.scatterplot(data=auto_data, x="weight", y="mpg", color="darkblue", s=50)
+# Define the regression line
+x_vals = np.linspace(0, 6000, 100)
+y_vals = 46.32 + (-0.0076 * x_vals)
+
+# Add the regression line
+plt.plot(x_vals, y_vals, color="red", linestyle="-", label="y = 46.32 - 0.0076x")
+
 ax.set_ylim(0, 50)
 ax.set_xlim(0, 5500)
 
-# Agregar líneas horizontales y verticales
 ax.axhline(y=46.317364, linestyle="dashed", color="black")
 ax.axvline(x=0, linestyle="dashed", color="black")
 
-# Guardar la figura en una variable
-grafica_intercepto = fig
+plt.xlabel("Weight (lb)", fontsize=15)
+plt.ylabel("Miles per Gallon", fontsize=15)
+plt.xticks(fontsize=10)
+plt.yticks(fontsize=10)
 
-# Mostrar la figura
 plt.show()
 ```
 
 ## 
 
-¿Does $\hat{\beta}_0 = 46.32$ make sense?
+Does $\hat{\beta}_0 = 46.32$ make sense?
 
 ```{python}
-#| fig-pos: center
+#| fig-align: center
 #| echo: false
 
-# Crear la figura y el eje
 fig, ax = plt.subplots()
+sns.scatterplot(data=auto_data, x="weight", y="mpg", color="darkblue", s=50)
+# Define the regression line
+x_vals = np.linspace(0, 6000, 100)
+y_vals = 46.32 + (-0.0076 * x_vals)
 
-# Graficar el modelo de regresión lineal
-sns.regplot(data=mi_diagrama, x="x", y="y", ax=ax, color="red", line_kws={"linestyle": "-", "linewidth": 2})
+# Add the regression line
+plt.plot(x_vals, y_vals, color="red", linestyle="-", label="y = 46.32 - 0.0076x")
 
-# Ajustar los límites de los ejes
 ax.set_ylim(0, 50)
 ax.set_xlim(0, 5500)
 
-# Agregar líneas horizontales y verticales
 ax.axhline(y=46.317364, linestyle="dashed", color="black")
 ax.axvline(x=0, linestyle="dashed", color="black")
 
-# Mostrar la figura
+plt.xlabel("Weight (lb)", fontsize=15)
+plt.ylabel("Miles per Gallon", fontsize=15)
+plt.xticks(fontsize=10)
+plt.yticks(fontsize=10)
+
 plt.show()
 ```
 
@@ -359,36 +369,113 @@ To evaluate these behaviors, we use two scatter plots of the errors:
 
 -   **Eje Horizontal** = Errores y **Eje Vertical** = Tiempo en que se tomó la observación. Está gráfica permite validar el tercer supuesto (**independencia**).
 
-## Constant Dispersion
+## statsmodels library
+
+-   **statsmodels** is a powerful python library for statistical modeling, data analysis, and hypothesis testing.
+-   It provides classes and functions for estimating statistical models.
+-   It is built on top of libraries such as **NumPy**, **SciPy**, and **pandas**
+-   <https://www.statsmodels.org/stable/index.html>
+
+![](images/statsmodels-logo-v2-horizontal-dark.svg){fig-align="center"}
+
+## Load the libraries
+
+</br>
+
+Let's import **statsmodels** into Python 
+
+```{python}
+#| echo: true
+#| output: false
+
+import statsmodels.api as sm
+```
+
+## Computation of estimators
+
+</br>
+
+To compute the least squares estimates, we first split the data set into a matrix with the values of the predictors only, and a matrix with the response values.
+
+```{python}
+#| echo: true
+#| output: true
+
+# Matrix with predictors.
+X = auto_data['weight']
+
+# Add intercept.
+X = sm.add_constant(X)  
+
+# Matrix with response.
+Y = auto_data['mpg']
+```
+
+## 
+
+</br></br>
+
+Next, we use the functions `OLS()` and `fit()` from **statsmodels**.
+
+```{python}
+#| echo: true
+#| output: false
+
+# Create linear regression object
+regr = sm.OLS(Y, X)
+
+# Train the model using the training sets
+linear_model = regr.fit()
+```
+
+## 
+
+</br>
+
+To show the estimated coefficients, we use the argument `params` of the `linear_model` object created previously.
+
+```{python}
+#| echo: true
+#| output: true
+
+# The estimated coefficients.
+print(linear_model.params)
+```
+
+The elements in the vector above are the estimates $\hat{\beta}_0$ and $\hat{\beta}_1$.
+
+## Residuals and fitted values
+
+</br>
+
+To create the plots for the residuals, we need the predicted values of the response and the residuals first. To this end, we use the commands below. 
 
 ```{python}
 #| echo: true
 #| code-fold: true
 
+# Make predictions using the the model
+Y_pred = linear_model.fittedvalues
 
-# Fit the linear model (mpg ~ weight)
-X = auto_data['weight']
-X = sm.add_constant(X)  # Adding the intercept term
-y = auto_data['mpg']
-mi_modelo = sm.OLS(y, X).fit()
+# Calculate residuals.
+residuals = linear_model.resid
+```
 
-# Create the DataFrame for the residuals and predictions
-datos_modelo = pd.DataFrame({
-    "Predicciones": mi_modelo.fittedvalues,
-    "Errores": mi_modelo.resid
-})
 
-# Create the residual plot
-fig, ax = plt.subplots(figsize=(8, 6))
-sns.scatterplot(data=datos_modelo, x="Predicciones", y="Errores", color="darkblue", s=50, ax=ax)
+## Constant Dispersion
 
-# Customize the plot
-ax.axhline(y=0, linestyle="dashed", color="black")
-ax.tick_params(axis='both', labelsize=20)
-ax.set_xlabel('Predicciones', fontsize=20)
-ax.set_ylabel('Errores', fontsize=20)
+```{python}
+#| echo: true
+#| code-fold: true
+#| fig-align: center
 
-# Show the plot
+# Residual vs Fitted Values Plot
+plt.figure(figsize=(5, 5))
+sns.scatterplot(x = Y_pred, y = residuals)
+plt.axhline(y=0, color='red', linestyle='--')
+plt.title('Residuals vs Fitted Values')
+plt.xlabel('Fitted (predicted) Values')
+plt.ylabel('Residuals')
 plt.show()
 ```
 
@@ -397,31 +484,16 @@ plt.show()
 ```{python}
 #| echo: true
 #| code-fold: true
+#| fig-align: center
 
-
-# Fit the linear model (mpg ~ weight)
-X = auto_data['weight']
-X = sm.add_constant(X)  # Adding the intercept term
-y = auto_data['mpg']
-mi_modelo = sm.OLS(y, X).fit()
-
-# Create the DataFrame for the residuals and a time index
-datos_modelo = pd.DataFrame({
-    "Tiempo": range(1, len(auto_data) + 1),
-    "Errores": mi_modelo.resid
-})
-
-# Create the residuals plot
-fig, ax = plt.subplots(figsize=(8, 6))
-sns.scatterplot(data=datos_modelo, x="Tiempo", y="Errores", color="darkblue", s=50, ax=ax)
-
-# Customize the plot
-ax.axhline(y=0, linestyle="dashed", color="black")
-ax.tick_params(axis='both', labelsize=20)
-ax.set_xlabel('Tiempo', fontsize=20)
-ax.set_ylabel('Errores', fontsize=20)
-
-# Show the plot
+# Residuals vs Time (Case) Plot
+plt.figure(figsize=(7, 5))
+sns.scatterplot(x = 1:100, y = residuals, 
+                color="darkblue", s = 50)
+plt.axhline(y=0, color='red', linestyle='--')
+plt.xlabel('Time', fontsize=20)
+ax.tick_params(axis='both', labelsize=12)
+plt.ylabel('Residuals', fontsize=20)
 plt.show()
 ```
 
@@ -433,11 +505,9 @@ plt.show()
 
 -   If both assumptions are not validated, then the linear regression model is used only as a trend line or a reference for the data.
 
-## 
-
 -   If both assumptions are validated, then the model can be used to predict the response for new observations and to check if there is a significant relationship between $Y$ and $X$.
 
--   We will explore more about linear regression in IN1002B and IN1001B.
+-   You have explored about linear regression in IN1002B.
 
 # Local Regression
 
@@ -451,32 +521,31 @@ The most common method for fitting a local regression model is **LOESS**. We wil
 
 ## 
 
-In R, we fit a local regression using the`gf_smooth()`function.
+In Python, we fit a local regression by setting the `lowess` argument to `True` in  the `regplot()` function. 
 
 ```{python}
-# Create the scatter plot
-sns.scatterplot(data=auto_data, x="weight", y="mpg", color="blue", s=50)
+#| fig-align: center
+#| echo: true
 
 # Add LOESS smoothing line
-sns.regplot(data=auto_data, x="weight", y="mpg", scatter=False, lowess=True, line_kws={"color": "red", "linewidth": 2})
-
-# Show the plot
+plt.figure(figsize=(7, 5))
+# Scatter plot with local regression (LOWESS)
+sns.regplot(data=auto_data, x="weight", y="mpg", lowess=True)
 plt.show()
 ```
 
 ## 
 
-We can change the color, thickness, and line type using the `color`, `linewidth`, and `lty`,arguments in the `gf_smooth()`function.
+We can change the color, thickness, and line type using the `color`, `linewidth`, and `linestyle`,arguments in the `line_kws` argument function. 
 
 ```{python}
-# Create the scatter plot
-sns.scatterplot(data=auto_data, x="weight", y="mpg", color="blue", s=50)
+#| fig-align: center
+#| 
 
+plt.figure(figsize=(7, 5))
 # Add LOESS smoothing line with customized properties
 sns.regplot(data=auto_data, x="weight", y="mpg", scatter=False, lowess=True,
-            line_kws={"color": "red", "linewidth": 2, "linestyle": "dashed"})
-
-# Show the plot
+            line_kws={"color": "red", "linewidth": 2, "linestyle": "--"})
 plt.show()
 ```
 
@@ -485,10 +554,12 @@ plt.show()
 Let's consider the relationship between car acceleration (`acceleration`) and the total volume of all engine cylinders (`displacement`).
 
 ```{python}
-# Create the scatter plot
-sns.scatterplot(data=auto_data, x="displacement", y="acceleration", color="blue", s=50)
+#| fig-align: center
+#| echo: true
 
-# Show the plot
+plt.figure(figsize=(7, 5))
+sns.scatterplot(data=auto_data, x="displacement", y="acceleration", 
+                color="blue", s=50)
 plt.show()
 ```
 
@@ -496,14 +567,12 @@ plt.show()
 
 ```{python}
 #| echo: true
-#| code-fold: false
-# Create the scatter plot
-sns.scatterplot(data=auto_data, x="displacement", y="acceleration", color="blue", s=50)
+#| fig-align: center
 
-# Add a linear regression line
-sns.regplot(data=auto_data, x="displacement", y="acceleration", scatter=False, line_kws={"color": "red", "linewidth": 2})
-
-# Show the plot
+plt.figure(figsize=(7, 5))
+sns.regplot(data=auto_data, x="displacement", y="acceleration", scatter=True,
+            line_kws={"color": "blue", "linewidth": 2}, 
+            scatter_kws={"s": 10, "color": "blue"})
 plt.show()
 ```
 
@@ -513,13 +582,11 @@ plt.show()
 #| echo: true
 #| code-fold: false
 
-# Create the scatter plot
-sns.scatterplot(data=auto_data, x="displacement", y="acceleration", color="blue", s=50)
-
-# Add LOESS smoothing line
-sns.regplot(data=auto_data, x="displacement", y="acceleration", scatter=False, lowess=True, line_kws={"color": "red", "linewidth": 2})
-
-# Show the plot
+plt.figure(figsize=(7, 5))
+sns.regplot(data=auto_data, x="displacement", y="acceleration", scatter=True,
+            lowess = True,
+            line_kws={"color": "blue", "linewidth": 2}, 
+            scatter_kws={"s": 10, "color": "blue"})
 plt.show()
 ```
 
@@ -541,4 +608,4 @@ $$
 
 -   However, it has a low level of interpretability because it does not provide an explicit equation to relate the predictor $X$ to the response $Y$.
 
-# [Regresar a página principal](https://alanrvazquez.github.io/TEC-IN2039-Website/TEC-IN2039-Website.html)
+# [Regresar a página principal](https://alanrvazquez.github.io/TEC-IN2039-EN/TEC-IN2039-EN.html)
