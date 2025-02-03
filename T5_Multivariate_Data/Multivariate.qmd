@@ -38,9 +38,6 @@ Let's import the `pandas`, `matplotlib`, and `seaborn` in Google Colab and R bef
 #| echo: true
 #| output: false
 
-# Don't forget to install the 'ggformula' library in Google Colab.
-# install.packages("ggformula")
-
 import pandas as pd      
 import matplotlib.pyplot as plt  
 import seaborn as sns    
@@ -72,6 +69,8 @@ The data is stored in the file "auto_dataset.xlsx".
 #| echo: true
 
 auto_data = pd.read_excel("auto_dataset.xlsx")
+# Set categorical variable.
+auto_data[['origin']] = auto_data[['origin']].astype('category')
 auto_data.head()
 ```
 
@@ -193,40 +192,39 @@ plt.show()
 
 To change the symbols used for points in a scatter plot, set the `shape` parameter to a number or character from the chart below.
 
-![](images/FIG-SCATTER-SHAPES-CHART-1.png){fig-align="center" width="530" height="344"}
+![](images/markers.png){fig-align="center" width="530" height="344"}
 
 ## 
 
-Continuing with Principle 3, you can use previously seen functions to further improve the chart's appearance.
+Continuing with Principle 3, you can use previously seen functions to further improve the graph's appearance.
 
 ```{python}
-#| fig-pos: center
+#| fig-align: center
 #| echo: true
 #| code-fold: true
 
-
-# Create the scatter plot with custom color and size
+plt.figure(figsize=(6, 6))
 sns.scatterplot(data=auto_data, x="weight", y="mpg", color="darkblue", s=50)
-
 # Customize the plot
 plt.title("Relación de peso y millas por galón en autos", fontsize=25)
 plt.xlabel("Peso (lb)", fontsize=20)
 plt.ylabel("Millas por galón", fontsize=20)
 plt.tick_params(axis='both', labelsize=20)
-
 # Show the plot
 plt.show() 
 ```
 
 ## Include Zero
 
-In the previous chart, the minimum vertical axis value is around 10. To adjust the minimum value to 0, we use the additional command below.
+In the previous graph, the minimum vertical axis value is around 10. To adjust the minimum value to 0, we use the additional function `ylim()` below.
 
 ```{python}
-#| fig-pos: center
+#| fig-align: center
+#| code-fold: true
 #| echo: true
 
 # Create the scatter plot with custom color and size
+plt.figure(figsize=(6, 6))
 sns.scatterplot(data=auto_data, x="weight", y="mpg", color="darkblue", s=50)
 
 # Set y-axis limits
@@ -244,14 +242,19 @@ plt.show()
 
 ## 
 
-If necessary, we can also adjust the horizontal axis to show 0 as well.
+If necessary, we can also adjust the horizontal axis to show 0 as well. To this end we use the `xlim()` function.
 
 ```{python}
-#| fig-pos: center
+#| fig-align: center
+#| code-fold: true
 #| echo: true
 
 # Create the scatter plot with custom color and size
+plt.figure(figsize=(6, 6))
 sns.scatterplot(data=auto_data, x="weight", y="mpg", color="darkblue", s=50)
+
+# Set y-axis limits
+plt.ylim(0, 50)
 
 # Set x-axis limits
 plt.xlim(0, 5500)
@@ -266,53 +269,45 @@ plt.tick_params(axis='both', labelsize=20)
 plt.show()
 ```
 
-## Individual Graphs
+## Individual graphs
 
 Individual variable graphs (such as histograms) do not allow us to study the relationship between two variables. They only provide information on the *distribution* of each variable.
 
 ::::: columns
 ::: {.column width="50%"}
 ```{python}
-#| fig-pos: center
+#| fig-align: center
 #| echo: true
 #| code-fold: true
 
-# Create the histogram
-sns.histplot(data=auto_data, x="mpg", color="darkblue", kde=False, edgecolor="black")
-
-# Customize the plot
+plt.figure(figsize=(5, 5))
+sns.histplot(data=auto_data, x="mpg", color="darkblue", edgecolor="black")
 plt.title("Distribución de milas por galón", fontsize=25)
 plt.xlabel("Millas por galón", fontsize=20)
 plt.ylabel("Frecuencia", fontsize=20)
 plt.tick_params(axis='both', labelsize=20)
-
-# Show the plot
 plt.show()
 ```
 :::
 
 ::: {.column width="50%"}
 ```{python}
-#| fig-pos: center
+#| fig-align: center
 #| echo: true
 #| code-fold: true
 
-# Create the histogram
+plt.figure(figsize=(5, 5))
 sns.histplot(data=auto_data, x="weight", color="darkblue", kde=False, edgecolor="black")
-
-# Customize the plot
 plt.title("Distribución de peso", fontsize=25)
 plt.xlabel("Peso (lb)", fontsize=20)
 plt.ylabel("Frecuencia", fontsize=20)
 plt.tick_params(axis='both', labelsize=20)
-
-# Show the plot
 plt.show()
 ```
 :::
 :::::
 
-## GLine Graph
+## Line Graph
 
 A line graph is a visual representation of data where data points are connected by a line. Axes:
 
@@ -332,24 +327,19 @@ Consider the data in the file "spotify.xlsx". This dataset contains the global d
 ```{python}
 #| echo: true
 
-# Read the Excel file
 spotify_data = pd.read_excel("spotify.xlsx")
-
-# View the first 3 rows
 spotify_data.head(3)
 ```
 
 ## 
 
-We will focus on the song *Despacito* by Luis Fonsi. To construct scatter plots, we use the function`gf_line(Y ~ X, data = data_set)`.
+We will focus on the song *Despacito* by Luis Fonsi. To construct line plots, we use the function`lineplot()` in **seaborn**.
 
 ```{python}
 #| echo: true
 
-# Create the line plot
+plt.figure(figsize=(10, 6))
 sns.lineplot(data=spotify_data, x="Date", y="Despacito")
-
-# Show the plot
 plt.show()
 ```
 
@@ -359,7 +349,7 @@ We can change various aspects of the graph using additional arguments `linetype`
 
 </br>
 
-`gf_line(Y ~ X, linetype, size, color, data = data_set)`.
+`sns.lineplot(data = data_set, x = x, y = Y, linestyle, linewidth, color)`.
 
 ## 
 
@@ -370,27 +360,24 @@ We can change various aspects of the graph using additional arguments `linetype`
 
 # Create the line plot
 plt.figure(figsize=(10, 6))
-sns.lineplot(data=spotify_data, x="Date", y="Despacito", color="darkblue", linewidth=1.3)
-
-# Customize the plot
+sns.lineplot(data=spotify_data, x="Date", y="Despacito", linestyle = '-',
+            color="darkblue", linewidth=1.3)
 plt.title("Popularidad de la canción Despacito de Luis Fonsi", fontsize=25)
 plt.xlabel("Fecha", fontsize=18)
 plt.ylabel("Número de reproducciones en Spotify", fontsize=18)
 plt.tick_params(axis='both', labelsize=20)
-
-# Show the plot
 plt.show()
 ```
 
 ## Line Types
 
-To change the line type, set the `linetype` parameter to a number or a word shown below.
+To change the line type, set the `linestyle` parameter to a character shown below.
 
-![](images/clipboard-2759814636.png){fig-align="center"}
+![](images/linetypes.png){fig-align="center"}
 
 # A Categorical and a Numerical Variable
 
-## !Divide the Data into Groups!
+## Divide the Data into Groups!
 
 To examine the relationship between a numerical and a categorical variable, we use the categorical variable to divide the data into groups. This way, we **compare the distribution** of the numerical variable among these groups.
 
@@ -407,26 +394,26 @@ The [side-by-side boxplot]{style="color:#D70040;"} is the most effective way to 
 
 ## Boxplot by Groups
 
+</br>
+
 The side-by-side boxplot compares the distribution of a variable across different groups.
 
 </br>
 
-The plot is obtained using the function:
+In **seaborn**, the plot is obtained using the function:
 
-`gf_boxplot(Y ~ X, data = dataset)`.
+`sns.boxplot(data=data_set, x=X, y=Y)`.
 
 ## 
 
 For example, if we want to compare the distributions of miles per gallon of cars built in America, Europe, or Japan, we use the following command:
 
 ```{python}
-#| fig-pos: center
+#| fig-align: center
 #| echo: true
 
-# Create the boxplot
+plt.figure(figsize=(10, 6))
 sns.boxplot(data=auto_data, x="origin", y="mpg")
-
-# Show the plot
 plt.show() 
 ```
 
@@ -437,43 +424,32 @@ plt.show()
 #| echo: true
 #| code-fold: true
 
-
-# Create the boxplot
 plt.figure(figsize=(8, 6))
 sns.boxplot(data=auto_data, x="origin", y="mpg", color="lightblue", fliersize=5, linewidth=1.5, boxprops=dict(color="black"))
-
-# Customize the plot
 plt.title("Distribución de Millas por Galón por Origen", fontsize=25)
 plt.xlabel("Origen", fontsize=20)
 plt.ylabel("Millas por galón", fontsize=20)
 plt.tick_params(axis='both', labelsize=20)
-
-# Show the plot
 plt.show()
 ```
 
 ## 
 
-We can also change the format of outlier points using the arguments `outlier.color`, `outlier.shape`, and `outlier.size`.
+We can also change the format of outlier points using the arguments `marker`, `markersize`, and `markerfacecolor` inside the argument `flierprops` in `sns.boxplot`.
 
 ```{python}
-#| fig-pos: center
+#| fig-align: center
 #| echo: true
 #| code-fold: true
 
-# Create the boxplot
 plt.figure(figsize=(8, 6))
 sns.boxplot(data=auto_data, x="origin", y="mpg", color="lightblue", 
             linewidth=1.5, fliersize=8, boxprops=dict(color="black"), 
-            flierprops=dict(marker="o", markerfacecolor="red", markersize=8, markeredgewidth=2))
-
-# Customize the plot
+            flierprops=dict(marker="o", markerfacecolor="red", markersize=8))
 plt.title("Distribución de Millas por Galón por Origen", fontsize=25)
 plt.xlabel("Origen", fontsize=20)
 plt.ylabel("Millas por galón", fontsize=20)
 plt.tick_params(axis='both', labelsize=20)
-
-# Show the plot
 plt.show()
 ```
 
@@ -481,23 +457,16 @@ plt.show()
 
 Alternatively, we can summarize the values of the numerical variable $Y$ for each category of the variable $X$ using the median or the mean.
 
-For example, let's plot the average miles per gallon of cars produced in America, Europe, and Japan. First, we calculate the average for each category using `group_by()` and `summarise()`.
+For example, let's plot the average miles per gallon of cars produced in America, Europe, and Japan. First, we calculate the average for each category using `groupby()` and `summarise()`.
 
 ```{python}
 #| echo: true
 #| output: true
 
-# Example data
-data = [10, 20, 30, 40, 50]
-
-# Calculate some summary statistics
-mean_value = np.mean(data)
-median_value = np.median(data)
-std_dev = np.std(data)
-
-print("Mean:", mean_value)
-print("Median:", median_value)
-print("Standard Deviation:", std_dev)
+(auto_data
+  .loc[:, ['mpg', 'origin']]
+  .groupby('origin)
+  .agg('mean'))
 ```
 
 ## 
@@ -669,10 +638,7 @@ As an example, let's consider the data in the file "penguins.xlsx".
 ```{python}
 #| echo: true
 
-# Read the Excel file
 penguins_data = pd.read_excel("penguins.xlsx")
-
-# Display the first few rows of the dataset
 print(penguins_data.head())
 ```
 
@@ -688,7 +654,6 @@ Make sure they are specified as `factor` in R!
 ```{python}
 #| echo: true
 
-# Convert specified columns to categorical (factor in R)
 penguins_data[['species', 'island', 'sex']] = penguins_data[['species', 'island', 'sex']].astype('category')
 ```
 
@@ -894,23 +859,11 @@ For two numerical variables and one categorical variable.
 #| fig-pos: center
 #| echo: true
 
-# Example dataset (replace with actual 'auto_data' dataframe)
-auto_data = pd.DataFrame({
-    'mpg': [21, 22, 23, 24, 25],
-    'weight': [2000, 2500, 3000, 3500, 4000],
-    'origin': ['USA', 'Europe', 'USA', 'Europe', 'Asia']
-})
-
-# Create the scatter plot with 'mpg' on the y-axis, 'weight' on the x-axis, and color based on 'origin'
 plt.figure(figsize=(8, 6))
 sns.scatterplot(data=auto_data, x='weight', y='mpg', hue='origin', palette='Set1')
-
-# Customize the plot
 plt.title("Scatter plot of MPG vs. Weight by Origin", fontsize=20)
 plt.xlabel("Weight (lb)", fontsize=15)
 plt.ylabel("Miles per Gallon (MPG)", fontsize=15)
-
-# Show the plot
 plt.show() 
 ```
 

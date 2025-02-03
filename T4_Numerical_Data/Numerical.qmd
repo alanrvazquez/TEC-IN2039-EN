@@ -142,7 +142,7 @@ print( round(piston_data_mean, 3) )
 
 > Indicates how spread out the data are around the mean.
 
-Let $y_1, y_2, \ldots, y_n$ be an observed sample of size $n$. The  variance is
+Let $y_1, y_2, \ldots, y_n$ be an observed sample of size $n$. The variance is
 
 $$
 s^2 = \frac{1}{n-1} \sum_{i=1}^{n} (y_i - \bar{y})^2 = \frac{(y_1 - \bar{y})^2  + \cdots + (y_n - \bar{y})^2}{n-1}
@@ -242,11 +242,11 @@ piston_data["cycle_time"].quantile(set_quantiles)
 
 [*Interpretation:*]{style="color:darkgray;"}
 
-- 25% of cycle times are below 0.305 sec.
+-   25% of cycle times are below 0.305 sec.
 
-- 50% of cycle times are below 0.546 sec.
+-   50% of cycle times are below 0.546 sec.
 
-- 75% of cycle times are below 1.07 sec.
+-   75% of cycle times are below 1.07 sec.
 
 ## Maximum and minimum
 
@@ -280,9 +280,9 @@ print(piston_data_min)
 
 The average and median estimate the central value of the data in different ways.
 
-- The average is the sum of the values divided by the total.
+-   The average is the sum of the values divided by the total.
 
-- The median is the central value of an ordered set of data.
+-   The median is the central value of an ordered set of data.
 
 ## When do we use the average?
 
@@ -300,9 +300,9 @@ The median is used when there are outliers that could skew the mean.
 
 For example:
 
-- Annual household income in a country (where there are a few billionaires who distort the mean).
+-   Annual household income in a country (where there are a few billionaires who distort the mean).
 
-- House prices in a city (where a few very expensive properties can inflate the mean).
+-   House prices in a city (where a few very expensive properties can inflate the mean).
 
 ## Activity (*only* mode) Part 1
 
@@ -310,8 +310,7 @@ A company that manufactures capacitor retaining bolts for automobile engines imp
 
 The file `bolts.xlsx` contains the number of non-conforming bolts during the last 45 shifts.
 
-- Calculates and interprets the average, variance, standard deviation, quartiles, minimum and maximum.
-
+-   Calculates and interprets the average, variance, standard deviation, quartiles, minimum and maximum.
 
 # Data visualizations for numerical variables
 
@@ -324,11 +323,11 @@ The file `bolts.xlsx` contains the number of non-conforming bolts during the las
 Typical questions about a numeric variable $X$ are:
 
 ::: incremental
-- What is the shape of the observations of the variable $X$?
+-   What is the shape of the observations of the variable $X$?
 
-- Are there unusual or atypical observations in the variable $X$?
+-   Are there unusual or atypical observations in the variable $X$?
 
-- Does the shape of the observations of the variable $X$ resemble a bell?
+-   Does the shape of the observations of the variable $X$ resemble a bell?
 :::
 
 ## Principle 2
@@ -339,8 +338,8 @@ Typical questions about a numeric variable $X$ are:
 
 Two common types of graphs to visualize a numerical variable are:
 
-- Histogram.
-- Box plot.
+-   Histogram.
+-   Box plot.
 
 . . .
 
@@ -354,9 +353,9 @@ Visualizes the distribution of observations, indicating regions where observatio
 
 It is built using a ***frequency table***.
 
-1. Define a maximum number of intervals or *bins* (from 5 to 30).
-2. Define the ranges of the intervals.
-3. Group the observations in the interval to which they belong.
+1.  Define a maximum number of intervals or *bins* (from 5 to 30).
+2.  Define the ranges of the intervals.
+3.  Group the observations in the interval to which they belong.
 
 . . .
 
@@ -406,9 +405,9 @@ With categorical data, a bar chart looks similar to a histogram because it displ
 
 However, we cannot interpret the shape of a bar chart in the same way as a histogram.
 
-1. The frequency of a category is represented by the height of the bar, and the width does not contain any information.
+1.  The frequency of a category is represented by the height of the bar, and the width does not contain any information.
 
-2. A bar chart will not highlight outliers.
+2.  A bar chart will not highlight outliers.
 
 ::: notes
 Tails and symmetry do not make sense in this setting.
@@ -476,11 +475,11 @@ A histogram is a familiar type of plot that involves smoothing. A histogram aggr
 
 </br>
 
-- Symmetry and asymmetry of the distribution
-- The number, location, and size of high-frequency regions (bins)
-- Gaps where no values are observed
-- Unusually large or anomalous values
-- A [**bell-shaped**]{style="color:#1e3f5a;"} form
+-   Symmetry and asymmetry of the distribution
+-   The number, location, and size of high-frequency regions (bins)
+-   Gaps where no values are observed
+-   Unusually large or anomalous values
+-   A [**bell-shaped**]{style="color:#1e3f5a;"} form
 
 ## The obsession with bell curves
 
@@ -503,7 +502,6 @@ Basically, if your observations follow a normal distribution, you can use statis
 ![](images/clipboard-983817526.png){fig-align="center" width="554" height="278"}
 
 [*What many people don't know is that this condition is only needed if you have few observations (less than 50).*]{style="color:darkred;"}
-
 
 ## Boxplot
 
@@ -531,11 +529,11 @@ Learn more in that league [**https://towardsdatascience.com/why-1-5-in-iqr-metho
 
 </br>
 
-- Outliers are points that are much larger or smaller than the rest of the sample points.
+-   Outliers are points that are much larger or smaller than the rest of the sample points.
 
-- Outliers may be data entry errors or they may be points that really are different from the rest.
+-   Outliers may be data entry errors or they may be points that really are different from the rest.
 
-- Outliers should not be deleted without considerable thought—sometimes calculations and analyses will be done with and without outliers and then compared.
+-   Outliers should not be deleted without considerable thought—sometimes calculations and analyses will be done with and without outliers and then compared.
 
 ## Boxplot in Python
 
@@ -569,15 +567,13 @@ sns.boxplot( x = piston_data["cycle_time"])
 plt.show()
 ```
 
-
 ## Activity (*solo* mode) Part 2
 
 </br>
 
 The file `bolts.xlsx` contains the number of non-conforming bolts during the last 45 shifts. Using Python, create the following graphs
 
-- Histogram
-- Boxplot
-
+-   Histogram
+-   Boxplot
 
 # [Return to main page](https://alanrvazquez.github.io/TEC-IN1002B-Website/)

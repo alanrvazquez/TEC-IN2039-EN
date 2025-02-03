@@ -87,7 +87,7 @@ These take values that fall into *categories*.
 . . .
 
 |  |  |
-|--------------------|----------------------------------------------------|
+|------------------------------------|------------------------------------|
 | **Variable** | **Categories** |
 | Amazon review | 1$\bigstar$, 2$\bigstar$, 3$\bigstar$, 4$\bigstar$, 5$\bigstar$ |
 | Country of origin | México, Canadá, EUA |

@@ -9,7 +9,7 @@ format:
   revealjs:
     chalkboard: true
     multiplex: true
-    footer: "Tecnológico de Monterrey"
+    footer: "Tecnologico de Monterrey"
     logo: IN2039_logo.png
     css: style.css
     slide-number: True
@@ -21,17 +21,17 @@ editor: visual
 
 ## Agenda
 
-1. Introduction
+1.  Introduction
 
-2. Relationship between two numerical variables
+2.  Relationship between two numerical variables
 
-3. Simple linear regression
+3.  Simple linear regression
 
-4. Local regression
+4.  Local regression
 
 ## Loading the Libraries
 
-Let's load the `ggplot2`, `ggformula`, `readxl`, and `dplyr` libraries in Google Colab and R before starting.
+Let's import the `pandas`, `matplotlib`, and `seaborn` in Google Colab.
 
 ```{python}
 #| echo: true
@@ -52,12 +52,16 @@ The data is in the file "auto_dataset.xlsx".
 #| echo: true
 
 auto_data = pd.read_excel("auto_dataset.xlsx")
+# Set categorical variable.
+auto_data[['origin']] = auto_data[['origin']].astype('category')
 auto_data.head()
 ```
 
 # Relationship Between Two Numerical Variables
 
-## Principle 1: Formulate the Message
+## Principle 1: Formulate the question or message
+
+</br>
 
 Questions we can answer with simple linear regression:
 
@@ -66,7 +70,7 @@ Questions we can answer with simple linear regression:
 
 -   How strong is the relationship?
 
--   ¿What is the uncertainty?
+-   What is the uncertainty?
 
 -   How precisely can we predict a future outcome?
 :::
@@ -76,28 +80,22 @@ Questions we can answer with simple linear regression:
 Is there a relationship between a car's weight and its miles per gallon?
 
 ```{python}
-#| fig-pos: center
+#| fig-align: center
 #| echo: false
 #| code-fold: true
 
-# Create scatter plot
 plt.figure(figsize=(8, 6))
 mi_diagrama = sns.scatterplot(data=auto_data, x="weight", y="mpg", color="darkblue", s=50)
-
-# Add labels
-plt.xlabel("Peso (lb)", fontsize=20)
-plt.ylabel("Millas por galón", fontsize=20)
-plt.title("Scatter Plot", fontsize=25)
-
-# Adjust axis text size
-plt.xticks(fontsize=20)
-plt.yticks(fontsize=20)
-
-# Show plot
+plt.xlabel("Weight (lb)", fontsize=15)
+plt.ylabel("Miles per Gallon", fontsize=15)
+plt.xticks(fontsize=10)
+plt.yticks(fontsize=10)
 plt.show()
 ```
 
 ## Regression Problem
+
+</br>
 
 **Objetive**: Objective: Find the best function $f(X)$ of the predictor $X$ that describes the response $Y$.
 
@@ -113,7 +111,7 @@ where $\epsilon$ is a natural (random) error.
 
 ## 
 
--   EIn practice, it is very difficult to know the true structure of the function $f(X)$.
+-   In practice, it is very difficult to know the true structure of the function $f(X)$.
 
 ::: incremental
 -   The best we can do is construct an approximation (function) $\hat{f}(X)$.
@@ -128,7 +126,7 @@ where $\epsilon$ is a natural (random) error.
 
 ## Linear Regression Model
 
-A very common function $f(X)$ to predict a response $Y$ is the  **linear regression model**.
+A very common function $f(X)$ to predict a response $Y$ is the **linear regression model**.
 
 Its mathematical form is:
 
@@ -142,7 +140,7 @@ $$
 -   The values $\hat{\beta}_0$ and $\hat{\beta}_1$ are called [coefficients]{style="color:darkblue;"} of the model.
 :::
 
-## Principle 2: Convert Data into Information
+## Principle 2: Turn data into information
 
 The values of $\hat{\beta}_0$ and $\hat{\beta}_1$ are obtained using the data. Specifically, the formulas for the coefficients are:
 
@@ -154,48 +152,37 @@ These formulas are derived from the method of [*least squares*]{style="color:ora
 
 ## Fitting Regression Models in R
 
-To fit a linear regression model, we use the pipe `%>%` command along with the function `gf_lm()`.
+To fit a linear regression model, we use the `regplot()` in **seaborn**.
 
 ```{python}
+#| fig-align: center
 #| echo: true
 #| output: true
 
-# Create scatter plot with linear regression line
 plt.figure(figsize=(8, 6))
-sns.scatterplot(data=auto_data, x="weight", y="mpg", color="blue", label="Data")
-sns.regplot(data=auto_data, x="weight", y="mpg", scatter=False, color="red", label="Linear Fit")
-
-# Add labels and legend
+sns.regplot(data=auto_data, x="weight", y="mpg")
 plt.xlabel("Weight (lb)")
 plt.ylabel("Miles per Gallon (mpg)")
-plt.title("Scatter Plot with Linear Regression")
 plt.legend()
-
-# Show plot
 plt.show()
 ```
 
 ## 
 
-We can modify the color, thickness, and line type using the arguments `color`, `linewidth`, and `lty`, respectively, in the `gf_lm()`function.
+We can modify the line type, thickness, and color using the arguments `linestyle`, `linewidth`, and `color`, respectively, in the `line_kws` argument of the function.
 
 ```{python}
 #| echo: true
-#| output: true
+#| output: false
 
-# Create scatter plot with linear regression line
 plt.figure(figsize=(8, 6))
-sns.scatterplot(data=auto_data, x="weight", y="mpg", color="blue", label="Data")
-sns.regplot(data=auto_data, x="weight", y="mpg", scatter=False, color="red", 
-            line_kws={"linestyle": "-", "linewidth": 3}, label="Linear Fit")
-
-# Add labels and legend
+sns.regplot(data=auto_data, x="weight", y="mpg",  
+            scatter_kws={"color": "blue"},
+            line_kws={"linestyle": "-", "linewidth": 3, "color": "red", 
+                      "label": "Linear Fit"})
 plt.xlabel("Weight (lb)")
 plt.ylabel("Miles per Gallon (mpg)")
-plt.title("Scatter Plot with Linear Regression")
 plt.legend()
-
-# Show plot
 plt.show()
 ```
 
@@ -204,12 +191,17 @@ plt.show()
 $\hat{Y}_i = 46.32 -0.0076 X_i$
 
 ```{python}
-#| fig-pos: center
+#| fig-align: center
 #| echo: false
 
-# Suponiendo que 'mi_diagrama' es un DataFrame con columnas 'x' e 'y'
-sns.lmplot(data=mi_diagrama, x="x", y="y", line_kws={"color": "red", "linestyle": "-", "linewidth": 2})
-
+plt.figure(figsize=(8, 6))
+sns.regplot(data=auto_data, x="weight", y="mpg",  
+            scatter_kws={"color": "blue"},
+            line_kws={"linestyle": "-", "linewidth": 3, "color": "red", 
+                      "label": "Linear Fit"})
+plt.xlabel("Weight (lb)")
+plt.ylabel("Miles per Gallon (mpg)")
+plt.legend()
 plt.show()
 ```
 
@@ -218,19 +210,17 @@ plt.show()
 $\text{mpg}_i = 46.32 - 0.0076 \times \text{peso}_i$
 
 ```{python}
-#| fig-pos: center
+#| fig-align: center
 #| echo: false
 
-# Crear la figura y los ejes
-fig, ax = plt.subplots()
-
-# Graficar el modelo de regresión lineal
-sns.regplot(data=mi_diagrama, x="x", y="y", ax=ax, color="red", line_kws={"linestyle": "-", "linewidth": 2})
-
-# Guardar la figura en una variable
-grafica_modelo = fig
-
-# Mostrar la figura
+plt.figure(figsize=(8, 6))
+sns.regplot(data=auto_data, x="weight", y="mpg",  
+            scatter_kws={"color": "blue"},
+            line_kws={"linestyle": "-", "linewidth": 3, "color": "red", 
+                      "label": "Linear Fit"})
+plt.xlabel("Weight (lb)")
+plt.ylabel("Miles per Gallon (mpg)")
+plt.legend()
 plt.show()
 ```
 
@@ -249,11 +239,10 @@ $\hat{\beta}_0$ is the average response value when $X_i = 0$.
 
 # Crear la figura y los ejes
 fig, ax = plt.subplots()
-
-# Graficar el modelo de regresión lineal
-sns.regplot(data=mi_diagrama, x="x", y="y", ax=ax, color="red", line_kws={"linestyle": "-", "linewidth": 2})
-
-# Ajustar los límites de los ejes
+sns.regplot(data=auto_data, x="weight", y="mpg",  
+            scatter_kws={"color": "blue"},
+            line_kws={"linestyle": "-", "linewidth": 3, "color": "red", 
+                      "label": "Linear Fit"})
 ax.set_ylim(0, 50)
 ax.set_xlim(0, 5500)
 
@@ -300,27 +289,25 @@ No! Because there are no cars with a weight of 0.
 
 ## 
 
-> ¿What does  $\hat{\beta}_1 = - 0.0076$ mean?
+> What does $\hat{\beta}_1 = - 0.0076$ mean?
 
 . . .
 
 $\hat{\beta}_1$ is the average change in the response when $X_i$ increases by one unit.
 
 ```{python}
-#| fig-pos: center
+#| fig-align: center
 #| echo: false
 #| out-width: 80%
 
-# Create the figure and axis
-fig, ax = plt.subplots()
-
-# Create the regression plot
-sns.regplot(data=mi_diagrama, x="x", y="y", ax=ax, color="red", line_kws={"linestyle": "-", "linewidth": 2})
-
-# Store the figure in grafica_modelo
-grafica_modelo = fig
-
-# Show the plot (optional, as you can show or save it later)
+plt.figure(figsize=(8, 6))
+sns.regplot(data=auto_data, x="weight", y="mpg",  
+            scatter_kws={"color": "blue"},
+            line_kws={"linestyle": "-", "linewidth": 3, "color": "red", 
+                      "label": "Linear Fit"})
+plt.xlabel("Weight (lb)")
+plt.ylabel("Miles per Gallon (mpg)")
+plt.legend()
 plt.show()
 ```
 
@@ -344,7 +331,7 @@ No! The model has [**errors**]{style="color:darkgreen;"}.
 
 Technically, the error of the *i*-th observation is given by: $e_i = Y_i - \hat{Y}_i = Y_i - \hat{\beta}_0 - \hat{\beta}_1 X_i$.
 
-# In fact ...
+## In fact ...
 
 The formulas for $\hat{\beta}_0$ and $\hat{\beta}_1$ are obtained by minimizing the sum of squared errors.
 
@@ -461,7 +448,6 @@ This is a modern alternative to the simple linear regression model for capturing
 [**Basic Idea**]{style="color:darkgray;"}: It fits linear regression models to small subsets of the data. These subsets consist of observations that are close to each other.
 
 The most common method for fitting a local regression model is **LOESS**. We will omit the details of this method here since they require advanced statistical concepts.
-
 
 ## 
 
