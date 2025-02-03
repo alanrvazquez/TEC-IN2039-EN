@@ -60,9 +60,10 @@ import seaborn as sns
 In Google Colab, the file "CYLT.xlsx" should be placed in a folder called "content" or "contenido".
 
 ```{python}
-# Load the data
+#| echo: true
+#| output: true
+
 piston_data = pd.read_excel("CYCLT.xlsx")
-# View the first 6 observations
 piston_data.head()
 ```
 
@@ -72,10 +73,9 @@ In Python, numerical data is stored as `float64`.
 
 ```{python}
 #| output: true
-#| echo: false
+#| echo: true
 
 piston_data.info()
-
 ```
 
 We can see that Python recognizes our data correctly.
@@ -89,25 +89,25 @@ We can see that Python recognizes our data correctly.
 For **numerical** data, the most popular summary statistics are:
 
 ::: incremental
--   [Sample mean]{style="color:darkblue;"}
--   [Sample variance]{style="color:darkblue;"} and [sample standard deviation]{style="color:darkblue;"}
--   [Sample quartiles]{style="color:darkgreen;"}
--   Sample maximum and minimum
+-   [Mean]{style="color:darkblue;"}
+-   [Variance]{style="color:darkblue;"} and [sample standard deviation]{style="color:darkblue;"}
+-   [Quartiles]{style="color:darkgreen;"}
+-   Maximum and minimum
 :::
 
-## Sample mean
+## Mean
 
 > Indicates the center of the data.
 
 Let $y_1, y_2, \ldots, y_n$ be an observed sample of size $n$.
 
-The sample mean is
+The mean is
 
 $$\bar{y} = \frac{1}{n}\sum_{i=1}^{n} y_i = \frac{y_1 + y_2 + \cdots + y_n}{n}.$$
 
 ## 
 
-In python, we calculate the sample mean using the function `mean()`.
+In python, we calculate the mean using the function `mean()`.
 
 ```{python}
 #| echo: true
@@ -117,9 +117,13 @@ piston_data_mean = piston_data["cycle_time"].mean()
 print(piston_data_mean)
 ```
 
+</br>
+
 We use the function print to show the number. Otherwise, python will show the computer type of value stored in `piston_data_mean`.
 
 ## 
+
+</br>
 
 You can also round the result to, say, three decimals.
 
@@ -130,13 +134,15 @@ You can also round the result to, say, three decimals.
 print( round(piston_data_mean, 3) )
 ```
 
-**Interpretation**: On average, the piston takes 0.652 seconds to complete a cycle.
+</br>
 
-## Sample variance
+[*Interpretation:*]{style="color:darkgray;"} On average, the piston takes 0.652 seconds to complete a cycle.
+
+## Variance
 
 > Indicates how spread out the data are around the mean.
 
-Let $y_1, y_2, \ldots, y_n$ be an observed sample of size $n$. The sample mean is
+Let $y_1, y_2, \ldots, y_n$ be an observed sample of size $n$. The  variance is
 
 $$
 s^2 = \frac{1}{n-1} \sum_{i=1}^{n} (y_i - \bar{y})^2 = \frac{(y_1 - \bar{y})^2  + \cdots + (y_n - \bar{y})^2}{n-1}
@@ -144,11 +150,13 @@ $$
 
 . . .
 
-*The sample variance is like an average of the squared differences between each observation and the sample mean.*
+*The variance is like an average of the squared differences between each observation and the mean.*
 
 ## 
 
-In python, the sample variance is calculated using the function `var()`.
+</br>
+
+In python, the variance is calculated using the function `var()`.
 
 ```{python}
 #| echo: true
@@ -158,23 +166,27 @@ piston_data_var = piston_data["cycle_time"].var()
 print( round(piston_data_var, 3))
 ```
 
-*Interpretation*: The variance of the piston cycle times is 0.139. A larger variance means greater dispersion of the data around the mean.
+</br>
 
-## Sample standard deviation
+[*Interpretation:*]{style="color:darkgray;"} The variance of the piston cycle times is 0.139. *A larger variance means greater dispersion of the data around the mean.*
 
-A drawback of the sample variance is that it is not on the same scale as the actual observations.
+## Standard deviation
 
-To obtain a measure of spread whose units are the same as those of the sample, we simply take the squared root of the sample variance
+A drawback of the variance is that it is not on the same scale as the actual observations.
+
+To obtain a measure of spread whose units are the same as those of the sample, we simply take the squared root of the variance
 
 $$
 s = \left(\frac{1}{n-1} \sum_{i=1}^{n} (y_i - \bar{y})^2 \right)^{1/2}
 $$
 
-This quantity is known as the sample standard deviation. [*It is in the same units as the observations*]{style="color:purple;"}.
+This quantity is known as the standard deviation. [*It is in the same units as the observations*]{style="color:purple;"}.
 
 ## 
 
-In python, the sample variance is calculated using the function `std()`.
+</br>
+
+In python, the standard deviation is calculated using the function `std()`.
 
 ```{python}
 #| echo: true
@@ -184,9 +196,11 @@ piston_data_std = piston_data["cycle_time"].std()
 print(round(piston_data_std,3))
 ```
 
-**Interpretation**: On average, a piston takes 0.652 seconds to complete a cycle, with a variation of $\pm 0.373$ seconds.
+</br>
 
-## Sample quartiles
+[*Interpretation:*]{style="color:darkgray;"} On average, a piston takes 0.652 seconds to complete a cycle, with a variation of $\pm 0.373$ seconds.
+
+## Quartiles
 
 The [**sample median**]{style="color:darkgreen;"} is the middle number of the ordered data values.
 
@@ -206,7 +220,11 @@ The [**sample median**]{style="color:darkgreen;"} is the middle number of the or
 
 </br></br>
 
-![](images/clipboard-838628209.png)
+![](images/clipboard-1950324610.png)
+
+</br>
+
+The generalization of quartiles are percentiles or **quantiles**.
 
 ## 
 
@@ -222,7 +240,7 @@ set_quantiles = [0.25, 0.5, 0.75]
 piston_data["cycle_time"].quantile(set_quantiles)
 ```
 
-**Interpretation**:
+[*Interpretation:*]{style="color:darkgray;"}
 
 - 25% of cycle times are below 0.305 sec.
 
@@ -230,7 +248,7 @@ piston_data["cycle_time"].quantile(set_quantiles)
 
 - 75% of cycle times are below 1.07 sec.
 
-## Sample maximum and minimum
+## Maximum and minimum
 
 We compute the **maximum** and **minimum** using the functions `max()` and `min()`, respectively.
 
@@ -242,6 +260,8 @@ piston_data_max = piston_data["cycle_time"].max()
 print(piston_data_max)
 ```
 
+[*Interpretation:*]{style="color:darkgray;"} The maximum cycle time is 1.14 seconds.
+
 </br>
 
 ```{python}
@@ -252,13 +272,11 @@ piston_data_min = piston_data["cycle_time"].min()
 print(piston_data_min)
 ```
 
-**Interpretation**:
-
-- The maximum cycle time is 1.14 seconds.
-
-- The minimum cycle time is 0.175 seconds.
+[*Interpretation:*]{style="color:darkgray;"} The minimum cycle time is 0.175 seconds.
 
 ## Average vs. Median
+
+</br>
 
 The average and median estimate the central value of the data in different ways.
 
@@ -268,11 +286,15 @@ The average and median estimate the central value of the data in different ways.
 
 ## When do we use the average?
 
+</br>
+
 The average is used when the data is symmetrically or evenly distributed and there are no significant outliers.
 
 For example, the height of a large sample of people in a homogeneous population.
 
 ## When do we use the median?
+
+</br>
 
 The median is used when there are outliers that could skew the mean.
 
@@ -293,54 +315,269 @@ The file `bolts.xlsx` contains the number of non-conforming bolts during the las
 
 # Data visualizations for numerical variables
 
+## Principle 1
 
+> Formulate the question of interest.
+
+. . .
+
+Typical questions about a numeric variable $X$ are:
+
+::: incremental
+- What is the shape of the observations of the variable $X$?
+
+- Are there unusual or atypical observations in the variable $X$?
+
+- Does the shape of the observations of the variable $X$ resemble a bell?
+:::
+
+## Principle 2
+
+> Transform data into information.
+
+. . .
+
+Two common types of graphs to visualize a numerical variable are:
+
+- Histogram.
+- Box plot.
+
+. . .
+
+Basically, they are different ways of visualizing the "shape" or [*distribution*]{style="color:darkred;"} of the variable.
 
 ## Histogram
 
-</br></br>
+Visualizes the distribution of observations, indicating regions where observations are concentrated or sparse.
 
-Graphical display that gives an idea of the “shape” of the sample, indicating regions where sample points are concentrated and regions where they are sparse.
+. . .
 
-</br>
+It is built using a ***frequency table***.
 
-The bars of the histogram touch each other. A space indicates that there are no observations in that interval.
+1. Define a maximum number of intervals or *bins* (from 5 to 30).
+2. Define the ranges of the intervals.
+3. Group the observations in the interval to which they belong.
 
-## Histogram of Na
+. . .
+
+Python automatically calculates the frequency table for numerical data. The histogram is a visualization of this table.
+
+## 
 
 To create a histogram, we use the function `histplot()` from **seabron**.
 
+```{python}
+#| fig-align: center
+#| echo: true
 
-## Box plot
+plt.figure(figsize=(10, 4))
+sns.histplot(data=piston_data, x="cycle_time")
+plt.show() 
+```
+
+::: notes
+The bars of the histogram touch each other. A gap indicates that there are no observations in that interval.
+:::
+
+## Improving the graph
+
+To convey a better message, we apply *Principle 3: Apply the principles of graphic design.*
+
+```{python}
+#| fig-align: center
+#| echo: true
+#| code-fold: true
+
+plt.figure(figsize=(10, 4))
+sns.histplot(data=piston_data, x="cycle_time", bins=10, 
+             edgecolor="black", color="pink")
+plt.title("Histogram of Cycle Time")
+plt.xlabel("Cycle Time (seconds)")
+plt.ylabel("Frequency")
+plt.figtext(0.15, 0.01, "Data from 50 pistons", ha="left", fontsize=10)
+plt.show()
+```
+
+## It is not the same as a bar chart
 
 </br>
 
-A box plot is a graphic that presents the median, the first and third quartiles, and any “outliers” present in the sample.
+With categorical data, a bar chart looks similar to a histogram because it displays the frequency of categories.
+
+However, we cannot interpret the shape of a bar chart in the same way as a histogram.
+
+1. The frequency of a category is represented by the height of the bar, and the width does not contain any information.
+
+2. A bar chart will not highlight outliers.
+
+::: notes
+Tails and symmetry do not make sense in this setting.
+:::
+
+## Number of bins
+
+-   The number of bins is a parameter of the histogram that affects its appearance.
+
+This is set using the argument `bins` in `histplot()`.
+
+```{python}
+#| fig-algin: center
+#| echo: true
+
+plt.figure(figsize=(10, 4))
+sns.histplot(data=piston_data, x="cycle_time", bins=5, 
+             edgecolor="black", color="white")
+plt.show()
+```
+
+## 
+
+[The left histogram uses `bins = 5`, and the right histogram uses `bins = 30`]{style="font-size: 100%;"}
+
+::::: columns
+::: {.column width="50%"}
+```{python}
+#| fig-pos: center
+#| code-fold: true
+
+plt.figure(figsize=(5, 4))
+sns.histplot(data=piston_data, x="cycle_time", bins=5, 
+             edgecolor="black", color="pink")
+plt.title("Histogram of Cycle Time")
+plt.xlabel("Cycle Time (seconds)")
+plt.ylabel("Frequency")
+plt.show()
+```
+:::
+
+::: {.column width="50%"}
+```{python}
+#| fig-pos: center
+#| code-fold: true
+
+plt.figure(figsize=(5, 4))
+sns.histplot(data=piston_data, x="cycle_time", bins=30, 
+             edgecolor="black", color="pink")
+plt.title("Histogram of Cycle Time")
+plt.xlabel("Cycle Time (seconds)")
+plt.ylabel("Frequency")
+plt.show()
+```
+:::
+:::::
+
+In this course, we will use the default number of `bins`.
+
+::: notes
+A histogram is a familiar type of plot that involves smoothing. A histogram aggregates data values by placing points into bins and plotting one bar for each bin. Smoothing here means that we cannot differentiate the location of individual points within a bin: the points are smoothly distributed across their bins.
+:::
+
+## What to look for in a histogram?
 
 </br>
 
-The interquartile range (IQR) is the difference between the third quartile and the first quartile ($Q_3 - Q_1$). This is the distance needed to span the middle half of the data.
+- Symmetry and asymmetry of the distribution
+- The number, location, and size of high-frequency regions (bins)
+- Gaps where no values are observed
+- Unusually large or anomalous values
+- A [**bell-shaped**]{style="color:#1e3f5a;"} form
 
-## Anatomy of a box plot
+## The obsession with bell curves
 
-![](images/anatomy.png){fig-align="center"}
+::::: columns
+::: {.column width="50%"}
+The **normal distribution** is a very important probability distribution in statistics.
+:::
 
-See also [**https://towardsdatascience.com/why-1-5-in-iqr-method-of-outlier-detection-5d07fdc82097**](#0){.uri}
+::: {.column width="50%"}
+![](images/clipboard-2759719598.png)
+:::
+:::::
 
-## Box plot of Na
+It is characterized by a symmetric bell-shaped curve centered around its mean, with the highest probability density at the mean and decreasing symmetrically towards the extremes
 
-To create a boxplot, we use the function `boxplot()` from **seabron**.
+## 
+
+Basically, if your observations follow a normal distribution, you can use statistical methods to draw conclusions based on mathematical theory.
+
+![](images/clipboard-983817526.png){fig-align="center" width="554" height="278"}
+
+[*What many people don't know is that this condition is only needed if you have few observations (less than 50).*]{style="color:darkred;"}
 
 
+## Boxplot
+
+A boxplot helps us visualize the distribution of observations using quartiles.
+
+. . .
+
+> It is very effective for detecting "outliers."
+
+. . .
+
+An important component of the boxplot is the **interquartile range** (*IQR*), which is the difference between the third quartile and the first quartile ($Q_3 - Q_1$).
+
+. . .
+
+The interquartile range is the distance needed to encompass the middle half of the data.
+
+## Anatomy of a Box Plot
+
+![](images/clipboard-84021266.png){fig-align="center"}
+
+Learn more in that league [**https://towardsdatascience.com/why-1-5-in-iqr-method-of-outlier-detection-5d07fdc82097**](#0){.uri}
 
 ## Outliers
 
 </br>
 
-Outliers are points that are much larger or smaller than the rest of the sample points.
+- Outliers are points that are much larger or smaller than the rest of the sample points.
 
-Outliers may be data entry errors or they may be points that really are different from the rest.
+- Outliers may be data entry errors or they may be points that really are different from the rest.
 
-Outliers should not be deleted without considerable thought—sometimes calculations and analyses will be done with and without outliers and then compared.
+- Outliers should not be deleted without considerable thought—sometimes calculations and analyses will be done with and without outliers and then compared.
+
+## Boxplot in Python
+
+</br>
+
+To create a boxplot in **seaborn**, use the `boxplot()` function.
+
+```{python}
+#| fig-align: center
+#| output: true
+#| echo: true
+
+plt.figure(figsize=(5, 4))
+sns.boxplot(y=piston_data["cycle_time"])
+plt.show()
+```
+
+## 
+
+</br>
+
+If we specify the variable in the `x` argument, we get a horizontal boxplot.
+
+```{python}
+#| fig-align: center
+#| output: true
+#| echo: true
+
+plt.figure(figsize=(5, 4))
+sns.boxplot( x = piston_data["cycle_time"])
+plt.show()
+```
+
+
+## Activity (*solo* mode) Part 2
+
+</br>
+
+The file `bolts.xlsx` contains the number of non-conforming bolts during the last 45 shifts. Using Python, create the following graphs
+
+- Histogram
+- Boxplot
 
 
 # [Return to main page](https://alanrvazquez.github.io/TEC-IN1002B-Website/)
