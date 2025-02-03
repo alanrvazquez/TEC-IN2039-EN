@@ -1,0 +1,558 @@
+---
+title: Introduction to Linear Regression 
+subtitle: "IN2039: Data Visualization for Decision Making"
+author: 
+  - name: Alan R. Vazquez
+    affiliations:
+      - name: Department of Industrial Engineering
+format: 
+  revealjs:
+    chalkboard: true
+    multiplex: true
+    footer: "Tecnológico de Monterrey"
+    logo: IN2039_logo.png
+    css: style.css
+    slide-number: True
+    html-math-method: mathjax
+execute:
+  echo: true
+editor: visual
+---
+
+## Agenda
+
+1. Introduction
+
+2. Relationship between two numerical variables
+
+3. Simple linear regression
+
+4. Local regression
+
+## Loading the Libraries
+
+Let's load the `ggplot2`, `ggformula`, `readxl`, and `dplyr` libraries in Google Colab and R before starting.
+
+```{python}
+#| echo: true
+#| output: false
+
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+```
+
+## Example
+
+We will use data from 392 cars, including miles per gallon, number of cylinders, horsepower, weight, acceleration, year, origin, and other variables.
+
+The data is in the file "auto_dataset.xlsx".
+
+```{python}
+#| echo: true
+
+auto_data = pd.read_excel("auto_dataset.xlsx")
+auto_data.head()
+```
+
+# Relationship Between Two Numerical Variables
+
+## Principle 1: Formulate the Message
+
+Questions we can answer with simple linear regression:
+
+::: incremental
+-   Is there a relationship between a response variable and predictors?
+
+-   How strong is the relationship?
+
+-   ¿What is the uncertainty?
+
+-   How precisely can we predict a future outcome?
+:::
+
+## 
+
+Is there a relationship between a car's weight and its miles per gallon?
+
+```{python}
+#| fig-pos: center
+#| echo: false
+#| code-fold: true
+
+# Create scatter plot
+plt.figure(figsize=(8, 6))
+mi_diagrama = sns.scatterplot(data=auto_data, x="weight", y="mpg", color="darkblue", s=50)
+
+# Add labels
+plt.xlabel("Peso (lb)", fontsize=20)
+plt.ylabel("Millas por galón", fontsize=20)
+plt.title("Scatter Plot", fontsize=25)
+
+# Adjust axis text size
+plt.xticks(fontsize=20)
+plt.yticks(fontsize=20)
+
+# Show plot
+plt.show()
+```
+
+## Regression Problem
+
+**Objetive**: Objective: Find the best function $f(X)$ of the predictor $X$ that describes the response $Y$.
+
+. . .
+
+Mathematically, we want to establish the following relationship:
+
+$$
+Y = f(X) + \epsilon,
+$$
+
+where $\epsilon$ is a natural (random) error.
+
+## 
+
+-   EIn practice, it is very difficult to know the true structure of the function $f(X)$.
+
+::: incremental
+-   The best we can do is construct an approximation (function) $\hat{f}(X)$.
+
+-   There are several strategies to build $\hat{f}(X)$, one of the most common is:
+
+    1.  Define a simple "structure" or "formula."
+    2.  Estimate the elements of the "formula" using the data.
+:::
+
+# Simple Linear Regression
+
+## Linear Regression Model
+
+A very common function $f(X)$ to predict a response $Y$ is the  **linear regression model**.
+
+Its mathematical form is:
+
+$$
+\hat{Y}_i = \hat{\beta}_0 + \hat{\beta}_1 X_i,
+$$
+
+::: incremental
+-   Where $i$ is the index of the $n$ observations, and
+-   $\hat{Y}_i$ is the predicted value of the actual response $Y_i$ associated with a predictor value $X_i$.
+-   The values $\hat{\beta}_0$ and $\hat{\beta}_1$ are called [coefficients]{style="color:darkblue;"} of the model.
+:::
+
+## Principle 2: Convert Data into Information
+
+The values of $\hat{\beta}_0$ and $\hat{\beta}_1$ are obtained using the data. Specifically, the formulas for the coefficients are:
+
+$$\hat{\beta}_1 = \frac{ \sum_{i=1}^{n} (Y_i - \bar{Y}) (X_i - \bar{X}) }{\sum_{i=1}^{n} (X_i - \bar{X})^2} \text{  y  } \hat{\beta}_0 = \bar{Y} - \hat{\beta}_1 \bar{X},$$
+
+where $\bar{X} = \sum_{i=1}^n X_i/n$ and $\bar{Y} = \sum_{i=1}^n Y_i/n$.
+
+These formulas are derived from the method of [*least squares*]{style="color:orange;"}.
+
+## Fitting Regression Models in R
+
+To fit a linear regression model, we use the pipe `%>%` command along with the function `gf_lm()`.
+
+```{python}
+#| echo: true
+#| output: true
+
+# Create scatter plot with linear regression line
+plt.figure(figsize=(8, 6))
+sns.scatterplot(data=auto_data, x="weight", y="mpg", color="blue", label="Data")
+sns.regplot(data=auto_data, x="weight", y="mpg", scatter=False, color="red", label="Linear Fit")
+
+# Add labels and legend
+plt.xlabel("Weight (lb)")
+plt.ylabel("Miles per Gallon (mpg)")
+plt.title("Scatter Plot with Linear Regression")
+plt.legend()
+
+# Show plot
+plt.show()
+```
+
+## 
+
+We can modify the color, thickness, and line type using the arguments `color`, `linewidth`, and `lty`, respectively, in the `gf_lm()`function.
+
+```{python}
+#| echo: true
+#| output: true
+
+# Create scatter plot with linear regression line
+plt.figure(figsize=(8, 6))
+sns.scatterplot(data=auto_data, x="weight", y="mpg", color="blue", label="Data")
+sns.regplot(data=auto_data, x="weight", y="mpg", scatter=False, color="red", 
+            line_kws={"linestyle": "-", "linewidth": 3}, label="Linear Fit")
+
+# Add labels and legend
+plt.xlabel("Weight (lb)")
+plt.ylabel("Miles per Gallon (mpg)")
+plt.title("Scatter Plot with Linear Regression")
+plt.legend()
+
+# Show plot
+plt.show()
+```
+
+## For Our Example
+
+$\hat{Y}_i = 46.32 -0.0076 X_i$
+
+```{python}
+#| fig-pos: center
+#| echo: false
+
+# Suponiendo que 'mi_diagrama' es un DataFrame con columnas 'x' e 'y'
+sns.lmplot(data=mi_diagrama, x="x", y="y", line_kws={"color": "red", "linestyle": "-", "linewidth": 2})
+
+plt.show()
+```
+
+## The Formula
+
+$\text{mpg}_i = 46.32 - 0.0076 \times \text{peso}_i$
+
+```{python}
+#| fig-pos: center
+#| echo: false
+
+# Crear la figura y los ejes
+fig, ax = plt.subplots()
+
+# Graficar el modelo de regresión lineal
+sns.regplot(data=mi_diagrama, x="x", y="y", ax=ax, color="red", line_kws={"linestyle": "-", "linewidth": 2})
+
+# Guardar la figura en una variable
+grafica_modelo = fig
+
+# Mostrar la figura
+plt.show()
+```
+
+## Interpretation of the Coefficients
+
+> ¿What does $\hat{\beta}_0 = 46.32$ mean?
+
+. . .
+
+$\hat{\beta}_0$ is the average response value when $X_i = 0$.
+
+```{python}
+#| fig-pos: center
+#| echo: false
+#| out-width: 80%
+
+# Crear la figura y los ejes
+fig, ax = plt.subplots()
+
+# Graficar el modelo de regresión lineal
+sns.regplot(data=mi_diagrama, x="x", y="y", ax=ax, color="red", line_kws={"linestyle": "-", "linewidth": 2})
+
+# Ajustar los límites de los ejes
+ax.set_ylim(0, 50)
+ax.set_xlim(0, 5500)
+
+# Agregar líneas horizontales y verticales
+ax.axhline(y=46.317364, linestyle="dashed", color="black")
+ax.axvline(x=0, linestyle="dashed", color="black")
+
+# Guardar la figura en una variable
+grafica_intercepto = fig
+
+# Mostrar la figura
+plt.show()
+```
+
+## 
+
+¿Does $\hat{\beta}_0 = 46.32$ make sense?
+
+```{python}
+#| fig-pos: center
+#| echo: false
+
+# Crear la figura y el eje
+fig, ax = plt.subplots()
+
+# Graficar el modelo de regresión lineal
+sns.regplot(data=mi_diagrama, x="x", y="y", ax=ax, color="red", line_kws={"linestyle": "-", "linewidth": 2})
+
+# Ajustar los límites de los ejes
+ax.set_ylim(0, 50)
+ax.set_xlim(0, 5500)
+
+# Agregar líneas horizontales y verticales
+ax.axhline(y=46.317364, linestyle="dashed", color="black")
+ax.axvline(x=0, linestyle="dashed", color="black")
+
+# Mostrar la figura
+plt.show()
+```
+
+. . .
+
+No! Because there are no cars with a weight of 0.
+
+## 
+
+> ¿What does  $\hat{\beta}_1 = - 0.0076$ mean?
+
+. . .
+
+$\hat{\beta}_1$ is the average change in the response when $X_i$ increases by one unit.
+
+```{python}
+#| fig-pos: center
+#| echo: false
+#| out-width: 80%
+
+# Create the figure and axis
+fig, ax = plt.subplots()
+
+# Create the regression plot
+sns.regplot(data=mi_diagrama, x="x", y="y", ax=ax, color="red", line_kws={"linestyle": "-", "linewidth": 2})
+
+# Store the figure in grafica_modelo
+grafica_modelo = fig
+
+# Show the plot (optional, as you can show or save it later)
+plt.show()
+```
+
+## Interpretation of $\hat{\beta}_1$
+
+</br>
+
+</br>
+
+*For every extra pound in a car's weight, the car has an average reduction of 0.0076 miles per gallon.*
+
+## Do all points fall exactly on the line?
+
+</br>
+
+. . .
+
+No! The model has [**errors**]{style="color:darkgreen;"}.
+
+. . .
+
+Technically, the error of the *i*-th observation is given by: $e_i = Y_i - \hat{Y}_i = Y_i - \hat{\beta}_0 - \hat{\beta}_1 X_i$.
+
+# In fact ...
+
+The formulas for $\hat{\beta}_0$ and $\hat{\beta}_1$ are obtained by minimizing the sum of squared errors.
+
+Specifically, the [least squares method]{style="color:orange;"} finds $\hat{\beta}_0$ and $\hat{\beta}_1$ by minimizing the function:
+
+\begin{align}
+g(\hat{\beta}_0, \hat{\beta}_1) & = \sum_{i=1}^{n} (e_{i})^2 = \sum_{i=1}^{n} (Y_i - (\hat{\beta}_0 + \hat{\beta}_1 X_i ))^2. 
+\end{align}
+
+## Inspecting the Errors
+
+The behavior of the errors ($e_i$'s) indicates whether the model is correct or not. If the model is correct, the errors should behave as follows:
+
+::: incremental
+1.  On average, they should **be around 0** for each predicted value $\hat{Y}_i$.
+2.  They should have **constant dispersion** around each predicted value $\hat{Y}_i$.
+3.  They should be **independent** of each other, meaning they should not be related.
+:::
+
+## Graphical Analysis of Errors
+
+To evaluate these behaviors, we use two scatter plots of the errors:
+
+-   **Horizontal Axis** = Errors and **Vertical Axis** = Predictions. This plot helps validate the first two assumptions (**errors around 0 and constant dispersion**).
+
+-   **Eje Horizontal** = Errores y **Eje Vertical** = Tiempo en que se tomó la observación. Está gráfica permite validar el tercer supuesto (**independencia**).
+
+## Constant Dispersion
+
+```{python}
+#| echo: true
+#| code-fold: true
+
+
+# Fit the linear model (mpg ~ weight)
+X = auto_data['weight']
+X = sm.add_constant(X)  # Adding the intercept term
+y = auto_data['mpg']
+mi_modelo = sm.OLS(y, X).fit()
+
+# Create the DataFrame for the residuals and predictions
+datos_modelo = pd.DataFrame({
+    "Predicciones": mi_modelo.fittedvalues,
+    "Errores": mi_modelo.resid
+})
+
+# Create the residual plot
+fig, ax = plt.subplots(figsize=(8, 6))
+sns.scatterplot(data=datos_modelo, x="Predicciones", y="Errores", color="darkblue", s=50, ax=ax)
+
+# Customize the plot
+ax.axhline(y=0, linestyle="dashed", color="black")
+ax.tick_params(axis='both', labelsize=20)
+ax.set_xlabel('Predicciones', fontsize=20)
+ax.set_ylabel('Errores', fontsize=20)
+
+# Show the plot
+plt.show()
+```
+
+## Independent Errors
+
+```{python}
+#| echo: true
+#| code-fold: true
+
+
+# Fit the linear model (mpg ~ weight)
+X = auto_data['weight']
+X = sm.add_constant(X)  # Adding the intercept term
+y = auto_data['mpg']
+mi_modelo = sm.OLS(y, X).fit()
+
+# Create the DataFrame for the residuals and a time index
+datos_modelo = pd.DataFrame({
+    "Tiempo": range(1, len(auto_data) + 1),
+    "Errores": mi_modelo.resid
+})
+
+# Create the residuals plot
+fig, ax = plt.subplots(figsize=(8, 6))
+sns.scatterplot(data=datos_modelo, x="Tiempo", y="Errores", color="darkblue", s=50, ax=ax)
+
+# Customize the plot
+ax.axhline(y=0, linestyle="dashed", color="black")
+ax.tick_params(axis='both', labelsize=20)
+ax.set_xlabel('Tiempo', fontsize=20)
+ax.set_ylabel('Errores', fontsize=20)
+
+# Show the plot
+plt.show()
+```
+
+## Comments
+
+-   The two plots **do not** validate the assumptions of the linear regression model.
+
+-   There are methods to correct this, but we will not cover them here.
+
+-   If both assumptions are not validated, then the linear regression model is used only as a trend line or a reference for the data.
+
+## 
+
+-   If both assumptions are validated, then the model can be used to predict the response for new observations and to check if there is a significant relationship between $Y$ and $X$.
+
+-   We will explore more about linear regression in IN1002B and IN1001B.
+
+# Local Regression
+
+## Local Regression
+
+This is a modern alternative to the simple linear regression model for capturing complex relationships between two variables.
+
+[**Basic Idea**]{style="color:darkgray;"}: It fits linear regression models to small subsets of the data. These subsets consist of observations that are close to each other.
+
+The most common method for fitting a local regression model is **LOESS**. We will omit the details of this method here since they require advanced statistical concepts.
+
+
+## 
+
+In R, we fit a local regression using the`gf_smooth()`function.
+
+```{python}
+# Create the scatter plot
+sns.scatterplot(data=auto_data, x="weight", y="mpg", color="blue", s=50)
+
+# Add LOESS smoothing line
+sns.regplot(data=auto_data, x="weight", y="mpg", scatter=False, lowess=True, line_kws={"color": "red", "linewidth": 2})
+
+# Show the plot
+plt.show()
+```
+
+## 
+
+We can change the color, thickness, and line type using the `color`, `linewidth`, and `lty`,arguments in the `gf_smooth()`function.
+
+```{python}
+# Create the scatter plot
+sns.scatterplot(data=auto_data, x="weight", y="mpg", color="blue", s=50)
+
+# Add LOESS smoothing line with customized properties
+sns.regplot(data=auto_data, x="weight", y="mpg", scatter=False, lowess=True,
+            line_kws={"color": "red", "linewidth": 2, "linestyle": "dashed"})
+
+# Show the plot
+plt.show()
+```
+
+## Another Example
+
+Let's consider the relationship between car acceleration (`acceleration`) and the total volume of all engine cylinders (`displacement`).
+
+```{python}
+# Create the scatter plot
+sns.scatterplot(data=auto_data, x="displacement", y="acceleration", color="blue", s=50)
+
+# Show the plot
+plt.show()
+```
+
+## Linear Regression
+
+```{python}
+#| echo: true
+#| code-fold: false
+# Create the scatter plot
+sns.scatterplot(data=auto_data, x="displacement", y="acceleration", color="blue", s=50)
+
+# Add a linear regression line
+sns.regplot(data=auto_data, x="displacement", y="acceleration", scatter=False, line_kws={"color": "red", "linewidth": 2})
+
+# Show the plot
+plt.show()
+```
+
+## Local Regression
+
+```{python}
+#| echo: true
+#| code-fold: false
+
+# Create the scatter plot
+sns.scatterplot(data=auto_data, x="displacement", y="acceleration", color="blue", s=50)
+
+# Add LOESS smoothing line
+sns.regplot(data=auto_data, x="displacement", y="acceleration", scatter=False, lowess=True, line_kws={"color": "red", "linewidth": 2})
+
+# Show the plot
+plt.show()
+```
+
+## Discussion
+
+-   The simple linear regression model is easy to interpret due to its structure:
+
+$$
+\hat{Y}_i = \hat{\beta}_0 + \hat{\beta}_1 X_i.
+$$
+
+-   However, it may be too rigid to capture complex relationships between two variables.
+
+## 
+
+</br>
+
+-   Local regression is flexible and allows capturing complex relationships between two variables.
+
+-   However, it has a low level of interpretability because it does not provide an explicit equation to relate the predictor $X$ to the response $Y$.
+
+# [Regresar a página principal](https://alanrvazquez.github.io/TEC-IN2039-Website/TEC-IN2039-Website.html)
