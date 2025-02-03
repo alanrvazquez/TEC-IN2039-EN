@@ -1230,5 +1230,292 @@
     "title": "What is data visualization?",
     "section": "",
     "text": "“The greatest value of a picture is when it forces us to notice what we never expected to see.” John W. Tukey.\n\n\n\n\n\nhttps://www.storytellingwithdata.com/ is an excellent guide on data visualization."
+  },
+  {
+    "objectID": "T6_Introduction_Linear_Regression/LR.slides.html#agenda",
+    "href": "T6_Introduction_Linear_Regression/LR.slides.html#agenda",
+    "title": "Introduction to Linear Regression",
+    "section": "Agenda",
+    "text": "Agenda\n\nIntroduction\nRelationship between two numerical variables\nSimple linear regression\nLocal regression"
+  },
+  {
+    "objectID": "T6_Introduction_Linear_Regression/LR.slides.html#loading-the-libraries",
+    "href": "T6_Introduction_Linear_Regression/LR.slides.html#loading-the-libraries",
+    "title": "Introduction to Linear Regression",
+    "section": "Loading the Libraries",
+    "text": "Loading the Libraries\nLet’s import the pandas, matplotlib, and seaborn in Google Colab.\n\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns"
+  },
+  {
+    "objectID": "T6_Introduction_Linear_Regression/LR.slides.html#example",
+    "href": "T6_Introduction_Linear_Regression/LR.slides.html#example",
+    "title": "Introduction to Linear Regression",
+    "section": "Example",
+    "text": "Example\n\nWe will use data from 392 cars, including miles per gallon, number of cylinders, horsepower, weight, acceleration, year, origin, and other variables.\nThe data is in the file “auto_dataset.xlsx”.\n\nauto_data = pd.read_excel(\"auto_dataset.xlsx\")\n# Set categorical variable.\nauto_data[['origin']] = auto_data[['origin']].astype('category')"
+  },
+  {
+    "objectID": "T6_Introduction_Linear_Regression/LR.slides.html#principle-1-formulate-the-question-or-message",
+    "href": "T6_Introduction_Linear_Regression/LR.slides.html#principle-1-formulate-the-question-or-message",
+    "title": "Introduction to Linear Regression",
+    "section": "Principle 1: Formulate the question or message",
+    "text": "Principle 1: Formulate the question or message\n\nQuestions we can answer with simple linear regression:\n\n\nIs there a relationship between a response variable and predictors?\nHow strong is the relationship?\nWhat is the uncertainty?\nHow precisely can we predict a future outcome?"
+  },
+  {
+    "objectID": "T6_Introduction_Linear_Regression/LR.slides.html#section",
+    "href": "T6_Introduction_Linear_Regression/LR.slides.html#section",
+    "title": "Introduction to Linear Regression",
+    "section": "",
+    "text": "mpg\ncylinders\ndisplacement\nhorsepower\nweight\nacceleration\nyear\norigin\ncar name\n\n\n\n\n0\n18.0\n8\n307.0\n130\n3504\n12.0\n70\nAmerican\nchevrolet chevelle malibu\n\n\n1\n15.0\n8\n350.0\n165\n3693\n11.5\n70\nAmerican\nbuick skylark 320\n\n\n2\n18.0\n8\n318.0\n150\n3436\n11.0\n70\nAmerican\nplymouth satellite\n\n\n3\n16.0\n8\n304.0\n150\n3433\n12.0\n70\nAmerican\namc rebel sst"
+  },
+  {
+    "objectID": "T6_Introduction_Linear_Regression/LR.slides.html#regression-problem",
+    "href": "T6_Introduction_Linear_Regression/LR.slides.html#regression-problem",
+    "title": "Introduction to Linear Regression",
+    "section": "Regression Problem",
+    "text": "Regression Problem\n\nObjetive: Objective: Find the best function \\(f(X)\\) of the predictor \\(X\\) that describes the response \\(Y\\).\n\nMathematically, we want to establish the following relationship:\n\\[\nY = f(X) + \\epsilon,\n\\]\nwhere \\(\\epsilon\\) is a natural (random) error."
+  },
+  {
+    "objectID": "T6_Introduction_Linear_Regression/LR.slides.html#section-1",
+    "href": "T6_Introduction_Linear_Regression/LR.slides.html#section-1",
+    "title": "Introduction to Linear Regression",
+    "section": "",
+    "text": "Is there a relationship between a car’s weight and its miles per gallon?"
+  },
+  {
+    "objectID": "T6_Introduction_Linear_Regression/LR.slides.html#linear-regression-model",
+    "href": "T6_Introduction_Linear_Regression/LR.slides.html#linear-regression-model",
+    "title": "Introduction to Linear Regression",
+    "section": "Linear Regression Model",
+    "text": "Linear Regression Model\nA very common function \\(f(X)\\) to predict a response \\(Y\\) is the linear regression model.\nIts mathematical form is:\n\\[\n\\hat{Y}_i = \\hat{\\beta}_0 + \\hat{\\beta}_1 X_i,\n\\]\n\n\nWhere \\(i\\) is the index of the \\(n\\) observations, and\n\\(\\hat{Y}_i\\) is the predicted value of the actual response \\(Y_i\\) associated with a predictor value \\(X_i\\).\nThe values \\(\\hat{\\beta}_0\\) and \\(\\hat{\\beta}_1\\) are called coefficients of the model."
+  },
+  {
+    "objectID": "T6_Introduction_Linear_Regression/LR.slides.html#principle-2-turn-data-into-information",
+    "href": "T6_Introduction_Linear_Regression/LR.slides.html#principle-2-turn-data-into-information",
+    "title": "Introduction to Linear Regression",
+    "section": "Principle 2: Turn data into information",
+    "text": "Principle 2: Turn data into information\nThe values of \\(\\hat{\\beta}_0\\) and \\(\\hat{\\beta}_1\\) are obtained using the data. Specifically, the formulas for the coefficients are:\n\\[\\hat{\\beta}_1 = \\frac{ \\sum_{i=1}^{n} (Y_i - \\bar{Y}) (X_i - \\bar{X}) }{\\sum_{i=1}^{n} (X_i - \\bar{X})^2} \\text{  y  } \\hat{\\beta}_0 = \\bar{Y} - \\hat{\\beta}_1 \\bar{X},\\]\nwhere \\(\\bar{X} = \\sum_{i=1}^n X_i/n\\) and \\(\\bar{Y} = \\sum_{i=1}^n Y_i/n\\).\nThese formulas are derived from the method of least squares."
+  },
+  {
+    "objectID": "T6_Introduction_Linear_Regression/LR.slides.html#fitting-regression-models-in-r",
+    "href": "T6_Introduction_Linear_Regression/LR.slides.html#fitting-regression-models-in-r",
+    "title": "Introduction to Linear Regression",
+    "section": "Fitting Regression Models in R",
+    "text": "Fitting Regression Models in R\nTo fit a linear regression model, we use the regplot() in seaborn.\n\nplt.figure(figsize=(5.8, 3.8))\nsns.regplot(data=auto_data, x=\"weight\", y=\"mpg\")\nplt.xlabel(\"Weight (lb)\")\nplt.ylabel(\"Miles per Gallon (mpg)\")\nplt.show()"
+  },
+  {
+    "objectID": "T6_Introduction_Linear_Regression/LR.slides.html#section-2",
+    "href": "T6_Introduction_Linear_Regression/LR.slides.html#section-2",
+    "title": "Introduction to Linear Regression",
+    "section": "",
+    "text": "In practice, it is very difficult to know the true structure of the function \\(f(X)\\).\n\n\n\nThe best we can do is construct an approximation (function) \\(\\hat{f}(X)\\).\nThere are several strategies to build \\(\\hat{f}(X)\\), one of the most common is:\n\nDefine a simple “structure” or “formula.”\nEstimate the elements of the “formula” using the data."
+  },
+  {
+    "objectID": "T6_Introduction_Linear_Regression/LR.slides.html#for-our-example",
+    "href": "T6_Introduction_Linear_Regression/LR.slides.html#for-our-example",
+    "title": "Introduction to Linear Regression",
+    "section": "For Our Example",
+    "text": "For Our Example\n\\(\\hat{Y}_i = 46.32 -0.0076 X_i\\)"
+  },
+  {
+    "objectID": "T6_Introduction_Linear_Regression/LR.slides.html#the-formula",
+    "href": "T6_Introduction_Linear_Regression/LR.slides.html#the-formula",
+    "title": "Introduction to Linear Regression",
+    "section": "The Formula",
+    "text": "The Formula\n\\(\\text{mpg}_i = 46.32 - 0.0076 \\times \\text{peso}_i\\)"
+  },
+  {
+    "objectID": "T6_Introduction_Linear_Regression/LR.slides.html#interpretation-of-the-coefficients",
+    "href": "T6_Introduction_Linear_Regression/LR.slides.html#interpretation-of-the-coefficients",
+    "title": "Introduction to Linear Regression",
+    "section": "Interpretation of the Coefficients",
+    "text": "Interpretation of the Coefficients\nWhat does \\(\\hat{\\beta}_0 = 46.32\\) mean?\n\n\\(\\hat{\\beta}_0\\) is the average response value when \\(X_i = 0\\)."
+  },
+  {
+    "objectID": "T6_Introduction_Linear_Regression/LR.slides.html#section-3",
+    "href": "T6_Introduction_Linear_Regression/LR.slides.html#section-3",
+    "title": "Introduction to Linear Regression",
+    "section": "",
+    "text": "We can modify the line type, thickness, and color using the arguments linestyle, linewidth, and color, respectively, in the line_kws argument of the function.\n\nplt.figure(figsize=(8, 6))\nsns.regplot(data=auto_data, x=\"weight\", y=\"mpg\",  \n            scatter_kws={\"color\": \"blue\"},\n            line_kws={\"linestyle\": \"-\", \"linewidth\": 3, \"color\": \"red\", \n                      \"label\": \"Linear Fit\"})\nplt.xlabel(\"Weight (lb)\")\nplt.ylabel(\"Miles per Gallon (mpg)\")\nplt.legend()\nplt.show()"
+  },
+  {
+    "objectID": "T6_Introduction_Linear_Regression/LR.slides.html#section-4",
+    "href": "T6_Introduction_Linear_Regression/LR.slides.html#section-4",
+    "title": "Introduction to Linear Regression",
+    "section": "",
+    "text": "Does \\(\\hat{\\beta}_0 = 46.32\\) make sense?\n\n\n\n\n\n\n\n\n\n\nNo! Because there are no cars with a weight of 0."
+  },
+  {
+    "objectID": "T6_Introduction_Linear_Regression/LR.slides.html#interpretation-of-hatbeta_1",
+    "href": "T6_Introduction_Linear_Regression/LR.slides.html#interpretation-of-hatbeta_1",
+    "title": "Introduction to Linear Regression",
+    "section": "Interpretation of \\(\\hat{\\beta}_1\\)",
+    "text": "Interpretation of \\(\\hat{\\beta}_1\\)\n\n\nFor every extra pound in a car’s weight, the car has an average reduction of 0.0076 miles per gallon."
+  },
+  {
+    "objectID": "T6_Introduction_Linear_Regression/LR.slides.html#do-all-points-fall-exactly-on-the-line",
+    "href": "T6_Introduction_Linear_Regression/LR.slides.html#do-all-points-fall-exactly-on-the-line",
+    "title": "Introduction to Linear Regression",
+    "section": "Do all points fall exactly on the line?",
+    "text": "Do all points fall exactly on the line?\n\n\nNo! The model has errors.\n\n\nTechnically, the error of the i-th observation is given by: \\(e_i = Y_i - \\hat{Y}_i = Y_i - \\hat{\\beta}_0 - \\hat{\\beta}_1 X_i\\)."
+  },
+  {
+    "objectID": "T6_Introduction_Linear_Regression/LR.slides.html#in-fact",
+    "href": "T6_Introduction_Linear_Regression/LR.slides.html#in-fact",
+    "title": "Introduction to Linear Regression",
+    "section": "In fact …",
+    "text": "In fact …\n\nThe formulas for \\(\\hat{\\beta}_0\\) and \\(\\hat{\\beta}_1\\) are obtained by minimizing the sum of squared errors.\nSpecifically, the least squares method finds \\(\\hat{\\beta}_0\\) and \\(\\hat{\\beta}_1\\) by minimizing the function:\n\\[\\begin{align}\ng(\\hat{\\beta}_0, \\hat{\\beta}_1) & = \\sum_{i=1}^{n} (e_{i})^2 = \\sum_{i=1}^{n} (Y_i - (\\hat{\\beta}_0 + \\hat{\\beta}_1 X_i ))^2.\n\\end{align}\\]"
+  },
+  {
+    "objectID": "T6_Introduction_Linear_Regression/LR.slides.html#inspecting-the-errors",
+    "href": "T6_Introduction_Linear_Regression/LR.slides.html#inspecting-the-errors",
+    "title": "Introduction to Linear Regression",
+    "section": "Inspecting the Errors",
+    "text": "Inspecting the Errors\nThe behavior of the errors (\\(e_i\\)’s) indicates whether the model is correct or not. If the model is correct, the errors should behave as follows:\n\n\nOn average, they should be around 0 for each predicted value \\(\\hat{Y}_i\\).\nThey should have constant dispersion around each predicted value \\(\\hat{Y}_i\\).\nThey should be independent of each other, meaning they should not be related."
+  },
+  {
+    "objectID": "T6_Introduction_Linear_Regression/LR.slides.html#graphical-analysis-of-errors",
+    "href": "T6_Introduction_Linear_Regression/LR.slides.html#graphical-analysis-of-errors",
+    "title": "Introduction to Linear Regression",
+    "section": "Graphical Analysis of Errors",
+    "text": "Graphical Analysis of Errors\nTo evaluate these behaviors, we use two scatter plots of the errors:\n\nHorizontal Axis = Errors and Vertical Axis = Predictions. This plot helps validate the first two assumptions (errors around 0 and constant dispersion).\nEje Horizontal = Errores y Eje Vertical = Tiempo en que se tomó la observación. Está gráfica permite validar el tercer supuesto (independencia)."
+  },
+  {
+    "objectID": "T6_Introduction_Linear_Regression/LR.slides.html#statsmodels-library",
+    "href": "T6_Introduction_Linear_Regression/LR.slides.html#statsmodels-library",
+    "title": "Introduction to Linear Regression",
+    "section": "statsmodels library",
+    "text": "statsmodels library\n\nstatsmodels is a powerful python library for statistical modeling, data analysis, and hypothesis testing.\nIt provides classes and functions for estimating statistical models.\nIt is built on top of libraries such as NumPy, SciPy, and pandas\nhttps://www.statsmodels.org/stable/index.html"
+  },
+  {
+    "objectID": "T6_Introduction_Linear_Regression/LR.slides.html#load-the-libraries",
+    "href": "T6_Introduction_Linear_Regression/LR.slides.html#load-the-libraries",
+    "title": "Introduction to Linear Regression",
+    "section": "Load the libraries",
+    "text": "Load the libraries\n\nLet’s import statsmodels into Python\n\nimport statsmodels.api as sm"
+  },
+  {
+    "objectID": "T6_Introduction_Linear_Regression/LR.slides.html#computation-of-estimators",
+    "href": "T6_Introduction_Linear_Regression/LR.slides.html#computation-of-estimators",
+    "title": "Introduction to Linear Regression",
+    "section": "Computation of estimators",
+    "text": "Computation of estimators\n\nTo compute the least squares estimates, we first split the data set into a matrix with the values of the predictors only, and a matrix with the response values.\n\n# Matrix with predictors.\nX = auto_data['weight']\n\n# Add intercept.\nX = sm.add_constant(X)  \n\n# Matrix with response.\nY = auto_data['mpg']"
+  },
+  {
+    "objectID": "T6_Introduction_Linear_Regression/LR.slides.html#section-5",
+    "href": "T6_Introduction_Linear_Regression/LR.slides.html#section-5",
+    "title": "Introduction to Linear Regression",
+    "section": "",
+    "text": "What does \\(\\hat{\\beta}_1 = - 0.0076\\) mean?\n\n\\(\\hat{\\beta}_1\\) is the average change in the response when \\(X_i\\) increases by one unit."
+  },
+  {
+    "objectID": "T6_Introduction_Linear_Regression/LR.slides.html#section-6",
+    "href": "T6_Introduction_Linear_Regression/LR.slides.html#section-6",
+    "title": "Introduction to Linear Regression",
+    "section": "",
+    "text": "Next, we use the functions OLS() and fit() from statsmodels.\n\n# Create linear regression object\nregr = sm.OLS(Y, X)\n\n# Train the model using the training sets\nlinear_model = regr.fit()"
+  },
+  {
+    "objectID": "T6_Introduction_Linear_Regression/LR.slides.html#residuals-and-fitted-values",
+    "href": "T6_Introduction_Linear_Regression/LR.slides.html#residuals-and-fitted-values",
+    "title": "Introduction to Linear Regression",
+    "section": "Residuals and fitted values",
+    "text": "Residuals and fitted values\n\nTo create the plots for the residuals, we need the predicted values (\\(\\hat{Y}_i\\)’s) of the response and the residuals (\\(e_i\\)’s) first. To this end, we use the commands below.\n\n# Make predictions using the the model\nY_pred = linear_model.fittedvalues\n\n# Calculate residuals.\nresiduals = linear_model.resid"
+  },
+  {
+    "objectID": "T6_Introduction_Linear_Regression/LR.slides.html#constant-dispersion",
+    "href": "T6_Introduction_Linear_Regression/LR.slides.html#constant-dispersion",
+    "title": "Introduction to Linear Regression",
+    "section": "Constant Dispersion",
+    "text": "Constant Dispersion\n\n\nCode\n# Residual vs Fitted Values Plot\nplt.figure(figsize=(7.5, 5.5))\nsns.scatterplot(x = Y_pred, y = residuals, color=\"darkblue\", s = 50)\nplt.axhline(y=0, color='red', linestyle='--')\nplt.xlabel('Fitted (predicted) Values', fontsize=15)\nplt.ylabel('Residuals', fontsize=15)\nax.tick_params(axis='both', labelsize=12)\nplt.show()"
+  },
+  {
+    "objectID": "T6_Introduction_Linear_Regression/LR.slides.html#independent-errors",
+    "href": "T6_Introduction_Linear_Regression/LR.slides.html#independent-errors",
+    "title": "Introduction to Linear Regression",
+    "section": "Independent Errors",
+    "text": "Independent Errors\n\n\nCode\n# Residuals vs Time (Case) Plot\nplt.figure(figsize=(7.5, 5.5))\nsns.scatterplot(x = range(auto_data.shape[0]), y = residuals, \n                color=\"darkblue\", s = 50)\nplt.axhline(y=0, color='red', linestyle='--')\nplt.xlabel('Time', fontsize=15)\nax.tick_params(axis='both', labelsize=12)\nplt.ylabel('Residuals', fontsize=15)\nplt.show()"
+  },
+  {
+    "objectID": "T6_Introduction_Linear_Regression/LR.slides.html#comments",
+    "href": "T6_Introduction_Linear_Regression/LR.slides.html#comments",
+    "title": "Introduction to Linear Regression",
+    "section": "Comments",
+    "text": "Comments\n\n\n\nThe two plots do not validate the assumptions of the linear regression model.\nThere are methods to correct this, but we will not cover them here.\nIf both assumptions are not validated, then the linear regression model is used only as a trend line or a reference for the data."
+  },
+  {
+    "objectID": "T6_Introduction_Linear_Regression/LR.slides.html#local-regression-1",
+    "href": "T6_Introduction_Linear_Regression/LR.slides.html#local-regression-1",
+    "title": "Introduction to Linear Regression",
+    "section": "Local Regression",
+    "text": "Local Regression\nThis is a modern alternative to the simple linear regression model for capturing complex relationships between two variables.\nBasic Idea: It fits linear regression models to small subsets of the data. These subsets consist of observations that are close to each other.\nThe most common method for fitting a local regression model is LOESS. We will omit the details of this method here since they require advanced statistical concepts."
+  },
+  {
+    "objectID": "T6_Introduction_Linear_Regression/LR.slides.html#section-7",
+    "href": "T6_Introduction_Linear_Regression/LR.slides.html#section-7",
+    "title": "Introduction to Linear Regression",
+    "section": "",
+    "text": "To show the estimated coefficients, we use the argument params of the linear_model object created previously.\n\n# The estimated coefficients.\nprint(linear_model.params)\n\nconst     46.317364\nweight    -0.007677\ndtype: float64\n\n\nThe elements in the vector above are the estimates \\(\\hat{\\beta}_0 = 46.317\\) and \\(\\hat{\\beta}_1 = -0.00767\\)."
+  },
+  {
+    "objectID": "T6_Introduction_Linear_Regression/LR.slides.html#section-8",
+    "href": "T6_Introduction_Linear_Regression/LR.slides.html#section-8",
+    "title": "Introduction to Linear Regression",
+    "section": "",
+    "text": "If both assumptions are validated, then the model can be used to predict the response for new observations and to check if there is a significant relationship between \\(Y\\) and \\(X\\).\nYou have explored about linear regression in IN1002B."
+  },
+  {
+    "objectID": "T6_Introduction_Linear_Regression/LR.slides.html#another-example",
+    "href": "T6_Introduction_Linear_Regression/LR.slides.html#another-example",
+    "title": "Introduction to Linear Regression",
+    "section": "Another Example",
+    "text": "Another Example\nLet’s consider the relationship between car acceleration (acceleration) and the total volume of all engine cylinders (displacement).\n\nplt.figure(figsize=(5.5, 3.5))\nsns.scatterplot(data=auto_data, x=\"displacement\", y=\"acceleration\")\nplt.show()"
+  },
+  {
+    "objectID": "T6_Introduction_Linear_Regression/LR.slides.html#linear-regression",
+    "href": "T6_Introduction_Linear_Regression/LR.slides.html#linear-regression",
+    "title": "Introduction to Linear Regression",
+    "section": "Linear Regression",
+    "text": "Linear Regression\n\nplt.figure(figsize=(7, 5))\nsns.regplot(data=auto_data, x=\"displacement\", y=\"acceleration\", \n            scatter=True)\nplt.show()"
+  },
+  {
+    "objectID": "T6_Introduction_Linear_Regression/LR.slides.html#local-regression-2",
+    "href": "T6_Introduction_Linear_Regression/LR.slides.html#local-regression-2",
+    "title": "Introduction to Linear Regression",
+    "section": "Local Regression",
+    "text": "Local Regression\n\nplt.figure(figsize=(7, 5))\nsns.regplot(data=auto_data, x=\"displacement\", y=\"acceleration\", \n            scatter=True, lowess = True)\nplt.show()"
+  },
+  {
+    "objectID": "T6_Introduction_Linear_Regression/LR.slides.html#discussion",
+    "href": "T6_Introduction_Linear_Regression/LR.slides.html#discussion",
+    "title": "Introduction to Linear Regression",
+    "section": "Discussion",
+    "text": "Discussion\n\n\nThe simple linear regression model is easy to interpret due to its structure:\n\n\\[\n\\hat{Y}_i = \\hat{\\beta}_0 + \\hat{\\beta}_1 X_i.\n\\]\n\nHowever, it may be too rigid to capture complex relationships between two variables."
+  },
+  {
+    "objectID": "T6_Introduction_Linear_Regression/LR.slides.html#section-9",
+    "href": "T6_Introduction_Linear_Regression/LR.slides.html#section-9",
+    "title": "Introduction to Linear Regression",
+    "section": "",
+    "text": "In Python, we fit a local regression by setting the lowess argument to True in the regplot() function.\n\nplt.figure(figsize=(7, 5))\nsns.regplot(data=auto_data, x=\"weight\", y=\"mpg\", lowess=True)\nplt.show()"
+  },
+  {
+    "objectID": "T6_Introduction_Linear_Regression/LR.slides.html#section-10",
+    "href": "T6_Introduction_Linear_Regression/LR.slides.html#section-10",
+    "title": "Introduction to Linear Regression",
+    "section": "",
+    "text": "We can change the color, thickness, and line type using the color, linewidth, and linestyle,arguments in the line_kws argument function.\n\nplt.figure(figsize=(6, 4))\nsns.regplot(data=auto_data, x=\"weight\", y=\"mpg\", scatter=True, lowess=True,\n            line_kws={\"color\": \"red\", \"linewidth\": 2, \"linestyle\": \"--\"})\nplt.show()"
+  },
+  {
+    "objectID": "T6_Introduction_Linear_Regression/LR.slides.html#fit-a-linear-model",
+    "href": "T6_Introduction_Linear_Regression/LR.slides.html#fit-a-linear-model",
+    "title": "Introduction to Linear Regression",
+    "section": "Fit a linear model",
+    "text": "Fit a linear model\n\nTo fit a linear model in statsmodels, we first split the data set into a vector with the values of the predictor only, and a vector with the response values.\n\n# Matrix with predictors.\nX = auto_data['weight']\n\n# Add intercept.\nX = sm.add_constant(X)  \n\n# Matrix with response.\nY = auto_data['mpg']\n\nWe also must include a vector of ones to the predictors to account for the intercept."
+  },
+  {
+    "objectID": "T6_Introduction_Linear_Regression/LR.slides.html#section-11",
+    "href": "T6_Introduction_Linear_Regression/LR.slides.html#section-11",
+    "title": "Introduction to Linear Regression",
+    "section": "",
+    "text": "Local regression is flexible and allows capturing complex relationships between two variables.\nHowever, it has a low level of interpretability because it does not provide an explicit equation to relate the predictor \\(X\\) to the response \\(Y\\)."
   }
 ]
