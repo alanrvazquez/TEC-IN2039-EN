@@ -10,13 +10,12 @@ author:
 
 ## Course topics
 
-
 1.  Introduction ([slides](/T1_Introduction/Introduction.slides.html))
 2.  Tools ([slides](/T1_Introduction/Tools.slides.html))
 3.  Types of variables ([slides](/T2_Type_of_Variables/Types.slides.html))
 4.  Categorical variables ([slides](/T3_Categorical_Data/Categorical.slides.html))
 5.  Numerical variables ([slides](/T4_Numerical_Data/Numerical.slides.html))
-
+7.  Simple linear regression ([slides](/T6_Introduction_Linear_Regression/LR.slides.html))
 ## About the author
 
 Alan R. Vazquez ([website](https://alanrvazquez.netlify.app/)) is a Research Professor at the Department of Industrial Engineering at Tecnologico de Monterrey, Monterrey campus.
