@@ -1,0 +1,2187 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-html/tabby.min.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.5.57">
+
+  <meta name="author" content="Alan R. Vazquez">
+  <title>IN2039 Data Visualization for Decision Making – Multivariable Data</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto.css">
+  <link rel="stylesheet" href="style.css">
+  <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+
+  .callout {
+    margin-top: 1em;
+    margin-bottom: 1em;  
+    border-radius: .25rem;
+  }
+
+  .callout.callout-style-simple { 
+    padding: 0em 0.5em;
+    border-left: solid #acacac .3rem;
+    border-right: solid 1px silver;
+    border-top: solid 1px silver;
+    border-bottom: solid 1px silver;
+    display: flex;
+  }
+
+  .callout.callout-style-default {
+    border-left: solid #acacac .3rem;
+    border-right: solid 1px silver;
+    border-top: solid 1px silver;
+    border-bottom: solid 1px silver;
+  }
+
+  .callout .callout-body-container {
+    flex-grow: 1;
+  }
+
+  .callout.callout-style-simple .callout-body {
+    font-size: 1rem;
+    font-weight: 400;
+  }
+
+  .callout.callout-style-default .callout-body {
+    font-size: 0.9rem;
+    font-weight: 400;
+  }
+
+  .callout.callout-titled.callout-style-simple .callout-body {
+    margin-top: 0.2em;
+  }
+
+  .callout:not(.callout-titled) .callout-body {
+      display: flex;
+  }
+
+  .callout:not(.no-icon).callout-titled.callout-style-simple .callout-content {
+    padding-left: 1.6em;
+  }
+
+  .callout.callout-titled .callout-header {
+    padding-top: 0.2em;
+    margin-bottom: -0.2em;
+  }
+
+  .callout.callout-titled .callout-title  p {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+  }
+    
+  .callout.callout-titled.callout-style-simple .callout-content  p {
+    margin-top: 0;
+  }
+
+  .callout.callout-titled.callout-style-default .callout-content  p {
+    margin-top: 0.7em;
+  }
+
+  .callout.callout-style-simple div.callout-title {
+    border-bottom: none;
+    font-size: .9rem;
+    font-weight: 600;
+    opacity: 75%;
+  }
+
+  .callout.callout-style-default  div.callout-title {
+    border-bottom: none;
+    font-weight: 600;
+    opacity: 85%;
+    font-size: 0.9rem;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+  }
+
+  .callout.callout-style-default div.callout-content {
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+  }
+
+  .callout.callout-style-simple .callout-icon::before {
+    height: 1rem;
+    width: 1rem;
+    display: inline-block;
+    content: "";
+    background-repeat: no-repeat;
+    background-size: 1rem 1rem;
+  }
+
+  .callout.callout-style-default .callout-icon::before {
+    height: 0.9rem;
+    width: 0.9rem;
+    display: inline-block;
+    content: "";
+    background-repeat: no-repeat;
+    background-size: 0.9rem 0.9rem;
+  }
+
+  .callout-title {
+    display: flex
+  }
+    
+  .callout-icon::before {
+    margin-top: 1rem;
+    padding-right: .5rem;
+  }
+
+  .callout.no-icon::before {
+    display: none !important;
+  }
+
+  .callout.callout-titled .callout-body > .callout-content > :last-child {
+    padding-bottom: 0.5rem;
+    margin-bottom: 0;
+  }
+
+  .callout.callout-titled .callout-icon::before {
+    margin-top: .5rem;
+    padding-right: .5rem;
+  }
+
+  .callout:not(.callout-titled) .callout-icon::before {
+    margin-top: 1rem;
+    padding-right: .5rem;
+  }
+
+  /* Callout Types */
+
+  div.callout-note {
+    border-left-color: #4582ec !important;
+  }
+
+  div.callout-note .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAEU0lEQVRYCcVXTWhcVRQ+586kSUMMxkyaElstCto2SIhitS5Ek8xUKV2poatCcVHtUlFQk8mbaaziwpWgglJwVaquitBOfhQXFlqlzSJpFSpIYyXNjBNiTCck7x2/8/LeNDOZxDuEkgOXe++553zfefee+/OYLOXFk3+1LLrRdiO81yNqZ6K9cG0P3MeFaMIQjXssE8Z1JzLO9ls20MBZX7oG8w9GxB0goaPrW5aNMp1yOZIa7Wv6o2ykpLtmAPs/vrG14Z+6d4jpbSKuhdcSyq9wGMPXjonwmESXrriLzFGOdDBLB8Y6MNYBu0dRokSygMA/mrun8MGFN3behm6VVAwg4WR3i6FvYK1T7MHo9BK7ydH+1uurECoouk5MPRyVSBrBHMYwVobG2aOXM07sWrn5qgB60rc6mcwIDJtQrnrEr44kmy+UO9r0u9O5/YbkS9juQckLed3DyW2XV/qWBBB3ptvI8EUY3I9p/67OW+g967TNr3Sotn3IuVlfMLVnsBwH4fsnebJvyGm5GeIUA3jljERmrv49SizPYuq+z7c2H/jlGC+Ghhupn/hcapqmcudB9jwJ/3jvnvu6vu5lVzF1fXyZuZZ7U8nRmVzytvT+H3kilYvH09mLWrQdwFSsFEsxFVs5fK7A0g8gMZjbif4ACpKbjv7gNGaD8bUrlk8x+KRflttr22JEMRUbTUwwDQScyzPgedQHZT0xnx7ujw2jfVfExwYHwOsDTjLdJ2ebmeQIlJ7neo41s/DrsL3kl+W2lWvAga0tR3zueGr6GL78M3ifH0rGXrBC2aAR8uYcIA5gwV8zIE8onoh8u0Fca/ciF7j1uOzEnqcIm59sEXoGc0+z6+H45V1CvAvHcD7THztu669cnp+L0okAeIc6zjbM/24LgGM1gZk7jnRu1aQWoU9sfUOuhrmtaPIO3YY1KLLWZaEO5TKUbMY5zx8W9UJ6elpLwKXbsaZ4EFl7B4bMtDv0iRipKoDQT2sNQI9b1utXFdYisi+wzZ/ri/1m7QfDgEuvgUUEIJPq3DhX/5DWNqIXDOweC2wvIR90Oq3lDpdMIgD2r0dXvGdsEW5H6x6HLRJYU7C69VefO1x8Gde1ZFSJLfWS1jbCnhtOPxmpfv2LXOA2Xk2tvnwKKPFuZ/oRmwBwqRQDcKNeVQkYcOjtWVBuM/JuYw5b6isojIkYxyYAFn5K7ZBF10fea52y8QltAg6jnMqNHFBmGkQ1j+U43HMi2xMar1Nv0zGsf1s8nUsmUtPOOrbFIR8bHFDMB5zL13Gmr/kGlCkUzedTzzmzsaJXhYawnA3UmARpiYj5ooJZiUoxFRtK3X6pgNPv+IZVPcnwbOl6f+aBaO1CNvPW9n9LmCp01nuSaTRF2YxHqZ8DYQT6WsXT+RD6eUztwYLZ8rM+rcPxamv1VQzFUkzFXvkiVrySGQgJNvXHJAxiU3/NwiC03rSf05VBaPtu/Z7/B8Yn/w7eguloAAAAAElFTkSuQmCC');
+  }
+
+  div.callout-note.callout-style-default .callout-title {
+    background-color: #dae6fb
+  }
+
+  div.callout-important {
+    border-left-color: #d9534f !important;
+  }
+
+  div.callout-important .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAEKklEQVRYCcVXTWhcVRS+575MJym48A+hSRFr00ySRQhURRfd2HYjk2SSTokuBCkU2o0LoSKKraKIBTcuFCoidGFD08nkBzdREbpQ1EDNIv8qSGMFUboImMSZd4/f9zJv8ibJMC8xJQfO3HPPPef7zrvvvnvviIkpC9nsw0UttFunbUhpFzFtarSd6WJkStVMw5xyVqYTvkwfzuf/5FgtkVoB0729j1rjXwThS7Vio+Mo6DNnvLfahoZ+i/o32lULuJ3NNiz7q6+pyAUkJaFF6JwaM2lUJlV0MlnQn5aTRbEu0SEqHUa0A4AdiGuB1kFXRfVyg5d87+Dg4DL6m2TLAub60ilj7A1Ec4odSAc8X95sHh7+ZRPCFo6Fnp7HfU/fBng/hi10CjCnWnJjsxvDNxWw0NfV6Rv5GgP3I3jGWXumdTD/3cbEOP2ZbOZp69yniG3FQ9z1jD7bnBu9Fc2tKGC2q+uAJOQHBDRiZX1x36o7fWBs7J9ownbtO+n0/qWkvW7UPIfc37WgT6ZGR++EOJyeQDSb9UB+DZ1G6DdLDzyS+b/kBCYGsYgJbSQHuThGKRcw5xdeQf8YdNHsc6ePXrlSYMBuSIAFTGAtQo+VuALo4BX83N190NWZWbynBjhOHsmNfFWLeL6v+ynsA58zDvvAC8j5PkbOcXCMg2PZFk3q8MjI7WAG/Dp9AwP7jdGBOOQkAvlFUB+irtm16I1Zw9YBcpGTGXYmk3kQIC/Cds55l+iMI3jqhjAuaoe+am2Jw5GT3Nbz3CkE12NavmzN5+erJW7046n/CH1RO/RVa8lBLozXk9uqykkGAyRXLWlLv5jyp4RFsG5vGVzpDLnIjTWgnRy2Rr+tDKvRc7Y8AyZq10jj8DqXdnIRNtFZb+t/ZRtXcDiVnzpqx8mPcDWxgARUqx0W1QB9MeUZiNrV4qP+Ehc+BpNgATsTX8ozYKL2NtFYAHc84fG7ndxUPr+AR/iQSns7uSUufAymwDOb2+NjK27lEFocm/EE2WpyIy/Hi66MWuMKJn8RvxIcj87IM5Vh9663ziW36kR0HNenXuxmfaD8JC7tfKbrhFr7LiZCrMjrzTeGx+PmkosrkNzW94ObzwocJ7A1HokLolY+AvkTiD/q1H0cN48c5EL8Crkttsa/AXQVDmutfyku0E7jShx49XqV3MFK8IryDhYVbj7Sj2P2eBxwcXoe8T8idsKKPRcnZw1b+slFTubwUwhktrfnAt7J++jwQtLZcm3sr9LQrjRzz6cfMv9aLvgmnAGvpoaGLxM4mAEaLV7iAzQ3oU0IvD5x9ix3yF2RAAuYAOO2f7PEFWCXZ4C9Pb2UsgDeVnFSpbFK7/IWu7TPTvBqzbGdCHOJQSxiEjt6IyZmxQyEJHv6xyQsYk//moVFsN2zP6fRImjfq7/n/wFDguUQFNEwugAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-important.callout-style-default .callout-title {
+    background-color: #f7dddc
+  }
+
+  div.callout-warning {
+    border-left-color: #f0ad4e !important;
+  }
+
+  div.callout-warning .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAETklEQVRYCeVWW2gcVRg+58yaTUnizqbipZeX4uWhBEniBaoUX1Ioze52t7sRq6APio9V9MEaoWlVsFasRq0gltaAPuxms8lu0gcviE/FFOstVbSIxgcv6SU7EZqmdc7v9+9mJtNks51NTUH84ed889/PP+cmxP+d5FIbMJmNbpREu4WUkiTtCicKny0l1pIKmBzovF2S+hIJHX8iEu3hZJ5lNZGqyRrGSIQpq15AzF28jgpeY6yk6GVdrfFqdrD6Iw+QlB8g0YS2g7dyQmXM/IDhBhT0UCiRf59lfqmmDvzRt6kByV/m4JjtzuaujMUM2c5Z2d6JdKrRb3K2q6mA+oYVz8JnDdKPmmNthzkAk/lN63sYPgevrguc72aZX/L9C6x09GYyxBgCX4NlvyGUHOKELlm5rXeR1kchuChJt4SSwyddZRXgvwMGvYo4QSlk3/zkHD8UHxwVJA6zjZZqP8v8kK8OWLnIZtLyCAJagYC4rTGW/9Pqj92N/c+LUaAj27movwbi19tk/whRCIE7Q9vyI6yvRpftAKVTdUjOW40X3h5OXsKCdmFcx0xlLJoSuQngnrJe7Kcjm4OMq9FlC7CMmScQANuNvjfP3PjGXDBaUQmbp296S5L4DrpbrHN1T87ZVEZVCzg1FF0Ft+dKrlLukI+/c9ENo+TvlTDbYFvuKPtQ9+l052rXrgKoWkDAFnvh0wTOmYn8R5f4k/jN/fZiCM1tQx9jQQ4ANhqG4hiL0qIFTGViG9DKB7GYzgubnpofgYRwO+DFjh0Zin2m4b/97EDkXkc+f6xYAPX0KK2I/7fUQuwzuwo/L3AkcjugPNixC8cHf0FyPjWlItmLxWw4Ou9YsQCr5fijMGoD/zpdRy95HRysyXA74MWOnscpO4j2y3HAVisw85hX5+AFBRSHt4ShfLFkIMXTqyKFc46xdzQM6XbAi702a7sy04J0+feReMFKp5q9esYLCqAZYw/k14E/xcLLsFElaornTuJB0svMuJINy8xkIYuL+xPAlWRceH6+HX7THJ0djLUom46zREu7tTkxwmf/FdOZ/sh6Q8qvEAiHpm4PJ4a/doJe0gH1t+aHRgCzOvBvJedEK5OFE5jpm4AGP2a8Dxe3gGJ/pAutug9Gp6he92CsSsWBaEcxGx0FHytmIpuqGkOpldqNYQK8cSoXvd+xLxXADw0kf6UkJNFtdo5MOgaLjiQOQHcn+A6h5NuL2s0qsC2LOM75PcF3yr5STuBSAcGG+meA14K/CI21HcS4LBT6tv0QAh8Dr5l93AhZzG5ZJ4VxAqdZUEl9z7WJ4aN+svMvwHHL21UKTd1mqvChH7/Za5xzXBBKrUcB0TQ+Ulgkfbi/H/YT5EptrGzsEK7tR1B7ln9BBwckYfMiuSqklSznIuoIIOM42MQO+QnduCoFCI0bpkzjCjddHPN/F+2Yu+sd9bKNpVwHhbS3LluK/0zgfwD0xYI5dXuzlQAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-warning.callout-style-default .callout-title {
+    background-color: #fcefdc
+  }
+
+  div.callout-tip {
+    border-left-color: #02b875 !important;
+  }
+
+  div.callout-tip .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAADr0lEQVRYCe1XTWgTQRj9ZjZV8a9SPIkKgj8I1bMHsUWrqYLVg4Ue6v9BwZOxSYsIerFao7UiUryIqJcqgtpimhbBXoSCVxUFe9CTiogUrUp2Pt+3aUI2u5vdNh4dmMzOzHvvezuz8xNFM0mjnbXaNu1MvFWRXkXEyE6aYOYJpdW4IXuA4r0fo8qqSMDBU0v1HJUgVieAXxzCsdE/YJTdFcVIZQNMyhruOMJKXYFoLfIfIvVIMWdsrd+Rpd86ZmyzzjJmLStqRn0v8lzkb4rVIXvnpScOJuAn2ACC65FkPzEdEy4TPWRLJ2h7z4cArXzzaOdKlbOvKKX25Wl00jSnrwVxAg3o4dRxhO13RBSdNvH0xSARv3adTXbBdTf64IWO2vH0LT+cv4GR1DJt+DUItaQogeBX/chhbTBxEiZ6gftlDNXTrvT7co4ub5A6gp9HIcHvzTa46OS5fBeP87Qm0fQkr4FsYgVQ7Qg+ZayaDg9jhg1GkWj8RG6lkeSacrrHgDaxdoBiZPg+NXV/KifMuB6//JmYH4CntVEHy/keA6x4h4CU5oFy8GzrBS18cLJMXcljAKB6INjWsRcuZBWVaS3GDrqB7rdapVIeA+isQ57Eev9eCqzqOa81CY05VLd6SamW2wA2H3SiTbnbSxmzfp7WtKZkqy4mdyAlGx7ennghYf8voqp9cLSgKdqNfa6RdRsAAkPwRuJZNbpByn+RrJi1RXTwdi8RQF6ymDwGMAtZ6TVE+4uoKh+MYkcLsT0Hk8eAienbiGdjJHZTpmNjlbFJNKDVAp2fJlYju6IreQxQ08UJDNYdoLSl6AadO+fFuCQqVMB1NJwPm69T04Wv5WhfcWyfXQB+wXRs1pt+nCknRa0LVzSA/2B+a9+zQJadb7IyyV24YAxKp2Jqs3emZTuNnKxsah+uabKbMk7CbTgJx/zIgQYErIeTKRQ9yD9wxVof5YolPHqaWo7TD6tJlh7jQnK5z2n3+fGdggIOx2kaa2YI9QWarc5Ce1ipNWMKeSG4DysFF52KBmTNMmn5HqCFkwy34rDg05gDwgH3bBi+sgFhN/e8QvRn8kbamCOhgrZ9GJhFDgfcMHzFb6BAtjKpFhzTjwv1KCVuxHvCbsSiEz4CANnj84cwHdFXAbAOJ4LTSAawGWFn5tDhLMYz6nWeU2wJfIhmIJBefcd/A5FWQWGgrWzyORZ3Q6HuV+Jf0Bj+BTX69fm1zWgK7By1YTXchFDORywnfQ7GpzOo6S+qECrsx2ifVQAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-tip.callout-style-default .callout-title {
+    background-color: #ccf1e3
+  }
+
+  div.callout-caution {
+    border-left-color: #fd7e14 !important;
+  }
+
+  div.callout-caution .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAACV0lEQVRYCdVWzWoUQRCuqp2ICBLJXgITZL1EfQDBW/bkzUMUD7klD+ATSHBEfAIfQO+iXsWDxJsHL96EHAwhgzlkg8nBg25XWb0zIb0zs9muYYWkoKeru+vn664fBqElyZNuyh167NXJ8Ut8McjbmEraKHkd7uAnAFku+VWdb3reSmRV8PKSLfZ0Gjn3a6Xlcq9YGb6tADjn+lUfTXtVmaZ1KwBIvFI11rRXlWlatwIAAv2asaa9mlB9wwygiDX26qaw1yYPzFXg2N1GgG0FMF8Oj+VIx7E/03lHx8UhvYyNZLN7BwSPgekXXLribw7w5/c8EF+DBK5idvDVYtEEwMeYefjjLAdEyQ3M9nfOkgnPTEkYU+sxMq0BxNR6jExrAI31H1rzvLEfRIdgcv1XEdj6QTQAS2wtstEALLG1yEZ3QhH6oDX7ExBSFEkFINXH98NTrme5IOaaA7kIfiu2L8A3qhH9zRbukdCqdsA98TdElyeMe5BI8Rs2xHRIsoTSSVFfCFCWGPn9XHb4cdobRIWABNf0add9jakDjQJpJ1bTXOJXnnRXHRf+dNL1ZV1MBRCXhMbaHqGI1JkKIL7+i8uffuP6wVQAzO7+qVEbF6NbS0LJureYcWXUUhH66nLR5rYmva+2tjRFtojkM2aD76HEGAD3tPtKM309FJg5j/K682ywcWJ3PASCcycH/22u+Bh7Aa0ehM2Fu4z0SAE81HF9RkB21c5bEn4Dzw+/qNOyXr3DCTQDMBOdhi4nAgiFDGCinIa2owCEChUwD8qzd03PG+qdW/4fDzjUMcE1ZpIAAAAASUVORK5CYII=');
+  }
+
+  div.callout-caution.callout-style-default .callout-title {
+    background-color: #ffe5d0
+  }
+
+  </style>
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+  
+  <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" class="quarto-title-block center">
+  <h1 class="title">Multivariable Data</h1>
+  <p class="subtitle">IN2039: Data Visualization for Decision Making</p>
+
+<div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+Alan R. Vazquez 
+</div>
+        <p class="quarto-title-affiliation">
+            Department of Industrial Engineering
+          </p>
+    </div>
+</div>
+
+</section>
+<section id="agenda" class="slide level2">
+<h2>Agenda</h2>
+<ol type="1">
+<li><p>Data with more than one variable</p></li>
+<li><p>Two numerical variables</p></li>
+<li><p>One numerical and one categorical variable</p></li>
+<li><p>Two categorical variables</p></li>
+<li><p>Three or more variables</p></li>
+</ol>
+</section>
+<section id="load-libraries" class="slide level2">
+<h2>Load Libraries</h2>
+<p><br></p>
+<p>Let’s import the <code>pandas</code>, <code>matplotlib</code>, and <code>seaborn</code> in Google Colab and R before starting.</p>
+<div id="6688cf6d" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a></a><span class="im">import</span> pandas <span class="im">as</span> pd      </span>
+<span id="cb1-2"><a></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt  </span>
+<span id="cb1-3"><a></a><span class="im">import</span> seaborn <span class="im">as</span> sns    </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="multivariate-data" class="slide level2">
+<h2>Multivariate data</h2>
+<p><br></p>
+<p>Multivariate data consists of datasets that contain observations of two or more variables.</p>
+<div>
+<ul>
+<li class="fragment"><p>Variables can be numerical or categorical.</p></li>
+<li class="fragment"><p>Variables may or may not depend on each other.</p></li>
+</ul>
+</div>
+<div class="fragment">
+<p>In fact, the <strong>goal</strong> is to determine whether there is a relationship between the variables and the type of relationship.</p>
+</div>
+</section>
+<section id="example-1" class="slide level2">
+<h2>Example 1</h2>
+<p><br></p>
+<p>Consider data from 392 cars, including miles per gallon, number of cylinders, horsepower, weight, acceleration, year, origin, among other variables.</p>
+<p>The data is stored in the file “auto_dataset.xlsx”.</p>
+<div id="ffab39fd" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a></a>auto_data <span class="op">=</span> pd.read_excel(<span class="st">"auto_dataset.xlsx"</span>)</span>
+<span id="cb2-2"><a></a><span class="co"># Set categorical variable.</span></span>
+<span id="cb2-3"><a></a>auto_data[[<span class="st">'origin'</span>]] <span class="op">=</span> auto_data[[<span class="st">'origin'</span>]].astype(<span class="st">'category'</span>)</span>
+<span id="cb2-4"><a></a>auto_data.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="section" class="slide level2">
+<h2></h2>
+<div id="f0d57757" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a></a>auto_data <span class="op">=</span> pd.read_excel(<span class="st">"auto_dataset.xlsx"</span>)</span>
+<span id="cb3-2"><a></a><span class="co"># Set categorical variable.</span></span>
+<span id="cb3-3"><a></a>auto_data[[<span class="st">'origin'</span>]] <span class="op">=</span> auto_data[[<span class="st">'origin'</span>]].astype(<span class="st">'category'</span>)</span>
+<span id="cb3-4"><a></a>auto_data.head(<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="2097">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">mpg</th>
+<th data-quarto-table-cell-role="th">cylinders</th>
+<th data-quarto-table-cell-role="th">displacement</th>
+<th data-quarto-table-cell-role="th">horsepower</th>
+<th data-quarto-table-cell-role="th">weight</th>
+<th data-quarto-table-cell-role="th">acceleration</th>
+<th data-quarto-table-cell-role="th">year</th>
+<th data-quarto-table-cell-role="th">origin</th>
+<th data-quarto-table-cell-role="th">car name</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>18.0</td>
+<td>8</td>
+<td>307.0</td>
+<td>130</td>
+<td>3504</td>
+<td>12.0</td>
+<td>70</td>
+<td>American</td>
+<td>chevrolet chevelle malibu</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>15.0</td>
+<td>8</td>
+<td>350.0</td>
+<td>165</td>
+<td>3693</td>
+<td>11.5</td>
+<td>70</td>
+<td>American</td>
+<td>buick skylark 320</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>18.0</td>
+<td>8</td>
+<td>318.0</td>
+<td>150</td>
+<td>3436</td>
+<td>11.0</td>
+<td>70</td>
+<td>American</td>
+<td>plymouth satellite</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
+<section id="principle-1-formulate-the-question" class="slide level2">
+<h2>Principle 1: Formulate the question</h2>
+<p>In the context of multiple-variable data, typical questions to study include:</p>
+<div>
+<ul>
+<li class="fragment"><p>How are variable <span class="math inline">\(X\)</span> and variable <span class="math inline">\(Y\)</span> related?</p></li>
+<li class="fragment"><p>Is the distribution of variable <span class="math inline">\(X\)</span> the same across all subgroups defined by variable <span class="math inline">\(Z\)</span>?</p></li>
+<li class="fragment"><p>Are there any unusual observations in the combination of values for variables <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>?</p></li>
+<li class="fragment"><p>Are there any unusual observations in <span class="math inline">\(X\)</span> for a subgroup of variable <span class="math inline">\(Z\)</span>?</p></li>
+</ul>
+</div>
+</section>
+<section id="principle-2-turn-data-into-information" class="slide level2">
+<h2>Principle 2: Turn data into information</h2>
+<p>There are various types of graphs that help us explore relationships between two or more variables.</p>
+<div class="center">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Graph Type</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Numerical</td>
+<td style="text-align: left;">Scatter plot, line graph</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Categorical</td>
+<td style="text-align: left;">Side-by-side bar chart, stacked bar chart</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Mixed</td>
+<td style="text-align: left;">GSide-by-side box plot, bubble chart</td>
+</tr>
+</tbody>
+</table>
+</div>
+<aside class="notes">
+<p>For two features, the combination of types (both quantitative, both qualitative, or a mix) matters.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section>
+<section id="two-numerical-variables" class="title-slide slide level1 center">
+<h1>Two Numerical Variables</h1>
+
+</section>
+<section id="independent-and-dependent-variables" class="slide level2">
+<h2>Independent and dependent variables</h2>
+<p>When investigating the relationship between two variables (numerical or categorical), we use specific terminology.</p>
+<div class="fragment">
+<p>One variable is called the <em>dependent</em> or <em>response variable</em>, denoted by the letter <span class="math inline">\(Y\)</span>.</p>
+</div>
+<div class="fragment">
+<p>The other variable is called the <em>independent</em> or <em>predictor variable</em>, denoted by the letter <span class="math inline">\(X\)</span>.</p>
+</div>
+<div class="fragment">
+<blockquote>
+<p>Our goal is to determine whether changes in variable <span class="math inline">\(X\)</span> are associated with changes in variable <span class="math inline">\(Y\)</span>, and the nature of this association.</p>
+</blockquote>
+</div>
+</section>
+<section id="scatter-plot" class="slide level2">
+<h2>Scatter Plot</h2>
+<p><br></p>
+<p>The most common graph for examining the relationship between two numerical variables is the <span style="color:#174062;"><strong><em>scatter plot</em></strong></span>.</p>
+<div class="fragment">
+<p>Variables <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are placed on the horizontal and vertical axes, respectively. Each point on the graph represents a pair of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> values.</p>
+</div>
+<div class="fragment">
+<blockquote>
+<p>The goal is to explore linear or non-linear relationships between variables.</p>
+</blockquote>
+</div>
+</section>
+<section id="scatterplot-in-python" class="slide level2">
+<h2>Scatterplot in Python</h2>
+<p>To create scatter plots in <strong>seaborn</strong>, we use the function <code>scatterplot()</code>.</p>
+<div class="fragment">
+<p>For example, let’s create a plot to explore the relationship between a car’s weight (<code>weight</code>) and its fuel efficiency in miles per gallon (<code>mpg</code>)</p>
+<div id="2c908e70" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">6</span>))</span>
+<span id="cb4-2"><a></a>sns.scatterplot(data <span class="op">=</span> auto_data, x <span class="op">=</span> <span class="st">"weight"</span>, y <span class="op">=</span> <span class="st">"mpg"</span>)</span>
+<span id="cb4-3"><a></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</section>
+<section id="section-1" class="slide level2">
+<h2></h2>
+<div id="54e1ff72" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">6</span>))</span>
+<span id="cb5-2"><a></a>sns.scatterplot(data<span class="op">=</span>auto_data, x<span class="op">=</span><span class="st">"weight"</span>, y<span class="op">=</span><span class="st">"mpg"</span>)</span>
+<span id="cb5-3"><a></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="Multivariate_files/figure-revealjs/cell-6-output-1.png" class="quarto-figure quarto-figure-center" width="659" height="503"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="principle-3-apply-gaphic-design-principles" class="slide level2">
+<h2>Principle 3: Apply gaphic design principles</h2>
+<p>Following Principle 3, we can modify the default function values to define different colors or shapes for the points in the graph.</p>
+<p>Specifically, you can change the color, shape, and size of points using the arguments <code>color</code>, <code>shape</code> and <code>size</code>, respectively.</p>
+<p><br></p>
+<p><code>sns.scatterplot(data=data_set, x=X, y=Y, color, marker, s)</code></p>
+</section>
+<section id="section-2" class="slide level2">
+<h2></h2>
+<div id="277b0844" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">6</span>))</span>
+<span id="cb6-2"><a></a>sns.scatterplot(data<span class="op">=</span>auto_data, x<span class="op">=</span><span class="st">"weight"</span>, y<span class="op">=</span><span class="st">"mpg"</span>, color<span class="op">=</span><span class="st">"blue"</span>, </span>
+<span id="cb6-3"><a></a>                marker<span class="op">=</span><span class="st">"x"</span>, s<span class="op">=</span><span class="dv">100</span>)</span>
+<span id="cb6-4"><a></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="Multivariate_files/figure-revealjs/cell-7-output-1.png" class="quarto-figure quarto-figure-center" width="659" height="503"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="possible-point-shapes" class="slide level2">
+<h2>Possible point shapes</h2>
+<p>To change the symbols used for points in a scatter plot, set the <code>marker</code> parameter to a number or character from the chart below.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/markers.png" class="quarto-figure quarto-figure-center" width="605" height="88"></p>
+</figure>
+</div>
+</section>
+<section id="section-3" class="slide level2">
+<h2></h2>
+<p>Continuing with Principle 3, you can use previously seen functions to further improve the graph’s appearance.</p>
+<div id="f6a3cc4c" class="cell" data-execution_count="7">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">7</span>, <span class="dv">5</span>))</span>
+<span id="cb7-2"><a></a>sns.scatterplot(data<span class="op">=</span>auto_data, x<span class="op">=</span><span class="st">"weight"</span>, y<span class="op">=</span><span class="st">"mpg"</span>, color<span class="op">=</span><span class="st">"darkblue"</span>, s<span class="op">=</span><span class="dv">50</span>)</span>
+<span id="cb7-3"><a></a><span class="co"># Customize the plot</span></span>
+<span id="cb7-4"><a></a>plt.title(<span class="st">"Weight and miles per gallon relationship in cars"</span>, fontsize<span class="op">=</span><span class="dv">17</span>)</span>
+<span id="cb7-5"><a></a>plt.xlabel(<span class="st">"Weight (lb)"</span>, fontsize<span class="op">=</span><span class="dv">15</span>)</span>
+<span id="cb7-6"><a></a>plt.ylabel(<span class="st">"Miles per gallon"</span>, fontsize<span class="op">=</span><span class="dv">15</span>)</span>
+<span id="cb7-7"><a></a>plt.tick_params(axis<span class="op">=</span><span class="st">'both'</span>, labelsize<span class="op">=</span><span class="dv">12</span>)</span>
+<span id="cb7-8"><a></a><span class="co"># Show the plot</span></span>
+<span id="cb7-9"><a></a>plt.show() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="Multivariate_files/figure-revealjs/cell-8-output-1.png" class="quarto-figure quarto-figure-center" width="606" height="464"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="include-zero" class="slide level2">
+<h2>Include Zero</h2>
+<p>In the previous graph, the minimum vertical axis value is around 10. To adjust the minimum value to 0, we use the additional function <code>ylim()</code> below.</p>
+<div id="74297891" class="cell" data-execution_count="8">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a></a><span class="co"># Create the scatter plot with custom color and size</span></span>
+<span id="cb8-2"><a></a>plt.figure(figsize<span class="op">=</span>(<span class="fl">5.2</span>, <span class="fl">3.2</span>))</span>
+<span id="cb8-3"><a></a>sns.scatterplot(data<span class="op">=</span>auto_data, x<span class="op">=</span><span class="st">"weight"</span>, y<span class="op">=</span><span class="st">"mpg"</span>, color<span class="op">=</span><span class="st">"darkblue"</span>, s<span class="op">=</span><span class="dv">50</span>)</span>
+<span id="cb8-4"><a></a></span>
+<span id="cb8-5"><a></a><span class="co"># Set y-axis limits</span></span>
+<span id="cb8-6"><a></a>plt.ylim(<span class="dv">0</span>, <span class="dv">50</span>)</span>
+<span id="cb8-7"><a></a></span>
+<span id="cb8-8"><a></a><span class="co"># Customize the plot</span></span>
+<span id="cb8-9"><a></a>plt.title(<span class="st">"Weight and miles per gallon relationship in cars"</span>, fontsize<span class="op">=</span><span class="dv">17</span>)</span>
+<span id="cb8-10"><a></a>plt.xlabel(<span class="st">"Weight (lb)"</span>, fontsize<span class="op">=</span><span class="dv">15</span>)</span>
+<span id="cb8-11"><a></a>plt.ylabel(<span class="st">"Miles per gallon"</span>, fontsize<span class="op">=</span><span class="dv">15</span>)</span>
+<span id="cb8-12"><a></a>plt.tick_params(axis<span class="op">=</span><span class="st">'both'</span>, labelsize<span class="op">=</span><span class="dv">12</span>)</span>
+<span id="cb8-13"><a></a></span>
+<span id="cb8-14"><a></a><span class="co"># Show the plot</span></span>
+<span id="cb8-15"><a></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="Multivariate_files/figure-revealjs/cell-9-output-1.png" class="quarto-figure quarto-figure-center" width="561" height="331"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="section-4" class="slide level2">
+<h2></h2>
+<p>If necessary, we can also adjust the horizontal axis to show 0 as well. To this end we use the <code>xlim()</code> function.</p>
+<div id="fcae2e9a" class="cell" data-execution_count="9">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a></a><span class="co"># Create the scatter plot with custom color and size</span></span>
+<span id="cb9-2"><a></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">7</span>, <span class="dv">5</span>))</span>
+<span id="cb9-3"><a></a>sns.scatterplot(data<span class="op">=</span>auto_data, x<span class="op">=</span><span class="st">"weight"</span>, y<span class="op">=</span><span class="st">"mpg"</span>, color<span class="op">=</span><span class="st">"darkblue"</span>, s<span class="op">=</span><span class="dv">50</span>)</span>
+<span id="cb9-4"><a></a></span>
+<span id="cb9-5"><a></a><span class="co"># Set y-axis limits</span></span>
+<span id="cb9-6"><a></a>plt.ylim(<span class="dv">0</span>, <span class="dv">50</span>)</span>
+<span id="cb9-7"><a></a></span>
+<span id="cb9-8"><a></a><span class="co"># Set x-axis limits</span></span>
+<span id="cb9-9"><a></a>plt.xlim(<span class="dv">0</span>, <span class="dv">5500</span>)</span>
+<span id="cb9-10"><a></a></span>
+<span id="cb9-11"><a></a><span class="co"># Customize the plot</span></span>
+<span id="cb9-12"><a></a>plt.title(<span class="st">"Weight and miles per gallon relationship in cars"</span>, fontsize<span class="op">=</span><span class="dv">17</span>)</span>
+<span id="cb9-13"><a></a>plt.xlabel(<span class="st">"Weight (lb)"</span>, fontsize<span class="op">=</span><span class="dv">15</span>)</span>
+<span id="cb9-14"><a></a>plt.ylabel(<span class="st">"Miles per gallon"</span>, fontsize<span class="op">=</span><span class="dv">15</span>)</span>
+<span id="cb9-15"><a></a>plt.tick_params(axis<span class="op">=</span><span class="st">'both'</span>, labelsize<span class="op">=</span><span class="dv">12</span>)</span>
+<span id="cb9-16"><a></a></span>
+<span id="cb9-17"><a></a><span class="co"># Show the plot</span></span>
+<span id="cb9-18"><a></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="Multivariate_files/figure-revealjs/cell-10-output-1.png" class="quarto-figure quarto-figure-center" width="606" height="464"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="individual-graphs" class="slide level2">
+<h2>Individual graphs</h2>
+<p>Individual variable graphs (such as histograms) do not allow us to study the relationship between two variables. They only provide information on the <em>distribution</em> of each variable.</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div id="9ae87f52" class="cell" data-execution_count="10">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">4</span>, <span class="dv">3</span>))</span>
+<span id="cb10-2"><a></a>sns.histplot(data<span class="op">=</span>auto_data, x<span class="op">=</span><span class="st">"mpg"</span>, color<span class="op">=</span><span class="st">"darkblue"</span>, edgecolor<span class="op">=</span><span class="st">"black"</span>)</span>
+<span id="cb10-3"><a></a>plt.title(<span class="st">"Distribution of miles per gallon"</span>, fontsize<span class="op">=</span><span class="dv">17</span>)</span>
+<span id="cb10-4"><a></a>plt.xlabel(<span class="st">"Miles per gallon"</span>, fontsize<span class="op">=</span><span class="dv">15</span>)</span>
+<span id="cb10-5"><a></a>plt.ylabel(<span class="st">"Frecuencia"</span>, fontsize<span class="op">=</span><span class="dv">15</span>)</span>
+<span id="cb10-6"><a></a>plt.tick_params(axis<span class="op">=</span><span class="st">'both'</span>, labelsize<span class="op">=</span><span class="dv">12</span>)</span>
+<span id="cb10-7"><a></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="Multivariate_files/figure-revealjs/cell-11-output-1.png" class="quarto-figure quarto-figure-center" width="398" height="316"></p>
+</figure>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<div id="5f3f423d" class="cell" data-execution_count="11">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">4</span>, <span class="dv">3</span>))</span>
+<span id="cb11-2"><a></a>sns.histplot(data<span class="op">=</span>auto_data, x<span class="op">=</span><span class="st">"weight"</span>, color<span class="op">=</span><span class="st">"darkblue"</span>, kde<span class="op">=</span><span class="va">False</span>, edgecolor<span class="op">=</span><span class="st">"black"</span>)</span>
+<span id="cb11-3"><a></a>plt.title(<span class="st">"Distribution of weight"</span>, fontsize<span class="op">=</span><span class="dv">17</span>)</span>
+<span id="cb11-4"><a></a>plt.xlabel(<span class="st">"Weight (lb)"</span>, fontsize<span class="op">=</span><span class="dv">15</span>)</span>
+<span id="cb11-5"><a></a>plt.ylabel(<span class="st">"Frecuencia"</span>, fontsize<span class="op">=</span><span class="dv">15</span>)</span>
+<span id="cb11-6"><a></a>plt.tick_params(axis<span class="op">=</span><span class="st">'both'</span>, labelsize<span class="op">=</span><span class="dv">12</span>)</span>
+<span id="cb11-7"><a></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="Multivariate_files/figure-revealjs/cell-12-output-1.png" class="quarto-figure quarto-figure-center" width="372" height="316"></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="line-graph" class="slide level2">
+<h2>Line Graph</h2>
+<p>A line graph is a visual representation of data where data points are connected by a line. Axes:</p>
+<ul>
+<li><span class="math inline">\(X\)</span> (horizontal): Represents time or the independent variable.</li>
+<li><span class="math inline">\(Y\)</span> (vertical): Represents the dependent variable.</li>
+</ul>
+<p>Each point represents a value at a given moment.</p>
+<div class="fragment">
+<blockquote>
+<p>The objective is to explore trends over time or the evolution of a continuous variable.</p>
+</blockquote>
+</div>
+</section>
+<section id="example-2" class="slide level2">
+<h2>Example 2</h2>
+<p>Consider the data in the file “spotify.xlsx”. This dataset contains the global daily streams of the top five most popular songs on the music streaming service Spotify in 2017.</p>
+<div id="6ac30344" class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a></a>spotify_data <span class="op">=</span> pd.read_excel(<span class="st">"spotify.xlsx"</span>)</span>
+<span id="cb12-2"><a></a>spotify_data.head(<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="2106">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Date</th>
+<th data-quarto-table-cell-role="th">Day</th>
+<th data-quarto-table-cell-role="th">Shape of You</th>
+<th data-quarto-table-cell-role="th">Despacito</th>
+<th data-quarto-table-cell-role="th">Something Just Like This</th>
+<th data-quarto-table-cell-role="th">HUMBLE.</th>
+<th data-quarto-table-cell-role="th">Unforgettable</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>2017-01-06</td>
+<td>1</td>
+<td>12287078</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>2017-01-07</td>
+<td>2</td>
+<td>13190270</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>2017-01-08</td>
+<td>3</td>
+<td>13099919</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
+<section id="section-5" class="slide level2">
+<h2></h2>
+<p>We will focus on the song <em>Despacito</em> by Luis Fonsi. To construct line plots, we use the function<code>lineplot()</code> in <strong>seaborn</strong>.</p>
+<div id="38520781" class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">7</span>, <span class="dv">5</span>))</span>
+<span id="cb13-2"><a></a>sns.lineplot(data<span class="op">=</span>spotify_data, x<span class="op">=</span><span class="st">"Date"</span>, y<span class="op">=</span><span class="st">"Despacito"</span>)</span>
+<span id="cb13-3"><a></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="Multivariate_files/figure-revealjs/cell-14-output-1.png" class="quarto-figure quarto-figure-center" width="589" height="443"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="applying-principle-3" class="slide level2">
+<h2>Applying Principle 3</h2>
+<p>We can change various aspects of the graph using additional arguments <code>linetype</code>, <code>size</code>, and <code>color</code>.</p>
+<p><br></p>
+<p><code>sns.lineplot(data = data_set, x = x, y = Y, linestyle, linewidth, color)</code>.</p>
+</section>
+<section id="section-6" class="slide level2">
+<h2></h2>
+<div id="882a75be" class="cell" data-execution_count="14">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a></a><span class="co"># Create the line plot</span></span>
+<span id="cb14-2"><a></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
+<span id="cb14-3"><a></a>sns.lineplot(data<span class="op">=</span>spotify_data, x<span class="op">=</span><span class="st">"Date"</span>, y<span class="op">=</span><span class="st">"Despacito"</span>, linestyle <span class="op">=</span> <span class="st">'-'</span>,</span>
+<span id="cb14-4"><a></a>            color<span class="op">=</span><span class="st">"darkblue"</span>, linewidth<span class="op">=</span><span class="fl">1.3</span>)</span>
+<span id="cb14-5"><a></a>plt.title(<span class="st">"Popularity of the song Despacito by Luis Fonsi"</span>, fontsize<span class="op">=</span><span class="dv">16</span>)</span>
+<span id="cb14-6"><a></a>plt.xlabel(<span class="st">"Date"</span>, fontsize<span class="op">=</span><span class="dv">12</span>)</span>
+<span id="cb14-7"><a></a>plt.ylabel(<span class="st">"Number of plays on Spotify"</span>, fontsize<span class="op">=</span><span class="dv">15</span>)</span>
+<span id="cb14-8"><a></a>plt.tick_params(axis<span class="op">=</span><span class="st">'both'</span>, labelsize<span class="op">=</span><span class="dv">11</span>)</span>
+<span id="cb14-9"><a></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="Multivariate_files/figure-revealjs/cell-15-output-1.png" class="quarto-figure quarto-figure-center" width="821" height="531"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="line-types" class="slide level2">
+<h2>Line Types</h2>
+<p>To change the line type, set the <code>linestyle</code> parameter to a character shown below.</p>
+
+<img data-src="images/linetypes.png" class="quarto-figure quarto-figure-center r-stretch"></section></section>
+<section>
+<section id="a-categorical-and-a-numerical-variable" class="title-slide slide level1 center">
+<h1>A Categorical and a Numerical Variable</h1>
+
+</section>
+<section id="divide-the-data-into-groups" class="slide level2">
+<h2>Divide the Data into Groups!</h2>
+<p>To examine the relationship between a numerical and a categorical variable, we use the categorical variable to divide the data into groups. This way, we <strong>compare the distribution</strong> of the numerical variable among these groups.</p>
+<div class="fragment">
+<p>In this context:</p>
+<ul>
+<li><span class="math inline">\(X\)</span> is the categorical variable.</li>
+<li><span class="math inline">\(Y\)</span> is the numerical variable.</li>
+</ul>
+</div>
+<div class="fragment">
+<p>The <span style="color:#D70040;">side-by-side boxplot</span> is the most effective way to study the relationship between a categorical and a numerical variable.</p>
+</div>
+</section>
+<section id="boxplot-by-groups" class="slide level2">
+<h2>Boxplot by Groups</h2>
+<p><br></p>
+<p>The side-by-side boxplot compares the distribution of a variable across different groups.</p>
+<p><br></p>
+<p>In <strong>seaborn</strong>, the plot is obtained using the function:</p>
+<p><code>sns.boxplot(data=data_set, x=X, y=Y)</code>.</p>
+</section>
+<section id="section-7" class="slide level2">
+<h2></h2>
+<p>For example, if we want to compare the distributions of miles per gallon of cars built in America, Europe, or Japan, we use the following command:</p>
+<div id="6a90147e" class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">7</span>, <span class="dv">5</span>))</span>
+<span id="cb15-2"><a></a>sns.boxplot(data<span class="op">=</span>auto_data, x<span class="op">=</span><span class="st">"origin"</span>, y<span class="op">=</span><span class="st">"mpg"</span>)</span>
+<span id="cb15-3"><a></a>plt.show() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="Multivariate_files/figure-revealjs/cell-16-output-1.png" class="quarto-figure quarto-figure-center" width="585" height="429"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="applying-principle-3-1" class="slide level2">
+<h2>Applying Principle 3</h2>
+<div id="b59e51bc" class="cell" data-execution_count="16">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">7</span>, <span class="dv">5</span>))</span>
+<span id="cb16-2"><a></a>sns.boxplot(data<span class="op">=</span>auto_data, x<span class="op">=</span><span class="st">"origin"</span>, y<span class="op">=</span><span class="st">"mpg"</span>, color<span class="op">=</span><span class="st">"lightblue"</span>)</span>
+<span id="cb16-3"><a></a>plt.title(<span class="st">"Miles per Gallon Distribution by Origin"</span>, fontsize<span class="op">=</span><span class="dv">17</span>)</span>
+<span id="cb16-4"><a></a>plt.xlabel(<span class="st">"Origen"</span>, fontsize<span class="op">=</span><span class="dv">15</span>)</span>
+<span id="cb16-5"><a></a>plt.ylabel(<span class="st">"Miles per gallon"</span>, fontsize<span class="op">=</span><span class="dv">15</span>)</span>
+<span id="cb16-6"><a></a>plt.tick_params(axis<span class="op">=</span><span class="st">'both'</span>, labelsize<span class="op">=</span><span class="dv">12</span>)</span>
+<span id="cb16-7"><a></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="Multivariate_files/figure-revealjs/cell-17-output-1.png" class="quarto-figure quarto-figure-center" width="595" height="464"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="section-8" class="slide level2">
+<h2></h2>
+<p>We can also change the format of outlier points using the arguments <code>marker</code>, <code>markersize</code>, and <code>markerfacecolor</code> inside the argument <code>flierprops</code> in <code>sns.boxplot</code>.</p>
+<div id="667cd3c9" class="cell" data-execution_count="17">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">6</span>, <span class="dv">4</span>))</span>
+<span id="cb17-2"><a></a>sns.boxplot(data<span class="op">=</span>auto_data, x<span class="op">=</span><span class="st">"origin"</span>, y<span class="op">=</span><span class="st">"mpg"</span>, color<span class="op">=</span><span class="st">"lightblue"</span>,  </span>
+<span id="cb17-3"><a></a>            flierprops<span class="op">=</span><span class="bu">dict</span>(marker<span class="op">=</span><span class="st">"o"</span>, markerfacecolor<span class="op">=</span><span class="st">"purple"</span>, markersize<span class="op">=</span><span class="dv">8</span>))</span>
+<span id="cb17-4"><a></a>plt.title(<span class="st">"Miles per Gallon Distribution by Origin"</span>, fontsize<span class="op">=</span><span class="dv">17</span>)</span>
+<span id="cb17-5"><a></a>plt.xlabel(<span class="st">"Origen"</span>, fontsize<span class="op">=</span><span class="dv">15</span>)</span>
+<span id="cb17-6"><a></a>plt.ylabel(<span class="st">"Miles per gallon"</span>, fontsize<span class="op">=</span><span class="dv">15</span>)</span>
+<span id="cb17-7"><a></a>plt.tick_params(axis<span class="op">=</span><span class="st">'both'</span>, labelsize<span class="op">=</span><span class="dv">12</span>)</span>
+<span id="cb17-8"><a></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="Multivariate_files/figure-revealjs/cell-18-output-1.png" class="quarto-figure quarto-figure-center" width="521" height="390"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="plotting-statistical-summaries-by-groups" class="slide level2">
+<h2>Plotting statistical summaries by groups</h2>
+<p>Alternatively, we can summarize the values of the numerical variable <span class="math inline">\(Y\)</span> for each category of the variable <span class="math inline">\(X\)</span> using the median or the mean.</p>
+<p>For example, let’s plot the average miles per gallon of cars produced in America, Europe, and Japan. First, we calculate the average for each category using <code>groupby()</code> and <code>mean()</code>.</p>
+<div id="891ad74a" class="cell" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a></a>summary_autos <span class="op">=</span> (auto_data</span>
+<span id="cb18-2"><a></a>  .loc[:, [<span class="st">'mpg'</span>, <span class="st">'origin'</span>]]</span>
+<span id="cb18-3"><a></a>  .groupby([<span class="st">"origin"</span>], observed <span class="op">=</span> <span class="va">True</span>)</span>
+<span id="cb18-4"><a></a>  .mean()</span>
+<span id="cb18-5"><a></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="section-9" class="slide level2">
+<h2></h2>
+<p><br></p>
+<p>The data to be plotted are:</p>
+<div id="c1ce92d8" class="cell" data-execution_count="19">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a></a>summary_autos</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="2113">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">mpg</th>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">origin</th>
+<th data-quarto-table-cell-role="th"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">American</td>
+<td>20.083534</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">European</td>
+<td>27.891429</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">Japanese</td>
+<td>30.450633</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
+<section id="section-10" class="slide level2">
+<h2></h2>
+<p><br></p>
+<p>Two common visualization types for plotting a numerical and a discrete variable when there is only one value per category are:</p>
+<ul>
+<li>Cleveland dot plot</li>
+<li>Bar chart</li>
+</ul>
+</section>
+<section id="cleveland-dot-plot" class="slide level2">
+<h2>Cleveland Dot Plot</h2>
+<p>The Cleveland dot plot encodes quantitative data across different categories. It is an alternative to a bar chart. It is obtained using the function <code>scatterplot()</code>.</p>
+<div id="cd50dc0e" class="cell" data-execution_count="20">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">6</span>))</span>
+<span id="cb20-2"><a></a>sns.scatterplot(data<span class="op">=</span>summary_autos, x<span class="op">=</span><span class="st">'mpg'</span>, y<span class="op">=</span><span class="st">'origin'</span>)</span>
+<span id="cb20-3"><a></a>plt.title(<span class="st">"Average Miles per Gallon by Origin"</span>, fontsize<span class="op">=</span><span class="dv">17</span>)</span>
+<span id="cb20-4"><a></a>plt.xlabel(<span class="st">"Average Miles Per Gallon"</span>, fontsize<span class="op">=</span><span class="dv">15</span>)</span>
+<span id="cb20-5"><a></a>plt.ylabel(<span class="st">"Origen"</span>, fontsize<span class="op">=</span><span class="dv">15</span>)</span>
+<span id="cb20-6"><a></a>plt.show() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="section-11" class="slide level2">
+<h2></h2>
+<div id="c6de220f" class="cell" data-execution_count="21">
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="Multivariate_files/figure-revealjs/cell-22-output-1.png" class="quarto-figure quarto-figure-center" width="712" height="535"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="improving-the-plot" class="slide level2">
+<h2>Improving the plot</h2>
+<p>We apply Principle 3 to improve the plot.</p>
+<div id="ef88e2ef" class="cell" data-execution_count="22">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">7</span>, <span class="dv">5</span>))</span>
+<span id="cb21-2"><a></a>sns.scatterplot(data<span class="op">=</span>summary_autos, x<span class="op">=</span><span class="st">'mpg'</span>, y<span class="op">=</span><span class="st">'origin'</span>, s<span class="op">=</span><span class="dv">100</span>, color<span class="op">=</span><span class="st">'pink'</span>)</span>
+<span id="cb21-3"><a></a>plt.title(<span class="st">"Average Miles per Gallon by Origin"</span>, fontsize<span class="op">=</span><span class="dv">17</span>)</span>
+<span id="cb21-4"><a></a>plt.xlabel(<span class="st">"Average Miles Per Gallon"</span>, fontsize<span class="op">=</span><span class="dv">15</span>)</span>
+<span id="cb21-5"><a></a>plt.ylabel(<span class="st">"Origen"</span>, fontsize<span class="op">=</span><span class="dv">15</span>)</span>
+<span id="cb21-6"><a></a><span class="co"># Set x-axis limits</span></span>
+<span id="cb21-7"><a></a>plt.xlim(<span class="dv">0</span>, <span class="dv">35</span>)</span>
+<span id="cb21-8"><a></a>plt.show() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="Multivariate_files/figure-revealjs/cell-23-output-1.png" class="quarto-figure quarto-figure-center" width="646" height="461"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="bar-chart" class="slide level2">
+<h2>Bar Chart</h2>
+<p>To create a bar chart where the bar length equals a specific value, we use the function <code>barplot()</code> dfrom the <strong>seaborn</strong>.</p>
+<div id="fc9d8aae" class="cell" data-execution_count="23">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">5</span>, <span class="dv">3</span>))</span>
+<span id="cb22-2"><a></a>sns.barplot(data<span class="op">=</span>summary_autos, x<span class="op">=</span><span class="st">'mpg'</span>, y<span class="op">=</span><span class="st">'origin'</span>)</span>
+<span id="cb22-3"><a></a>plt.title(<span class="st">"Average Miles per Gallon by Origin"</span>)</span>
+<span id="cb22-4"><a></a>plt.xlabel(<span class="st">"Average Miles Per Gallon"</span>)</span>
+<span id="cb22-5"><a></a>plt.ylabel(<span class="st">"Origen"</span>)</span>
+<span id="cb22-6"><a></a>plt.show() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="Multivariate_files/figure-revealjs/cell-24-output-1.png" class="quarto-figure quarto-figure-center" width="482" height="302"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="section-12" class="slide level2">
+<h2></h2>
+<p>We can use similar commands as the Cleveland dot plot to improve the bar chart.</p>
+<div id="770f3a30" class="cell" data-execution_count="24">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">7</span>, <span class="dv">5</span>))</span>
+<span id="cb23-2"><a></a>sns.barplot(data<span class="op">=</span>summary_autos, x<span class="op">=</span><span class="st">'mpg'</span>, y<span class="op">=</span><span class="st">'origin'</span>, color<span class="op">=</span><span class="st">'lightblue'</span>)</span>
+<span id="cb23-3"><a></a>plt.title(<span class="st">"Average Miles per Gallon by Origin"</span>, fontsize<span class="op">=</span><span class="dv">17</span>)</span>
+<span id="cb23-4"><a></a>plt.xlabel(<span class="st">"Average Miles Per Gallon"</span>, fontsize<span class="op">=</span><span class="dv">15</span>)</span>
+<span id="cb23-5"><a></a>plt.ylabel(<span class="st">"Origen"</span>, fontsize<span class="op">=</span><span class="dv">15</span>)</span>
+<span id="cb23-6"><a></a>plt.xlim(<span class="dv">0</span>, <span class="dv">35</span>)</span>
+<span id="cb23-7"><a></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="Multivariate_files/figure-revealjs/cell-25-output-1.png" class="quarto-figure quarto-figure-center" width="646" height="461"></p>
+</figure>
+</div>
+</div>
+</div>
+</section></section>
+<section>
+<section id="two-categorical-variables" class="title-slide slide level1 center">
+<h1>Two Categorical Variables</h1>
+
+</section>
+<section id="divide-the-data-into-groups-1" class="slide level2">
+<h2>Divide the Data into Groups!</h2>
+<p>With two categorical variables, we compare the distribution of one variable across subgroups defined by the other variable.</p>
+<p>In fact, we keep one variable constant and plot the distribution of the other.</p>
+<div class="fragment">
+<p>To do this, the most popular charts are extensions of bar graphs:</p>
+<ul>
+<li>Stacked bar charts</li>
+<li>Side-by-side bar charts</li>
+</ul>
+</div>
+</section>
+<section id="example-3" class="slide level2">
+<h2>Example 3</h2>
+<p>As an example, let’s consider the data in the file “penguins.xlsx”.</p>
+<div id="cadacfaf" class="cell" data-execution_count="25">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a></a>penguins_data <span class="op">=</span> pd.read_excel(<span class="st">"penguins.xlsx"</span>)</span>
+<span id="cb24-2"><a></a>penguins_data.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="2119">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">species</th>
+<th data-quarto-table-cell-role="th">island</th>
+<th data-quarto-table-cell-role="th">bill_length_mm</th>
+<th data-quarto-table-cell-role="th">bill_depth_mm</th>
+<th data-quarto-table-cell-role="th">flipper_length_mm</th>
+<th data-quarto-table-cell-role="th">body_mass_g</th>
+<th data-quarto-table-cell-role="th">sex</th>
+<th data-quarto-table-cell-role="th">year</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>Adelie</td>
+<td>Torgersen</td>
+<td>39.1</td>
+<td>18.7</td>
+<td>181.0</td>
+<td>3750.0</td>
+<td>male</td>
+<td>2007</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>Adelie</td>
+<td>Torgersen</td>
+<td>39.5</td>
+<td>17.4</td>
+<td>186.0</td>
+<td>3800.0</td>
+<td>female</td>
+<td>2007</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>Adelie</td>
+<td>Torgersen</td>
+<td>40.3</td>
+<td>18.0</td>
+<td>195.0</td>
+<td>3250.0</td>
+<td>female</td>
+<td>2007</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>Adelie</td>
+<td>Torgersen</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>2007</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>Adelie</td>
+<td>Torgersen</td>
+<td>36.7</td>
+<td>19.3</td>
+<td>193.0</td>
+<td>3450.0</td>
+<td>female</td>
+<td>2007</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
+<section id="section-13" class="slide level2">
+<h2></h2>
+<p><br></p>
+<p>The data has two categorical variables:</p>
+<ul>
+<li>The species of penguins (<code>species</code>).</li>
+<li>The island they come from (<code>island</code>).</li>
+</ul>
+<p>Make sure they are specified as <code>factor</code> in Python!</p>
+<div id="3ed2d94c" class="cell" data-execution_count="26">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a></a>penguins_data[[<span class="st">'species'</span>, <span class="st">'island'</span>, <span class="st">'sex'</span>]] <span class="op">=</span> penguins_data[[<span class="st">'species'</span>, <span class="st">'island'</span>, <span class="st">'sex'</span>]].astype(<span class="st">'category'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="stacked-bar-chart" class="slide level2">
+<h2>Stacked Bar Chart</h2>
+<p>The side-by-side bar chart is generated using the <code>countplot()</code>, function, assigning the <span class="math inline">\(X\)</span> variable to the <code>hue</code> argument.</p>
+<p><br></p>
+<div class="fragment">
+<p>For example, to study the distribution of penguin species across the three different islands, we use the following:</p>
+<div id="f7eed927" class="cell" data-execution_count="27">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">6</span>))</span>
+<span id="cb26-2"><a></a>sns.countplot(data<span class="op">=</span>penguins_data, x<span class="op">=</span><span class="st">'species'</span>, hue<span class="op">=</span><span class="st">'island'</span>)</span>
+<span id="cb26-3"><a></a>plt.title(<span class="st">"Distribution of Penguin Species by Island"</span>, fontsize<span class="op">=</span><span class="dv">17</span>)</span>
+<span id="cb26-4"><a></a>plt.xlabel(<span class="st">"Species"</span>, fontsize<span class="op">=</span><span class="dv">15</span>)</span>
+<span id="cb26-5"><a></a>plt.ylabel(<span class="st">"Count"</span>, fontsize<span class="op">=</span><span class="dv">15</span>)</span>
+<span id="cb26-6"><a></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</section>
+<section id="section-14" class="slide level2">
+<h2></h2>
+<p>The chart shows the frequency of each species, separated by island name.</p>
+<div id="9858b006" class="cell" data-execution_count="28">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">6</span>, <span class="dv">4</span>))</span>
+<span id="cb27-2"><a></a>sns.countplot(data<span class="op">=</span>penguins_data, x<span class="op">=</span><span class="st">'species'</span>, hue<span class="op">=</span><span class="st">'island'</span>)</span>
+<span id="cb27-3"><a></a>plt.title(<span class="st">"Distribution of Penguin Species by Island"</span>, fontsize<span class="op">=</span><span class="dv">17</span>)</span>
+<span id="cb27-4"><a></a>plt.xlabel(<span class="st">"Species"</span>, fontsize<span class="op">=</span><span class="dv">15</span>)</span>
+<span id="cb27-5"><a></a>plt.ylabel(<span class="st">"Count"</span>, fontsize<span class="op">=</span><span class="dv">15</span>)</span>
+<span id="cb27-6"><a></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="Multivariate_files/figure-revealjs/cell-29-output-1.png" class="quarto-figure quarto-figure-center" width="534" height="388"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="side-by-side-bar-chart" class="slide level2">
+<h2>Side-by-Side Bar Chart</h2>
+<p>An alternative to the previous chart is to place the bars side by side for the categories of the <span class="math inline">\(X\)</span> variable.</p>
+<p>In this case, we use the same commands with an extra argument: <code>position = position_dodge()</code>.</p>
+<div id="702bbb39" class="cell" data-execution_count="29">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">6</span>))</span>
+<span id="cb28-2"><a></a>sns.countplot(data<span class="op">=</span>penguins_data, x<span class="op">=</span><span class="st">'species'</span>, hue<span class="op">=</span><span class="st">'island'</span>, palette<span class="op">=</span><span class="st">'Set1'</span>)</span>
+<span id="cb28-3"><a></a>plt.title(<span class="st">"Distribution of Penguin Species by Island"</span>, fontsize<span class="op">=</span><span class="dv">17</span>)</span>
+<span id="cb28-4"><a></a>plt.xlabel(<span class="st">"Species"</span>, fontsize<span class="op">=</span><span class="dv">15</span>)</span>
+<span id="cb28-5"><a></a>plt.ylabel(<span class="st">"Count"</span>, fontsize<span class="op">=</span><span class="dv">15</span>)</span>
+<span id="cb28-6"><a></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="section-15" class="slide level2">
+<h2></h2>
+<div id="1abb1739" class="cell" data-execution_count="30">
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="Multivariate_files/figure-revealjs/cell-31-output-1.png" class="quarto-figure quarto-figure-center" width="674" height="535"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="stacked-or-side-by-side" class="slide level2">
+<h2>Stacked or Side-by-Side?</h2>
+<p><br></p>
+<p>The main difference between stacked and side-by-side bar charts is that the side-by-side chart shows values in separate bars within a category.</p>
+<p>Advantages of <strong>stacked</strong> bars:</p>
+<ul>
+<li><p>Easier to understand what proportions of a whole are divided among segments.</p></li>
+<li><p>Visually adds up each proportion.</p></li>
+</ul>
+</section>
+<section id="section-16" class="slide level2">
+<h2></h2>
+<p><br></p>
+<p>Advantages of <strong>side-by-side</strong> bars:</p>
+<ul>
+<li><p>Easier to compare the heights of each individual entity.</p></li>
+<li><p>Better for comparing between groups.</p></li>
+</ul>
+</section>
+<section id="statistical-summaries" class="slide level2">
+<h2>Statistical Summaries</h2>
+<p>For categorical variables, the most common statistical summaries are frequency and relative frequency.</p>
+<p>With <strong>pandas</strong>, we calculate frequency using the <code>size()</code>, function, which counts the unique values of one or more variables. We also use <code>groupby()</code> to compute the distribution by categorical variables.</p>
+<div id="fec05153" class="cell" data-execution_count="31">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a></a>count_data <span class="op">=</span> (penguins_data</span>
+<span id="cb29-2"><a></a>  .groupby([<span class="st">'island'</span>, <span class="st">'species'</span>], observed <span class="op">=</span> <span class="va">True</span>)</span>
+<span id="cb29-3"><a></a>  .size()</span>
+<span id="cb29-4"><a></a>  .reset_index(name<span class="op">=</span><span class="st">'count'</span>)</span>
+<span id="cb29-5"><a></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="section-17" class="slide level2">
+<h2></h2>
+<div id="65f0c6e3" class="cell" data-execution_count="32">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a></a><span class="co"># Show the result</span></span>
+<span id="cb30-2"><a></a><span class="bu">print</span>(count_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      island    species  count
+0     Biscoe     Adelie     44
+1     Biscoe     Gentoo    124
+2      Dream     Adelie     56
+3      Dream  Chinstrap     68
+4  Torgersen     Adelie     52</code></pre>
+</div>
+</div>
+</section>
+<section id="section-18" class="slide level2">
+<h2></h2>
+<p>To calculate relative frequency, we use <code>assign()</code> along with the <code>lambda</code>, function, which calculates the proportions of a column.</p>
+<div id="72577341" class="cell" data-execution_count="33">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a></a>rel_freq_table <span class="op">=</span> (penguins_data</span>
+<span id="cb32-2"><a></a>  .groupby([<span class="st">'island'</span>, <span class="st">'species'</span>], observed <span class="op">=</span> <span class="va">True</span>)</span>
+<span id="cb32-3"><a></a>  .size()</span>
+<span id="cb32-4"><a></a>  .reset_index(name<span class="op">=</span><span class="st">'count'</span>)</span>
+<span id="cb32-5"><a></a>  .assign(Proportion <span class="op">=</span> <span class="kw">lambda</span> df: df[<span class="st">"count"</span>]<span class="op">/</span>df[<span class="st">"count"</span>].<span class="bu">sum</span>())</span>
+<span id="cb32-6"><a></a>  )</span>
+<span id="cb32-7"><a></a>  </span>
+<span id="cb32-8"><a></a><span class="bu">print</span>(rel_freq_table)  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      island    species  count  Proportion
+0     Biscoe     Adelie     44    0.127907
+1     Biscoe     Gentoo    124    0.360465
+2      Dream     Adelie     56    0.162791
+3      Dream  Chinstrap     68    0.197674
+4  Torgersen     Adelie     52    0.151163</code></pre>
+</div>
+</div>
+</section></section>
+<section>
+<section id="more-than-one-variable" class="title-slide slide level1 center">
+<h1>More than One Variable</h1>
+
+</section>
+<section id="charts-for-three-variables" class="slide level2">
+<h2>Charts for Three Variables</h2>
+<ul>
+<li><p>When examining a distribution or relationship, we often want to compare it across data subgroups.</p></li>
+<li><p>This process of conditioning on additional variables leads to visualizations involving three or more variables.</p></li>
+<li><p>Here we explain how to create charts to visualize multiple variables.</p></li>
+</ul>
+</section>
+<section id="scatter-plot-by-color" class="slide level2">
+<h2>Scatter plot by color</h2>
+<p>For two numerical variables and one categorical variable.</p>
+<div id="e7cddf2b" class="cell" data-execution_count="34">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a></a>plt.figure(figsize<span class="op">=</span>(<span class="fl">6.2</span>, <span class="fl">4.2</span>))</span>
+<span id="cb34-2"><a></a>sns.scatterplot(data <span class="op">=</span> auto_data, x<span class="op">=</span><span class="st">'weight'</span>, y<span class="op">=</span><span class="st">'mpg'</span>, hue<span class="op">=</span><span class="st">'origin'</span>)</span>
+<span id="cb34-3"><a></a>plt.xlabel(<span class="st">"Weight (lb)"</span>)</span>
+<span id="cb34-4"><a></a>plt.ylabel(<span class="st">"Miles per Gallon (MPG)"</span>)</span>
+<span id="cb34-5"><a></a>plt.show() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="Multivariate_files/figure-revealjs/cell-35-output-1.png" class="quarto-figure quarto-figure-center" width="525" height="370"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="faceted-or-lattice-plot" class="slide level2">
+<h2>Faceted or Lattice Plot</h2>
+<p>A faceted plot visualizes the relationship or distribution of one or two variables for each subgroup defined by a third variable <span class="math inline">\(Z\)</span>.</p>
+<div class="fragment">
+<p><strong>Idea:</strong> Create a chart for each subgroup of <span class="math inline">\(Z\)</span>.</p>
+</div>
+<div class="fragment">
+<p>To create the plot, use the <code>FacetGrid()</code> function in <strong>seaborn</strong> with the following syntax:</p>
+<div id="e304ca2f" class="cell" data-execution_count="35">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">6</span>))</span>
+<span id="cb35-2"><a></a>g <span class="op">=</span> sns.FacetGrid(auto_data, col<span class="op">=</span><span class="st">'origin'</span>)</span>
+<span id="cb35-3"><a></a>g.<span class="bu">map</span>(sns.scatterplot, <span class="st">'weight'</span>, <span class="st">'mpg'</span>)</span>
+<span id="cb35-4"><a></a>g.set_axis_labels(<span class="st">"Weight (lb)"</span>, <span class="st">"Miles per Gallon (MPG)"</span>)</span>
+<span id="cb35-5"><a></a>g.set_titles(<span class="st">"</span><span class="sc">{col_name}</span><span class="st"> Origin"</span>)</span>
+<span id="cb35-6"><a></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</section>
+<section id="section-19" class="slide level2">
+<h2></h2>
+<p>The function produces a grid with 1 column and 3 rows of charts. Each row accommodates one category of <code>origin</code>.</p>
+<div id="1f903078" class="cell" data-execution_count="36">
+<div class="cell-output cell-output-display">
+<pre><code>&lt;Figure size 768x576 with 0 Axes&gt;</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="Multivariate_files/figure-revealjs/cell-37-output-2.png" class="quarto-figure quarto-figure-center" width="854" height="278"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="section-20" class="slide level2">
+<h2></h2>
+<p>If we change the order of the <code>origin</code> variable in the <code>gf_facet_grid</code>, function, we get a grid with three columns and one row of charts.</p>
+<div id="3a8bc4b0" class="cell" data-execution_count="37">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a></a><span class="co"># Create the scatter plot and facet by 'origin'</span></span>
+<span id="cb37-2"><a></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">6</span>))</span>
+<span id="cb37-3"><a></a>g <span class="op">=</span> sns.FacetGrid(auto_data, col<span class="op">=</span><span class="st">'origin'</span>)</span>
+<span id="cb37-4"><a></a>g.<span class="bu">map</span>(sns.scatterplot, <span class="st">'weight'</span>, <span class="st">'mpg'</span>)</span>
+<span id="cb37-5"><a></a></span>
+<span id="cb37-6"><a></a><span class="co"># Customize the plot</span></span>
+<span id="cb37-7"><a></a>g.set_axis_labels(<span class="st">"Weight (lb)"</span>, <span class="st">"Miles per Gallon (MPG)"</span>)</span>
+<span id="cb37-8"><a></a>g.set_titles(<span class="st">"</span><span class="sc">{col_name}</span><span class="st"> Origin"</span>)</span>
+<span id="cb37-9"><a></a></span>
+<span id="cb37-10"><a></a><span class="co"># Show the plot</span></span>
+<span id="cb37-11"><a></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<pre><code>&lt;Figure size 768x576 with 0 Axes&gt;</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="Multivariate_files/figure-revealjs/cell-38-output-2.png" class="quarto-figure quarto-figure-center" width="854" height="278"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="multiple-line-charts" class="slide level2">
+<h2>Multiple Line Charts</h2>
+<p>We can use the functions <code>gf_line()</code> and <code>gf_facet_grid()</code> to visualize the evolution of play counts for the 5 songs in the file “spotify.xlsx” over time.</p>
+<p><br></p>
+<p>However, we need to manipulate the data to obtain the format required by these functions.</p>
+</section>
+<section id="the-required-format" class="slide level2">
+<h2>The Required Format</h2>
+<p>For a multiple line chart, we need to merge the columns <code>Shape of You</code>, <code>Despacito</code>, <code>Something Just Like This</code>, <code>HUMBLE</code> and <code>Unforgettable</code> into two columns.</p>
+<p>One column will contain the number of plays, and the other will contain the song title.</p>
+<p>Both columns will be ordered by the variable <code>Date</code>.</p>
+</section>
+<section id="section-21" class="slide level2">
+<h2></h2>
+<p>To format the data, we use the <code>melt()</code> function from the <strong>pandas</strong> library.</p>
+<div id="f1fb7268" class="cell" data-execution_count="38">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a></a><span class="co"># Pivot longer: melt the dataframe</span></span>
+<span id="cb39-2"><a></a>data_lines <span class="op">=</span> spotify_data.melt(id_vars<span class="op">=</span>[<span class="st">"Date"</span>], </span>
+<span id="cb39-3"><a></a>                                value_vars<span class="op">=</span>[<span class="st">"Shape of You"</span>, <span class="st">"Despacito"</span>, <span class="st">"Something Just Like This"</span>, <span class="st">"HUMBLE."</span>, <span class="st">"Unforgettable"</span>], </span>
+<span id="cb39-4"><a></a>                                var_name<span class="op">=</span><span class="st">"Song"</span>, </span>
+<span id="cb39-5"><a></a>                                value_name<span class="op">=</span><span class="st">"Plays"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="section-22" class="slide level2">
+<h2></h2>
+<div id="ba55125b" class="cell" data-execution_count="39">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a></a>data_lines.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="2133">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Date</th>
+<th data-quarto-table-cell-role="th">Song</th>
+<th data-quarto-table-cell-role="th">Plays</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>2017-01-06</td>
+<td>Shape of You</td>
+<td>12287078.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>2017-01-07</td>
+<td>Shape of You</td>
+<td>13190270.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>2017-01-08</td>
+<td>Shape of You</td>
+<td>13099919.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>2017-01-09</td>
+<td>Shape of You</td>
+<td>14506351.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>2017-01-10</td>
+<td>Shape of You</td>
+<td>14275628.0</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
+<section id="section-23" class="slide level2">
+<h2></h2>
+<p>Now, we apply similar functions to the <code>data_lines</code> object.</p>
+<div id="47d6899c" class="cell" data-execution_count="40">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a></a><span class="co"># Create the line plot and facet by 'Cancion'</span></span>
+<span id="cb41-2"><a></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">6</span>))</span>
+<span id="cb41-3"><a></a>g <span class="op">=</span> sns.FacetGrid(data_lines, col<span class="op">=</span><span class="st">'Song'</span>)</span>
+<span id="cb41-4"><a></a>g.<span class="bu">map</span>(sns.lineplot, <span class="st">'Date'</span>, <span class="st">'Plays'</span>)</span>
+<span id="cb41-5"><a></a></span>
+<span id="cb41-6"><a></a><span class="co"># Customize the plot</span></span>
+<span id="cb41-7"><a></a>g.set_axis_labels(<span class="st">"Date"</span>, <span class="st">"Plays"</span>)</span>
+<span id="cb41-8"><a></a>g.set_titles(<span class="st">"</span><span class="sc">{col_name}</span><span class="st"> Song"</span>)</span>
+<span id="cb41-9"><a></a></span>
+<span id="cb41-10"><a></a><span class="co"># Rotate the x-axis labels for better readability</span></span>
+<span id="cb41-11"><a></a><span class="cf">for</span> ax <span class="kw">in</span> g.axes.flat:</span>
+<span id="cb41-12"><a></a>    ax.set_xticklabels(ax.get_xticklabels(), rotation<span class="op">=</span><span class="dv">90</span>)</span>
+<span id="cb41-13"><a></a></span>
+<span id="cb41-14"><a></a><span class="co"># Show the plot</span></span>
+<span id="cb41-15"><a></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<pre><code>&lt;Figure size 768x576 with 0 Axes&gt;</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="Multivariate_files/figure-revealjs/cell-41-output-2.png" class="quarto-figure quarto-figure-center" width="1418" height="321"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="section-24" class="slide level2">
+<h2></h2>
+<p>Or we can plot all lines on a single chart.</p>
+<div id="cee27f18" class="cell" data-execution_count="41">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a></a><span class="co"># Create the line plot with color mapped to 'Cancion'</span></span>
+<span id="cb43-2"><a></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">7</span>, <span class="dv">5</span>))</span>
+<span id="cb43-3"><a></a>sns.lineplot(x<span class="op">=</span><span class="st">'Date'</span>, y<span class="op">=</span><span class="st">'Plays'</span>, hue<span class="op">=</span><span class="st">'Song'</span>, data<span class="op">=</span>data_lines)</span>
+<span id="cb43-4"><a></a></span>
+<span id="cb43-5"><a></a><span class="co"># Customize the plot</span></span>
+<span id="cb43-6"><a></a>plt.title(<span class="st">"Plays by Song Over Time"</span>)</span>
+<span id="cb43-7"><a></a>plt.xlabel(<span class="st">"Date"</span>)</span>
+<span id="cb43-8"><a></a>plt.ylabel(<span class="st">"Plays"</span>)</span>
+<span id="cb43-9"><a></a>plt.xticks(rotation<span class="op">=</span><span class="dv">90</span>)  <span class="co"># Rotate x-axis labels for better readability</span></span>
+<span id="cb43-10"><a></a></span>
+<span id="cb43-11"><a></a><span class="co"># Show the plot</span></span>
+<span id="cb43-12"><a></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="Multivariate_files/figure-revealjs/cell-42-output-1.png" class="quarto-figure quarto-figure-center" width="589" height="492"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="applying-principle-3-2" class="slide level2">
+<h2>Applying Principle 3</h2>
+<div id="12f064ce" class="cell" data-execution_count="42">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a></a><span class="co"># Create the line plot with color mapped to 'Cancion'</span></span>
+<span id="cb44-2"><a></a>plt.figure(figsize<span class="op">=</span>(<span class="fl">7.8</span>, <span class="fl">5.8</span>))</span>
+<span id="cb44-3"><a></a>sns.lineplot(x<span class="op">=</span><span class="st">'Date'</span>, y<span class="op">=</span><span class="st">'Plays'</span>, hue<span class="op">=</span><span class="st">'Song'</span>, data<span class="op">=</span>data_lines)</span>
+<span id="cb44-4"><a></a></span>
+<span id="cb44-5"><a></a><span class="co"># Customize the plot</span></span>
+<span id="cb44-6"><a></a>plt.title(<span class="st">"Plays by Song Over Time"</span>, fontsize <span class="op">=</span> <span class="dv">17</span>)</span>
+<span id="cb44-7"><a></a>plt.xlabel(<span class="st">"Date"</span>, fontsize <span class="op">=</span> <span class="dv">12</span>)</span>
+<span id="cb44-8"><a></a>plt.ylabel(<span class="st">"Plays"</span>, fontsize <span class="op">=</span> <span class="dv">12</span>)</span>
+<span id="cb44-9"><a></a></span>
+<span id="cb44-10"><a></a><span class="co"># Show the plot</span></span>
+<span id="cb44-11"><a></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="Multivariate_files/figure-revealjs/cell-43-output-1.png" class="quarto-figure quarto-figure-center" width="651" height="516"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="graphs-for-four-variables" class="slide level2">
+<h2>Graphs for four variables</h2>
+<p>A common chart for four variables is the scatter plot, where the color and size of the symbols depend on two <span style="color:#8B8000;"><strong>categorical</strong></span> variables.</p>
+<p><br></p>
+<div id="247f2b65" class="cell" data-execution_count="43">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">6</span>))</span>
+<span id="cb45-2"><a></a>sns.scatterplot(data<span class="op">=</span>penguins_data, x<span class="op">=</span><span class="st">'bill_depth_mm'</span>, y<span class="op">=</span><span class="st">'bill_length_mm'</span>,</span>
+<span id="cb45-3"><a></a>    hue<span class="op">=</span><span class="st">'species'</span>, size<span class="op">=</span><span class="st">'island'</span>)</span>
+<span id="cb45-4"><a></a>plt.xlabel(<span class="st">"Bill Depth (mm)"</span>)</span>
+<span id="cb45-5"><a></a>plt.ylabel(<span class="st">"Bill Length (mm)"</span>)</span>
+<span id="cb45-6"><a></a>plt.title(<span class="st">"Penguin Bill Dimensions by Species and Island"</span>)</span>
+<span id="cb45-7"><a></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="section-25" class="slide level2">
+<h2></h2>
+<div id="237b299d" class="cell" data-execution_count="44">
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="Multivariate_files/figure-revealjs/cell-45-output-1.png" class="quarto-figure quarto-figure-center" width="659" height="523"></p>
+</figure>
+</div>
+</div>
+</div>
+</section></section>
+<section id="more-charts" class="title-slide slide level1 center">
+<h1>More Charts</h1>
+<p><a href="https://seaborn.pydata.org/index.html" class="uri">https://seaborn.pydata.org/index.html</a></p>
+</section>
+
+<section id="return-to-main-page" class="title-slide slide level1 center">
+<h1><a href="https://alanrvazquez.github.io/TEC-IN2039-EN/TEC-IN2039-EN.html">Return to Main Page</a></h1>
+
+<div class="quarto-auto-generated-content">
+<p><img src="IN2039_logo.png" class="slide-logo"></p>
+<div class="footer footer-default">
+<p>Tecnologico de Monterrey</p>
+</div>
+</div>
+</section>
+    </div>
+  </div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="../site_libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
+  <script src="../site_libs/revealjs/plugin/multiplex/socket.io.js"></script>
+  <script src="../site_libs/revealjs/plugin/multiplex/multiplex.js"></script>
+  <script src="../site_libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="../site_libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="../site_libs/revealjs/plugin/search/search.js"></script>
+  <script src="../site_libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="../site_libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'chalkboard': {"buttons":true},
+'multiplex': {"secret":"17386302458448399723","id":"f238daad78d9be3e","url":"https://reveal-multiplex.glitch.me/"},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'none',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1050,
+
+        height: 700,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    <script id="quarto-html-after-body" type="application/javascript">
+    window.document.addEventListener("DOMContentLoaded", function (event) {
+      const toggleBodyColorMode = (bsSheetEl) => {
+        const mode = bsSheetEl.getAttribute("data-mode");
+        const bodyEl = window.document.querySelector("body");
+        if (mode === "dark") {
+          bodyEl.classList.add("quarto-dark");
+          bodyEl.classList.remove("quarto-light");
+        } else {
+          bodyEl.classList.add("quarto-light");
+          bodyEl.classList.remove("quarto-dark");
+        }
+      }
+      const toggleBodyColorPrimary = () => {
+        const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+        if (bsSheetEl) {
+          toggleBodyColorMode(bsSheetEl);
+        }
+      }
+      toggleBodyColorPrimary();  
+      const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+      tabsets.forEach(function(tabset) {
+        const tabby = new Tabby('#' + tabset.id);
+      });
+      const isCodeAnnotation = (el) => {
+        for (const clz of el.classList) {
+          if (clz.startsWith('code-annotation-')) {                     
+            return true;
+          }
+        }
+        return false;
+      }
+      const onCopySuccess = function(e) {
+        // button target
+        const button = e.trigger;
+        // don't keep focus
+        button.blur();
+        // flash "checked"
+        button.classList.add('code-copy-button-checked');
+        var currentTitle = button.getAttribute("title");
+        button.setAttribute("title", "Copied!");
+        let tooltip;
+        if (window.bootstrap) {
+          button.setAttribute("data-bs-toggle", "tooltip");
+          button.setAttribute("data-bs-placement", "left");
+          button.setAttribute("data-bs-title", "Copied!");
+          tooltip = new bootstrap.Tooltip(button, 
+            { trigger: "manual", 
+              customClass: "code-copy-button-tooltip",
+              offset: [0, -8]});
+          tooltip.show();    
+        }
+        setTimeout(function() {
+          if (tooltip) {
+            tooltip.hide();
+            button.removeAttribute("data-bs-title");
+            button.removeAttribute("data-bs-toggle");
+            button.removeAttribute("data-bs-placement");
+          }
+          button.setAttribute("title", currentTitle);
+          button.classList.remove('code-copy-button-checked');
+        }, 1000);
+        // clear code selection
+        e.clearSelection();
+      }
+      const getTextToCopy = function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+      }
+      const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+        text: getTextToCopy
+      });
+      clipboard.on('success', onCopySuccess);
+      if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+        // For code content inside modals, clipBoardJS needs to be initialized with a container option
+        // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+        const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+          text: getTextToCopy,
+          container: window.document.getElementById('quarto-embedded-source-code-modal')
+        });
+        clipboardModal.on('success', onCopySuccess);
+      }
+        var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+        var mailtoRegex = new RegExp(/^mailto:/);
+          var filterRegex = new RegExp('/' + window.location.host + '/');
+        var isInternal = (href) => {
+            return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+        }
+        // Inspect non-navigation links and adorn them if external
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+        for (var i=0; i<links.length; i++) {
+          const link = links[i];
+          if (!isInternal(link.href)) {
+            // undo the damage that might have been done by quarto-nav.js in the case of
+            // links that we want to consider external
+            if (link.dataset.originalHref !== undefined) {
+              link.href = link.dataset.originalHref;
+            }
+          }
+        }
+      function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+        const config = {
+          allowHTML: true,
+          maxWidth: 500,
+          delay: 100,
+          arrow: false,
+          appendTo: function(el) {
+              return el.closest('section.slide') || el.parentElement;
+          },
+          interactive: true,
+          interactiveBorder: 10,
+          theme: 'light-border',
+          placement: 'bottom-start',
+        };
+        if (contentFn) {
+          config.content = contentFn;
+        }
+        if (onTriggerFn) {
+          config.onTrigger = onTriggerFn;
+        }
+        if (onUntriggerFn) {
+          config.onUntrigger = onUntriggerFn;
+        }
+          config['offset'] = [0,0];
+          config['maxWidth'] = 700;
+        window.tippy(el, config); 
+      }
+      const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+      for (var i=0; i<noterefs.length; i++) {
+        const ref = noterefs[i];
+        tippyHover(ref, function() {
+          // use id or data attribute instead here
+          let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+          try { href = new URL(href).hash; } catch {}
+          const id = href.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note) {
+            return note.innerHTML;
+          } else {
+            return "";
+          }
+        });
+      }
+      const findCites = (el) => {
+        const parentEl = el.parentElement;
+        if (parentEl) {
+          const cites = parentEl.dataset.cites;
+          if (cites) {
+            return {
+              el,
+              cites: cites.split(' ')
+            };
+          } else {
+            return findCites(el.parentElement)
+          }
+        } else {
+          return undefined;
+        }
+      };
+      var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+      for (var i=0; i<bibliorefs.length; i++) {
+        const ref = bibliorefs[i];
+        const citeInfo = findCites(ref);
+        if (citeInfo) {
+          tippyHover(citeInfo.el, function() {
+            var popup = window.document.createElement('div');
+            citeInfo.cites.forEach(function(cite) {
+              var citeDiv = window.document.createElement('div');
+              citeDiv.classList.add('hanging-indent');
+              citeDiv.classList.add('csl-entry');
+              var biblioDiv = window.document.getElementById('ref-' + cite);
+              if (biblioDiv) {
+                citeDiv.innerHTML = biblioDiv.innerHTML;
+              }
+              popup.appendChild(citeDiv);
+            });
+            return popup.innerHTML;
+          });
+        }
+      }
+    });
+    </script>
+    
+
+</body></html>
