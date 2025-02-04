@@ -553,272 +553,6 @@
     "text": "Mini-actividad (solo mode)\n\nOpen the following Google Colab link:\nhttps://colab.research.google.com/drive/1c-sy5yQY1DwgaZAI6YnDLMTEYMpLCWyX?usp=sharing\nCopy the notebook to your drive.\nAnswer the questions."
   },
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "About this site\n\n1 + 1\n\n2"
-  },
-  {
-    "objectID": "T2_Type_of_Variables/Types.slides.html#agenda",
-    "href": "T2_Type_of_Variables/Types.slides.html#agenda",
-    "title": "Types of variables",
-    "section": "Agenda",
-    "text": "Agenda\n\nWhat type is my data?\nData manipulation with pandas"
-  },
-  {
-    "objectID": "T2_Type_of_Variables/Types.slides.html#types-of-variables",
-    "href": "T2_Type_of_Variables/Types.slides.html#types-of-variables",
-    "title": "Types of variables",
-    "section": "Types of Variables",
-    "text": "Types of Variables\nBefore creating a graph, we must examine the type of values that our dataset variables take.\n\nThere are two main types of variables:\n\n\nNumerical variables.\nCategorical variables."
-  },
-  {
-    "objectID": "T2_Type_of_Variables/Types.slides.html#numerical-variables",
-    "href": "T2_Type_of_Variables/Types.slides.html#numerical-variables",
-    "title": "Types of variables",
-    "section": "Numerical Variables",
-    "text": "Numerical Variables\nThese take values that represent numerical measurements or quantities.\n\n\nHeight (in centimeters).\nWeight (in kilograms).\nAge (in years).\nPrice (in dollars).\nTime (in hours or seconds).\nExam score (number of points on a 100-point scale)."
-  },
-  {
-    "objectID": "T2_Type_of_Variables/Types.slides.html#types-of-numerical-variables",
-    "href": "T2_Type_of_Variables/Types.slides.html#types-of-numerical-variables",
-    "title": "Types of variables",
-    "section": "Types of Numerical Variables",
-    "text": "Types of Numerical Variables\nNumerical variables are divided into two types:\n\nDiscrete: variables that take integer values.\n\n\nExamples:\n\nNumber of children (0, 1, 2, or 3)\nNumber of students in a class (20, 30, or 35)\nNumber of books in a library (10,000, 15,000, 20,000)"
-  },
-  {
-    "objectID": "T2_Type_of_Variables/Types.slides.html#section",
-    "href": "T2_Type_of_Variables/Types.slides.html#section",
-    "title": "Types of variables",
-    "section": "",
-    "text": "[*Continuous]*]{style=“color:darkblue;”}: variables that have a large range of possible values.\n\n\nExamples:\n\nA person’s height (could be within the range of 1.60 m to 1.85 m)\nAmbient temperature (could be within the range of -30 \\(^\\circ\\)C to 50 \\(^\\circ\\)C)\nTime for an Uber to arrive (between 5 and 60 minutes)"
-  },
-  {
-    "objectID": "T2_Type_of_Variables/Types.slides.html#categorical-variables",
-    "href": "T2_Type_of_Variables/Types.slides.html#categorical-variables",
-    "title": "Types of variables",
-    "section": "Categorical Variables",
-    "text": "Categorical Variables\nThese take values that fall into categories.\n\n\nA category is a class or division of people or things that share particular characteristics.\n\n\n\n\n\n\n\n\n\n\nVariable\nCategories\n\n\nAmazon review\n1\\(\\bigstar\\), 2\\(\\bigstar\\), 3\\(\\bigstar\\), 4\\(\\bigstar\\), 5\\(\\bigstar\\)\n\n\nCountry of origin\nMéxico, Canadá, EUA\n\n\nPostal code\n72703, 90034, 3000, …"
-  },
-  {
-    "objectID": "T2_Type_of_Variables/Types.slides.html#classification-of-categorical-variables",
-    "href": "T2_Type_of_Variables/Types.slides.html#classification-of-categorical-variables",
-    "title": "Types of variables",
-    "section": "Classification of Categorical Variables",
-    "text": "Classification of Categorical Variables\nCategorical variables are divided into two important types:\n\nNominal\nOrdinal\n\n\nThe distinction depends on whether the categories have a meaningful order or not."
-  },
-  {
-    "objectID": "T2_Type_of_Variables/Types.slides.html#nominal-categorical-variables",
-    "href": "T2_Type_of_Variables/Types.slides.html#nominal-categorical-variables",
-    "title": "Types of variables",
-    "section": "Nominal Categorical Variables",
-    "text": "Nominal Categorical Variables\nA categorical variable is nominal if its categories do not have a specific order.\n\nExamples:\n\n\nPolitical party affiliation (Democrat or Republican).\nDog breed (Shepherd, Hound, Terrier, Other).\nComputer operating system (Windows, macOS, Linux)."
-  },
-  {
-    "objectID": "T2_Type_of_Variables/Types.slides.html#ordinal-categorical-variables",
-    "href": "T2_Type_of_Variables/Types.slides.html#ordinal-categorical-variables",
-    "title": "Types of variables",
-    "section": "Ordinal Categorical Variables",
-    "text": "Ordinal Categorical Variables\nA categorical variable is ordinal if its categories do have a meaningful order.\n\nExamples:\n\n\nT-shirt size (Small, Medium, Large).\nEducation level (High School, University, Postgraduate).\nIncome level (Less than $250K, $250K-$500K, More than $500K)\n\n\n\nIt is important to note that with an ordinal variable, the difference between, say, small and medium is not necessarily the same as the difference between medium and large. Additionally, the differences between consecutive categories may not be quantifiable. Think about star ratings in a restaurant review—how much better is one star compared to two stars?"
-  },
-  {
-    "objectID": "T2_Type_of_Variables/Types.slides.html#interesting-fact",
-    "href": "T2_Type_of_Variables/Types.slides.html#interesting-fact",
-    "title": "Types of variables",
-    "section": "Interesting Fact…",
-    "text": "Interesting Fact…\nInteger values (e.g., 1, 2, 3, …, 5) can represent nominal or ordinal categorical variables.\n\n\n\nRepresentation\n1\n2\n3\n4\n\n\nBlood Type\nA\nB\nAB\nO\n\n\nReview\nBad\nFair\nGood\nVery Good\n\n\n\n\n\nEn la práctica, los valores booleanos (TRUE y FALSE) a menudo representan categorías nominales."
-  },
-  {
-    "objectID": "T2_Type_of_Variables/Types.slides.html#remember",
-    "href": "T2_Type_of_Variables/Types.slides.html#remember",
-    "title": "Types of variables",
-    "section": "Remember",
-    "text": "Remember"
-  },
-  {
-    "objectID": "T2_Type_of_Variables/Types.slides.html#a-general-difference-is",
-    "href": "T2_Type_of_Variables/Types.slides.html#a-general-difference-is",
-    "title": "Types of variables",
-    "section": "A General Difference Is …",
-    "text": "A General Difference Is …\n\nQuantitative variables (discrete or continuous) are those where addition or subtraction makes sense.\nCategorical variables (nominal or ordinal) are those where addition or subtraction does NOT make sense."
-  },
-  {
-    "objectID": "T2_Type_of_Variables/Types.slides.html#types-of-data-i",
-    "href": "T2_Type_of_Variables/Types.slides.html#types-of-data-i",
-    "title": "Types of variables",
-    "section": "Types of data I",
-    "text": "Types of data I\n\nWhen a numerical quantity designating how much or how many is assigned to each item in the sample, the resulting set of values is numerical or quantitative.\n\nHeight (in ft).\nWeight (in lbs).\nAge (in years)."
-  },
-  {
-    "objectID": "T2_Type_of_Variables/Types.slides.html#types-of-data-ii",
-    "href": "T2_Type_of_Variables/Types.slides.html#types-of-data-ii",
-    "title": "Types of variables",
-    "section": "Types of data II",
-    "text": "Types of data II\n\nWhen sample items are placed into categories and category names are assigned to the sample items, the data are categorical or qualitative.\n\nHair color.\nCountry of origin.\nZIP code."
-  },
-  {
-    "objectID": "T2_Type_of_Variables/Types.slides.html#data-types",
-    "href": "T2_Type_of_Variables/Types.slides.html#data-types",
-    "title": "Types of variables",
-    "section": "Data types",
-    "text": "Data types"
-  },
-  {
-    "objectID": "T2_Type_of_Variables/Types.slides.html#how-do-we-check-the-type-of-variable",
-    "href": "T2_Type_of_Variables/Types.slides.html#how-do-we-check-the-type-of-variable",
-    "title": "Types of variables",
-    "section": "How do we check the type of variable?",
-    "text": "How do we check the type of variable?\nLet’s load the data in “penguins.xlsx”.\n\n# Load pandas.\nimport pandas as pd\n\n# Load the Excel file into a pandas DataFrame.\npenguins_data = pd.read_excel(\"penguins.xlsx\")\n\n# Print the first 4 rows of the dataset.\npenguins_data.head(4)\n\n\n\n\n\n\n\n\nspecies\nisland\nbill_length_mm\nbill_depth_mm\nflipper_length_mm\nbody_mass_g\nsex\nyear\n\n\n\n\n0\nAdelie\nTorgersen\n39.1\n18.7\n181.0\n3750.0\nmale\n2007\n\n\n1\nAdelie\nTorgersen\n39.5\n17.4\n186.0\n3800.0\nfemale\n2007\n\n\n2\nAdelie\nTorgersen\n40.3\n18.0\n195.0\n3250.0\nfemale\n2007\n\n\n3\nAdelie\nTorgersen\nNaN\nNaN\nNaN\nNaN\nNaN\n2007"
-  },
-  {
-    "objectID": "T2_Type_of_Variables/Types.slides.html#section-1",
-    "href": "T2_Type_of_Variables/Types.slides.html#section-1",
-    "title": "Types of variables",
-    "section": "",
-    "text": "In python, we check the type of each variable in a dataset using the function info().\n\npenguins_data.info()\n\n&lt;class 'pandas.core.frame.DataFrame'&gt;\nRangeIndex: 344 entries, 0 to 343\nData columns (total 8 columns):\n #   Column             Non-Null Count  Dtype  \n---  ------             --------------  -----  \n 0   species            344 non-null    object \n 1   island             344 non-null    object \n 2   bill_length_mm     342 non-null    float64\n 3   bill_depth_mm      342 non-null    float64\n 4   flipper_length_mm  342 non-null    float64\n 5   body_mass_g        342 non-null    float64\n 6   sex                333 non-null    object \n 7   year               344 non-null    int64  \ndtypes: float64(4), int64(1), object(3)\nmemory usage: 21.6+ KB"
-  },
-  {
-    "objectID": "T2_Type_of_Variables/Types.slides.html#general-python-formats",
-    "href": "T2_Type_of_Variables/Types.slides.html#general-python-formats",
-    "title": "Types of variables",
-    "section": "General python formats",
-    "text": "General python formats\n\nfloat64 format for numerical variables with decimals.\nint64 format for numerical variables with integers.\nobject format for general variables with characters."
-  },
-  {
-    "objectID": "T2_Type_of_Variables/Types.slides.html#activity-solo-mode",
-    "href": "T2_Type_of_Variables/Types.slides.html#activity-solo-mode",
-    "title": "Types of variables",
-    "section": "Activity (solo mode)",
-    "text": "Activity (solo mode)\n\nGo to the Modules section on our CANVAS website.\nComplete the Activity 2.1: Types of Variables individually."
-  },
-  {
-    "objectID": "T2_Type_of_Variables/Types.slides.html#pandas-library",
-    "href": "T2_Type_of_Variables/Types.slides.html#pandas-library",
-    "title": "Types of variables",
-    "section": "pandas library",
-    "text": "pandas library\n\n\n\n\n\n\n\n\n\npandas allows the user to import, clean, transform, and analyze data efficiently\nhttps://pandas.pydata.org/\n\n\nImport it in Google Colab as follows.\n\nimport pandas as pd"
-  },
-  {
-    "objectID": "T2_Type_of_Variables/Types.slides.html#chaining-operations-with-pandas",
-    "href": "T2_Type_of_Variables/Types.slides.html#chaining-operations-with-pandas",
-    "title": "Types of variables",
-    "section": "Chaining operations with pandas",
-    "text": "Chaining operations with pandas\nOne of the most important techniques in pandas is method chaining, which allows for cleaner and more readable data manipulation.\nThe general structure of chaining looks like this:"
-  },
-  {
-    "objectID": "T2_Type_of_Variables/Types.slides.html#key-pandas-functions",
-    "href": "T2_Type_of_Variables/Types.slides.html#key-pandas-functions",
-    "title": "Types of variables",
-    "section": "Key pandas functions",
-    "text": "Key pandas functions\npandas provides functions to solve common data manipulation tasks:\n\n\nquery() filters observations based on conditions.\nloc[] and iloc[] select specific rows and columns.\nassign() creates new variables.\nsort_values() changes the order of rows.\nagg() reduces multiple values to a single numerical summary."
-  },
-  {
-    "objectID": "T2_Type_of_Variables/Types.slides.html#section-2",
-    "href": "T2_Type_of_Variables/Types.slides.html#section-2",
-    "title": "Types of variables",
-    "section": "",
-    "text": "To practice, we will use the dataset penguins_data."
-  },
-  {
-    "objectID": "T2_Type_of_Variables/Types.slides.html#filtering-with-query",
-    "href": "T2_Type_of_Variables/Types.slides.html#filtering-with-query",
-    "title": "Types of variables",
-    "section": "Filtering with query()",
-    "text": "Filtering with query()\nFilter the data for the species “Gentoo.”\n\n(penguins_data\n  .query(\"species == 'Gentoo'\")\n).head()\n\n\n\n\n\n\n\n\nspecies\nisland\nbill_length_mm\nbill_depth_mm\nflipper_length_mm\nbody_mass_g\nsex\nyear\n\n\n\n\n152\nGentoo\nBiscoe\n46.1\n13.2\n211.0\n4500.0\nfemale\n2007\n\n\n153\nGentoo\nBiscoe\n50.0\n16.3\n230.0\n5700.0\nmale\n2007\n\n\n154\nGentoo\nBiscoe\n48.7\n14.1\n210.0\n4450.0\nfemale\n2007\n\n\n155\nGentoo\nBiscoe\n50.0\n15.2\n218.0\n5700.0\nmale\n2007\n\n\n156\nGentoo\nBiscoe\n47.6\n14.5\n215.0\n5400.0\nmale\n2007\n\n\n\n\n\n\n\n\nThe head() function prints the first 6 rows of the dataset."
-  },
-  {
-    "objectID": "T2_Type_of_Variables/Types.slides.html#section-3",
-    "href": "T2_Type_of_Variables/Types.slides.html#section-3",
-    "title": "Types of variables",
-    "section": "",
-    "text": "We can also filter the data to get penguins with a body mass greater than 5000g.\n\n(penguins_data\n  .query(\"body_mass_g &gt; 5000\")\n).head()\n\n\n\n\n\n\n\n\nspecies\nisland\nbill_length_mm\nbill_depth_mm\nflipper_length_mm\nbody_mass_g\nsex\nyear\n\n\n\n\n153\nGentoo\nBiscoe\n50.0\n16.3\n230.0\n5700.0\nmale\n2007\n\n\n155\nGentoo\nBiscoe\n50.0\n15.2\n218.0\n5700.0\nmale\n2007\n\n\n156\nGentoo\nBiscoe\n47.6\n14.5\n215.0\n5400.0\nmale\n2007\n\n\n159\nGentoo\nBiscoe\n46.7\n15.3\n219.0\n5200.0\nmale\n2007\n\n\n161\nGentoo\nBiscoe\n46.8\n15.4\n215.0\n5150.0\nmale\n2007"
-  },
-  {
-    "objectID": "T2_Type_of_Variables/Types.slides.html#selecting-columns-with-loc",
-    "href": "T2_Type_of_Variables/Types.slides.html#selecting-columns-with-loc",
-    "title": "Types of variables",
-    "section": "Selecting columns with loc[]",
-    "text": "Selecting columns with loc[]\nSelect the columns species, body_mass_g and sex.\n\n(penguins_data\n  .loc[:, [\"species\", \"body_mass_g\", \"sex\"]]\n  .head()\n)\n\n\n\n\n\n\n\n\nspecies\nbody_mass_g\nsex\n\n\n\n\n0\nAdelie\n3750.0\nmale\n\n\n1\nAdelie\n3800.0\nfemale\n\n\n2\nAdelie\n3250.0\nfemale\n\n\n3\nAdelie\nNaN\nNaN\n\n\n4\nAdelie\n3450.0\nfemale"
-  },
-  {
-    "objectID": "T2_Type_of_Variables/Types.slides.html#combining-query-and-loc",
-    "href": "T2_Type_of_Variables/Types.slides.html#combining-query-and-loc",
-    "title": "Types of variables",
-    "section": "Combining query() and loc()",
-    "text": "Combining query() and loc()\nSelect the columns species, body_mass_g and sex. Next, filter the data for the species “Gentoo.”\n\n(penguins_data\n  .loc[:, [\"species\", \"body_mass_g\", \"sex\"]]\n  .query(\"species == 'Gentoo'\")\n).head(4)\n\n\n\n\n\n\n\n\nspecies\nbody_mass_g\nsex\n\n\n\n\n152\nGentoo\n4500.0\nfemale\n\n\n153\nGentoo\n5700.0\nmale\n\n\n154\nGentoo\n4450.0\nfemale\n\n\n155\nGentoo\n5700.0\nmale"
-  },
-  {
-    "objectID": "T2_Type_of_Variables/Types.slides.html#create-new-columns-with-assign",
-    "href": "T2_Type_of_Variables/Types.slides.html#create-new-columns-with-assign",
-    "title": "Types of variables",
-    "section": "Create new columns with assign()",
-    "text": "Create new columns with assign()\nWith assign(), we can create new columns (variables) that are functions of existing ones. For example, we can compute the ratio of bill_length_mm y bill_depth_mm.\n\n\n(penguins_data\n  .assign(LengthDepthRatio = lambda df: df[\"bill_length_mm\"] / df[\"bill_depth_mm\"])\n  .loc[:, [\"species\", \"body_mass_g\", \"sex\", \"LengthDepthRatio\"]]\n).head()"
-  },
-  {
-    "objectID": "T2_Type_of_Variables/Types.slides.html#section-4",
-    "href": "T2_Type_of_Variables/Types.slides.html#section-4",
-    "title": "Types of variables",
-    "section": "",
-    "text": "The new dataset has the variable LengthDepthRatio.\n\n\n\n\n\n\n\n\n\nspecies\nbody_mass_g\nsex\nLengthDepthRatio\n\n\n\n\n0\nAdelie\n3750.0\nmale\n2.090909\n\n\n1\nAdelie\n3800.0\nfemale\n2.270115\n\n\n2\nAdelie\n3250.0\nfemale\n2.238889\n\n\n3\nAdelie\nNaN\nNaN\nNaN\n\n\n4\nAdelie\n3450.0\nfemale\n1.901554"
-  },
-  {
-    "objectID": "T2_Type_of_Variables/Types.slides.html#sorting-with-sort_values",
-    "href": "T2_Type_of_Variables/Types.slides.html#sorting-with-sort_values",
-    "title": "Types of variables",
-    "section": "Sorting with sort_values()",
-    "text": "Sorting with sort_values()\nWe can sort the data based on a column like bill_length_mm.\n\n(penguins_data\n  .sort_values(\"bill_length_mm\")\n).head(4)\n\n\n\n\n\n\n\n\nspecies\nisland\nbill_length_mm\nbill_depth_mm\nflipper_length_mm\nbody_mass_g\nsex\nyear\n\n\n\n\n142\nAdelie\nDream\n32.1\n15.5\n188.0\n3050.0\nfemale\n2009\n\n\n98\nAdelie\nDream\n33.1\n16.1\n178.0\n2900.0\nfemale\n2008\n\n\n70\nAdelie\nTorgersen\n33.5\n19.0\n190.0\n3600.0\nfemale\n2008\n\n\n92\nAdelie\nDream\n34.0\n17.1\n185.0\n3400.0\nfemale\n2008"
-  },
-  {
-    "objectID": "T2_Type_of_Variables/Types.slides.html#section-5",
-    "href": "T2_Type_of_Variables/Types.slides.html#section-5",
-    "title": "Types of variables",
-    "section": "",
-    "text": "To sort in descending order, use ascending=False inside sort_values().\n\n(penguins_data\n  .sort_values(\"bill_length_mm\", ascending=False)\n).head()\n\n\n\n\n\n\n\n\nspecies\nisland\nbill_length_mm\nbill_depth_mm\nflipper_length_mm\nbody_mass_g\nsex\nyear\n\n\n\n\n185\nGentoo\nBiscoe\n59.6\n17.0\n230.0\n6050.0\nmale\n2007\n\n\n293\nChinstrap\nDream\n58.0\n17.8\n181.0\n3700.0\nfemale\n2007\n\n\n253\nGentoo\nBiscoe\n55.9\n17.0\n228.0\n5600.0\nmale\n2009\n\n\n339\nChinstrap\nDream\n55.8\n19.8\n207.0\n4000.0\nmale\n2009\n\n\n267\nGentoo\nBiscoe\n55.1\n16.0\n230.0\n5850.0\nmale\n2009"
-  },
-  {
-    "objectID": "T2_Type_of_Variables/Types.slides.html#summarizing-with-agg",
-    "href": "T2_Type_of_Variables/Types.slides.html#summarizing-with-agg",
-    "title": "Types of variables",
-    "section": "Summarizing with agg()",
-    "text": "Summarizing with agg()\nWe can calculate the average of the columns bill_length_mm, bill_depth_mm, and body_mass_g.\n\n(penguins_data\n  .loc[:, [\"bill_length_mm\", \"bill_depth_mm\", \"body_mass_g\"]]\n  .agg([\"mean\"])\n)\n\n\n\n\n\n\n\n\nbill_length_mm\nbill_depth_mm\nbody_mass_g\n\n\n\n\nmean\n43.92193\n17.15117\n4201.754386\n\n\n\n\n\n\n\n\n\nBy default, agg() ignores missing values."
-  },
-  {
-    "objectID": "T2_Type_of_Variables/Types.slides.html#saving-results-in-new-objects",
-    "href": "T2_Type_of_Variables/Types.slides.html#saving-results-in-new-objects",
-    "title": "Types of variables",
-    "section": "Saving results in new objects",
-    "text": "Saving results in new objects\nAfter performing operations on our data, we can save the modified dataset as a new object.\n\nsummary_penguins_data = (penguins_data\n  .loc[:, [\"bill_length_mm\", \"bill_depth_mm\", \"body_mass_g\"]]\n  .agg([\"mean\"])\n)\n\nsummary_penguins_data\n\n\n\n\n\n\n\n\nbill_length_mm\nbill_depth_mm\nbody_mass_g\n\n\n\n\nmean\n43.92193\n17.15117\n4201.754386"
-  },
-  {
-    "objectID": "T2_Type_of_Variables/Types.slides.html#final-remarks",
-    "href": "T2_Type_of_Variables/Types.slides.html#final-remarks",
-    "title": "Types of variables",
-    "section": "Final Remarks",
-    "text": "Final Remarks\n\n\npandas is a Python library for data manipulation.\nUnderstanding variable types helps determine the best operations and visualizations.\nThere are specific charts for numerical and categorical variables.\nThroughout this course, we will explore various visualizations for different types of data."
-  },
-  {
-    "objectID": "index.slides.html#course-topics",
-    "href": "index.slides.html#course-topics",
-    "title": "IN2039 Data Visualization for Decision Making",
-    "section": "Course topics",
-    "text": "Course topics\n\nIntroduction (slides)\nTools (slides)\nTypes of variables (slides)\nCategorical variables (slides)\nNumerical variables (slides)"
-  },
-  {
-    "objectID": "index.slides.html#about-the-author",
-    "href": "index.slides.html#about-the-author",
-    "title": "IN2039 Data Visualization for Decision Making",
-    "section": "About the author",
-    "text": "About the author\nAlan R. Vazquez (website) is a Research Professor at the Department of Industrial Engineering at Tecnologico de Monterrey, Monterrey campus.\n\n\n\n\nTecnologico de Monterrey"
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "IN2039 Data Visualization for Decision Making",
-    "section": "",
-    "text": "Course topics\n\nIntroduction (slides)\nTools (slides)\nTypes of variables (slides)\nCategorical variables (slides)\nNumerical variables (slides)\n\n\n\nAbout the author\nAlan R. Vazquez (website) is a Research Professor at the Department of Industrial Engineering at Tecnologico de Monterrey, Monterrey campus."
-  },
-  {
     "objectID": "T4_Numerical_Data/Numerical.slides.html#agenda",
     "href": "T4_Numerical_Data/Numerical.slides.html#agenda",
     "title": "Numerical Variables",
@@ -1085,6 +819,972 @@
     "text": "Activity (solo mode) Part 2\n\nThe file bolts.xlsx contains the number of non-conforming bolts during the last 45 shifts. Using Python, create the following graphs\n\nHistogram\nBoxplot"
   },
   {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "IN2039 Data Visualization for Decision Making",
+    "section": "",
+    "text": "Course topics\n\nIntroduction (slides)\nTools (slides)\nTypes of variables (slides)\nCategorical variables (slides)\nNumerical variables (slides)\nMultivariate data (slides)\nSimple linear regression (slides)\n\n\n\nAbout the author\nAlan R. Vazquez (website) is a Research Professor at the Department of Industrial Engineering at Tecnologico de Monterrey, Monterrey campus."
+  },
+  {
+    "objectID": "index.slides.html#course-topics",
+    "href": "index.slides.html#course-topics",
+    "title": "IN2039 Data Visualization for Decision Making",
+    "section": "Course topics",
+    "text": "Course topics\n\nIntroduction (slides)\nTools (slides)\nTypes of variables (slides)\nCategorical variables (slides)\nNumerical variables (slides)\nMultivariate data (slides)\nSimple linear regression (slides)"
+  },
+  {
+    "objectID": "index.slides.html#about-the-author",
+    "href": "index.slides.html#about-the-author",
+    "title": "IN2039 Data Visualization for Decision Making",
+    "section": "About the author",
+    "text": "About the author\nAlan R. Vazquez (website) is a Research Professor at the Department of Industrial Engineering at Tecnologico de Monterrey, Monterrey campus.\n\n\n\n\nTecnologico de Monterrey"
+  },
+  {
+    "objectID": "T6_Introduction_Linear_Regression/LR.slides.html#agenda",
+    "href": "T6_Introduction_Linear_Regression/LR.slides.html#agenda",
+    "title": "Introduction to Linear Regression",
+    "section": "Agenda",
+    "text": "Agenda\n\nIntroduction\nRelationship between two numerical variables\nSimple linear regression\nLocal regression"
+  },
+  {
+    "objectID": "T6_Introduction_Linear_Regression/LR.slides.html#loading-the-libraries",
+    "href": "T6_Introduction_Linear_Regression/LR.slides.html#loading-the-libraries",
+    "title": "Introduction to Linear Regression",
+    "section": "Loading the Libraries",
+    "text": "Loading the Libraries\nLet’s import the pandas, matplotlib, and seaborn in Google Colab.\n\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns"
+  },
+  {
+    "objectID": "T6_Introduction_Linear_Regression/LR.slides.html#example",
+    "href": "T6_Introduction_Linear_Regression/LR.slides.html#example",
+    "title": "Introduction to Linear Regression",
+    "section": "Example",
+    "text": "Example\n\nWe will use data from 392 cars, including miles per gallon, number of cylinders, horsepower, weight, acceleration, year, origin, and other variables.\nThe data is in the file “auto_dataset.xlsx”.\n\nauto_data = pd.read_excel(\"auto_dataset.xlsx\")\n# Set categorical variable.\nauto_data[['origin']] = auto_data[['origin']].astype('category')"
+  },
+  {
+    "objectID": "T6_Introduction_Linear_Regression/LR.slides.html#section",
+    "href": "T6_Introduction_Linear_Regression/LR.slides.html#section",
+    "title": "Introduction to Linear Regression",
+    "section": "",
+    "text": "mpg\ncylinders\ndisplacement\nhorsepower\nweight\nacceleration\nyear\norigin\ncar name\n\n\n\n\n0\n18.0\n8\n307.0\n130\n3504\n12.0\n70\nAmerican\nchevrolet chevelle malibu\n\n\n1\n15.0\n8\n350.0\n165\n3693\n11.5\n70\nAmerican\nbuick skylark 320\n\n\n2\n18.0\n8\n318.0\n150\n3436\n11.0\n70\nAmerican\nplymouth satellite\n\n\n3\n16.0\n8\n304.0\n150\n3433\n12.0\n70\nAmerican\namc rebel sst"
+  },
+  {
+    "objectID": "T6_Introduction_Linear_Regression/LR.slides.html#principle-1-formulate-the-question-or-message",
+    "href": "T6_Introduction_Linear_Regression/LR.slides.html#principle-1-formulate-the-question-or-message",
+    "title": "Introduction to Linear Regression",
+    "section": "Principle 1: Formulate the question or message",
+    "text": "Principle 1: Formulate the question or message\n\nQuestions we can answer with simple linear regression:\n\n\nIs there a relationship between a response variable and predictors?\nHow strong is the relationship?\nWhat is the uncertainty?\nHow precisely can we predict a future outcome?"
+  },
+  {
+    "objectID": "T6_Introduction_Linear_Regression/LR.slides.html#section-1",
+    "href": "T6_Introduction_Linear_Regression/LR.slides.html#section-1",
+    "title": "Introduction to Linear Regression",
+    "section": "",
+    "text": "Is there a relationship between a car’s weight and its miles per gallon?"
+  },
+  {
+    "objectID": "T6_Introduction_Linear_Regression/LR.slides.html#regression-problem",
+    "href": "T6_Introduction_Linear_Regression/LR.slides.html#regression-problem",
+    "title": "Introduction to Linear Regression",
+    "section": "Regression Problem",
+    "text": "Regression Problem\n\nObjetive: Objective: Find the best function \\(f(X)\\) of the predictor \\(X\\) that describes the response \\(Y\\).\n\nMathematically, we want to establish the following relationship:\n\\[\nY = f(X) + \\epsilon,\n\\]\nwhere \\(\\epsilon\\) is a natural (random) error."
+  },
+  {
+    "objectID": "T6_Introduction_Linear_Regression/LR.slides.html#section-2",
+    "href": "T6_Introduction_Linear_Regression/LR.slides.html#section-2",
+    "title": "Introduction to Linear Regression",
+    "section": "",
+    "text": "In practice, it is very difficult to know the true structure of the function \\(f(X)\\).\n\n\n\nThe best we can do is construct an approximation (function) \\(\\hat{f}(X)\\).\nThere are several strategies to build \\(\\hat{f}(X)\\), one of the most common is:\n\nDefine a simple “structure” or “formula.”\nEstimate the elements of the “formula” using the data."
+  },
+  {
+    "objectID": "T6_Introduction_Linear_Regression/LR.slides.html#linear-regression-model",
+    "href": "T6_Introduction_Linear_Regression/LR.slides.html#linear-regression-model",
+    "title": "Introduction to Linear Regression",
+    "section": "Linear Regression Model",
+    "text": "Linear Regression Model\nA very common function \\(f(X)\\) to predict a response \\(Y\\) is the linear regression model.\nIts mathematical form is:\n\\[\n\\hat{Y}_i = \\hat{\\beta}_0 + \\hat{\\beta}_1 X_i,\n\\]\n\n\nWhere \\(i\\) is the index of the \\(n\\) observations, and\n\\(\\hat{Y}_i\\) is the predicted value of the actual response \\(Y_i\\) associated with a predictor value \\(X_i\\).\nThe values \\(\\hat{\\beta}_0\\) and \\(\\hat{\\beta}_1\\) are called coefficients of the model."
+  },
+  {
+    "objectID": "T6_Introduction_Linear_Regression/LR.slides.html#principle-2-turn-data-into-information",
+    "href": "T6_Introduction_Linear_Regression/LR.slides.html#principle-2-turn-data-into-information",
+    "title": "Introduction to Linear Regression",
+    "section": "Principle 2: Turn data into information",
+    "text": "Principle 2: Turn data into information\nThe values of \\(\\hat{\\beta}_0\\) and \\(\\hat{\\beta}_1\\) are obtained using the data. Specifically, the formulas for the coefficients are:\n\\[\\hat{\\beta}_1 = \\frac{ \\sum_{i=1}^{n} (Y_i - \\bar{Y}) (X_i - \\bar{X}) }{\\sum_{i=1}^{n} (X_i - \\bar{X})^2} \\text{  y  } \\hat{\\beta}_0 = \\bar{Y} - \\hat{\\beta}_1 \\bar{X},\\]\nwhere \\(\\bar{X} = \\sum_{i=1}^n X_i/n\\) and \\(\\bar{Y} = \\sum_{i=1}^n Y_i/n\\).\nThese formulas are derived from the method of least squares."
+  },
+  {
+    "objectID": "T6_Introduction_Linear_Regression/LR.slides.html#fitting-regression-models-in-r",
+    "href": "T6_Introduction_Linear_Regression/LR.slides.html#fitting-regression-models-in-r",
+    "title": "Introduction to Linear Regression",
+    "section": "Fitting Regression Models in R",
+    "text": "Fitting Regression Models in R\nTo fit a linear regression model, we use the regplot() in seaborn.\n\nplt.figure(figsize=(5.8, 3.8))\nsns.regplot(data=auto_data, x=\"weight\", y=\"mpg\")\nplt.xlabel(\"Weight (lb)\")\nplt.ylabel(\"Miles per Gallon (mpg)\")\nplt.show()"
+  },
+  {
+    "objectID": "T6_Introduction_Linear_Regression/LR.slides.html#section-3",
+    "href": "T6_Introduction_Linear_Regression/LR.slides.html#section-3",
+    "title": "Introduction to Linear Regression",
+    "section": "",
+    "text": "We can modify the line type, thickness, and color using the arguments linestyle, linewidth, and color, respectively, in the line_kws argument of the function.\n\nplt.figure(figsize=(8, 6))\nsns.regplot(data=auto_data, x=\"weight\", y=\"mpg\",  \n            scatter_kws={\"color\": \"blue\"},\n            line_kws={\"linestyle\": \"-\", \"linewidth\": 3, \"color\": \"red\", \n                      \"label\": \"Linear Fit\"})\nplt.xlabel(\"Weight (lb)\")\nplt.ylabel(\"Miles per Gallon (mpg)\")\nplt.legend()\nplt.show()"
+  },
+  {
+    "objectID": "T6_Introduction_Linear_Regression/LR.slides.html#for-our-example",
+    "href": "T6_Introduction_Linear_Regression/LR.slides.html#for-our-example",
+    "title": "Introduction to Linear Regression",
+    "section": "For Our Example",
+    "text": "For Our Example\n\\(\\hat{Y}_i = 46.32 -0.0076 X_i\\)"
+  },
+  {
+    "objectID": "T6_Introduction_Linear_Regression/LR.slides.html#the-formula",
+    "href": "T6_Introduction_Linear_Regression/LR.slides.html#the-formula",
+    "title": "Introduction to Linear Regression",
+    "section": "The Formula",
+    "text": "The Formula\n\\(\\text{mpg}_i = 46.32 - 0.0076 \\times \\text{peso}_i\\)"
+  },
+  {
+    "objectID": "T6_Introduction_Linear_Regression/LR.slides.html#interpretation-of-the-coefficients",
+    "href": "T6_Introduction_Linear_Regression/LR.slides.html#interpretation-of-the-coefficients",
+    "title": "Introduction to Linear Regression",
+    "section": "Interpretation of the Coefficients",
+    "text": "Interpretation of the Coefficients\nWhat does \\(\\hat{\\beta}_0 = 46.32\\) mean?\n\n\\(\\hat{\\beta}_0\\) is the average response value when \\(X_i = 0\\)."
+  },
+  {
+    "objectID": "T6_Introduction_Linear_Regression/LR.slides.html#section-4",
+    "href": "T6_Introduction_Linear_Regression/LR.slides.html#section-4",
+    "title": "Introduction to Linear Regression",
+    "section": "",
+    "text": "Does \\(\\hat{\\beta}_0 = 46.32\\) make sense?\n\n\n\n\n\n\n\n\n\n\nNo! Because there are no cars with a weight of 0."
+  },
+  {
+    "objectID": "T6_Introduction_Linear_Regression/LR.slides.html#section-5",
+    "href": "T6_Introduction_Linear_Regression/LR.slides.html#section-5",
+    "title": "Introduction to Linear Regression",
+    "section": "",
+    "text": "What does \\(\\hat{\\beta}_1 = - 0.0076\\) mean?\n\n\\(\\hat{\\beta}_1\\) is the average change in the response when \\(X_i\\) increases by one unit."
+  },
+  {
+    "objectID": "T6_Introduction_Linear_Regression/LR.slides.html#interpretation-of-hatbeta_1",
+    "href": "T6_Introduction_Linear_Regression/LR.slides.html#interpretation-of-hatbeta_1",
+    "title": "Introduction to Linear Regression",
+    "section": "Interpretation of \\(\\hat{\\beta}_1\\)",
+    "text": "Interpretation of \\(\\hat{\\beta}_1\\)\n\n\nFor every extra pound in a car’s weight, the car has an average reduction of 0.0076 miles per gallon."
+  },
+  {
+    "objectID": "T6_Introduction_Linear_Regression/LR.slides.html#do-all-points-fall-exactly-on-the-line",
+    "href": "T6_Introduction_Linear_Regression/LR.slides.html#do-all-points-fall-exactly-on-the-line",
+    "title": "Introduction to Linear Regression",
+    "section": "Do all points fall exactly on the line?",
+    "text": "Do all points fall exactly on the line?\n\n\nNo! The model has errors.\n\n\nTechnically, the error of the i-th observation is given by: \\(e_i = Y_i - \\hat{Y}_i = Y_i - \\hat{\\beta}_0 - \\hat{\\beta}_1 X_i\\)."
+  },
+  {
+    "objectID": "T6_Introduction_Linear_Regression/LR.slides.html#in-fact",
+    "href": "T6_Introduction_Linear_Regression/LR.slides.html#in-fact",
+    "title": "Introduction to Linear Regression",
+    "section": "In fact …",
+    "text": "In fact …\n\nThe formulas for \\(\\hat{\\beta}_0\\) and \\(\\hat{\\beta}_1\\) are obtained by minimizing the sum of squared errors.\nSpecifically, the least squares method finds \\(\\hat{\\beta}_0\\) and \\(\\hat{\\beta}_1\\) by minimizing the function:\n\\[\\begin{align}\ng(\\hat{\\beta}_0, \\hat{\\beta}_1) & = \\sum_{i=1}^{n} (e_{i})^2 = \\sum_{i=1}^{n} (Y_i - (\\hat{\\beta}_0 + \\hat{\\beta}_1 X_i ))^2.\n\\end{align}\\]"
+  },
+  {
+    "objectID": "T6_Introduction_Linear_Regression/LR.slides.html#inspecting-the-errors",
+    "href": "T6_Introduction_Linear_Regression/LR.slides.html#inspecting-the-errors",
+    "title": "Introduction to Linear Regression",
+    "section": "Inspecting the Errors",
+    "text": "Inspecting the Errors\nThe behavior of the errors (\\(e_i\\)’s) indicates whether the model is correct or not. If the model is correct, the errors should behave as follows:\n\n\nOn average, they should be around 0 for each predicted value \\(\\hat{Y}_i\\).\nThey should have constant dispersion around each predicted value \\(\\hat{Y}_i\\).\nThey should be independent of each other, meaning they should not be related."
+  },
+  {
+    "objectID": "T6_Introduction_Linear_Regression/LR.slides.html#graphical-analysis-of-errors",
+    "href": "T6_Introduction_Linear_Regression/LR.slides.html#graphical-analysis-of-errors",
+    "title": "Introduction to Linear Regression",
+    "section": "Graphical Analysis of Errors",
+    "text": "Graphical Analysis of Errors\nTo evaluate these behaviors, we use two scatter plots of the errors:\n\nHorizontal Axis = Errors and Vertical Axis = Predictions. This plot helps validate the first two assumptions (errors around 0 and constant dispersion).\nEje Horizontal = Errores y Eje Vertical = Tiempo en que se tomó la observación. Está gráfica permite validar el tercer supuesto (independencia)."
+  },
+  {
+    "objectID": "T6_Introduction_Linear_Regression/LR.slides.html#statsmodels-library",
+    "href": "T6_Introduction_Linear_Regression/LR.slides.html#statsmodels-library",
+    "title": "Introduction to Linear Regression",
+    "section": "statsmodels library",
+    "text": "statsmodels library\n\nstatsmodels is a powerful python library for statistical modeling, data analysis, and hypothesis testing.\nIt provides classes and functions for estimating statistical models.\nIt is built on top of libraries such as NumPy, SciPy, and pandas\nhttps://www.statsmodels.org/stable/index.html"
+  },
+  {
+    "objectID": "T6_Introduction_Linear_Regression/LR.slides.html#load-the-libraries",
+    "href": "T6_Introduction_Linear_Regression/LR.slides.html#load-the-libraries",
+    "title": "Introduction to Linear Regression",
+    "section": "Load the libraries",
+    "text": "Load the libraries\n\nLet’s import statsmodels into Python\n\nimport statsmodels.api as sm"
+  },
+  {
+    "objectID": "T6_Introduction_Linear_Regression/LR.slides.html#fit-a-linear-model",
+    "href": "T6_Introduction_Linear_Regression/LR.slides.html#fit-a-linear-model",
+    "title": "Introduction to Linear Regression",
+    "section": "Fit a linear model",
+    "text": "Fit a linear model\n\nTo fit a linear model in statsmodels, we first split the data set into a vector with the values of the predictor only, and a vector with the response values.\n\n# Matrix with predictors.\nX = auto_data['weight']\n\n# Add intercept.\nX = sm.add_constant(X)  \n\n# Matrix with response.\nY = auto_data['mpg']\n\nWe also must include a vector of ones to the predictors to account for the intercept."
+  },
+  {
+    "objectID": "T6_Introduction_Linear_Regression/LR.slides.html#section-6",
+    "href": "T6_Introduction_Linear_Regression/LR.slides.html#section-6",
+    "title": "Introduction to Linear Regression",
+    "section": "",
+    "text": "Next, we use the functions OLS() and fit() from statsmodels.\n\n# Create linear regression object\nregr = sm.OLS(Y, X)\n\n# Train the model using the training sets\nlinear_model = regr.fit()"
+  },
+  {
+    "objectID": "T6_Introduction_Linear_Regression/LR.slides.html#section-7",
+    "href": "T6_Introduction_Linear_Regression/LR.slides.html#section-7",
+    "title": "Introduction to Linear Regression",
+    "section": "",
+    "text": "To show the estimated coefficients, we use the argument params of the linear_model object created previously.\n\n# The estimated coefficients.\nprint(linear_model.params)\n\nconst     46.317364\nweight    -0.007677\ndtype: float64\n\n\nThe elements in the vector above are the estimates \\(\\hat{\\beta}_0 = 46.317\\) and \\(\\hat{\\beta}_1 = -0.00767\\)."
+  },
+  {
+    "objectID": "T6_Introduction_Linear_Regression/LR.slides.html#residuals-and-fitted-values",
+    "href": "T6_Introduction_Linear_Regression/LR.slides.html#residuals-and-fitted-values",
+    "title": "Introduction to Linear Regression",
+    "section": "Residuals and fitted values",
+    "text": "Residuals and fitted values\n\nTo create the plots for the residuals, we need the predicted values (\\(\\hat{Y}_i\\)’s) of the response and the residuals (\\(e_i\\)’s) first. To this end, we use the commands below.\n\n# Make predictions using the the model\nY_pred = linear_model.fittedvalues\n\n# Calculate residuals.\nresiduals = linear_model.resid"
+  },
+  {
+    "objectID": "T6_Introduction_Linear_Regression/LR.slides.html#constant-dispersion",
+    "href": "T6_Introduction_Linear_Regression/LR.slides.html#constant-dispersion",
+    "title": "Introduction to Linear Regression",
+    "section": "Constant Dispersion",
+    "text": "Constant Dispersion\n\n\nCode\n# Residual vs Fitted Values Plot\nplt.figure(figsize=(7.5, 5.5))\nsns.scatterplot(x = Y_pred, y = residuals, color=\"darkblue\", s = 50)\nplt.axhline(y=0, color='red', linestyle='--')\nplt.xlabel('Fitted (predicted) Values', fontsize=15)\nplt.ylabel('Residuals', fontsize=15)\nax.tick_params(axis='both', labelsize=12)\nplt.show()"
+  },
+  {
+    "objectID": "T6_Introduction_Linear_Regression/LR.slides.html#independent-errors",
+    "href": "T6_Introduction_Linear_Regression/LR.slides.html#independent-errors",
+    "title": "Introduction to Linear Regression",
+    "section": "Independent Errors",
+    "text": "Independent Errors\n\n\nCode\n# Residuals vs Time (Case) Plot\nplt.figure(figsize=(7.5, 5.5))\nsns.scatterplot(x = range(auto_data.shape[0]), y = residuals, \n                color=\"darkblue\", s = 50)\nplt.axhline(y=0, color='red', linestyle='--')\nplt.xlabel('Time', fontsize=15)\nax.tick_params(axis='both', labelsize=12)\nplt.ylabel('Residuals', fontsize=15)\nplt.show()"
+  },
+  {
+    "objectID": "T6_Introduction_Linear_Regression/LR.slides.html#comments",
+    "href": "T6_Introduction_Linear_Regression/LR.slides.html#comments",
+    "title": "Introduction to Linear Regression",
+    "section": "Comments",
+    "text": "Comments\n\n\n\nThe two plots do not validate the assumptions of the linear regression model.\nThere are methods to correct this, but we will not cover them here.\nIf both assumptions are not validated, then the linear regression model is used only as a trend line or a reference for the data."
+  },
+  {
+    "objectID": "T6_Introduction_Linear_Regression/LR.slides.html#section-8",
+    "href": "T6_Introduction_Linear_Regression/LR.slides.html#section-8",
+    "title": "Introduction to Linear Regression",
+    "section": "",
+    "text": "If both assumptions are validated, then the model can be used to predict the response for new observations and to check if there is a significant relationship between \\(Y\\) and \\(X\\).\nYou have explored about linear regression in IN1002B."
+  },
+  {
+    "objectID": "T6_Introduction_Linear_Regression/LR.slides.html#local-regression-1",
+    "href": "T6_Introduction_Linear_Regression/LR.slides.html#local-regression-1",
+    "title": "Introduction to Linear Regression",
+    "section": "Local Regression",
+    "text": "Local Regression\nThis is a modern alternative to the simple linear regression model for capturing complex relationships between two variables.\nBasic Idea: It fits linear regression models to small subsets of the data. These subsets consist of observations that are close to each other.\nThe most common method for fitting a local regression model is LOESS. We will omit the details of this method here since they require advanced statistical concepts."
+  },
+  {
+    "objectID": "T6_Introduction_Linear_Regression/LR.slides.html#section-9",
+    "href": "T6_Introduction_Linear_Regression/LR.slides.html#section-9",
+    "title": "Introduction to Linear Regression",
+    "section": "",
+    "text": "In Python, we fit a local regression by setting the lowess argument to True in the regplot() function.\n\nplt.figure(figsize=(7, 5))\nsns.regplot(data=auto_data, x=\"weight\", y=\"mpg\", lowess=True)\nplt.show()"
+  },
+  {
+    "objectID": "T6_Introduction_Linear_Regression/LR.slides.html#section-10",
+    "href": "T6_Introduction_Linear_Regression/LR.slides.html#section-10",
+    "title": "Introduction to Linear Regression",
+    "section": "",
+    "text": "We can change the color, thickness, and line type using the color, linewidth, and linestyle,arguments in the line_kws argument function.\n\nplt.figure(figsize=(6, 4))\nsns.regplot(data=auto_data, x=\"weight\", y=\"mpg\", scatter=True, lowess=True,\n            line_kws={\"color\": \"red\", \"linewidth\": 2, \"linestyle\": \"--\"})\nplt.show()"
+  },
+  {
+    "objectID": "T6_Introduction_Linear_Regression/LR.slides.html#another-example",
+    "href": "T6_Introduction_Linear_Regression/LR.slides.html#another-example",
+    "title": "Introduction to Linear Regression",
+    "section": "Another Example",
+    "text": "Another Example\nLet’s consider the relationship between car acceleration (acceleration) and the total volume of all engine cylinders (displacement).\n\nplt.figure(figsize=(5.5, 3.5))\nsns.scatterplot(data=auto_data, x=\"displacement\", y=\"acceleration\")\nplt.show()"
+  },
+  {
+    "objectID": "T6_Introduction_Linear_Regression/LR.slides.html#linear-regression",
+    "href": "T6_Introduction_Linear_Regression/LR.slides.html#linear-regression",
+    "title": "Introduction to Linear Regression",
+    "section": "Linear Regression",
+    "text": "Linear Regression\n\nplt.figure(figsize=(7, 5))\nsns.regplot(data=auto_data, x=\"displacement\", y=\"acceleration\", \n            scatter=True)\nplt.show()"
+  },
+  {
+    "objectID": "T6_Introduction_Linear_Regression/LR.slides.html#local-regression-2",
+    "href": "T6_Introduction_Linear_Regression/LR.slides.html#local-regression-2",
+    "title": "Introduction to Linear Regression",
+    "section": "Local Regression",
+    "text": "Local Regression\n\nplt.figure(figsize=(7, 5))\nsns.regplot(data=auto_data, x=\"displacement\", y=\"acceleration\", \n            scatter=True, lowess = True)\nplt.show()"
+  },
+  {
+    "objectID": "T6_Introduction_Linear_Regression/LR.slides.html#discussion",
+    "href": "T6_Introduction_Linear_Regression/LR.slides.html#discussion",
+    "title": "Introduction to Linear Regression",
+    "section": "Discussion",
+    "text": "Discussion\n\n\nThe simple linear regression model is easy to interpret due to its structure:\n\n\\[\n\\hat{Y}_i = \\hat{\\beta}_0 + \\hat{\\beta}_1 X_i.\n\\]\n\nHowever, it may be too rigid to capture complex relationships between two variables."
+  },
+  {
+    "objectID": "T6_Introduction_Linear_Regression/LR.slides.html#section-11",
+    "href": "T6_Introduction_Linear_Regression/LR.slides.html#section-11",
+    "title": "Introduction to Linear Regression",
+    "section": "",
+    "text": "Local regression is flexible and allows capturing complex relationships between two variables.\nHowever, it has a low level of interpretability because it does not provide an explicit equation to relate the predictor \\(X\\) to the response \\(Y\\)."
+  },
+  {
+    "objectID": "T2_Type_of_Variables/Types.slides.html#agenda",
+    "href": "T2_Type_of_Variables/Types.slides.html#agenda",
+    "title": "Types of variables",
+    "section": "Agenda",
+    "text": "Agenda\n\nWhat type is my data?\nData manipulation with pandas"
+  },
+  {
+    "objectID": "T2_Type_of_Variables/Types.slides.html#types-of-variables",
+    "href": "T2_Type_of_Variables/Types.slides.html#types-of-variables",
+    "title": "Types of variables",
+    "section": "Types of Variables",
+    "text": "Types of Variables\nBefore creating a graph, we must examine the type of values that our dataset variables take.\n\nThere are two main types of variables:\n\n\nNumerical variables.\nCategorical variables."
+  },
+  {
+    "objectID": "T2_Type_of_Variables/Types.slides.html#numerical-variables",
+    "href": "T2_Type_of_Variables/Types.slides.html#numerical-variables",
+    "title": "Types of variables",
+    "section": "Numerical Variables",
+    "text": "Numerical Variables\nThese take values that represent numerical measurements or quantities.\n\n\nHeight (in centimeters).\nWeight (in kilograms).\nAge (in years).\nPrice (in dollars).\nTime (in hours or seconds).\nExam score (number of points on a 100-point scale)."
+  },
+  {
+    "objectID": "T2_Type_of_Variables/Types.slides.html#types-of-numerical-variables",
+    "href": "T2_Type_of_Variables/Types.slides.html#types-of-numerical-variables",
+    "title": "Types of variables",
+    "section": "Types of Numerical Variables",
+    "text": "Types of Numerical Variables\nNumerical variables are divided into two types:\n\nDiscrete: variables that take integer values.\n\n\nExamples:\n\nNumber of children (0, 1, 2, or 3)\nNumber of students in a class (20, 30, or 35)\nNumber of books in a library (10,000, 15,000, 20,000)"
+  },
+  {
+    "objectID": "T2_Type_of_Variables/Types.slides.html#section",
+    "href": "T2_Type_of_Variables/Types.slides.html#section",
+    "title": "Types of variables",
+    "section": "",
+    "text": "[*Continuous]*]{style=“color:darkblue;”}: variables that have a large range of possible values.\n\n\nExamples:\n\nA person’s height (could be within the range of 1.60 m to 1.85 m)\nAmbient temperature (could be within the range of -30 \\(^\\circ\\)C to 50 \\(^\\circ\\)C)\nTime for an Uber to arrive (between 5 and 60 minutes)"
+  },
+  {
+    "objectID": "T2_Type_of_Variables/Types.slides.html#categorical-variables",
+    "href": "T2_Type_of_Variables/Types.slides.html#categorical-variables",
+    "title": "Types of variables",
+    "section": "Categorical Variables",
+    "text": "Categorical Variables\nThese take values that fall into categories.\n\n\nA category is a class or division of people or things that share particular characteristics.\n\n\n\n\n\n\n\n\n\n\nVariable\nCategories\n\n\nAmazon review\n1\\(\\bigstar\\), 2\\(\\bigstar\\), 3\\(\\bigstar\\), 4\\(\\bigstar\\), 5\\(\\bigstar\\)\n\n\nCountry of origin\nMéxico, Canadá, EUA\n\n\nPostal code\n72703, 90034, 3000, …"
+  },
+  {
+    "objectID": "T2_Type_of_Variables/Types.slides.html#classification-of-categorical-variables",
+    "href": "T2_Type_of_Variables/Types.slides.html#classification-of-categorical-variables",
+    "title": "Types of variables",
+    "section": "Classification of Categorical Variables",
+    "text": "Classification of Categorical Variables\nCategorical variables are divided into two important types:\n\nNominal\nOrdinal\n\n\nThe distinction depends on whether the categories have a meaningful order or not."
+  },
+  {
+    "objectID": "T2_Type_of_Variables/Types.slides.html#nominal-categorical-variables",
+    "href": "T2_Type_of_Variables/Types.slides.html#nominal-categorical-variables",
+    "title": "Types of variables",
+    "section": "Nominal Categorical Variables",
+    "text": "Nominal Categorical Variables\nA categorical variable is nominal if its categories do not have a specific order.\n\nExamples:\n\n\nPolitical party affiliation (Democrat or Republican).\nDog breed (Shepherd, Hound, Terrier, Other).\nComputer operating system (Windows, macOS, Linux)."
+  },
+  {
+    "objectID": "T2_Type_of_Variables/Types.slides.html#ordinal-categorical-variables",
+    "href": "T2_Type_of_Variables/Types.slides.html#ordinal-categorical-variables",
+    "title": "Types of variables",
+    "section": "Ordinal Categorical Variables",
+    "text": "Ordinal Categorical Variables\nA categorical variable is ordinal if its categories do have a meaningful order.\n\nExamples:\n\n\nT-shirt size (Small, Medium, Large).\nEducation level (High School, University, Postgraduate).\nIncome level (Less than $250K, $250K-$500K, More than $500K)\n\n\n\nIt is important to note that with an ordinal variable, the difference between, say, small and medium is not necessarily the same as the difference between medium and large. Additionally, the differences between consecutive categories may not be quantifiable. Think about star ratings in a restaurant review—how much better is one star compared to two stars?"
+  },
+  {
+    "objectID": "T2_Type_of_Variables/Types.slides.html#interesting-fact",
+    "href": "T2_Type_of_Variables/Types.slides.html#interesting-fact",
+    "title": "Types of variables",
+    "section": "Interesting Fact…",
+    "text": "Interesting Fact…\nInteger values (e.g., 1, 2, 3, …, 5) can represent nominal or ordinal categorical variables.\n\n\n\nRepresentation\n1\n2\n3\n4\n\n\nBlood Type\nA\nB\nAB\nO\n\n\nReview\nBad\nFair\nGood\nVery Good\n\n\n\n\n\nEn la práctica, los valores booleanos (TRUE y FALSE) a menudo representan categorías nominales."
+  },
+  {
+    "objectID": "T2_Type_of_Variables/Types.slides.html#remember",
+    "href": "T2_Type_of_Variables/Types.slides.html#remember",
+    "title": "Types of variables",
+    "section": "Remember",
+    "text": "Remember"
+  },
+  {
+    "objectID": "T2_Type_of_Variables/Types.slides.html#a-general-difference-is",
+    "href": "T2_Type_of_Variables/Types.slides.html#a-general-difference-is",
+    "title": "Types of variables",
+    "section": "A General Difference Is …",
+    "text": "A General Difference Is …\n\nQuantitative variables (discrete or continuous) are those where addition or subtraction makes sense.\nCategorical variables (nominal or ordinal) are those where addition or subtraction does NOT make sense."
+  },
+  {
+    "objectID": "T2_Type_of_Variables/Types.slides.html#types-of-data-i",
+    "href": "T2_Type_of_Variables/Types.slides.html#types-of-data-i",
+    "title": "Types of variables",
+    "section": "Types of data I",
+    "text": "Types of data I\n\nWhen a numerical quantity designating how much or how many is assigned to each item in the sample, the resulting set of values is numerical or quantitative.\n\nHeight (in ft).\nWeight (in lbs).\nAge (in years)."
+  },
+  {
+    "objectID": "T2_Type_of_Variables/Types.slides.html#types-of-data-ii",
+    "href": "T2_Type_of_Variables/Types.slides.html#types-of-data-ii",
+    "title": "Types of variables",
+    "section": "Types of data II",
+    "text": "Types of data II\n\nWhen sample items are placed into categories and category names are assigned to the sample items, the data are categorical or qualitative.\n\nHair color.\nCountry of origin.\nZIP code."
+  },
+  {
+    "objectID": "T2_Type_of_Variables/Types.slides.html#data-types",
+    "href": "T2_Type_of_Variables/Types.slides.html#data-types",
+    "title": "Types of variables",
+    "section": "Data types",
+    "text": "Data types"
+  },
+  {
+    "objectID": "T2_Type_of_Variables/Types.slides.html#how-do-we-check-the-type-of-variable",
+    "href": "T2_Type_of_Variables/Types.slides.html#how-do-we-check-the-type-of-variable",
+    "title": "Types of variables",
+    "section": "How do we check the type of variable?",
+    "text": "How do we check the type of variable?\nLet’s load the data in “penguins.xlsx”.\n\n# Load pandas.\nimport pandas as pd\n\n# Load the Excel file into a pandas DataFrame.\npenguins_data = pd.read_excel(\"penguins.xlsx\")\n\n# Print the first 4 rows of the dataset.\npenguins_data.head(4)\n\n\n\n\n\n\n\n\nspecies\nisland\nbill_length_mm\nbill_depth_mm\nflipper_length_mm\nbody_mass_g\nsex\nyear\n\n\n\n\n0\nAdelie\nTorgersen\n39.1\n18.7\n181.0\n3750.0\nmale\n2007\n\n\n1\nAdelie\nTorgersen\n39.5\n17.4\n186.0\n3800.0\nfemale\n2007\n\n\n2\nAdelie\nTorgersen\n40.3\n18.0\n195.0\n3250.0\nfemale\n2007\n\n\n3\nAdelie\nTorgersen\nNaN\nNaN\nNaN\nNaN\nNaN\n2007"
+  },
+  {
+    "objectID": "T2_Type_of_Variables/Types.slides.html#section-1",
+    "href": "T2_Type_of_Variables/Types.slides.html#section-1",
+    "title": "Types of variables",
+    "section": "",
+    "text": "In python, we check the type of each variable in a dataset using the function info().\n\npenguins_data.info()\n\n&lt;class 'pandas.core.frame.DataFrame'&gt;\nRangeIndex: 344 entries, 0 to 343\nData columns (total 8 columns):\n #   Column             Non-Null Count  Dtype  \n---  ------             --------------  -----  \n 0   species            344 non-null    object \n 1   island             344 non-null    object \n 2   bill_length_mm     342 non-null    float64\n 3   bill_depth_mm      342 non-null    float64\n 4   flipper_length_mm  342 non-null    float64\n 5   body_mass_g        342 non-null    float64\n 6   sex                333 non-null    object \n 7   year               344 non-null    int64  \ndtypes: float64(4), int64(1), object(3)\nmemory usage: 21.6+ KB"
+  },
+  {
+    "objectID": "T2_Type_of_Variables/Types.slides.html#general-python-formats",
+    "href": "T2_Type_of_Variables/Types.slides.html#general-python-formats",
+    "title": "Types of variables",
+    "section": "General python formats",
+    "text": "General python formats\n\nfloat64 format for numerical variables with decimals.\nint64 format for numerical variables with integers.\nobject format for general variables with characters."
+  },
+  {
+    "objectID": "T2_Type_of_Variables/Types.slides.html#activity-solo-mode",
+    "href": "T2_Type_of_Variables/Types.slides.html#activity-solo-mode",
+    "title": "Types of variables",
+    "section": "Activity (solo mode)",
+    "text": "Activity (solo mode)\n\nGo to the Modules section on our CANVAS website.\nComplete the Activity 2.1: Types of Variables individually."
+  },
+  {
+    "objectID": "T2_Type_of_Variables/Types.slides.html#pandas-library",
+    "href": "T2_Type_of_Variables/Types.slides.html#pandas-library",
+    "title": "Types of variables",
+    "section": "pandas library",
+    "text": "pandas library\n\n\n\n\n\n\n\n\n\npandas allows the user to import, clean, transform, and analyze data efficiently\nhttps://pandas.pydata.org/\n\n\nImport it in Google Colab as follows.\n\nimport pandas as pd"
+  },
+  {
+    "objectID": "T2_Type_of_Variables/Types.slides.html#chaining-operations-with-pandas",
+    "href": "T2_Type_of_Variables/Types.slides.html#chaining-operations-with-pandas",
+    "title": "Types of variables",
+    "section": "Chaining operations with pandas",
+    "text": "Chaining operations with pandas\nOne of the most important techniques in pandas is method chaining, which allows for cleaner and more readable data manipulation.\nThe general structure of chaining looks like this:"
+  },
+  {
+    "objectID": "T2_Type_of_Variables/Types.slides.html#key-pandas-functions",
+    "href": "T2_Type_of_Variables/Types.slides.html#key-pandas-functions",
+    "title": "Types of variables",
+    "section": "Key pandas functions",
+    "text": "Key pandas functions\npandas provides functions to solve common data manipulation tasks:\n\n\nquery() filters observations based on conditions.\nloc[] and iloc[] select specific rows and columns.\nassign() creates new variables.\nsort_values() changes the order of rows.\nagg() reduces multiple values to a single numerical summary."
+  },
+  {
+    "objectID": "T2_Type_of_Variables/Types.slides.html#section-2",
+    "href": "T2_Type_of_Variables/Types.slides.html#section-2",
+    "title": "Types of variables",
+    "section": "",
+    "text": "To practice, we will use the dataset penguins_data."
+  },
+  {
+    "objectID": "T2_Type_of_Variables/Types.slides.html#filtering-with-query",
+    "href": "T2_Type_of_Variables/Types.slides.html#filtering-with-query",
+    "title": "Types of variables",
+    "section": "Filtering with query()",
+    "text": "Filtering with query()\nFilter the data for the species “Gentoo.”\n\n(penguins_data\n  .query(\"species == 'Gentoo'\")\n).head()\n\n\n\n\n\n\n\n\nspecies\nisland\nbill_length_mm\nbill_depth_mm\nflipper_length_mm\nbody_mass_g\nsex\nyear\n\n\n\n\n152\nGentoo\nBiscoe\n46.1\n13.2\n211.0\n4500.0\nfemale\n2007\n\n\n153\nGentoo\nBiscoe\n50.0\n16.3\n230.0\n5700.0\nmale\n2007\n\n\n154\nGentoo\nBiscoe\n48.7\n14.1\n210.0\n4450.0\nfemale\n2007\n\n\n155\nGentoo\nBiscoe\n50.0\n15.2\n218.0\n5700.0\nmale\n2007\n\n\n156\nGentoo\nBiscoe\n47.6\n14.5\n215.0\n5400.0\nmale\n2007\n\n\n\n\n\n\n\n\nThe head() function prints the first 6 rows of the dataset."
+  },
+  {
+    "objectID": "T2_Type_of_Variables/Types.slides.html#section-3",
+    "href": "T2_Type_of_Variables/Types.slides.html#section-3",
+    "title": "Types of variables",
+    "section": "",
+    "text": "We can also filter the data to get penguins with a body mass greater than 5000g.\n\n(penguins_data\n  .query(\"body_mass_g &gt; 5000\")\n).head()\n\n\n\n\n\n\n\n\nspecies\nisland\nbill_length_mm\nbill_depth_mm\nflipper_length_mm\nbody_mass_g\nsex\nyear\n\n\n\n\n153\nGentoo\nBiscoe\n50.0\n16.3\n230.0\n5700.0\nmale\n2007\n\n\n155\nGentoo\nBiscoe\n50.0\n15.2\n218.0\n5700.0\nmale\n2007\n\n\n156\nGentoo\nBiscoe\n47.6\n14.5\n215.0\n5400.0\nmale\n2007\n\n\n159\nGentoo\nBiscoe\n46.7\n15.3\n219.0\n5200.0\nmale\n2007\n\n\n161\nGentoo\nBiscoe\n46.8\n15.4\n215.0\n5150.0\nmale\n2007"
+  },
+  {
+    "objectID": "T2_Type_of_Variables/Types.slides.html#selecting-columns-with-loc",
+    "href": "T2_Type_of_Variables/Types.slides.html#selecting-columns-with-loc",
+    "title": "Types of variables",
+    "section": "Selecting columns with loc[]",
+    "text": "Selecting columns with loc[]\nSelect the columns species, body_mass_g and sex.\n\n(penguins_data\n  .loc[:, [\"species\", \"body_mass_g\", \"sex\"]]\n  .head()\n)\n\n\n\n\n\n\n\n\nspecies\nbody_mass_g\nsex\n\n\n\n\n0\nAdelie\n3750.0\nmale\n\n\n1\nAdelie\n3800.0\nfemale\n\n\n2\nAdelie\n3250.0\nfemale\n\n\n3\nAdelie\nNaN\nNaN\n\n\n4\nAdelie\n3450.0\nfemale"
+  },
+  {
+    "objectID": "T2_Type_of_Variables/Types.slides.html#combining-query-and-loc",
+    "href": "T2_Type_of_Variables/Types.slides.html#combining-query-and-loc",
+    "title": "Types of variables",
+    "section": "Combining query() and loc()",
+    "text": "Combining query() and loc()\nSelect the columns species, body_mass_g and sex. Next, filter the data for the species “Gentoo.”\n\n(penguins_data\n  .loc[:, [\"species\", \"body_mass_g\", \"sex\"]]\n  .query(\"species == 'Gentoo'\")\n).head(4)\n\n\n\n\n\n\n\n\nspecies\nbody_mass_g\nsex\n\n\n\n\n152\nGentoo\n4500.0\nfemale\n\n\n153\nGentoo\n5700.0\nmale\n\n\n154\nGentoo\n4450.0\nfemale\n\n\n155\nGentoo\n5700.0\nmale"
+  },
+  {
+    "objectID": "T2_Type_of_Variables/Types.slides.html#create-new-columns-with-assign",
+    "href": "T2_Type_of_Variables/Types.slides.html#create-new-columns-with-assign",
+    "title": "Types of variables",
+    "section": "Create new columns with assign()",
+    "text": "Create new columns with assign()\nWith assign(), we can create new columns (variables) that are functions of existing ones. For example, we can compute the ratio of bill_length_mm y bill_depth_mm.\n\n\n(penguins_data\n  .assign(LengthDepthRatio = lambda df: df[\"bill_length_mm\"] / df[\"bill_depth_mm\"])\n  .loc[:, [\"species\", \"body_mass_g\", \"sex\", \"LengthDepthRatio\"]]\n).head()"
+  },
+  {
+    "objectID": "T2_Type_of_Variables/Types.slides.html#section-4",
+    "href": "T2_Type_of_Variables/Types.slides.html#section-4",
+    "title": "Types of variables",
+    "section": "",
+    "text": "The new dataset has the variable LengthDepthRatio.\n\n\n\n\n\n\n\n\n\nspecies\nbody_mass_g\nsex\nLengthDepthRatio\n\n\n\n\n0\nAdelie\n3750.0\nmale\n2.090909\n\n\n1\nAdelie\n3800.0\nfemale\n2.270115\n\n\n2\nAdelie\n3250.0\nfemale\n2.238889\n\n\n3\nAdelie\nNaN\nNaN\nNaN\n\n\n4\nAdelie\n3450.0\nfemale\n1.901554"
+  },
+  {
+    "objectID": "T2_Type_of_Variables/Types.slides.html#sorting-with-sort_values",
+    "href": "T2_Type_of_Variables/Types.slides.html#sorting-with-sort_values",
+    "title": "Types of variables",
+    "section": "Sorting with sort_values()",
+    "text": "Sorting with sort_values()\nWe can sort the data based on a column like bill_length_mm.\n\n(penguins_data\n  .sort_values(\"bill_length_mm\")\n).head(4)\n\n\n\n\n\n\n\n\nspecies\nisland\nbill_length_mm\nbill_depth_mm\nflipper_length_mm\nbody_mass_g\nsex\nyear\n\n\n\n\n142\nAdelie\nDream\n32.1\n15.5\n188.0\n3050.0\nfemale\n2009\n\n\n98\nAdelie\nDream\n33.1\n16.1\n178.0\n2900.0\nfemale\n2008\n\n\n70\nAdelie\nTorgersen\n33.5\n19.0\n190.0\n3600.0\nfemale\n2008\n\n\n92\nAdelie\nDream\n34.0\n17.1\n185.0\n3400.0\nfemale\n2008"
+  },
+  {
+    "objectID": "T2_Type_of_Variables/Types.slides.html#section-5",
+    "href": "T2_Type_of_Variables/Types.slides.html#section-5",
+    "title": "Types of variables",
+    "section": "",
+    "text": "To sort in descending order, use ascending=False inside sort_values().\n\n(penguins_data\n  .sort_values(\"bill_length_mm\", ascending=False)\n).head()\n\n\n\n\n\n\n\n\nspecies\nisland\nbill_length_mm\nbill_depth_mm\nflipper_length_mm\nbody_mass_g\nsex\nyear\n\n\n\n\n185\nGentoo\nBiscoe\n59.6\n17.0\n230.0\n6050.0\nmale\n2007\n\n\n293\nChinstrap\nDream\n58.0\n17.8\n181.0\n3700.0\nfemale\n2007\n\n\n253\nGentoo\nBiscoe\n55.9\n17.0\n228.0\n5600.0\nmale\n2009\n\n\n339\nChinstrap\nDream\n55.8\n19.8\n207.0\n4000.0\nmale\n2009\n\n\n267\nGentoo\nBiscoe\n55.1\n16.0\n230.0\n5850.0\nmale\n2009"
+  },
+  {
+    "objectID": "T2_Type_of_Variables/Types.slides.html#summarizing-with-agg",
+    "href": "T2_Type_of_Variables/Types.slides.html#summarizing-with-agg",
+    "title": "Types of variables",
+    "section": "Summarizing with agg()",
+    "text": "Summarizing with agg()\nWe can calculate the average of the columns bill_length_mm, bill_depth_mm, and body_mass_g.\n\n(penguins_data\n  .loc[:, [\"bill_length_mm\", \"bill_depth_mm\", \"body_mass_g\"]]\n  .agg([\"mean\"])\n)\n\n\n\n\n\n\n\n\nbill_length_mm\nbill_depth_mm\nbody_mass_g\n\n\n\n\nmean\n43.92193\n17.15117\n4201.754386\n\n\n\n\n\n\n\n\n\nBy default, agg() ignores missing values."
+  },
+  {
+    "objectID": "T2_Type_of_Variables/Types.slides.html#saving-results-in-new-objects",
+    "href": "T2_Type_of_Variables/Types.slides.html#saving-results-in-new-objects",
+    "title": "Types of variables",
+    "section": "Saving results in new objects",
+    "text": "Saving results in new objects\nAfter performing operations on our data, we can save the modified dataset as a new object.\n\nsummary_penguins_data = (penguins_data\n  .loc[:, [\"bill_length_mm\", \"bill_depth_mm\", \"body_mass_g\"]]\n  .agg([\"mean\"])\n)\n\nsummary_penguins_data\n\n\n\n\n\n\n\n\nbill_length_mm\nbill_depth_mm\nbody_mass_g\n\n\n\n\nmean\n43.92193\n17.15117\n4201.754386"
+  },
+  {
+    "objectID": "T2_Type_of_Variables/Types.slides.html#final-remarks",
+    "href": "T2_Type_of_Variables/Types.slides.html#final-remarks",
+    "title": "Types of variables",
+    "section": "Final Remarks",
+    "text": "Final Remarks\n\n\npandas is a Python library for data manipulation.\nUnderstanding variable types helps determine the best operations and visualizations.\nThere are specific charts for numerical and categorical variables.\nThroughout this course, we will explore various visualizations for different types of data."
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site\n\n1 + 1\n\n2"
+  },
+  {
+    "objectID": "T5_Multivariate_Data/Multivariate.slides.html#agenda",
+    "href": "T5_Multivariate_Data/Multivariate.slides.html#agenda",
+    "title": "Multivariable Data",
+    "section": "Agenda",
+    "text": "Agenda\n\nData with more than one variable\nTwo numerical variables\nOne numerical and one categorical variable\nTwo categorical variables\nThree or more variables"
+  },
+  {
+    "objectID": "T5_Multivariate_Data/Multivariate.slides.html#load-libraries",
+    "href": "T5_Multivariate_Data/Multivariate.slides.html#load-libraries",
+    "title": "Multivariable Data",
+    "section": "Load Libraries",
+    "text": "Load Libraries\n\nLet’s import the pandas, matplotlib, and seaborn in Google Colab and R before starting.\n\nimport pandas as pd      \nimport matplotlib.pyplot as plt  \nimport seaborn as sns"
+  },
+  {
+    "objectID": "T5_Multivariate_Data/Multivariate.slides.html#multivariate-data",
+    "href": "T5_Multivariate_Data/Multivariate.slides.html#multivariate-data",
+    "title": "Multivariable Data",
+    "section": "Multivariate data",
+    "text": "Multivariate data\n\nMultivariate data consists of datasets that contain observations of two or more variables.\n\n\nVariables can be numerical or categorical.\nVariables may or may not depend on each other.\n\n\n\nIn fact, the goal is to determine whether there is a relationship between the variables and the type of relationship."
+  },
+  {
+    "objectID": "T5_Multivariate_Data/Multivariate.slides.html#example-1",
+    "href": "T5_Multivariate_Data/Multivariate.slides.html#example-1",
+    "title": "Multivariable Data",
+    "section": "Example 1",
+    "text": "Example 1\n\nConsider data from 392 cars, including miles per gallon, number of cylinders, horsepower, weight, acceleration, year, origin, among other variables.\nThe data is stored in the file “auto_dataset.xlsx”.\n\nauto_data = pd.read_excel(\"auto_dataset.xlsx\")\n# Set categorical variable.\nauto_data[['origin']] = auto_data[['origin']].astype('category')\nauto_data.head()"
+  },
+  {
+    "objectID": "T5_Multivariate_Data/Multivariate.slides.html#section",
+    "href": "T5_Multivariate_Data/Multivariate.slides.html#section",
+    "title": "Multivariable Data",
+    "section": "",
+    "text": "auto_data = pd.read_excel(\"auto_dataset.xlsx\")\n# Set categorical variable.\nauto_data[['origin']] = auto_data[['origin']].astype('category')\nauto_data.head(3)\n\n\n\n\n\n\n\n\nmpg\ncylinders\ndisplacement\nhorsepower\nweight\nacceleration\nyear\norigin\ncar name\n\n\n\n\n0\n18.0\n8\n307.0\n130\n3504\n12.0\n70\nAmerican\nchevrolet chevelle malibu\n\n\n1\n15.0\n8\n350.0\n165\n3693\n11.5\n70\nAmerican\nbuick skylark 320\n\n\n2\n18.0\n8\n318.0\n150\n3436\n11.0\n70\nAmerican\nplymouth satellite"
+  },
+  {
+    "objectID": "T5_Multivariate_Data/Multivariate.slides.html#principle-1-formulate-the-question",
+    "href": "T5_Multivariate_Data/Multivariate.slides.html#principle-1-formulate-the-question",
+    "title": "Multivariable Data",
+    "section": "Principle 1: Formulate the question",
+    "text": "Principle 1: Formulate the question\nIn the context of multiple-variable data, typical questions to study include:\n\n\nHow are variable \\(X\\) and variable \\(Y\\) related?\nIs the distribution of variable \\(X\\) the same across all subgroups defined by variable \\(Z\\)?\nAre there any unusual observations in the combination of values for variables \\(X\\) and \\(Y\\)?\nAre there any unusual observations in \\(X\\) for a subgroup of variable \\(Z\\)?"
+  },
+  {
+    "objectID": "T5_Multivariate_Data/Multivariate.slides.html#principle-2-turn-data-into-information",
+    "href": "T5_Multivariate_Data/Multivariate.slides.html#principle-2-turn-data-into-information",
+    "title": "Multivariable Data",
+    "section": "Principle 2: Turn data into information",
+    "text": "Principle 2: Turn data into information\nThere are various types of graphs that help us explore relationships between two or more variables.\n\n\n\n\nType\nGraph Type\n\n\n\n\nNumerical\nScatter plot, line graph\n\n\nCategorical\nSide-by-side bar chart, stacked bar chart\n\n\nMixed\nGSide-by-side box plot, bubble chart\n\n\n\n\n\nFor two features, the combination of types (both quantitative, both qualitative, or a mix) matters."
+  },
+  {
+    "objectID": "T5_Multivariate_Data/Multivariate.slides.html#independent-and-dependent-variables",
+    "href": "T5_Multivariate_Data/Multivariate.slides.html#independent-and-dependent-variables",
+    "title": "Multivariable Data",
+    "section": "Independent and dependent variables",
+    "text": "Independent and dependent variables\nWhen investigating the relationship between two variables (numerical or categorical), we use specific terminology.\n\nOne variable is called the dependent or response variable, denoted by the letter \\(Y\\).\n\n\nThe other variable is called the independent or predictor variable, denoted by the letter \\(X\\).\n\n\n\nOur goal is to determine whether changes in variable \\(X\\) are associated with changes in variable \\(Y\\), and the nature of this association."
+  },
+  {
+    "objectID": "T5_Multivariate_Data/Multivariate.slides.html#scatter-plot",
+    "href": "T5_Multivariate_Data/Multivariate.slides.html#scatter-plot",
+    "title": "Multivariable Data",
+    "section": "Scatter Plot",
+    "text": "Scatter Plot\n\nThe most common graph for examining the relationship between two numerical variables is the scatter plot.\n\nVariables \\(X\\) and \\(Y\\) are placed on the horizontal and vertical axes, respectively. Each point on the graph represents a pair of \\(X\\) and \\(Y\\) values.\n\n\n\nThe goal is to explore linear or non-linear relationships between variables."
+  },
+  {
+    "objectID": "T5_Multivariate_Data/Multivariate.slides.html#scatterplot-in-python",
+    "href": "T5_Multivariate_Data/Multivariate.slides.html#scatterplot-in-python",
+    "title": "Multivariable Data",
+    "section": "Scatterplot in Python",
+    "text": "Scatterplot in Python\nTo create scatter plots in seaborn, we use the function scatterplot().\n\nFor example, let’s create a plot to explore the relationship between a car’s weight (weight) and its fuel efficiency in miles per gallon (mpg)\n\nplt.figure(figsize=(8, 6))\nsns.scatterplot(data = auto_data, x = \"weight\", y = \"mpg\")\nplt.show()"
+  },
+  {
+    "objectID": "T5_Multivariate_Data/Multivariate.slides.html#section-1",
+    "href": "T5_Multivariate_Data/Multivariate.slides.html#section-1",
+    "title": "Multivariable Data",
+    "section": "",
+    "text": "plt.figure(figsize=(8, 6))\nsns.scatterplot(data=auto_data, x=\"weight\", y=\"mpg\")\nplt.show()"
+  },
+  {
+    "objectID": "T5_Multivariate_Data/Multivariate.slides.html#principle-3-apply-gaphic-design-principles",
+    "href": "T5_Multivariate_Data/Multivariate.slides.html#principle-3-apply-gaphic-design-principles",
+    "title": "Multivariable Data",
+    "section": "Principle 3: Apply gaphic design principles",
+    "text": "Principle 3: Apply gaphic design principles\nFollowing Principle 3, we can modify the default function values to define different colors or shapes for the points in the graph.\nSpecifically, you can change the color, shape, and size of points using the arguments color, shape and size, respectively.\n\nsns.scatterplot(data=data_set, x=X, y=Y, color, marker, s)"
+  },
+  {
+    "objectID": "T5_Multivariate_Data/Multivariate.slides.html#section-2",
+    "href": "T5_Multivariate_Data/Multivariate.slides.html#section-2",
+    "title": "Multivariable Data",
+    "section": "",
+    "text": "plt.figure(figsize=(8, 6))\nsns.scatterplot(data=auto_data, x=\"weight\", y=\"mpg\", color=\"blue\", \n                marker=\"x\", s=100)\nplt.show()"
+  },
+  {
+    "objectID": "T5_Multivariate_Data/Multivariate.slides.html#possible-point-shapes",
+    "href": "T5_Multivariate_Data/Multivariate.slides.html#possible-point-shapes",
+    "title": "Multivariable Data",
+    "section": "Possible point shapes",
+    "text": "Possible point shapes\nTo change the symbols used for points in a scatter plot, set the marker parameter to a number or character from the chart below."
+  },
+  {
+    "objectID": "T5_Multivariate_Data/Multivariate.slides.html#section-3",
+    "href": "T5_Multivariate_Data/Multivariate.slides.html#section-3",
+    "title": "Multivariable Data",
+    "section": "",
+    "text": "Continuing with Principle 3, you can use previously seen functions to further improve the graph’s appearance.\n\n\nCode\nplt.figure(figsize=(7, 5))\nsns.scatterplot(data=auto_data, x=\"weight\", y=\"mpg\", color=\"darkblue\", s=50)\n# Customize the plot\nplt.title(\"Weight and miles per gallon relationship in cars\", fontsize=17)\nplt.xlabel(\"Weight (lb)\", fontsize=15)\nplt.ylabel(\"Miles per gallon\", fontsize=15)\nplt.tick_params(axis='both', labelsize=12)\n# Show the plot\nplt.show()"
+  },
+  {
+    "objectID": "T5_Multivariate_Data/Multivariate.slides.html#include-zero",
+    "href": "T5_Multivariate_Data/Multivariate.slides.html#include-zero",
+    "title": "Multivariable Data",
+    "section": "Include Zero",
+    "text": "Include Zero\nIn the previous graph, the minimum vertical axis value is around 10. To adjust the minimum value to 0, we use the additional function ylim() below.\n\n\nCode\n# Create the scatter plot with custom color and size\nplt.figure(figsize=(5.2, 3.2))\nsns.scatterplot(data=auto_data, x=\"weight\", y=\"mpg\", color=\"darkblue\", s=50)\n\n# Set y-axis limits\nplt.ylim(0, 50)\n\n# Customize the plot\nplt.title(\"Weight and miles per gallon relationship in cars\", fontsize=17)\nplt.xlabel(\"Weight (lb)\", fontsize=15)\nplt.ylabel(\"Miles per gallon\", fontsize=15)\nplt.tick_params(axis='both', labelsize=12)\n\n# Show the plot\nplt.show()"
+  },
+  {
+    "objectID": "T5_Multivariate_Data/Multivariate.slides.html#section-4",
+    "href": "T5_Multivariate_Data/Multivariate.slides.html#section-4",
+    "title": "Multivariable Data",
+    "section": "",
+    "text": "If necessary, we can also adjust the horizontal axis to show 0 as well. To this end we use the xlim() function.\n\n\nCode\n# Create the scatter plot with custom color and size\nplt.figure(figsize=(7, 5))\nsns.scatterplot(data=auto_data, x=\"weight\", y=\"mpg\", color=\"darkblue\", s=50)\n\n# Set y-axis limits\nplt.ylim(0, 50)\n\n# Set x-axis limits\nplt.xlim(0, 5500)\n\n# Customize the plot\nplt.title(\"Weight and miles per gallon relationship in cars\", fontsize=17)\nplt.xlabel(\"Weight (lb)\", fontsize=15)\nplt.ylabel(\"Miles per gallon\", fontsize=15)\nplt.tick_params(axis='both', labelsize=12)\n\n# Show the plot\nplt.show()"
+  },
+  {
+    "objectID": "T5_Multivariate_Data/Multivariate.slides.html#individual-graphs",
+    "href": "T5_Multivariate_Data/Multivariate.slides.html#individual-graphs",
+    "title": "Multivariable Data",
+    "section": "Individual graphs",
+    "text": "Individual graphs\nIndividual variable graphs (such as histograms) do not allow us to study the relationship between two variables. They only provide information on the distribution of each variable.\n\n\n\n\nCode\nplt.figure(figsize=(4, 3))\nsns.histplot(data=auto_data, x=\"mpg\", color=\"darkblue\", edgecolor=\"black\")\nplt.title(\"Distribution of miles per gallon\", fontsize=17)\nplt.xlabel(\"Miles per gallon\", fontsize=15)\nplt.ylabel(\"Frecuencia\", fontsize=15)\nplt.tick_params(axis='both', labelsize=12)\nplt.show()\n\n\n\n\n\n\n\n\n\n\n\n\nCode\nplt.figure(figsize=(4, 3))\nsns.histplot(data=auto_data, x=\"weight\", color=\"darkblue\", kde=False, edgecolor=\"black\")\nplt.title(\"Distribution of weight\", fontsize=17)\nplt.xlabel(\"Weight (lb)\", fontsize=15)\nplt.ylabel(\"Frecuencia\", fontsize=15)\nplt.tick_params(axis='both', labelsize=12)\nplt.show()"
+  },
+  {
+    "objectID": "T5_Multivariate_Data/Multivariate.slides.html#line-graph",
+    "href": "T5_Multivariate_Data/Multivariate.slides.html#line-graph",
+    "title": "Multivariable Data",
+    "section": "Line Graph",
+    "text": "Line Graph\nA line graph is a visual representation of data where data points are connected by a line. Axes:\n\n\\(X\\) (horizontal): Represents time or the independent variable.\n\\(Y\\) (vertical): Represents the dependent variable.\n\nEach point represents a value at a given moment.\n\n\nThe objective is to explore trends over time or the evolution of a continuous variable."
+  },
+  {
+    "objectID": "T5_Multivariate_Data/Multivariate.slides.html#example-2",
+    "href": "T5_Multivariate_Data/Multivariate.slides.html#example-2",
+    "title": "Multivariable Data",
+    "section": "Example 2",
+    "text": "Example 2\nConsider the data in the file “spotify.xlsx”. This dataset contains the global daily streams of the top five most popular songs on the music streaming service Spotify in 2017.\n\nspotify_data = pd.read_excel(\"spotify.xlsx\")\nspotify_data.head(3)\n\n\n\n\n\n\n\n\nDate\nDay\nShape of You\nDespacito\nSomething Just Like This\nHUMBLE.\nUnforgettable\n\n\n\n\n0\n2017-01-06\n1\n12287078\nNaN\nNaN\nNaN\nNaN\n\n\n1\n2017-01-07\n2\n13190270\nNaN\nNaN\nNaN\nNaN\n\n\n2\n2017-01-08\n3\n13099919\nNaN\nNaN\nNaN\nNaN"
+  },
+  {
+    "objectID": "T5_Multivariate_Data/Multivariate.slides.html#section-5",
+    "href": "T5_Multivariate_Data/Multivariate.slides.html#section-5",
+    "title": "Multivariable Data",
+    "section": "",
+    "text": "We will focus on the song Despacito by Luis Fonsi. To construct line plots, we use the functionlineplot() in seaborn.\n\nplt.figure(figsize=(7, 5))\nsns.lineplot(data=spotify_data, x=\"Date\", y=\"Despacito\")\nplt.show()"
+  },
+  {
+    "objectID": "T5_Multivariate_Data/Multivariate.slides.html#applying-principle-3",
+    "href": "T5_Multivariate_Data/Multivariate.slides.html#applying-principle-3",
+    "title": "Multivariable Data",
+    "section": "Applying Principle 3",
+    "text": "Applying Principle 3\nWe can change various aspects of the graph using additional arguments linetype, size, and color.\n\nsns.lineplot(data = data_set, x = x, y = Y, linestyle, linewidth, color)."
+  },
+  {
+    "objectID": "T5_Multivariate_Data/Multivariate.slides.html#section-6",
+    "href": "T5_Multivariate_Data/Multivariate.slides.html#section-6",
+    "title": "Multivariable Data",
+    "section": "",
+    "text": "Code\n# Create the line plot\nplt.figure(figsize=(10, 6))\nsns.lineplot(data=spotify_data, x=\"Date\", y=\"Despacito\", linestyle = '-',\n            color=\"darkblue\", linewidth=1.3)\nplt.title(\"Popularity of the song Despacito by Luis Fonsi\", fontsize=16)\nplt.xlabel(\"Date\", fontsize=12)\nplt.ylabel(\"Number of plays on Spotify\", fontsize=15)\nplt.tick_params(axis='both', labelsize=11)\nplt.show()"
+  },
+  {
+    "objectID": "T5_Multivariate_Data/Multivariate.slides.html#line-types",
+    "href": "T5_Multivariate_Data/Multivariate.slides.html#line-types",
+    "title": "Multivariable Data",
+    "section": "Line Types",
+    "text": "Line Types\nTo change the line type, set the linestyle parameter to a character shown below."
+  },
+  {
+    "objectID": "T5_Multivariate_Data/Multivariate.slides.html#divide-the-data-into-groups",
+    "href": "T5_Multivariate_Data/Multivariate.slides.html#divide-the-data-into-groups",
+    "title": "Multivariable Data",
+    "section": "Divide the Data into Groups!",
+    "text": "Divide the Data into Groups!\nTo examine the relationship between a numerical and a categorical variable, we use the categorical variable to divide the data into groups. This way, we compare the distribution of the numerical variable among these groups.\n\nIn this context:\n\n\\(X\\) is the categorical variable.\n\\(Y\\) is the numerical variable.\n\n\n\nThe side-by-side boxplot is the most effective way to study the relationship between a categorical and a numerical variable."
+  },
+  {
+    "objectID": "T5_Multivariate_Data/Multivariate.slides.html#boxplot-by-groups",
+    "href": "T5_Multivariate_Data/Multivariate.slides.html#boxplot-by-groups",
+    "title": "Multivariable Data",
+    "section": "Boxplot by Groups",
+    "text": "Boxplot by Groups\n\nThe side-by-side boxplot compares the distribution of a variable across different groups.\n\nIn seaborn, the plot is obtained using the function:\nsns.boxplot(data=data_set, x=X, y=Y)."
+  },
+  {
+    "objectID": "T5_Multivariate_Data/Multivariate.slides.html#section-7",
+    "href": "T5_Multivariate_Data/Multivariate.slides.html#section-7",
+    "title": "Multivariable Data",
+    "section": "",
+    "text": "For example, if we want to compare the distributions of miles per gallon of cars built in America, Europe, or Japan, we use the following command:\n\nplt.figure(figsize=(7, 5))\nsns.boxplot(data=auto_data, x=\"origin\", y=\"mpg\")\nplt.show()"
+  },
+  {
+    "objectID": "T5_Multivariate_Data/Multivariate.slides.html#applying-principle-3-1",
+    "href": "T5_Multivariate_Data/Multivariate.slides.html#applying-principle-3-1",
+    "title": "Multivariable Data",
+    "section": "Applying Principle 3",
+    "text": "Applying Principle 3\n\n\nCode\nplt.figure(figsize=(7, 5))\nsns.boxplot(data=auto_data, x=\"origin\", y=\"mpg\", color=\"lightblue\")\nplt.title(\"Miles per Gallon Distribution by Origin\", fontsize=17)\nplt.xlabel(\"Origen\", fontsize=15)\nplt.ylabel(\"Miles per gallon\", fontsize=15)\nplt.tick_params(axis='both', labelsize=12)\nplt.show()"
+  },
+  {
+    "objectID": "T5_Multivariate_Data/Multivariate.slides.html#section-8",
+    "href": "T5_Multivariate_Data/Multivariate.slides.html#section-8",
+    "title": "Multivariable Data",
+    "section": "",
+    "text": "We can also change the format of outlier points using the arguments marker, markersize, and markerfacecolor inside the argument flierprops in sns.boxplot.\n\n\nCode\nplt.figure(figsize=(6, 4))\nsns.boxplot(data=auto_data, x=\"origin\", y=\"mpg\", color=\"lightblue\",  \n            flierprops=dict(marker=\"o\", markerfacecolor=\"purple\", markersize=8))\nplt.title(\"Miles per Gallon Distribution by Origin\", fontsize=17)\nplt.xlabel(\"Origen\", fontsize=15)\nplt.ylabel(\"Miles per gallon\", fontsize=15)\nplt.tick_params(axis='both', labelsize=12)\nplt.show()"
+  },
+  {
+    "objectID": "T5_Multivariate_Data/Multivariate.slides.html#plotting-statistical-summaries-by-groups",
+    "href": "T5_Multivariate_Data/Multivariate.slides.html#plotting-statistical-summaries-by-groups",
+    "title": "Multivariable Data",
+    "section": "Plotting statistical summaries by groups",
+    "text": "Plotting statistical summaries by groups\nAlternatively, we can summarize the values of the numerical variable \\(Y\\) for each category of the variable \\(X\\) using the median or the mean.\nFor example, let’s plot the average miles per gallon of cars produced in America, Europe, and Japan. First, we calculate the average for each category using groupby() and mean().\n\nsummary_autos = (auto_data\n  .loc[:, ['mpg', 'origin']]\n  .groupby([\"origin\"], observed = True)\n  .mean()\n)"
+  },
+  {
+    "objectID": "T5_Multivariate_Data/Multivariate.slides.html#section-9",
+    "href": "T5_Multivariate_Data/Multivariate.slides.html#section-9",
+    "title": "Multivariable Data",
+    "section": "",
+    "text": "The data to be plotted are:\n\nsummary_autos\n\n\n\n\n\n\n\n\nmpg\n\n\norigin\n\n\n\n\n\nAmerican\n20.083534\n\n\nEuropean\n27.891429\n\n\nJapanese\n30.450633"
+  },
+  {
+    "objectID": "T5_Multivariate_Data/Multivariate.slides.html#section-10",
+    "href": "T5_Multivariate_Data/Multivariate.slides.html#section-10",
+    "title": "Multivariable Data",
+    "section": "",
+    "text": "Two common visualization types for plotting a numerical and a discrete variable when there is only one value per category are:\n\nCleveland dot plot\nBar chart"
+  },
+  {
+    "objectID": "T5_Multivariate_Data/Multivariate.slides.html#cleveland-dot-plot",
+    "href": "T5_Multivariate_Data/Multivariate.slides.html#cleveland-dot-plot",
+    "title": "Multivariable Data",
+    "section": "Cleveland Dot Plot",
+    "text": "Cleveland Dot Plot\nThe Cleveland dot plot encodes quantitative data across different categories. It is an alternative to a bar chart. It is obtained using the function scatterplot().\n\nplt.figure(figsize=(8, 6))\nsns.scatterplot(data=summary_autos, x='mpg', y='origin')\nplt.title(\"Average Miles per Gallon by Origin\", fontsize=17)\nplt.xlabel(\"Average Miles Per Gallon\", fontsize=15)\nplt.ylabel(\"Origen\", fontsize=15)\nplt.show()"
+  },
+  {
+    "objectID": "T5_Multivariate_Data/Multivariate.slides.html#improving-the-plot",
+    "href": "T5_Multivariate_Data/Multivariate.slides.html#improving-the-plot",
+    "title": "Multivariable Data",
+    "section": "Improving the plot",
+    "text": "Improving the plot\nWe apply Principle 3 to improve the plot.\n\n\nCode\nplt.figure(figsize=(7, 5))\nsns.scatterplot(data=summary_autos, x='mpg', y='origin', s=100, color='pink')\nplt.title(\"Average Miles per Gallon by Origin\", fontsize=17)\nplt.xlabel(\"Average Miles Per Gallon\", fontsize=15)\nplt.ylabel(\"Origen\", fontsize=15)\n# Set x-axis limits\nplt.xlim(0, 35)\nplt.show()"
+  },
+  {
+    "objectID": "T5_Multivariate_Data/Multivariate.slides.html#bar-chart",
+    "href": "T5_Multivariate_Data/Multivariate.slides.html#bar-chart",
+    "title": "Multivariable Data",
+    "section": "Bar Chart",
+    "text": "Bar Chart\nTo create a bar chart where the bar length equals a specific value, we use the function barplot() dfrom the seaborn.\n\nplt.figure(figsize=(5, 3))\nsns.barplot(data=summary_autos, x='mpg', y='origin')\nplt.title(\"Average Miles per Gallon by Origin\")\nplt.xlabel(\"Average Miles Per Gallon\")\nplt.ylabel(\"Origen\")\nplt.show()"
+  },
+  {
+    "objectID": "T5_Multivariate_Data/Multivariate.slides.html#section-12",
+    "href": "T5_Multivariate_Data/Multivariate.slides.html#section-12",
+    "title": "Multivariable Data",
+    "section": "",
+    "text": "We can use similar commands as the Cleveland dot plot to improve the bar chart.\n\n\nCode\nplt.figure(figsize=(7, 5))\nsns.barplot(data=summary_autos, x='mpg', y='origin', color='lightblue')\nplt.title(\"Average Miles per Gallon by Origin\", fontsize=17)\nplt.xlabel(\"Average Miles Per Gallon\", fontsize=15)\nplt.ylabel(\"Origen\", fontsize=15)\nplt.xlim(0, 35)\nplt.show()"
+  },
+  {
+    "objectID": "T5_Multivariate_Data/Multivariate.slides.html#divide-the-data-into-groups-1",
+    "href": "T5_Multivariate_Data/Multivariate.slides.html#divide-the-data-into-groups-1",
+    "title": "Multivariable Data",
+    "section": "Divide the Data into Groups!",
+    "text": "Divide the Data into Groups!\nWith two categorical variables, we compare the distribution of one variable across subgroups defined by the other variable.\nIn fact, we keep one variable constant and plot the distribution of the other.\n\nTo do this, the most popular charts are extensions of bar graphs:\n\nStacked bar charts\nSide-by-side bar charts"
+  },
+  {
+    "objectID": "T5_Multivariate_Data/Multivariate.slides.html#example-3",
+    "href": "T5_Multivariate_Data/Multivariate.slides.html#example-3",
+    "title": "Multivariable Data",
+    "section": "Example 3",
+    "text": "Example 3\nAs an example, let’s consider the data in the file “penguins.xlsx”.\n\npenguins_data = pd.read_excel(\"penguins.xlsx\")\npenguins_data.head()\n\n\n\n\n\n\n\n\nspecies\nisland\nbill_length_mm\nbill_depth_mm\nflipper_length_mm\nbody_mass_g\nsex\nyear\n\n\n\n\n0\nAdelie\nTorgersen\n39.1\n18.7\n181.0\n3750.0\nmale\n2007\n\n\n1\nAdelie\nTorgersen\n39.5\n17.4\n186.0\n3800.0\nfemale\n2007\n\n\n2\nAdelie\nTorgersen\n40.3\n18.0\n195.0\n3250.0\nfemale\n2007\n\n\n3\nAdelie\nTorgersen\nNaN\nNaN\nNaN\nNaN\nNaN\n2007\n\n\n4\nAdelie\nTorgersen\n36.7\n19.3\n193.0\n3450.0\nfemale\n2007"
+  },
+  {
+    "objectID": "T5_Multivariate_Data/Multivariate.slides.html#section-13",
+    "href": "T5_Multivariate_Data/Multivariate.slides.html#section-13",
+    "title": "Multivariable Data",
+    "section": "",
+    "text": "The data has two categorical variables:\n\nThe species of penguins (species).\nThe island they come from (island).\n\nMake sure they are specified as factor in Python!\n\npenguins_data[['species', 'island', 'sex']] = penguins_data[['species', 'island', 'sex']].astype('category')"
+  },
+  {
+    "objectID": "T5_Multivariate_Data/Multivariate.slides.html#stacked-bar-chart",
+    "href": "T5_Multivariate_Data/Multivariate.slides.html#stacked-bar-chart",
+    "title": "Multivariable Data",
+    "section": "Stacked Bar Chart",
+    "text": "Stacked Bar Chart\nThe side-by-side bar chart is generated using the countplot(), function, assigning the \\(X\\) variable to the hue argument.\n\n\nFor example, to study the distribution of penguin species across the three different islands, we use the following:\n\nplt.figure(figsize=(8, 6))\nsns.countplot(data=penguins_data, x='species', hue='island')\nplt.title(\"Distribution of Penguin Species by Island\", fontsize=17)\nplt.xlabel(\"Species\", fontsize=15)\nplt.ylabel(\"Count\", fontsize=15)\nplt.show()"
+  },
+  {
+    "objectID": "T5_Multivariate_Data/Multivariate.slides.html#section-14",
+    "href": "T5_Multivariate_Data/Multivariate.slides.html#section-14",
+    "title": "Multivariable Data",
+    "section": "",
+    "text": "The chart shows the frequency of each species, separated by island name.\n\nplt.figure(figsize=(6, 4))\nsns.countplot(data=penguins_data, x='species', hue='island')\nplt.title(\"Distribution of Penguin Species by Island\", fontsize=17)\nplt.xlabel(\"Species\", fontsize=15)\nplt.ylabel(\"Count\", fontsize=15)\nplt.show()"
+  },
+  {
+    "objectID": "T5_Multivariate_Data/Multivariate.slides.html#side-by-side-bar-chart",
+    "href": "T5_Multivariate_Data/Multivariate.slides.html#side-by-side-bar-chart",
+    "title": "Multivariable Data",
+    "section": "Side-by-Side Bar Chart",
+    "text": "Side-by-Side Bar Chart\nAn alternative to the previous chart is to place the bars side by side for the categories of the \\(X\\) variable.\nIn this case, we use the same commands with an extra argument: position = position_dodge().\n\nplt.figure(figsize=(8, 6))\nsns.countplot(data=penguins_data, x='species', hue='island', palette='Set1')\nplt.title(\"Distribution of Penguin Species by Island\", fontsize=17)\nplt.xlabel(\"Species\", fontsize=15)\nplt.ylabel(\"Count\", fontsize=15)\nplt.show()"
+  },
+  {
+    "objectID": "T5_Multivariate_Data/Multivariate.slides.html#stacked-or-side-by-side",
+    "href": "T5_Multivariate_Data/Multivariate.slides.html#stacked-or-side-by-side",
+    "title": "Multivariable Data",
+    "section": "Stacked or Side-by-Side?",
+    "text": "Stacked or Side-by-Side?\n\nThe main difference between stacked and side-by-side bar charts is that the side-by-side chart shows values in separate bars within a category.\nAdvantages of stacked bars:\n\nEasier to understand what proportions of a whole are divided among segments.\nVisually adds up each proportion."
+  },
+  {
+    "objectID": "T5_Multivariate_Data/Multivariate.slides.html#section-16",
+    "href": "T5_Multivariate_Data/Multivariate.slides.html#section-16",
+    "title": "Multivariable Data",
+    "section": "",
+    "text": "Advantages of side-by-side bars:\n\nEasier to compare the heights of each individual entity.\nBetter for comparing between groups."
+  },
+  {
+    "objectID": "T5_Multivariate_Data/Multivariate.slides.html#statistical-summaries",
+    "href": "T5_Multivariate_Data/Multivariate.slides.html#statistical-summaries",
+    "title": "Multivariable Data",
+    "section": "Statistical Summaries",
+    "text": "Statistical Summaries\nFor categorical variables, the most common statistical summaries are frequency and relative frequency.\nWith pandas, we calculate frequency using the size(), function, which counts the unique values of one or more variables. We also use groupby() to compute the distribution by categorical variables.\n\ncount_data = (penguins_data\n  .groupby(['island', 'species'], observed = True)\n  .size()\n  .reset_index(name='count')\n  )"
+  },
+  {
+    "objectID": "T5_Multivariate_Data/Multivariate.slides.html#section-17",
+    "href": "T5_Multivariate_Data/Multivariate.slides.html#section-17",
+    "title": "Multivariable Data",
+    "section": "",
+    "text": "# Show the result\nprint(count_data)\n\n      island    species  count\n0     Biscoe     Adelie     44\n1     Biscoe     Gentoo    124\n2      Dream     Adelie     56\n3      Dream  Chinstrap     68\n4  Torgersen     Adelie     52"
+  },
+  {
+    "objectID": "T5_Multivariate_Data/Multivariate.slides.html#section-18",
+    "href": "T5_Multivariate_Data/Multivariate.slides.html#section-18",
+    "title": "Multivariable Data",
+    "section": "",
+    "text": "To calculate relative frequency, we use assign() along with the lambda, function, which calculates the proportions of a column.\n\nrel_freq_table = (penguins_data\n  .groupby(['island', 'species'], observed = True)\n  .size()\n  .reset_index(name='count')\n  .assign(Proportion = lambda df: df[\"count\"]/df[\"count\"].sum())\n  )\n  \nprint(rel_freq_table)  \n\n      island    species  count  Proportion\n0     Biscoe     Adelie     44    0.127907\n1     Biscoe     Gentoo    124    0.360465\n2      Dream     Adelie     56    0.162791\n3      Dream  Chinstrap     68    0.197674\n4  Torgersen     Adelie     52    0.151163"
+  },
+  {
+    "objectID": "T5_Multivariate_Data/Multivariate.slides.html#charts-for-three-variables",
+    "href": "T5_Multivariate_Data/Multivariate.slides.html#charts-for-three-variables",
+    "title": "Multivariable Data",
+    "section": "Charts for Three Variables",
+    "text": "Charts for Three Variables\n\nWhen examining a distribution or relationship, we often want to compare it across data subgroups.\nThis process of conditioning on additional variables leads to visualizations involving three or more variables.\nHere we explain how to create charts to visualize multiple variables."
+  },
+  {
+    "objectID": "T5_Multivariate_Data/Multivariate.slides.html#scatter-plot-by-color",
+    "href": "T5_Multivariate_Data/Multivariate.slides.html#scatter-plot-by-color",
+    "title": "Multivariable Data",
+    "section": "Scatter plot by color",
+    "text": "Scatter plot by color\nFor two numerical variables and one categorical variable.\n\nplt.figure(figsize=(6.2, 4.2))\nsns.scatterplot(data = auto_data, x='weight', y='mpg', hue='origin')\nplt.xlabel(\"Weight (lb)\")\nplt.ylabel(\"Miles per Gallon (MPG)\")\nplt.show()"
+  },
+  {
+    "objectID": "T5_Multivariate_Data/Multivariate.slides.html#faceted-or-lattice-plot",
+    "href": "T5_Multivariate_Data/Multivariate.slides.html#faceted-or-lattice-plot",
+    "title": "Multivariable Data",
+    "section": "Faceted or Lattice Plot",
+    "text": "Faceted or Lattice Plot\nA faceted plot visualizes the relationship or distribution of one or two variables for each subgroup defined by a third variable \\(Z\\).\n\nIdea: Create a chart for each subgroup of \\(Z\\).\n\n\nTo create the plot, use the FacetGrid() function in seaborn with the following syntax:\n\nplt.figure(figsize=(8, 6))\ng = sns.FacetGrid(auto_data, col='origin')\ng.map(sns.scatterplot, 'weight', 'mpg')\ng.set_axis_labels(\"Weight (lb)\", \"Miles per Gallon (MPG)\")\ng.set_titles(\"{col_name} Origin\")\nplt.show()"
+  },
+  {
+    "objectID": "T5_Multivariate_Data/Multivariate.slides.html#section-19",
+    "href": "T5_Multivariate_Data/Multivariate.slides.html#section-19",
+    "title": "Multivariable Data",
+    "section": "",
+    "text": "The function produces a grid with 1 column and 3 rows of charts. Each row accommodates one category of origin.\n\n\n&lt;Figure size 768x576 with 0 Axes&gt;"
+  },
+  {
+    "objectID": "T5_Multivariate_Data/Multivariate.slides.html#section-20",
+    "href": "T5_Multivariate_Data/Multivariate.slides.html#section-20",
+    "title": "Multivariable Data",
+    "section": "",
+    "text": "If we change the order of the origin variable in the gf_facet_grid, function, we get a grid with three columns and one row of charts.\n\n# Create the scatter plot and facet by 'origin'\nplt.figure(figsize=(8, 6))\ng = sns.FacetGrid(auto_data, col='origin')\ng.map(sns.scatterplot, 'weight', 'mpg')\n\n# Customize the plot\ng.set_axis_labels(\"Weight (lb)\", \"Miles per Gallon (MPG)\")\ng.set_titles(\"{col_name} Origin\")\n\n# Show the plot\nplt.show()\n\n&lt;Figure size 768x576 with 0 Axes&gt;"
+  },
+  {
+    "objectID": "T5_Multivariate_Data/Multivariate.slides.html#multiple-line-charts",
+    "href": "T5_Multivariate_Data/Multivariate.slides.html#multiple-line-charts",
+    "title": "Multivariable Data",
+    "section": "Multiple Line Charts",
+    "text": "Multiple Line Charts\nWe can use the functions gf_line() and gf_facet_grid() to visualize the evolution of play counts for the 5 songs in the file “spotify.xlsx” over time.\n\nHowever, we need to manipulate the data to obtain the format required by these functions."
+  },
+  {
+    "objectID": "T5_Multivariate_Data/Multivariate.slides.html#the-required-format",
+    "href": "T5_Multivariate_Data/Multivariate.slides.html#the-required-format",
+    "title": "Multivariable Data",
+    "section": "The Required Format",
+    "text": "The Required Format\nFor a multiple line chart, we need to merge the columns Shape of You, Despacito, Something Just Like This, HUMBLE and Unforgettable into two columns.\nOne column will contain the number of plays, and the other will contain the song title.\nBoth columns will be ordered by the variable Date."
+  },
+  {
+    "objectID": "T5_Multivariate_Data/Multivariate.slides.html#section-21",
+    "href": "T5_Multivariate_Data/Multivariate.slides.html#section-21",
+    "title": "Multivariable Data",
+    "section": "",
+    "text": "To format the data, we use the melt() function from the pandas library.\n\n# Pivot longer: melt the dataframe\ndata_lines = spotify_data.melt(id_vars=[\"Date\"], \n                                value_vars=[\"Shape of You\", \"Despacito\", \"Something Just Like This\", \"HUMBLE.\", \"Unforgettable\"], \n                                var_name=\"Song\", \n                                value_name=\"Plays\")"
+  },
+  {
+    "objectID": "T5_Multivariate_Data/Multivariate.slides.html#section-22",
+    "href": "T5_Multivariate_Data/Multivariate.slides.html#section-22",
+    "title": "Multivariable Data",
+    "section": "",
+    "text": "data_lines.head()\n\n\n\n\n\n\n\n\nDate\nSong\nPlays\n\n\n\n\n0\n2017-01-06\nShape of You\n12287078.0\n\n\n1\n2017-01-07\nShape of You\n13190270.0\n\n\n2\n2017-01-08\nShape of You\n13099919.0\n\n\n3\n2017-01-09\nShape of You\n14506351.0\n\n\n4\n2017-01-10\nShape of You\n14275628.0"
+  },
+  {
+    "objectID": "T5_Multivariate_Data/Multivariate.slides.html#section-23",
+    "href": "T5_Multivariate_Data/Multivariate.slides.html#section-23",
+    "title": "Multivariable Data",
+    "section": "",
+    "text": "Now, we apply similar functions to the data_lines object.\n\n\nCode\n# Create the line plot and facet by 'Cancion'\nplt.figure(figsize=(8, 6))\ng = sns.FacetGrid(data_lines, col='Song')\ng.map(sns.lineplot, 'Date', 'Plays')\n\n# Customize the plot\ng.set_axis_labels(\"Date\", \"Plays\")\ng.set_titles(\"{col_name} Song\")\n\n# Rotate the x-axis labels for better readability\nfor ax in g.axes.flat:\n    ax.set_xticklabels(ax.get_xticklabels(), rotation=90)\n\n# Show the plot\nplt.show()\n\n\n&lt;Figure size 768x576 with 0 Axes&gt;"
+  },
+  {
+    "objectID": "T5_Multivariate_Data/Multivariate.slides.html#section-24",
+    "href": "T5_Multivariate_Data/Multivariate.slides.html#section-24",
+    "title": "Multivariable Data",
+    "section": "",
+    "text": "Or we can plot all lines on a single chart.\n\n\nCode\n# Create the line plot with color mapped to 'Cancion'\nplt.figure(figsize=(7, 5))\nsns.lineplot(x='Date', y='Plays', hue='Song', data=data_lines)\n\n# Customize the plot\nplt.title(\"Plays by Song Over Time\")\nplt.xlabel(\"Date\")\nplt.ylabel(\"Plays\")\nplt.xticks(rotation=90)  # Rotate x-axis labels for better readability\n\n# Show the plot\nplt.show()"
+  },
+  {
+    "objectID": "T5_Multivariate_Data/Multivariate.slides.html#applying-principle-3-2",
+    "href": "T5_Multivariate_Data/Multivariate.slides.html#applying-principle-3-2",
+    "title": "Multivariable Data",
+    "section": "Applying Principle 3",
+    "text": "Applying Principle 3\n\n\nCode\n# Create the line plot with color mapped to 'Cancion'\nplt.figure(figsize=(7.8, 5.8))\nsns.lineplot(x='Date', y='Plays', hue='Song', data=data_lines)\n\n# Customize the plot\nplt.title(\"Plays by Song Over Time\", fontsize = 17)\nplt.xlabel(\"Date\", fontsize = 12)\nplt.ylabel(\"Plays\", fontsize = 12)\n\n# Show the plot\nplt.show()"
+  },
+  {
+    "objectID": "T5_Multivariate_Data/Multivariate.slides.html#graphs-for-four-variables",
+    "href": "T5_Multivariate_Data/Multivariate.slides.html#graphs-for-four-variables",
+    "title": "Multivariable Data",
+    "section": "Graphs for four variables",
+    "text": "Graphs for four variables\nA common chart for four variables is the scatter plot, where the color and size of the symbols depend on two categorical variables.\n\n\nplt.figure(figsize=(8, 6))\nsns.scatterplot(data=penguins_data, x='bill_depth_mm', y='bill_length_mm',\n    hue='species', size='island')\nplt.xlabel(\"Bill Depth (mm)\")\nplt.ylabel(\"Bill Length (mm)\")\nplt.title(\"Penguin Bill Dimensions by Species and Island\")\nplt.show()"
+  },
+  {
     "objectID": "T1_Introduction/Introduction.slides.html#agenda",
     "href": "T1_Introduction/Introduction.slides.html#agenda",
     "title": "What is data visualization?",
@@ -1230,726 +1930,5 @@
     "title": "What is data visualization?",
     "section": "",
     "text": "“The greatest value of a picture is when it forces us to notice what we never expected to see.” John W. Tukey.\n\n\n\n\n\nhttps://www.storytellingwithdata.com/ is an excellent guide on data visualization."
-  },
-  {
-    "objectID": "T6_Introduction_Linear_Regression/LR.slides.html#agenda",
-    "href": "T6_Introduction_Linear_Regression/LR.slides.html#agenda",
-    "title": "Introduction to Linear Regression",
-    "section": "Agenda",
-    "text": "Agenda\n\nIntroduction\nRelationship between two numerical variables\nSimple linear regression\nLocal regression"
-  },
-  {
-    "objectID": "T6_Introduction_Linear_Regression/LR.slides.html#loading-the-libraries",
-    "href": "T6_Introduction_Linear_Regression/LR.slides.html#loading-the-libraries",
-    "title": "Introduction to Linear Regression",
-    "section": "Loading the Libraries",
-    "text": "Loading the Libraries\nLet’s import the pandas, matplotlib, and seaborn in Google Colab.\n\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns"
-  },
-  {
-    "objectID": "T6_Introduction_Linear_Regression/LR.slides.html#example",
-    "href": "T6_Introduction_Linear_Regression/LR.slides.html#example",
-    "title": "Introduction to Linear Regression",
-    "section": "Example",
-    "text": "Example\n\nWe will use data from 392 cars, including miles per gallon, number of cylinders, horsepower, weight, acceleration, year, origin, and other variables.\nThe data is in the file “auto_dataset.xlsx”.\n\nauto_data = pd.read_excel(\"auto_dataset.xlsx\")\n# Set categorical variable.\nauto_data[['origin']] = auto_data[['origin']].astype('category')"
-  },
-  {
-    "objectID": "T6_Introduction_Linear_Regression/LR.slides.html#principle-1-formulate-the-question-or-message",
-    "href": "T6_Introduction_Linear_Regression/LR.slides.html#principle-1-formulate-the-question-or-message",
-    "title": "Introduction to Linear Regression",
-    "section": "Principle 1: Formulate the question or message",
-    "text": "Principle 1: Formulate the question or message\n\nQuestions we can answer with simple linear regression:\n\n\nIs there a relationship between a response variable and predictors?\nHow strong is the relationship?\nWhat is the uncertainty?\nHow precisely can we predict a future outcome?"
-  },
-  {
-    "objectID": "T6_Introduction_Linear_Regression/LR.slides.html#section",
-    "href": "T6_Introduction_Linear_Regression/LR.slides.html#section",
-    "title": "Introduction to Linear Regression",
-    "section": "",
-    "text": "mpg\ncylinders\ndisplacement\nhorsepower\nweight\nacceleration\nyear\norigin\ncar name\n\n\n\n\n0\n18.0\n8\n307.0\n130\n3504\n12.0\n70\nAmerican\nchevrolet chevelle malibu\n\n\n1\n15.0\n8\n350.0\n165\n3693\n11.5\n70\nAmerican\nbuick skylark 320\n\n\n2\n18.0\n8\n318.0\n150\n3436\n11.0\n70\nAmerican\nplymouth satellite\n\n\n3\n16.0\n8\n304.0\n150\n3433\n12.0\n70\nAmerican\namc rebel sst"
-  },
-  {
-    "objectID": "T6_Introduction_Linear_Regression/LR.slides.html#regression-problem",
-    "href": "T6_Introduction_Linear_Regression/LR.slides.html#regression-problem",
-    "title": "Introduction to Linear Regression",
-    "section": "Regression Problem",
-    "text": "Regression Problem\n\nObjetive: Objective: Find the best function \\(f(X)\\) of the predictor \\(X\\) that describes the response \\(Y\\).\n\nMathematically, we want to establish the following relationship:\n\\[\nY = f(X) + \\epsilon,\n\\]\nwhere \\(\\epsilon\\) is a natural (random) error."
-  },
-  {
-    "objectID": "T6_Introduction_Linear_Regression/LR.slides.html#section-1",
-    "href": "T6_Introduction_Linear_Regression/LR.slides.html#section-1",
-    "title": "Introduction to Linear Regression",
-    "section": "",
-    "text": "Is there a relationship between a car’s weight and its miles per gallon?"
-  },
-  {
-    "objectID": "T6_Introduction_Linear_Regression/LR.slides.html#linear-regression-model",
-    "href": "T6_Introduction_Linear_Regression/LR.slides.html#linear-regression-model",
-    "title": "Introduction to Linear Regression",
-    "section": "Linear Regression Model",
-    "text": "Linear Regression Model\nA very common function \\(f(X)\\) to predict a response \\(Y\\) is the linear regression model.\nIts mathematical form is:\n\\[\n\\hat{Y}_i = \\hat{\\beta}_0 + \\hat{\\beta}_1 X_i,\n\\]\n\n\nWhere \\(i\\) is the index of the \\(n\\) observations, and\n\\(\\hat{Y}_i\\) is the predicted value of the actual response \\(Y_i\\) associated with a predictor value \\(X_i\\).\nThe values \\(\\hat{\\beta}_0\\) and \\(\\hat{\\beta}_1\\) are called coefficients of the model."
-  },
-  {
-    "objectID": "T6_Introduction_Linear_Regression/LR.slides.html#principle-2-turn-data-into-information",
-    "href": "T6_Introduction_Linear_Regression/LR.slides.html#principle-2-turn-data-into-information",
-    "title": "Introduction to Linear Regression",
-    "section": "Principle 2: Turn data into information",
-    "text": "Principle 2: Turn data into information\nThe values of \\(\\hat{\\beta}_0\\) and \\(\\hat{\\beta}_1\\) are obtained using the data. Specifically, the formulas for the coefficients are:\n\\[\\hat{\\beta}_1 = \\frac{ \\sum_{i=1}^{n} (Y_i - \\bar{Y}) (X_i - \\bar{X}) }{\\sum_{i=1}^{n} (X_i - \\bar{X})^2} \\text{  y  } \\hat{\\beta}_0 = \\bar{Y} - \\hat{\\beta}_1 \\bar{X},\\]\nwhere \\(\\bar{X} = \\sum_{i=1}^n X_i/n\\) and \\(\\bar{Y} = \\sum_{i=1}^n Y_i/n\\).\nThese formulas are derived from the method of least squares."
-  },
-  {
-    "objectID": "T6_Introduction_Linear_Regression/LR.slides.html#fitting-regression-models-in-r",
-    "href": "T6_Introduction_Linear_Regression/LR.slides.html#fitting-regression-models-in-r",
-    "title": "Introduction to Linear Regression",
-    "section": "Fitting Regression Models in R",
-    "text": "Fitting Regression Models in R\nTo fit a linear regression model, we use the regplot() in seaborn.\n\nplt.figure(figsize=(5.8, 3.8))\nsns.regplot(data=auto_data, x=\"weight\", y=\"mpg\")\nplt.xlabel(\"Weight (lb)\")\nplt.ylabel(\"Miles per Gallon (mpg)\")\nplt.show()"
-  },
-  {
-    "objectID": "T6_Introduction_Linear_Regression/LR.slides.html#section-2",
-    "href": "T6_Introduction_Linear_Regression/LR.slides.html#section-2",
-    "title": "Introduction to Linear Regression",
-    "section": "",
-    "text": "In practice, it is very difficult to know the true structure of the function \\(f(X)\\).\n\n\n\nThe best we can do is construct an approximation (function) \\(\\hat{f}(X)\\).\nThere are several strategies to build \\(\\hat{f}(X)\\), one of the most common is:\n\nDefine a simple “structure” or “formula.”\nEstimate the elements of the “formula” using the data."
-  },
-  {
-    "objectID": "T6_Introduction_Linear_Regression/LR.slides.html#for-our-example",
-    "href": "T6_Introduction_Linear_Regression/LR.slides.html#for-our-example",
-    "title": "Introduction to Linear Regression",
-    "section": "For Our Example",
-    "text": "For Our Example\n\\(\\hat{Y}_i = 46.32 -0.0076 X_i\\)"
-  },
-  {
-    "objectID": "T6_Introduction_Linear_Regression/LR.slides.html#the-formula",
-    "href": "T6_Introduction_Linear_Regression/LR.slides.html#the-formula",
-    "title": "Introduction to Linear Regression",
-    "section": "The Formula",
-    "text": "The Formula\n\\(\\text{mpg}_i = 46.32 - 0.0076 \\times \\text{peso}_i\\)"
-  },
-  {
-    "objectID": "T6_Introduction_Linear_Regression/LR.slides.html#interpretation-of-the-coefficients",
-    "href": "T6_Introduction_Linear_Regression/LR.slides.html#interpretation-of-the-coefficients",
-    "title": "Introduction to Linear Regression",
-    "section": "Interpretation of the Coefficients",
-    "text": "Interpretation of the Coefficients\nWhat does \\(\\hat{\\beta}_0 = 46.32\\) mean?\n\n\\(\\hat{\\beta}_0\\) is the average response value when \\(X_i = 0\\)."
-  },
-  {
-    "objectID": "T6_Introduction_Linear_Regression/LR.slides.html#section-3",
-    "href": "T6_Introduction_Linear_Regression/LR.slides.html#section-3",
-    "title": "Introduction to Linear Regression",
-    "section": "",
-    "text": "We can modify the line type, thickness, and color using the arguments linestyle, linewidth, and color, respectively, in the line_kws argument of the function.\n\nplt.figure(figsize=(8, 6))\nsns.regplot(data=auto_data, x=\"weight\", y=\"mpg\",  \n            scatter_kws={\"color\": \"blue\"},\n            line_kws={\"linestyle\": \"-\", \"linewidth\": 3, \"color\": \"red\", \n                      \"label\": \"Linear Fit\"})\nplt.xlabel(\"Weight (lb)\")\nplt.ylabel(\"Miles per Gallon (mpg)\")\nplt.legend()\nplt.show()"
-  },
-  {
-    "objectID": "T6_Introduction_Linear_Regression/LR.slides.html#section-4",
-    "href": "T6_Introduction_Linear_Regression/LR.slides.html#section-4",
-    "title": "Introduction to Linear Regression",
-    "section": "",
-    "text": "Does \\(\\hat{\\beta}_0 = 46.32\\) make sense?\n\n\n\n\n\n\n\n\n\n\nNo! Because there are no cars with a weight of 0."
-  },
-  {
-    "objectID": "T6_Introduction_Linear_Regression/LR.slides.html#interpretation-of-hatbeta_1",
-    "href": "T6_Introduction_Linear_Regression/LR.slides.html#interpretation-of-hatbeta_1",
-    "title": "Introduction to Linear Regression",
-    "section": "Interpretation of \\(\\hat{\\beta}_1\\)",
-    "text": "Interpretation of \\(\\hat{\\beta}_1\\)\n\n\nFor every extra pound in a car’s weight, the car has an average reduction of 0.0076 miles per gallon."
-  },
-  {
-    "objectID": "T6_Introduction_Linear_Regression/LR.slides.html#do-all-points-fall-exactly-on-the-line",
-    "href": "T6_Introduction_Linear_Regression/LR.slides.html#do-all-points-fall-exactly-on-the-line",
-    "title": "Introduction to Linear Regression",
-    "section": "Do all points fall exactly on the line?",
-    "text": "Do all points fall exactly on the line?\n\n\nNo! The model has errors.\n\n\nTechnically, the error of the i-th observation is given by: \\(e_i = Y_i - \\hat{Y}_i = Y_i - \\hat{\\beta}_0 - \\hat{\\beta}_1 X_i\\)."
-  },
-  {
-    "objectID": "T6_Introduction_Linear_Regression/LR.slides.html#in-fact",
-    "href": "T6_Introduction_Linear_Regression/LR.slides.html#in-fact",
-    "title": "Introduction to Linear Regression",
-    "section": "In fact …",
-    "text": "In fact …\n\nThe formulas for \\(\\hat{\\beta}_0\\) and \\(\\hat{\\beta}_1\\) are obtained by minimizing the sum of squared errors.\nSpecifically, the least squares method finds \\(\\hat{\\beta}_0\\) and \\(\\hat{\\beta}_1\\) by minimizing the function:\n\\[\\begin{align}\ng(\\hat{\\beta}_0, \\hat{\\beta}_1) & = \\sum_{i=1}^{n} (e_{i})^2 = \\sum_{i=1}^{n} (Y_i - (\\hat{\\beta}_0 + \\hat{\\beta}_1 X_i ))^2.\n\\end{align}\\]"
-  },
-  {
-    "objectID": "T6_Introduction_Linear_Regression/LR.slides.html#inspecting-the-errors",
-    "href": "T6_Introduction_Linear_Regression/LR.slides.html#inspecting-the-errors",
-    "title": "Introduction to Linear Regression",
-    "section": "Inspecting the Errors",
-    "text": "Inspecting the Errors\nThe behavior of the errors (\\(e_i\\)’s) indicates whether the model is correct or not. If the model is correct, the errors should behave as follows:\n\n\nOn average, they should be around 0 for each predicted value \\(\\hat{Y}_i\\).\nThey should have constant dispersion around each predicted value \\(\\hat{Y}_i\\).\nThey should be independent of each other, meaning they should not be related."
-  },
-  {
-    "objectID": "T6_Introduction_Linear_Regression/LR.slides.html#graphical-analysis-of-errors",
-    "href": "T6_Introduction_Linear_Regression/LR.slides.html#graphical-analysis-of-errors",
-    "title": "Introduction to Linear Regression",
-    "section": "Graphical Analysis of Errors",
-    "text": "Graphical Analysis of Errors\nTo evaluate these behaviors, we use two scatter plots of the errors:\n\nHorizontal Axis = Errors and Vertical Axis = Predictions. This plot helps validate the first two assumptions (errors around 0 and constant dispersion).\nEje Horizontal = Errores y Eje Vertical = Tiempo en que se tomó la observación. Está gráfica permite validar el tercer supuesto (independencia)."
-  },
-  {
-    "objectID": "T6_Introduction_Linear_Regression/LR.slides.html#statsmodels-library",
-    "href": "T6_Introduction_Linear_Regression/LR.slides.html#statsmodels-library",
-    "title": "Introduction to Linear Regression",
-    "section": "statsmodels library",
-    "text": "statsmodels library\n\nstatsmodels is a powerful python library for statistical modeling, data analysis, and hypothesis testing.\nIt provides classes and functions for estimating statistical models.\nIt is built on top of libraries such as NumPy, SciPy, and pandas\nhttps://www.statsmodels.org/stable/index.html"
-  },
-  {
-    "objectID": "T6_Introduction_Linear_Regression/LR.slides.html#load-the-libraries",
-    "href": "T6_Introduction_Linear_Regression/LR.slides.html#load-the-libraries",
-    "title": "Introduction to Linear Regression",
-    "section": "Load the libraries",
-    "text": "Load the libraries\n\nLet’s import statsmodels into Python\n\nimport statsmodels.api as sm"
-  },
-  {
-    "objectID": "T6_Introduction_Linear_Regression/LR.slides.html#computation-of-estimators",
-    "href": "T6_Introduction_Linear_Regression/LR.slides.html#computation-of-estimators",
-    "title": "Introduction to Linear Regression",
-    "section": "Computation of estimators",
-    "text": "Computation of estimators\n\nTo compute the least squares estimates, we first split the data set into a matrix with the values of the predictors only, and a matrix with the response values.\n\n# Matrix with predictors.\nX = auto_data['weight']\n\n# Add intercept.\nX = sm.add_constant(X)  \n\n# Matrix with response.\nY = auto_data['mpg']"
-  },
-  {
-    "objectID": "T6_Introduction_Linear_Regression/LR.slides.html#section-5",
-    "href": "T6_Introduction_Linear_Regression/LR.slides.html#section-5",
-    "title": "Introduction to Linear Regression",
-    "section": "",
-    "text": "What does \\(\\hat{\\beta}_1 = - 0.0076\\) mean?\n\n\\(\\hat{\\beta}_1\\) is the average change in the response when \\(X_i\\) increases by one unit."
-  },
-  {
-    "objectID": "T6_Introduction_Linear_Regression/LR.slides.html#section-6",
-    "href": "T6_Introduction_Linear_Regression/LR.slides.html#section-6",
-    "title": "Introduction to Linear Regression",
-    "section": "",
-    "text": "Next, we use the functions OLS() and fit() from statsmodels.\n\n# Create linear regression object\nregr = sm.OLS(Y, X)\n\n# Train the model using the training sets\nlinear_model = regr.fit()"
-  },
-  {
-    "objectID": "T6_Introduction_Linear_Regression/LR.slides.html#residuals-and-fitted-values",
-    "href": "T6_Introduction_Linear_Regression/LR.slides.html#residuals-and-fitted-values",
-    "title": "Introduction to Linear Regression",
-    "section": "Residuals and fitted values",
-    "text": "Residuals and fitted values\n\nTo create the plots for the residuals, we need the predicted values (\\(\\hat{Y}_i\\)’s) of the response and the residuals (\\(e_i\\)’s) first. To this end, we use the commands below.\n\n# Make predictions using the the model\nY_pred = linear_model.fittedvalues\n\n# Calculate residuals.\nresiduals = linear_model.resid"
-  },
-  {
-    "objectID": "T6_Introduction_Linear_Regression/LR.slides.html#constant-dispersion",
-    "href": "T6_Introduction_Linear_Regression/LR.slides.html#constant-dispersion",
-    "title": "Introduction to Linear Regression",
-    "section": "Constant Dispersion",
-    "text": "Constant Dispersion\n\n\nCode\n# Residual vs Fitted Values Plot\nplt.figure(figsize=(7.5, 5.5))\nsns.scatterplot(x = Y_pred, y = residuals, color=\"darkblue\", s = 50)\nplt.axhline(y=0, color='red', linestyle='--')\nplt.xlabel('Fitted (predicted) Values', fontsize=15)\nplt.ylabel('Residuals', fontsize=15)\nax.tick_params(axis='both', labelsize=12)\nplt.show()"
-  },
-  {
-    "objectID": "T6_Introduction_Linear_Regression/LR.slides.html#independent-errors",
-    "href": "T6_Introduction_Linear_Regression/LR.slides.html#independent-errors",
-    "title": "Introduction to Linear Regression",
-    "section": "Independent Errors",
-    "text": "Independent Errors\n\n\nCode\n# Residuals vs Time (Case) Plot\nplt.figure(figsize=(7.5, 5.5))\nsns.scatterplot(x = range(auto_data.shape[0]), y = residuals, \n                color=\"darkblue\", s = 50)\nplt.axhline(y=0, color='red', linestyle='--')\nplt.xlabel('Time', fontsize=15)\nax.tick_params(axis='both', labelsize=12)\nplt.ylabel('Residuals', fontsize=15)\nplt.show()"
-  },
-  {
-    "objectID": "T6_Introduction_Linear_Regression/LR.slides.html#comments",
-    "href": "T6_Introduction_Linear_Regression/LR.slides.html#comments",
-    "title": "Introduction to Linear Regression",
-    "section": "Comments",
-    "text": "Comments\n\n\n\nThe two plots do not validate the assumptions of the linear regression model.\nThere are methods to correct this, but we will not cover them here.\nIf both assumptions are not validated, then the linear regression model is used only as a trend line or a reference for the data."
-  },
-  {
-    "objectID": "T6_Introduction_Linear_Regression/LR.slides.html#local-regression-1",
-    "href": "T6_Introduction_Linear_Regression/LR.slides.html#local-regression-1",
-    "title": "Introduction to Linear Regression",
-    "section": "Local Regression",
-    "text": "Local Regression\nThis is a modern alternative to the simple linear regression model for capturing complex relationships between two variables.\nBasic Idea: It fits linear regression models to small subsets of the data. These subsets consist of observations that are close to each other.\nThe most common method for fitting a local regression model is LOESS. We will omit the details of this method here since they require advanced statistical concepts."
-  },
-  {
-    "objectID": "T6_Introduction_Linear_Regression/LR.slides.html#section-7",
-    "href": "T6_Introduction_Linear_Regression/LR.slides.html#section-7",
-    "title": "Introduction to Linear Regression",
-    "section": "",
-    "text": "To show the estimated coefficients, we use the argument params of the linear_model object created previously.\n\n# The estimated coefficients.\nprint(linear_model.params)\n\nconst     46.317364\nweight    -0.007677\ndtype: float64\n\n\nThe elements in the vector above are the estimates \\(\\hat{\\beta}_0 = 46.317\\) and \\(\\hat{\\beta}_1 = -0.00767\\)."
-  },
-  {
-    "objectID": "T6_Introduction_Linear_Regression/LR.slides.html#section-8",
-    "href": "T6_Introduction_Linear_Regression/LR.slides.html#section-8",
-    "title": "Introduction to Linear Regression",
-    "section": "",
-    "text": "If both assumptions are validated, then the model can be used to predict the response for new observations and to check if there is a significant relationship between \\(Y\\) and \\(X\\).\nYou have explored about linear regression in IN1002B."
-  },
-  {
-    "objectID": "T6_Introduction_Linear_Regression/LR.slides.html#another-example",
-    "href": "T6_Introduction_Linear_Regression/LR.slides.html#another-example",
-    "title": "Introduction to Linear Regression",
-    "section": "Another Example",
-    "text": "Another Example\nLet’s consider the relationship between car acceleration (acceleration) and the total volume of all engine cylinders (displacement).\n\nplt.figure(figsize=(5.5, 3.5))\nsns.scatterplot(data=auto_data, x=\"displacement\", y=\"acceleration\")\nplt.show()"
-  },
-  {
-    "objectID": "T6_Introduction_Linear_Regression/LR.slides.html#linear-regression",
-    "href": "T6_Introduction_Linear_Regression/LR.slides.html#linear-regression",
-    "title": "Introduction to Linear Regression",
-    "section": "Linear Regression",
-    "text": "Linear Regression\n\nplt.figure(figsize=(7, 5))\nsns.regplot(data=auto_data, x=\"displacement\", y=\"acceleration\", \n            scatter=True)\nplt.show()"
-  },
-  {
-    "objectID": "T6_Introduction_Linear_Regression/LR.slides.html#local-regression-2",
-    "href": "T6_Introduction_Linear_Regression/LR.slides.html#local-regression-2",
-    "title": "Introduction to Linear Regression",
-    "section": "Local Regression",
-    "text": "Local Regression\n\nplt.figure(figsize=(7, 5))\nsns.regplot(data=auto_data, x=\"displacement\", y=\"acceleration\", \n            scatter=True, lowess = True)\nplt.show()"
-  },
-  {
-    "objectID": "T6_Introduction_Linear_Regression/LR.slides.html#discussion",
-    "href": "T6_Introduction_Linear_Regression/LR.slides.html#discussion",
-    "title": "Introduction to Linear Regression",
-    "section": "Discussion",
-    "text": "Discussion\n\n\nThe simple linear regression model is easy to interpret due to its structure:\n\n\\[\n\\hat{Y}_i = \\hat{\\beta}_0 + \\hat{\\beta}_1 X_i.\n\\]\n\nHowever, it may be too rigid to capture complex relationships between two variables."
-  },
-  {
-    "objectID": "T6_Introduction_Linear_Regression/LR.slides.html#section-9",
-    "href": "T6_Introduction_Linear_Regression/LR.slides.html#section-9",
-    "title": "Introduction to Linear Regression",
-    "section": "",
-    "text": "In Python, we fit a local regression by setting the lowess argument to True in the regplot() function.\n\nplt.figure(figsize=(7, 5))\nsns.regplot(data=auto_data, x=\"weight\", y=\"mpg\", lowess=True)\nplt.show()"
-  },
-  {
-    "objectID": "T6_Introduction_Linear_Regression/LR.slides.html#section-10",
-    "href": "T6_Introduction_Linear_Regression/LR.slides.html#section-10",
-    "title": "Introduction to Linear Regression",
-    "section": "",
-    "text": "We can change the color, thickness, and line type using the color, linewidth, and linestyle,arguments in the line_kws argument function.\n\nplt.figure(figsize=(6, 4))\nsns.regplot(data=auto_data, x=\"weight\", y=\"mpg\", scatter=True, lowess=True,\n            line_kws={\"color\": \"red\", \"linewidth\": 2, \"linestyle\": \"--\"})\nplt.show()"
-  },
-  {
-    "objectID": "T6_Introduction_Linear_Regression/LR.slides.html#fit-a-linear-model",
-    "href": "T6_Introduction_Linear_Regression/LR.slides.html#fit-a-linear-model",
-    "title": "Introduction to Linear Regression",
-    "section": "Fit a linear model",
-    "text": "Fit a linear model\n\nTo fit a linear model in statsmodels, we first split the data set into a vector with the values of the predictor only, and a vector with the response values.\n\n# Matrix with predictors.\nX = auto_data['weight']\n\n# Add intercept.\nX = sm.add_constant(X)  \n\n# Matrix with response.\nY = auto_data['mpg']\n\nWe also must include a vector of ones to the predictors to account for the intercept."
-  },
-  {
-    "objectID": "T6_Introduction_Linear_Regression/LR.slides.html#section-11",
-    "href": "T6_Introduction_Linear_Regression/LR.slides.html#section-11",
-    "title": "Introduction to Linear Regression",
-    "section": "",
-    "text": "Local regression is flexible and allows capturing complex relationships between two variables.\nHowever, it has a low level of interpretability because it does not provide an explicit equation to relate the predictor \\(X\\) to the response \\(Y\\)."
-  },
-  {
-    "objectID": "T5_Multivariate_Data/Multivariate.slides.html#agenda",
-    "href": "T5_Multivariate_Data/Multivariate.slides.html#agenda",
-    "title": "Multivariable Data",
-    "section": "Agenda",
-    "text": "Agenda\n\nData with more than one variable\nTwo numerical variables\nOne numerical and one categorical variable\nTwo categorical variables\nThree or more variables"
-  },
-  {
-    "objectID": "T5_Multivariate_Data/Multivariate.slides.html#load-libraries",
-    "href": "T5_Multivariate_Data/Multivariate.slides.html#load-libraries",
-    "title": "Multivariable Data",
-    "section": "Load Libraries",
-    "text": "Load Libraries\n\nLet’s import the pandas, matplotlib, and seaborn in Google Colab and R before starting.\n\nimport pandas as pd      \nimport matplotlib.pyplot as plt  \nimport seaborn as sns"
-  },
-  {
-    "objectID": "T5_Multivariate_Data/Multivariate.slides.html#multivariate-data",
-    "href": "T5_Multivariate_Data/Multivariate.slides.html#multivariate-data",
-    "title": "Multivariable Data",
-    "section": "Multivariate data",
-    "text": "Multivariate data\n\nMultivariate data consists of datasets that contain observations of two or more variables.\n\n\nVariables can be numerical or categorical.\nVariables may or may not depend on each other.\n\n\n\nIn fact, the goal is to determine whether there is a relationship between the variables and the type of relationship."
-  },
-  {
-    "objectID": "T5_Multivariate_Data/Multivariate.slides.html#example-1",
-    "href": "T5_Multivariate_Data/Multivariate.slides.html#example-1",
-    "title": "Multivariable Data",
-    "section": "Example 1",
-    "text": "Example 1\n\nConsider data from 392 cars, including miles per gallon, number of cylinders, horsepower, weight, acceleration, year, origin, among other variables.\nThe data is stored in the file “auto_dataset.xlsx”.\n\nauto_data = pd.read_excel(\"auto_dataset.xlsx\")\n# Set categorical variable.\nauto_data[['origin']] = auto_data[['origin']].astype('category')\nauto_data.head()"
-  },
-  {
-    "objectID": "T5_Multivariate_Data/Multivariate.slides.html#principle-1-formulate-the-question",
-    "href": "T5_Multivariate_Data/Multivariate.slides.html#principle-1-formulate-the-question",
-    "title": "Multivariable Data",
-    "section": "Principle 1: Formulate the question",
-    "text": "Principle 1: Formulate the question\nIn the context of multiple-variable data, typical questions to study include:\n\n\nHow are variable \\(X\\) and variable \\(Y\\) related?\nIs the distribution of variable \\(X\\) the same across all subgroups defined by variable \\(Z\\)?\nAre there any unusual observations in the combination of values for variables \\(X\\) and \\(Y\\)?\nAre there any unusual observations in \\(X\\) for a subgroup of variable \\(Z\\)?"
-  },
-  {
-    "objectID": "T5_Multivariate_Data/Multivariate.slides.html#principle-2-turn-data-into-information",
-    "href": "T5_Multivariate_Data/Multivariate.slides.html#principle-2-turn-data-into-information",
-    "title": "Multivariable Data",
-    "section": "Principle 2: Turn data into information",
-    "text": "Principle 2: Turn data into information\nThere are various types of graphs that help us explore relationships between two or more variables.\n\n\n\n\nType\nGraph Type\n\n\n\n\nNumerical\nScatter plot, line graph\n\n\nCategorical\nSide-by-side bar chart, stacked bar chart\n\n\nMixed\nGSide-by-side box plot, bubble chart\n\n\n\n\n\nFor two features, the combination of types (both quantitative, both qualitative, or a mix) matters."
-  },
-  {
-    "objectID": "T5_Multivariate_Data/Multivariate.slides.html#independent-and-dependent-variables",
-    "href": "T5_Multivariate_Data/Multivariate.slides.html#independent-and-dependent-variables",
-    "title": "Multivariable Data",
-    "section": "Independent and dependent variables",
-    "text": "Independent and dependent variables\nWhen investigating the relationship between two variables (numerical or categorical), we use specific terminology.\n\nOne variable is called the dependent or response variable, denoted by the letter \\(Y\\).\n\n\nThe other variable is called the independent or predictor variable, denoted by the letter \\(X\\).\n\n\n\nOur goal is to determine whether changes in variable \\(X\\) are associated with changes in variable \\(Y\\), and the nature of this association."
-  },
-  {
-    "objectID": "T5_Multivariate_Data/Multivariate.slides.html#scatter-plot",
-    "href": "T5_Multivariate_Data/Multivariate.slides.html#scatter-plot",
-    "title": "Multivariable Data",
-    "section": "Scatter Plot",
-    "text": "Scatter Plot\n\nThe most common graph for examining the relationship between two numerical variables is the scatter plot.\n\nVariables \\(X\\) and \\(Y\\) are placed on the horizontal and vertical axes, respectively. Each point on the graph represents a pair of \\(X\\) and \\(Y\\) values.\n\n\n\nThe goal is to explore linear or non-linear relationships between variables."
-  },
-  {
-    "objectID": "T5_Multivariate_Data/Multivariate.slides.html#scatterplot-in-python",
-    "href": "T5_Multivariate_Data/Multivariate.slides.html#scatterplot-in-python",
-    "title": "Multivariable Data",
-    "section": "Scatterplot in Python",
-    "text": "Scatterplot in Python\nTo create scatter plots in seaborn, we use the function scatterplot().\n\nFor example, let’s create a plot to explore the relationship between a car’s weight (weight) and its fuel efficiency in miles per gallon (mpg)\n\nplt.figure(figsize=(8, 6))\nsns.scatterplot(data = auto_data, x = \"weight\", y = \"mpg\")\nplt.show()"
-  },
-  {
-    "objectID": "T5_Multivariate_Data/Multivariate.slides.html#section",
-    "href": "T5_Multivariate_Data/Multivariate.slides.html#section",
-    "title": "Multivariable Data",
-    "section": "",
-    "text": "auto_data = pd.read_excel(\"auto_dataset.xlsx\")\n# Set categorical variable.\nauto_data[['origin']] = auto_data[['origin']].astype('category')\nauto_data.head(3)\n\n\n\n\n\n\n\n\nmpg\ncylinders\ndisplacement\nhorsepower\nweight\nacceleration\nyear\norigin\ncar name\n\n\n\n\n0\n18.0\n8\n307.0\n130\n3504\n12.0\n70\nAmerican\nchevrolet chevelle malibu\n\n\n1\n15.0\n8\n350.0\n165\n3693\n11.5\n70\nAmerican\nbuick skylark 320\n\n\n2\n18.0\n8\n318.0\n150\n3436\n11.0\n70\nAmerican\nplymouth satellite"
-  },
-  {
-    "objectID": "T5_Multivariate_Data/Multivariate.slides.html#principle-3-apply-gaphic-design-principles",
-    "href": "T5_Multivariate_Data/Multivariate.slides.html#principle-3-apply-gaphic-design-principles",
-    "title": "Multivariable Data",
-    "section": "Principle 3: Apply gaphic design principles",
-    "text": "Principle 3: Apply gaphic design principles\nFollowing Principle 3, we can modify the default function values to define different colors or shapes for the points in the graph.\nSpecifically, you can change the color, shape, and size of points using the arguments color, shape and size, respectively.\n\nsns.scatterplot(data=data_set, x=X, y=Y, color, marker, s)"
-  },
-  {
-    "objectID": "T5_Multivariate_Data/Multivariate.slides.html#section-1",
-    "href": "T5_Multivariate_Data/Multivariate.slides.html#section-1",
-    "title": "Multivariable Data",
-    "section": "",
-    "text": "plt.figure(figsize=(8, 6))\nsns.scatterplot(data=auto_data, x=\"weight\", y=\"mpg\")\nplt.show()"
-  },
-  {
-    "objectID": "T5_Multivariate_Data/Multivariate.slides.html#possible-point-shapes",
-    "href": "T5_Multivariate_Data/Multivariate.slides.html#possible-point-shapes",
-    "title": "Multivariable Data",
-    "section": "Possible point shapes",
-    "text": "Possible point shapes\nTo change the symbols used for points in a scatter plot, set the marker parameter to a number or character from the chart below."
-  },
-  {
-    "objectID": "T5_Multivariate_Data/Multivariate.slides.html#section-2",
-    "href": "T5_Multivariate_Data/Multivariate.slides.html#section-2",
-    "title": "Multivariable Data",
-    "section": "",
-    "text": "plt.figure(figsize=(8, 6))\nsns.scatterplot(data=auto_data, x=\"weight\", y=\"mpg\", color=\"blue\", \n                marker=\"x\", s=100)\nplt.show()"
-  },
-  {
-    "objectID": "T5_Multivariate_Data/Multivariate.slides.html#include-zero",
-    "href": "T5_Multivariate_Data/Multivariate.slides.html#include-zero",
-    "title": "Multivariable Data",
-    "section": "Include Zero",
-    "text": "Include Zero\nIn the previous graph, the minimum vertical axis value is around 10. To adjust the minimum value to 0, we use the additional function ylim() below.\n\n\nCode\n# Create the scatter plot with custom color and size\nplt.figure(figsize=(5.2, 3.2))\nsns.scatterplot(data=auto_data, x=\"weight\", y=\"mpg\", color=\"darkblue\", s=50)\n\n# Set y-axis limits\nplt.ylim(0, 50)\n\n# Customize the plot\nplt.title(\"Weight and miles per gallon relationship in cars\", fontsize=17)\nplt.xlabel(\"Weight (lb)\", fontsize=15)\nplt.ylabel(\"Miles per gallon\", fontsize=15)\nplt.tick_params(axis='both', labelsize=12)\n\n# Show the plot\nplt.show()"
-  },
-  {
-    "objectID": "T5_Multivariate_Data/Multivariate.slides.html#section-3",
-    "href": "T5_Multivariate_Data/Multivariate.slides.html#section-3",
-    "title": "Multivariable Data",
-    "section": "",
-    "text": "Continuing with Principle 3, you can use previously seen functions to further improve the graph’s appearance.\n\n\nCode\nplt.figure(figsize=(7, 5))\nsns.scatterplot(data=auto_data, x=\"weight\", y=\"mpg\", color=\"darkblue\", s=50)\n# Customize the plot\nplt.title(\"Weight and miles per gallon relationship in cars\", fontsize=17)\nplt.xlabel(\"Weight (lb)\", fontsize=15)\nplt.ylabel(\"Miles per gallon\", fontsize=15)\nplt.tick_params(axis='both', labelsize=12)\n# Show the plot\nplt.show()"
-  },
-  {
-    "objectID": "T5_Multivariate_Data/Multivariate.slides.html#individual-graphs",
-    "href": "T5_Multivariate_Data/Multivariate.slides.html#individual-graphs",
-    "title": "Multivariable Data",
-    "section": "Individual graphs",
-    "text": "Individual graphs\nIndividual variable graphs (such as histograms) do not allow us to study the relationship between two variables. They only provide information on the distribution of each variable.\n\n\n\n\nCode\nplt.figure(figsize=(4, 3))\nsns.histplot(data=auto_data, x=\"mpg\", color=\"darkblue\", edgecolor=\"black\")\nplt.title(\"Distribution of miles per gallon\", fontsize=17)\nplt.xlabel(\"Miles per gallon\", fontsize=15)\nplt.ylabel(\"Frecuencia\", fontsize=15)\nplt.tick_params(axis='both', labelsize=12)\nplt.show()\n\n\n\n\n\n\n\n\n\n\n\n\nCode\nplt.figure(figsize=(4, 3))\nsns.histplot(data=auto_data, x=\"weight\", color=\"darkblue\", kde=False, edgecolor=\"black\")\nplt.title(\"Distribution of weight\", fontsize=17)\nplt.xlabel(\"Weight (lb)\", fontsize=15)\nplt.ylabel(\"Frecuencia\", fontsize=15)\nplt.tick_params(axis='both', labelsize=12)\nplt.show()"
-  },
-  {
-    "objectID": "T5_Multivariate_Data/Multivariate.slides.html#line-graph",
-    "href": "T5_Multivariate_Data/Multivariate.slides.html#line-graph",
-    "title": "Multivariable Data",
-    "section": "Line Graph",
-    "text": "Line Graph\nA line graph is a visual representation of data where data points are connected by a line. Axes:\n\n\\(X\\) (horizontal): Represents time or the independent variable.\n\\(Y\\) (vertical): Represents the dependent variable.\n\nEach point represents a value at a given moment.\n\n\nThe objective is to explore trends over time or the evolution of a continuous variable."
-  },
-  {
-    "objectID": "T5_Multivariate_Data/Multivariate.slides.html#example-2",
-    "href": "T5_Multivariate_Data/Multivariate.slides.html#example-2",
-    "title": "Multivariable Data",
-    "section": "Example 2",
-    "text": "Example 2\nConsider the data in the file “spotify.xlsx”. This dataset contains the global daily streams of the top five most popular songs on the music streaming service Spotify in 2017.\n\nspotify_data = pd.read_excel(\"spotify.xlsx\")\nspotify_data.head(3)\n\n\n\n\n\n\n\n\nDate\nDay\nShape of You\nDespacito\nSomething Just Like This\nHUMBLE.\nUnforgettable\n\n\n\n\n0\n2017-01-06\n1\n12287078\nNaN\nNaN\nNaN\nNaN\n\n\n1\n2017-01-07\n2\n13190270\nNaN\nNaN\nNaN\nNaN\n\n\n2\n2017-01-08\n3\n13099919\nNaN\nNaN\nNaN\nNaN"
-  },
-  {
-    "objectID": "T5_Multivariate_Data/Multivariate.slides.html#section-4",
-    "href": "T5_Multivariate_Data/Multivariate.slides.html#section-4",
-    "title": "Multivariable Data",
-    "section": "",
-    "text": "If necessary, we can also adjust the horizontal axis to show 0 as well. To this end we use the xlim() function.\n\n\nCode\n# Create the scatter plot with custom color and size\nplt.figure(figsize=(7, 5))\nsns.scatterplot(data=auto_data, x=\"weight\", y=\"mpg\", color=\"darkblue\", s=50)\n\n# Set y-axis limits\nplt.ylim(0, 50)\n\n# Set x-axis limits\nplt.xlim(0, 5500)\n\n# Customize the plot\nplt.title(\"Weight and miles per gallon relationship in cars\", fontsize=17)\nplt.xlabel(\"Weight (lb)\", fontsize=15)\nplt.ylabel(\"Miles per gallon\", fontsize=15)\nplt.tick_params(axis='both', labelsize=12)\n\n# Show the plot\nplt.show()"
-  },
-  {
-    "objectID": "T5_Multivariate_Data/Multivariate.slides.html#applying-principle-3",
-    "href": "T5_Multivariate_Data/Multivariate.slides.html#applying-principle-3",
-    "title": "Multivariable Data",
-    "section": "Applying Principle 3",
-    "text": "Applying Principle 3\nWe can change various aspects of the graph using additional arguments linetype, size, and color.\n\nsns.lineplot(data = data_set, x = x, y = Y, linestyle, linewidth, color)."
-  },
-  {
-    "objectID": "T5_Multivariate_Data/Multivariate.slides.html#section-5",
-    "href": "T5_Multivariate_Data/Multivariate.slides.html#section-5",
-    "title": "Multivariable Data",
-    "section": "",
-    "text": "We will focus on the song Despacito by Luis Fonsi. To construct line plots, we use the functionlineplot() in seaborn.\n\nplt.figure(figsize=(7, 5))\nsns.lineplot(data=spotify_data, x=\"Date\", y=\"Despacito\")\nplt.show()"
-  },
-  {
-    "objectID": "T5_Multivariate_Data/Multivariate.slides.html#line-types",
-    "href": "T5_Multivariate_Data/Multivariate.slides.html#line-types",
-    "title": "Multivariable Data",
-    "section": "Line Types",
-    "text": "Line Types\nTo change the line type, set the linestyle parameter to a character shown below."
-  },
-  {
-    "objectID": "T5_Multivariate_Data/Multivariate.slides.html#divide-the-data-into-groups",
-    "href": "T5_Multivariate_Data/Multivariate.slides.html#divide-the-data-into-groups",
-    "title": "Multivariable Data",
-    "section": "Divide the Data into Groups!",
-    "text": "Divide the Data into Groups!\nTo examine the relationship between a numerical and a categorical variable, we use the categorical variable to divide the data into groups. This way, we compare the distribution of the numerical variable among these groups.\n\nIn this context:\n\n\\(X\\) is the categorical variable.\n\\(Y\\) is the numerical variable.\n\n\n\nThe side-by-side boxplot is the most effective way to study the relationship between a categorical and a numerical variable."
-  },
-  {
-    "objectID": "T5_Multivariate_Data/Multivariate.slides.html#boxplot-by-groups",
-    "href": "T5_Multivariate_Data/Multivariate.slides.html#boxplot-by-groups",
-    "title": "Multivariable Data",
-    "section": "Boxplot by Groups",
-    "text": "Boxplot by Groups\n\nThe side-by-side boxplot compares the distribution of a variable across different groups.\n\nIn seaborn, the plot is obtained using the function:\nsns.boxplot(data=data_set, x=X, y=Y)."
-  },
-  {
-    "objectID": "T5_Multivariate_Data/Multivariate.slides.html#section-6",
-    "href": "T5_Multivariate_Data/Multivariate.slides.html#section-6",
-    "title": "Multivariable Data",
-    "section": "",
-    "text": "Code\n# Create the line plot\nplt.figure(figsize=(10, 6))\nsns.lineplot(data=spotify_data, x=\"Date\", y=\"Despacito\", linestyle = '-',\n            color=\"darkblue\", linewidth=1.3)\nplt.title(\"Popularity of the song Despacito by Luis Fonsi\", fontsize=16)\nplt.xlabel(\"Date\", fontsize=12)\nplt.ylabel(\"Number of plays on Spotify\", fontsize=15)\nplt.tick_params(axis='both', labelsize=11)\nplt.show()"
-  },
-  {
-    "objectID": "T5_Multivariate_Data/Multivariate.slides.html#applying-principle-3-1",
-    "href": "T5_Multivariate_Data/Multivariate.slides.html#applying-principle-3-1",
-    "title": "Multivariable Data",
-    "section": "Applying Principle 3",
-    "text": "Applying Principle 3\n\n\nCode\nplt.figure(figsize=(7, 5))\nsns.boxplot(data=auto_data, x=\"origin\", y=\"mpg\", color=\"lightblue\")\nplt.title(\"Miles per Gallon Distribution by Origin\", fontsize=17)\nplt.xlabel(\"Origen\", fontsize=15)\nplt.ylabel(\"Miles per gallon\", fontsize=15)\nplt.tick_params(axis='both', labelsize=12)\nplt.show()"
-  },
-  {
-    "objectID": "T5_Multivariate_Data/Multivariate.slides.html#section-7",
-    "href": "T5_Multivariate_Data/Multivariate.slides.html#section-7",
-    "title": "Multivariable Data",
-    "section": "",
-    "text": "For example, if we want to compare the distributions of miles per gallon of cars built in America, Europe, or Japan, we use the following command:\n\nplt.figure(figsize=(7, 5))\nsns.boxplot(data=auto_data, x=\"origin\", y=\"mpg\")\nplt.show()"
-  },
-  {
-    "objectID": "T5_Multivariate_Data/Multivariate.slides.html#plotting-statistical-summaries-by-groups",
-    "href": "T5_Multivariate_Data/Multivariate.slides.html#plotting-statistical-summaries-by-groups",
-    "title": "Multivariable Data",
-    "section": "Plotting statistical summaries by groups",
-    "text": "Plotting statistical summaries by groups\nAlternatively, we can summarize the values of the numerical variable \\(Y\\) for each category of the variable \\(X\\) using the median or the mean.\nFor example, let’s plot the average miles per gallon of cars produced in America, Europe, and Japan. First, we calculate the average for each category using groupby() and mean().\n\nsummary_autos = (auto_data\n  .loc[:, ['mpg', 'origin']]\n  .groupby([\"origin\"], observed = True)\n  .mean()\n)"
-  },
-  {
-    "objectID": "T5_Multivariate_Data/Multivariate.slides.html#section-8",
-    "href": "T5_Multivariate_Data/Multivariate.slides.html#section-8",
-    "title": "Multivariable Data",
-    "section": "",
-    "text": "We can also change the format of outlier points using the arguments marker, markersize, and markerfacecolor inside the argument flierprops in sns.boxplot.\n\n\nCode\nplt.figure(figsize=(6, 4))\nsns.boxplot(data=auto_data, x=\"origin\", y=\"mpg\", color=\"lightblue\",  \n            flierprops=dict(marker=\"o\", markerfacecolor=\"purple\", markersize=8))\nplt.title(\"Miles per Gallon Distribution by Origin\", fontsize=17)\nplt.xlabel(\"Origen\", fontsize=15)\nplt.ylabel(\"Miles per gallon\", fontsize=15)\nplt.tick_params(axis='both', labelsize=12)\nplt.show()"
-  },
-  {
-    "objectID": "T5_Multivariate_Data/Multivariate.slides.html#cleveland-dot-plot",
-    "href": "T5_Multivariate_Data/Multivariate.slides.html#cleveland-dot-plot",
-    "title": "Multivariable Data",
-    "section": "Cleveland Dot Plot",
-    "text": "Cleveland Dot Plot\nThe Cleveland dot plot encodes quantitative data across different categories. It is an alternative to a bar chart. It is obtained using the function scatterplot().\n\nplt.figure(figsize=(8, 6))\nsns.scatterplot(data=summary_autos, x='mpg', y='origin')\nplt.title(\"Average Miles per Gallon by Origin\", fontsize=17)\nplt.xlabel(\"Average Miles Per Gallon\", fontsize=15)\nplt.ylabel(\"Origen\", fontsize=15)\nplt.show()"
-  },
-  {
-    "objectID": "T5_Multivariate_Data/Multivariate.slides.html#improving-the-plot",
-    "href": "T5_Multivariate_Data/Multivariate.slides.html#improving-the-plot",
-    "title": "Multivariable Data",
-    "section": "Improving the plot",
-    "text": "Improving the plot\nWe apply Principle 3 to improve the plot.\n\n\nCode\nplt.figure(figsize=(7, 5))\nsns.scatterplot(data=summary_autos, x='mpg', y='origin', s=100, color='pink')\nplt.title(\"Average Miles per Gallon by Origin\", fontsize=17)\nplt.xlabel(\"Average Miles Per Gallon\", fontsize=15)\nplt.ylabel(\"Origen\", fontsize=15)\n# Set x-axis limits\nplt.xlim(0, 35)\nplt.show()"
-  },
-  {
-    "objectID": "T5_Multivariate_Data/Multivariate.slides.html#bar-chart",
-    "href": "T5_Multivariate_Data/Multivariate.slides.html#bar-chart",
-    "title": "Multivariable Data",
-    "section": "Bar Chart",
-    "text": "Bar Chart\nTo create a bar chart where the bar length equals a specific value, we use the function barplot() dfrom the seaborn.\n\nplt.figure(figsize=(5, 3))\nsns.barplot(data=summary_autos, x='mpg', y='origin')\nplt.title(\"Average Miles per Gallon by Origin\")\nplt.xlabel(\"Average Miles Per Gallon\")\nplt.ylabel(\"Origen\")\nplt.show()"
-  },
-  {
-    "objectID": "T5_Multivariate_Data/Multivariate.slides.html#section-9",
-    "href": "T5_Multivariate_Data/Multivariate.slides.html#section-9",
-    "title": "Multivariable Data",
-    "section": "",
-    "text": "The data to be plotted are:\n\nsummary_autos\n\n\n\n\n\n\n\n\nmpg\n\n\norigin\n\n\n\n\n\nAmerican\n20.083534\n\n\nEuropean\n27.891429\n\n\nJapanese\n30.450633"
-  },
-  {
-    "objectID": "T5_Multivariate_Data/Multivariate.slides.html#divide-the-data-into-groups-1",
-    "href": "T5_Multivariate_Data/Multivariate.slides.html#divide-the-data-into-groups-1",
-    "title": "Multivariable Data",
-    "section": "Divide the Data into Groups!",
-    "text": "Divide the Data into Groups!\nWith two categorical variables, we compare the distribution of one variable across subgroups defined by the other variable.\nIn fact, we keep one variable constant and plot the distribution of the other.\n\nTo do this, the most popular charts are extensions of bar graphs:\n\nStacked bar charts\nSide-by-side bar charts"
-  },
-  {
-    "objectID": "T5_Multivariate_Data/Multivariate.slides.html#example-3",
-    "href": "T5_Multivariate_Data/Multivariate.slides.html#example-3",
-    "title": "Multivariable Data",
-    "section": "Example 3",
-    "text": "Example 3\nAs an example, let’s consider the data in the file “penguins.xlsx”.\n\npenguins_data = pd.read_excel(\"penguins.xlsx\")\npenguins_data.head()\n\n\n\n\n\n\n\n\nspecies\nisland\nbill_length_mm\nbill_depth_mm\nflipper_length_mm\nbody_mass_g\nsex\nyear\n\n\n\n\n0\nAdelie\nTorgersen\n39.1\n18.7\n181.0\n3750.0\nmale\n2007\n\n\n1\nAdelie\nTorgersen\n39.5\n17.4\n186.0\n3800.0\nfemale\n2007\n\n\n2\nAdelie\nTorgersen\n40.3\n18.0\n195.0\n3250.0\nfemale\n2007\n\n\n3\nAdelie\nTorgersen\nNaN\nNaN\nNaN\nNaN\nNaN\n2007\n\n\n4\nAdelie\nTorgersen\n36.7\n19.3\n193.0\n3450.0\nfemale\n2007"
-  },
-  {
-    "objectID": "T5_Multivariate_Data/Multivariate.slides.html#section-10",
-    "href": "T5_Multivariate_Data/Multivariate.slides.html#section-10",
-    "title": "Multivariable Data",
-    "section": "",
-    "text": "Two common visualization types for plotting a numerical and a discrete variable when there is only one value per category are:\n\nCleveland dot plot\nBar chart"
-  },
-  {
-    "objectID": "T5_Multivariate_Data/Multivariate.slides.html#stacked-bar-chart",
-    "href": "T5_Multivariate_Data/Multivariate.slides.html#stacked-bar-chart",
-    "title": "Multivariable Data",
-    "section": "Stacked Bar Chart",
-    "text": "Stacked Bar Chart\nThe side-by-side bar chart is generated using the countplot(), function, assigning the \\(X\\) variable to the hue argument.\n\n\nFor example, to study the distribution of penguin species across the three different islands, we use the following:\n\nplt.figure(figsize=(8, 6))\nsns.countplot(data=penguins_data, x='species', hue='island')\nplt.title(\"Distribution of Penguin Species by Island\", fontsize=17)\nplt.xlabel(\"Species\", fontsize=15)\nplt.ylabel(\"Count\", fontsize=15)\nplt.show()"
-  },
-  {
-    "objectID": "T5_Multivariate_Data/Multivariate.slides.html#section-11",
-    "href": "T5_Multivariate_Data/Multivariate.slides.html#section-11",
-    "title": "Multivariable Data",
-    "section": "",
-    "text": "We can use similar commands as the Cleveland dot plot to improve the bar chart.\n\n\nCode\nplt.figure(figsize=(8, 6))\nsns.barplot(data=summary_autos, x='mpg', y='origin', color='lightblue')\nplt.title(\"Average Miles per Gallon by Origin\", fontsize=17)\nplt.xlabel(\"Average Miles Per Gallon\", fontsize=15)\nplt.ylabel(\"Origen\", fontsize=15)\nplt.xlim(0, 35)\nplt.show()"
-  },
-  {
-    "objectID": "T5_Multivariate_Data/Multivariate.slides.html#side-by-side-bar-chart",
-    "href": "T5_Multivariate_Data/Multivariate.slides.html#side-by-side-bar-chart",
-    "title": "Multivariable Data",
-    "section": "Side-by-Side Bar Chart",
-    "text": "Side-by-Side Bar Chart\nAn alternative to the previous chart is to place the bars side by side for the categories of the \\(X\\) variable.\nIn this case, we use the same commands with an extra argument: position = position_dodge().\n\nplt.figure(figsize=(8, 6))\nsns.countplot(data=penguins_data, x='species', hue='island', palette='Set1')\nplt.title(\"Distribution of Penguin Species by Island\", fontsize=17)\nplt.xlabel(\"Species\", fontsize=15)\nplt.ylabel(\"Count\", fontsize=15)\nplt.show()"
-  },
-  {
-    "objectID": "T5_Multivariate_Data/Multivariate.slides.html#stacked-or-side-by-side",
-    "href": "T5_Multivariate_Data/Multivariate.slides.html#stacked-or-side-by-side",
-    "title": "Multivariable Data",
-    "section": "Stacked or Side-by-Side?",
-    "text": "Stacked or Side-by-Side?\n\nThe main difference between stacked and side-by-side bar charts is that the side-by-side chart shows values in separate bars within a category.\nAdvantages of stacked bars:\n\nEasier to understand what proportions of a whole are divided among segments.\nVisually adds up each proportion."
-  },
-  {
-    "objectID": "T5_Multivariate_Data/Multivariate.slides.html#section-13",
-    "href": "T5_Multivariate_Data/Multivariate.slides.html#section-13",
-    "title": "Multivariable Data",
-    "section": "",
-    "text": "The data has two categorical variables:\n\nThe species of penguins (species).\nThe island they come from (island).\n\nMake sure they are specified as factor in Python!\n\npenguins_data[['species', 'island', 'sex']] = penguins_data[['species', 'island', 'sex']].astype('category')"
-  },
-  {
-    "objectID": "T5_Multivariate_Data/Multivariate.slides.html#statistical-summaries",
-    "href": "T5_Multivariate_Data/Multivariate.slides.html#statistical-summaries",
-    "title": "Multivariable Data",
-    "section": "Statistical Summaries",
-    "text": "Statistical Summaries\nFor categorical variables, the most common statistical summaries are frequency and relative frequency.\nWith pandas, we calculate frequency using the size(), function, which counts the unique values of one or more variables. We also use groupby() to compute the distribution by categorical variables.\n\ncount_data = (penguins_data\n  .groupby(['island', 'species'], observed = True)\n  .size()\n  .reset_index(name='count')\n  )"
-  },
-  {
-    "objectID": "T5_Multivariate_Data/Multivariate.slides.html#section-14",
-    "href": "T5_Multivariate_Data/Multivariate.slides.html#section-14",
-    "title": "Multivariable Data",
-    "section": "",
-    "text": "The chart shows the frequency of each species, separated by island name.\n\nplt.figure(figsize=(6, 4))\nsns.countplot(data=penguins_data, x='species', hue='island')\nplt.title(\"Distribution of Penguin Species by Island\", fontsize=17)\nplt.xlabel(\"Species\", fontsize=15)\nplt.ylabel(\"Count\", fontsize=15)\nplt.show()"
-  },
-  {
-    "objectID": "T5_Multivariate_Data/Multivariate.slides.html#charts-for-three-variables",
-    "href": "T5_Multivariate_Data/Multivariate.slides.html#charts-for-three-variables",
-    "title": "Multivariable Data",
-    "section": "Charts for Three Variables",
-    "text": "Charts for Three Variables\n\nWhen examining a distribution or relationship, we often want to compare it across data subgroups.\nThis process of conditioning on additional variables leads to visualizations involving three or more variables.\nHere we explain how to create charts to visualize multiple variables."
-  },
-  {
-    "objectID": "T5_Multivariate_Data/Multivariate.slides.html#scatter-plot-by-color",
-    "href": "T5_Multivariate_Data/Multivariate.slides.html#scatter-plot-by-color",
-    "title": "Multivariable Data",
-    "section": "Scatter plot by color",
-    "text": "Scatter plot by color\nFor two numerical variables and one categorical variable.\n\nplt.figure(figsize=(6.2, 4.2))\nsns.scatterplot(data = auto_data, x='weight', y='mpg', hue='origin')\nplt.xlabel(\"Weight (lb)\")\nplt.ylabel(\"Miles per Gallon (MPG)\")\nplt.show()"
-  },
-  {
-    "objectID": "T5_Multivariate_Data/Multivariate.slides.html#faceted-or-lattice-plot",
-    "href": "T5_Multivariate_Data/Multivariate.slides.html#faceted-or-lattice-plot",
-    "title": "Multivariable Data",
-    "section": "Faceted or Lattice Plot",
-    "text": "Faceted or Lattice Plot\nA faceted plot visualizes the relationship or distribution of one or two variables for each subgroup defined by a third variable \\(Z\\).\n\nIdea: Create a chart for each subgroup of \\(Z\\).\n\n\nTo create the plot, use the FacetGrid() function in seaborn with the following syntax:\n\nplt.figure(figsize=(8, 6))\ng = sns.FacetGrid(auto_data, col='origin')\ng.map(sns.scatterplot, 'weight', 'mpg')\ng.set_axis_labels(\"Weight (lb)\", \"Miles per Gallon (MPG)\")\ng.set_titles(\"{col_name} Origin\")\nplt.show()"
-  },
-  {
-    "objectID": "T5_Multivariate_Data/Multivariate.slides.html#section-15",
-    "href": "T5_Multivariate_Data/Multivariate.slides.html#section-15",
-    "title": "Multivariable Data",
-    "section": "",
-    "text": "Advantages of side-by-side bars:\n\nEasier to compare the heights of each individual entity.\nBetter for comparing between groups."
-  },
-  {
-    "objectID": "T5_Multivariate_Data/Multivariate.slides.html#section-16",
-    "href": "T5_Multivariate_Data/Multivariate.slides.html#section-16",
-    "title": "Multivariable Data",
-    "section": "",
-    "text": "Advantages of side-by-side bars:\n\nEasier to compare the heights of each individual entity.\nBetter for comparing between groups."
-  },
-  {
-    "objectID": "T5_Multivariate_Data/Multivariate.slides.html#multiple-line-charts",
-    "href": "T5_Multivariate_Data/Multivariate.slides.html#multiple-line-charts",
-    "title": "Multivariable Data",
-    "section": "Multiple Line Charts",
-    "text": "Multiple Line Charts\nWe can use the functions gf_line() and gf_facet_grid() to visualize the evolution of play counts for the 5 songs in the file “spotify.xlsx” over time.\n\nHowever, we need to manipulate the data to obtain the format required by these functions."
-  },
-  {
-    "objectID": "T5_Multivariate_Data/Multivariate.slides.html#the-required-format",
-    "href": "T5_Multivariate_Data/Multivariate.slides.html#the-required-format",
-    "title": "Multivariable Data",
-    "section": "The Required Format",
-    "text": "The Required Format\nFor a multiple line chart, we need to merge the columns Shape of You, Despacito, Something Just Like This, HUMBLE and Unforgettable into two columns.\nOne column will contain the number of plays, and the other will contain the song title.\nBoth columns will be ordered by the variable Date."
-  },
-  {
-    "objectID": "T5_Multivariate_Data/Multivariate.slides.html#section-17",
-    "href": "T5_Multivariate_Data/Multivariate.slides.html#section-17",
-    "title": "Multivariable Data",
-    "section": "",
-    "text": "# Show the result\nprint(count_data)\n\n      island    species  count\n0     Biscoe     Adelie     44\n1     Biscoe     Gentoo    124\n2      Dream     Adelie     56\n3      Dream  Chinstrap     68\n4  Torgersen     Adelie     52"
-  },
-  {
-    "objectID": "T5_Multivariate_Data/Multivariate.slides.html#section-18",
-    "href": "T5_Multivariate_Data/Multivariate.slides.html#section-18",
-    "title": "Multivariable Data",
-    "section": "",
-    "text": "To calculate relative frequency, we use assign() along with the lambda, function, which calculates the proportions of a column.\n\nrel_freq_table = (penguins_data\n  .groupby(['island', 'species'], observed = True)\n  .size()\n  .reset_index(name='count')\n  .assign(Proportion = lambda df: df[\"count\"]/df[\"count\"].sum())\n  )\n  \nprint(rel_freq_table)  \n\n      island    species  count  Proportion\n0     Biscoe     Adelie     44    0.127907\n1     Biscoe     Gentoo    124    0.360465\n2      Dream     Adelie     56    0.162791\n3      Dream  Chinstrap     68    0.197674\n4  Torgersen     Adelie     52    0.151163"
-  },
-  {
-    "objectID": "T5_Multivariate_Data/Multivariate.slides.html#section-19",
-    "href": "T5_Multivariate_Data/Multivariate.slides.html#section-19",
-    "title": "Multivariable Data",
-    "section": "",
-    "text": "The function produces a grid with 1 column and 3 rows of charts. Each row accommodates one category of origin.\n\n\n&lt;Figure size 768x576 with 0 Axes&gt;"
-  },
-  {
-    "objectID": "T5_Multivariate_Data/Multivariate.slides.html#applying-principle-3-2",
-    "href": "T5_Multivariate_Data/Multivariate.slides.html#applying-principle-3-2",
-    "title": "Multivariable Data",
-    "section": "Applying Principle 3",
-    "text": "Applying Principle 3\n\n\nCode\n# Create the line plot with color mapped to 'Cancion'\nplt.figure(figsize=(7.8, 5.8))\nsns.lineplot(x='Date', y='Plays', hue='Song', data=data_lines)\n\n# Customize the plot\nplt.title(\"Plays by Song Over Time\", fontsize = 17)\nplt.xlabel(\"Date\", fontsize = 12)\nplt.ylabel(\"Plays\", fontsize = 12)\n\n# Show the plot\nplt.show()"
-  },
-  {
-    "objectID": "T5_Multivariate_Data/Multivariate.slides.html#graphs-for-four-variables",
-    "href": "T5_Multivariate_Data/Multivariate.slides.html#graphs-for-four-variables",
-    "title": "Multivariable Data",
-    "section": "Graphs for four variables",
-    "text": "Graphs for four variables\nA common chart for four variables is the scatter plot, where the color and size of the symbols depend on two categorical variables.\n\n\nplt.figure(figsize=(8, 6))\nsns.scatterplot(data=penguins_data, x='bill_depth_mm', y='bill_length_mm',\n    hue='species', size='island')\nplt.xlabel(\"Bill Depth (mm)\")\nplt.ylabel(\"Bill Length (mm)\")\nplt.title(\"Penguin Bill Dimensions by Species and Island\")\nplt.show()"
-  },
-  {
-    "objectID": "T5_Multivariate_Data/Multivariate.slides.html#section-12",
-    "href": "T5_Multivariate_Data/Multivariate.slides.html#section-12",
-    "title": "Multivariable Data",
-    "section": "",
-    "text": "We can use similar commands as the Cleveland dot plot to improve the bar chart.\n\n\nCode\nplt.figure(figsize=(7, 5))\nsns.barplot(data=summary_autos, x='mpg', y='origin', color='lightblue')\nplt.title(\"Average Miles per Gallon by Origin\", fontsize=17)\nplt.xlabel(\"Average Miles Per Gallon\", fontsize=15)\nplt.ylabel(\"Origen\", fontsize=15)\nplt.xlim(0, 35)\nplt.show()"
-  },
-  {
-    "objectID": "T5_Multivariate_Data/Multivariate.slides.html#section-20",
-    "href": "T5_Multivariate_Data/Multivariate.slides.html#section-20",
-    "title": "Multivariable Data",
-    "section": "",
-    "text": "If we change the order of the origin variable in the gf_facet_grid, function, we get a grid with three columns and one row of charts.\n\n# Create the scatter plot and facet by 'origin'\nplt.figure(figsize=(8, 6))\ng = sns.FacetGrid(auto_data, col='origin')\ng.map(sns.scatterplot, 'weight', 'mpg')\n\n# Customize the plot\ng.set_axis_labels(\"Weight (lb)\", \"Miles per Gallon (MPG)\")\ng.set_titles(\"{col_name} Origin\")\n\n# Show the plot\nplt.show()\n\n&lt;Figure size 768x576 with 0 Axes&gt;"
-  },
-  {
-    "objectID": "T5_Multivariate_Data/Multivariate.slides.html#section-21",
-    "href": "T5_Multivariate_Data/Multivariate.slides.html#section-21",
-    "title": "Multivariable Data",
-    "section": "",
-    "text": "To format the data, we use the melt() function from the pandas library.\n\n# Pivot longer: melt the dataframe\ndata_lines = spotify_data.melt(id_vars=[\"Date\"], \n                                value_vars=[\"Shape of You\", \"Despacito\", \"Something Just Like This\", \"HUMBLE.\", \"Unforgettable\"], \n                                var_name=\"Song\", \n                                value_name=\"Plays\")"
-  },
-  {
-    "objectID": "T5_Multivariate_Data/Multivariate.slides.html#section-22",
-    "href": "T5_Multivariate_Data/Multivariate.slides.html#section-22",
-    "title": "Multivariable Data",
-    "section": "",
-    "text": "data_lines.head()\n\n\n\n\n\n\n\n\nDate\nSong\nPlays\n\n\n\n\n0\n2017-01-06\nShape of You\n12287078.0\n\n\n1\n2017-01-07\nShape of You\n13190270.0\n\n\n2\n2017-01-08\nShape of You\n13099919.0\n\n\n3\n2017-01-09\nShape of You\n14506351.0\n\n\n4\n2017-01-10\nShape of You\n14275628.0"
-  },
-  {
-    "objectID": "T5_Multivariate_Data/Multivariate.slides.html#section-23",
-    "href": "T5_Multivariate_Data/Multivariate.slides.html#section-23",
-    "title": "Multivariable Data",
-    "section": "",
-    "text": "Now, we apply similar functions to the data_lines object.\n\n\nCode\n# Create the line plot and facet by 'Cancion'\nplt.figure(figsize=(8, 6))\ng = sns.FacetGrid(data_lines, col='Song')\ng.map(sns.lineplot, 'Date', 'Plays')\n\n# Customize the plot\ng.set_axis_labels(\"Date\", \"Plays\")\ng.set_titles(\"{col_name} Song\")\n\n# Rotate the x-axis labels for better readability\nfor ax in g.axes.flat:\n    ax.set_xticklabels(ax.get_xticklabels(), rotation=90)\n\n# Show the plot\nplt.show()\n\n\n&lt;Figure size 768x576 with 0 Axes&gt;"
-  },
-  {
-    "objectID": "T5_Multivariate_Data/Multivariate.slides.html#section-24",
-    "href": "T5_Multivariate_Data/Multivariate.slides.html#section-24",
-    "title": "Multivariable Data",
-    "section": "",
-    "text": "Or we can plot all lines on a single chart.\n\n\nCode\n# Create the line plot with color mapped to 'Cancion'\nplt.figure(figsize=(7, 5))\nsns.lineplot(x='Date', y='Plays', hue='Song', data=data_lines)\n\n# Customize the plot\nplt.title(\"Plays by Song Over Time\")\nplt.xlabel(\"Date\")\nplt.ylabel(\"Plays\")\nplt.xticks(rotation=90)  # Rotate x-axis labels for better readability\n\n# Show the plot\nplt.show()"
   }
 ]
