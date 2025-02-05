@@ -1,5 +1,5 @@
 ---
-title: "Tools to construct graphs"
+title: "Tools for Data Analysis and Visualization"
 subtitle: "IN2039: Data Visualization for Decision Making"
 author: 
   - name: Alan R. Vazquez
@@ -169,22 +169,24 @@ with the “s” capitalized, he will act like he has no idea what we are talkin
 lo mismo si olvidas incluir un parentesis
 :::
 
-## Save your work in python objects
+## Save your work in Python objects
 
-Virtually anything, including the results of any python function, can be saved in an *object*.
+Virtually anything, including the results of any Python function, can be saved in an *object*.
 
 This is accomplished by using an assignment operator, which can be an equals symbol (`=`).
 
 . . .
 
-You can make up any name you want for a python object. However, there are two basic rules for this:
+You can make up any name you want for a Python object. However, there are two basic rules for this:
 
 ::: incremental
-1.  It has to be different from a function name in python.
+1.  It has to be different from a function name in Python.
 2.  It has to be as specific as possible.
 :::
 
 ## For example
+
+</br>
 
 ```{python}
 #| echo: true
@@ -225,6 +227,8 @@ puedes pensar que el c es por combinar
 
 ## For example
 
+</br>
+
 This code creates two vectors
 
 ```{python}
@@ -248,6 +252,8 @@ my_list_2
 
 ## Operations
 
+</br>
+
 We can do simple operations with vectors. For example, we can sum all the elements of a list.
 
 ```{python}
@@ -258,6 +264,8 @@ sum(my_list)
 ```
 
 ## Indexing
+
+</br>
 
 We can index a position in the vector using square brackets with a number like this: `[1]`.
 
@@ -278,6 +286,8 @@ my_list[0]
 ```
 
 ## A little more about objects in python
+
+</br>
 
 You can think of python objects as containers that hold values.
 
@@ -330,6 +340,8 @@ many_greetings[1] == "hola"
 
 ## Logical operators
 
+</br>
+
 Most of the questions we ask python to answer with `True` or `False` involve comparison operators like `>`, `<`, `>=`, `<=`, and `==`.
 
 The double `==` sign checks whether two values are equal. There is even a comparison operator to check whether values are *not* equal: `!=`.
@@ -337,6 +349,8 @@ The double `==` sign checks whether two values are equal. There is even a compar
 For example, `5 != 3` is a `True` statement.
 
 ## Common logical operators
+
+</br>
 
 -   `>` (*larger than*)
 
@@ -352,6 +366,8 @@ For example, `5 != 3` is a `True` statement.
 
 ## Question
 
+</br>
+
 Read this code and predict its response. Then, run the code in Google Colab and validate if you were correct.
 
 ```{python}
@@ -366,6 +382,8 @@ compare
 
 ## Programming culture: Trial and error
 
+</br>
+
 The best way to learn programming is to try things out and see what happens. Write some code, run it, and think about why it didn't work.
 
 There are many ways to make small mistakes in programming (for example, typing a capital letter when a lowercase letter is needed).
@@ -373,6 +391,8 @@ There are many ways to make small mistakes in programming (for example, typing a
 We often have to find these mistakes through trial and error.
 
 ## Python libraries
+
+</br>
 
 Libraries are the fundamental units of reproducible python code. They include reusable python functions, documentation describing how to use them, and sample data.
 
@@ -442,6 +462,8 @@ So one of the variables, `Condition`, indicates whether they were informed of th
 
 ## 
 
+</br>
+
 Other variables include the age of the housekeeper (`Age`), her weight before starting the study (`Wt`), and her weight at the end of the study (`Wt2`), measured four weeks later.
 
 <br/>
@@ -462,7 +484,7 @@ Therefore, the values in each row represent the values of that particular case i
 ¿Cuántas variables hay en este conjunto de datos?
 :::
 
-## Loading data in python
+## Loading data in Python
 
 In this course, we will assume that data is stored in an Excel file with the above organization. As an example, let's use the file `penguins.xlsx`.
 
@@ -520,6 +542,8 @@ import pandas as pd
 The command `as pd` allows us to have a short name for **pandas**. To use a function of **pandas**, we use the command `pd.function()`.
 
 ## Loading data using pandas
+
+</br>
 
 The following code shows how to read the data in the file "penguins.xlsx" into python.
 
@@ -595,7 +619,6 @@ sub_rows_pdata = penguins_data.loc[2:5, ['bill_length_mm',  'species', 'island']
 sub_rows_pdata
 ```
 
-
 # Creating our first plot
 
 ## matplotlib library
@@ -605,7 +628,7 @@ sub_rows_pdata
 -   Ideal for creating simple visualizations like line plots, bar charts, scatter plots, and more
 -   <https://matplotlib.org/>
 
-![](images/matplotlib.png){fig-align="center"}
+![](images/matplotlib.png){fig-align="center" width="519"}
 
 ## seaborn library
 
@@ -620,7 +643,7 @@ sub_rows_pdata
 
 </br>
 
-The **matplotlib** and **seaborn** libraries are pre-installed in Google Colab. However, we need to inform Google Colab that we want to use them and its functions using the following command:
+The **matplotlib** and **seaborn** libraries are pre-installed in Google Colab. However, we need to tell Google Colab that we want to use them using the following command:
 
 ```{python}
 #| echo: true
@@ -629,14 +652,15 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 ```
 
-Similar to **pandas**, the command `as sns` allows us to have a short name for **seaborn**. Similarly, we rename **matplotlib** as **plt**.
+</br>
 
+Like **pandas**, the command `as sns` allows us to have a short name for **seaborn**. Similarly, we rename **matplotlib** as **plt**.
 
 ## Seaborn Plot Structure
 
-Seaborn has a structured approach to creating visualizations.
+Seaborn has a structured approach to creating visualizations:
 
-plt.figure(figsize=(WIDTH, HEIGHT))
+[plt.figure(figsize=(WIDTH, HEIGHT))]{style="color:#964B00;"}
 
 [sns.PLOTTYPE(data=my_data, x="Variable1", y="Variable2", hue="Variable3", MOREOPTIONS)]{style="color:#619CFF;"}
 
@@ -669,10 +693,10 @@ Is there a difference between bill length and bill depth across penguin species?
 #| output-location: fragment
 #| out.width: "80%"
 
-plt.figure(figsize=(6, 4))
+plt.figure(figsize=(6, 4)) # Set figure size.
 sns.scatterplot(data=penguins_data, x="bill_depth_mm", y="bill_length_mm", 
-hue="species")
-plt.show() # Display the plot
+                hue="species") # Define type of plot.
+plt.show() # Display the plot.
 ```
 
 ## Adding titles and labels
@@ -681,14 +705,14 @@ plt.show() # Display the plot
 #| echo: true
 #| output: true
 #| code-overflow: wrap
-#| fig-pos: center
+#| fig-align: center
 #| code-line-numbers: "4-7"
 #| output-location: fragment
 #| out.width: "80%"
 
 plt.figure(figsize=(6, 4))
 sns.scatterplot(data=penguins_data, x="bill_depth_mm", y="bill_length_mm", 
-hue="species")
+                hue="species")
 plt.title("Bill Depth vs. Bill Length")
 plt.xlabel("Bill Depth (mm)")
 plt.ylabel("Bill Length (mm)")
@@ -703,12 +727,12 @@ plt.show()
 #| output: true
 #| code-overflow: wrap
 #| fig-height: 4
-#| fig-pos: center 
+#| fig-align: center 
 #| code-line-numbers: "2-3"
 
 plt.figure(figsize=(6, 4))
 sns.scatterplot(data=penguins_data, x="bill_depth_mm", y="bill_length_mm", 
-hue="species", palette="viridis")
+                hue="species", palette="viridis")
 plt.title("Bill Depth vs. Bill Length")
 plt.xlabel("Bill Depth (mm)")
 plt.ylabel("Bill Length (mm)")
@@ -720,7 +744,7 @@ plt.show()
 
 </br>
 
-We can also use other functions to improve the aspect of the figure:
+We can also use the argument `fontsize` and other functions to improve the aspect of the figure:
 
 -   `plt.title(fontsize)`: Font size of the title.
 -   `plt.ylabel(fontsize)`: Font size of y axis title.
@@ -738,7 +762,7 @@ We can also use other functions to improve the aspect of the figure:
 
 plt.figure(figsize=(8, 6))
 sns.scatterplot(data=penguins_data, x="bill_depth_mm", y="bill_length_mm", 
-hue="species", palette="viridis")
+                hue="species", palette="viridis")
 plt.title("Bill Depth vs. Bill Length", fontsize = 12)
 plt.xlabel("Bill Depth (mm)", fontsize = 12)
 plt.ylabel("Bill Length (mm)", fontsize = 12)
@@ -760,18 +784,17 @@ We save a figure using the `save.fig` function from **matplotlib**. The `dpi` ar
 
 plt.figure(figsize=(5, 5))
 sns.scatterplot(data=penguins_data, x="bill_depth_mm", y="bill_length_mm", 
-hue="species", palette="viridis")
+                hue="species", palette="viridis")
 plt.title("Bill Depth vs. Bill Length", fontsize = 12)
 plt.xlabel("Bill Depth (mm)", fontsize = 12)
 plt.ylabel("Bill Length (mm)", fontsize = 12)
 plt.legend(title="Species", fontsize = 12)
 plt.xticks(fontsize = 12)
 plt.yticks(fontsize = 12)
-plt.savefig('scatter_plot.png',dpi=300)
+plt.savefig('scatter_plot.png',dpi=300) # Save figure.
 ```
 
-
-## Mini-actividad (*solo* mode)
+## Mini-activity (*solo* mode)
 
 1.  Open the following Google Colab link:
 
@@ -780,6 +803,5 @@ plt.savefig('scatter_plot.png',dpi=300)
 2.  Copy the notebook to your drive.
 
 3.  Answer the questions.
-
 
 # [Return to main page](https://alanrvazquez.github.io/TEC-IN2039-EN/)

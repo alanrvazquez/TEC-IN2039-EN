@@ -212,343 +212,343 @@
   {
     "objectID": "T1_Introduction/Tools.slides.html#agenda",
     "href": "T1_Introduction/Tools.slides.html#agenda",
-    "title": "Tools to construct graphs",
+    "title": "Tools for Data Analysis and Visualization",
     "section": "Agenda",
     "text": "Agenda\n\nIntroduction to python\nReading data with python\nCreating our first plot"
   },
   {
     "objectID": "T1_Introduction/Tools.slides.html#python",
     "href": "T1_Introduction/Tools.slides.html#python",
-    "title": "Tools to construct graphs",
+    "title": "Tools for Data Analysis and Visualization",
     "section": "Python",
     "text": "Python\n\n\n\nA versatile programming language.\nIt is free!\nIt is widely used for data cleaning, data visualization, and data modelling.\nIt can be extended with packages (libraries) developed by other users."
   },
   {
     "objectID": "T1_Introduction/Tools.slides.html#google-colab",
     "href": "T1_Introduction/Tools.slides.html#google-colab",
-    "title": "Tools to construct graphs",
+    "title": "Tools for Data Analysis and Visualization",
     "section": "Google Colab",
     "text": "Google Colab\nGoogle’s free cloud collaboration platform for creating python documents.\n\nRun python and collaborate on Jupyter notebooks for free.\nHarness the power of GPUs for free to accelerate your data science projects.\nEasily save and upload your notebooks to Google Drive."
   },
   {
     "objectID": "T1_Introduction/Tools.slides.html#lets-try-a-command-in-r",
     "href": "T1_Introduction/Tools.slides.html#lets-try-a-command-in-r",
-    "title": "Tools to construct graphs",
+    "title": "Tools for Data Analysis and Visualization",
     "section": "Let’s try a command in R",
     "text": "Let’s try a command in R\nWhat do you think will happen if we run this command?\n\nprint(\"Hello world!\")"
   },
   {
     "objectID": "T1_Introduction/Tools.slides.html#lets-try-another-command",
     "href": "T1_Introduction/Tools.slides.html#lets-try-another-command",
-    "title": "Tools to construct graphs",
+    "title": "Tools for Data Analysis and Visualization",
     "section": "Let’s try another command",
     "text": "Let’s try another command\nWhat do you think will happen if we run this command?\n\nsum([1, 5, 10])"
   },
   {
     "objectID": "T1_Introduction/Tools.slides.html#use-python-as-a-basic-calculator",
     "href": "T1_Introduction/Tools.slides.html#use-python-as-a-basic-calculator",
-    "title": "Tools to construct graphs",
+    "title": "Tools for Data Analysis and Visualization",
     "section": "Use python as a basic calculator",
     "text": "Use python as a basic calculator\n\n5 + 1\n\n6\n\n\n\n10 - 3\n\n7\n\n\n\n2 * 4\n\n8\n\n\n\n9 / 3\n\n3.0"
   },
   {
     "objectID": "T1_Introduction/Tools.slides.html#comments",
     "href": "T1_Introduction/Tools.slides.html#comments",
-    "title": "Tools to construct graphs",
+    "title": "Tools for Data Analysis and Visualization",
     "section": "Comments",
     "text": "Comments\nSometimes we write things in the coding window that we want python to ignore. These are called comments and start with #.\n\nPython will ignore the comments and just execute the code.\n\n# you can put whatever after #\n# for example... blah blah blah\n\n\nSi desea escribir un comentario que ocupe más de una línea, es una buena idea poner un # al principio de cada línea."
   },
   {
     "objectID": "T1_Introduction/Tools.slides.html#introduction-to-functions-in-r",
     "href": "T1_Introduction/Tools.slides.html#introduction-to-functions-in-r",
-    "title": "Tools to construct graphs",
+    "title": "Tools for Data Analysis and Visualization",
     "section": "Introduction to functions in R",
     "text": "Introduction to functions in R\nOne of the best things about python is that there are many built-in commands you can use. These are called functions.\n\nFunctions have two basic parts:\n\n\nThe first part is the name of the function (for example, sum).\nThe second part is the input to the function, which goes inside the parentheses (sum([1, 5, 15]))."
   },
   {
     "objectID": "T1_Introduction/Tools.slides.html#python-is-strict",
     "href": "T1_Introduction/Tools.slides.html#python-is-strict",
-    "title": "Tools to construct graphs",
+    "title": "Tools for Data Analysis and Visualization",
     "section": "Python is strict",
     "text": "Python is strict\nPython, like all programming languages, is very strict. For example, if you write\n\nsum([1, 100])\n\n101\n\n\nit will tell you the answer, 101.\n\nBut if you write\n\nSum([1, 100])\n\n\n---------------------------------------------------------------------------\nNameError                                 Traceback (most recent call last)\nCell In[9], line 1\n----&gt; 1 Sum([1, 100])\n\nNameError: name 'Sum' is not defined\n\n\n\nwith the “s” capitalized, he will act like he has no idea what we are talking about!\n\nlo mismo si olvidas incluir un parentesis"
   },
   {
     "objectID": "T1_Introduction/Tools.slides.html#save-your-work-in-python-objects",
     "href": "T1_Introduction/Tools.slides.html#save-your-work-in-python-objects",
-    "title": "Tools to construct graphs",
-    "section": "Save your work in python objects",
-    "text": "Save your work in python objects\nVirtually anything, including the results of any python function, can be saved in an object.\nThis is accomplished by using an assignment operator, which can be an equals symbol (=).\n\nYou can make up any name you want for a python object. However, there are two basic rules for this:\n\n\nIt has to be different from a function name in python.\nIt has to be as specific as possible."
+    "title": "Tools for Data Analysis and Visualization",
+    "section": "Save your work in Python objects",
+    "text": "Save your work in Python objects\nVirtually anything, including the results of any Python function, can be saved in an object.\nThis is accomplished by using an assignment operator, which can be an equals symbol (=).\n\nYou can make up any name you want for a Python object. However, there are two basic rules for this:\n\n\nIt has to be different from a function name in Python.\nIt has to be as specific as possible."
   },
   {
     "objectID": "T1_Introduction/Tools.slides.html#for-example",
     "href": "T1_Introduction/Tools.slides.html#for-example",
-    "title": "Tools to construct graphs",
+    "title": "Tools for Data Analysis and Visualization",
     "section": "For example",
-    "text": "For example\n\n# This code will assign the number 18\n# to the object called my_favorite_number\n\nmy_favorite_number = 18\n\nAfter running this code, nothing happens. But if we run the object on its own, we can see what’s inside it.\n\nmy_favorite_number\n\n18\n\n\nYou can also use print(my_favorite_number)."
+    "text": "For example\n\n\n# This code will assign the number 18\n# to the object called my_favorite_number\n\nmy_favorite_number = 18\n\nAfter running this code, nothing happens. But if we run the object on its own, we can see what’s inside it.\n\nmy_favorite_number\n\n18\n\n\nYou can also use print(my_favorite_number)."
   },
   {
     "objectID": "T1_Introduction/Tools.slides.html#lists",
     "href": "T1_Introduction/Tools.slides.html#lists",
-    "title": "Tools to construct graphs",
+    "title": "Tools for Data Analysis and Visualization",
     "section": "Lists",
     "text": "Lists\nSo far we have used python objects to store a single number. But in statistics we are dealing with variation, which by definition needs more than one number.\n\nA python object can also store a complete set of numbers, called a list.\nYou can think of a list as a vector of numbers (or values).\n\n\nThe [] command can be used to combine several individual values into a list.\n\npuedes pensar que el c es por combinar"
   },
   {
     "objectID": "T1_Introduction/Tools.slides.html#for-example-1",
     "href": "T1_Introduction/Tools.slides.html#for-example-1",
-    "title": "Tools to construct graphs",
+    "title": "Tools for Data Analysis and Visualization",
     "section": "For example",
-    "text": "For example\nThis code creates two vectors\n\nmy_list = [1, 2, 3, 4, 5]\nmy_list_2 = [10, 10, 10, 10, 10]\n\nLet’s see its content\n\nmy_list\n\n[1, 2, 3, 4, 5]\n\n\n\nmy_list_2\n\n[10, 10, 10, 10, 10]"
+    "text": "For example\n\nThis code creates two vectors\n\nmy_list = [1, 2, 3, 4, 5]\nmy_list_2 = [10, 10, 10, 10, 10]\n\nLet’s see its content\n\nmy_list\n\n[1, 2, 3, 4, 5]\n\n\n\nmy_list_2\n\n[10, 10, 10, 10, 10]"
   },
   {
     "objectID": "T1_Introduction/Tools.slides.html#operations",
     "href": "T1_Introduction/Tools.slides.html#operations",
-    "title": "Tools to construct graphs",
+    "title": "Tools for Data Analysis and Visualization",
     "section": "Operations",
-    "text": "Operations\nWe can do simple operations with vectors. For example, we can sum all the elements of a list.\n\nmy_list = [1, 2, 3, 4, 5]\nsum(my_list)\n\n15"
+    "text": "Operations\n\nWe can do simple operations with vectors. For example, we can sum all the elements of a list.\n\nmy_list = [1, 2, 3, 4, 5]\nsum(my_list)\n\n15"
   },
   {
     "objectID": "T1_Introduction/Tools.slides.html#indexing",
     "href": "T1_Introduction/Tools.slides.html#indexing",
-    "title": "Tools to construct graphs",
+    "title": "Tools for Data Analysis and Visualization",
     "section": "Indexing",
-    "text": "Indexing\nWe can index a position in the vector using square brackets with a number like this: [1].\nSo, if we wanted to print the contents of the first position in my_list, we could write\n\nmy_list[1]\n\n2\n\n\nAn feature of Python is that the first element of a list or vector is indexed using the number 0.\n\nmy_list[0]\n\n1"
+    "text": "Indexing\n\nWe can index a position in the vector using square brackets with a number like this: [1].\nSo, if we wanted to print the contents of the first position in my_list, we could write\n\nmy_list[1]\n\n2\n\n\nAn feature of Python is that the first element of a list or vector is indexed using the number 0.\n\nmy_list[0]\n\n1"
   },
   {
     "objectID": "T1_Introduction/Tools.slides.html#a-little-more-about-objects-in-python",
     "href": "T1_Introduction/Tools.slides.html#a-little-more-about-objects-in-python",
-    "title": "Tools to construct graphs",
+    "title": "Tools for Data Analysis and Visualization",
     "section": "A little more about objects in python",
-    "text": "A little more about objects in python\nYou can think of python objects as containers that hold values.\nA python object can hold a single value, or it can hold a group of values (as in a vector).\nSo far, we’ve only put numbers into python objects.\n\n\nPython objects can actually contain three types of values: numbers, characters, and booleans."
+    "text": "A little more about objects in python\n\nYou can think of python objects as containers that hold values.\nA python object can hold a single value, or it can hold a group of values (as in a vector).\nSo far, we’ve only put numbers into python objects.\n\n\nPython objects can actually contain three types of values: numbers, characters, and booleans."
   },
   {
     "objectID": "T1_Introduction/Tools.slides.html#character-values",
     "href": "T1_Introduction/Tools.slides.html#character-values",
-    "title": "Tools to construct graphs",
+    "title": "Tools for Data Analysis and Visualization",
     "section": "Character values",
     "text": "Character values\nCharacters are made up of text, such as words or sentences. An example of a list with characters as elements is:\n\n\nmany_greetings = [\"hi\", \"hello\", \"hola\", \"bonjour\", \"ni hao\", \"merhaba\"]\nmany_greetings\n\n['hi', 'hello', 'hola', 'bonjour', 'ni hao', 'merhaba']\n\n\n\n\nIt is important to know that numbers can also be treated as characters, depending on the context.\nFor example, when 20 is enclosed in quotes (\"20\") it will be treated as a character value, even though it encloses a number in quotes."
   },
   {
     "objectID": "T1_Introduction/Tools.slides.html#boolean-values",
     "href": "T1_Introduction/Tools.slides.html#boolean-values",
-    "title": "Tools to construct graphs",
+    "title": "Tools for Data Analysis and Visualization",
     "section": "Boolean values",
     "text": "Boolean values\nBoolean values are True or False.\nWe may have a question like:\n\nIs the first element of the vector many_greetings \"hola\"?\n\n\nWe can ask python to find out and return the answer True or False.\n\nmany_greetings[1] == \"hola\"\n\nFalse"
   },
   {
     "objectID": "T1_Introduction/Tools.slides.html#logical-operators",
     "href": "T1_Introduction/Tools.slides.html#logical-operators",
-    "title": "Tools to construct graphs",
+    "title": "Tools for Data Analysis and Visualization",
     "section": "Logical operators",
-    "text": "Logical operators\nMost of the questions we ask python to answer with True or False involve comparison operators like &gt;, &lt;, &gt;=, &lt;=, and ==.\nThe double == sign checks whether two values are equal. There is even a comparison operator to check whether values are not equal: !=.\nFor example, 5 != 3 is a True statement."
+    "text": "Logical operators\n\nMost of the questions we ask python to answer with True or False involve comparison operators like &gt;, &lt;, &gt;=, &lt;=, and ==.\nThe double == sign checks whether two values are equal. There is even a comparison operator to check whether values are not equal: !=.\nFor example, 5 != 3 is a True statement."
   },
   {
     "objectID": "T1_Introduction/Tools.slides.html#common-logical-operators",
     "href": "T1_Introduction/Tools.slides.html#common-logical-operators",
-    "title": "Tools to construct graphs",
+    "title": "Tools for Data Analysis and Visualization",
     "section": "Common logical operators",
-    "text": "Common logical operators\n\n&gt; (larger than)\n&gt;= (larger than or equal to)\n&lt; (smaller than)\n&lt;= (smaller than or equal to)\n== (equal to)\n!= (not equal to)"
+    "text": "Common logical operators\n\n\n&gt; (larger than)\n&gt;= (larger than or equal to)\n&lt; (smaller than)\n&lt;= (smaller than or equal to)\n== (equal to)\n!= (not equal to)"
   },
   {
     "objectID": "T1_Introduction/Tools.slides.html#question",
     "href": "T1_Introduction/Tools.slides.html#question",
-    "title": "Tools to construct graphs",
+    "title": "Tools for Data Analysis and Visualization",
     "section": "Question",
-    "text": "Question\nRead this code and predict its response. Then, run the code in Google Colab and validate if you were correct.\n\nA = 1\nB = 5\ncompare = A &gt; B\ncompare"
+    "text": "Question\n\nRead this code and predict its response. Then, run the code in Google Colab and validate if you were correct.\n\nA = 1\nB = 5\ncompare = A &gt; B\ncompare"
   },
   {
     "objectID": "T1_Introduction/Tools.slides.html#programming-culture-trial-and-error",
     "href": "T1_Introduction/Tools.slides.html#programming-culture-trial-and-error",
-    "title": "Tools to construct graphs",
+    "title": "Tools for Data Analysis and Visualization",
     "section": "Programming culture: Trial and error",
-    "text": "Programming culture: Trial and error\nThe best way to learn programming is to try things out and see what happens. Write some code, run it, and think about why it didn’t work.\nThere are many ways to make small mistakes in programming (for example, typing a capital letter when a lowercase letter is needed).\nWe often have to find these mistakes through trial and error."
+    "text": "Programming culture: Trial and error\n\nThe best way to learn programming is to try things out and see what happens. Write some code, run it, and think about why it didn’t work.\nThere are many ways to make small mistakes in programming (for example, typing a capital letter when a lowercase letter is needed).\nWe often have to find these mistakes through trial and error."
   },
   {
     "objectID": "T1_Introduction/Tools.slides.html#python-libraries",
     "href": "T1_Introduction/Tools.slides.html#python-libraries",
-    "title": "Tools to construct graphs",
+    "title": "Tools for Data Analysis and Visualization",
     "section": "Python libraries",
-    "text": "Python libraries\nLibraries are the fundamental units of reproducible python code. They include reusable python functions, documentation describing how to use them, and sample data.\nIn this course, we will be working mostly with the following libraries:\n\npandas for data manipulation\nmatplotlib and seaborn for data visualization\nstatsmodels and scikit-learn for data modelling"
+    "text": "Python libraries\n\nLibraries are the fundamental units of reproducible python code. They include reusable python functions, documentation describing how to use them, and sample data.\nIn this course, we will be working mostly with the following libraries:\n\npandas for data manipulation\nmatplotlib and seaborn for data visualization\nstatsmodels and scikit-learn for data modelling"
   },
   {
     "objectID": "T1_Introduction/Tools.slides.html#data-organization",
     "href": "T1_Introduction/Tools.slides.html#data-organization",
-    "title": "Tools to construct graphs",
+    "title": "Tools for Data Analysis and Visualization",
     "section": "Data organization",
     "text": "Data organization\nIn data science, we organize data into rows and columns.\n\n    Condition  Age   Wt    Wt2\n1  Uninformed   35  136  135.8\n2  Uninformed   45  162  161.8\n3    Informed   52  117  116.8\n4    Informed   29  184  182.8\n5  Uninformed   38  134  136.6\n6    Informed   39  189  183.2\n\n\nThe rows are the sampled cases. In this example, the rows are housekeepers from different hotels. There are six rows, so there are six housekeepers in this data set.\n\n\nDepending on the study, the rows could be people, states, couples, mice—any case you’re taking a sample from to study."
   },
   {
     "objectID": "T1_Introduction/Tools.slides.html#section",
     "href": "T1_Introduction/Tools.slides.html#section",
-    "title": "Tools to construct graphs",
+    "title": "Tools for Data Analysis and Visualization",
     "section": "",
     "text": "The columns represent variables or attributes of each case that were measured.\n\n    Condition  Age   Wt    Wt2\n1  Uninformed   35  136  135.8\n2  Uninformed   45  162  161.8\n3    Informed   52  117  116.8\n4    Informed   29  184  182.8\n5  Uninformed   38  134  136.6\n6    Informed   39  189  183.2\n\n\n\nIn this study, housekeepers were either informed or not that their daily work of cleaning hotel rooms was equivalent to getting adequate exercise for good health.\n\n\n\nSo one of the variables, Condition, indicates whether they were informed of this fact or not."
   },
   {
     "objectID": "T1_Introduction/Tools.slides.html#section-1",
     "href": "T1_Introduction/Tools.slides.html#section-1",
-    "title": "Tools to construct graphs",
+    "title": "Tools for Data Analysis and Visualization",
     "section": "",
     "text": "Other variables include the age of the housekeeper (Age), her weight before starting the study (Wt), and her weight at the end of the study (Wt2), measured four weeks later.\n\nTherefore, the values in each row represent the values of that particular case in each of the variables measured.\n    Condition  Age   Wt    Wt2\n1  Uninformed   35  136  135.8\n2  Uninformed   45  162  161.8\n3    Informed   52  117  116.8\n4    Informed   29  184  182.8\n5  Uninformed   38  134  136.6\n6    Informed   39  189  183.2\n\n¿Cuántas variables hay en este conjunto de datos?"
   },
   {
     "objectID": "T1_Introduction/Tools.slides.html#loading-data-in-python",
     "href": "T1_Introduction/Tools.slides.html#loading-data-in-python",
-    "title": "Tools to construct graphs",
-    "section": "Loading data in python",
-    "text": "Loading data in python\nIn this course, we will assume that data is stored in an Excel file with the above organization. As an example, let’s use the file penguins.xlsx.\n\n\n\n\n\n\n\nThe file must be previously uploaded to Google Colab."
+    "title": "Tools for Data Analysis and Visualization",
+    "section": "Loading data in Python",
+    "text": "Loading data in Python\nIn this course, we will assume that data is stored in an Excel file with the above organization. As an example, let’s use the file penguins.xlsx.\n\n\n\n\n\n\n\nThe file must be previously uploaded to Google Colab."
   },
   {
     "objectID": "T1_Introduction/Tools.slides.html#section-2",
     "href": "T1_Introduction/Tools.slides.html#section-2",
-    "title": "Tools to construct graphs",
+    "title": "Tools for Data Analysis and Visualization",
     "section": "",
     "text": "The dataset penguins.xlsx contains data from penguins living in three islands."
   },
   {
     "objectID": "T1_Introduction/Tools.slides.html#pandas-library",
     "href": "T1_Introduction/Tools.slides.html#pandas-library",
-    "title": "Tools to construct graphs",
+    "title": "Tools for Data Analysis and Visualization",
     "section": "pandas library",
     "text": "pandas library\n\n\n\n\n\n\n\n\n\npandas is an open-source Python library for data manipulation and analysis.\nIt is built on top of numpy for high-performance data operations..\nIt allows the user to import, clean, transform, and analyze data efficiently\nhttps://pandas.pydata.org/"
   },
   {
     "objectID": "T1_Introduction/Tools.slides.html#importing-pandas",
     "href": "T1_Introduction/Tools.slides.html#importing-pandas",
-    "title": "Tools to construct graphs",
+    "title": "Tools for Data Analysis and Visualization",
     "section": "Importing pandas",
     "text": "Importing pandas\nFortunately, the pandas library is already pre-installed in Google Colab.\n\nHowever, we need to inform Google Colab that we want to use pandas and its functions using the following command:\n\nimport pandas as pd\n\n\nThe command as pd allows us to have a short name for pandas. To use a function of pandas, we use the command pd.function()."
   },
   {
     "objectID": "T1_Introduction/Tools.slides.html#loading-data-using-pandas",
     "href": "T1_Introduction/Tools.slides.html#loading-data-using-pandas",
-    "title": "Tools to construct graphs",
+    "title": "Tools for Data Analysis and Visualization",
     "section": "Loading data using pandas",
-    "text": "Loading data using pandas\nThe following code shows how to read the data in the file “penguins.xlsx” into python.\n\n# Load the Excel file into a pandas DataFrame.\npenguins_data = pd.read_excel(\"penguins.xlsx\")"
+    "text": "Loading data using pandas\n\nThe following code shows how to read the data in the file “penguins.xlsx” into python.\n\n# Load the Excel file into a pandas DataFrame.\npenguins_data = pd.read_excel(\"penguins.xlsx\")"
   },
   {
     "objectID": "T1_Introduction/Tools.slides.html#the-function-head",
     "href": "T1_Introduction/Tools.slides.html#the-function-head",
-    "title": "Tools to construct graphs",
+    "title": "Tools for Data Analysis and Visualization",
     "section": "The function head()",
     "text": "The function head()\nThe function head() allows you to print the first rows of a pandas data frame.\n\n# Print the first 4 rows of the dataset.\npenguins_data.head(4)\n\n\n\n\n\n\n\n\nspecies\nisland\nbill_length_mm\nbill_depth_mm\nflipper_length_mm\nbody_mass_g\nsex\nyear\n\n\n\n\n0\nAdelie\nTorgersen\n39.1\n18.7\n181.0\n3750.0\nmale\n2007\n\n\n1\nAdelie\nTorgersen\n39.5\n17.4\n186.0\n3800.0\nfemale\n2007\n\n\n2\nAdelie\nTorgersen\n40.3\n18.0\n195.0\n3250.0\nfemale\n2007\n\n\n3\nAdelie\nTorgersen\nNaN\nNaN\nNaN\nNaN\nNaN\n2007"
   },
   {
     "objectID": "T1_Introduction/Tools.slides.html#indexing-variables-a-dataset",
     "href": "T1_Introduction/Tools.slides.html#indexing-variables-a-dataset",
-    "title": "Tools to construct graphs",
+    "title": "Tools for Data Analysis and Visualization",
     "section": "Indexing variables a dataset",
     "text": "Indexing variables a dataset\nWe can select a specific variables of a data frame using the syntaxis below.\n\npenguins_data['bill_length_mm']\n\n0      39.1\n1      39.5\n2      40.3\n3       NaN\n4      36.7\n       ... \n339    55.8\n340    43.5\n341    49.6\n342    50.8\n343    50.2\nName: bill_length_mm, Length: 344, dtype: float64\n\n\nHere, we selected the variable bill_length_mm in the penguins_data dataset."
   },
   {
     "objectID": "T1_Introduction/Tools.slides.html#section-3",
     "href": "T1_Introduction/Tools.slides.html#section-3",
-    "title": "Tools to construct graphs",
+    "title": "Tools for Data Analysis and Visualization",
     "section": "",
     "text": "To index multiple variables of a data frame, we put the names of the variables in a list object. For example, we select bill_length_mm, species, and island as follows:\n\nsub_penguins_data = penguins_data[ ['bill_length_mm',  'species', 'island'] ]\nsub_penguins_data.head()\n\n\n\n\n\n\n\n\nbill_length_mm\nspecies\nisland\n\n\n\n\n0\n39.1\nAdelie\nTorgersen\n\n\n1\n39.5\nAdelie\nTorgersen\n\n\n2\n40.3\nAdelie\nTorgersen\n\n\n3\nNaN\nAdelie\nTorgersen\n\n\n4\n36.7\nAdelie\nTorgersen"
   },
   {
     "objectID": "T1_Introduction/Tools.slides.html#indexing-rows",
     "href": "T1_Introduction/Tools.slides.html#indexing-rows",
-    "title": "Tools to construct graphs",
+    "title": "Tools for Data Analysis and Visualization",
     "section": "Indexing rows",
     "text": "Indexing rows\nTo index rows in a dataset, we use the argument loc from pandas. For example, we select the rows 3 to 6 of the penguins_dataset dataset:\n\nrows_penguins_data = penguins_data.loc[2:5]\nrows_penguins_data\n\n\n\n\n\n\n\n\nspecies\nisland\nbill_length_mm\nbill_depth_mm\nflipper_length_mm\nbody_mass_g\nsex\nyear\n\n\n\n\n2\nAdelie\nTorgersen\n40.3\n18.0\n195.0\n3250.0\nfemale\n2007\n\n\n3\nAdelie\nTorgersen\nNaN\nNaN\nNaN\nNaN\nNaN\n2007\n\n\n4\nAdelie\nTorgersen\n36.7\n19.3\n193.0\n3450.0\nfemale\n2007\n\n\n5\nAdelie\nTorgersen\n39.3\n20.6\n190.0\n3650.0\nmale\n2007"
   },
   {
     "objectID": "T1_Introduction/Tools.slides.html#section-4",
     "href": "T1_Introduction/Tools.slides.html#section-4",
-    "title": "Tools to construct graphs",
+    "title": "Tools for Data Analysis and Visualization",
     "section": "",
     "text": "rows_penguins_data\n\n\n\n\n\n\n\n\nspecies\nisland\nbill_length_mm\nbill_depth_mm\nflipper_length_mm\nbody_mass_g\nsex\nyear\n\n\n\n\n2\nAdelie\nTorgersen\n40.3\n18.0\n195.0\n3250.0\nfemale\n2007\n\n\n3\nAdelie\nTorgersen\nNaN\nNaN\nNaN\nNaN\nNaN\n2007\n\n\n4\nAdelie\nTorgersen\n36.7\n19.3\n193.0\n3450.0\nfemale\n2007\n\n\n5\nAdelie\nTorgersen\n39.3\n20.6\n190.0\n3650.0\nmale\n2007\n\n\n\n\n\n\n\nNote that the index 2 and 5 refer to observations 3 and 7, respectively, in the dataset. This is because the first index in python is 0."
   },
   {
     "objectID": "T1_Introduction/Tools.slides.html#indexing-rows-and-columns",
     "href": "T1_Introduction/Tools.slides.html#indexing-rows-and-columns",
-    "title": "Tools to construct graphs",
+    "title": "Tools for Data Analysis and Visualization",
     "section": "Indexing rows and columns",
     "text": "Indexing rows and columns\nUsing loc, we can also retrieve a subset from the dataset by selecting specific columns and rows.\n\nsub_rows_pdata = penguins_data.loc[2:5, ['bill_length_mm',  'species', 'island'] ]\nsub_rows_pdata\n\n\n\n\n\n\n\n\nbill_length_mm\nspecies\nisland\n\n\n\n\n2\n40.3\nAdelie\nTorgersen\n\n\n3\nNaN\nAdelie\nTorgersen\n\n\n4\n36.7\nAdelie\nTorgersen\n\n\n5\n39.3\nAdelie\nTorgersen"
   },
   {
     "objectID": "T1_Introduction/Tools.slides.html#matplotlib-library",
     "href": "T1_Introduction/Tools.slides.html#matplotlib-library",
-    "title": "Tools to construct graphs",
+    "title": "Tools for Data Analysis and Visualization",
     "section": "matplotlib library",
     "text": "matplotlib library\n\nmatplotlib is a comprehensive library for creating static, animated, and interactive visualizations in Python\nIt is widely used in the data science community for plotting data in various formats\nIdeal for creating simple visualizations like line plots, bar charts, scatter plots, and more\nhttps://matplotlib.org/"
   },
   {
     "objectID": "T1_Introduction/Tools.slides.html#seaborn-library",
     "href": "T1_Introduction/Tools.slides.html#seaborn-library",
-    "title": "Tools to construct graphs",
+    "title": "Tools for Data Analysis and Visualization",
     "section": "seaborn library",
     "text": "seaborn library\n\nseaborn is a Python library built on top of Matplotlib\nDesigned to make statistical data visualization easy and beautiful\nIdeal for creating informative and attractive visualizations with minimal code\nhttps://seaborn.pydata.org/index.html"
   },
   {
     "objectID": "T1_Introduction/Tools.slides.html#importing-the-libraries",
     "href": "T1_Introduction/Tools.slides.html#importing-the-libraries",
-    "title": "Tools to construct graphs",
+    "title": "Tools for Data Analysis and Visualization",
     "section": "Importing the libraries",
-    "text": "Importing the libraries\n\nThe matplotlib and seaborn libraries are pre-installed in Google Colab. However, we need to inform Google Colab that we want to use them and its functions using the following command:\n\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\nSimilar to pandas, the command as sns allows us to have a short name for seaborn. Similarly, we rename matplotlib as plt."
+    "text": "Importing the libraries\n\nThe matplotlib and seaborn libraries are pre-installed in Google Colab. However, we need to tell Google Colab that we want to use them using the following command:\n\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n\nLike pandas, the command as sns allows us to have a short name for seaborn. Similarly, we rename matplotlib as plt."
   },
   {
     "objectID": "T1_Introduction/Tools.slides.html#seaborn-plot-structure",
     "href": "T1_Introduction/Tools.slides.html#seaborn-plot-structure",
-    "title": "Tools to construct graphs",
+    "title": "Tools for Data Analysis and Visualization",
     "section": "Seaborn Plot Structure",
-    "text": "Seaborn Plot Structure\nSeaborn has a structured approach to creating visualizations.\nplt.figure(figsize=(WIDTH, HEIGHT))\nsns.PLOTTYPE(data=my_data, x=“Variable1”, y=“Variable2”, hue=“Variable3”, MOREOPTIONS)\nplt.title(“Title”)\nplt.xlabel(“X-axis label”)\nplt.ylabel(“Y-axis label”)\nplt.MOREOPTIONS()\nplt.show()"
+    "text": "Seaborn Plot Structure\nSeaborn has a structured approach to creating visualizations:\nplt.figure(figsize=(WIDTH, HEIGHT))\nsns.PLOTTYPE(data=my_data, x=“Variable1”, y=“Variable2”, hue=“Variable3”, MOREOPTIONS)\nplt.title(“Title”)\nplt.xlabel(“X-axis label”)\nplt.ylabel(“Y-axis label”)\nplt.MOREOPTIONS()\nplt.show()"
   },
   {
     "objectID": "T1_Introduction/Tools.slides.html#ejemplo",
     "href": "T1_Introduction/Tools.slides.html#ejemplo",
-    "title": "Tools to construct graphs",
+    "title": "Tools for Data Analysis and Visualization",
     "section": "Ejemplo",
     "text": "Ejemplo\nIs there a difference between bill length and bill depth across penguin species?"
   },
   {
     "objectID": "T1_Introduction/Tools.slides.html#ejemplo-1",
     "href": "T1_Introduction/Tools.slides.html#ejemplo-1",
-    "title": "Tools to construct graphs",
+    "title": "Tools for Data Analysis and Visualization",
     "section": "Ejemplo",
-    "text": "Ejemplo\nIs there a difference between bill length and bill depth across penguin species?\n\nplt.figure(figsize=(6, 4))\nsns.scatterplot(data=penguins_data, x=\"bill_depth_mm\", y=\"bill_length_mm\", \nhue=\"species\")\nplt.show() # Display the plot"
+    "text": "Ejemplo\nIs there a difference between bill length and bill depth across penguin species?\n\nplt.figure(figsize=(6, 4)) # Set figure size.\nsns.scatterplot(data=penguins_data, x=\"bill_depth_mm\", y=\"bill_length_mm\", \n                hue=\"species\") # Define type of plot.\nplt.show() # Display the plot."
   },
   {
     "objectID": "T1_Introduction/Tools.slides.html#adding-titles-and-labels",
     "href": "T1_Introduction/Tools.slides.html#adding-titles-and-labels",
-    "title": "Tools to construct graphs",
+    "title": "Tools for Data Analysis and Visualization",
     "section": "Adding titles and labels",
-    "text": "Adding titles and labels\n\nplt.figure(figsize=(6, 4))\nsns.scatterplot(data=penguins_data, x=\"bill_depth_mm\", y=\"bill_length_mm\", \nhue=\"species\")\nplt.title(\"Bill Depth vs. Bill Length\")\nplt.xlabel(\"Bill Depth (mm)\")\nplt.ylabel(\"Bill Length (mm)\")\nplt.legend(title=\"Species\")\nplt.show()"
+    "text": "Adding titles and labels\n\nplt.figure(figsize=(6, 4))\nsns.scatterplot(data=penguins_data, x=\"bill_depth_mm\", y=\"bill_length_mm\", \n                hue=\"species\")\nplt.title(\"Bill Depth vs. Bill Length\")\nplt.xlabel(\"Bill Depth (mm)\")\nplt.ylabel(\"Bill Length (mm)\")\nplt.legend(title=\"Species\")\nplt.show()"
   },
   {
     "objectID": "T1_Introduction/Tools.slides.html#changing-theme",
     "href": "T1_Introduction/Tools.slides.html#changing-theme",
-    "title": "Tools to construct graphs",
+    "title": "Tools for Data Analysis and Visualization",
     "section": "Changing theme",
-    "text": "Changing theme\n\nplt.figure(figsize=(6, 4))\nsns.scatterplot(data=penguins_data, x=\"bill_depth_mm\", y=\"bill_length_mm\", \nhue=\"species\", palette=\"viridis\")\nplt.title(\"Bill Depth vs. Bill Length\")\nplt.xlabel(\"Bill Depth (mm)\")\nplt.ylabel(\"Bill Length (mm)\")\nplt.legend(title=\"Species\")\nplt.show()"
+    "text": "Changing theme\n\nplt.figure(figsize=(6, 4))\nsns.scatterplot(data=penguins_data, x=\"bill_depth_mm\", y=\"bill_length_mm\", \n                hue=\"species\", palette=\"viridis\")\nplt.title(\"Bill Depth vs. Bill Length\")\nplt.xlabel(\"Bill Depth (mm)\")\nplt.ylabel(\"Bill Length (mm)\")\nplt.legend(title=\"Species\")\nplt.show()"
   },
   {
     "objectID": "T1_Introduction/Tools.slides.html#more-options",
     "href": "T1_Introduction/Tools.slides.html#more-options",
-    "title": "Tools to construct graphs",
+    "title": "Tools for Data Analysis and Visualization",
     "section": "More options",
-    "text": "More options\n\nWe can also use other functions to improve the aspect of the figure:\n\nplt.title(fontsize): Font size of the title.\nplt.ylabel(fontsize): Font size of y axis title.\nplt.xlabel(fontsize): Font size of x axis title.\nplt.yticks(fontsize): Font size of the y axis labels.\nplt.xticks(fontsize): Font size of the x axis labels."
+    "text": "More options\n\nWe can also use the argument fontsize and other functions to improve the aspect of the figure:\n\nplt.title(fontsize): Font size of the title.\nplt.ylabel(fontsize): Font size of y axis title.\nplt.xlabel(fontsize): Font size of x axis title.\nplt.yticks(fontsize): Font size of the y axis labels.\nplt.xticks(fontsize): Font size of the x axis labels."
   },
   {
     "objectID": "T1_Introduction/Tools.slides.html#section-5",
     "href": "T1_Introduction/Tools.slides.html#section-5",
-    "title": "Tools to construct graphs",
+    "title": "Tools for Data Analysis and Visualization",
     "section": "",
-    "text": "Code\nplt.figure(figsize=(8, 6))\nsns.scatterplot(data=penguins_data, x=\"bill_depth_mm\", y=\"bill_length_mm\", \nhue=\"species\", palette=\"viridis\")\nplt.title(\"Bill Depth vs. Bill Length\", fontsize = 12)\nplt.xlabel(\"Bill Depth (mm)\", fontsize = 12)\nplt.ylabel(\"Bill Length (mm)\", fontsize = 12)\nplt.legend(title=\"Species\", fontsize = 12)\nplt.xticks(fontsize = 12)\nplt.yticks(fontsize = 12)\nplt.show()"
+    "text": "Code\nplt.figure(figsize=(8, 6))\nsns.scatterplot(data=penguins_data, x=\"bill_depth_mm\", y=\"bill_length_mm\", \n                hue=\"species\", palette=\"viridis\")\nplt.title(\"Bill Depth vs. Bill Length\", fontsize = 12)\nplt.xlabel(\"Bill Depth (mm)\", fontsize = 12)\nplt.ylabel(\"Bill Length (mm)\", fontsize = 12)\nplt.legend(title=\"Species\", fontsize = 12)\nplt.xticks(fontsize = 12)\nplt.yticks(fontsize = 12)\nplt.show()"
   },
   {
     "objectID": "T1_Introduction/Tools.slides.html#saving-plots",
     "href": "T1_Introduction/Tools.slides.html#saving-plots",
-    "title": "Tools to construct graphs",
+    "title": "Tools for Data Analysis and Visualization",
     "section": "Saving plots",
-    "text": "Saving plots\n\nWe save a figure using the save.fig function from matplotlib. The dpi argument of this function sets the resolution of the image. The higher the dpi, the better the resolution.\n\nplt.figure(figsize=(5, 5))\nsns.scatterplot(data=penguins_data, x=\"bill_depth_mm\", y=\"bill_length_mm\", \nhue=\"species\", palette=\"viridis\")\nplt.title(\"Bill Depth vs. Bill Length\", fontsize = 12)\nplt.xlabel(\"Bill Depth (mm)\", fontsize = 12)\nplt.ylabel(\"Bill Length (mm)\", fontsize = 12)\nplt.legend(title=\"Species\", fontsize = 12)\nplt.xticks(fontsize = 12)\nplt.yticks(fontsize = 12)\nplt.savefig('scatter_plot.png',dpi=300)"
+    "text": "Saving plots\n\nWe save a figure using the save.fig function from matplotlib. The dpi argument of this function sets the resolution of the image. The higher the dpi, the better the resolution.\n\nplt.figure(figsize=(5, 5))\nsns.scatterplot(data=penguins_data, x=\"bill_depth_mm\", y=\"bill_length_mm\", \n                hue=\"species\", palette=\"viridis\")\nplt.title(\"Bill Depth vs. Bill Length\", fontsize = 12)\nplt.xlabel(\"Bill Depth (mm)\", fontsize = 12)\nplt.ylabel(\"Bill Length (mm)\", fontsize = 12)\nplt.legend(title=\"Species\", fontsize = 12)\nplt.xticks(fontsize = 12)\nplt.yticks(fontsize = 12)\nplt.savefig('scatter_plot.png',dpi=300) # Save figure."
   },
   {
     "objectID": "T1_Introduction/Tools.slides.html#mini-actividad-solo-mode",
     "href": "T1_Introduction/Tools.slides.html#mini-actividad-solo-mode",
-    "title": "Tools to construct graphs",
+    "title": "Tools for Data Analysis and Visualization",
     "section": "Mini-actividad (solo mode)",
     "text": "Mini-actividad (solo mode)\n\nOpen the following Google Colab link:\nhttps://colab.research.google.com/drive/1c-sy5yQY1DwgaZAI6YnDLMTEYMpLCWyX?usp=sharing\nCopy the notebook to your drive.\nAnswer the questions."
   },
@@ -1930,5 +1930,12 @@
     "title": "What is data visualization?",
     "section": "",
     "text": "“The greatest value of a picture is when it forces us to notice what we never expected to see.” John W. Tukey.\n\n\n\n\n\nhttps://www.storytellingwithdata.com/ is an excellent guide on data visualization."
+  },
+  {
+    "objectID": "T1_Introduction/Tools.slides.html#mini-activity-solo-mode",
+    "href": "T1_Introduction/Tools.slides.html#mini-activity-solo-mode",
+    "title": "Tools for Data Analysis and Visualization",
+    "section": "Mini-activity (solo mode)",
+    "text": "Mini-activity (solo mode)\n\nOpen the following Google Colab link:\nhttps://colab.research.google.com/drive/1c-sy5yQY1DwgaZAI6YnDLMTEYMpLCWyX?usp=sharing\nCopy the notebook to your drive.\nAnswer the questions."
   }
 ]
