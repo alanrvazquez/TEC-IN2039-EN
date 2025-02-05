@@ -45,7 +45,6 @@ a multidisciplinary field that uses scientific methods, processes, algorithms an
 :::::
 ::::::
 
-
 ## The scheme of data science
 
 ![](images/clipboard-4096324521.png){fig-align="center"}
@@ -118,13 +117,6 @@ Data science methodology is based on numerical data given in tables.
 
 [***In this course, we will assume that the data is in a table.***]{style="color:#023562;"}
 
-## Problem Situation
-
-TBD
-
-## Goal of the problem situation
-
-TBD
 
 # The three principles of data science
 
@@ -164,7 +156,8 @@ At its core, data visualization allows you to delve into complex datasets to ext
 
 </br>
 
-Data visualizations are primarily concerned with providing evidence and enabling the audience to explore and draw their own conclusions about what the visualizations reveal about the data.
+Data visualizations are primarily concerned with providing evidence and enabling the audience to explore and draw their own conclusions about what the visualizations reveal about the data. 
+
 </br>
 
 . . .
@@ -198,14 +191,12 @@ Formulate the question of interest or the message you want to convey.
 ::: notes
 El mensaje puede ser una pregunta
 
-- What is the key comparison?
-- How do we emphasize it?
-- Do you have reason to expect that one group/observation might be different?
-- Why might your finding about shape matter?
-- What additional comparison might add value to the investigation?
-- Are there any potentially important features to compare against?
-
-
+-   What is the key comparison?
+-   How do we emphasize it?
+-   Do you have reason to expect that one group/observation might be different?
+-   Why might your finding about shape matter?
+-   What additional comparison might add value to the investigation?
+-   Are there any potentially important features to compare against?
 :::
 
 ## ***Principle 2*****: *Turn Data into Information***
@@ -225,12 +216,12 @@ Enhance your graph with color symbols and text to convey additional information.
 ::::: {.column width="55%"}
 :::: {style="font-size: 75%;"}
 ::: incremental
-1. Objects are easily identifiable by color.
-2. Use direct labels instead of a legend.
-3. Elements such as text, lines, and shapes of the same nature should look similar.
-4. Balance graphics and text.
-5. Be cautious with default settings in visualization software.
-6. Use a grid-based layout to organize your visualization.
+1.  Objects are easily identifiable by color.
+2.  Use direct labels instead of a legend.
+3.  Elements such as text, lines, and shapes of the same nature should look similar.
+4.  Balance graphics and text.
+5.  Be cautious with default settings in visualization software.
+6.  Use a grid-based layout to organize your visualization.
 :::
 ::::
 :::::
@@ -255,7 +246,7 @@ Additionally, include a legend in the graph that describes key features and summ
 
 ::::: columns
 ::: {.column width="70%"}
-| City          | Uber | Auto |
+| City            | Uber | Auto |
 |-----------------|------|------|
 | New York City   | 142  | 218  |
 | Washington D.C. | 96   | 130  |
@@ -283,7 +274,7 @@ The estimated costs are based on a twice-daily 10.4 mile one-way commute at peak
 #| echo: false
 #| output: true
 #| fig-height: 4
-#| fig-pos: center
+#| fig-align: center
 
 import matplotlib.pyplot as plt
 import seaborn as sns
@@ -308,8 +299,9 @@ sns.lineplot(data=uber_df, x="Type", y="Cost", hue="City", marker="o", linewidth
 
 # Customize the plot
 plt.title("It is cheaper to take Uber than own a car in four of the five largest U.S. cities.", fontsize=12)
-plt.xlabel("")
-plt.ylabel("Cost (USD)")
+plt.ylabel("Cost (USD)", fontsize=18)
+plt.xticks(fontsize=18)
+plt.yticks(fontsize=15)
 plt.legend(title="City", fontsize=10)
 
 # Show the plot
@@ -324,7 +316,7 @@ plt.show()
 #| echo: false
 #| output: true
 #| fig-height: 4
-#| fig-pos: center
+#| fig-align: center
 
 # Define custom colors
 custom_colors = {
@@ -346,9 +338,9 @@ sns.lineplot(data=uber_df, x="Type", y="Cost", hue="City", marker="o", linewidth
 # Customize the plot
 plt.title("It is cheaper to take Uber than own a car in four of the five largest U.S. cities.", fontsize=12)
 plt.xlabel("")
-plt.ylabel("Cost (USD)")
-plt.xticks(fontsize=12)
-plt.yticks(fontsize=12)
+plt.ylabel("Cost (USD)", fontsize=18)
+plt.xticks(fontsize=18)
+plt.yticks(fontsize=15)
 plt.legend(title="City", fontsize=10)
 
 # Show the plot
@@ -370,7 +362,5 @@ plt.show()
 . . .
 
 <https://www.storytellingwithdata.com/> is an excellent guide on data visualization.
-
-
 
 # [Return to main page](https://alanrvazquez.github.io/TEC-IN2039-EN/)
