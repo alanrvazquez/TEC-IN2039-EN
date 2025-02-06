@@ -34,7 +34,7 @@ editor: visual
 
 </br>
 
-Let's import the `pandas`, `matplotlib`, and `seaborn` in Google Colab and R before starting.
+Let's import the `pandas`, `matplotlib`, and `seaborn` in Google Colab before starting.
 
 ```{python}
 #| echo: true
@@ -65,18 +65,15 @@ In fact, the **goal** is to determine whether there is a relationship between th
 
 </br>
 
-Consider data from 392 cars, including miles per gallon, number of cylinders, horsepower, weight, acceleration, year, origin, among other variables.
+Consider data from 392 cars, including miles per gallon, number of cylinders, horsepower, weight, acceleration, year, origin, among other variables. 
 
-The data is stored in the file "auto_dataset.xlsx".
+The data is in the file "auto_dataset.xlsx".
 
 ```{python}
 #| echo: true
-#| output: false
+#| output: true
 
 auto_data = pd.read_excel("auto_dataset.xlsx")
-# Set categorical variable.
-auto_data[['origin']] = auto_data[['origin']].astype('category')
-auto_data.head()
 ```
 
 ## 
@@ -85,10 +82,7 @@ auto_data.head()
 #| echo: true
 #| output: true
 
-auto_data = pd.read_excel("auto_dataset.xlsx")
-# Set categorical variable.
-auto_data[['origin']] = auto_data[['origin']].astype('category')
-auto_data.head(3)
+auto_data.head(4)
 ```
 
 ## Principle 1: Formulate the question
@@ -139,7 +133,7 @@ The other variable is called the *independent* or *predictor variable*, denoted 
 
 > Our goal is to determine whether changes in variable $X$ are associated with changes in variable $Y$, and the nature of this association.
 
-## Scatter Plot
+## Scatter plot
 
 </br>
 
@@ -153,7 +147,9 @@ Variables $X$ and $Y$ are placed on the horizontal and vertical axes, respective
 
 > The goal is to explore linear or non-linear relationships between variables.
 
-## Scatterplot in Python
+## Scatter plot in Python
+
+</br>
 
 To create scatter plots in **seaborn**, we use the function `scatterplot()`.
 
@@ -183,11 +179,11 @@ sns.scatterplot(data=auto_data, x="weight", y="mpg")
 plt.show()
 ```
 
-## Principle 3: Apply gaphic design principles
+## Principle 3: Apply graphic design principles
 
 Following Principle 3, we can modify the default function values to define different colors or shapes for the points in the graph.
 
-Specifically, you can change the color, shape, and size of points using the arguments `color`, `shape` and `size`, respectively.
+Specifically, you can change the color, shape, and size of points using the arguments `color`, `shape` and `s`, respectively.
 
 </br>
 
@@ -206,6 +202,8 @@ plt.show()
 ```
 
 ## Possible point shapes
+
+</br>
 
 To change the symbols used for points in a scatter plot, set the `marker` parameter to a number or character from the chart below.
 
@@ -226,12 +224,13 @@ sns.scatterplot(data=auto_data, x="weight", y="mpg", color="darkblue", s=50)
 plt.title("Weight and miles per gallon relationship in cars", fontsize=17)
 plt.xlabel("Weight (lb)", fontsize=15)
 plt.ylabel("Miles per gallon", fontsize=15)
-plt.tick_params(axis='both', labelsize=12)
+plt.yticks(fontsize=12)
+plt.xticks(fontsize=12)
 # Show the plot
 plt.show() 
 ```
 
-## Include Zero
+## Include zero
 
 In the previous graph, the minimum vertical axis value is around 10. To adjust the minimum value to 0, we use the additional function `ylim()` below.
 
@@ -243,16 +242,14 @@ In the previous graph, the minimum vertical axis value is around 10. To adjust t
 # Create the scatter plot with custom color and size
 plt.figure(figsize=(5.2, 3.2))
 sns.scatterplot(data=auto_data, x="weight", y="mpg", color="darkblue", s=50)
-
 # Set y-axis limits
 plt.ylim(0, 50)
-
 # Customize the plot
 plt.title("Weight and miles per gallon relationship in cars", fontsize=17)
 plt.xlabel("Weight (lb)", fontsize=15)
 plt.ylabel("Miles per gallon", fontsize=15)
-plt.tick_params(axis='both', labelsize=12)
-
+plt.yticks(fontsize=12)
+plt.xticks(fontsize=12)
 # Show the plot
 plt.show()
 ```
@@ -269,19 +266,16 @@ If necessary, we can also adjust the horizontal axis to show 0 as well. To this 
 # Create the scatter plot with custom color and size
 plt.figure(figsize=(7, 5))
 sns.scatterplot(data=auto_data, x="weight", y="mpg", color="darkblue", s=50)
-
 # Set y-axis limits
 plt.ylim(0, 50)
-
 # Set x-axis limits
 plt.xlim(0, 5500)
-
 # Customize the plot
 plt.title("Weight and miles per gallon relationship in cars", fontsize=17)
 plt.xlabel("Weight (lb)", fontsize=15)
 plt.ylabel("Miles per gallon", fontsize=15)
-plt.tick_params(axis='both', labelsize=12)
-
+plt.yticks(fontsize=12)
+plt.xticks(fontsize=12)
 # Show the plot
 plt.show()
 ```
@@ -301,8 +295,9 @@ plt.figure(figsize=(4, 3))
 sns.histplot(data=auto_data, x="mpg", color="darkblue", edgecolor="black")
 plt.title("Distribution of miles per gallon", fontsize=17)
 plt.xlabel("Miles per gallon", fontsize=15)
-plt.ylabel("Frecuencia", fontsize=15)
-plt.tick_params(axis='both', labelsize=12)
+plt.ylabel("Frequency", fontsize=15)
+plt.yticks(fontsize=12)
+plt.xticks(fontsize=12)
 plt.show()
 ```
 :::
@@ -318,13 +313,14 @@ sns.histplot(data=auto_data, x="weight", color="darkblue", kde=False, edgecolor=
 plt.title("Distribution of weight", fontsize=17)
 plt.xlabel("Weight (lb)", fontsize=15)
 plt.ylabel("Frecuencia", fontsize=15)
-plt.tick_params(axis='both', labelsize=12)
+plt.yticks(fontsize=12)
+plt.xticks(fontsize=12)
 plt.show()
 ```
 :::
 :::::
 
-## Line Graph
+## Line graph
 
 A line graph is a visual representation of data where data points are connected by a line. Axes:
 
@@ -339,13 +335,23 @@ Each point represents a value at a given moment.
 
 ## Example 2
 
+</br>
+
 Consider the data in the file "spotify.xlsx". This dataset contains the global daily streams of the top five most popular songs on the music streaming service Spotify in 2017.
 
 ```{python}
 #| echo: true
 
 spotify_data = pd.read_excel("spotify.xlsx")
-spotify_data.head(3)
+```
+
+##
+
+```{python}
+#| echo: true
+#| output: true
+
+spotify_data.head(4)
 ```
 
 ## 
@@ -383,11 +389,14 @@ sns.lineplot(data=spotify_data, x="Date", y="Despacito", linestyle = '-',
 plt.title("Popularity of the song Despacito by Luis Fonsi", fontsize=16)
 plt.xlabel("Date", fontsize=12)
 plt.ylabel("Number of plays on Spotify", fontsize=15)
-plt.tick_params(axis='both', labelsize=11)
+plt.yticks(fontsize=12)
+plt.xticks(fontsize=12)
 plt.show()
 ```
 
-## Line Types
+## Line types
+
+</br>
 
 To change the line type, set the `linestyle` parameter to a character shown below.
 
@@ -447,7 +456,8 @@ sns.boxplot(data=auto_data, x="origin", y="mpg", color="lightblue")
 plt.title("Miles per Gallon Distribution by Origin", fontsize=17)
 plt.xlabel("Origen", fontsize=15)
 plt.ylabel("Miles per gallon", fontsize=15)
-plt.tick_params(axis='both', labelsize=12)
+plt.yticks(fontsize=12)
+plt.xticks(fontsize=12)
 plt.show()
 ```
 
@@ -466,7 +476,8 @@ sns.boxplot(data=auto_data, x="origin", y="mpg", color="lightblue",
 plt.title("Miles per Gallon Distribution by Origin", fontsize=17)
 plt.xlabel("Origen", fontsize=15)
 plt.ylabel("Miles per gallon", fontsize=15)
-plt.tick_params(axis='both', labelsize=12)
+plt.yticks(fontsize=12)
+plt.xticks(fontsize=12)
 plt.show()
 ```
 
@@ -480,11 +491,11 @@ For example, let's plot the average miles per gallon of cars produced in America
 #| echo: true
 #| output: false
 
-summary_autos = (auto_data
-  .loc[:, ['mpg', 'origin']]
+sum_auto = (auto_data
+  .filter(['mpg', 'origin'], axis = 1)
   .groupby(["origin"], observed = True)
-  .mean()
-)
+  .agg(meanMPG = ("mpg", "mean"))
+) 
 ```
 
 ## 
@@ -497,10 +508,10 @@ The data to be plotted are:
 #| echo: true
 #| output: true
 
-summary_autos
+sum_auto
 ```
 
-##
+## 
 
 </br>
 
@@ -509,7 +520,9 @@ Two common visualization types for plotting a numerical and a discrete variable 
 -   Cleveland dot plot
 -   Bar chart
 
-## Cleveland Dot Plot
+## Cleveland dot plot
+
+</br>
 
 The Cleveland dot plot encodes quantitative data across different categories. It is an alternative to a bar chart. It is obtained using the function `scatterplot()`.
 
@@ -520,14 +533,14 @@ The Cleveland dot plot encodes quantitative data across different categories. It
 #| code-fold: false
 
 plt.figure(figsize=(8, 6))
-sns.scatterplot(data=summary_autos, x='mpg', y='origin')
+sns.scatterplot(data=sum_auto, x='meanMPG', y='origin')
 plt.title("Average Miles per Gallon by Origin", fontsize=17)
 plt.xlabel("Average Miles Per Gallon", fontsize=15)
 plt.ylabel("Origen", fontsize=15)
 plt.show() 
 ```
 
-##
+## 
 
 ```{python}
 #| fig-align: center
@@ -535,7 +548,7 @@ plt.show()
 #| output: true
 
 plt.figure(figsize=(8, 6))
-sns.scatterplot(data=summary_autos, x='mpg', y='origin')
+sns.scatterplot(data=sum_auto, x='meanMPG', y='origin')
 plt.title("Average Miles per Gallon by Origin", fontsize=17)
 plt.xlabel("Average Miles Per Gallon", fontsize=15)
 plt.ylabel("Origen", fontsize=15)
@@ -552,7 +565,7 @@ We apply Principle 3 to improve the plot.
 #| code-fold: true
 
 plt.figure(figsize=(7, 5))
-sns.scatterplot(data=summary_autos, x='mpg', y='origin', s=100, color='pink')
+sns.scatterplot(data=sum_auto, x='meanMPG', y='origin', s=100, color='pink')
 plt.title("Average Miles per Gallon by Origin", fontsize=17)
 plt.xlabel("Average Miles Per Gallon", fontsize=15)
 plt.ylabel("Origen", fontsize=15)
@@ -571,7 +584,7 @@ To create a bar chart where the bar length equals a specific value, we use the f
 #| code-fold: false
 
 plt.figure(figsize=(5, 3))
-sns.barplot(data=summary_autos, x='mpg', y='origin')
+sns.barplot(data=sum_auto, x='meanMPG', y='origin')
 plt.title("Average Miles per Gallon by Origin")
 plt.xlabel("Average Miles Per Gallon")
 plt.ylabel("Origen")
@@ -588,7 +601,7 @@ We can use similar commands as the Cleveland dot plot to improve the bar chart.
 #| code-fold: true
 
 plt.figure(figsize=(7, 5))
-sns.barplot(data=summary_autos, x='mpg', y='origin', color='lightblue')
+sns.barplot(data=sum_auto, x='meanMPG', y='origin', color='lightblue')
 plt.title("Average Miles per Gallon by Origin", fontsize=17)
 plt.xlabel("Average Miles Per Gallon", fontsize=15)
 plt.ylabel("Origen", fontsize=15)
@@ -636,14 +649,15 @@ Make sure they are specified as `factor` in Python!
 ```{python}
 #| echo: true
 
-penguins_data[['species', 'island', 'sex']] = penguins_data[['species', 'island', 'sex']].astype('category')
+penguins_data[['species', 'island', 'sex']] = (penguins_data
+                                              .filter(['species', 'island', 'sex'], axis = 1)
+                                              .astype('category')
+)
 ```
 
-## Stacked Bar Chart
+## Stacked bar chart
 
-The side-by-side bar chart is generated using the `countplot()`, function, assigning the $X$ variable to the `hue` argument.
-
-</br>
+The side-by-side bar chart is generated using the `.histplot()` function, assigning the $X$ variable to the `hue` argument and setting `multiple='stack'`.
 
 . . .
 
@@ -655,7 +669,8 @@ For example, to study the distribution of penguin species across the three diffe
 #| output: false
 
 plt.figure(figsize=(8, 6))
-sns.countplot(data=penguins_data, x='species', hue='island')
+sns.histplot(data=penguins_data, x='species', hue='island', 
+              multiple='stack')
 plt.title("Distribution of Penguin Species by Island", fontsize=17)
 plt.xlabel("Species", fontsize=15)
 plt.ylabel("Count", fontsize=15)
@@ -668,21 +683,25 @@ The chart shows the frequency of each species, separated by island name.
 
 ```{python}
 #| fig-align: center
-#| echo: true
+#| echo: false
+#| output: true
 
-plt.figure(figsize=(6, 4))
-sns.countplot(data=penguins_data, x='species', hue='island')
+plt.figure(figsize=(7, 5))
+sns.histplot(data=penguins_data, x='species', hue='island', 
+              multiple='stack')
 plt.title("Distribution of Penguin Species by Island", fontsize=17)
 plt.xlabel("Species", fontsize=15)
 plt.ylabel("Count", fontsize=15)
 plt.show()
 ```
 
-## Side-by-Side Bar Chart
+## Side-by-side bar chart
+
+</br>
 
 An alternative to the previous chart is to place the bars side by side for the categories of the $X$ variable.
 
-In this case, we use the same commands with an extra argument: `position = position_dodge()`.
+In this case, we use the `.countplot()` function of **seaborn**.
 
 ```{python}
 #| fig-align: center
@@ -690,7 +709,7 @@ In this case, we use the same commands with an extra argument: `position = posit
 #| output: false
 
 plt.figure(figsize=(8, 6))
-sns.countplot(data=penguins_data, x='species', hue='island', palette='Set1')
+sns.countplot(data=penguins_data, x='species', hue='island')
 plt.title("Distribution of Penguin Species by Island", fontsize=17)
 plt.xlabel("Species", fontsize=15)
 plt.ylabel("Count", fontsize=15)
@@ -705,7 +724,7 @@ plt.show()
 #| output: true
 
 plt.figure(figsize=(8, 6))
-sns.countplot(data=penguins_data, x='species', hue='island', palette='Set1')
+sns.countplot(data=penguins_data, x='species', hue='island')
 plt.title("Distribution of Penguin Species by Island", fontsize=17)
 plt.xlabel("Species", fontsize=15)
 plt.ylabel("Count", fontsize=15)
@@ -751,7 +770,9 @@ count_data = (penguins_data
   )
 ```
 
-##
+## 
+
+</br>
 
 ```{python}
 #| echo: true
@@ -785,6 +806,8 @@ print(rel_freq_table)
 
 ## Charts for Three Variables
 
+</br>
+
 -   When examining a distribution or relationship, we often want to compare it across data subgroups.
 
 -   This process of conditioning on additional variables leads to visualizations involving three or more variables.
@@ -806,7 +829,7 @@ plt.ylabel("Miles per Gallon (MPG)")
 plt.show() 
 ```
 
-## Faceted or Lattice Plot
+## Faceted or lattice Plot
 
 A faceted plot visualizes the relationship or distribution of one or two variables for each subgroup defined by a third variable $Z$.
 
@@ -834,6 +857,8 @@ plt.show()
 
 ## 
 
+</br>
+
 The function produces a grid with 1 column and 3 rows of charts. Each row accommodates one category of `origin`.
 
 ```{python}
@@ -849,36 +874,20 @@ g.set_titles("{col_name} Origin")
 plt.show()
 ```
 
-## 
 
-If we change the order of the `origin` variable in the `gf_facet_grid`, function, we get a grid with three columns and one row of charts.
+## Multiple line charts
 
-```{python}
-#| fig-align: center
-#| echo: true
+</br>
 
-# Create the scatter plot and facet by 'origin'
-plt.figure(figsize=(8, 6))
-g = sns.FacetGrid(auto_data, col='origin')
-g.map(sns.scatterplot, 'weight', 'mpg')
-
-# Customize the plot
-g.set_axis_labels("Weight (lb)", "Miles per Gallon (MPG)")
-g.set_titles("{col_name} Origin")
-
-# Show the plot
-plt.show()
-```
-
-## Multiple Line Charts
-
-We can use the functions `gf_line()` and `gf_facet_grid()` to visualize the evolution of play counts for the 5 songs in the file "spotify.xlsx" over time.
+We can use the functions `.lineplot()` and `FacetGrid()` to visualize the evolution of play counts for the 5 songs in the file "spotify.xlsx" over time.
 
 </br>
 
 However, we need to manipulate the data to obtain the format required by these functions.
 
-## The Required Format
+## The required format
+
+</br>
 
 For a multiple line chart, we need to merge the columns `Shape of You`, `Despacito`, `Something Just Like This`, `HUMBLE` and `Unforgettable` into two columns.
 
@@ -888,19 +897,20 @@ Both columns will be ordered by the variable `Date`.
 
 ## 
 
+</br>
+
 To format the data, we use the `melt()` function from the **pandas** library.
 
 ```{python}
 #| echo: true
 
-# Pivot longer: melt the dataframe
 data_lines = spotify_data.melt(id_vars=["Date"], 
                                 value_vars=["Shape of You", "Despacito", "Something Just Like This", "HUMBLE.", "Unforgettable"], 
                                 var_name="Song", 
                                 value_name="Plays")
 ```
 
-##
+## 
 
 ```{python}
 #| echo: true
@@ -959,7 +969,6 @@ plt.show()
 
 ## Applying Principle 3
 
-
 ```{python}
 #| fig-align: center
 #| code-fold: true
@@ -1005,7 +1014,7 @@ plt.show()
 #| echo: false
 #| output: true
 
-plt.figure(figsize=(8, 6))
+plt.figure(figsize=(10, 8))
 sns.scatterplot(data=penguins_data, x='bill_depth_mm', y='bill_length_mm',
     hue='species', size='island')
 plt.xlabel("Bill Depth (mm)")

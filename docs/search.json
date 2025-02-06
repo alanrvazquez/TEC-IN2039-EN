@@ -1397,7 +1397,7 @@
     "href": "T5_Multivariate_Data/Multivariate.slides.html#load-libraries",
     "title": "Multivariable Data",
     "section": "Load Libraries",
-    "text": "Load Libraries\n\nLet’s import the pandas, matplotlib, and seaborn in Google Colab and R before starting.\n\nimport pandas as pd      \nimport matplotlib.pyplot as plt  \nimport seaborn as sns"
+    "text": "Load Libraries\n\nLet’s import the pandas, matplotlib, and seaborn in Google Colab before starting.\n\nimport pandas as pd      \nimport matplotlib.pyplot as plt  \nimport seaborn as sns"
   },
   {
     "objectID": "T5_Multivariate_Data/Multivariate.slides.html#multivariate-data",
@@ -1411,14 +1411,14 @@
     "href": "T5_Multivariate_Data/Multivariate.slides.html#example-1",
     "title": "Multivariable Data",
     "section": "Example 1",
-    "text": "Example 1\n\nConsider data from 392 cars, including miles per gallon, number of cylinders, horsepower, weight, acceleration, year, origin, among other variables.\nThe data is stored in the file “auto_dataset.xlsx”.\n\nauto_data = pd.read_excel(\"auto_dataset.xlsx\")\n# Set categorical variable.\nauto_data[['origin']] = auto_data[['origin']].astype('category')\nauto_data.head()"
+    "text": "Example 1\n\nConsider data from 392 cars, including miles per gallon, number of cylinders, horsepower, weight, acceleration, year, origin, among other variables.\nThe data is in the file “auto_dataset.xlsx”.\n\nauto_data = pd.read_excel(\"auto_dataset.xlsx\")"
   },
   {
     "objectID": "T5_Multivariate_Data/Multivariate.slides.html#section",
     "href": "T5_Multivariate_Data/Multivariate.slides.html#section",
     "title": "Multivariable Data",
     "section": "",
-    "text": "auto_data = pd.read_excel(\"auto_dataset.xlsx\")\n# Set categorical variable.\nauto_data[['origin']] = auto_data[['origin']].astype('category')\nauto_data.head(3)\n\n\n\n\n\n\n\n\nmpg\ncylinders\ndisplacement\nhorsepower\nweight\nacceleration\nyear\norigin\ncar name\n\n\n\n\n0\n18.0\n8\n307.0\n130\n3504\n12.0\n70\nAmerican\nchevrolet chevelle malibu\n\n\n1\n15.0\n8\n350.0\n165\n3693\n11.5\n70\nAmerican\nbuick skylark 320\n\n\n2\n18.0\n8\n318.0\n150\n3436\n11.0\n70\nAmerican\nplymouth satellite"
+    "text": "auto_data.head(4)\n\n\n\n\n\n\n\n\nmpg\ncylinders\ndisplacement\nhorsepower\nweight\nacceleration\nyear\norigin\ncar name\n\n\n\n\n0\n18.0\n8\n307.0\n130\n3504\n12.0\n70\nAmerican\nchevrolet chevelle malibu\n\n\n1\n15.0\n8\n350.0\n165\n3693\n11.5\n70\nAmerican\nbuick skylark 320\n\n\n2\n18.0\n8\n318.0\n150\n3436\n11.0\n70\nAmerican\nplymouth satellite\n\n\n3\n16.0\n8\n304.0\n150\n3433\n12.0\n70\nAmerican\namc rebel sst"
   },
   {
     "objectID": "T5_Multivariate_Data/Multivariate.slides.html#principle-1-formulate-the-question",
@@ -1445,15 +1445,15 @@
     "objectID": "T5_Multivariate_Data/Multivariate.slides.html#scatter-plot",
     "href": "T5_Multivariate_Data/Multivariate.slides.html#scatter-plot",
     "title": "Multivariable Data",
-    "section": "Scatter Plot",
-    "text": "Scatter Plot\n\nThe most common graph for examining the relationship between two numerical variables is the scatter plot.\n\nVariables \\(X\\) and \\(Y\\) are placed on the horizontal and vertical axes, respectively. Each point on the graph represents a pair of \\(X\\) and \\(Y\\) values.\n\n\n\nThe goal is to explore linear or non-linear relationships between variables."
+    "section": "Scatter plot",
+    "text": "Scatter plot\n\nThe most common graph for examining the relationship between two numerical variables is the scatter plot.\n\nVariables \\(X\\) and \\(Y\\) are placed on the horizontal and vertical axes, respectively. Each point on the graph represents a pair of \\(X\\) and \\(Y\\) values.\n\n\n\nThe goal is to explore linear or non-linear relationships between variables."
   },
   {
     "objectID": "T5_Multivariate_Data/Multivariate.slides.html#scatterplot-in-python",
     "href": "T5_Multivariate_Data/Multivariate.slides.html#scatterplot-in-python",
     "title": "Multivariable Data",
     "section": "Scatterplot in Python",
-    "text": "Scatterplot in Python\nTo create scatter plots in seaborn, we use the function scatterplot().\n\nFor example, let’s create a plot to explore the relationship between a car’s weight (weight) and its fuel efficiency in miles per gallon (mpg)\n\nplt.figure(figsize=(8, 6))\nsns.scatterplot(data = auto_data, x = \"weight\", y = \"mpg\")\nplt.show()"
+    "text": "Scatterplot in Python\n\nTo create scatter plots in seaborn, we use the function scatterplot().\n\nFor example, let’s create a plot to explore the relationship between a car’s weight (weight) and its fuel efficiency in miles per gallon (mpg)\n\nplt.figure(figsize=(8, 6))\nsns.scatterplot(data = auto_data, x = \"weight\", y = \"mpg\")\nplt.show()"
   },
   {
     "objectID": "T5_Multivariate_Data/Multivariate.slides.html#section-1",
@@ -1481,56 +1481,56 @@
     "href": "T5_Multivariate_Data/Multivariate.slides.html#possible-point-shapes",
     "title": "Multivariable Data",
     "section": "Possible point shapes",
-    "text": "Possible point shapes\nTo change the symbols used for points in a scatter plot, set the marker parameter to a number or character from the chart below."
+    "text": "Possible point shapes\n\nTo change the symbols used for points in a scatter plot, set the marker parameter to a number or character from the chart below."
   },
   {
     "objectID": "T5_Multivariate_Data/Multivariate.slides.html#section-3",
     "href": "T5_Multivariate_Data/Multivariate.slides.html#section-3",
     "title": "Multivariable Data",
     "section": "",
-    "text": "Continuing with Principle 3, you can use previously seen functions to further improve the graph’s appearance.\n\n\nCode\nplt.figure(figsize=(7, 5))\nsns.scatterplot(data=auto_data, x=\"weight\", y=\"mpg\", color=\"darkblue\", s=50)\n# Customize the plot\nplt.title(\"Weight and miles per gallon relationship in cars\", fontsize=17)\nplt.xlabel(\"Weight (lb)\", fontsize=15)\nplt.ylabel(\"Miles per gallon\", fontsize=15)\nplt.tick_params(axis='both', labelsize=12)\n# Show the plot\nplt.show()"
+    "text": "Continuing with Principle 3, you can use previously seen functions to further improve the graph’s appearance.\n\n\nCode\nplt.figure(figsize=(7, 5))\nsns.scatterplot(data=auto_data, x=\"weight\", y=\"mpg\", color=\"darkblue\", s=50)\n# Customize the plot\nplt.title(\"Weight and miles per gallon relationship in cars\", fontsize=17)\nplt.xlabel(\"Weight (lb)\", fontsize=15)\nplt.ylabel(\"Miles per gallon\", fontsize=15)\nplt.yticks(fontsize=12)\nplt.xticks(fontsize=12)\n# Show the plot\nplt.show()"
   },
   {
     "objectID": "T5_Multivariate_Data/Multivariate.slides.html#include-zero",
     "href": "T5_Multivariate_Data/Multivariate.slides.html#include-zero",
     "title": "Multivariable Data",
-    "section": "Include Zero",
-    "text": "Include Zero\nIn the previous graph, the minimum vertical axis value is around 10. To adjust the minimum value to 0, we use the additional function ylim() below.\n\n\nCode\n# Create the scatter plot with custom color and size\nplt.figure(figsize=(5.2, 3.2))\nsns.scatterplot(data=auto_data, x=\"weight\", y=\"mpg\", color=\"darkblue\", s=50)\n\n# Set y-axis limits\nplt.ylim(0, 50)\n\n# Customize the plot\nplt.title(\"Weight and miles per gallon relationship in cars\", fontsize=17)\nplt.xlabel(\"Weight (lb)\", fontsize=15)\nplt.ylabel(\"Miles per gallon\", fontsize=15)\nplt.tick_params(axis='both', labelsize=12)\n\n# Show the plot\nplt.show()"
+    "section": "Include zero",
+    "text": "Include zero\nIn the previous graph, the minimum vertical axis value is around 10. To adjust the minimum value to 0, we use the additional function ylim() below.\n\n\nCode\n# Create the scatter plot with custom color and size\nplt.figure(figsize=(5.2, 3.2))\nsns.scatterplot(data=auto_data, x=\"weight\", y=\"mpg\", color=\"darkblue\", s=50)\n# Set y-axis limits\nplt.ylim(0, 50)\n# Customize the plot\nplt.title(\"Weight and miles per gallon relationship in cars\", fontsize=17)\nplt.xlabel(\"Weight (lb)\", fontsize=15)\nplt.ylabel(\"Miles per gallon\", fontsize=15)\nplt.yticks(fontsize=12)\nplt.xticks(fontsize=12)\n# Show the plot\nplt.show()"
   },
   {
     "objectID": "T5_Multivariate_Data/Multivariate.slides.html#section-4",
     "href": "T5_Multivariate_Data/Multivariate.slides.html#section-4",
     "title": "Multivariable Data",
     "section": "",
-    "text": "If necessary, we can also adjust the horizontal axis to show 0 as well. To this end we use the xlim() function.\n\n\nCode\n# Create the scatter plot with custom color and size\nplt.figure(figsize=(7, 5))\nsns.scatterplot(data=auto_data, x=\"weight\", y=\"mpg\", color=\"darkblue\", s=50)\n\n# Set y-axis limits\nplt.ylim(0, 50)\n\n# Set x-axis limits\nplt.xlim(0, 5500)\n\n# Customize the plot\nplt.title(\"Weight and miles per gallon relationship in cars\", fontsize=17)\nplt.xlabel(\"Weight (lb)\", fontsize=15)\nplt.ylabel(\"Miles per gallon\", fontsize=15)\nplt.tick_params(axis='both', labelsize=12)\n\n# Show the plot\nplt.show()"
+    "text": "If necessary, we can also adjust the horizontal axis to show 0 as well. To this end we use the xlim() function.\n\n\nCode\n# Create the scatter plot with custom color and size\nplt.figure(figsize=(7, 5))\nsns.scatterplot(data=auto_data, x=\"weight\", y=\"mpg\", color=\"darkblue\", s=50)\n# Set y-axis limits\nplt.ylim(0, 50)\n# Set x-axis limits\nplt.xlim(0, 5500)\n# Customize the plot\nplt.title(\"Weight and miles per gallon relationship in cars\", fontsize=17)\nplt.xlabel(\"Weight (lb)\", fontsize=15)\nplt.ylabel(\"Miles per gallon\", fontsize=15)\nplt.yticks(fontsize=12)\nplt.xticks(fontsize=12)\n# Show the plot\nplt.show()"
   },
   {
     "objectID": "T5_Multivariate_Data/Multivariate.slides.html#individual-graphs",
     "href": "T5_Multivariate_Data/Multivariate.slides.html#individual-graphs",
     "title": "Multivariable Data",
     "section": "Individual graphs",
-    "text": "Individual graphs\nIndividual variable graphs (such as histograms) do not allow us to study the relationship between two variables. They only provide information on the distribution of each variable.\n\n\n\n\nCode\nplt.figure(figsize=(4, 3))\nsns.histplot(data=auto_data, x=\"mpg\", color=\"darkblue\", edgecolor=\"black\")\nplt.title(\"Distribution of miles per gallon\", fontsize=17)\nplt.xlabel(\"Miles per gallon\", fontsize=15)\nplt.ylabel(\"Frecuencia\", fontsize=15)\nplt.tick_params(axis='both', labelsize=12)\nplt.show()\n\n\n\n\n\n\n\n\n\n\n\n\nCode\nplt.figure(figsize=(4, 3))\nsns.histplot(data=auto_data, x=\"weight\", color=\"darkblue\", kde=False, edgecolor=\"black\")\nplt.title(\"Distribution of weight\", fontsize=17)\nplt.xlabel(\"Weight (lb)\", fontsize=15)\nplt.ylabel(\"Frecuencia\", fontsize=15)\nplt.tick_params(axis='both', labelsize=12)\nplt.show()"
+    "text": "Individual graphs\nIndividual variable graphs (such as histograms) do not allow us to study the relationship between two variables. They only provide information on the distribution of each variable.\n\n\n\n\nCode\nplt.figure(figsize=(4, 3))\nsns.histplot(data=auto_data, x=\"mpg\", color=\"darkblue\", edgecolor=\"black\")\nplt.title(\"Distribution of miles per gallon\", fontsize=17)\nplt.xlabel(\"Miles per gallon\", fontsize=15)\nplt.ylabel(\"Frequency\", fontsize=15)\nplt.yticks(fontsize=12)\nplt.xticks(fontsize=12)\nplt.show()\n\n\n\n\n\n\n\n\n\n\n\n\nCode\nplt.figure(figsize=(4, 3))\nsns.histplot(data=auto_data, x=\"weight\", color=\"darkblue\", kde=False, edgecolor=\"black\")\nplt.title(\"Distribution of weight\", fontsize=17)\nplt.xlabel(\"Weight (lb)\", fontsize=15)\nplt.ylabel(\"Frecuencia\", fontsize=15)\nplt.yticks(fontsize=12)\nplt.xticks(fontsize=12)\nplt.show()"
   },
   {
     "objectID": "T5_Multivariate_Data/Multivariate.slides.html#line-graph",
     "href": "T5_Multivariate_Data/Multivariate.slides.html#line-graph",
     "title": "Multivariable Data",
-    "section": "Line Graph",
-    "text": "Line Graph\nA line graph is a visual representation of data where data points are connected by a line. Axes:\n\n\\(X\\) (horizontal): Represents time or the independent variable.\n\\(Y\\) (vertical): Represents the dependent variable.\n\nEach point represents a value at a given moment.\n\n\nThe objective is to explore trends over time or the evolution of a continuous variable."
+    "section": "Line graph",
+    "text": "Line graph\nA line graph is a visual representation of data where data points are connected by a line. Axes:\n\n\\(X\\) (horizontal): Represents time or the independent variable.\n\\(Y\\) (vertical): Represents the dependent variable.\n\nEach point represents a value at a given moment.\n\n\nThe objective is to explore trends over time or the evolution of a continuous variable."
   },
   {
     "objectID": "T5_Multivariate_Data/Multivariate.slides.html#example-2",
     "href": "T5_Multivariate_Data/Multivariate.slides.html#example-2",
     "title": "Multivariable Data",
     "section": "Example 2",
-    "text": "Example 2\nConsider the data in the file “spotify.xlsx”. This dataset contains the global daily streams of the top five most popular songs on the music streaming service Spotify in 2017.\n\nspotify_data = pd.read_excel(\"spotify.xlsx\")\nspotify_data.head(3)\n\n\n\n\n\n\n\n\nDate\nDay\nShape of You\nDespacito\nSomething Just Like This\nHUMBLE.\nUnforgettable\n\n\n\n\n0\n2017-01-06\n1\n12287078\nNaN\nNaN\nNaN\nNaN\n\n\n1\n2017-01-07\n2\n13190270\nNaN\nNaN\nNaN\nNaN\n\n\n2\n2017-01-08\n3\n13099919\nNaN\nNaN\nNaN\nNaN"
+    "text": "Example 2\n\nConsider the data in the file “spotify.xlsx”. This dataset contains the global daily streams of the top five most popular songs on the music streaming service Spotify in 2017.\n\nspotify_data = pd.read_excel(\"spotify.xlsx\")"
   },
   {
     "objectID": "T5_Multivariate_Data/Multivariate.slides.html#section-5",
     "href": "T5_Multivariate_Data/Multivariate.slides.html#section-5",
     "title": "Multivariable Data",
     "section": "",
-    "text": "We will focus on the song Despacito by Luis Fonsi. To construct line plots, we use the functionlineplot() in seaborn.\n\nplt.figure(figsize=(7, 5))\nsns.lineplot(data=spotify_data, x=\"Date\", y=\"Despacito\")\nplt.show()"
+    "text": "spotify_data.head(4)\n\n\n\n\n\n\n\n\nDate\nDay\nShape of You\nDespacito\nSomething Just Like This\nHUMBLE.\nUnforgettable\n\n\n\n\n0\n2017-01-06\n1\n12287078\nNaN\nNaN\nNaN\nNaN\n\n\n1\n2017-01-07\n2\n13190270\nNaN\nNaN\nNaN\nNaN\n\n\n2\n2017-01-08\n3\n13099919\nNaN\nNaN\nNaN\nNaN\n\n\n3\n2017-01-09\n4\n14506351\nNaN\nNaN\nNaN\nNaN"
   },
   {
     "objectID": "T5_Multivariate_Data/Multivariate.slides.html#applying-principle-3",
@@ -1544,14 +1544,14 @@
     "href": "T5_Multivariate_Data/Multivariate.slides.html#section-6",
     "title": "Multivariable Data",
     "section": "",
-    "text": "Code\n# Create the line plot\nplt.figure(figsize=(10, 6))\nsns.lineplot(data=spotify_data, x=\"Date\", y=\"Despacito\", linestyle = '-',\n            color=\"darkblue\", linewidth=1.3)\nplt.title(\"Popularity of the song Despacito by Luis Fonsi\", fontsize=16)\nplt.xlabel(\"Date\", fontsize=12)\nplt.ylabel(\"Number of plays on Spotify\", fontsize=15)\nplt.tick_params(axis='both', labelsize=11)\nplt.show()"
+    "text": "We will focus on the song Despacito by Luis Fonsi. To construct line plots, we use the functionlineplot() in seaborn.\n\nplt.figure(figsize=(7, 5))\nsns.lineplot(data=spotify_data, x=\"Date\", y=\"Despacito\")\nplt.show()"
   },
   {
     "objectID": "T5_Multivariate_Data/Multivariate.slides.html#line-types",
     "href": "T5_Multivariate_Data/Multivariate.slides.html#line-types",
     "title": "Multivariable Data",
-    "section": "Line Types",
-    "text": "Line Types\nTo change the line type, set the linestyle parameter to a character shown below."
+    "section": "Line types",
+    "text": "Line types\n\nTo change the line type, set the linestyle parameter to a character shown below."
   },
   {
     "objectID": "T5_Multivariate_Data/Multivariate.slides.html#divide-the-data-into-groups",
@@ -1572,63 +1572,63 @@
     "href": "T5_Multivariate_Data/Multivariate.slides.html#section-7",
     "title": "Multivariable Data",
     "section": "",
-    "text": "For example, if we want to compare the distributions of miles per gallon of cars built in America, Europe, or Japan, we use the following command:\n\nplt.figure(figsize=(7, 5))\nsns.boxplot(data=auto_data, x=\"origin\", y=\"mpg\")\nplt.show()"
+    "text": "Code\n# Create the line plot\nplt.figure(figsize=(10, 6))\nsns.lineplot(data=spotify_data, x=\"Date\", y=\"Despacito\", linestyle = '-',\n            color=\"darkblue\", linewidth=1.3)\nplt.title(\"Popularity of the song Despacito by Luis Fonsi\", fontsize=16)\nplt.xlabel(\"Date\", fontsize=12)\nplt.ylabel(\"Number of plays on Spotify\", fontsize=15)\nplt.yticks(fontsize=12)\nplt.xticks(fontsize=12)\nplt.show()"
   },
   {
     "objectID": "T5_Multivariate_Data/Multivariate.slides.html#applying-principle-3-1",
     "href": "T5_Multivariate_Data/Multivariate.slides.html#applying-principle-3-1",
     "title": "Multivariable Data",
     "section": "Applying Principle 3",
-    "text": "Applying Principle 3\n\n\nCode\nplt.figure(figsize=(7, 5))\nsns.boxplot(data=auto_data, x=\"origin\", y=\"mpg\", color=\"lightblue\")\nplt.title(\"Miles per Gallon Distribution by Origin\", fontsize=17)\nplt.xlabel(\"Origen\", fontsize=15)\nplt.ylabel(\"Miles per gallon\", fontsize=15)\nplt.tick_params(axis='both', labelsize=12)\nplt.show()"
+    "text": "Applying Principle 3\n\n\nCode\nplt.figure(figsize=(7, 5))\nsns.boxplot(data=auto_data, x=\"origin\", y=\"mpg\", color=\"lightblue\")\nplt.title(\"Miles per Gallon Distribution by Origin\", fontsize=17)\nplt.xlabel(\"Origen\", fontsize=15)\nplt.ylabel(\"Miles per gallon\", fontsize=15)\nplt.yticks(fontsize=12)\nplt.xticks(fontsize=12)\nplt.show()"
   },
   {
     "objectID": "T5_Multivariate_Data/Multivariate.slides.html#section-8",
     "href": "T5_Multivariate_Data/Multivariate.slides.html#section-8",
     "title": "Multivariable Data",
     "section": "",
-    "text": "We can also change the format of outlier points using the arguments marker, markersize, and markerfacecolor inside the argument flierprops in sns.boxplot.\n\n\nCode\nplt.figure(figsize=(6, 4))\nsns.boxplot(data=auto_data, x=\"origin\", y=\"mpg\", color=\"lightblue\",  \n            flierprops=dict(marker=\"o\", markerfacecolor=\"purple\", markersize=8))\nplt.title(\"Miles per Gallon Distribution by Origin\", fontsize=17)\nplt.xlabel(\"Origen\", fontsize=15)\nplt.ylabel(\"Miles per gallon\", fontsize=15)\nplt.tick_params(axis='both', labelsize=12)\nplt.show()"
+    "text": "For example, if we want to compare the distributions of miles per gallon of cars built in America, Europe, or Japan, we use the following command:\n\nplt.figure(figsize=(7, 5))\nsns.boxplot(data=auto_data, x=\"origin\", y=\"mpg\")\nplt.show()"
   },
   {
     "objectID": "T5_Multivariate_Data/Multivariate.slides.html#plotting-statistical-summaries-by-groups",
     "href": "T5_Multivariate_Data/Multivariate.slides.html#plotting-statistical-summaries-by-groups",
     "title": "Multivariable Data",
     "section": "Plotting statistical summaries by groups",
-    "text": "Plotting statistical summaries by groups\nAlternatively, we can summarize the values of the numerical variable \\(Y\\) for each category of the variable \\(X\\) using the median or the mean.\nFor example, let’s plot the average miles per gallon of cars produced in America, Europe, and Japan. First, we calculate the average for each category using groupby() and mean().\n\nsummary_autos = (auto_data\n  .loc[:, ['mpg', 'origin']]\n  .groupby([\"origin\"], observed = True)\n  .mean()\n)"
+    "text": "Plotting statistical summaries by groups\nAlternatively, we can summarize the values of the numerical variable \\(Y\\) for each category of the variable \\(X\\) using the median or the mean.\nFor example, let’s plot the average miles per gallon of cars produced in America, Europe, and Japan. First, we calculate the average for each category using groupby() and mean().\n\nsum_auto = (auto_data\n  .filter(['mpg', 'origin'], axis = 1)\n  .groupby([\"origin\"], observed = True)\n  .agg(meanMPG = (\"mpg\", \"mean\"))\n)"
   },
   {
     "objectID": "T5_Multivariate_Data/Multivariate.slides.html#section-9",
     "href": "T5_Multivariate_Data/Multivariate.slides.html#section-9",
     "title": "Multivariable Data",
     "section": "",
-    "text": "The data to be plotted are:\n\nsummary_autos\n\n\n\n\n\n\n\n\nmpg\n\n\norigin\n\n\n\n\n\nAmerican\n20.083534\n\n\nEuropean\n27.891429\n\n\nJapanese\n30.450633"
+    "text": "We can also change the format of outlier points using the arguments marker, markersize, and markerfacecolor inside the argument flierprops in sns.boxplot.\n\n\nCode\nplt.figure(figsize=(6, 4))\nsns.boxplot(data=auto_data, x=\"origin\", y=\"mpg\", color=\"lightblue\",  \n            flierprops=dict(marker=\"o\", markerfacecolor=\"purple\", markersize=8))\nplt.title(\"Miles per Gallon Distribution by Origin\", fontsize=17)\nplt.xlabel(\"Origen\", fontsize=15)\nplt.ylabel(\"Miles per gallon\", fontsize=15)\nplt.yticks(fontsize=12)\nplt.xticks(fontsize=12)\nplt.show()"
   },
   {
     "objectID": "T5_Multivariate_Data/Multivariate.slides.html#section-10",
     "href": "T5_Multivariate_Data/Multivariate.slides.html#section-10",
     "title": "Multivariable Data",
     "section": "",
-    "text": "Two common visualization types for plotting a numerical and a discrete variable when there is only one value per category are:\n\nCleveland dot plot\nBar chart"
+    "text": "The data to be plotted are:\n\nsum_auto\n\n\n\n\n\n\n\n\nmeanMPG\n\n\norigin\n\n\n\n\n\nAmerican\n20.083534\n\n\nEuropean\n27.891429\n\n\nJapanese\n30.450633"
   },
   {
     "objectID": "T5_Multivariate_Data/Multivariate.slides.html#cleveland-dot-plot",
     "href": "T5_Multivariate_Data/Multivariate.slides.html#cleveland-dot-plot",
     "title": "Multivariable Data",
-    "section": "Cleveland Dot Plot",
-    "text": "Cleveland Dot Plot\nThe Cleveland dot plot encodes quantitative data across different categories. It is an alternative to a bar chart. It is obtained using the function scatterplot().\n\nplt.figure(figsize=(8, 6))\nsns.scatterplot(data=summary_autos, x='mpg', y='origin')\nplt.title(\"Average Miles per Gallon by Origin\", fontsize=17)\nplt.xlabel(\"Average Miles Per Gallon\", fontsize=15)\nplt.ylabel(\"Origen\", fontsize=15)\nplt.show()"
+    "section": "Cleveland dot plot",
+    "text": "Cleveland dot plot\n\nThe Cleveland dot plot encodes quantitative data across different categories. It is an alternative to a bar chart. It is obtained using the function scatterplot().\n\nplt.figure(figsize=(8, 6))\nsns.scatterplot(data=sum_auto, x='meanMPG', y='origin')\nplt.title(\"Average Miles per Gallon by Origin\", fontsize=17)\nplt.xlabel(\"Average Miles Per Gallon\", fontsize=15)\nplt.ylabel(\"Origen\", fontsize=15)\nplt.show()"
   },
   {
     "objectID": "T5_Multivariate_Data/Multivariate.slides.html#improving-the-plot",
     "href": "T5_Multivariate_Data/Multivariate.slides.html#improving-the-plot",
     "title": "Multivariable Data",
     "section": "Improving the plot",
-    "text": "Improving the plot\nWe apply Principle 3 to improve the plot.\n\n\nCode\nplt.figure(figsize=(7, 5))\nsns.scatterplot(data=summary_autos, x='mpg', y='origin', s=100, color='pink')\nplt.title(\"Average Miles per Gallon by Origin\", fontsize=17)\nplt.xlabel(\"Average Miles Per Gallon\", fontsize=15)\nplt.ylabel(\"Origen\", fontsize=15)\n# Set x-axis limits\nplt.xlim(0, 35)\nplt.show()"
+    "text": "Improving the plot\nWe apply Principle 3 to improve the plot.\n\n\nCode\nplt.figure(figsize=(7, 5))\nsns.scatterplot(data=sum_auto, x='meanMPG', y='origin', s=100, color='pink')\nplt.title(\"Average Miles per Gallon by Origin\", fontsize=17)\nplt.xlabel(\"Average Miles Per Gallon\", fontsize=15)\nplt.ylabel(\"Origen\", fontsize=15)\n# Set x-axis limits\nplt.xlim(0, 35)\nplt.show()"
   },
   {
     "objectID": "T5_Multivariate_Data/Multivariate.slides.html#bar-chart",
     "href": "T5_Multivariate_Data/Multivariate.slides.html#bar-chart",
     "title": "Multivariable Data",
     "section": "Bar Chart",
-    "text": "Bar Chart\nTo create a bar chart where the bar length equals a specific value, we use the function barplot() dfrom the seaborn.\n\nplt.figure(figsize=(5, 3))\nsns.barplot(data=summary_autos, x='mpg', y='origin')\nplt.title(\"Average Miles per Gallon by Origin\")\nplt.xlabel(\"Average Miles Per Gallon\")\nplt.ylabel(\"Origen\")\nplt.show()"
+    "text": "Bar Chart\nTo create a bar chart where the bar length equals a specific value, we use the function barplot() dfrom the seaborn.\n\nplt.figure(figsize=(5, 3))\nsns.barplot(data=sum_auto, x='meanMPG', y='origin')\nplt.title(\"Average Miles per Gallon by Origin\")\nplt.xlabel(\"Average Miles Per Gallon\")\nplt.ylabel(\"Origen\")\nplt.show()"
   },
   {
     "objectID": "T5_Multivariate_Data/Multivariate.slides.html#section-12",
@@ -1656,28 +1656,28 @@
     "href": "T5_Multivariate_Data/Multivariate.slides.html#section-13",
     "title": "Multivariable Data",
     "section": "",
-    "text": "The data has two categorical variables:\n\nThe species of penguins (species).\nThe island they come from (island).\n\nMake sure they are specified as factor in Python!\n\npenguins_data[['species', 'island', 'sex']] = penguins_data[['species', 'island', 'sex']].astype('category')"
+    "text": "We can use similar commands as the Cleveland dot plot to improve the bar chart.\n\n\nCode\nplt.figure(figsize=(7, 5))\nsns.barplot(data=sum_auto, x='meanMPG', y='origin', color='lightblue')\nplt.title(\"Average Miles per Gallon by Origin\", fontsize=17)\nplt.xlabel(\"Average Miles Per Gallon\", fontsize=15)\nplt.ylabel(\"Origen\", fontsize=15)\nplt.xlim(0, 35)\nplt.show()"
   },
   {
     "objectID": "T5_Multivariate_Data/Multivariate.slides.html#stacked-bar-chart",
     "href": "T5_Multivariate_Data/Multivariate.slides.html#stacked-bar-chart",
     "title": "Multivariable Data",
-    "section": "Stacked Bar Chart",
-    "text": "Stacked Bar Chart\nThe side-by-side bar chart is generated using the countplot(), function, assigning the \\(X\\) variable to the hue argument.\n\n\nFor example, to study the distribution of penguin species across the three different islands, we use the following:\n\nplt.figure(figsize=(8, 6))\nsns.countplot(data=penguins_data, x='species', hue='island')\nplt.title(\"Distribution of Penguin Species by Island\", fontsize=17)\nplt.xlabel(\"Species\", fontsize=15)\nplt.ylabel(\"Count\", fontsize=15)\nplt.show()"
+    "section": "Stacked bar chart",
+    "text": "Stacked bar chart\nThe side-by-side bar chart is generated using the .histplot() function, assigning the \\(X\\) variable to the hue argument and setting multiple='stack'.\n\nFor example, to study the distribution of penguin species across the three different islands, we use the following:\n\nplt.figure(figsize=(8, 6))\nsns.histplot(data=penguins_data, x='species', hue='island', \n              multiple='stack')\nplt.title(\"Distribution of Penguin Species by Island\", fontsize=17)\nplt.xlabel(\"Species\", fontsize=15)\nplt.ylabel(\"Count\", fontsize=15)\nplt.show()"
   },
   {
     "objectID": "T5_Multivariate_Data/Multivariate.slides.html#section-14",
     "href": "T5_Multivariate_Data/Multivariate.slides.html#section-14",
     "title": "Multivariable Data",
     "section": "",
-    "text": "The chart shows the frequency of each species, separated by island name.\n\nplt.figure(figsize=(6, 4))\nsns.countplot(data=penguins_data, x='species', hue='island')\nplt.title(\"Distribution of Penguin Species by Island\", fontsize=17)\nplt.xlabel(\"Species\", fontsize=15)\nplt.ylabel(\"Count\", fontsize=15)\nplt.show()"
+    "text": "The data has two categorical variables:\n\nThe species of penguins (species).\nThe island they come from (island).\n\nMake sure they are specified as factor in Python!\n\npenguins_data[['species', 'island', 'sex']] = (penguins_data\n                                              .filter(['species', 'island', 'sex'], axis = 1)\n                                              .astype('category')\n)"
   },
   {
     "objectID": "T5_Multivariate_Data/Multivariate.slides.html#side-by-side-bar-chart",
     "href": "T5_Multivariate_Data/Multivariate.slides.html#side-by-side-bar-chart",
     "title": "Multivariable Data",
-    "section": "Side-by-Side Bar Chart",
-    "text": "Side-by-Side Bar Chart\nAn alternative to the previous chart is to place the bars side by side for the categories of the \\(X\\) variable.\nIn this case, we use the same commands with an extra argument: position = position_dodge().\n\nplt.figure(figsize=(8, 6))\nsns.countplot(data=penguins_data, x='species', hue='island', palette='Set1')\nplt.title(\"Distribution of Penguin Species by Island\", fontsize=17)\nplt.xlabel(\"Species\", fontsize=15)\nplt.ylabel(\"Count\", fontsize=15)\nplt.show()"
+    "section": "Side-by-side bar chart",
+    "text": "Side-by-side bar chart\n\nAn alternative to the previous chart is to place the bars side by side for the categories of the \\(X\\) variable.\nIn this case, we use the .countplot() function of seaborn.\n\nplt.figure(figsize=(8, 6))\nsns.countplot(data=penguins_data, x='species', hue='island')\nplt.title(\"Distribution of Penguin Species by Island\", fontsize=17)\nplt.xlabel(\"Species\", fontsize=15)\nplt.ylabel(\"Count\", fontsize=15)\nplt.show()"
   },
   {
     "objectID": "T5_Multivariate_Data/Multivariate.slides.html#stacked-or-side-by-side",
@@ -1705,21 +1705,21 @@
     "href": "T5_Multivariate_Data/Multivariate.slides.html#section-17",
     "title": "Multivariable Data",
     "section": "",
-    "text": "# Show the result\nprint(count_data)\n\n      island    species  count\n0     Biscoe     Adelie     44\n1     Biscoe     Gentoo    124\n2      Dream     Adelie     56\n3      Dream  Chinstrap     68\n4  Torgersen     Adelie     52"
+    "text": "Advantages of side-by-side bars:\n\nEasier to compare the heights of each individual entity.\nBetter for comparing between groups."
   },
   {
     "objectID": "T5_Multivariate_Data/Multivariate.slides.html#section-18",
     "href": "T5_Multivariate_Data/Multivariate.slides.html#section-18",
     "title": "Multivariable Data",
     "section": "",
-    "text": "To calculate relative frequency, we use assign() along with the lambda, function, which calculates the proportions of a column.\n\nrel_freq_table = (penguins_data\n  .groupby(['island', 'species'], observed = True)\n  .size()\n  .reset_index(name='count')\n  .assign(Proportion = lambda df: df[\"count\"]/df[\"count\"].sum())\n  )\n  \nprint(rel_freq_table)  \n\n      island    species  count  Proportion\n0     Biscoe     Adelie     44    0.127907\n1     Biscoe     Gentoo    124    0.360465\n2      Dream     Adelie     56    0.162791\n3      Dream  Chinstrap     68    0.197674\n4  Torgersen     Adelie     52    0.151163"
+    "text": "# Show the result\nprint(count_data)\n\n      island    species  count\n0     Biscoe     Adelie     44\n1     Biscoe     Gentoo    124\n2      Dream     Adelie     56\n3      Dream  Chinstrap     68\n4  Torgersen     Adelie     52"
   },
   {
     "objectID": "T5_Multivariate_Data/Multivariate.slides.html#charts-for-three-variables",
     "href": "T5_Multivariate_Data/Multivariate.slides.html#charts-for-three-variables",
     "title": "Multivariable Data",
     "section": "Charts for Three Variables",
-    "text": "Charts for Three Variables\n\nWhen examining a distribution or relationship, we often want to compare it across data subgroups.\nThis process of conditioning on additional variables leads to visualizations involving three or more variables.\nHere we explain how to create charts to visualize multiple variables."
+    "text": "Charts for Three Variables\n\n\nWhen examining a distribution or relationship, we often want to compare it across data subgroups.\nThis process of conditioning on additional variables leads to visualizations involving three or more variables.\nHere we explain how to create charts to visualize multiple variables."
   },
   {
     "objectID": "T5_Multivariate_Data/Multivariate.slides.html#scatter-plot-by-color",
@@ -1732,43 +1732,43 @@
     "objectID": "T5_Multivariate_Data/Multivariate.slides.html#faceted-or-lattice-plot",
     "href": "T5_Multivariate_Data/Multivariate.slides.html#faceted-or-lattice-plot",
     "title": "Multivariable Data",
-    "section": "Faceted or Lattice Plot",
-    "text": "Faceted or Lattice Plot\nA faceted plot visualizes the relationship or distribution of one or two variables for each subgroup defined by a third variable \\(Z\\).\n\nIdea: Create a chart for each subgroup of \\(Z\\).\n\n\nTo create the plot, use the FacetGrid() function in seaborn with the following syntax:\n\nplt.figure(figsize=(8, 6))\ng = sns.FacetGrid(auto_data, col='origin')\ng.map(sns.scatterplot, 'weight', 'mpg')\ng.set_axis_labels(\"Weight (lb)\", \"Miles per Gallon (MPG)\")\ng.set_titles(\"{col_name} Origin\")\nplt.show()"
+    "section": "Faceted or lattice Plot",
+    "text": "Faceted or lattice Plot\nA faceted plot visualizes the relationship or distribution of one or two variables for each subgroup defined by a third variable \\(Z\\).\n\nIdea: Create a chart for each subgroup of \\(Z\\).\n\n\nTo create the plot, use the FacetGrid() function in seaborn with the following syntax:\n\nplt.figure(figsize=(8, 6))\ng = sns.FacetGrid(auto_data, col='origin')\ng.map(sns.scatterplot, 'weight', 'mpg')\ng.set_axis_labels(\"Weight (lb)\", \"Miles per Gallon (MPG)\")\ng.set_titles(\"{col_name} Origin\")\nplt.show()"
   },
   {
     "objectID": "T5_Multivariate_Data/Multivariate.slides.html#section-19",
     "href": "T5_Multivariate_Data/Multivariate.slides.html#section-19",
     "title": "Multivariable Data",
     "section": "",
-    "text": "The function produces a grid with 1 column and 3 rows of charts. Each row accommodates one category of origin.\n\n\n&lt;Figure size 768x576 with 0 Axes&gt;"
+    "text": "To calculate relative frequency, we use assign() along with the lambda, function, which calculates the proportions of a column.\n\nrel_freq_table = (penguins_data\n  .groupby(['island', 'species'], observed = True)\n  .size()\n  .reset_index(name='count')\n  .assign(Proportion = lambda df: df[\"count\"]/df[\"count\"].sum())\n  )\n  \nprint(rel_freq_table)  \n\n      island    species  count  Proportion\n0     Biscoe     Adelie     44    0.127907\n1     Biscoe     Gentoo    124    0.360465\n2      Dream     Adelie     56    0.162791\n3      Dream  Chinstrap     68    0.197674\n4  Torgersen     Adelie     52    0.151163"
   },
   {
     "objectID": "T5_Multivariate_Data/Multivariate.slides.html#section-20",
     "href": "T5_Multivariate_Data/Multivariate.slides.html#section-20",
     "title": "Multivariable Data",
     "section": "",
-    "text": "If we change the order of the origin variable in the gf_facet_grid, function, we get a grid with three columns and one row of charts.\n\n# Create the scatter plot and facet by 'origin'\nplt.figure(figsize=(8, 6))\ng = sns.FacetGrid(auto_data, col='origin')\ng.map(sns.scatterplot, 'weight', 'mpg')\n\n# Customize the plot\ng.set_axis_labels(\"Weight (lb)\", \"Miles per Gallon (MPG)\")\ng.set_titles(\"{col_name} Origin\")\n\n# Show the plot\nplt.show()\n\n&lt;Figure size 768x576 with 0 Axes&gt;"
+    "text": "The function produces a grid with 1 column and 3 rows of charts. Each row accommodates one category of origin.\n\n\n&lt;Figure size 768x576 with 0 Axes&gt;"
   },
   {
     "objectID": "T5_Multivariate_Data/Multivariate.slides.html#multiple-line-charts",
     "href": "T5_Multivariate_Data/Multivariate.slides.html#multiple-line-charts",
     "title": "Multivariable Data",
-    "section": "Multiple Line Charts",
-    "text": "Multiple Line Charts\nWe can use the functions gf_line() and gf_facet_grid() to visualize the evolution of play counts for the 5 songs in the file “spotify.xlsx” over time.\n\nHowever, we need to manipulate the data to obtain the format required by these functions."
+    "section": "Multiple line charts",
+    "text": "Multiple line charts\n\nWe can use the functions .lineplot() and FacetGrid() to visualize the evolution of play counts for the 5 songs in the file “spotify.xlsx” over time.\n\nHowever, we need to manipulate the data to obtain the format required by these functions."
   },
   {
     "objectID": "T5_Multivariate_Data/Multivariate.slides.html#the-required-format",
     "href": "T5_Multivariate_Data/Multivariate.slides.html#the-required-format",
     "title": "Multivariable Data",
-    "section": "The Required Format",
-    "text": "The Required Format\nFor a multiple line chart, we need to merge the columns Shape of You, Despacito, Something Just Like This, HUMBLE and Unforgettable into two columns.\nOne column will contain the number of plays, and the other will contain the song title.\nBoth columns will be ordered by the variable Date."
+    "section": "The required format",
+    "text": "The required format\n\nFor a multiple line chart, we need to merge the columns Shape of You, Despacito, Something Just Like This, HUMBLE and Unforgettable into two columns.\nOne column will contain the number of plays, and the other will contain the song title.\nBoth columns will be ordered by the variable Date."
   },
   {
     "objectID": "T5_Multivariate_Data/Multivariate.slides.html#section-21",
     "href": "T5_Multivariate_Data/Multivariate.slides.html#section-21",
     "title": "Multivariable Data",
     "section": "",
-    "text": "To format the data, we use the melt() function from the pandas library.\n\n# Pivot longer: melt the dataframe\ndata_lines = spotify_data.melt(id_vars=[\"Date\"], \n                                value_vars=[\"Shape of You\", \"Despacito\", \"Something Just Like This\", \"HUMBLE.\", \"Unforgettable\"], \n                                var_name=\"Song\", \n                                value_name=\"Plays\")"
+    "text": "To format the data, we use the melt() function from the pandas library.\n\ndata_lines = spotify_data.melt(id_vars=[\"Date\"], \n                                value_vars=[\"Shape of You\", \"Despacito\", \"Something Just Like This\", \"HUMBLE.\", \"Unforgettable\"], \n                                var_name=\"Song\", \n                                value_name=\"Plays\")"
   },
   {
     "objectID": "T5_Multivariate_Data/Multivariate.slides.html#section-22",
@@ -1937,5 +1937,40 @@
     "title": "What is data visualization?",
     "section": "",
     "text": "“The greatest value of a picture is when it forces us to notice what we never expected to see.” John W. Tukey.\n\n\n\n\n\nhttps://www.storytellingwithdata.com/ is an excellent guide on data visualization."
+  },
+  {
+    "objectID": "T5_Multivariate_Data/Multivariate.slides.html#principle-3-apply-graphic-design-principles",
+    "href": "T5_Multivariate_Data/Multivariate.slides.html#principle-3-apply-graphic-design-principles",
+    "title": "Multivariable Data",
+    "section": "Principle 3: Apply graphic design principles",
+    "text": "Principle 3: Apply graphic design principles\nFollowing Principle 3, we can modify the default function values to define different colors or shapes for the points in the graph.\nSpecifically, you can change the color, shape, and size of points using the arguments color, shape and s, respectively.\n\nsns.scatterplot(data=data_set, x=X, y=Y, color, marker, s)"
+  },
+  {
+    "objectID": "T5_Multivariate_Data/Multivariate.slides.html#section-11",
+    "href": "T5_Multivariate_Data/Multivariate.slides.html#section-11",
+    "title": "Multivariable Data",
+    "section": "",
+    "text": "Two common visualization types for plotting a numerical and a discrete variable when there is only one value per category are:\n\nCleveland dot plot\nBar chart"
+  },
+  {
+    "objectID": "T5_Multivariate_Data/Multivariate.slides.html#section-15",
+    "href": "T5_Multivariate_Data/Multivariate.slides.html#section-15",
+    "title": "Multivariable Data",
+    "section": "",
+    "text": "The chart shows the frequency of each species, separated by island name."
+  },
+  {
+    "objectID": "T5_Multivariate_Data/Multivariate.slides.html#section-25",
+    "href": "T5_Multivariate_Data/Multivariate.slides.html#section-25",
+    "title": "Multivariable Data",
+    "section": "",
+    "text": "Or we can plot all lines on a single chart.\n\n\nCode\n# Create the line plot with color mapped to 'Cancion'\nplt.figure(figsize=(7, 5))\nsns.lineplot(x='Date', y='Plays', hue='Song', data=data_lines)\n\n# Customize the plot\nplt.title(\"Plays by Song Over Time\")\nplt.xlabel(\"Date\")\nplt.ylabel(\"Plays\")\nplt.xticks(rotation=90)  # Rotate x-axis labels for better readability\n\n# Show the plot\nplt.show()"
+  },
+  {
+    "objectID": "T5_Multivariate_Data/Multivariate.slides.html#scatter-plot-in-python",
+    "href": "T5_Multivariate_Data/Multivariate.slides.html#scatter-plot-in-python",
+    "title": "Multivariable Data",
+    "section": "Scatter plot in Python",
+    "text": "Scatter plot in Python\n\nTo create scatter plots in seaborn, we use the function scatterplot().\n\nFor example, let’s create a plot to explore the relationship between a car’s weight (weight) and its fuel efficiency in miles per gallon (mpg)\n\nplt.figure(figsize=(8, 6))\nsns.scatterplot(data = auto_data, x = \"weight\", y = \"mpg\")\nplt.show()"
   }
 ]
