@@ -1027,4 +1027,4 @@ plt.show()
 
 <https://seaborn.pydata.org/index.html>
 
-# [Return to Main Page](https://alanrvazquez.github.io/TEC-IN2039-EN/TEC-IN2039-EN.html)
+# [Return to Main Page](https://alanrvazquez.github.io/TEC-IN2039-EN/)

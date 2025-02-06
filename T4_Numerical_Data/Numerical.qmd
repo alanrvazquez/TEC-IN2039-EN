@@ -254,6 +254,7 @@ set_quantiles = [0.25, 0.5, 0.75]
 )
 ```
 :::
+
 ::: {.column width="40%"}
 [*Interpretation:*]{style="color:darkgray;"}
 
@@ -263,7 +264,7 @@ set_quantiles = [0.25, 0.5, 0.75]
 
 -   75% of cycle times are below 1.07 sec.
 :::
-:::
+:::::
 
 ## Maximum and minimum
 
@@ -448,7 +449,7 @@ plt.show()
 
 [The left histogram uses `bins = 5`, and the right histogram uses `bins = 30`]{style="font-size: 100%;"}
 
-::: columns
+::::: columns
 ::: {.column width="50%"}
 ```{python}
 #| fig-pos: center
@@ -463,6 +464,7 @@ plt.ylabel("Frequency")
 plt.show()
 ```
 :::
+
 ::: {.column width="50%"}
 ```{python}
 #| fig-pos: center
@@ -477,7 +479,7 @@ plt.ylabel("Frequency")
 plt.show()
 ```
 :::
-:::
+:::::
 
 In this course, we will use the default number of `bins`.
 
