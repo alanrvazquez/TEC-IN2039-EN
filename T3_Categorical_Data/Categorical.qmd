@@ -141,7 +141,7 @@ Now, the variables are correctly labeled as `categorical`.
 
 The most commonly used statistical summaries for categorical data are:
 
-:::incremental
+::: incremental
 -   The [**frequency**]{style="color:darkblue;"} of a category is the number of observations that belong to that category.
 
 -   The [**relative frequency**]{style="color:darkblue;"} is the frequency divided by the total number of observations.

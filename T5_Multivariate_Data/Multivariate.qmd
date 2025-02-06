@@ -65,7 +65,7 @@ In fact, the **goal** is to determine whether there is a relationship between th
 
 </br>
 
-Consider data from 392 cars, including miles per gallon, number of cylinders, horsepower, weight, acceleration, year, origin, among other variables. 
+Consider data from 392 cars, including miles per gallon, number of cylinders, horsepower, weight, acceleration, year, origin, among other variables.
 
 The data is in the file "auto_dataset.xlsx".
 
@@ -345,7 +345,7 @@ Consider the data in the file "spotify.xlsx". This dataset contains the global d
 spotify_data = pd.read_excel("spotify.xlsx")
 ```
 
-##
+## 
 
 ```{python}
 #| echo: true
@@ -873,7 +873,6 @@ g.set_axis_labels("Weight (lb)", "Miles per Gallon (MPG)")
 g.set_titles("{col_name} Origin")
 plt.show()
 ```
-
 
 ## Multiple line charts
 
