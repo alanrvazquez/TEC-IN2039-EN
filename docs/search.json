@@ -865,7 +865,7 @@
     "href": "T6_Introduction_Linear_Regression/LR.slides.html#loading-the-libraries",
     "title": "Introduction to Linear Regression",
     "section": "Loading the Libraries",
-    "text": "Loading the Libraries\nLet’s import the pandas, matplotlib, and seaborn in Google Colab.\n\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns"
+    "text": "Loading the Libraries\n\nLet’s import the pandas, matplotlib, and seaborn in Google Colab.\n\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns"
   },
   {
     "objectID": "T6_Introduction_Linear_Regression/LR.slides.html#example",
@@ -997,15 +997,15 @@
     "objectID": "T6_Introduction_Linear_Regression/LR.slides.html#inspecting-the-errors",
     "href": "T6_Introduction_Linear_Regression/LR.slides.html#inspecting-the-errors",
     "title": "Introduction to Linear Regression",
-    "section": "Inspecting the Errors",
-    "text": "Inspecting the Errors\nThe behavior of the errors (\\(e_i\\)’s) indicates whether the model is correct or not. If the model is correct, the errors should behave as follows:\n\n\nOn average, they should be around 0 for each predicted value \\(\\hat{Y}_i\\).\nThey should have constant dispersion around each predicted value \\(\\hat{Y}_i\\).\nThey should be independent of each other, meaning they should not be related."
+    "section": "Inspecting the errors",
+    "text": "Inspecting the errors\nThe behavior of the errors (\\(e_i\\)’s) indicates whether the model is correct or not. If the model is correct, the errors should behave as follows:\n\n\nOn average, they should be around 0 for each predicted value \\(\\hat{Y}_i\\).\nThey should have constant dispersion around each predicted value \\(\\hat{Y}_i\\).\nThey should be independent of each other, meaning they should not be related."
   },
   {
     "objectID": "T6_Introduction_Linear_Regression/LR.slides.html#graphical-analysis-of-errors",
     "href": "T6_Introduction_Linear_Regression/LR.slides.html#graphical-analysis-of-errors",
     "title": "Introduction to Linear Regression",
-    "section": "Graphical Analysis of Errors",
-    "text": "Graphical Analysis of Errors\nTo evaluate these behaviors, we use two scatter plots of the errors:\n\nHorizontal Axis = Errors and Vertical Axis = Predictions. This plot helps validate the first two assumptions (errors around 0 and constant dispersion).\nEje Horizontal = Errores y Eje Vertical = Tiempo en que se tomó la observación. Está gráfica permite validar el tercer supuesto (independencia)."
+    "section": "Graphical analysis of errors",
+    "text": "Graphical analysis of errors\nTo evaluate these behaviors, we use two scatter plots of the errors:\n\nHorizontal Axis = Errors and Vertical Axis = Predictions. This plot helps validate the first two assumptions (errors around 0 and constant dispersion).\nEje Horizontal = Errores y Eje Vertical = Tiempo en que se tomó la observación. Está gráfica permite validar el tercer supuesto (independencia)."
   },
   {
     "objectID": "T6_Introduction_Linear_Regression/LR.slides.html#statsmodels-library",
@@ -1053,15 +1053,15 @@
     "objectID": "T6_Introduction_Linear_Regression/LR.slides.html#constant-dispersion",
     "href": "T6_Introduction_Linear_Regression/LR.slides.html#constant-dispersion",
     "title": "Introduction to Linear Regression",
-    "section": "Constant Dispersion",
-    "text": "Constant Dispersion\n\n\nCode\n# Residual vs Fitted Values Plot\nplt.figure(figsize=(7.5, 5.5))\nsns.scatterplot(x = Y_pred, y = residuals, color=\"darkblue\", s = 50)\nplt.axhline(y=0, color='red', linestyle='--')\nplt.xlabel('Fitted (predicted) Values', fontsize=15)\nplt.ylabel('Residuals', fontsize=15)\nax.tick_params(axis='both', labelsize=12)\nplt.show()"
+    "section": "Constant dispersion",
+    "text": "Constant dispersion\n\n\nCode\n# Residual vs Fitted Values Plot\nplt.figure(figsize=(7.5, 5.5))\nsns.scatterplot(x = Y_pred, y = residuals, color=\"darkblue\", s = 50)\nplt.axhline(y=0, color='red', linestyle='--')\nplt.xlabel('Fitted (predicted) Values', fontsize=15)\nplt.ylabel('Residuals', fontsize=15)\nplt.yticks(fontsize=12)\nplt.xticks(fontsize=12)\nplt.show()"
   },
   {
     "objectID": "T6_Introduction_Linear_Regression/LR.slides.html#independent-errors",
     "href": "T6_Introduction_Linear_Regression/LR.slides.html#independent-errors",
     "title": "Introduction to Linear Regression",
-    "section": "Independent Errors",
-    "text": "Independent Errors\n\n\nCode\n# Residuals vs Time (Case) Plot\nplt.figure(figsize=(7.5, 5.5))\nsns.scatterplot(x = range(auto_data.shape[0]), y = residuals, \n                color=\"darkblue\", s = 50)\nplt.axhline(y=0, color='red', linestyle='--')\nplt.xlabel('Time', fontsize=15)\nax.tick_params(axis='both', labelsize=12)\nplt.ylabel('Residuals', fontsize=15)\nplt.show()"
+    "section": "Independent errors",
+    "text": "Independent errors\n\n\nCode\n# Residuals vs Time (Case) Plot\nplt.figure(figsize=(7.5, 5.5))\nsns.scatterplot(x = range(len(auto_data)), y = residuals, \n                color=\"darkblue\", s = 50)\nplt.axhline(y=0, color='red', linestyle='--')\nplt.xlabel('Time', fontsize=15)\nplt.ylabel('Residuals', fontsize=15)\nplt.yticks(fontsize=12)\nplt.xticks(fontsize=12)\nplt.show()"
   },
   {
     "objectID": "T6_Introduction_Linear_Regression/LR.slides.html#comments",
@@ -1081,8 +1081,8 @@
     "objectID": "T6_Introduction_Linear_Regression/LR.slides.html#local-regression-1",
     "href": "T6_Introduction_Linear_Regression/LR.slides.html#local-regression-1",
     "title": "Introduction to Linear Regression",
-    "section": "Local Regression",
-    "text": "Local Regression\nThis is a modern alternative to the simple linear regression model for capturing complex relationships between two variables.\nBasic Idea: It fits linear regression models to small subsets of the data. These subsets consist of observations that are close to each other.\nThe most common method for fitting a local regression model is LOESS. We will omit the details of this method here since they require advanced statistical concepts."
+    "section": "Local regression",
+    "text": "Local regression\nThis is a modern alternative to the simple linear regression model for capturing complex relationships between two variables.\nBasic Idea: It fits linear regression models to small subsets of the data. These subsets consist of observations that are close to each other.\nThe most common method for fitting a local regression model is LOESS. We will omit the details of this method here since they require advanced statistical concepts."
   },
   {
     "objectID": "T6_Introduction_Linear_Regression/LR.slides.html#section-9",
@@ -1102,22 +1102,22 @@
     "objectID": "T6_Introduction_Linear_Regression/LR.slides.html#another-example",
     "href": "T6_Introduction_Linear_Regression/LR.slides.html#another-example",
     "title": "Introduction to Linear Regression",
-    "section": "Another Example",
-    "text": "Another Example\nLet’s consider the relationship between car acceleration (acceleration) and the total volume of all engine cylinders (displacement).\n\nplt.figure(figsize=(5.5, 3.5))\nsns.scatterplot(data=auto_data, x=\"displacement\", y=\"acceleration\")\nplt.show()"
+    "section": "Another example",
+    "text": "Another example\nLet’s consider the relationship between car acceleration (acceleration) and the total volume of all engine cylinders (displacement).\n\nplt.figure(figsize=(5.5, 3.5))\nsns.scatterplot(data=auto_data, x=\"displacement\", y=\"acceleration\")\nplt.show()"
   },
   {
     "objectID": "T6_Introduction_Linear_Regression/LR.slides.html#linear-regression",
     "href": "T6_Introduction_Linear_Regression/LR.slides.html#linear-regression",
     "title": "Introduction to Linear Regression",
-    "section": "Linear Regression",
-    "text": "Linear Regression\n\nplt.figure(figsize=(7, 5))\nsns.regplot(data=auto_data, x=\"displacement\", y=\"acceleration\", \n            scatter=True)\nplt.show()"
+    "section": "Linear regression",
+    "text": "Linear regression\n\nplt.figure(figsize=(7, 5))\nsns.regplot(data=auto_data, x=\"displacement\", y=\"acceleration\", \n            scatter=True)\nplt.show()"
   },
   {
     "objectID": "T6_Introduction_Linear_Regression/LR.slides.html#local-regression-2",
     "href": "T6_Introduction_Linear_Regression/LR.slides.html#local-regression-2",
     "title": "Introduction to Linear Regression",
-    "section": "Local Regression",
-    "text": "Local Regression\n\nplt.figure(figsize=(7, 5))\nsns.regplot(data=auto_data, x=\"displacement\", y=\"acceleration\", \n            scatter=True, lowess = True)\nplt.show()"
+    "section": "Local regression",
+    "text": "Local regression\n\nplt.figure(figsize=(7, 5))\nsns.regplot(data=auto_data, x=\"displacement\", y=\"acceleration\", \n            scatter=True, lowess = True)\nplt.show()"
   },
   {
     "objectID": "T6_Introduction_Linear_Regression/LR.slides.html#discussion",

@@ -31,6 +31,8 @@ editor: visual
 
 ## Loading the Libraries
 
+</br>
+
 Let's import the `pandas`, `matplotlib`, and `seaborn` in Google Colab.
 
 ```{python}
@@ -59,7 +61,7 @@ auto_data = pd.read_excel("auto_dataset.xlsx")
 auto_data[['origin']] = auto_data[['origin']].astype('category')
 ```
 
-##
+## 
 
 ```{python}
 #| echo: false
@@ -67,7 +69,6 @@ auto_data[['origin']] = auto_data[['origin']].astype('category')
 
 auto_data.head(4)
 ```
-
 
 # Relationship Between Two Numerical Variables
 
@@ -366,7 +367,7 @@ Specifically, the [least squares method]{style="color:orange;"} finds $\hat{\bet
 g(\hat{\beta}_0, \hat{\beta}_1) & = \sum_{i=1}^{n} (e_{i})^2 = \sum_{i=1}^{n} (Y_i - (\hat{\beta}_0 + \hat{\beta}_1 X_i ))^2. 
 \end{align}
 
-## Inspecting the Errors
+## Inspecting the errors
 
 The behavior of the errors ($e_i$'s) indicates whether the model is correct or not. If the model is correct, the errors should behave as follows:
 
@@ -376,7 +377,7 @@ The behavior of the errors ($e_i$'s) indicates whether the model is correct or n
 3.  They should be **independent** of each other, meaning they should not be related.
 :::
 
-## Graphical Analysis of Errors
+## Graphical analysis of errors
 
 To evaluate these behaviors, we use two scatter plots of the errors:
 
@@ -397,7 +398,7 @@ To evaluate these behaviors, we use two scatter plots of the errors:
 
 </br>
 
-Let's import **statsmodels** into Python 
+Let's import **statsmodels** into Python
 
 ```{python}
 #| echo: true
@@ -465,7 +466,7 @@ The elements in the vector above are the estimates $\hat{\beta}_0 = 46.317$ and 
 
 </br>
 
-To create the plots for the residuals, we need the predicted values ($\hat{Y}_i$'s) of the response and the residuals ($e_i$'s) first. To this end, we use the commands below. 
+To create the plots for the residuals, we need the predicted values ($\hat{Y}_i$'s) of the response and the residuals ($e_i$'s) first. To this end, we use the commands below.
 
 ```{python}
 #| echo: true
@@ -477,8 +478,7 @@ Y_pred = linear_model.fittedvalues
 residuals = linear_model.resid
 ```
 
-
-## Constant Dispersion
+## Constant dispersion
 
 ```{python}
 #| echo: true
@@ -491,11 +491,12 @@ sns.scatterplot(x = Y_pred, y = residuals, color="darkblue", s = 50)
 plt.axhline(y=0, color='red', linestyle='--')
 plt.xlabel('Fitted (predicted) Values', fontsize=15)
 plt.ylabel('Residuals', fontsize=15)
-ax.tick_params(axis='both', labelsize=12)
+plt.yticks(fontsize=12)
+plt.xticks(fontsize=12)
 plt.show()
 ```
 
-## Independent Errors
+## Independent errors
 
 ```{python}
 #| echo: true
@@ -504,12 +505,13 @@ plt.show()
 
 # Residuals vs Time (Case) Plot
 plt.figure(figsize=(7.5, 5.5))
-sns.scatterplot(x = range(auto_data.shape[0]), y = residuals, 
+sns.scatterplot(x = range(len(auto_data)), y = residuals, 
                 color="darkblue", s = 50)
 plt.axhline(y=0, color='red', linestyle='--')
 plt.xlabel('Time', fontsize=15)
-ax.tick_params(axis='both', labelsize=12)
 plt.ylabel('Residuals', fontsize=15)
+plt.yticks(fontsize=12)
+plt.xticks(fontsize=12)
 plt.show()
 ```
 
@@ -525,7 +527,7 @@ plt.show()
 
 -   If both assumptions are not validated, then the linear regression model is used only as a trend line or a reference for the data.
 
-##
+## 
 
 </br>
 
@@ -535,7 +537,7 @@ plt.show()
 
 # Local Regression
 
-## Local Regression
+## Local regression
 
 This is a modern alternative to the simple linear regression model for capturing complex relationships between two variables.
 
@@ -545,7 +547,7 @@ The most common method for fitting a local regression model is **LOESS**. We wil
 
 ## 
 
-In Python, we fit a local regression by setting the `lowess` argument to `True` in  the `regplot()` function. 
+In Python, we fit a local regression by setting the `lowess` argument to `True` in the `regplot()` function.
 
 ```{python}
 #| fig-align: center
@@ -558,7 +560,7 @@ plt.show()
 
 ## 
 
-We can change the color, thickness, and line type using the `color`, `linewidth`, and `linestyle`,arguments in the `line_kws` argument function. 
+We can change the color, thickness, and line type using the `color`, `linewidth`, and `linestyle`,arguments in the `line_kws` argument function.
 
 ```{python}
 #| fig-align: center
@@ -569,7 +571,7 @@ sns.regplot(data=auto_data, x="weight", y="mpg", scatter=True, lowess=True,
 plt.show()
 ```
 
-## Another Example
+## Another example
 
 Let's consider the relationship between car acceleration (`acceleration`) and the total volume of all engine cylinders (`displacement`).
 
@@ -582,7 +584,7 @@ sns.scatterplot(data=auto_data, x="displacement", y="acceleration")
 plt.show()
 ```
 
-## Linear Regression
+## Linear regression
 
 ```{python}
 #| echo: true
@@ -594,7 +596,7 @@ sns.regplot(data=auto_data, x="displacement", y="acceleration",
 plt.show()
 ```
 
-## Local Regression
+## Local regression
 
 ```{python}
 #| echo: true
@@ -626,4 +628,4 @@ $$
 
 -   However, it has a low level of interpretability because it does not provide an explicit equation to relate the predictor $X$ to the response $Y$.
 
-# [Return to the main page](https://alanrvazquez.github.io/TEC-IN2039-EN/TEC-IN2039-EN.html)
+# [Return to the main page](https://alanrvazquez.github.io/TEC-IN2039-EN/)
