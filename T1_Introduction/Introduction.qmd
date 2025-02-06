@@ -1,5 +1,5 @@
 ---
-title: "What is data visualization?"
+title: "What is data Visualization?"
 subtitle: "IN1002B: Data Visualization for Decision Making"
 author: 
   - name: Alan R. Vazquez
@@ -117,7 +117,6 @@ Data science methodology is based on numerical data given in tables.
 
 [***In this course, we will assume that the data is in a table.***]{style="color:#023562;"}
 
-
 # The three principles of data science
 
 ## What is Data Visualization?
@@ -156,7 +155,7 @@ At its core, data visualization allows you to delve into complex datasets to ext
 
 </br>
 
-Data visualizations are primarily concerned with providing evidence and enabling the audience to explore and draw their own conclusions about what the visualizations reveal about the data. 
+Data visualizations are primarily concerned with providing evidence and enabling the audience to explore and draw their own conclusions about what the visualizations reveal about the data.
 
 </br>
 

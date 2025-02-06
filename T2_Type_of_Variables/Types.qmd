@@ -1,5 +1,5 @@
 ---
-title: "Types of variables"
+title: "Types of Variables"
 subtitle: "IN2039: Data Visualization for Decision Making"
 author: 
   - name: Alan R. Vazquez
@@ -186,7 +186,6 @@ In practice, boolean values (`TRUE` and `FALSE`) often represent nominal categor
 
 As an example, we will use "penguins.xlsx" dataset. Let's load it using **pandas**.
 
-
 ```{python}
 #| echo: true
 
@@ -238,7 +237,6 @@ The general structure of chaining looks like this:
 **pandas** provides methods or functions to solve common data manipulation tasks:
 
 ::: incremental
-
 -   `.filter()` select specific columns or rows.
 
 -   `.query()` filters observations based on conditions.
@@ -288,8 +286,7 @@ The `axis` argument tells `.filter()` whether to select rows (`0`) or columns (`
 
 > The `.head()` command allows us to print the first six rows of the newly produced dataframe. We **must** remove it to have the entire new dataframe.
 
-##
-
+## 
 
 We can also use `.filter()` to select rows too. To this end, we set `axis = 1`. We can select specific rows, such as 0 and 10.
 
@@ -302,7 +299,7 @@ We can also use `.filter()` to select rows too. To this end, we set `axis = 1`. 
 )
 ```
 
-##
+## 
 
 Or, we can select a set of rows using the function `range()`. For example, let's select the first 5 rows.
 
@@ -315,10 +312,9 @@ Or, we can select a set of rows using the function `range()`. For example, let's
 )
 ```
 
-
 ## Filtering rows with `.query()`
 
-An alternative way of selecting rows is `.query()`. Compared to `.filter()`, `.query()` allows us to filter the data using statements or *queries* involving the variables. 
+An alternative way of selecting rows is `.query()`. Compared to `.filter()`, `.query()` allows us to filter the data using statements or *queries* involving the variables.
 
 </br>
 
@@ -333,7 +329,7 @@ For example, let's filter the data for the species "Gentoo."
 )
 ```
 
-##
+## 
 
 ```{python}
 #| output: true
@@ -356,7 +352,6 @@ We can also filter the data to get penguins with a body mass greater than 5000g.
   .query("body_mass_g > 5000")
 ).head()
 ```
-
 
 ## 
 
@@ -387,7 +382,7 @@ For example, we create a new variable `LDRatio` equaling the ratio of `bill_leng
 )
 ```
 
-##
+## 
 
 </br>
 
@@ -402,9 +397,9 @@ In this code, the `df` after `lambda` indicates that the dataframe (`penguins_da
 )
 ```
 
-The code appends the new variable to the end of the resulting dataframe. 
+The code appends the new variable to the end of the resulting dataframe.
 
-##
+## 
 
 We can see the new variable using `.filter()`.
 
@@ -417,7 +412,6 @@ We can see the new variable using `.filter()`.
   .filter(["bill_length_mm", "bill_depth_mm", "LDRatio"], axis = 1)
 ).head()
 ```
-
 
 ## Sorting with `.sort_values()`
 

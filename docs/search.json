@@ -1136,245 +1136,245 @@
   {
     "objectID": "T2_Type_of_Variables/Types.slides.html#agenda",
     "href": "T2_Type_of_Variables/Types.slides.html#agenda",
-    "title": "Types of variables",
+    "title": "Types of Variables",
     "section": "Agenda",
     "text": "Agenda\n\nWhat type is my data?\nData manipulation with pandas"
   },
   {
     "objectID": "T2_Type_of_Variables/Types.slides.html#types-of-variables",
     "href": "T2_Type_of_Variables/Types.slides.html#types-of-variables",
-    "title": "Types of variables",
+    "title": "Types of Variables",
     "section": "Types of variables",
     "text": "Types of variables\n\nBefore creating a graph, we must examine the type of values that our dataset variables take.\n\nThere are two main types of variables:\n\n\nNumerical variables.\nCategorical variables."
   },
   {
     "objectID": "T2_Type_of_Variables/Types.slides.html#numerical-variables",
     "href": "T2_Type_of_Variables/Types.slides.html#numerical-variables",
-    "title": "Types of variables",
+    "title": "Types of Variables",
     "section": "Numerical variables",
     "text": "Numerical variables\nThese take values that represent numerical measurements or quantities.\n\n\nHeight (in centimeters).\nWeight (in kilograms).\nAge (in years).\nPrice (in dollars).\nTime (in hours or seconds).\nExam score (number of points on a 100-point scale)."
   },
   {
     "objectID": "T2_Type_of_Variables/Types.slides.html#types-of-numerical-variables",
     "href": "T2_Type_of_Variables/Types.slides.html#types-of-numerical-variables",
-    "title": "Types of variables",
+    "title": "Types of Variables",
     "section": "Types of numerical variables",
     "text": "Types of numerical variables\n\nNumerical variables are divided into two types:\n\nDiscrete: variables that take integer values.\n\n\nExamples:\n\nNumber of children (0, 1, 2, or 3)\nNumber of students in a class (20, 30, or 35)\nNumber of books in a library (10,000, 15,000, 20,000)"
   },
   {
     "objectID": "T2_Type_of_Variables/Types.slides.html#section",
     "href": "T2_Type_of_Variables/Types.slides.html#section",
-    "title": "Types of variables",
+    "title": "Types of Variables",
     "section": "",
     "text": "Continuous: variables that have a large range of possible values.\n\n\nExamples:\n\nA person’s height (could be within the range of 1.60 m to 1.85 m)\nAmbient temperature (could be within the range of -30 \\(^\\circ\\)C to 50 \\(^\\circ\\)C)\nTime for an Uber to arrive (between 5 and 60 minutes)"
   },
   {
     "objectID": "T2_Type_of_Variables/Types.slides.html#categorical-variables",
     "href": "T2_Type_of_Variables/Types.slides.html#categorical-variables",
-    "title": "Types of variables",
+    "title": "Types of Variables",
     "section": "Categorical variables",
     "text": "Categorical variables\nThese take values that fall into categories.\n\n\nA category is a class or division of people or things that share particular characteristics.\n\n\n\n\n\n\n\n\n\n\nVariable\nCategories\n\n\nAmazon review\n1\\(\\bigstar\\), 2\\(\\bigstar\\), 3\\(\\bigstar\\), 4\\(\\bigstar\\), 5\\(\\bigstar\\)\n\n\nCountry of origin\nMéxico, Canadá, EUA\n\n\nPostal code\n72703, 90034, 3000, …"
   },
   {
     "objectID": "T2_Type_of_Variables/Types.slides.html#classification-of-categorical-variables",
     "href": "T2_Type_of_Variables/Types.slides.html#classification-of-categorical-variables",
-    "title": "Types of variables",
+    "title": "Types of Variables",
     "section": "Classification of Categorical Variables",
     "text": "Classification of Categorical Variables\n\n\nCategorical variables are divided into two important types:\n\nNominal\nOrdinal\n\n\nThe distinction depends on whether the categories have a meaningful order or not."
   },
   {
     "objectID": "T2_Type_of_Variables/Types.slides.html#nominal-categorical-variables",
     "href": "T2_Type_of_Variables/Types.slides.html#nominal-categorical-variables",
-    "title": "Types of variables",
+    "title": "Types of Variables",
     "section": "Nominal categorical variables",
     "text": "Nominal categorical variables\n\nA categorical variable is nominal if its categories do not have a specific order.\n\nExamples:\n\n\nPolitical party affiliation (Democrat or Republican).\nDog breed (Shepherd, Hound, Terrier, Other).\nComputer operating system (Windows, macOS, Linux)."
   },
   {
     "objectID": "T2_Type_of_Variables/Types.slides.html#ordinal-categorical-variables",
     "href": "T2_Type_of_Variables/Types.slides.html#ordinal-categorical-variables",
-    "title": "Types of variables",
+    "title": "Types of Variables",
     "section": "Ordinal categorical variables",
     "text": "Ordinal categorical variables\n\nA categorical variable is ordinal if its categories do have a meaningful order.\n\nExamples:\n\n\nT-shirt size (Small, Medium, Large).\nEducation level (High School, University, Postgraduate).\nIncome level (Less than $250K, $250K-$500K, More than $500K)\n\n\n\nIt is important to note that with an ordinal variable, the difference between, say, small and medium is not necessarily the same as the difference between medium and large. Additionally, the differences between consecutive categories may not be quantifiable. Think about star ratings in a restaurant review—how much better is one star compared to two stars?"
   },
   {
     "objectID": "T2_Type_of_Variables/Types.slides.html#interesting-fact",
     "href": "T2_Type_of_Variables/Types.slides.html#interesting-fact",
-    "title": "Types of variables",
+    "title": "Types of Variables",
     "section": "Interesting fact…",
     "text": "Interesting fact…\n\nInteger values (e.g., 1, 2, 3, …, 5) can represent nominal or ordinal categorical variables.\n\n\n\nRepresentation\n1\n2\n3\n4\n\n\nBlood Type\nA\nB\nAB\nO\n\n\nReview\nBad\nFair\nGood\nVery Good\n\n\n\n\n\nIn practice, boolean values (TRUE and FALSE) often represent nominal categories."
   },
   {
     "objectID": "T2_Type_of_Variables/Types.slides.html#remember",
     "href": "T2_Type_of_Variables/Types.slides.html#remember",
-    "title": "Types of variables",
+    "title": "Types of Variables",
     "section": "Remember",
     "text": "Remember"
   },
   {
     "objectID": "T2_Type_of_Variables/Types.slides.html#a-general-difference-is",
     "href": "T2_Type_of_Variables/Types.slides.html#a-general-difference-is",
-    "title": "Types of variables",
+    "title": "Types of Variables",
     "section": "A General Difference Is …",
     "text": "A General Difference Is …\n\n\nQuantitative variables (discrete or continuous) are those where addition or subtraction makes sense.\nCategorical variables (nominal or ordinal) are those where addition or subtraction does NOT make sense."
   },
   {
     "objectID": "T2_Type_of_Variables/Types.slides.html#how-do-we-check-the-type-of-variable",
     "href": "T2_Type_of_Variables/Types.slides.html#how-do-we-check-the-type-of-variable",
-    "title": "Types of variables",
+    "title": "Types of Variables",
     "section": "How do we check the type of variable?",
     "text": "How do we check the type of variable?\n\nAs an example, we will use “penguins.xlsx” dataset. Let’s load it using pandas.\n\n# Load pandas.\nimport pandas as pd\n\n# Load the Excel file into a pandas DataFrame.\npenguins_data = pd.read_excel(\"penguins.xlsx\")"
   },
   {
     "objectID": "T2_Type_of_Variables/Types.slides.html#section-1",
     "href": "T2_Type_of_Variables/Types.slides.html#section-1",
-    "title": "Types of variables",
+    "title": "Types of Variables",
     "section": "",
     "text": "In Python, we check the type of each variable in a dataset using the function info().\n\npenguins_data.info()\n\n&lt;class 'pandas.core.frame.DataFrame'&gt;\nRangeIndex: 344 entries, 0 to 343\nData columns (total 8 columns):\n #   Column             Non-Null Count  Dtype  \n---  ------             --------------  -----  \n 0   species            344 non-null    object \n 1   island             344 non-null    object \n 2   bill_length_mm     342 non-null    float64\n 3   bill_depth_mm      342 non-null    float64\n 4   flipper_length_mm  342 non-null    float64\n 5   body_mass_g        342 non-null    float64\n 6   sex                333 non-null    object \n 7   year               344 non-null    int64  \ndtypes: float64(4), int64(1), object(3)\nmemory usage: 21.6+ KB"
   },
   {
     "objectID": "T2_Type_of_Variables/Types.slides.html#general-python-formats",
     "href": "T2_Type_of_Variables/Types.slides.html#general-python-formats",
-    "title": "Types of variables",
+    "title": "Types of Variables",
     "section": "General Python formats",
     "text": "General Python formats\n\n\nfloat64 format for numerical variables with decimals.\nint64 format for numerical variables with integers.\nobject format for general variables with characters."
   },
   {
     "objectID": "T2_Type_of_Variables/Types.slides.html#activity-solo-mode",
     "href": "T2_Type_of_Variables/Types.slides.html#activity-solo-mode",
-    "title": "Types of variables",
+    "title": "Types of Variables",
     "section": "Activity (solo mode)",
     "text": "Activity (solo mode)\n\n\nGo to the Modules section on our CANVAS website.\nComplete the Activity 2.1: Types of Variables individually."
   },
   {
     "objectID": "T2_Type_of_Variables/Types.slides.html#chaining-operations-with-pandas",
     "href": "T2_Type_of_Variables/Types.slides.html#chaining-operations-with-pandas",
-    "title": "Types of variables",
+    "title": "Types of Variables",
     "section": "Chaining operations with pandas",
     "text": "Chaining operations with pandas\nOne of the most important techniques in pandas is chaining, which allows for cleaner and more readable data manipulation.\nThe general structure of chaining looks like this:"
   },
   {
     "objectID": "T2_Type_of_Variables/Types.slides.html#key-pandas-methods",
     "href": "T2_Type_of_Variables/Types.slides.html#key-pandas-methods",
-    "title": "Types of variables",
+    "title": "Types of Variables",
     "section": "Key pandas methods",
     "text": "Key pandas methods\npandas provides methods or functions to solve common data manipulation tasks:\n\n\n.filter() select specific columns or rows.\n.query() filters observations based on conditions.\n.assign() adds new variables that are functions of existing variables.\n.sort_values() changes the order of rows.\n.agg() reduces multiple values to a single numerical summary."
   },
   {
     "objectID": "T2_Type_of_Variables/Types.slides.html#section-2",
     "href": "T2_Type_of_Variables/Types.slides.html#section-2",
-    "title": "Types of variables",
+    "title": "Types of Variables",
     "section": "",
     "text": "To practice, we will use the dataset penguins_data."
   },
   {
     "objectID": "T2_Type_of_Variables/Types.slides.html#selecting-columns-with-.filter",
     "href": "T2_Type_of_Variables/Types.slides.html#selecting-columns-with-.filter",
-    "title": "Types of variables",
+    "title": "Types of Variables",
     "section": "Selecting columns with .filter()",
     "text": "Selecting columns with .filter()\nSelect the columns species, body_mass_g and sex.\n\n(penguins_data\n  .filter([\"species\", \"body_mass_g\", \"sex\"], axis = 1)\n).head()\n\n\n\n\n\n\n\n\nspecies\nbody_mass_g\nsex\n\n\n\n\n0\nAdelie\n3750.0\nmale\n\n\n1\nAdelie\n3800.0\nfemale\n\n\n2\nAdelie\n3250.0\nfemale\n\n\n3\nAdelie\nNaN\nNaN\n\n\n4\nAdelie\n3450.0\nfemale"
   },
   {
     "objectID": "T2_Type_of_Variables/Types.slides.html#section-3",
     "href": "T2_Type_of_Variables/Types.slides.html#section-3",
-    "title": "Types of variables",
+    "title": "Types of Variables",
     "section": "",
     "text": "The axis argument tells .filter() whether to select rows (0) or columns (1) from the dataframe.\n\n(penguins_data\n  .filter([\"species\", \"body_mass_g\", \"sex\"], axis = 1)\n).head()\n\n\n\nThe .head() command allows us to print the first six rows of the newly produced dataframe. We must remove it to have the entire new dataframe."
   },
   {
     "objectID": "T2_Type_of_Variables/Types.slides.html#section-4",
     "href": "T2_Type_of_Variables/Types.slides.html#section-4",
-    "title": "Types of variables",
+    "title": "Types of Variables",
     "section": "",
     "text": "We can also use .filter() to select rows too. To this end, we set axis = 1. We can select specific rows, such as 0 and 10.\n\n(penguins_data\n  .filter([0, 10], axis = 0)\n)\n\n\n\n\n\n\n\n\nspecies\nisland\nbill_length_mm\nbill_depth_mm\nflipper_length_mm\nbody_mass_g\nsex\nyear\n\n\n\n\n0\nAdelie\nTorgersen\n39.1\n18.7\n181.0\n3750.0\nmale\n2007\n\n\n10\nAdelie\nTorgersen\n37.8\n17.1\n186.0\n3300.0\nNaN\n2007"
   },
   {
     "objectID": "T2_Type_of_Variables/Types.slides.html#section-5",
     "href": "T2_Type_of_Variables/Types.slides.html#section-5",
-    "title": "Types of variables",
+    "title": "Types of Variables",
     "section": "",
     "text": "Or, we can select a set of rows using the function range(). For example, let’s select the first 5 rows.\n\n(penguins_data\n  .filter(range(5), axis = 0)\n)\n\n\n\n\n\n\n\n\nspecies\nisland\nbill_length_mm\nbill_depth_mm\nflipper_length_mm\nbody_mass_g\nsex\nyear\n\n\n\n\n0\nAdelie\nTorgersen\n39.1\n18.7\n181.0\n3750.0\nmale\n2007\n\n\n1\nAdelie\nTorgersen\n39.5\n17.4\n186.0\n3800.0\nfemale\n2007\n\n\n2\nAdelie\nTorgersen\n40.3\n18.0\n195.0\n3250.0\nfemale\n2007\n\n\n3\nAdelie\nTorgersen\nNaN\nNaN\nNaN\nNaN\nNaN\n2007\n\n\n4\nAdelie\nTorgersen\n36.7\n19.3\n193.0\n3450.0\nfemale\n2007"
   },
   {
     "objectID": "T2_Type_of_Variables/Types.slides.html#filtering-rows-with-.query",
     "href": "T2_Type_of_Variables/Types.slides.html#filtering-rows-with-.query",
-    "title": "Types of variables",
+    "title": "Types of Variables",
     "section": "Filtering rows with .query()",
     "text": "Filtering rows with .query()\nAn alternative way of selecting rows is .query(). Compared to .filter(), .query() allows us to filter the data using statements or queries involving the variables.\n\nFor example, let’s filter the data for the species “Gentoo.”\n\n(penguins_data\n  .query(\"species == 'Gentoo'\")\n)"
   },
   {
     "objectID": "T2_Type_of_Variables/Types.slides.html#section-6",
     "href": "T2_Type_of_Variables/Types.slides.html#section-6",
-    "title": "Types of variables",
+    "title": "Types of Variables",
     "section": "",
     "text": "(penguins_data\n  .query(\"species == 'Gentoo'\")\n).head()\n\n\n\n\n\n\n\n\nspecies\nisland\nbill_length_mm\nbill_depth_mm\nflipper_length_mm\nbody_mass_g\nsex\nyear\n\n\n\n\n152\nGentoo\nBiscoe\n46.1\n13.2\n211.0\n4500.0\nfemale\n2007\n\n\n153\nGentoo\nBiscoe\n50.0\n16.3\n230.0\n5700.0\nmale\n2007\n\n\n154\nGentoo\nBiscoe\n48.7\n14.1\n210.0\n4450.0\nfemale\n2007\n\n\n155\nGentoo\nBiscoe\n50.0\n15.2\n218.0\n5700.0\nmale\n2007\n\n\n156\nGentoo\nBiscoe\n47.6\n14.5\n215.0\n5400.0\nmale\n2007"
   },
   {
     "objectID": "T2_Type_of_Variables/Types.slides.html#section-7",
     "href": "T2_Type_of_Variables/Types.slides.html#section-7",
-    "title": "Types of variables",
+    "title": "Types of Variables",
     "section": "",
     "text": "We can also filter the data to get penguins with a body mass greater than 5000g.\n\n(penguins_data\n  .query(\"body_mass_g &gt; 5000\")\n).head()\n\n\n\n\n\n\n\n\nspecies\nisland\nbill_length_mm\nbill_depth_mm\nflipper_length_mm\nbody_mass_g\nsex\nyear\n\n\n\n\n153\nGentoo\nBiscoe\n50.0\n16.3\n230.0\n5700.0\nmale\n2007\n\n\n155\nGentoo\nBiscoe\n50.0\n15.2\n218.0\n5700.0\nmale\n2007\n\n\n156\nGentoo\nBiscoe\n47.6\n14.5\n215.0\n5400.0\nmale\n2007\n\n\n159\nGentoo\nBiscoe\n46.7\n15.3\n219.0\n5200.0\nmale\n2007\n\n\n161\nGentoo\nBiscoe\n46.8\n15.4\n215.0\n5150.0\nmale\n2007"
   },
   {
     "objectID": "T2_Type_of_Variables/Types.slides.html#section-8",
     "href": "T2_Type_of_Variables/Types.slides.html#section-8",
-    "title": "Types of variables",
+    "title": "Types of Variables",
     "section": "",
     "text": "We can even combine .filter() and .query(). For example, let’s select the columns species, body_mass_g and sex, then filter the data for the “Gentoo” species.\n\n(penguins_data\n  .filter([\"species\", \"body_mass_g\", \"sex\"], axis = 1)\n  .query(\"species == 'Gentoo'\")\n).head(4)\n\n\n\n\n\n\n\n\nspecies\nbody_mass_g\nsex\n\n\n\n\n152\nGentoo\n4500.0\nfemale\n\n\n153\nGentoo\n5700.0\nmale\n\n\n154\nGentoo\n4450.0\nfemale\n\n\n155\nGentoo\n5700.0\nmale"
   },
   {
     "objectID": "T2_Type_of_Variables/Types.slides.html#create-new-columns-with-.assign",
     "href": "T2_Type_of_Variables/Types.slides.html#create-new-columns-with-.assign",
-    "title": "Types of variables",
+    "title": "Types of Variables",
     "section": "Create new columns with .assign()",
     "text": "Create new columns with .assign()\nWith .assign(), we can create new columns (variables) that are functions of existing ones. This function uses a special Python keyword called lambda. Technically, this keyword defines an anonymous function.\nFor example, we create a new variable LDRatio equaling the ratio of bill_length_mm and bill_depth_mm.\n\n(penguins_data\n  .assign(LDRatio = lambda df: df[\"bill_length_mm\"] / df[\"bill_depth_mm\"])\n)"
   },
   {
     "objectID": "T2_Type_of_Variables/Types.slides.html#section-9",
     "href": "T2_Type_of_Variables/Types.slides.html#section-9",
-    "title": "Types of variables",
+    "title": "Types of Variables",
     "section": "",
     "text": "In this code, the df after lambda indicates that the dataframe (penguins_data) will be referred to as df inside the function. The colon : sets the start of the function.\n\n(penguins_data\n  .assign(LDRatio = lambda df: df[\"bill_length_mm\"] / df[\"bill_depth_mm\"])\n)\n\nThe code appends the new variable to the end of the resulting dataframe."
   },
   {
     "objectID": "T2_Type_of_Variables/Types.slides.html#section-10",
     "href": "T2_Type_of_Variables/Types.slides.html#section-10",
-    "title": "Types of variables",
+    "title": "Types of Variables",
     "section": "",
     "text": "We can see the new variable using .filter().\n\n(penguins_data\n  .assign(LDRatio = lambda df: df[\"bill_length_mm\"] / df[\"bill_depth_mm\"])\n  .filter([\"bill_length_mm\", \"bill_depth_mm\", \"LDRatio\"], axis = 1)\n).head()\n\n\n\n\n\n\n\n\nbill_length_mm\nbill_depth_mm\nLDRatio\n\n\n\n\n0\n39.1\n18.7\n2.090909\n\n\n1\n39.5\n17.4\n2.270115\n\n\n2\n40.3\n18.0\n2.238889\n\n\n3\nNaN\nNaN\nNaN\n\n\n4\n36.7\n19.3\n1.901554"
   },
   {
     "objectID": "T2_Type_of_Variables/Types.slides.html#sorting-with-.sort_values",
     "href": "T2_Type_of_Variables/Types.slides.html#sorting-with-.sort_values",
-    "title": "Types of variables",
+    "title": "Types of Variables",
     "section": "Sorting with .sort_values()",
     "text": "Sorting with .sort_values()\nWe can sort the data based on a column like bill_length_mm.\n\n(penguins_data\n  .sort_values(\"bill_length_mm\")\n).head(4)\n\n\n\n\n\n\n\n\nspecies\nisland\nbill_length_mm\nbill_depth_mm\nflipper_length_mm\nbody_mass_g\nsex\nyear\n\n\n\n\n142\nAdelie\nDream\n32.1\n15.5\n188.0\n3050.0\nfemale\n2009\n\n\n98\nAdelie\nDream\n33.1\n16.1\n178.0\n2900.0\nfemale\n2008\n\n\n70\nAdelie\nTorgersen\n33.5\n19.0\n190.0\n3600.0\nfemale\n2008\n\n\n92\nAdelie\nDream\n34.0\n17.1\n185.0\n3400.0\nfemale\n2008"
   },
   {
     "objectID": "T2_Type_of_Variables/Types.slides.html#section-11",
     "href": "T2_Type_of_Variables/Types.slides.html#section-11",
-    "title": "Types of variables",
+    "title": "Types of Variables",
     "section": "",
     "text": "To sort in descending order, use ascending=False inside sort_values().\n\n(penguins_data\n  .sort_values(\"bill_length_mm\", ascending=False)\n).head()\n\n\n\n\n\n\n\n\nspecies\nisland\nbill_length_mm\nbill_depth_mm\nflipper_length_mm\nbody_mass_g\nsex\nyear\n\n\n\n\n185\nGentoo\nBiscoe\n59.6\n17.0\n230.0\n6050.0\nmale\n2007\n\n\n293\nChinstrap\nDream\n58.0\n17.8\n181.0\n3700.0\nfemale\n2007\n\n\n253\nGentoo\nBiscoe\n55.9\n17.0\n228.0\n5600.0\nmale\n2009\n\n\n339\nChinstrap\nDream\n55.8\n19.8\n207.0\n4000.0\nmale\n2009\n\n\n267\nGentoo\nBiscoe\n55.1\n16.0\n230.0\n5850.0\nmale\n2009"
   },
   {
     "objectID": "T2_Type_of_Variables/Types.slides.html#summarizing-with-.agg",
     "href": "T2_Type_of_Variables/Types.slides.html#summarizing-with-.agg",
-    "title": "Types of variables",
+    "title": "Types of Variables",
     "section": "Summarizing with .agg()",
     "text": "Summarizing with .agg()\nWe can calculate the average of the columns bill_length_mm, bill_depth_mm, and body_mass_g.\n\n(penguins_data\n  .filter([\"bill_length_mm\", \"bill_depth_mm\", \"body_mass_g\"], axis = 1)\n  .agg([\"mean\"])\n)\n\n\n\n\n\n\n\n\nbill_length_mm\nbill_depth_mm\nbody_mass_g\n\n\n\n\nmean\n43.92193\n17.15117\n4201.754386\n\n\n\n\n\n\n\n\n\nBy default, agg() ignores missing values."
   },
   {
     "objectID": "T2_Type_of_Variables/Types.slides.html#saving-results-in-new-objects",
     "href": "T2_Type_of_Variables/Types.slides.html#saving-results-in-new-objects",
-    "title": "Types of variables",
+    "title": "Types of Variables",
     "section": "Saving results in new objects",
     "text": "Saving results in new objects\nAfter performing operations on our data, we can save the modified dataset as a new object.\n\nmean_penguins_data = (penguins_data\n  .filter([\"bill_length_mm\", \"bill_depth_mm\", \"body_mass_g\"], axis = 1)\n  .agg([\"mean\"])\n)\n\nmean_penguins_data\n\n\n\n\n\n\n\n\nbill_length_mm\nbill_depth_mm\nbody_mass_g\n\n\n\n\nmean\n43.92193\n17.15117\n4201.754386"
   },
   {
     "objectID": "T2_Type_of_Variables/Types.slides.html#final-remarks",
     "href": "T2_Type_of_Variables/Types.slides.html#final-remarks",
-    "title": "Types of variables",
+    "title": "Types of Variables",
     "section": "Final Remarks",
     "text": "Final Remarks\n\n\npandas is a Python library for data manipulation.\nUnderstanding variable types helps determine the best operations and visualizations.\nThere are specific charts for numerical and categorical variables.\nThroughout this course, we will explore various visualizations for different types of data."
   },
@@ -1808,133 +1808,133 @@
   {
     "objectID": "T1_Introduction/Introduction.slides.html#agenda",
     "href": "T1_Introduction/Introduction.slides.html#agenda",
-    "title": "What is data visualization?",
+    "title": "What is data Visualization?",
     "section": "Agenda",
     "text": "Agenda\n\nIntroduction to data science\nThree principles of data visualization\nActivity\nStorytelling"
   },
   {
     "objectID": "T1_Introduction/Introduction.slides.html#data-science-is",
     "href": "T1_Introduction/Introduction.slides.html#data-science-is",
-    "title": "What is data visualization?",
+    "title": "What is data Visualization?",
     "section": "Data science is …",
     "text": "Data science is …\na multidisciplinary field that uses scientific methods, processes, algorithms and systems to extract knowledge and insights from vast amounts of structured and unstructured data."
   },
   {
     "objectID": "T1_Introduction/Introduction.slides.html#the-scheme-of-data-science",
     "href": "T1_Introduction/Introduction.slides.html#the-scheme-of-data-science",
-    "title": "What is data visualization?",
+    "title": "What is data Visualization?",
     "section": "The scheme of data science",
     "text": "The scheme of data science\n\n\nProvost, F., & Fawcett, T. (2013). Data Science for Business: What you need to know about data mining and data-analytic thinking. O’Reilly Media, Inc."
   },
   {
     "objectID": "T1_Introduction/Introduction.slides.html#business-understanding",
     "href": "T1_Introduction/Introduction.slides.html#business-understanding",
-    "title": "What is data visualization?",
+    "title": "What is data Visualization?",
     "section": "Business understanding",
     "text": "Business understanding\n\n\nBusiness understanding refers to defining the business problem to be solved.\nThe goal is to reframe the business problem as a data science problem.\nOften, reframing the problem and designing a solution is an iterative process."
   },
   {
     "objectID": "T1_Introduction/Introduction.slides.html#data-understanding-i",
     "href": "T1_Introduction/Introduction.slides.html#data-understanding-i",
-    "title": "What is data visualization?",
+    "title": "What is data Visualization?",
     "section": "Data understanding I",
     "text": "Data understanding I\n\n\nIf the goal is to solve a business problem, the data that makes up the raw material available from which the solution will be built.\nThe available data rarely matches the problem.\nFor example, historical data is often collected for purposes unrelated to the current business problem or for no explicit purpose at all.\n\n\n\n\nOur goal is to turn data into information that answers useful questions."
   },
   {
     "objectID": "T1_Introduction/Introduction.slides.html#data-types",
     "href": "T1_Introduction/Introduction.slides.html#data-types",
-    "title": "What is data visualization?",
+    "title": "What is data Visualization?",
     "section": "Data types",
     "text": "Data types\n\n\n\nText\n\n\nImages\n\nVideo\n\n\nAudio"
   },
   {
     "objectID": "T1_Introduction/Introduction.slides.html#numerical-data",
     "href": "T1_Introduction/Introduction.slides.html#numerical-data",
-    "title": "What is data visualization?",
+    "title": "What is data Visualization?",
     "section": "Numerical data",
     "text": "Numerical data\nData science methodology is based on numerical data given in tables.\n\n\nIn fact, texts, images, videos or audios are transformed into this format to process them.\n\n\nIn this course, we will assume that the data is in a table."
   },
   {
     "objectID": "T1_Introduction/Introduction.slides.html#what-is-data-visualization",
     "href": "T1_Introduction/Introduction.slides.html#what-is-data-visualization",
-    "title": "What is data visualization?",
+    "title": "What is data Visualization?",
     "section": "What is Data Visualization?",
     "text": "What is Data Visualization?\n\n“A visualization [of data] is any visual presentation intended to reveal evidence, making the invisible visible.” Alberto Cairo (2015)."
   },
   {
     "objectID": "T1_Introduction/Introduction.slides.html#section",
     "href": "T1_Introduction/Introduction.slides.html#section",
-    "title": "What is data visualization?",
+    "title": "What is data Visualization?",
     "section": "",
     "text": "https://www.nytimes.com/2019/02/28/learning/whats-going-on-in-this-graph-march-6-2019.html"
   },
   {
     "objectID": "T1_Introduction/Introduction.slides.html#section-1",
     "href": "T1_Introduction/Introduction.slides.html#section-1",
-    "title": "What is data visualization?",
+    "title": "What is data Visualization?",
     "section": "",
     "text": "https://www.nytimes.com/2018/09/18/learning/whats-going-on-in-this-graph-sept-19-2018.html"
   },
   {
     "objectID": "T1_Introduction/Introduction.slides.html#section-2",
     "href": "T1_Introduction/Introduction.slides.html#section-2",
-    "title": "What is data visualization?",
+    "title": "What is data Visualization?",
     "section": "",
     "text": "https://www.nytimes.com/2018/10/16/learning/whats-going-on-in-this-graph-oct-17-2018.html"
   },
   {
     "objectID": "T1_Introduction/Introduction.slides.html#section-3",
     "href": "T1_Introduction/Introduction.slides.html#section-3",
-    "title": "What is data visualization?",
+    "title": "What is data Visualization?",
     "section": "",
     "text": "At its core, data visualization allows you to delve into complex datasets to extract meaningful insights using graphical displays.\n\nData visualizations are primarily concerned with providing evidence and enabling the audience to explore and draw their own conclusions about what the visualizations reveal about the data.\n\n\nData visualization has 3 key principles…\n\nAs data scientists, we create data visualizations in order to understand our data and explain our analyses to other people. A plot should have a message, and it’s our job to communicate this message as clearly as possible."
   },
   {
     "objectID": "T1_Introduction/Introduction.slides.html#principle-1-define-the-message-or-question",
     "href": "T1_Introduction/Introduction.slides.html#principle-1-define-the-message-or-question",
-    "title": "What is data visualization?",
+    "title": "What is data Visualization?",
     "section": "Principle 1: Define the Message or Question",
     "text": "Principle 1: Define the Message or Question\nFormulate the question of interest or the message you want to convey.\n\n\n\n\n\n\n\n\n\n\n\nEl mensaje puede ser una pregunta\n\nWhat is the key comparison?\nHow do we emphasize it?\nDo you have reason to expect that one group/observation might be different?\nWhy might your finding about shape matter?\nWhat additional comparison might add value to the investigation?\nAre there any potentially important features to compare against?"
   },
   {
     "objectID": "T1_Introduction/Introduction.slides.html#principle-2-turn-data-into-information",
     "href": "T1_Introduction/Introduction.slides.html#principle-2-turn-data-into-information",
-    "title": "What is data visualization?",
+    "title": "What is data Visualization?",
     "section": "Principle 2: Turn Data into Information",
     "text": "Principle 2: Turn Data into Information\nYour graph should use data to convey the message or answer the question. In other words, it should transform data into information.\n\n\nEnhance your graph with color symbols and text to convey additional information."
   },
   {
     "objectID": "T1_Introduction/Introduction.slides.html#principle-3-apply-graphic-design-principles",
     "href": "T1_Introduction/Introduction.slides.html#principle-3-apply-graphic-design-principles",
-    "title": "What is data visualization?",
+    "title": "What is data Visualization?",
     "section": "Principle 3: Apply Graphic Design Principles",
     "text": "Principle 3: Apply Graphic Design Principles\n\n\n\n\n\n\nObjects are easily identifiable by color.\nUse direct labels instead of a legend.\nElements such as text, lines, and shapes of the same nature should look similar.\nBalance graphics and text.\nBe cautious with default settings in visualization software.\nUse a grid-based layout to organize your visualization.\n\n\n\n\n\n\n\n\n\n\n\n\nDon’t limit yourself to simple elements. Enhance your graph with color symbols to convey additional information. If possible, add context with markers and reference labels.\nAdditionally, include a legend in the graph that describes key features and summarizes its conclusions."
   },
   {
     "objectID": "T1_Introduction/Introduction.slides.html#example",
     "href": "T1_Introduction/Introduction.slides.html#example",
-    "title": "What is data visualization?",
+    "title": "What is data Visualization?",
     "section": "Example",
     "text": "Example\n\nPrinciple 1: It is cheaper to take Uber than to own a car in four of the five largest cities in the USA.\n\n\n\n\nWeekly cost (in USD) of daily commuting\n\n\nCity\nUber\nAuto\n\n\n\n\nNew York City\n142\n218\n\n\nWashington D.C.\n96\n130\n\n\nChicago\n77\n116\n\n\nLos Angeles\n62\n89\n\n\nDallas\n181\n65\n\n\n\n\n\n\n\nThe estimated costs are based on a twice-daily 10.4 mile one-way commute at peak times over the course of a week using either the UberPool option (where available) or alternatively UberX vs the cost of using a personal vehicle (including any associated costs of ownership). Study conducted in February 2017."
   },
   {
     "objectID": "T1_Introduction/Introduction.slides.html#section-4",
     "href": "T1_Introduction/Introduction.slides.html#section-4",
-    "title": "What is data visualization?",
+    "title": "What is data Visualization?",
     "section": "",
     "text": "Principle 2: Turn data into information."
   },
   {
     "objectID": "T1_Introduction/Introduction.slides.html#section-5",
     "href": "T1_Introduction/Introduction.slides.html#section-5",
-    "title": "What is data visualization?",
+    "title": "What is data Visualization?",
     "section": "",
     "text": "Principle 3: Apply Graphic Design Principles."
   },
   {
     "objectID": "T1_Introduction/Introduction.slides.html#section-6",
     "href": "T1_Introduction/Introduction.slides.html#section-6",
-    "title": "What is data visualization?",
+    "title": "What is data Visualization?",
     "section": "",
     "text": "“The greatest value of a picture is when it forces us to notice what we never expected to see.” John W. Tukey.\n\n\n\n\n\nhttps://www.storytellingwithdata.com/ is an excellent guide on data visualization."
   },
