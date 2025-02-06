@@ -16,7 +16,7 @@ author:
 4.  Categorical variables ([slides](/T3_Categorical_Data/Categorical.slides.html)) ([colab](https://drive.google.com/file/d/1_qGqPiDaUmah2m4IdJcYTrsqgRz7cwlo/view?usp=sharing))
 5.  Numerical variables ([slides](/T4_Numerical_Data/Numerical.slides.html)) ([colab](https://drive.google.com/file/d/1QoRxm9joB0331wlRSpD5BJoUp6j2mFCW/view?usp=sharing))
 6.  Multivariate data ([slides](/T5_Multivariate_Data/Multivariate.slides.html)) ([colab](https://drive.google.com/file/d/1MUvdL0GV1PMZWlYg9Qp2G1ocdmp822M2/view?usp=sharing))
-7.  Simple linear regression ([slides](/T6_Introduction_Linear_Regression/LR.slides.html)) 
+7.  Simple linear regression ([slides](/T6_Introduction_Linear_Regression/LR.slides.html)) ([colab](https://drive.google.com/file/d/1dQaz3JcFOpJrg9S39G8pi-rNS_8YhXaa/view?usp=sharing)) 
 
 ## About the author
 
