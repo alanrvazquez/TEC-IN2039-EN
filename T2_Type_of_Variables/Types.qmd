@@ -23,7 +23,9 @@ jupyter: python3
 1.  What type is my data?
 2.  Data manipulation with pandas
 
-## Types of Variables
+## Types of variables
+
+</br>
 
 Before creating a graph, we must examine the type of values that our dataset variables take.
 
@@ -37,7 +39,7 @@ There are two main types of variables:
 -   [Categorical variables.]{style="color:darkred;"}
 :::
 
-## Numerical Variables
+## Numerical variables
 
 These take values that represent numerical measurements or quantities.
 
@@ -50,7 +52,9 @@ These take values that represent numerical measurements or quantities.
 -   Exam score (number of points on a 100-point scale).
 :::
 
-## Types of Numerical Variables
+## Types of numerical variables
+
+</br>
 
 Numerical variables are divided into two types:
 
@@ -66,7 +70,9 @@ Examples:
 
 ## 
 
--   \[\*Continuous\]\*\]{style="color:darkblue;"}: variables that have a large range of possible values.
+</br>
+
+-   [*Continuous*]{style="color:darkblue;"}: variables that have a large range of possible values.
 
 . . .
 
@@ -76,7 +82,7 @@ Examples:
 2.  Ambient temperature (could be *within the range* of -30 $^\circ$C to 50 $^\circ$C)
 3.  Time for an Uber to arrive (*between* 5 and 60 minutes)
 
-## Categorical Variables
+## Categorical variables
 
 These take values that fall into *categories*.
 
@@ -95,6 +101,10 @@ These take values that fall into *categories*.
 
 ## Classification of Categorical Variables
 
+</br>
+
+</br>
+
 Categorical variables are divided into two important types:
 
 -   [*Nominal*]{style="color:darkred;"}
@@ -104,7 +114,9 @@ Categorical variables are divided into two important types:
 The distinction depends on whether the categories have a meaningful order or not.
 :::
 
-## Nominal Categorical Variables
+## Nominal categorical variables
+
+</br>
 
 A categorical variable is nominal if its categories **do not have** a specific order.
 
@@ -118,7 +130,9 @@ Examples:
 -   Computer operating system (Windows, macOS, Linux).
 :::
 
-## Ordinal Categorical Variables
+## Ordinal categorical variables
+
+</br>
 
 A categorical variable is ordinal if its categories **do have a meaningful order**.
 
@@ -136,7 +150,9 @@ Examples:
 It is important to note that with an ordinal variable, the difference between, say, small and medium is not necessarily the same as the difference between medium and large. Additionally, the differences between consecutive categories may not be quantifiable. Think about star ratings in a restaurant review—how much better is one star compared to two stars?
 :::
 
-## Interesting Fact...
+## Interesting fact...
+
+</br>
 
 Integer values (e.g., 1, 2, 3, ..., 5) can represent nominal or ordinal categorical variables.
 
@@ -150,47 +166,26 @@ Integer values (e.g., 1, 2, 3, ..., 5) can represent nominal or ordinal categori
 
 . . .
 
-En la práctica, los valores booleanos (`TRUE` y `FALSE`) a menudo representan categorías nominales.
+In practice, boolean values (`TRUE` and `FALSE`) often represent nominal categories.
 
 ## Remember
 
-![](images/clipboard-2750534250.png)
+![](images/kinds_of_data.png){fig-align="center" width="397"}
 
 ## A General Difference Is ...
+
+</br>
 
 -   Quantitative variables (discrete or continuous) are those where addition or subtraction makes sense.
 
 -   Categorical variables (nominal or ordinal) are those where addition or subtraction does **NOT** make sense.
 
-# Review of data types and summary statistics
-
-## Types of data I
-
-</br>
-
-When a numerical quantity designating how much or how many is assigned to each item in the sample, the resulting set of values is [**numerical**]{style="color:lightblue;"} or [**quantitative**]{style="color:lightblue;"}.
-
--   Height (in ft).
--   Weight (in lbs).
--   Age (in years).
-
-## Types of data II
-
-</br>
-
-When sample items are placed into categories and category names are assigned to the sample items, the data are [**categorical**]{style="color:pink;"} or [**qualitative**]{style="color:pink;"}.
-
--   Hair color.
--   Country of origin.
--   ZIP code.
-
-## Data types
-
-![](images/Images.002.jpeg){fig-align="center"}
-
 ## How do we check the type of variable?
 
-Let's load the data in "penguins.xlsx".
+</br>
+
+As an example, we will use "penguins.xlsx" dataset. Let's load it using **pandas**.
+
 
 ```{python}
 #| echo: true
@@ -200,14 +195,11 @@ import pandas as pd
 
 # Load the Excel file into a pandas DataFrame.
 penguins_data = pd.read_excel("penguins.xlsx")
-
-# Print the first 4 rows of the dataset.
-penguins_data.head(4)
 ```
 
 ## 
 
-In python, we check the type of each variable in a dataset using the function `info()`.
+In Python, we check the type of each variable in a dataset using the function `info()`.
 
 ```{python}
 #| echo: true
@@ -215,7 +207,9 @@ In python, we check the type of each variable in a dataset using the function `i
 penguins_data.info()
 ```
 
-## General python formats
+## General Python formats
+
+</br>
 
 -   `float64` format for numerical variables with decimals.
 -   `int64` format for numerical variables with integers.
@@ -223,56 +217,37 @@ penguins_data.info()
 
 ## Activity (*solo* mode)
 
+</br>
+
 1.  Go to the **Modules** section on our CANVAS website.
 
 2.  Complete the [**Activity 2.1: Types of Variables**]{style="color:darkblue;"} individually.
 
 # Data manipulation with pandas
 
-## pandas library
-
-::::: columns
-::: {.column width="30%"}
-![](images/pandas-logo-300.png){fig-align="left"}
-:::
-
-::: {.column width="70%"}
--   **pandas** allows the user to import, clean, transform, and analyze data efficiently
--   <https://pandas.pydata.org/>
-:::
-:::::
-
-Import it in Google Colab as follows.
-
-```{python}
-#| echo: true
-#| output: false
-
-import pandas as pd
-```
-
 ## Chaining operations with pandas
 
-One of the most important techniques in pandas is method **chaining**, which allows for cleaner and more readable data manipulation.
+One of the most important techniques in **pandas** is [**chaining**]{style="color:brown;"}, which allows for cleaner and more readable data manipulation.
 
 The general structure of chaining looks like this:
 
 ![](images/chaining_pandas.png){fig-align="center"}
 
-## Key pandas functions
+## Key pandas methods
 
-pandas provides functions to solve common data manipulation tasks:
+**pandas** provides methods or functions to solve common data manipulation tasks:
 
 ::: incremental
--   `query()` filters observations based on conditions.
 
--   `loc[]` and `iloc[]` select specific rows and columns.
+-   `.filter()` select specific columns or rows.
 
--   `assign()` creates new variables.
+-   `.query()` filters observations based on conditions.
 
--   `sort_values()` changes the order of rows.
+-   `.assign()` adds new variables that are functions of existing variables.
 
--   `agg()` reduces multiple values to a single numerical summary.
+-   `.sort_values()` changes the order of rows.
+
+-   `.agg()` reduces multiple values to a single numerical summary.
 :::
 
 ## 
@@ -281,20 +256,93 @@ pandas provides functions to solve common data manipulation tasks:
 
 To practice, we will use the dataset `penguins_data`.
 
-## Filtering with `query()`
+## Selecting columns with `.filter()`
 
-Filter the data for the species "Gentoo."
+Select the columns `species`, `body_mass_g` and `sex`.
 
 ```{python}
 #| eval: true
 #| echo: true
 
 (penguins_data
-  .query("species == 'Gentoo'")
+  .filter(["species", "body_mass_g", "sex"], axis = 1)
 ).head()
 ```
 
-> The `head()` function prints the first 6 rows of the dataset.
+## 
+
+</br>
+
+The `axis` argument tells `.filter()` whether to select rows (`0`) or columns (`1`) from the dataframe.
+
+```{python}
+#| output: false
+#| echo: true
+
+(penguins_data
+  .filter(["species", "body_mass_g", "sex"], axis = 1)
+).head()
+```
+
+</br>
+
+> The `.head()` command allows us to print the first six rows of the newly produced dataframe. We **must** remove it to have the entire new dataframe.
+
+##
+
+
+We can also use `.filter()` to select rows too. To this end, we set `axis = 1`. We can select specific rows, such as 0 and 10.
+
+```{python}
+#| output: true
+#| echo: true
+
+(penguins_data
+  .filter([0, 10], axis = 0)
+)
+```
+
+##
+
+Or, we can select a set of rows using the function `range()`. For example, let's select the first 5 rows.
+
+```{python}
+#| output: true
+#| echo: true
+
+(penguins_data
+  .filter(range(5), axis = 0)
+)
+```
+
+
+## Filtering rows with `.query()`
+
+An alternative way of selecting rows is `.query()`. Compared to `.filter()`, `.query()` allows us to filter the data using statements or *queries* involving the variables. 
+
+</br>
+
+For example, let's filter the data for the species "Gentoo."
+
+```{python}
+#| output: false
+#| echo: true
+
+(penguins_data
+  .query("species == 'Gentoo'")
+)
+```
+
+##
+
+```{python}
+#| output: true
+#| echo: true
+
+(penguins_data
+  .query("species == 'Gentoo'")
+).head()
+```
 
 ## 
 
@@ -309,66 +357,69 @@ We can also filter the data to get penguins with a body mass greater than 5000g.
 ).head()
 ```
 
-## Selecting columns with `loc[]`
 
-Select the columns `species`, `body_mass_g` and `sex`.
+## 
 
-```{python}
-#| eval: true
-#| echo: true
-
-(penguins_data
-  .loc[:, ["species", "body_mass_g", "sex"]]
-  .head()
-)
-```
-
-## Combining `query()` and `loc()`
-
-Select the columns `species`, `body_mass_g` and `sex`. Next, filter the data for the species "Gentoo."
+We can even **combine** `.filter()` and `.query()`. For example, let's select the columns `species`, `body_mass_g` and `sex`, then filter the data for the "Gentoo" species.
 
 ```{python}
 #| eval: true
 #| echo: true
 
 (penguins_data
-  .loc[:, ["species", "body_mass_g", "sex"]]
+  .filter(["species", "body_mass_g", "sex"], axis = 1)
   .query("species == 'Gentoo'")
 ).head(4)
 ```
 
-## Create new columns with `assign()`
+## Create new columns with `.assign()`
 
-With `assign()`, we can create new columns (variables) that are functions of existing ones. For example, we can compute the ratio of `bill_length_mm` y `bill_depth_mm`.
+With `.assign()`, we can create new columns (variables) that are functions of existing ones. This function uses a special Python keyword called `lambda`. Technically, this keyword defines an anonymous function.
 
-</br>
+For example, we create a new variable `LDRatio` equaling the ratio of `bill_length_mm` and `bill_depth_mm`.
 
 ```{python}
-#| eval: false
+#| output: false
 #| echo: true
 
 (penguins_data
-  .assign(LengthDepthRatio = lambda df: df["bill_length_mm"] / df["bill_depth_mm"])
-  .loc[:, ["species", "body_mass_g", "sex", "LengthDepthRatio"]]
-).head()
+  .assign(LDRatio = lambda df: df["bill_length_mm"] / df["bill_depth_mm"])
+)
 ```
 
-## 
+##
 
-The new dataset has the variable `LengthDepthRatio`.
+</br>
+
+In this code, the `df` after `lambda` indicates that the dataframe (`penguins_data`) will be referred to as `df` inside the function. The colon `:` sets the start of the function.
 
 ```{python}
-#| eval: true
-#| echo: false
-#| output: true
+#| output: false
+#| echo: true
 
 (penguins_data
-  .assign(LengthDepthRatio = lambda df: df["bill_length_mm"] / df["bill_depth_mm"])
-  .loc[:, ["species", "body_mass_g", "sex", "LengthDepthRatio"]]
+  .assign(LDRatio = lambda df: df["bill_length_mm"] / df["bill_depth_mm"])
+)
+```
+
+The code appends the new variable to the end of the resulting dataframe. 
+
+##
+
+We can see the new variable using `.filter()`.
+
+```{python}
+#| output: true
+#| echo: true
+
+(penguins_data
+  .assign(LDRatio = lambda df: df["bill_length_mm"] / df["bill_depth_mm"])
+  .filter(["bill_length_mm", "bill_depth_mm", "LDRatio"], axis = 1)
 ).head()
 ```
 
-## Sorting with `sort_values()`
+
+## Sorting with `.sort_values()`
 
 We can sort the data based on a column like `bill_length_mm`.
 
@@ -394,7 +445,7 @@ To sort in descending order, use `ascending=False` inside `sort_values()`.
 ).head()
 ```
 
-## Summarizing with `agg()`
+## Summarizing with `.agg()`
 
 We can calculate the average of the columns `bill_length_mm`, `bill_depth_mm`, and `body_mass_g`.
 
@@ -403,7 +454,7 @@ We can calculate the average of the columns `bill_length_mm`, `bill_depth_mm`, a
 #| echo: true
 
 (penguins_data
-  .loc[:, ["bill_length_mm", "bill_depth_mm", "body_mass_g"]]
+  .filter(["bill_length_mm", "bill_depth_mm", "body_mass_g"], axis = 1)
   .agg(["mean"])
 )
 ```
@@ -420,12 +471,12 @@ After performing operations on our data, we can save the modified dataset as a n
 #| eval: true
 #| echo: true
 
-summary_penguins_data = (penguins_data
-  .loc[:, ["bill_length_mm", "bill_depth_mm", "body_mass_g"]]
+mean_penguins_data = (penguins_data
+  .filter(["bill_length_mm", "bill_depth_mm", "body_mass_g"], axis = 1)
   .agg(["mean"])
 )
 
-summary_penguins_data
+mean_penguins_data
 ```
 
 ## Final Remarks
