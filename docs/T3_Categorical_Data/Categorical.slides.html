@@ -422,22 +422,24 @@ Alan R. Vazquez
 </section>
 <section id="first-things-first" class="slide level2">
 <h2>First things first</h2>
+<p><br></p>
 <p>Today, we will use Python to create charts and tables. For this, we will use libraries such as <code>pandas</code>, <code>matplotlib</code>, and <code>seaborn</code>.</p>
 <p><br></p>
 <p>Let’s import them before we start.</p>
-<div id="51480536" class="cell" data-execution_count="1">
+<div id="f1f54e32" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-2"><a></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-3"><a></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="penguins-dataset" class="slide level2">
-<h2>Penguins Dataset</h2>
+<section id="example-1-penguins-dataset" class="slide level2">
+<h2>Example 1: Penguins dataset</h2>
+<p><br></p>
 <p>We will illustrate today’s concepts using the <code>penguins.xlsx</code> dataset.</p>
 <div class="columns">
 <div class="column" style="width:68%;">
 <p>Upload it to Google Colab and load it into Python using the following code:</p>
-<div id="aedf4e4e" class="cell" data-execution_count="2">
+<div id="6b730ca3" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python code-overflow-wrap number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a></a>penguins_data <span class="op">=</span> pd.read_excel(<span class="st">"penguins.xlsx"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div><div class="column" style="width:32%;">
@@ -452,11 +454,11 @@ Alan R. Vazquez
 <section id="section" class="slide level2">
 <h2></h2>
 <p>We will focus on visualizing the following categorical variables: <code>species</code>, <code>island</code> y <code>sex</code>.</p>
-<div id="a3dda342" class="cell" data-execution_count="3">
+<div id="6eb7d427" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a></a>(penguins_data</span>
-<span id="cb3-2"><a></a>  .loc[:, [<span class="st">'species'</span>, <span class="st">'island'</span>, <span class="st">'sex'</span>]]</span>
+<span id="cb3-2"><a></a>  .<span class="bu">filter</span>([<span class="st">'species'</span>, <span class="st">'island'</span>, <span class="st">'sex'</span>], axis <span class="op">=</span> <span class="dv">1</span>)</span>
 <span id="cb3-3"><a></a>).head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="3">
+<div class="cell-output cell-output-display" data-execution_count="43">
 <div>
 <style scoped="">
     .dataframe tbody tr th:only-of-type {
@@ -520,21 +522,21 @@ Alan R. Vazquez
 </div>
 </section>
 <section id="ensuring-python-recognizes-categorical-variables" class="slide level2">
-<h2>Ensuring Python Recognizes Categorical Variables</h2>
+<h2>Ensuring Python recognizes categorical variables</h2>
 <p>Although the variables <code>species</code>, <code>island</code> and <code>sex</code> are clearly categorical, Python does not automatically recognize them as such.</p>
-<p>By default, Pandas interprets these variables as <code>object</code> ypes because they contain text.</p>
+<p>By default, <strong>pandas</strong> interprets these variables as <code>object</code> types because they contain text.</p>
 <blockquote>
-<p>In Pandas, categorical variables should be explicitly converted to the <code>category</code> data type for efficient processing.</p>
+<p>In <strong>pandas</strong>, categorical variables should be explicitly converted to the <code>category</code> data type for efficient processing.</p>
 </blockquote>
 </section>
 <section id="defining-categorical-variables-in-python" class="slide level2">
-<h2>Defining Categorical Variables in Python</h2>
+<h2>Defining categorical variables in Python</h2>
 <p>To ensure Python correctly recognizes these variables as categorical, we use the <code>astype()</code> function:</p>
 <p><br></p>
-<div id="5111ba80" class="cell" data-execution_count="4">
+<div id="e791f3a3" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a></a><span class="co"># Convert categorical variables to 'category' type</span></span>
 <span id="cb4-2"><a></a>penguins_data[[<span class="st">'species'</span>, <span class="st">'island'</span>, <span class="st">'sex'</span>]] <span class="op">=</span> (penguins_data</span>
-<span id="cb4-3"><a></a>  .loc[:, [<span class="st">'species'</span>, <span class="st">'island'</span>, <span class="st">'sex'</span>]]</span>
+<span id="cb4-3"><a></a>  .<span class="bu">filter</span>([<span class="st">'species'</span>, <span class="st">'island'</span>, <span class="st">'sex'</span>], axis <span class="op">=</span> <span class="dv">1</span>)</span>
 <span id="cb4-4"><a></a>  .astype(<span class="st">'category'</span>)</span>
 <span id="cb4-5"><a></a>)  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -543,17 +545,24 @@ Alan R. Vazquez
 </section>
 <section id="section-1" class="slide level2">
 <h2></h2>
+<p><br></p>
 <p>Now, the variables are correctly labeled as <code>categorical</code>.</p>
-<div id="73bd9fde" class="cell" data-execution_count="5">
+<div id="0b00a88c" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a></a>(penguins_data</span>
-<span id="cb5-2"><a></a>  .loc[:, [<span class="st">'species'</span>, <span class="st">'island'</span>, <span class="st">'sex'</span>]]</span>
-<span id="cb5-3"><a></a>  .dtypes</span>
+<span id="cb5-2"><a></a>  .<span class="bu">filter</span>([<span class="st">'species'</span>, <span class="st">'island'</span>, <span class="st">'sex'</span>], axis <span class="op">=</span> <span class="dv">1</span>)</span>
+<span id="cb5-3"><a></a>  .info()</span>
 <span id="cb5-4"><a></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="5">
-<pre><code>species    category
-island     category
-sex        category
-dtype: object</code></pre>
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
+RangeIndex: 344 entries, 0 to 343
+Data columns (total 3 columns):
+ #   Column   Non-Null Count  Dtype   
+---  ------   --------------  -----   
+ 0   species  344 non-null    category
+ 1   island   344 non-null    category
+ 2   sex      333 non-null    category
+dtypes: category(3)
+memory usage: 1.5 KB</code></pre>
 </div>
 </div>
 </section>
@@ -564,14 +573,20 @@ dtype: object</code></pre>
 </section>
 <section id="summary-statistics-1" class="slide level2">
 <h2>Summary statistics</h2>
+<div class="fragment">
 <blockquote>
 <p>A summary statistic helps us to summarize a list of observations in a simple way.</p>
 </blockquote>
+</div>
+<div class="fragment">
 <p>The most commonly used statistical summaries for categorical data are:</p>
+<div>
 <ul>
-<li><p>The <span style="color:darkblue;"><strong>frequency</strong></span> of a category is the number of observations that belong to that category.</p></li>
-<li><p>The <span style="color:darkblue;"><strong>relative frequency</strong></span> is the frequency divided by the total number of observations.</p></li>
+<li class="fragment"><p>The <span style="color:darkblue;"><strong>frequency</strong></span> of a category is the number of observations that belong to that category.</p></li>
+<li class="fragment"><p>The <span style="color:darkblue;"><strong>relative frequency</strong></span> is the frequency divided by the total number of observations.</p></li>
 </ul>
+</div>
+</div>
 </section>
 <section id="frequency-table" class="slide level2">
 <h2>Frequency table</h2>
@@ -627,13 +642,14 @@ dtype: object</code></pre>
 </section>
 <section id="frequency-table-in-python" class="slide level2">
 <h2>Frequency table in Python</h2>
-<p>To construct a frequency table in <strong>numpy</strong> we use the function <code>value_counts()</code> together with <code>loc[]</code>.</p>
-<div id="b320b18e" class="cell" data-execution_count="6">
+<p><br></p>
+<p>To construct a frequency table in <strong>pandas</strong> we use the function <code>.value_counts()</code> together with <code>.filter()</code>.</p>
+<div id="8681002c" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python code-overflow-wrap number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a></a>(penguins_data</span>
-<span id="cb7-2"><a></a>  .loc[:, [<span class="st">'species'</span>]]</span>
+<span id="cb7-2"><a></a>  .<span class="bu">filter</span>([<span class="st">'species'</span>], axis <span class="op">=</span> <span class="dv">1</span>)</span>
 <span id="cb7-3"><a></a>  .value_counts()</span>
 <span id="cb7-4"><a></a>)  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="6">
+<div class="cell-output cell-output-display" data-execution_count="46">
 <pre><code>species  
 Adelie       152
 Gentoo       124
@@ -647,18 +663,17 @@ Name: count, dtype: int64</code></pre>
 <p>Summarizes a categorical variable by calculating the <em>proportion of values</em> per category.</p>
 <div class="columns">
 <div class="column" style="width:55%;">
-<div id="696d0831" class="cell" data-execution_count="7">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python code-overflow-wrap number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a></a><span class="co"># Calculate number of observations in the dataset.</span></span>
-<span id="cb9-2"><a></a>n <span class="op">=</span> <span class="bu">len</span>(penguins_data) </span>
-<span id="cb9-3"><a></a></span>
-<span id="cb9-4"><a></a><span class="co"># Calculate relative frequency.</span></span>
-<span id="cb9-5"><a></a>penguins_data[<span class="st">'species'</span>].value_counts()<span class="op">/</span>n</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="7">
-<pre><code>species
+<div id="0727ccd6" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python code-overflow-wrap number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a></a>(penguins_data</span>
+<span id="cb9-2"><a></a> .<span class="bu">filter</span>([<span class="st">'species'</span>], axis <span class="op">=</span> <span class="dv">1</span>)</span>
+<span id="cb9-3"><a></a> .value_counts(normalize <span class="op">=</span> <span class="va">True</span>)</span>
+<span id="cb9-4"><a></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="47">
+<pre><code>species  
 Adelie       0.441860
 Gentoo       0.360465
 Chinstrap    0.197674
-Name: count, dtype: float64</code></pre>
+Name: proportion, dtype: float64</code></pre>
 </div>
 </div>
 </div><div class="column" style="width:45%;">
@@ -713,25 +728,24 @@ Name: count, dtype: float64</code></pre>
 </section>
 <section id="bar-chart-1" class="slide level2">
 <h2>Bar chart</h2>
+<p><br></p>
 <blockquote>
 <p>A bar chart visually represents a frequency or relative frequency table.</p>
 </blockquote>
 <p>The frequency (or relative frequency) is represented by a bar with a proportional height.</p>
 <p>We create the bar chart using the function <code>countplot()</code> from <strong>seaborn</strong>.</p>
-<div id="e2c29747" class="cell" data-execution_count="8">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a></a><span class="co"># Create plot.</span></span>
-<span id="cb11-2"><a></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">7</span>,<span class="dv">4</span>)) </span>
-<span id="cb11-3"><a></a>sns.countplot(data<span class="op">=</span>penguins_data, x<span class="op">=</span><span class="st">"species"</span>)</span>
-<span id="cb11-4"><a></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
 </section>
 <section id="section-2" class="slide level2">
 <h2></h2>
-<div id="b7cf6927" class="cell" data-execution_count="9">
+<div id="74695dd2" class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a></a><span class="co"># Create plot.</span></span>
+<span id="cb11-2"><a></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>,<span class="dv">6</span>)) </span>
+<span id="cb11-3"><a></a>sns.countplot(data<span class="op">=</span>penguins_data, x<span class="op">=</span><span class="st">"species"</span>)</span>
+<span id="cb11-4"><a></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="Categorical_files/figure-revealjs/cell-10-output-1.png" class="quarto-figure quarto-figure-center" width="593" height="356"></p>
+<p><img data-src="Categorical_files/figure-revealjs/cell-9-output-1.png" class="quarto-figure quarto-figure-center" width="667" height="503"></p>
 </figure>
 </div>
 </div>
@@ -740,7 +754,7 @@ Name: count, dtype: float64</code></pre>
 <section id="plot-for-relative-frequency" class="slide level2">
 <h2>Plot for relative frequency</h2>
 <p>If you want to plot relative frequencies, you can normalize the counts.</p>
-<div id="c2cd02fc" class="cell" data-execution_count="10">
+<div id="b3eaaf87" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a></a><span class="co"># Create plot.</span></span>
 <span id="cb12-2"><a></a>penguin_counts <span class="op">=</span> penguins_data[<span class="st">"species"</span>].value_counts(normalize<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb12-3"><a></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">6</span>, <span class="fl">3.3</span>))</span>
@@ -750,7 +764,7 @@ Name: count, dtype: float64</code></pre>
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="Categorical_files/figure-revealjs/cell-11-output-1.png" class="quarto-figure quarto-figure-center" width="514" height="304"></p>
+<p><img data-src="Categorical_files/figure-revealjs/cell-10-output-1.png" class="quarto-figure quarto-figure-center" width="514" height="304"></p>
 </figure>
 </div>
 </div>
@@ -759,9 +773,9 @@ Name: count, dtype: float64</code></pre>
 <section id="example-improving-the-graph" class="slide level2">
 <h2>Example: Improving the graph</h2>
 <p>Using Seaborn’s customization tools, we enhance the graph:</p>
-<div id="3307c078" class="cell" data-execution_count="11">
+<div id="0130b8da" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">6</span>, <span class="fl">3.5</span>))</span>
-<span id="cb13-2"><a></a>sns.barplot(x<span class="op">=</span>penguin_counts.index, y<span class="op">=</span>penguin_counts.values, palette<span class="op">=</span><span class="st">"viridis"</span>)</span>
+<span id="cb13-2"><a></a>sns.barplot(x<span class="op">=</span>penguin_counts.index, y<span class="op">=</span>penguin_counts.values, color<span class="op">=</span><span class="st">"pink"</span>)</span>
 <span id="cb13-3"><a></a>plt.title(<span class="st">"Penguin Proportions"</span>)</span>
 <span id="cb13-4"><a></a>plt.xlabel(<span class="st">"Species Type"</span>)</span>
 <span id="cb13-5"><a></a>plt.ylabel(<span class="st">"Relative Frequency"</span>)</span>
@@ -769,7 +783,7 @@ Name: count, dtype: float64</code></pre>
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="Categorical_files/figure-revealjs/cell-12-output-1.png" class="quarto-figure quarto-figure-center" width="514" height="339"></p>
+<p><img data-src="Categorical_files/figure-revealjs/cell-11-output-1.png" class="quarto-figure quarto-figure-center" width="514" height="339"></p>
 </figure>
 </div>
 </div>
@@ -839,8 +853,8 @@ Name: count, dtype: float64</code></pre>
 </div>
 </div>
 </section>
-<section id="example-boston-housing-dataset" class="slide level2">
-<h2>Example: Boston Housing Dataset</h2>
+<section id="example-2-boston-housing-dataset" class="slide level2">
+<h2>Example 2: Boston Housing Dataset</h2>
 <p>This dataset contains information collected by the U.S. Census Bureau on housing in the Boston, Massachusetts area.</p>
 <div class="columns">
 <div class="column" style="width:60%;">
@@ -852,10 +866,10 @@ Name: count, dtype: float64</code></pre>
 <section id="section-3" class="slide level2">
 <h2></h2>
 <p>The dataset is in <code>Boston_dataset.xlsx</code>. Upload it to Google Colab and load it into Python using:</p>
-<div id="629dfec4" class="cell" data-execution_count="12">
+<div id="000fa056" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a></a>Boston_dataset <span class="op">=</span> pd.read_excel(<span class="st">"Boston_dataset.xlsx"</span>)</span>
 <span id="cb14-2"><a></a>Boston_dataset.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="12">
+<div class="cell-output cell-output-display" data-execution_count="51">
 <div>
 <style scoped="">
     .dataframe tbody tr th:only-of-type {
@@ -995,12 +1009,12 @@ Name: count, dtype: float64</code></pre>
 <section id="remember" class="slide level2">
 <h2>Remember…</h2>
 <p>Make sure Python correctly recognizes categorical variables.</p>
-<div id="16fcc8ce" class="cell" data-execution_count="13">
+<div id="8048b569" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a></a>Boston_dataset[<span class="st">"chas"</span>] <span class="op">=</span> Boston_dataset[<span class="st">"chas"</span>].astype(<span class="st">"category"</span>)</span>
 <span id="cb15-2"><a></a>Boston_dataset[<span class="st">"rad"</span>] <span class="op">=</span> pd.Categorical(Boston_dataset[<span class="st">"rad"</span>], categories<span class="op">=</span>[<span class="st">"Low"</span>, <span class="st">"Medium"</span>, <span class="st">"High"</span>], ordered<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb15-3"><a></a></span>
 <span id="cb15-4"><a></a>Boston_dataset[[<span class="st">"chas"</span>, <span class="st">"rad"</span>]].head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="13">
+<div class="cell-output cell-output-display" data-execution_count="52">
 <div>
 <style scoped="">
     .dataframe tbody tr th:only-of-type {
@@ -1060,14 +1074,14 @@ Name: count, dtype: float64</code></pre>
 <section id="initial-graph" class="slide level2">
 <h2>Initial graph</h2>
 <p>Let’s create a bar chart for <code>chas</code>.</p>
-<div id="35d41fc5" class="cell" data-execution_count="14">
+<div id="bb6f4758" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">5</span>, <span class="dv">5</span>))</span>
 <span id="cb16-2"><a></a>sns.countplot(data<span class="op">=</span>Boston_dataset, x<span class="op">=</span><span class="st">"chas"</span>)</span>
 <span id="cb16-3"><a></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="Categorical_files/figure-revealjs/cell-15-output-1.png" class="quarto-figure quarto-figure-center" data-fig-pos="center" width="444" height="429"></p>
+<p><img data-src="Categorical_files/figure-revealjs/cell-14-output-1.png" class="quarto-figure quarto-figure-center" data-fig-pos="center" width="444" height="429"></p>
 </figure>
 </div>
 </div>
@@ -1080,9 +1094,9 @@ Name: count, dtype: float64</code></pre>
 <ol type="1">
 <li>Check the category names in the variable using the <code>unique()</code> function.</li>
 </ol>
-<div id="8d2b0f43" class="cell" data-execution_count="15">
+<div id="c5672384" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a></a>Boston_dataset[<span class="st">"chas"</span>].unique()  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="15">
+<div class="cell-output cell-output-display" data-execution_count="54">
 <pre><code>[0, 1]
 Categories (2, int64): [0, 1]</code></pre>
 </div>
@@ -1093,20 +1107,20 @@ Categories (2, int64): [0, 1]</code></pre>
 <ol start="2" type="1">
 <li>Replace the category names using <code>.map()</code>.</li>
 </ol>
-<div id="b46b3d00" class="cell" data-execution_count="16">
+<div id="754dd129" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a></a>Boston_dataset[<span class="st">"chas"</span>] <span class="op">=</span> Boston_dataset[<span class="st">"chas"</span>].<span class="bu">map</span>({<span class="dv">0</span>: <span class="st">"No"</span>, <span class="dv">1</span>: <span class="st">"Yes"</span>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="lets-see-what-happens-now." class="slide level2">
 <h2>Let’s see what happens now.</h2>
-<div id="e79bc2ff" class="cell" data-execution_count="17">
+<div id="45dfbf45" class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">6</span>, <span class="dv">4</span>))</span>
 <span id="cb20-2"><a></a>sns.countplot(data<span class="op">=</span>Boston_dataset, x<span class="op">=</span><span class="st">"chas"</span>)</span>
 <span id="cb20-3"><a></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="Categorical_files/figure-revealjs/cell-18-output-1.png" class="quarto-figure quarto-figure-center" data-fig-pos="center" width="519" height="356"></p>
+<p><img data-src="Categorical_files/figure-revealjs/cell-17-output-1.png" class="quarto-figure quarto-figure-center" data-fig-pos="center" width="519" height="356"></p>
 </figure>
 </div>
 </div>
@@ -1116,14 +1130,14 @@ Categories (2, int64): [0, 1]</code></pre>
 <section id="re-ordering-categories" class="slide level2">
 <h2>Re-ordering Categories</h2>
 <p>Now, let’s create a bar chart for <code>rad</code>.</p>
-<div id="be719c58" class="cell" data-execution_count="18">
+<div id="0568bedc" class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">5</span>, <span class="dv">5</span>))</span>
 <span id="cb21-2"><a></a>sns.countplot(data<span class="op">=</span>Boston_dataset, x<span class="op">=</span><span class="st">"rad"</span>)</span>
 <span id="cb21-3"><a></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="Categorical_files/figure-revealjs/cell-19-output-1.png" class="quarto-figure quarto-figure-center" data-fig-pos="center" width="444" height="429"></p>
+<p><img data-src="Categorical_files/figure-revealjs/cell-18-output-1.png" class="quarto-figure quarto-figure-center" data-fig-pos="center" width="444" height="429"></p>
 </figure>
 </div>
 </div>
@@ -1133,7 +1147,7 @@ Categories (2, int64): [0, 1]</code></pre>
 <section id="section-6" class="slide level2">
 <h2></h2>
 <p>To have the desired order in the categories, we must be more explicit when defining te categorical variable.</p>
-<div id="3536402b" class="cell" data-execution_count="19">
+<div id="daf6998a" class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a></a>Boston_dataset[<span class="st">"rad"</span>] <span class="op">=</span> pd.Categorical(Boston_dataset[<span class="st">"rad"</span>], categories<span class="op">=</span>[<span class="st">"Low"</span>, <span class="st">"Medium"</span>, <span class="st">"High"</span>], ordered<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb22-2"><a></a></span>
 <span id="cb22-3"><a></a>sns.countplot(data<span class="op">=</span>Boston_dataset, x<span class="op">=</span><span class="st">"rad"</span>)</span>
@@ -1141,7 +1155,7 @@ Categories (2, int64): [0, 1]</code></pre>
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="Categorical_files/figure-revealjs/cell-20-output-1.png" class="quarto-figure quarto-figure-center" data-fig-pos="center" width="816" height="429"></p>
+<p><img data-src="Categorical_files/figure-revealjs/cell-19-output-1.png" class="quarto-figure quarto-figure-center" data-fig-pos="center" width="816" height="429"></p>
 </figure>
 </div>
 </div>
@@ -1157,11 +1171,11 @@ Categories (2, int64): [0, 1]</code></pre>
 <section id="section-7" class="slide level2">
 <h2></h2>
 <p>To collapse categories in <strong>pandas</strong>, we use the <code>replace()</code> function.</p>
-<div id="7c78fd1b" class="cell" data-execution_count="20">
+<div id="f7067350" class="cell" data-execution_count="19">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a></a>Boston_dataset[<span class="st">"rad"</span>] <span class="op">=</span> Boston_dataset[<span class="st">"rad"</span>].replace({<span class="st">"Medium"</span>: <span class="st">"Other"</span>, <span class="st">"High"</span>: <span class="st">"Other"</span>})</span>
 <span id="cb23-2"><a></a></span>
 <span id="cb23-3"><a></a>Boston_dataset[<span class="st">"rad"</span>].value_counts()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="20">
+<div class="cell-output cell-output-display" data-execution_count="59">
 <pre><code>rad
 Other    424
 Low       82
@@ -1172,14 +1186,14 @@ Name: count, dtype: int64</code></pre>
 <section id="section-8" class="slide level2">
 <h2></h2>
 <p>Collapsing categories simplifies the graph</p>
-<div id="d1a9f2ec" class="cell" data-execution_count="21">
+<div id="d09ab7cd" class="cell" data-execution_count="20">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a></a>plt.figure(figsize<span class="op">=</span>(<span class="fl">5.5</span>, <span class="fl">3.5</span>))</span>
 <span id="cb25-2"><a></a>sns.countplot(data<span class="op">=</span>Boston_dataset, x<span class="op">=</span><span class="st">"rad"</span>)</span>
 <span id="cb25-3"><a></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="Categorical_files/figure-revealjs/cell-22-output-1.png" class="quarto-figure quarto-figure-center" data-fig-pos="center" width="482" height="319"></p>
+<p><img data-src="Categorical_files/figure-revealjs/cell-21-output-1.png" class="quarto-figure quarto-figure-center" data-fig-pos="center" width="482" height="319"></p>
 </figure>
 </div>
 </div>
@@ -1187,7 +1201,7 @@ Name: count, dtype: int64</code></pre>
 <p>It also allows us to emphasize a category like <code>Low</code> and see how it compares to the other categories (as a whole).</p>
 </section></section>
 <section id="return-to-main-page" class="title-slide slide level1 center">
-<h1><a href="https://alanrvazquez.github.io/TEC-IN1002B-Website/">Return to main page</a></h1>
+<h1><a href="https://alanrvazquez.github.io/TEC-IN2039-EN/">Return to main page</a></h1>
 
 <div class="quarto-auto-generated-content">
 <p><img src="IN2039_logo.png" class="slide-logo"></p>

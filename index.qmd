@@ -11,8 +11,8 @@ author:
 ## Course topics
 
 1.  Introduction ([slides](/T1_Introduction/Introduction.slides.html)) 
-2.  Tools ([slides](/T1_Introduction/Tools.slides.html)) ([colab](https://drive.google.com/file/d/1vtuTlKhenlbnZxn-fFAux_lNLMmKXcMR/view?usp=sharing))
-3.  Types of variables ([slides](/T2_Type_of_Variables/Types.slides.html))
+2.  Tools ([slides](/T1_Introduction/Tools.slides.html))  ([colab](https://drive.google.com/file/d/1vtuTlKhenlbnZxn-fFAux_lNLMmKXcMR/view?usp=sharing))
+3.  Types of variables ([slides](/T2_Type_of_Variables/Types.slides.html)) ([colab](https://drive.google.com/file/d/1tDGjNq58tZO2Z0ijeMSIv0Oy9lf4hyTE/view?usp=sharing)) ([**pandas** cheat sheet](https://pandas.pydata.org/Pandas_Cheat_Sheet.pdf))
 4.  Categorical variables ([slides](/T3_Categorical_Data/Categorical.slides.html))
 5.  Numerical variables ([slides](/T4_Numerical_Data/Numerical.slides.html))
 6.  Multivariate data ([slides](/T5_Multivariate_Data/Multivariate.slides.html)) 

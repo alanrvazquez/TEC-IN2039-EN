@@ -28,9 +28,11 @@ jupyter: python3
 
 ## First things first
 
+</br>
+
 Today, we will use Python to create charts and tables. For this, we will use libraries such as `pandas`, `matplotlib`, and `seaborn`.
 
-<br/>
+</br>
 
 Let's import them before we start.
 
@@ -43,7 +45,9 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 ```
 
-## Penguins Dataset
+## Example 1: Penguins dataset
+
+</br>
 
 We will illustrate today's concepts using the `penguins.xlsx` dataset.
 
@@ -65,7 +69,7 @@ penguins_data = pd.read_excel("penguins.xlsx")
 :::
 :::::
 
- In Google Colab, the file must be placed in the  "content" folder.
+In Google Colab, the file must be placed in the "content" folder.
 
 ## 
 
@@ -76,19 +80,19 @@ We will focus on visualizing the following categorical variables: `species`, `is
 #| echo: true
 
 (penguins_data
-  .loc[:, ['species', 'island', 'sex']]
+  .filter(['species', 'island', 'sex'], axis = 1)
 ).head()
 ```
 
-## Ensuring Python Recognizes Categorical Variables
+## Ensuring Python recognizes categorical variables
 
 Although the variables `species`, `island` and `sex` are clearly categorical, Python does not automatically recognize them as such.
 
-By default, Pandas interprets these variables as `object` ypes because they contain text.
+By default, **pandas** interprets these variables as `object` types because they contain text.
 
-> In Pandas, categorical variables should be explicitly converted to the `category` data type for efficient processing.
+> In **pandas**, categorical variables should be explicitly converted to the `category` data type for efficient processing.
 
-## Defining Categorical Variables in Python
+## Defining categorical variables in Python
 
 To ensure Python correctly recognizes these variables as categorical, we use the `astype()` function:
 
@@ -100,7 +104,7 @@ To ensure Python correctly recognizes these variables as categorical, we use the
 
 # Convert categorical variables to 'category' type
 penguins_data[['species', 'island', 'sex']] = (penguins_data
-  .loc[:, ['species', 'island', 'sex']]
+  .filter(['species', 'island', 'sex'], axis = 1)
   .astype('category')
 )  
 ```
@@ -111,6 +115,8 @@ Note that we have just replaced the `penguins_data` object with its new version.
 
 ## 
 
+</br>
+
 Now, the variables are correctly labeled as `categorical`.
 
 ```{python}
@@ -118,22 +124,28 @@ Now, the variables are correctly labeled as `categorical`.
 #| output: true
 
 (penguins_data
-  .loc[:, ['species', 'island', 'sex']]
-  .dtypes
+  .filter(['species', 'island', 'sex'], axis = 1)
+  .info()
 )
 ```
 
-# Summary statistics 
+# Summary statistics
 
-## Summary statistics 
+## Summary statistics
+
+. . .
 
 > A summary statistic helps us to summarize a list of observations in a simple way.
 
+. . .
+
 The most commonly used statistical summaries for categorical data are:
 
+:::incremental
 -   The [**frequency**]{style="color:darkblue;"} of a category is the number of observations that belong to that category.
 
 -   The [**relative frequency**]{style="color:darkblue;"} is the frequency divided by the total number of observations.
+:::
 
 ## Frequency table
 
@@ -145,7 +157,6 @@ Summarizes a categorical variable by counting the values per category.
 | Chinstrap   | 68             |
 | Gentoo      | 124            |
 | **Total**   | **344**        |
-
 
 -   **Frequency**: Number of observations in each category.
 
@@ -161,10 +172,11 @@ Summarizes a categorical variable by counting the values per category.
 4.  Ayuda en la toma de decisiones informadas.
 :::
 
-
 ## Frequency table in Python
 
-To construct a frequency table in **numpy** we use the function `value_counts()` together with `loc[]`.
+</br>
+
+To construct a frequency table in **pandas** we use the function `.value_counts()` together with `.filter()`.
 
 ```{python}
 #| echo: true
@@ -172,11 +184,10 @@ To construct a frequency table in **numpy** we use the function `value_counts()`
 #| code-overflow: wrap
 
 (penguins_data
-  .loc[:, ['species']]
+  .filter(['species'], axis = 1)
   .value_counts()
 )  
 ```
-
 
 ## Relative Frequency Table
 
@@ -189,11 +200,10 @@ Summarizes a categorical variable by calculating the *proportion of values* per 
 #| output: true
 #| code-overflow: wrap
 
-# Calculate number of observations in the dataset.
-n = len(penguins_data) 
-
-# Calculate relative frequency.
-penguins_data['species'].value_counts()/n
+(penguins_data
+ .filter(['species'], axis = 1)
+ .value_counts(normalize = True)
+)
 ```
 :::
 
@@ -217,34 +227,24 @@ La ventaja de la frequencia relativa es que se puede interpretar como una probab
 
 ## Bar chart
 
+</br>
+
 > A bar chart visually represents a frequency or relative frequency table.
 
 The frequency (or relative frequency) is represented by a bar with a proportional height.
 
 We create the bar chart using the function `countplot()` from **seaborn**.
 
+## 
+
 ```{python}
 #| echo: true
-#| output: false
-#| fig-align: center
-#| code-fold: false
-
-# Create plot.
-plt.figure(figsize=(7,4)) 
-sns.countplot(data=penguins_data, x="species")
-plt.show()
-```
-
-##
-
-```{python}
-#| echo: false
 #| output: true
 #| fig-align: center
 #| code-fold: false
 
 # Create plot.
-plt.figure(figsize=(7,4)) 
+plt.figure(figsize=(8,6)) 
 sns.countplot(data=penguins_data, x="species")
 plt.show()
 ```
@@ -278,7 +278,7 @@ Using Seaborn’s customization tools, we enhance the graph:
 #| code-fold: false
 
 plt.figure(figsize=(6, 3.5))
-sns.barplot(x=penguin_counts.index, y=penguin_counts.values, palette="viridis")
+sns.barplot(x=penguin_counts.index, y=penguin_counts.values, color="pink")
 plt.title("Penguin Proportions")
 plt.xlabel("Species Type")
 plt.ylabel("Relative Frequency")
@@ -292,17 +292,19 @@ plt.show()
 :::::: columns
 :::: {.column width="50%"}
 ::: incremental
-- A pie chart divides a circle into sections representing different categories of a variable.
+-   A pie chart divides a circle into sections representing different categories of a variable.
 
-- The size of each section corresponds to the relative frequency of that category.
+-   The size of each section corresponds to the relative frequency of that category.
 
-- It provides a quick visual comparison of proportions.
+-   It provides a quick visual comparison of proportions.
 :::
 ::::
+
 ::: {.column width="50%"}
 ![](images/clipboard-800609446.png)
 :::
-:::
+::::::
+
 ::: notes
 Pie charts versus bar charts.
 
@@ -328,12 +330,12 @@ Pie charts versus bar charts.
 We can improve categorical variable charts using these techniques:
 
 ::: incremental
-- Re-label categories to make them more informative.
-- Re-order categories to follow a logical sequence.
-- Collapse categories to simplify the chart.
+-   Re-label categories to make them more informative.
+-   Re-order categories to follow a logical sequence.
+-   Collapse categories to simplify the chart.
 :::
 
-## Example: Boston Housing Dataset
+## Example 2: Boston Housing Dataset
 
 This dataset contains information collected by the U.S. Census Bureau on housing in the Boston, Massachusetts area.
 
@@ -435,6 +437,7 @@ plt.figure(figsize=(6, 4))
 sns.countplot(data=Boston_dataset, x="chas")
 plt.show()
 ```
+
 Much better! 😃
 
 ## Re-ordering Categories
@@ -511,5 +514,4 @@ plt.show()
 
 It also allows us to emphasize a category like `Low` and see how it compares to the other categories (as a whole).
 
-
-# [Return to main page](https://alanrvazquez.github.io/TEC-IN1002B-Website/)
+# [Return to main page](https://alanrvazquez.github.io/TEC-IN2039-EN/)

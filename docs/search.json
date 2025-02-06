@@ -11,49 +11,49 @@
     "href": "T3_Categorical_Data/Categorical.slides.html#first-things-first",
     "title": "Categorical Variables",
     "section": "First things first",
-    "text": "First things first\nToday, we will use Python to create charts and tables. For this, we will use libraries such as pandas, matplotlib, and seaborn.\n\nLet’s import them before we start.\n\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns"
+    "text": "First things first\n\nToday, we will use Python to create charts and tables. For this, we will use libraries such as pandas, matplotlib, and seaborn.\n\nLet’s import them before we start.\n\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns"
   },
   {
     "objectID": "T3_Categorical_Data/Categorical.slides.html#penguins-dataset",
     "href": "T3_Categorical_Data/Categorical.slides.html#penguins-dataset",
     "title": "Categorical Variables",
-    "section": "Penguins Dataset",
-    "text": "Penguins Dataset\nWe will illustrate today’s concepts using the penguins.xlsx dataset.\n\n\nUpload it to Google Colab and load it into Python using the following code:\n\npenguins_data = pd.read_excel(\"penguins.xlsx\")\n\n\n\n\n\n\n\n\nIn Google Colab, the file must be placed in the “content” folder."
+    "section": "Penguins dataset",
+    "text": "Penguins dataset\n\nWe will illustrate today’s concepts using the penguins.xlsx dataset.\n\n\nUpload it to Google Colab and load it into Python using the following code:\n\npenguins_data = pd.read_excel(\"penguins.xlsx\")\n\n\n\n\n\n\n\n\nIn Google Colab, the file must be placed in the “content” folder."
   },
   {
     "objectID": "T3_Categorical_Data/Categorical.slides.html#section",
     "href": "T3_Categorical_Data/Categorical.slides.html#section",
     "title": "Categorical Variables",
     "section": "",
-    "text": "We will focus on visualizing the following categorical variables: species, island y sex.\n\n(penguins_data\n  .loc[:, ['species', 'island', 'sex']]\n).head()\n\n\n\n\n\n\n\n\nspecies\nisland\nsex\n\n\n\n\n0\nAdelie\nTorgersen\nmale\n\n\n1\nAdelie\nTorgersen\nfemale\n\n\n2\nAdelie\nTorgersen\nfemale\n\n\n3\nAdelie\nTorgersen\nNaN\n\n\n4\nAdelie\nTorgersen\nfemale"
+    "text": "We will focus on visualizing the following categorical variables: species, island y sex.\n\n(penguins_data\n  .filter(['species', 'island', 'sex'], axis = 1)\n).head()\n\n\n\n\n\n\n\n\nspecies\nisland\nsex\n\n\n\n\n0\nAdelie\nTorgersen\nmale\n\n\n1\nAdelie\nTorgersen\nfemale\n\n\n2\nAdelie\nTorgersen\nfemale\n\n\n3\nAdelie\nTorgersen\nNaN\n\n\n4\nAdelie\nTorgersen\nfemale"
   },
   {
     "objectID": "T3_Categorical_Data/Categorical.slides.html#ensuring-python-recognizes-categorical-variables",
     "href": "T3_Categorical_Data/Categorical.slides.html#ensuring-python-recognizes-categorical-variables",
     "title": "Categorical Variables",
-    "section": "Ensuring Python Recognizes Categorical Variables",
-    "text": "Ensuring Python Recognizes Categorical Variables\nAlthough the variables species, island and sex are clearly categorical, Python does not automatically recognize them as such.\nBy default, Pandas interprets these variables as object ypes because they contain text.\n\nIn Pandas, categorical variables should be explicitly converted to the category data type for efficient processing."
+    "section": "Ensuring Python recognizes categorical variables",
+    "text": "Ensuring Python recognizes categorical variables\nAlthough the variables species, island and sex are clearly categorical, Python does not automatically recognize them as such.\nBy default, pandas interprets these variables as object types because they contain text.\n\nIn pandas, categorical variables should be explicitly converted to the category data type for efficient processing."
   },
   {
     "objectID": "T3_Categorical_Data/Categorical.slides.html#defining-categorical-variables-in-python",
     "href": "T3_Categorical_Data/Categorical.slides.html#defining-categorical-variables-in-python",
     "title": "Categorical Variables",
-    "section": "Defining Categorical Variables in Python",
-    "text": "Defining Categorical Variables in Python\nTo ensure Python correctly recognizes these variables as categorical, we use the astype() function:\n\n\n# Convert categorical variables to 'category' type\npenguins_data[['species', 'island', 'sex']] = (penguins_data\n  .loc[:, ['species', 'island', 'sex']]\n  .astype('category')\n)  \n\n\nNote that we have just replaced the penguins_data object with its new version."
+    "section": "Defining categorical variables in Python",
+    "text": "Defining categorical variables in Python\nTo ensure Python correctly recognizes these variables as categorical, we use the astype() function:\n\n\n# Convert categorical variables to 'category' type\npenguins_data[['species', 'island', 'sex']] = (penguins_data\n  .filter(['species', 'island', 'sex'], axis = 1)\n  .astype('category')\n)  \n\n\nNote that we have just replaced the penguins_data object with its new version."
   },
   {
     "objectID": "T3_Categorical_Data/Categorical.slides.html#section-1",
     "href": "T3_Categorical_Data/Categorical.slides.html#section-1",
     "title": "Categorical Variables",
     "section": "",
-    "text": "Now, the variables are correctly labeled as categorical.\n\n(penguins_data\n  .loc[:, ['species', 'island', 'sex']]\n  .dtypes\n)\n\nspecies    category\nisland     category\nsex        category\ndtype: object"
+    "text": "Now, the variables are correctly labeled as categorical.\n\n(penguins_data\n  .filter(['species', 'island', 'sex'], axis = 1)\n  .info()\n)\n\n&lt;class 'pandas.core.frame.DataFrame'&gt;\nRangeIndex: 344 entries, 0 to 343\nData columns (total 3 columns):\n #   Column   Non-Null Count  Dtype   \n---  ------   --------------  -----   \n 0   species  344 non-null    category\n 1   island   344 non-null    category\n 2   sex      333 non-null    category\ndtypes: category(3)\nmemory usage: 1.5 KB"
   },
   {
     "objectID": "T3_Categorical_Data/Categorical.slides.html#summary-statistics-1",
     "href": "T3_Categorical_Data/Categorical.slides.html#summary-statistics-1",
     "title": "Categorical Variables",
     "section": "Summary statistics",
-    "text": "Summary statistics\n\nA summary statistic helps us to summarize a list of observations in a simple way.\n\nThe most commonly used statistical summaries for categorical data are:\n\nThe frequency of a category is the number of observations that belong to that category.\nThe relative frequency is the frequency divided by the total number of observations."
+    "text": "Summary statistics\n\n\nA summary statistic helps us to summarize a list of observations in a simple way.\n\n\n\nThe most commonly used statistical summaries for categorical data are:\n\n\nThe frequency of a category is the number of observations that belong to that category.\nThe relative frequency is the frequency divided by the total number of observations."
   },
   {
     "objectID": "T3_Categorical_Data/Categorical.slides.html#frequency-table",
@@ -67,21 +67,21 @@
     "href": "T3_Categorical_Data/Categorical.slides.html#frequency-table-in-python",
     "title": "Categorical Variables",
     "section": "Frequency table in Python",
-    "text": "Frequency table in Python\nTo construct a frequency table in numpy we use the function value_counts() together with loc[].\n\n(penguins_data\n  .loc[:, ['species']]\n  .value_counts()\n)  \n\nspecies  \nAdelie       152\nGentoo       124\nChinstrap     68\nName: count, dtype: int64"
+    "text": "Frequency table in Python\n\nTo construct a frequency table in pandas we use the function .value_counts() together with .filter().\n\n(penguins_data\n  .filter(['species'], axis = 1)\n  .value_counts()\n)  \n\nspecies  \nAdelie       152\nGentoo       124\nChinstrap     68\nName: count, dtype: int64"
   },
   {
     "objectID": "T3_Categorical_Data/Categorical.slides.html#relative-frequency-table",
     "href": "T3_Categorical_Data/Categorical.slides.html#relative-frequency-table",
     "title": "Categorical Variables",
     "section": "Relative Frequency Table",
-    "text": "Relative Frequency Table\nSummarizes a categorical variable by calculating the proportion of values per category.\n\n\n\n# Calculate number of observations in the dataset.\nn = len(penguins_data) \n\n# Calculate relative frequency.\npenguins_data['species'].value_counts()/n\n\nspecies\nAdelie       0.441860\nGentoo       0.360465\nChinstrap    0.197674\nName: count, dtype: float64\n\n\n\n\n\n\nSpecie\nRelative Frequency\n\n\n\n\nAdelie\n0.4418605\n\n\nChinstrap\n0.1976744\n\n\nGentoo\n0.3604651\n\n\nSuma\n1\n\n\n\n\n\nRelative frequency: Number of observations in each category divided by the total.\n\n\nLa ventaja de la frequencia relativa es que se puede interpretar como una probabilidad. Lo que da mas información."
+    "text": "Relative Frequency Table\nSummarizes a categorical variable by calculating the proportion of values per category.\n\n\n\n(penguins_data\n .filter(['species'], axis = 1)\n .value_counts(normalize = True)\n)\n\nspecies  \nAdelie       0.441860\nGentoo       0.360465\nChinstrap    0.197674\nName: proportion, dtype: float64\n\n\n\n\n\n\nSpecie\nRelative Frequency\n\n\n\n\nAdelie\n0.4418605\n\n\nChinstrap\n0.1976744\n\n\nGentoo\n0.3604651\n\n\nSuma\n1\n\n\n\n\n\nRelative frequency: Number of observations in each category divided by the total.\n\n\nLa ventaja de la frequencia relativa es que se puede interpretar como una probabilidad. Lo que da mas información."
   },
   {
     "objectID": "T3_Categorical_Data/Categorical.slides.html#bar-chart-1",
     "href": "T3_Categorical_Data/Categorical.slides.html#bar-chart-1",
     "title": "Categorical Variables",
     "section": "Bar chart",
-    "text": "Bar chart\n\nA bar chart visually represents a frequency or relative frequency table.\n\nThe frequency (or relative frequency) is represented by a bar with a proportional height.\nWe create the bar chart using the function countplot() from seaborn.\n\n# Create plot.\nplt.figure(figsize=(7,4)) \nsns.countplot(data=penguins_data, x=\"species\")\nplt.show()"
+    "text": "Bar chart\n\n\nA bar chart visually represents a frequency or relative frequency table.\n\nThe frequency (or relative frequency) is represented by a bar with a proportional height.\nWe create the bar chart using the function countplot() from seaborn."
   },
   {
     "objectID": "T3_Categorical_Data/Categorical.slides.html#plot-for-relative-frequency",
@@ -95,7 +95,7 @@
     "href": "T3_Categorical_Data/Categorical.slides.html#example-improving-the-graph",
     "title": "Categorical Variables",
     "section": "Example: Improving the graph",
-    "text": "Example: Improving the graph\nUsing Seaborn’s customization tools, we enhance the graph:\n\nplt.figure(figsize=(6, 3.5))\nsns.barplot(x=penguin_counts.index, y=penguin_counts.values, palette=\"viridis\")\nplt.title(\"Penguin Proportions\")\nplt.xlabel(\"Species Type\")\nplt.ylabel(\"Relative Frequency\")\nplt.show()"
+    "text": "Example: Improving the graph\nUsing Seaborn’s customization tools, we enhance the graph:\n\nplt.figure(figsize=(6, 3.5))\nsns.barplot(x=penguin_counts.index, y=penguin_counts.values, color=\"pink\")\nplt.title(\"Penguin Proportions\")\nplt.xlabel(\"Species Type\")\nplt.ylabel(\"Relative Frequency\")\nplt.show()"
   },
   {
     "objectID": "T3_Categorical_Data/Categorical.slides.html#pie-chart-1",
@@ -2042,5 +2042,26 @@
     "title": "Types of variables",
     "section": "Summarizing with .agg()",
     "text": "Summarizing with .agg()\nWe can calculate the average of the columns bill_length_mm, bill_depth_mm, and body_mass_g.\n\n(penguins_data\n  .filter([\"bill_length_mm\", \"bill_depth_mm\", \"body_mass_g\"], axis = 1)\n  .agg([\"mean\"])\n)\n\n\n\n\n\n\n\n\nbill_length_mm\nbill_depth_mm\nbody_mass_g\n\n\n\n\nmean\n43.92193\n17.15117\n4201.754386\n\n\n\n\n\n\n\n\n\nBy default, agg() ignores missing values."
+  },
+  {
+    "objectID": "T3_Categorical_Data/Categorical.slides.html#section-2",
+    "href": "T3_Categorical_Data/Categorical.slides.html#section-2",
+    "title": "Categorical Variables",
+    "section": "",
+    "text": "# Create plot.\nplt.figure(figsize=(8,6)) \nsns.countplot(data=penguins_data, x=\"species\")\nplt.show()"
+  },
+  {
+    "objectID": "T3_Categorical_Data/Categorical.slides.html#example-1-penguins-dataset",
+    "href": "T3_Categorical_Data/Categorical.slides.html#example-1-penguins-dataset",
+    "title": "Categorical Variables",
+    "section": "Example 1: Penguins dataset",
+    "text": "Example 1: Penguins dataset\n\nWe will illustrate today’s concepts using the penguins.xlsx dataset.\n\n\nUpload it to Google Colab and load it into Python using the following code:\n\npenguins_data = pd.read_excel(\"penguins.xlsx\")\n\n\n\n\n\n\n\n\nIn Google Colab, the file must be placed in the “content” folder."
+  },
+  {
+    "objectID": "T3_Categorical_Data/Categorical.slides.html#example-2-boston-housing-dataset",
+    "href": "T3_Categorical_Data/Categorical.slides.html#example-2-boston-housing-dataset",
+    "title": "Categorical Variables",
+    "section": "Example 2: Boston Housing Dataset",
+    "text": "Example 2: Boston Housing Dataset\nThis dataset contains information collected by the U.S. Census Bureau on housing in the Boston, Massachusetts area."
   }
 ]
