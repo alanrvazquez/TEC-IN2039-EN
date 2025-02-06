@@ -430,10 +430,10 @@ Alan R. Vazquez
 <p>The file “CYLT.xlsx” contains 50 cycle times of a piston operating under fixed conditions.</p>
 </section>
 <section id="remember-to-import-the-required-libraries" class="slide level2">
-<h2>Remember to Import the Required Libraries</h2>
+<h2>Remember to import the required libraries</h2>
 <p>We will use the libraries <code>pandas</code>, <code>matplotlib</code>, and <code>seaborn</code>.</p>
 <p>Let’s load them in Google Colab before we start.</p>
-<div id="c8c0fa62" class="cell" data-execution_count="1">
+<div id="3d7817ca" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-2"><a></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-3"><a></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -441,11 +441,11 @@ Alan R. Vazquez
 </section>
 <section id="load-the-data" class="slide level2">
 <h2>Load the data</h2>
-<p>In Google Colab, the file “CYLT.xlsx” should be placed in a folder called “content” or “contenido”.</p>
-<div id="232a764d" class="cell" data-execution_count="2">
+<p>In Google Colab, the file “CYLT.xlsx” should be placed in a folder called “Files”.</p>
+<div id="0e057ac5" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a></a>piston_data <span class="op">=</span> pd.read_excel(<span class="st">"CYCLT.xlsx"</span>)</span>
 <span id="cb2-2"><a></a>piston_data.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="2">
+<div class="cell-output cell-output-display" data-execution_count="366">
 <div>
 <style scoped="">
     .dataframe tbody tr th:only-of-type {
@@ -498,8 +498,9 @@ Alan R. Vazquez
 </section>
 <section id="variable-type" class="slide level2">
 <h2>Variable Type</h2>
+<p><br></p>
 <p>In Python, numerical data is stored as <code>float64</code>.</p>
-<div id="e324a6cb" class="cell" data-execution_count="3">
+<div id="4b7db161" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a></a>piston_data.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
@@ -545,12 +546,15 @@ memory usage: 528.0 bytes</code></pre>
 </section>
 <section id="section" class="slide level2">
 <h2></h2>
-<p>In python, we calculate the mean using the function <code>mean()</code>.</p>
-<div id="d5f6b9f7" class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a></a>piston_data_mean <span class="op">=</span> piston_data[<span class="st">"cycle_time"</span>].mean()</span>
-<span id="cb5-2"><a></a><span class="bu">print</span>(piston_data_mean)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>0.6524599999999999</code></pre>
+<p><br></p>
+<p>In Python, we calculate the mean using the function <code>mean()</code>.</p>
+<div id="031154d3" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a></a>(piston_data</span>
+<span id="cb5-2"><a></a> .agg(<span class="st">"mean"</span>)</span>
+<span id="cb5-3"><a></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="368">
+<pre><code>cycle_time    0.65246
+dtype: float64</code></pre>
 </div>
 </div>
 <p><br></p>
@@ -559,11 +563,15 @@ memory usage: 528.0 bytes</code></pre>
 <section id="section-1" class="slide level2">
 <h2></h2>
 <p><br></p>
-<p>You can also round the result to, say, three decimals.</p>
-<div id="4e165406" class="cell" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a></a><span class="bu">print</span>( <span class="bu">round</span>(piston_data_mean, <span class="dv">3</span>) )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>You can also round the result to, say, two decimals.</p>
+<div id="46c45e23" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a></a>piston_data_mean <span class="op">=</span> (piston_data</span>
+<span id="cb7-2"><a></a> .agg(<span class="st">"mean"</span>)</span>
+<span id="cb7-3"><a></a>)</span>
+<span id="cb7-4"><a></a><span class="bu">print</span>( <span class="bu">round</span>(piston_data_mean, <span class="dv">2</span>) )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>0.652</code></pre>
+<pre><code>cycle_time    0.65
+dtype: float64</code></pre>
 </div>
 </div>
 <p><br></p>
@@ -586,11 +594,13 @@ s^2 = \frac{1}{n-1} \sum_{i=1}^{n} (y_i - \bar{y})^2 = \frac{(y_1 - \bar{y})^2  
 <h2></h2>
 <p><br></p>
 <p>In python, the variance is calculated using the function <code>var()</code>.</p>
-<div id="b4c931ca" class="cell" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a></a>piston_data_var <span class="op">=</span> piston_data[<span class="st">"cycle_time"</span>].var()</span>
-<span id="cb9-2"><a></a><span class="bu">print</span>( <span class="bu">round</span>(piston_data_var, <span class="dv">3</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>0.139</code></pre>
+<div id="914dbc02" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a></a>(piston_data</span>
+<span id="cb9-2"><a></a> .agg(<span class="st">"var"</span>)</span>
+<span id="cb9-3"><a></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="370">
+<pre><code>cycle_time    0.139107
+dtype: float64</code></pre>
 </div>
 </div>
 <p><br></p>
@@ -609,11 +619,13 @@ s = \left(\frac{1}{n-1} \sum_{i=1}^{n} (y_i - \bar{y})^2 \right)^{1/2}
 <h2></h2>
 <p><br></p>
 <p>In python, the standard deviation is calculated using the function <code>std()</code>.</p>
-<div id="82cd935b" class="cell" data-execution_count="7">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a></a>piston_data_std <span class="op">=</span> piston_data[<span class="st">"cycle_time"</span>].std()</span>
-<span id="cb11-2"><a></a><span class="bu">print</span>(<span class="bu">round</span>(piston_data_std,<span class="dv">3</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>0.373</code></pre>
+<div id="7c59c7b9" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a></a>(piston_data</span>
+<span id="cb11-2"><a></a> .agg(<span class="st">"std"</span>)</span>
+<span id="cb11-3"><a></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="371">
+<pre><code>cycle_time    0.372971
+dtype: float64</code></pre>
 </div>
 </div>
 <p><br></p>
@@ -643,42 +655,86 @@ s = \left(\frac{1}{n-1} \sum_{i=1}^{n} (y_i - \bar{y})^2 \right)^{1/2}
 <section id="section-5" class="slide level2">
 <h2></h2>
 <p>In python, the quartiles are calculated using the function <code>quantile()</code>.</p>
-<div id="96d757fb" class="cell" data-execution_count="8">
+<div class="columns">
+<div class="column" style="width:60%;">
+<div id="cfb84cc7" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a></a><span class="co"># Set the quantiles.</span></span>
 <span id="cb13-2"><a></a>set_quantiles <span class="op">=</span> [<span class="fl">0.25</span>, <span class="fl">0.5</span>, <span class="fl">0.75</span>]</span>
 <span id="cb13-3"><a></a><span class="co"># Compute the quantiles.</span></span>
-<span id="cb13-4"><a></a>piston_data[<span class="st">"cycle_time"</span>].quantile(set_quantiles)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="8">
-<pre><code>0.25    0.3050
-0.50    0.5455
-0.75    1.0690
-Name: cycle_time, dtype: float64</code></pre>
+<span id="cb13-4"><a></a>(piston_data</span>
+<span id="cb13-5"><a></a> .agg(<span class="st">"quantile"</span>, q <span class="op">=</span> set_quantiles)</span>
+<span id="cb13-6"><a></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="372">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">cycle_time</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0.25</td>
+<td>0.3050</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">0.50</td>
+<td>0.5455</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0.75</td>
+<td>1.0690</td>
+</tr>
+</tbody>
+</table>
+
 </div>
 </div>
+</div>
+</div><div class="column" style="width:40%;">
 <p><span style="color:darkgray;"><em>Interpretation:</em></span></p>
 <ul>
 <li><p>25% of cycle times are below 0.305 sec.</p></li>
 <li><p>50% of cycle times are below 0.546 sec.</p></li>
 <li><p>75% of cycle times are below 1.07 sec.</p></li>
 </ul>
+</div></div>
 </section>
 <section id="maximum-and-minimum" class="slide level2">
 <h2>Maximum and minimum</h2>
 <p>We compute the <strong>maximum</strong> and <strong>minimum</strong> using the functions <code>max()</code> and <code>min()</code>, respectively.</p>
-<div id="b039b89a" class="cell" data-execution_count="9">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a></a>piston_data_max <span class="op">=</span> piston_data[<span class="st">"cycle_time"</span>].<span class="bu">max</span>()</span>
-<span id="cb15-2"><a></a><span class="bu">print</span>(piston_data_max)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>1.141</code></pre>
+<div id="bacf64fe" class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a></a>(piston_data</span>
+<span id="cb14-2"><a></a> .agg(<span class="st">"max"</span>)</span>
+<span id="cb14-3"><a></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="373">
+<pre><code>cycle_time    1.141
+dtype: float64</code></pre>
 </div>
 </div>
 <p><span style="color:darkgray;"><em>Interpretation:</em></span> The maximum cycle time is 1.14 seconds.</p>
-<p><br></p>
-<div id="3cb3d832" class="cell" data-execution_count="10">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a></a>piston_data_min <span class="op">=</span> piston_data[<span class="st">"cycle_time"</span>].<span class="bu">min</span>()</span>
-<span id="cb17-2"><a></a><span class="bu">print</span>(piston_data_min)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>0.175</code></pre>
+<div id="329df2cd" class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a></a>(piston_data</span>
+<span id="cb16-2"><a></a> .agg(<span class="st">"min"</span>)</span>
+<span id="cb16-3"><a></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="374">
+<pre><code>cycle_time    0.175
+dtype: float64</code></pre>
 </div>
 </div>
 <p><span style="color:darkgray;"><em>Interpretation:</em></span> The minimum cycle time is 0.175 seconds.</p>
@@ -771,10 +827,10 @@ Name: cycle_time, dtype: float64</code></pre>
 <section id="section-6" class="slide level2">
 <h2></h2>
 <p>To create a histogram, we use the function <code>histplot()</code> from <strong>seabron</strong>.</p>
-<div id="3d9c7c9a" class="cell" data-execution_count="11">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">4</span>))</span>
-<span id="cb19-2"><a></a>sns.histplot(data<span class="op">=</span>piston_data, x<span class="op">=</span><span class="st">"cycle_time"</span>)</span>
-<span id="cb19-3"><a></a>plt.show() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="e0d202b3" class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">4</span>))</span>
+<span id="cb18-2"><a></a>sns.histplot(data <span class="op">=</span> piston_data, x <span class="op">=</span> <span class="st">"cycle_time"</span>)</span>
+<span id="cb18-3"><a></a>plt.show() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -800,22 +856,21 @@ Name: cycle_time, dtype: float64</code></pre>
 <section id="improving-the-graph" class="slide level2">
 <h2>Improving the graph</h2>
 <p>To convey a better message, we apply <em>Principle 3: Apply the principles of graphic design.</em></p>
-<div id="45a6a615" class="cell" data-execution_count="12">
+<div id="93bdbeba" class="cell" data-execution_count="12">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">4</span>))</span>
-<span id="cb20-2"><a></a>sns.histplot(data<span class="op">=</span>piston_data, x<span class="op">=</span><span class="st">"cycle_time"</span>, bins<span class="op">=</span><span class="dv">10</span>, </span>
-<span id="cb20-3"><a></a>             edgecolor<span class="op">=</span><span class="st">"black"</span>, color<span class="op">=</span><span class="st">"pink"</span>)</span>
-<span id="cb20-4"><a></a>plt.title(<span class="st">"Histogram of Cycle Time"</span>)</span>
-<span id="cb20-5"><a></a>plt.xlabel(<span class="st">"Cycle Time (seconds)"</span>)</span>
-<span id="cb20-6"><a></a>plt.ylabel(<span class="st">"Frequency"</span>)</span>
-<span id="cb20-7"><a></a>plt.figtext(<span class="fl">0.15</span>, <span class="fl">0.01</span>, <span class="st">"Data from 50 pistons"</span>, ha<span class="op">=</span><span class="st">"left"</span>, fontsize<span class="op">=</span><span class="dv">10</span>)</span>
-<span id="cb20-8"><a></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">4</span>))</span>
+<span id="cb19-2"><a></a>sns.histplot(data <span class="op">=</span> piston_data, x <span class="op">=</span> <span class="st">"cycle_time"</span>, edgecolor <span class="op">=</span> <span class="st">"black"</span>, </span>
+<span id="cb19-3"><a></a>             color <span class="op">=</span> <span class="st">"pink"</span>)</span>
+<span id="cb19-4"><a></a>plt.title(<span class="st">"Histogram of Cycle Time: Data from 50 pistons"</span>)</span>
+<span id="cb19-5"><a></a>plt.xlabel(<span class="st">"Cycle Time (seconds)"</span>)</span>
+<span id="cb19-6"><a></a>plt.ylabel(<span class="st">"Frequency"</span>)</span>
+<span id="cb19-7"><a></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="Numerical_files/figure-revealjs/cell-13-output-1.png" class="quarto-figure quarto-figure-center" width="808" height="376"></p>
+<p><img data-src="Numerical_files/figure-revealjs/cell-13-output-1.png" class="quarto-figure quarto-figure-center" width="821" height="376"></p>
 </figure>
 </div>
 </div>
@@ -850,15 +905,14 @@ Name: cycle_time, dtype: float64</code></pre>
 <li>The number of bins is a parameter of the histogram that affects its appearance.</li>
 </ul>
 <p>This is set using the argument <code>bins</code> in <code>histplot()</code>.</p>
-<div id="22d33139" class="cell" data-fig-algin="center" data-execution_count="13">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">4</span>))</span>
-<span id="cb21-2"><a></a>sns.histplot(data<span class="op">=</span>piston_data, x<span class="op">=</span><span class="st">"cycle_time"</span>, bins<span class="op">=</span><span class="dv">5</span>, </span>
-<span id="cb21-3"><a></a>             edgecolor<span class="op">=</span><span class="st">"black"</span>, color<span class="op">=</span><span class="st">"white"</span>)</span>
-<span id="cb21-4"><a></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="233afeff" class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">5</span>, <span class="dv">3</span>))</span>
+<span id="cb20-2"><a></a>sns.histplot(data <span class="op">=</span> piston_data, x <span class="op">=</span> <span class="st">"cycle_time"</span>, bins <span class="op">=</span> <span class="dv">5</span>)</span>
+<span id="cb20-3"><a></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<div>
+<div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="Numerical_files/figure-revealjs/cell-14-output-1.png" width="821" height="356"></p>
+<p><img data-src="Numerical_files/figure-revealjs/cell-14-output-1.png" class="quarto-figure quarto-figure-center" width="436" height="282"></p>
 </figure>
 </div>
 </div>
@@ -869,7 +923,7 @@ Name: cycle_time, dtype: float64</code></pre>
 <p><span style="font-size: 100%;">The left histogram uses <code>bins = 5</code>, and the right histogram uses <code>bins = 30</code></span></p>
 <div class="columns">
 <div class="column" style="width:50%;">
-<div id="d85d351b" class="cell" data-execution_count="14">
+<div id="8d637639" class="cell" data-execution_count="14">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -879,7 +933,7 @@ Name: cycle_time, dtype: float64</code></pre>
 </div>
 </div>
 </div><div class="column" style="width:50%;">
-<div id="cadce36a" class="cell" data-execution_count="15">
+<div id="5361809a" class="cell" data-execution_count="15">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -917,6 +971,7 @@ Name: cycle_time, dtype: float64</code></pre>
 </section>
 <section id="the-obsession-with-bell-curves" class="slide level2">
 <h2>The obsession with bell curves</h2>
+<p><br></p>
 <div class="columns">
 <div class="column" style="width:50%;">
 <p>The <strong>normal distribution</strong> is a very important probability distribution in statistics.</p>
@@ -968,10 +1023,10 @@ Name: cycle_time, dtype: float64</code></pre>
 <h2>Boxplot in Python</h2>
 <p><br></p>
 <p>To create a boxplot in <strong>seaborn</strong>, use the <code>boxplot()</code> function.</p>
-<div id="f0cb6bc8" class="cell" data-execution_count="16">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">5</span>, <span class="dv">4</span>))</span>
-<span id="cb22-2"><a></a>sns.boxplot(y<span class="op">=</span>piston_data[<span class="st">"cycle_time"</span>])</span>
-<span id="cb22-3"><a></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="5afc48a6" class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">5</span>, <span class="dv">4</span>))</span>
+<span id="cb21-2"><a></a>sns.boxplot(piston_data, y <span class="op">=</span> <span class="st">"cycle_time"</span>)</span>
+<span id="cb21-3"><a></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -985,10 +1040,10 @@ Name: cycle_time, dtype: float64</code></pre>
 <h2></h2>
 <p><br></p>
 <p>If we specify the variable in the <code>x</code> argument, we get a horizontal boxplot.</p>
-<div id="265acaea" class="cell" data-execution_count="17">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">5</span>, <span class="dv">4</span>))</span>
-<span id="cb23-2"><a></a>sns.boxplot( x <span class="op">=</span> piston_data[<span class="st">"cycle_time"</span>])</span>
-<span id="cb23-3"><a></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="e95d97be" class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">5</span>, <span class="dv">4</span>))</span>
+<span id="cb22-2"><a></a>sns.boxplot(piston_data, x <span class="op">=</span> <span class="st">"cycle_time"</span>)</span>
+<span id="cb22-3"><a></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -1008,7 +1063,7 @@ Name: cycle_time, dtype: float64</code></pre>
 </ul>
 </section></section>
 <section id="return-to-main-page" class="title-slide slide level1 center">
-<h1><a href="https://alanrvazquez.github.io/TEC-IN1002B-Website/">Return to main page</a></h1>
+<h1><a href="https://alanrvazquez.github.io/TEC-IN102039-EN/">Return to main page</a></h1>
 
 <div class="quarto-auto-generated-content">
 <p><img src="IN2039_logo.png" class="slide-logo"></p>

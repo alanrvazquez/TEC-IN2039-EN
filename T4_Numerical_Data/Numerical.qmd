@@ -40,7 +40,7 @@ One measure of a piston's performance is the time it takes to complete a cycle, 
 
 The file "CYLT.xlsx" contains 50 cycle times of a piston operating under fixed conditions.
 
-## Remember to Import the Required Libraries
+## Remember to import the required libraries
 
 We will use the libraries `pandas`, `matplotlib`, and `seaborn`.
 
@@ -57,7 +57,7 @@ import seaborn as sns
 
 ## Load the data
 
-In Google Colab, the file "CYLT.xlsx" should be placed in a folder called "content" or "contenido".
+In Google Colab, the file "CYLT.xlsx" should be placed in a folder called "Files".
 
 ```{python}
 #| echo: true
@@ -68,6 +68,8 @@ piston_data.head()
 ```
 
 ## Variable Type
+
+</br>
 
 In Python, numerical data is stored as `float64`.
 
@@ -107,14 +109,17 @@ $$\bar{y} = \frac{1}{n}\sum_{i=1}^{n} y_i = \frac{y_1 + y_2 + \cdots + y_n}{n}.$
 
 ## 
 
-In python, we calculate the mean using the function `mean()`.
+</br>
+
+In Python, we calculate the mean using the function `mean()`.
 
 ```{python}
 #| echo: true
 #| output: true
 
-piston_data_mean = piston_data["cycle_time"].mean()
-print(piston_data_mean)
+(piston_data
+ .agg("mean")
+)
 ```
 
 </br>
@@ -125,13 +130,16 @@ We use the function print to show the number. Otherwise, python will show the co
 
 </br>
 
-You can also round the result to, say, three decimals.
+You can also round the result to, say, two decimals.
 
 ```{python}
 #| echo: true
 #| output: true
 
-print( round(piston_data_mean, 3) )
+piston_data_mean = (piston_data
+ .agg("mean")
+)
+print( round(piston_data_mean, 2) )
 ```
 
 </br>
@@ -162,8 +170,9 @@ In python, the variance is calculated using the function `var()`.
 #| echo: true
 #| output: true
 
-piston_data_var = piston_data["cycle_time"].var()
-print( round(piston_data_var, 3))
+(piston_data
+ .agg("var")
+)
 ```
 
 </br>
@@ -192,8 +201,9 @@ In python, the standard deviation is calculated using the function `std()`.
 #| echo: true
 #| output: true
 
-piston_data_std = piston_data["cycle_time"].std()
-print(round(piston_data_std,3))
+(piston_data
+ .agg("std")
+)
 ```
 
 </br>
@@ -230,6 +240,8 @@ The generalization of quartiles are percentiles or **quantiles**.
 
 In python, the quartiles are calculated using the function `quantile()`.
 
+::::: columns
+::: {.column width="60%"}
 ```{python}
 #| echo: true
 #| output: true
@@ -237,9 +249,12 @@ In python, the quartiles are calculated using the function `quantile()`.
 # Set the quantiles.
 set_quantiles = [0.25, 0.5, 0.75]
 # Compute the quantiles.
-piston_data["cycle_time"].quantile(set_quantiles)
+(piston_data
+ .agg("quantile", q = set_quantiles)
+)
 ```
-
+:::
+::: {.column width="40%"}
 [*Interpretation:*]{style="color:darkgray;"}
 
 -   25% of cycle times are below 0.305 sec.
@@ -247,6 +262,8 @@ piston_data["cycle_time"].quantile(set_quantiles)
 -   50% of cycle times are below 0.546 sec.
 
 -   75% of cycle times are below 1.07 sec.
+:::
+:::
 
 ## Maximum and minimum
 
@@ -256,20 +273,20 @@ We compute the **maximum** and **minimum** using the functions `max()` and `min(
 #| echo: true
 #| output: true
 
-piston_data_max = piston_data["cycle_time"].max()
-print(piston_data_max)
+(piston_data
+ .agg("max")
+)
 ```
 
 [*Interpretation:*]{style="color:darkgray;"} The maximum cycle time is 1.14 seconds.
-
-</br>
 
 ```{python}
 #| echo: true
 #| output: true
 
-piston_data_min = piston_data["cycle_time"].min()
-print(piston_data_min)
+(piston_data
+ .agg("min")
+)
 ```
 
 [*Interpretation:*]{style="color:darkgray;"} The minimum cycle time is 0.175 seconds.
@@ -370,7 +387,7 @@ To create a histogram, we use the function `histplot()` from **seabron**.
 #| echo: true
 
 plt.figure(figsize=(10, 4))
-sns.histplot(data=piston_data, x="cycle_time")
+sns.histplot(data = piston_data, x = "cycle_time")
 plt.show() 
 ```
 
@@ -388,12 +405,11 @@ To convey a better message, we apply *Principle 3: Apply the principles of graph
 #| code-fold: true
 
 plt.figure(figsize=(10, 4))
-sns.histplot(data=piston_data, x="cycle_time", bins=10, 
-             edgecolor="black", color="pink")
-plt.title("Histogram of Cycle Time")
+sns.histplot(data = piston_data, x = "cycle_time", edgecolor = "black", 
+             color = "pink")
+plt.title("Histogram of Cycle Time: Data from 50 pistons")
 plt.xlabel("Cycle Time (seconds)")
 plt.ylabel("Frequency")
-plt.figtext(0.15, 0.01, "Data from 50 pistons", ha="left", fontsize=10)
 plt.show()
 ```
 
@@ -420,12 +436,11 @@ Tails and symmetry do not make sense in this setting.
 This is set using the argument `bins` in `histplot()`.
 
 ```{python}
-#| fig-algin: center
 #| echo: true
+#| fig-align: center
 
-plt.figure(figsize=(10, 4))
-sns.histplot(data=piston_data, x="cycle_time", bins=5, 
-             edgecolor="black", color="white")
+plt.figure(figsize=(5, 3))
+sns.histplot(data = piston_data, x = "cycle_time", bins = 5)
 plt.show()
 ```
 
@@ -433,7 +448,7 @@ plt.show()
 
 [The left histogram uses `bins = 5`, and the right histogram uses `bins = 30`]{style="font-size: 100%;"}
 
-::::: columns
+::: columns
 ::: {.column width="50%"}
 ```{python}
 #| fig-pos: center
@@ -448,7 +463,6 @@ plt.ylabel("Frequency")
 plt.show()
 ```
 :::
-
 ::: {.column width="50%"}
 ```{python}
 #| fig-pos: center
@@ -463,7 +477,7 @@ plt.ylabel("Frequency")
 plt.show()
 ```
 :::
-:::::
+:::
 
 In this course, we will use the default number of `bins`.
 
@@ -482,6 +496,8 @@ A histogram is a familiar type of plot that involves smoothing. A histogram aggr
 -   A [**bell-shaped**]{style="color:#1e3f5a;"} form
 
 ## The obsession with bell curves
+
+</br>
 
 ::::: columns
 ::: {.column width="50%"}
@@ -547,7 +563,7 @@ To create a boxplot in **seaborn**, use the `boxplot()` function.
 #| echo: true
 
 plt.figure(figsize=(5, 4))
-sns.boxplot(y=piston_data["cycle_time"])
+sns.boxplot(piston_data, y = "cycle_time")
 plt.show()
 ```
 
@@ -563,7 +579,7 @@ If we specify the variable in the `x` argument, we get a horizontal boxplot.
 #| echo: true
 
 plt.figure(figsize=(5, 4))
-sns.boxplot( x = piston_data["cycle_time"])
+sns.boxplot(piston_data, x = "cycle_time")
 plt.show()
 ```
 
@@ -576,4 +592,4 @@ The file `bolts.xlsx` contains the number of non-conforming bolts during the las
 -   Histogram
 -   Boxplot
 
-# [Return to main page](https://alanrvazquez.github.io/TEC-IN1002B-Website/)
+# [Return to main page](https://alanrvazquez.github.io/TEC-IN102039-EN/)

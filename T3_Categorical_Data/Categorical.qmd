@@ -363,6 +363,8 @@ Boston_dataset.head()
 
 ## 
 
+</br>
+
 We concentrate on the following variables:
 
 -   `chas` : Whether the house is next to the Charles River (1: Yes and 0: No)
@@ -377,11 +379,10 @@ Make sure Python correctly recognizes categorical variables.
 #| echo: true
 #| output: true
 
-Boston_dataset["chas"] = Boston_dataset["chas"].astype("category")
-Boston_dataset["rad"] = pd.Categorical(Boston_dataset["rad"], categories=["Low", "Medium", "High"], ordered=True)
-
-Boston_dataset[["chas", "rad"]].head()
-
+Boston_dataset[["chas", "rad"]] = (Boston_dataset
+ .filter(["chas", "rad"], axis = 1)
+ .astype("category")
+ )
 ```
 
 ## Initial graph
@@ -459,6 +460,8 @@ The categories do not follow a natural order from left to right: `Low`, `Medium`
 
 ## 
 
+</br>
+
 To have the desired order in the categories, we must be more explicit when defining te categorical variable.
 
 ```{python}
@@ -467,8 +470,19 @@ To have the desired order in the categories, we must be more explicit when defin
 #| fig-pos: center
 #| fig-align: center
 
-Boston_dataset["rad"] = pd.Categorical(Boston_dataset["rad"], categories=["Low", "Medium", "High"], ordered=True)
+Boston_dataset["rad"] = pd.Categorical(Boston_dataset["rad"], 
+                                      categories=["Low", "Medium", "High"], 
+                                      ordered=True)
+```
 
+## 
+
+```{python}
+#| output: True
+#| echo: true
+#| fig-align: center
+
+plt.figure(figsize=(7, 5))
 sns.countplot(data=Boston_dataset, x="rad")
 plt.show()
 ```
@@ -477,6 +491,8 @@ Much better! 😃
 
 ## Collapsing
 
+</br>
+
 Some categorical variables tend to have many categories. For example, states in a country or postal codes. In these cases, it can be difficult to visualize all the categories in a single graph.
 
 One strategy for developing an effective visualization is to collapse categories.
@@ -484,6 +500,8 @@ One strategy for developing an effective visualization is to collapse categories
 For example, in the variable `rad`, we can collapse the categories `Medium` and `High` into a single category called `Other`.
 
 ## 
+
+</br>
 
 To collapse categories in **pandas**, we use the `replace()` function.
 
