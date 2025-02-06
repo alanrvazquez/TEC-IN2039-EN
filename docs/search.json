@@ -14,11 +14,11 @@
     "text": "First things first\n\nToday, we will use Python to create charts and tables. For this, we will use libraries such as pandas, matplotlib, and seaborn.\n\nLet’s import them before we start.\n\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns"
   },
   {
-    "objectID": "T3_Categorical_Data/Categorical.slides.html#penguins-dataset",
-    "href": "T3_Categorical_Data/Categorical.slides.html#penguins-dataset",
+    "objectID": "T3_Categorical_Data/Categorical.slides.html#example-1-penguins-dataset",
+    "href": "T3_Categorical_Data/Categorical.slides.html#example-1-penguins-dataset",
     "title": "Categorical Variables",
-    "section": "Penguins dataset",
-    "text": "Penguins dataset\n\nWe will illustrate today’s concepts using the penguins.xlsx dataset.\n\n\nUpload it to Google Colab and load it into Python using the following code:\n\npenguins_data = pd.read_excel(\"penguins.xlsx\")\n\n\n\n\n\n\n\n\nIn Google Colab, the file must be placed in the “content” folder."
+    "section": "Example 1: Penguins dataset",
+    "text": "Example 1: Penguins dataset\n\nWe will illustrate today’s concepts using the penguins.xlsx dataset.\n\n\nUpload it to Google Colab and load it into Python using the following code:\n\npenguins_data = pd.read_excel(\"penguins.xlsx\")\n\n\n\n\n\n\n\n\nIn Google Colab, the file must be placed in the “content” folder."
   },
   {
     "objectID": "T3_Categorical_Data/Categorical.slides.html#section",
@@ -84,6 +84,13 @@
     "text": "Bar chart\n\n\nA bar chart visually represents a frequency or relative frequency table.\n\nThe frequency (or relative frequency) is represented by a bar with a proportional height.\nWe create the bar chart using the function countplot() from seaborn."
   },
   {
+    "objectID": "T3_Categorical_Data/Categorical.slides.html#section-2",
+    "href": "T3_Categorical_Data/Categorical.slides.html#section-2",
+    "title": "Categorical Variables",
+    "section": "",
+    "text": "# Create plot.\nplt.figure(figsize=(8,6)) \nsns.countplot(data=penguins_data, x=\"species\")\nplt.show()"
+  },
+  {
     "objectID": "T3_Categorical_Data/Categorical.slides.html#plot-for-relative-frequency",
     "href": "T3_Categorical_Data/Categorical.slides.html#plot-for-relative-frequency",
     "title": "Categorical Variables",
@@ -119,11 +126,11 @@
     "text": "Apply Principle 3\n\nApply graphic design principles.\n\n\nWe can improve categorical variable charts using these techniques:\n\n\nRe-label categories to make them more informative.\nRe-order categories to follow a logical sequence.\nCollapse categories to simplify the chart."
   },
   {
-    "objectID": "T3_Categorical_Data/Categorical.slides.html#example-boston-housing-dataset",
-    "href": "T3_Categorical_Data/Categorical.slides.html#example-boston-housing-dataset",
+    "objectID": "T3_Categorical_Data/Categorical.slides.html#example-2-boston-housing-dataset",
+    "href": "T3_Categorical_Data/Categorical.slides.html#example-2-boston-housing-dataset",
     "title": "Categorical Variables",
-    "section": "Example: Boston Housing Dataset",
-    "text": "Example: Boston Housing Dataset\nThis dataset contains information collected by the U.S. Census Bureau on housing in the Boston, Massachusetts area."
+    "section": "Example 2: Boston Housing Dataset",
+    "text": "Example 2: Boston Housing Dataset\nThis dataset contains information collected by the U.S. Census Bureau on housing in the Boston, Massachusetts area."
   },
   {
     "objectID": "T3_Categorical_Data/Categorical.slides.html#section-3",
@@ -189,13 +196,6 @@
     "text": "To have the desired order in the categories, we must be more explicit when defining te categorical variable.\n\nBoston_dataset[\"rad\"] = pd.Categorical(Boston_dataset[\"rad\"], \n                                      categories=[\"Low\", \"Medium\", \"High\"], \n                                      ordered=True)"
   },
   {
-    "objectID": "T3_Categorical_Data/Categorical.slides.html#collapsing",
-    "href": "T3_Categorical_Data/Categorical.slides.html#collapsing",
-    "title": "Categorical Variables",
-    "section": "Collapsing",
-    "text": "Collapsing\n\nSome categorical variables tend to have many categories. For example, states in a country or postal codes. In these cases, it can be difficult to visualize all the categories in a single graph.\nOne strategy for developing an effective visualization is to collapse categories.\nFor example, in the variable rad, we can collapse the categories Medium and High into a single category called Other."
-  },
-  {
     "objectID": "T3_Categorical_Data/Categorical.slides.html#section-7",
     "href": "T3_Categorical_Data/Categorical.slides.html#section-7",
     "title": "Categorical Variables",
@@ -203,11 +203,25 @@
     "text": "plt.figure(figsize=(7, 5))\nsns.countplot(data=Boston_dataset, x=\"rad\")\nplt.show()\n\n\n\n\n\n\n\n\nMuch better! 😃"
   },
   {
+    "objectID": "T3_Categorical_Data/Categorical.slides.html#collapsing",
+    "href": "T3_Categorical_Data/Categorical.slides.html#collapsing",
+    "title": "Categorical Variables",
+    "section": "Collapsing",
+    "text": "Collapsing\n\nSome categorical variables tend to have many categories. For example, states in a country or postal codes. In these cases, it can be difficult to visualize all the categories in a single graph.\nOne strategy for developing an effective visualization is to collapse categories.\nFor example, in the variable rad, we can collapse the categories Medium and High into a single category called Other."
+  },
+  {
     "objectID": "T3_Categorical_Data/Categorical.slides.html#section-8",
     "href": "T3_Categorical_Data/Categorical.slides.html#section-8",
     "title": "Categorical Variables",
     "section": "",
     "text": "To collapse categories in pandas, we use the replace() function.\n\nBoston_dataset[\"rad\"] = Boston_dataset[\"rad\"].replace({\"Medium\": \"Other\", \"High\": \"Other\"})\n\nBoston_dataset[\"rad\"].value_counts()\n\nrad\nOther    424\nLow       82\nName: count, dtype: int64"
+  },
+  {
+    "objectID": "T3_Categorical_Data/Categorical.slides.html#section-9",
+    "href": "T3_Categorical_Data/Categorical.slides.html#section-9",
+    "title": "Categorical Variables",
+    "section": "",
+    "text": "Collapsing categories simplifies the graph\n\nplt.figure(figsize=(5.5, 3.5))\nsns.countplot(data=Boston_dataset, x=\"rad\")\nplt.show()\n\n\n\n\n\n\n\n\nIt also allows us to emphasize a category like Low and see how it compares to the other categories (as a whole)."
   },
   {
     "objectID": "T1_Introduction/Tools.slides.html#agenda",
@@ -546,11 +560,11 @@
     "text": "Saving plots\n\nWe save a figure using the save.fig function from matplotlib. The dpi argument of this function sets the resolution of the image. The higher the dpi, the better the resolution.\n\nplt.figure(figsize=(5, 5))\nsns.scatterplot(data=penguins_data, x=\"bill_depth_mm\", y=\"bill_length_mm\", \n                hue=\"species\", palette=\"viridis\")\nplt.title(\"Bill Depth vs. Bill Length\", fontsize = 12)\nplt.xlabel(\"Bill Depth (mm)\", fontsize = 12)\nplt.ylabel(\"Bill Length (mm)\", fontsize = 12)\nplt.legend(title=\"Species\", fontsize = 12)\nplt.xticks(fontsize = 12)\nplt.yticks(fontsize = 12)\nplt.savefig('scatter_plot.png',dpi=300) # Save figure."
   },
   {
-    "objectID": "T1_Introduction/Tools.slides.html#mini-actividad-solo-mode",
-    "href": "T1_Introduction/Tools.slides.html#mini-actividad-solo-mode",
+    "objectID": "T1_Introduction/Tools.slides.html#mini-activity-solo-mode",
+    "href": "T1_Introduction/Tools.slides.html#mini-activity-solo-mode",
     "title": "Tools for Data Analysis and Visualization",
-    "section": "Mini-actividad (solo mode)",
-    "text": "Mini-actividad (solo mode)\n\nOpen the following Google Colab link:\nhttps://colab.research.google.com/drive/1c-sy5yQY1DwgaZAI6YnDLMTEYMpLCWyX?usp=sharing\nCopy the notebook to your drive.\nAnswer the questions."
+    "section": "Mini-activity (solo mode)",
+    "text": "Mini-activity (solo mode)\n\nOpen the following Google Colab link:\nhttps://colab.research.google.com/drive/1c-sy5yQY1DwgaZAI6YnDLMTEYMpLCWyX?usp=sharing\nCopy the notebook to your drive.\nAnswer the questions."
   },
   {
     "objectID": "T4_Numerical_Data/Numerical.slides.html#agenda",
@@ -823,14 +837,14 @@
     "href": "index.html",
     "title": "IN2039 Data Visualization for Decision Making",
     "section": "",
-    "text": "Course topics\n\nIntroduction (slides)\nTools (slides)\nTypes of variables (slides)\nCategorical variables (slides)\nNumerical variables (slides)\nMultivariate data (slides)\nSimple linear regression (slides)\n\n\n\nAbout the author\nAlan R. Vazquez (website) is a Research Professor at the Department of Industrial Engineering at Tecnologico de Monterrey, Monterrey campus."
+    "text": "Course topics\n\nIntroduction (slides)\nTools (slides) (colab)\nTypes of variables (slides) (colab) (pandas cheat sheet)\nCategorical variables (slides) (colab)\nNumerical variables (slides) (colab)\nMultivariate data (slides)\nSimple linear regression (slides)\n\n\n\nAbout the author\nAlan R. Vazquez (website) is a Research Professor at the Department of Industrial Engineering at Tecnologico de Monterrey, Monterrey campus."
   },
   {
     "objectID": "index.slides.html#course-topics",
     "href": "index.slides.html#course-topics",
     "title": "IN2039 Data Visualization for Decision Making",
     "section": "Course topics",
-    "text": "Course topics\n\nIntroduction (slides)\nTools (slides)\nTypes of variables (slides)\nCategorical variables (slides)\nNumerical variables (slides)\nMultivariate data (slides)\nSimple linear regression (slides)"
+    "text": "Course topics\n\nIntroduction (slides)\nTools (slides) (colab)\nTypes of variables (slides) (colab) (pandas cheat sheet)\nCategorical variables (slides) (colab)\nNumerical variables (slides) (colab)\nMultivariate data (slides)\nSimple linear regression (slides)"
   },
   {
     "objectID": "index.slides.html#about-the-author",
@@ -1204,27 +1218,6 @@
     "text": "A General Difference Is …\n\n\nQuantitative variables (discrete or continuous) are those where addition or subtraction makes sense.\nCategorical variables (nominal or ordinal) are those where addition or subtraction does NOT make sense."
   },
   {
-    "objectID": "T2_Type_of_Variables/Types.slides.html#types-of-data-i",
-    "href": "T2_Type_of_Variables/Types.slides.html#types-of-data-i",
-    "title": "Types of variables",
-    "section": "Types of data I",
-    "text": "Types of data I\n\nWhen a numerical quantity designating how much or how many is assigned to each item in the sample, the resulting set of values is numerical or quantitative.\n\nHeight (in ft).\nWeight (in lbs).\nAge (in years)."
-  },
-  {
-    "objectID": "T2_Type_of_Variables/Types.slides.html#types-of-data-ii",
-    "href": "T2_Type_of_Variables/Types.slides.html#types-of-data-ii",
-    "title": "Types of variables",
-    "section": "Types of data II",
-    "text": "Types of data II\n\nWhen sample items are placed into categories and category names are assigned to the sample items, the data are categorical or qualitative.\n\nHair color.\nCountry of origin.\nZIP code."
-  },
-  {
-    "objectID": "T2_Type_of_Variables/Types.slides.html#data-types",
-    "href": "T2_Type_of_Variables/Types.slides.html#data-types",
-    "title": "Types of variables",
-    "section": "Data types",
-    "text": "Data types"
-  },
-  {
     "objectID": "T2_Type_of_Variables/Types.slides.html#how-do-we-check-the-type-of-variable",
     "href": "T2_Type_of_Variables/Types.slides.html#how-do-we-check-the-type-of-variable",
     "title": "Types of variables",
@@ -1253,13 +1246,6 @@
     "text": "Activity (solo mode)\n\n\nGo to the Modules section on our CANVAS website.\nComplete the Activity 2.1: Types of Variables individually."
   },
   {
-    "objectID": "T2_Type_of_Variables/Types.slides.html#pandas-library",
-    "href": "T2_Type_of_Variables/Types.slides.html#pandas-library",
-    "title": "Types of variables",
-    "section": "pandas library",
-    "text": "pandas library\n\n\n\n\n\n\n\n\n\npandas allows the user to import, clean, transform, and analyze data efficiently\nhttps://pandas.pydata.org/\n\n\nImport it in Google Colab as follows.\n\nimport pandas as pd"
-  },
-  {
     "objectID": "T2_Type_of_Variables/Types.slides.html#chaining-operations-with-pandas",
     "href": "T2_Type_of_Variables/Types.slides.html#chaining-operations-with-pandas",
     "title": "Types of variables",
@@ -1267,11 +1253,11 @@
     "text": "Chaining operations with pandas\nOne of the most important techniques in pandas is chaining, which allows for cleaner and more readable data manipulation.\nThe general structure of chaining looks like this:"
   },
   {
-    "objectID": "T2_Type_of_Variables/Types.slides.html#key-pandas-functions",
-    "href": "T2_Type_of_Variables/Types.slides.html#key-pandas-functions",
+    "objectID": "T2_Type_of_Variables/Types.slides.html#key-pandas-methods",
+    "href": "T2_Type_of_Variables/Types.slides.html#key-pandas-methods",
     "title": "Types of variables",
-    "section": "Key pandas functions",
-    "text": "Key pandas functions\npandas provides functions to solve common data manipulation tasks:\n\n\nquery() filters observations based on conditions.\nloc[] and iloc[] select specific rows and columns.\nassign() creates new variables.\nsort_values() changes the order of rows.\nagg() reduces multiple values to a single numerical summary."
+    "section": "Key pandas methods",
+    "text": "Key pandas methods\npandas provides methods or functions to solve common data manipulation tasks:\n\n\n.filter() select specific columns or rows.\n.query() filters observations based on conditions.\n.assign() adds new variables that are functions of existing variables.\n.sort_values() changes the order of rows.\n.agg() reduces multiple values to a single numerical summary."
   },
   {
     "objectID": "T2_Type_of_Variables/Types.slides.html#section-2",
@@ -1281,11 +1267,11 @@
     "text": "To practice, we will use the dataset penguins_data."
   },
   {
-    "objectID": "T2_Type_of_Variables/Types.slides.html#filtering-with-query",
-    "href": "T2_Type_of_Variables/Types.slides.html#filtering-with-query",
+    "objectID": "T2_Type_of_Variables/Types.slides.html#selecting-columns-with-.filter",
+    "href": "T2_Type_of_Variables/Types.slides.html#selecting-columns-with-.filter",
     "title": "Types of variables",
-    "section": "Filtering with query()",
-    "text": "Filtering with query()\nFilter the data for the species “Gentoo.”\n\n(penguins_data\n  .query(\"species == 'Gentoo'\")\n).head()\n\n\n\n\n\n\n\n\nspecies\nisland\nbill_length_mm\nbill_depth_mm\nflipper_length_mm\nbody_mass_g\nsex\nyear\n\n\n\n\n152\nGentoo\nBiscoe\n46.1\n13.2\n211.0\n4500.0\nfemale\n2007\n\n\n153\nGentoo\nBiscoe\n50.0\n16.3\n230.0\n5700.0\nmale\n2007\n\n\n154\nGentoo\nBiscoe\n48.7\n14.1\n210.0\n4450.0\nfemale\n2007\n\n\n155\nGentoo\nBiscoe\n50.0\n15.2\n218.0\n5700.0\nmale\n2007\n\n\n156\nGentoo\nBiscoe\n47.6\n14.5\n215.0\n5400.0\nmale\n2007\n\n\n\n\n\n\n\n\nThe head() function prints the first 6 rows of the dataset."
+    "section": "Selecting columns with .filter()",
+    "text": "Selecting columns with .filter()\nSelect the columns species, body_mass_g and sex.\n\n(penguins_data\n  .filter([\"species\", \"body_mass_g\", \"sex\"], axis = 1)\n).head()\n\n\n\n\n\n\n\n\nspecies\nbody_mass_g\nsex\n\n\n\n\n0\nAdelie\n3750.0\nmale\n\n\n1\nAdelie\n3800.0\nfemale\n\n\n2\nAdelie\n3250.0\nfemale\n\n\n3\nAdelie\nNaN\nNaN\n\n\n4\nAdelie\n3450.0\nfemale"
   },
   {
     "objectID": "T2_Type_of_Variables/Types.slides.html#section-3",
@@ -1295,39 +1281,11 @@
     "text": "The axis argument tells .filter() whether to select rows (0) or columns (1) from the dataframe.\n\n(penguins_data\n  .filter([\"species\", \"body_mass_g\", \"sex\"], axis = 1)\n).head()\n\n\n\nThe .head() command allows us to print the first six rows of the newly produced dataframe. We must remove it to have the entire new dataframe."
   },
   {
-    "objectID": "T2_Type_of_Variables/Types.slides.html#selecting-columns-with-loc",
-    "href": "T2_Type_of_Variables/Types.slides.html#selecting-columns-with-loc",
-    "title": "Types of variables",
-    "section": "Selecting columns with loc[]",
-    "text": "Selecting columns with loc[]\nSelect the columns species, body_mass_g and sex.\n\n(penguins_data\n  .loc[:, [\"species\", \"body_mass_g\", \"sex\"]]\n  .head()\n)\n\n\n\n\n\n\n\n\nspecies\nbody_mass_g\nsex\n\n\n\n\n0\nAdelie\n3750.0\nmale\n\n\n1\nAdelie\n3800.0\nfemale\n\n\n2\nAdelie\n3250.0\nfemale\n\n\n3\nAdelie\nNaN\nNaN\n\n\n4\nAdelie\n3450.0\nfemale"
-  },
-  {
-    "objectID": "T2_Type_of_Variables/Types.slides.html#combining-query-and-loc",
-    "href": "T2_Type_of_Variables/Types.slides.html#combining-query-and-loc",
-    "title": "Types of variables",
-    "section": "Combining query() and loc()",
-    "text": "Combining query() and loc()\nSelect the columns species, body_mass_g and sex. Next, filter the data for the species “Gentoo.”\n\n(penguins_data\n  .loc[:, [\"species\", \"body_mass_g\", \"sex\"]]\n  .query(\"species == 'Gentoo'\")\n).head(4)\n\n\n\n\n\n\n\n\nspecies\nbody_mass_g\nsex\n\n\n\n\n152\nGentoo\n4500.0\nfemale\n\n\n153\nGentoo\n5700.0\nmale\n\n\n154\nGentoo\n4450.0\nfemale\n\n\n155\nGentoo\n5700.0\nmale"
-  },
-  {
-    "objectID": "T2_Type_of_Variables/Types.slides.html#create-new-columns-with-assign",
-    "href": "T2_Type_of_Variables/Types.slides.html#create-new-columns-with-assign",
-    "title": "Types of variables",
-    "section": "Create new columns with assign()",
-    "text": "Create new columns with assign()\nWith assign(), we can create new columns (variables) that are functions of existing ones. For example, we can compute the ratio of bill_length_mm y bill_depth_mm.\n\n\n(penguins_data\n  .assign(LengthDepthRatio = lambda df: df[\"bill_length_mm\"] / df[\"bill_depth_mm\"])\n  .loc[:, [\"species\", \"body_mass_g\", \"sex\", \"LengthDepthRatio\"]]\n).head()"
-  },
-  {
     "objectID": "T2_Type_of_Variables/Types.slides.html#section-4",
     "href": "T2_Type_of_Variables/Types.slides.html#section-4",
     "title": "Types of variables",
     "section": "",
     "text": "We can also use .filter() to select rows too. To this end, we set axis = 1. We can select specific rows, such as 0 and 10.\n\n(penguins_data\n  .filter([0, 10], axis = 0)\n)\n\n\n\n\n\n\n\n\nspecies\nisland\nbill_length_mm\nbill_depth_mm\nflipper_length_mm\nbody_mass_g\nsex\nyear\n\n\n\n\n0\nAdelie\nTorgersen\n39.1\n18.7\n181.0\n3750.0\nmale\n2007\n\n\n10\nAdelie\nTorgersen\n37.8\n17.1\n186.0\n3300.0\nNaN\n2007"
-  },
-  {
-    "objectID": "T2_Type_of_Variables/Types.slides.html#sorting-with-sort_values",
-    "href": "T2_Type_of_Variables/Types.slides.html#sorting-with-sort_values",
-    "title": "Types of variables",
-    "section": "Sorting with sort_values()",
-    "text": "Sorting with sort_values()\nWe can sort the data based on a column like bill_length_mm.\n\n(penguins_data\n  .sort_values(\"bill_length_mm\")\n).head(4)\n\n\n\n\n\n\n\n\nspecies\nisland\nbill_length_mm\nbill_depth_mm\nflipper_length_mm\nbody_mass_g\nsex\nyear\n\n\n\n\n142\nAdelie\nDream\n32.1\n15.5\n188.0\n3050.0\nfemale\n2009\n\n\n98\nAdelie\nDream\n33.1\n16.1\n178.0\n2900.0\nfemale\n2008\n\n\n70\nAdelie\nTorgersen\n33.5\n19.0\n190.0\n3600.0\nfemale\n2008\n\n\n92\nAdelie\nDream\n34.0\n17.1\n185.0\n3400.0\nfemale\n2008"
   },
   {
     "objectID": "T2_Type_of_Variables/Types.slides.html#section-5",
@@ -1337,11 +1295,74 @@
     "text": "Or, we can select a set of rows using the function range(). For example, let’s select the first 5 rows.\n\n(penguins_data\n  .filter(range(5), axis = 0)\n)\n\n\n\n\n\n\n\n\nspecies\nisland\nbill_length_mm\nbill_depth_mm\nflipper_length_mm\nbody_mass_g\nsex\nyear\n\n\n\n\n0\nAdelie\nTorgersen\n39.1\n18.7\n181.0\n3750.0\nmale\n2007\n\n\n1\nAdelie\nTorgersen\n39.5\n17.4\n186.0\n3800.0\nfemale\n2007\n\n\n2\nAdelie\nTorgersen\n40.3\n18.0\n195.0\n3250.0\nfemale\n2007\n\n\n3\nAdelie\nTorgersen\nNaN\nNaN\nNaN\nNaN\nNaN\n2007\n\n\n4\nAdelie\nTorgersen\n36.7\n19.3\n193.0\n3450.0\nfemale\n2007"
   },
   {
-    "objectID": "T2_Type_of_Variables/Types.slides.html#summarizing-with-agg",
-    "href": "T2_Type_of_Variables/Types.slides.html#summarizing-with-agg",
+    "objectID": "T2_Type_of_Variables/Types.slides.html#filtering-rows-with-.query",
+    "href": "T2_Type_of_Variables/Types.slides.html#filtering-rows-with-.query",
     "title": "Types of variables",
-    "section": "Summarizing with agg()",
-    "text": "Summarizing with agg()\nWe can calculate the average of the columns bill_length_mm, bill_depth_mm, and body_mass_g.\n\n(penguins_data\n  .loc[:, [\"bill_length_mm\", \"bill_depth_mm\", \"body_mass_g\"]]\n  .agg([\"mean\"])\n)\n\n\n\n\n\n\n\n\nbill_length_mm\nbill_depth_mm\nbody_mass_g\n\n\n\n\nmean\n43.92193\n17.15117\n4201.754386\n\n\n\n\n\n\n\n\n\nBy default, agg() ignores missing values."
+    "section": "Filtering rows with .query()",
+    "text": "Filtering rows with .query()\nAn alternative way of selecting rows is .query(). Compared to .filter(), .query() allows us to filter the data using statements or queries involving the variables.\n\nFor example, let’s filter the data for the species “Gentoo.”\n\n(penguins_data\n  .query(\"species == 'Gentoo'\")\n)"
+  },
+  {
+    "objectID": "T2_Type_of_Variables/Types.slides.html#section-6",
+    "href": "T2_Type_of_Variables/Types.slides.html#section-6",
+    "title": "Types of variables",
+    "section": "",
+    "text": "(penguins_data\n  .query(\"species == 'Gentoo'\")\n).head()\n\n\n\n\n\n\n\n\nspecies\nisland\nbill_length_mm\nbill_depth_mm\nflipper_length_mm\nbody_mass_g\nsex\nyear\n\n\n\n\n152\nGentoo\nBiscoe\n46.1\n13.2\n211.0\n4500.0\nfemale\n2007\n\n\n153\nGentoo\nBiscoe\n50.0\n16.3\n230.0\n5700.0\nmale\n2007\n\n\n154\nGentoo\nBiscoe\n48.7\n14.1\n210.0\n4450.0\nfemale\n2007\n\n\n155\nGentoo\nBiscoe\n50.0\n15.2\n218.0\n5700.0\nmale\n2007\n\n\n156\nGentoo\nBiscoe\n47.6\n14.5\n215.0\n5400.0\nmale\n2007"
+  },
+  {
+    "objectID": "T2_Type_of_Variables/Types.slides.html#section-7",
+    "href": "T2_Type_of_Variables/Types.slides.html#section-7",
+    "title": "Types of variables",
+    "section": "",
+    "text": "We can also filter the data to get penguins with a body mass greater than 5000g.\n\n(penguins_data\n  .query(\"body_mass_g &gt; 5000\")\n).head()\n\n\n\n\n\n\n\n\nspecies\nisland\nbill_length_mm\nbill_depth_mm\nflipper_length_mm\nbody_mass_g\nsex\nyear\n\n\n\n\n153\nGentoo\nBiscoe\n50.0\n16.3\n230.0\n5700.0\nmale\n2007\n\n\n155\nGentoo\nBiscoe\n50.0\n15.2\n218.0\n5700.0\nmale\n2007\n\n\n156\nGentoo\nBiscoe\n47.6\n14.5\n215.0\n5400.0\nmale\n2007\n\n\n159\nGentoo\nBiscoe\n46.7\n15.3\n219.0\n5200.0\nmale\n2007\n\n\n161\nGentoo\nBiscoe\n46.8\n15.4\n215.0\n5150.0\nmale\n2007"
+  },
+  {
+    "objectID": "T2_Type_of_Variables/Types.slides.html#section-8",
+    "href": "T2_Type_of_Variables/Types.slides.html#section-8",
+    "title": "Types of variables",
+    "section": "",
+    "text": "We can even combine .filter() and .query(). For example, let’s select the columns species, body_mass_g and sex, then filter the data for the “Gentoo” species.\n\n(penguins_data\n  .filter([\"species\", \"body_mass_g\", \"sex\"], axis = 1)\n  .query(\"species == 'Gentoo'\")\n).head(4)\n\n\n\n\n\n\n\n\nspecies\nbody_mass_g\nsex\n\n\n\n\n152\nGentoo\n4500.0\nfemale\n\n\n153\nGentoo\n5700.0\nmale\n\n\n154\nGentoo\n4450.0\nfemale\n\n\n155\nGentoo\n5700.0\nmale"
+  },
+  {
+    "objectID": "T2_Type_of_Variables/Types.slides.html#create-new-columns-with-.assign",
+    "href": "T2_Type_of_Variables/Types.slides.html#create-new-columns-with-.assign",
+    "title": "Types of variables",
+    "section": "Create new columns with .assign()",
+    "text": "Create new columns with .assign()\nWith .assign(), we can create new columns (variables) that are functions of existing ones. This function uses a special Python keyword called lambda. Technically, this keyword defines an anonymous function.\nFor example, we create a new variable LDRatio equaling the ratio of bill_length_mm and bill_depth_mm.\n\n(penguins_data\n  .assign(LDRatio = lambda df: df[\"bill_length_mm\"] / df[\"bill_depth_mm\"])\n)"
+  },
+  {
+    "objectID": "T2_Type_of_Variables/Types.slides.html#section-9",
+    "href": "T2_Type_of_Variables/Types.slides.html#section-9",
+    "title": "Types of variables",
+    "section": "",
+    "text": "In this code, the df after lambda indicates that the dataframe (penguins_data) will be referred to as df inside the function. The colon : sets the start of the function.\n\n(penguins_data\n  .assign(LDRatio = lambda df: df[\"bill_length_mm\"] / df[\"bill_depth_mm\"])\n)\n\nThe code appends the new variable to the end of the resulting dataframe."
+  },
+  {
+    "objectID": "T2_Type_of_Variables/Types.slides.html#section-10",
+    "href": "T2_Type_of_Variables/Types.slides.html#section-10",
+    "title": "Types of variables",
+    "section": "",
+    "text": "We can see the new variable using .filter().\n\n(penguins_data\n  .assign(LDRatio = lambda df: df[\"bill_length_mm\"] / df[\"bill_depth_mm\"])\n  .filter([\"bill_length_mm\", \"bill_depth_mm\", \"LDRatio\"], axis = 1)\n).head()\n\n\n\n\n\n\n\n\nbill_length_mm\nbill_depth_mm\nLDRatio\n\n\n\n\n0\n39.1\n18.7\n2.090909\n\n\n1\n39.5\n17.4\n2.270115\n\n\n2\n40.3\n18.0\n2.238889\n\n\n3\nNaN\nNaN\nNaN\n\n\n4\n36.7\n19.3\n1.901554"
+  },
+  {
+    "objectID": "T2_Type_of_Variables/Types.slides.html#sorting-with-.sort_values",
+    "href": "T2_Type_of_Variables/Types.slides.html#sorting-with-.sort_values",
+    "title": "Types of variables",
+    "section": "Sorting with .sort_values()",
+    "text": "Sorting with .sort_values()\nWe can sort the data based on a column like bill_length_mm.\n\n(penguins_data\n  .sort_values(\"bill_length_mm\")\n).head(4)\n\n\n\n\n\n\n\n\nspecies\nisland\nbill_length_mm\nbill_depth_mm\nflipper_length_mm\nbody_mass_g\nsex\nyear\n\n\n\n\n142\nAdelie\nDream\n32.1\n15.5\n188.0\n3050.0\nfemale\n2009\n\n\n98\nAdelie\nDream\n33.1\n16.1\n178.0\n2900.0\nfemale\n2008\n\n\n70\nAdelie\nTorgersen\n33.5\n19.0\n190.0\n3600.0\nfemale\n2008\n\n\n92\nAdelie\nDream\n34.0\n17.1\n185.0\n3400.0\nfemale\n2008"
+  },
+  {
+    "objectID": "T2_Type_of_Variables/Types.slides.html#section-11",
+    "href": "T2_Type_of_Variables/Types.slides.html#section-11",
+    "title": "Types of variables",
+    "section": "",
+    "text": "To sort in descending order, use ascending=False inside sort_values().\n\n(penguins_data\n  .sort_values(\"bill_length_mm\", ascending=False)\n).head()\n\n\n\n\n\n\n\n\nspecies\nisland\nbill_length_mm\nbill_depth_mm\nflipper_length_mm\nbody_mass_g\nsex\nyear\n\n\n\n\n185\nGentoo\nBiscoe\n59.6\n17.0\n230.0\n6050.0\nmale\n2007\n\n\n293\nChinstrap\nDream\n58.0\n17.8\n181.0\n3700.0\nfemale\n2007\n\n\n253\nGentoo\nBiscoe\n55.9\n17.0\n228.0\n5600.0\nmale\n2009\n\n\n339\nChinstrap\nDream\n55.8\n19.8\n207.0\n4000.0\nmale\n2009\n\n\n267\nGentoo\nBiscoe\n55.1\n16.0\n230.0\n5850.0\nmale\n2009"
+  },
+  {
+    "objectID": "T2_Type_of_Variables/Types.slides.html#summarizing-with-.agg",
+    "href": "T2_Type_of_Variables/Types.slides.html#summarizing-with-.agg",
+    "title": "Types of variables",
+    "section": "Summarizing with .agg()",
+    "text": "Summarizing with .agg()\nWe can calculate the average of the columns bill_length_mm, bill_depth_mm, and body_mass_g.\n\n(penguins_data\n  .filter([\"bill_length_mm\", \"bill_depth_mm\", \"body_mass_g\"], axis = 1)\n  .agg([\"mean\"])\n)\n\n\n\n\n\n\n\n\nbill_length_mm\nbill_depth_mm\nbody_mass_g\n\n\n\n\nmean\n43.92193\n17.15117\n4201.754386\n\n\n\n\n\n\n\n\n\nBy default, agg() ignores missing values."
   },
   {
     "objectID": "T2_Type_of_Variables/Types.slides.html#saving-results-in-new-objects",
@@ -1834,20 +1855,6 @@
     "text": "Numerical data\nData science methodology is based on numerical data given in tables.\n\n\nIn fact, texts, images, videos or audios are transformed into this format to process them.\n\n\nIn this course, we will assume that the data is in a table."
   },
   {
-    "objectID": "T1_Introduction/Introduction.slides.html#problem-situation",
-    "href": "T1_Introduction/Introduction.slides.html#problem-situation",
-    "title": "What is data visualization?",
-    "section": "Problem Situation",
-    "text": "Problem Situation\nTBD"
-  },
-  {
-    "objectID": "T1_Introduction/Introduction.slides.html#goal-of-the-problem-situation",
-    "href": "T1_Introduction/Introduction.slides.html#goal-of-the-problem-situation",
-    "title": "What is data visualization?",
-    "section": "Goal of the problem situation",
-    "text": "Goal of the problem situation\nTBD"
-  },
-  {
     "objectID": "T1_Introduction/Introduction.slides.html#what-is-data-visualization",
     "href": "T1_Introduction/Introduction.slides.html#what-is-data-visualization",
     "title": "What is data visualization?",
@@ -1930,152 +1937,5 @@
     "title": "What is data visualization?",
     "section": "",
     "text": "“The greatest value of a picture is when it forces us to notice what we never expected to see.” John W. Tukey.\n\n\n\n\n\nhttps://www.storytellingwithdata.com/ is an excellent guide on data visualization."
-  },
-  {
-    "objectID": "T1_Introduction/Tools.slides.html#mini-activity-solo-mode",
-    "href": "T1_Introduction/Tools.slides.html#mini-activity-solo-mode",
-    "title": "Tools for Data Analysis and Visualization",
-    "section": "Mini-activity (solo mode)",
-    "text": "Mini-activity (solo mode)\n\nOpen the following Google Colab link:\nhttps://colab.research.google.com/drive/1c-sy5yQY1DwgaZAI6YnDLMTEYMpLCWyX?usp=sharing\nCopy the notebook to your drive.\nAnswer the questions."
-  },
-  {
-    "objectID": "T2_Type_of_Variables/Types.slides.html#key-pandas-methods",
-    "href": "T2_Type_of_Variables/Types.slides.html#key-pandas-methods",
-    "title": "Types of variables",
-    "section": "Key pandas methods",
-    "text": "Key pandas methods\npandas provides methods or functions to solve common data manipulation tasks:\n\n\n.filter() select specific columns or rows.\n.query() filters observations based on conditions.\n.assign() adds new variables that are functions of existing variables.\n.sort_values() changes the order of rows.\n.agg() reduces multiple values to a single numerical summary."
-  },
-  {
-    "objectID": "T2_Type_of_Variables/Types.slides.html#selecting-columns-with-.filter",
-    "href": "T2_Type_of_Variables/Types.slides.html#selecting-columns-with-.filter",
-    "title": "Types of variables",
-    "section": "Selecting columns with .filter()",
-    "text": "Selecting columns with .filter()\nSelect the columns species, body_mass_g and sex.\n\n(penguins_data\n  .filter([\"species\", \"body_mass_g\", \"sex\"], axis = 1)\n).head()\n\n\n\n\n\n\n\n\nspecies\nbody_mass_g\nsex\n\n\n\n\n0\nAdelie\n3750.0\nmale\n\n\n1\nAdelie\n3800.0\nfemale\n\n\n2\nAdelie\n3250.0\nfemale\n\n\n3\nAdelie\nNaN\nNaN\n\n\n4\nAdelie\n3450.0\nfemale"
-  },
-  {
-    "objectID": "T2_Type_of_Variables/Types.slides.html#section-6",
-    "href": "T2_Type_of_Variables/Types.slides.html#section-6",
-    "title": "Types of variables",
-    "section": "",
-    "text": "(penguins_data\n  .query(\"species == 'Gentoo'\")\n).head()\n\n\n\n\n\n\n\n\nspecies\nisland\nbill_length_mm\nbill_depth_mm\nflipper_length_mm\nbody_mass_g\nsex\nyear\n\n\n\n\n152\nGentoo\nBiscoe\n46.1\n13.2\n211.0\n4500.0\nfemale\n2007\n\n\n153\nGentoo\nBiscoe\n50.0\n16.3\n230.0\n5700.0\nmale\n2007\n\n\n154\nGentoo\nBiscoe\n48.7\n14.1\n210.0\n4450.0\nfemale\n2007\n\n\n155\nGentoo\nBiscoe\n50.0\n15.2\n218.0\n5700.0\nmale\n2007\n\n\n156\nGentoo\nBiscoe\n47.6\n14.5\n215.0\n5400.0\nmale\n2007"
-  },
-  {
-    "objectID": "T2_Type_of_Variables/Types.slides.html#filtering-with-.query",
-    "href": "T2_Type_of_Variables/Types.slides.html#filtering-with-.query",
-    "title": "Types of variables",
-    "section": "Filtering with .query()",
-    "text": "Filtering with .query()\nFilter the data for the species “Gentoo.”\n\n(penguins_data\n  .query(\"species == 'Gentoo'\")\n).head()\n\n\n\n\n\n\n\n\nspecies\nisland\nbill_length_mm\nbill_depth_mm\nflipper_length_mm\nbody_mass_g\nsex\nyear\n\n\n\n\n152\nGentoo\nBiscoe\n46.1\n13.2\n211.0\n4500.0\nfemale\n2007\n\n\n153\nGentoo\nBiscoe\n50.0\n16.3\n230.0\n5700.0\nmale\n2007\n\n\n154\nGentoo\nBiscoe\n48.7\n14.1\n210.0\n4450.0\nfemale\n2007\n\n\n155\nGentoo\nBiscoe\n50.0\n15.2\n218.0\n5700.0\nmale\n2007\n\n\n156\nGentoo\nBiscoe\n47.6\n14.5\n215.0\n5400.0\nmale\n2007\n\n\n\n\n\n\n\n\nThe head() function prints the first 6 rows of the dataset."
-  },
-  {
-    "objectID": "T2_Type_of_Variables/Types.slides.html#filtering-rows-with-.query",
-    "href": "T2_Type_of_Variables/Types.slides.html#filtering-rows-with-.query",
-    "title": "Types of variables",
-    "section": "Filtering rows with .query()",
-    "text": "Filtering rows with .query()\nAn alternative way of selecting rows is .query(). Compared to .filter(), .query() allows us to filter the data using statements or queries involving the variables.\n\nFor example, let’s filter the data for the species “Gentoo.”\n\n(penguins_data\n  .query(\"species == 'Gentoo'\")\n)"
-  },
-  {
-    "objectID": "T2_Type_of_Variables/Types.slides.html#combining-.filter-and-.query",
-    "href": "T2_Type_of_Variables/Types.slides.html#combining-.filter-and-.query",
-    "title": "Types of variables",
-    "section": "Combining .filter() and .query()",
-    "text": "Combining .filter() and .query()\nSelect the columns species, body_mass_g and sex. Next, filter the data for the species “Gentoo.”\n\n(penguins_data\n  .filter([\"species\", \"body_mass_g\", \"sex\"], axis = 1)\n  .query(\"species == 'Gentoo'\")\n).head(4)\n\n\n\n\n\n\n\n\nspecies\nbody_mass_g\nsex\n\n\n\n\n152\nGentoo\n4500.0\nfemale\n\n\n153\nGentoo\n5700.0\nmale\n\n\n154\nGentoo\n4450.0\nfemale\n\n\n155\nGentoo\n5700.0\nmale"
-  },
-  {
-    "objectID": "T2_Type_of_Variables/Types.slides.html#section-7",
-    "href": "T2_Type_of_Variables/Types.slides.html#section-7",
-    "title": "Types of variables",
-    "section": "",
-    "text": "We can also filter the data to get penguins with a body mass greater than 5000g.\n\n(penguins_data\n  .query(\"body_mass_g &gt; 5000\")\n).head()\n\n\n\n\n\n\n\n\nspecies\nisland\nbill_length_mm\nbill_depth_mm\nflipper_length_mm\nbody_mass_g\nsex\nyear\n\n\n\n\n153\nGentoo\nBiscoe\n50.0\n16.3\n230.0\n5700.0\nmale\n2007\n\n\n155\nGentoo\nBiscoe\n50.0\n15.2\n218.0\n5700.0\nmale\n2007\n\n\n156\nGentoo\nBiscoe\n47.6\n14.5\n215.0\n5400.0\nmale\n2007\n\n\n159\nGentoo\nBiscoe\n46.7\n15.3\n219.0\n5200.0\nmale\n2007\n\n\n161\nGentoo\nBiscoe\n46.8\n15.4\n215.0\n5150.0\nmale\n2007"
-  },
-  {
-    "objectID": "T2_Type_of_Variables/Types.slides.html#section-8",
-    "href": "T2_Type_of_Variables/Types.slides.html#section-8",
-    "title": "Types of variables",
-    "section": "",
-    "text": "We can even combine .filter() and .query(). For example, let’s select the columns species, body_mass_g and sex, then filter the data for the “Gentoo” species.\n\n(penguins_data\n  .filter([\"species\", \"body_mass_g\", \"sex\"], axis = 1)\n  .query(\"species == 'Gentoo'\")\n).head(4)\n\n\n\n\n\n\n\n\nspecies\nbody_mass_g\nsex\n\n\n\n\n152\nGentoo\n4500.0\nfemale\n\n\n153\nGentoo\n5700.0\nmale\n\n\n154\nGentoo\n4450.0\nfemale\n\n\n155\nGentoo\n5700.0\nmale"
-  },
-  {
-    "objectID": "T2_Type_of_Variables/Types.slides.html#section-9",
-    "href": "T2_Type_of_Variables/Types.slides.html#section-9",
-    "title": "Types of variables",
-    "section": "",
-    "text": "In this code, the df after lambda indicates that the dataframe (penguins_data) will be referred to as df inside the function. The colon : sets the start of the function.\n\n(penguins_data\n  .assign(LDRatio = lambda df: df[\"bill_length_mm\"] / df[\"bill_depth_mm\"])\n)\n\nThe code appends the new variable to the end of the resulting dataframe."
-  },
-  {
-    "objectID": "T2_Type_of_Variables/Types.slides.html#section-10",
-    "href": "T2_Type_of_Variables/Types.slides.html#section-10",
-    "title": "Types of variables",
-    "section": "",
-    "text": "We can see the new variable using .filter().\n\n(penguins_data\n  .assign(LDRatio = lambda df: df[\"bill_length_mm\"] / df[\"bill_depth_mm\"])\n  .filter([\"bill_length_mm\", \"bill_depth_mm\", \"LDRatio\"], axis = 1)\n).head()\n\n\n\n\n\n\n\n\nbill_length_mm\nbill_depth_mm\nLDRatio\n\n\n\n\n0\n39.1\n18.7\n2.090909\n\n\n1\n39.5\n17.4\n2.270115\n\n\n2\n40.3\n18.0\n2.238889\n\n\n3\nNaN\nNaN\nNaN\n\n\n4\n36.7\n19.3\n1.901554"
-  },
-  {
-    "objectID": "T2_Type_of_Variables/Types.slides.html#create-new-columns-with-.assign",
-    "href": "T2_Type_of_Variables/Types.slides.html#create-new-columns-with-.assign",
-    "title": "Types of variables",
-    "section": "Create new columns with .assign()",
-    "text": "Create new columns with .assign()\nWith .assign(), we can create new columns (variables) that are functions of existing ones. This function uses a special Python keyword called lambda. Technically, this keyword defines an anonymous function.\nFor example, we create a new variable LDRatio equaling the ratio of bill_length_mm and bill_depth_mm.\n\n(penguins_data\n  .assign(LDRatio = lambda df: df[\"bill_length_mm\"] / df[\"bill_depth_mm\"])\n)"
-  },
-  {
-    "objectID": "T2_Type_of_Variables/Types.slides.html#section-11",
-    "href": "T2_Type_of_Variables/Types.slides.html#section-11",
-    "title": "Types of variables",
-    "section": "",
-    "text": "To sort in descending order, use ascending=False inside sort_values().\n\n(penguins_data\n  .sort_values(\"bill_length_mm\", ascending=False)\n).head()\n\n\n\n\n\n\n\n\nspecies\nisland\nbill_length_mm\nbill_depth_mm\nflipper_length_mm\nbody_mass_g\nsex\nyear\n\n\n\n\n185\nGentoo\nBiscoe\n59.6\n17.0\n230.0\n6050.0\nmale\n2007\n\n\n293\nChinstrap\nDream\n58.0\n17.8\n181.0\n3700.0\nfemale\n2007\n\n\n253\nGentoo\nBiscoe\n55.9\n17.0\n228.0\n5600.0\nmale\n2009\n\n\n339\nChinstrap\nDream\n55.8\n19.8\n207.0\n4000.0\nmale\n2009\n\n\n267\nGentoo\nBiscoe\n55.1\n16.0\n230.0\n5850.0\nmale\n2009"
-  },
-  {
-    "objectID": "T2_Type_of_Variables/Types.slides.html#section-12",
-    "href": "T2_Type_of_Variables/Types.slides.html#section-12",
-    "title": "Types of variables",
-    "section": "",
-    "text": "To sort in descending order, use ascending=False inside sort_values().\n\n(penguins_data\n  .sort_values(\"bill_length_mm\", ascending=False)\n).head()\n\n\n\n\n\n\n\n\nspecies\nisland\nbill_length_mm\nbill_depth_mm\nflipper_length_mm\nbody_mass_g\nsex\nyear\n\n\n\n\n185\nGentoo\nBiscoe\n59.6\n17.0\n230.0\n6050.0\nmale\n2007\n\n\n293\nChinstrap\nDream\n58.0\n17.8\n181.0\n3700.0\nfemale\n2007\n\n\n253\nGentoo\nBiscoe\n55.9\n17.0\n228.0\n5600.0\nmale\n2009\n\n\n339\nChinstrap\nDream\n55.8\n19.8\n207.0\n4000.0\nmale\n2009\n\n\n267\nGentoo\nBiscoe\n55.1\n16.0\n230.0\n5850.0\nmale\n2009"
-  },
-  {
-    "objectID": "T2_Type_of_Variables/Types.slides.html#sorting-with-.sort_values",
-    "href": "T2_Type_of_Variables/Types.slides.html#sorting-with-.sort_values",
-    "title": "Types of variables",
-    "section": "Sorting with .sort_values()",
-    "text": "Sorting with .sort_values()\nWe can sort the data based on a column like bill_length_mm.\n\n(penguins_data\n  .sort_values(\"bill_length_mm\")\n).head(4)\n\n\n\n\n\n\n\n\nspecies\nisland\nbill_length_mm\nbill_depth_mm\nflipper_length_mm\nbody_mass_g\nsex\nyear\n\n\n\n\n142\nAdelie\nDream\n32.1\n15.5\n188.0\n3050.0\nfemale\n2009\n\n\n98\nAdelie\nDream\n33.1\n16.1\n178.0\n2900.0\nfemale\n2008\n\n\n70\nAdelie\nTorgersen\n33.5\n19.0\n190.0\n3600.0\nfemale\n2008\n\n\n92\nAdelie\nDream\n34.0\n17.1\n185.0\n3400.0\nfemale\n2008"
-  },
-  {
-    "objectID": "T2_Type_of_Variables/Types.slides.html#summarizing-with-.agg",
-    "href": "T2_Type_of_Variables/Types.slides.html#summarizing-with-.agg",
-    "title": "Types of variables",
-    "section": "Summarizing with .agg()",
-    "text": "Summarizing with .agg()\nWe can calculate the average of the columns bill_length_mm, bill_depth_mm, and body_mass_g.\n\n(penguins_data\n  .filter([\"bill_length_mm\", \"bill_depth_mm\", \"body_mass_g\"], axis = 1)\n  .agg([\"mean\"])\n)\n\n\n\n\n\n\n\n\nbill_length_mm\nbill_depth_mm\nbody_mass_g\n\n\n\n\nmean\n43.92193\n17.15117\n4201.754386\n\n\n\n\n\n\n\n\n\nBy default, agg() ignores missing values."
-  },
-  {
-    "objectID": "T3_Categorical_Data/Categorical.slides.html#section-2",
-    "href": "T3_Categorical_Data/Categorical.slides.html#section-2",
-    "title": "Categorical Variables",
-    "section": "",
-    "text": "# Create plot.\nplt.figure(figsize=(8,6)) \nsns.countplot(data=penguins_data, x=\"species\")\nplt.show()"
-  },
-  {
-    "objectID": "T3_Categorical_Data/Categorical.slides.html#example-1-penguins-dataset",
-    "href": "T3_Categorical_Data/Categorical.slides.html#example-1-penguins-dataset",
-    "title": "Categorical Variables",
-    "section": "Example 1: Penguins dataset",
-    "text": "Example 1: Penguins dataset\n\nWe will illustrate today’s concepts using the penguins.xlsx dataset.\n\n\nUpload it to Google Colab and load it into Python using the following code:\n\npenguins_data = pd.read_excel(\"penguins.xlsx\")\n\n\n\n\n\n\n\n\nIn Google Colab, the file must be placed in the “content” folder."
-  },
-  {
-    "objectID": "T3_Categorical_Data/Categorical.slides.html#example-2-boston-housing-dataset",
-    "href": "T3_Categorical_Data/Categorical.slides.html#example-2-boston-housing-dataset",
-    "title": "Categorical Variables",
-    "section": "Example 2: Boston Housing Dataset",
-    "text": "Example 2: Boston Housing Dataset\nThis dataset contains information collected by the U.S. Census Bureau on housing in the Boston, Massachusetts area."
-  },
-  {
-    "objectID": "T3_Categorical_Data/Categorical.slides.html#section-9",
-    "href": "T3_Categorical_Data/Categorical.slides.html#section-9",
-    "title": "Categorical Variables",
-    "section": "",
-    "text": "Collapsing categories simplifies the graph\n\nplt.figure(figsize=(5.5, 3.5))\nsns.countplot(data=Boston_dataset, x=\"rad\")\nplt.show()\n\n\n\n\n\n\n\n\nIt also allows us to emphasize a category like Low and see how it compares to the other categories (as a whole)."
-  },
-  {
-    "objectID": "T4_Numerical_Data/Numerical.slides.html#section-10",
-    "href": "T4_Numerical_Data/Numerical.slides.html#section-10",
-    "title": "Numerical Variables",
-    "section": "",
-    "text": "If we specify the variable in the x argument, we get a horizontal boxplot.\n\nplt.figure(figsize=(5, 4))\nsns.boxplot( x = piston_data[\"cycle_time\"])\nplt.show()"
   }
 ]
