@@ -425,7 +425,7 @@ Alan R. Vazquez
 <h2>Loading the Libraries</h2>
 <p><br></p>
 <p>Let’s import the <code>pandas</code>, <code>matplotlib</code>, and <code>seaborn</code> in Google Colab.</p>
-<div id="11dd6e8a" class="cell" data-execution_count="1">
+<div id="c24c2354" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-2"><a></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-3"><a></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -436,7 +436,7 @@ Alan R. Vazquez
 <p><br></p>
 <p>We will use data from 392 cars, including miles per gallon, number of cylinders, horsepower, weight, acceleration, year, origin, and other variables.</p>
 <p>The data is in the file “auto_dataset.xlsx”.</p>
-<div id="05aaa0ce" class="cell" data-execution_count="2">
+<div id="8ace139b" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a></a>auto_data <span class="op">=</span> pd.read_excel(<span class="st">"auto_dataset.xlsx"</span>)</span>
 <span id="cb2-2"><a></a><span class="co"># Set categorical variable.</span></span>
 <span id="cb2-3"><a></a>auto_data[[<span class="st">'origin'</span>]] <span class="op">=</span> auto_data[[<span class="st">'origin'</span>]].astype(<span class="st">'category'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -444,7 +444,7 @@ Alan R. Vazquez
 </section>
 <section id="section" class="slide level2">
 <h2></h2>
-<div id="3042a85a" class="cell" data-execution_count="3">
+<div id="0e2f9b1f" class="cell" data-execution_count="3">
 <div class="cell-output cell-output-display" data-execution_count="3">
 <div>
 <style scoped="">
@@ -553,7 +553,7 @@ Alan R. Vazquez
 <section id="section-1" class="slide level2">
 <h2></h2>
 <p>Is there a relationship between a car’s weight and its miles per gallon?</p>
-<div id="3058db25" class="cell" data-execution_count="4">
+<div id="bc47d78f" class="cell" data-execution_count="4">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -621,7 +621,7 @@ Y = f(X) + \epsilon,
 <section id="fitting-regression-models-in-r" class="slide level2">
 <h2>Fitting Regression Models in R</h2>
 <p>To fit a linear regression model, we use the <code>regplot()</code> in <strong>seaborn</strong>.</p>
-<div id="b77df23f" class="cell" data-execution_count="5">
+<div id="56de3906" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a></a>plt.figure(figsize<span class="op">=</span>(<span class="fl">5.8</span>, <span class="fl">3.8</span>))</span>
 <span id="cb3-2"><a></a>sns.regplot(data<span class="op">=</span>auto_data, x<span class="op">=</span><span class="st">"weight"</span>, y<span class="op">=</span><span class="st">"mpg"</span>)</span>
 <span id="cb3-3"><a></a>plt.xlabel(<span class="st">"Weight (lb)"</span>)</span>
@@ -640,7 +640,7 @@ Y = f(X) + \epsilon,
 <h2></h2>
 <p><br></p>
 <p>We can modify the line type, thickness, and color using the arguments <code>linestyle</code>, <code>linewidth</code>, and <code>color</code>, respectively, in the <code>line_kws</code> argument of the function.</p>
-<div id="90e8cfcb" class="cell" data-execution_count="6">
+<div id="fe058da0" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">6</span>))</span>
 <span id="cb4-2"><a></a>sns.regplot(data<span class="op">=</span>auto_data, x<span class="op">=</span><span class="st">"weight"</span>, y<span class="op">=</span><span class="st">"mpg"</span>,  </span>
 <span id="cb4-3"><a></a>            scatter_kws<span class="op">=</span>{<span class="st">"color"</span>: <span class="st">"blue"</span>},</span>
@@ -655,7 +655,7 @@ Y = f(X) + \epsilon,
 <section id="for-our-example" class="slide level2">
 <h2>For Our Example</h2>
 <p><span class="math inline">\(\hat{Y}_i = 46.32 -0.0076 X_i\)</span></p>
-<div id="47a1d7b9" class="cell" data-execution_count="7">
+<div id="be843929" class="cell" data-execution_count="7">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -668,7 +668,7 @@ Y = f(X) + \epsilon,
 <section id="the-formula" class="slide level2">
 <h2>The Formula</h2>
 <p><span class="math inline">\(\text{mpg}_i = 46.32 - 0.0076 \times \text{peso}_i\)</span></p>
-<div id="4a6b2071" class="cell" data-execution_count="8">
+<div id="ab2546f8" class="cell" data-execution_count="8">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -683,7 +683,7 @@ Y = f(X) + \epsilon,
 <p><span style="color:darkblue;">What does <span class="math inline">\(\hat{\beta}_0 = 46.32\)</span> mean?</span></p>
 <div class="fragment">
 <p><span class="math inline">\(\hat{\beta}_0\)</span> is the average response value when <span class="math inline">\(X_i = 0\)</span>.</p>
-<div id="d03c619d" class="cell" data-execution_count="9">
+<div id="8c8e689a" class="cell" data-execution_count="9">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -697,7 +697,7 @@ Y = f(X) + \epsilon,
 <section id="section-4" class="slide level2">
 <h2></h2>
 <p>Does <span class="math inline">\(\hat{\beta}_0 = 46.32\)</span> make sense?</p>
-<div id="f099cfdc" class="cell" data-execution_count="10">
+<div id="284ac1bf" class="cell" data-execution_count="10">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -715,7 +715,7 @@ Y = f(X) + \epsilon,
 <p><span style="color:darkblue;">What does <span class="math inline">\(\hat{\beta}_1 = - 0.0076\)</span> mean?</span></p>
 <div class="fragment">
 <p><span class="math inline">\(\hat{\beta}_1\)</span> is the average change in the response when <span class="math inline">\(X_i\)</span> increases by one unit.</p>
-<div id="d889a09e" class="cell" data-execution_count="11">
+<div id="d2c43954" class="cell" data-execution_count="11">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -784,7 +784,7 @@ g(\hat{\beta}_0, \hat{\beta}_1) &amp; = \sum_{i=1}^{n} (e_{i})^2 = \sum_{i=1}^{n
 <h2>Load the libraries</h2>
 <p><br></p>
 <p>Let’s import <strong>statsmodels</strong> into Python</p>
-<div id="aad08e72" class="cell" data-execution_count="12">
+<div id="4bc4a9d9" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a></a><span class="im">import</span> statsmodels.api <span class="im">as</span> sm</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
@@ -792,7 +792,7 @@ g(\hat{\beta}_0, \hat{\beta}_1) &amp; = \sum_{i=1}^{n} (e_{i})^2 = \sum_{i=1}^{n
 <h2>Fit a linear model</h2>
 <p><br></p>
 <p>To fit a linear model in <strong>statsmodels</strong>, we first split the data set into a vector with the values of the predictor only, and a vector with the response values.</p>
-<div id="a0168188" class="cell" data-execution_count="13">
+<div id="4d7ac6d3" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a></a><span class="co"># Matrix with predictors.</span></span>
 <span id="cb6-2"><a></a>X <span class="op">=</span> auto_data[<span class="st">'weight'</span>]</span>
 <span id="cb6-3"><a></a></span>
@@ -808,7 +808,7 @@ g(\hat{\beta}_0, \hat{\beta}_1) &amp; = \sum_{i=1}^{n} (e_{i})^2 = \sum_{i=1}^{n
 <h2></h2>
 <p><br><br></p>
 <p>Next, we use the functions <code>OLS()</code> and <code>fit()</code> from <strong>statsmodels</strong>.</p>
-<div id="795e599d" class="cell" data-execution_count="14">
+<div id="3c4a450f" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a></a><span class="co"># Create linear regression object</span></span>
 <span id="cb7-2"><a></a>regr <span class="op">=</span> sm.OLS(Y, X)</span>
 <span id="cb7-3"><a></a></span>
@@ -820,7 +820,7 @@ g(\hat{\beta}_0, \hat{\beta}_1) &amp; = \sum_{i=1}^{n} (e_{i})^2 = \sum_{i=1}^{n
 <h2></h2>
 <p><br></p>
 <p>To show the estimated coefficients, we use the argument <code>params</code> of the <code>linear_model</code> object created previously.</p>
-<div id="cb9c70f9" class="cell" data-execution_count="15">
+<div id="4bca089f" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a></a><span class="co"># The estimated coefficients.</span></span>
 <span id="cb8-2"><a></a><span class="bu">print</span>(linear_model.params)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -835,7 +835,7 @@ dtype: float64</code></pre>
 <h2>Residuals and fitted values</h2>
 <p><br></p>
 <p>To create the plots for the residuals, we need the predicted values (<span class="math inline">\(\hat{Y}_i\)</span>’s) of the response and the residuals (<span class="math inline">\(e_i\)</span>’s) first. To this end, we use the commands below.</p>
-<div id="823dc0ec" class="cell" data-execution_count="16">
+<div id="e68291d2" class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a></a><span class="co"># Make predictions using the the model</span></span>
 <span id="cb10-2"><a></a>Y_pred <span class="op">=</span> linear_model.fittedvalues</span>
 <span id="cb10-3"><a></a></span>
@@ -845,7 +845,7 @@ dtype: float64</code></pre>
 </section>
 <section id="constant-dispersion" class="slide level2">
 <h2>Constant dispersion</h2>
-<div id="b450ab9b" class="cell" data-execution_count="17">
+<div id="de8cddf7" class="cell" data-execution_count="17">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a></a><span class="co"># Residual vs Fitted Values Plot</span></span>
@@ -869,7 +869,7 @@ dtype: float64</code></pre>
 </section>
 <section id="independent-errors" class="slide level2">
 <h2>Independent errors</h2>
-<div id="8641e944" class="cell" data-execution_count="18">
+<div id="d75b0f53" class="cell" data-execution_count="18">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a></a><span class="co"># Residuals vs Time (Case) Plot</span></span>
@@ -924,7 +924,7 @@ dtype: float64</code></pre>
 <section id="section-9" class="slide level2">
 <h2></h2>
 <p>In Python, we fit a local regression by setting the <code>lowess</code> argument to <code>True</code> in the <code>regplot()</code> function.</p>
-<div id="27ac84eb" class="cell" data-execution_count="19">
+<div id="08ae704a" class="cell" data-execution_count="19">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">7</span>, <span class="dv">5</span>))</span>
 <span id="cb13-2"><a></a>sns.regplot(data<span class="op">=</span>auto_data, x<span class="op">=</span><span class="st">"weight"</span>, y<span class="op">=</span><span class="st">"mpg"</span>, lowess<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb13-3"><a></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -940,7 +940,7 @@ dtype: float64</code></pre>
 <section id="section-10" class="slide level2">
 <h2></h2>
 <p>We can change the color, thickness, and line type using the <code>color</code>, <code>linewidth</code>, and <code>linestyle</code>,arguments in the <code>line_kws</code> argument function.</p>
-<div id="2f6edd89" class="cell" data-execution_count="20">
+<div id="6edf246e" class="cell" data-execution_count="20">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">6</span>, <span class="dv">4</span>))</span>
 <span id="cb14-2"><a></a>sns.regplot(data<span class="op">=</span>auto_data, x<span class="op">=</span><span class="st">"weight"</span>, y<span class="op">=</span><span class="st">"mpg"</span>, scatter<span class="op">=</span><span class="va">True</span>, lowess<span class="op">=</span><span class="va">True</span>,</span>
 <span id="cb14-3"><a></a>            line_kws<span class="op">=</span>{<span class="st">"color"</span>: <span class="st">"red"</span>, <span class="st">"linewidth"</span>: <span class="dv">2</span>, <span class="st">"linestyle"</span>: <span class="st">"--"</span>})</span>
@@ -957,7 +957,7 @@ dtype: float64</code></pre>
 <section id="another-example" class="slide level2">
 <h2>Another example</h2>
 <p>Let’s consider the relationship between car acceleration (<code>acceleration</code>) and the total volume of all engine cylinders (<code>displacement</code>).</p>
-<div id="00a73fa6" class="cell" data-execution_count="21">
+<div id="3b2b38a8" class="cell" data-execution_count="21">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a></a>plt.figure(figsize<span class="op">=</span>(<span class="fl">5.5</span>, <span class="fl">3.5</span>))</span>
 <span id="cb15-2"><a></a>sns.scatterplot(data<span class="op">=</span>auto_data, x<span class="op">=</span><span class="st">"displacement"</span>, y<span class="op">=</span><span class="st">"acceleration"</span>)</span>
 <span id="cb15-3"><a></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -972,7 +972,7 @@ dtype: float64</code></pre>
 </section>
 <section id="linear-regression" class="slide level2">
 <h2>Linear regression</h2>
-<div id="5f0c338f" class="cell" data-execution_count="22">
+<div id="90863ce7" class="cell" data-execution_count="22">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">7</span>, <span class="dv">5</span>))</span>
 <span id="cb16-2"><a></a>sns.regplot(data<span class="op">=</span>auto_data, x<span class="op">=</span><span class="st">"displacement"</span>, y<span class="op">=</span><span class="st">"acceleration"</span>, </span>
 <span id="cb16-3"><a></a>            scatter<span class="op">=</span><span class="va">True</span>)</span>
@@ -988,7 +988,7 @@ dtype: float64</code></pre>
 </section>
 <section id="local-regression-2" class="slide level2">
 <h2>Local regression</h2>
-<div id="acaf112a" class="cell" data-execution_count="23">
+<div id="2ec5aee3" class="cell" data-execution_count="23">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">7</span>, <span class="dv">5</span>))</span>
 <span id="cb17-2"><a></a>sns.regplot(data<span class="op">=</span>auto_data, x<span class="op">=</span><span class="st">"displacement"</span>, y<span class="op">=</span><span class="st">"acceleration"</span>, </span>
 <span id="cb17-3"><a></a>            scatter<span class="op">=</span><span class="va">True</span>, lowess <span class="op">=</span> <span class="va">True</span>)</span>
