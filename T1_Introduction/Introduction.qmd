@@ -1,5 +1,5 @@
 ---
-title: "What is data Visualization?"
+title: "What is Data Visualization?"
 subtitle: "IN1002B: Data Visualization for Decision Making"
 author: 
   - name: Alan R. Vazquez
@@ -20,10 +20,12 @@ jupyter: python3
 
 ## Agenda
 
+</br>
+
 1.  Introduction to data science
 2.  Three principles of data visualization
 3.  Activity
-4.  Storytelling
+4.  Storytelling for data visualization
 
 # Introduction to data science
 
@@ -63,7 +65,7 @@ Provost, F., & Fawcett, T. (2013). [Data Science for Business: What you need to 
 
 -   Often, reframing the problem and designing a solution is an iterative process.
 
-## Data understanding I
+## Data understanding
 
 ::: incremental
 -   If the goal is to solve a business problem, the data that makes up the raw material available from which the solution will be built.
@@ -107,6 +109,8 @@ Provost, F., & Fawcett, T. (2013). [Data Science for Business: What you need to 
 
 ## Numerical data
 
+</br>
+
 Data science methodology is based on numerical data given in tables.
 
 ![](images/9a292b70-64d7-475e-9ffa-22c019609752_lossy.png){fig-align="center"}
@@ -117,15 +121,43 @@ Data science methodology is based on numerical data given in tables.
 
 [***In this course, we will assume that the data is in a table.***]{style="color:#023562;"}
 
+## Problem situation
+
+</br>
+
+Food pricing inequality is a crucial issue affecting access to affordable and nutritious food, particularly in **New York City**.
+
+Previous work has suggested that the price of food sold at supermarkets may vary according to the socioeconomic characteristics of a neighborhood.
+
+Given the importance of food prices in securing access to food, understanding how food prices vary across neighborhoods is crucial to assessing affordability.
+
+## Goal of the problem situation
+
+</br>
+
+> This problem situation concerns the creation of a poster that studies the disparities in the prices of food products across the neighborhoods in New York City.
+
+::::: columns
+::: {.column width="70%"}
+To this end, you will have two datasets with data about food prices of a sample of supermarkets and statistics of the neighborhoods where they are located.
+:::
+
+::: {.column width="30%"}
+![](images/NYC.png)
+:::
+:::::
+
 # The three principles of data science
 
-## What is Data Visualization?
+## What is data visualization?
 
 > “A visualization \[of data\] is any visual presentation intended to reveal evidence, making the invisible visible.” Alberto Cairo (2015).
 
 ![](images/clipboard-3803538817.png){fig-align="center" width="814"}
 
 ## 
+
+</br>
 
 ![](images/TobaccoGraph-superJumbo.png){fig-align="center"}
 
@@ -134,6 +166,8 @@ Data science methodology is based on numerical data given in tables.
 :::
 
 ## 
+
+</br>
 
 ![](images/costhurricanesLN-superJumbo.png){fig-align="center"}
 
@@ -150,6 +184,8 @@ Data science methodology is based on numerical data given in tables.
 :::
 
 ## 
+
+</br>
 
 At its core, data visualization allows you to delve into complex datasets to extract meaningful insights using graphical displays.
 
@@ -168,6 +204,8 @@ As data scientists, we create data visualizations in order to understand our dat
 :::
 
 ## ***Principle 1*****:** Define the Message or Question
+
+</br>
 
 Formulate the question of interest or the message you want to convey.
 
@@ -209,6 +247,8 @@ Enhance your graph with color symbols and text to convey additional information.
 :::
 
 ## *Principle 3: Apply Graphic Design Principles*
+
+</br>
 
 :::::::: center
 ::::::: columns
@@ -283,8 +323,8 @@ import pandas as pd
 data = {
     "City": ["New York City", "New York City", "Washington D.C.", "Washington D.C.", 
              "Chicago", "Chicago", "Los Angeles", "Los Angeles", "Dallas", "Dallas"],
-    "Type": ["Uber", "Car"] * 5,
-    "Cost": [142, 218, 96, 130, 77, 116, 62, 89, 181, 65]
+    "Type": ["Car", "Uber"] * 5,
+    "Cost": [218, 142, 130, 96, 116, 77, 89, 62, 65, 181]
 }
 
 uber_df = pd.DataFrame(data)
@@ -348,6 +388,8 @@ plt.show()
 
 ## 
 
+</br>
+
 ::::: columns
 ::: {.column width="70%"}
 > "*The greatest value of a picture is when it forces us to notice what we never expected to see.*" John W. Tukey.
@@ -361,5 +403,117 @@ plt.show()
 . . .
 
 <https://www.storytellingwithdata.com/> is an excellent guide on data visualization.
+
+# Activity
+
+## Activity (cooperative mode)
+
+1.  Get together with a partner.
+
+2.  Find a good and a bad example of a visualization (chart) online.
+
+3.  Save the visualizations (for example, by taking a screenshot).
+
+4.  Write a short critique (3-4 sentences) of each visualization.
+
+5.  Upload a document with your critiques and images to Canvas.
+
+# Storytelling for data visualization
+
+## Why storytelling matters in data visualization
+
+-   Raw data alone is not enough—insights must be communicated effectively.
+
+-   Decision-makers rely on clear, engaging, and meaningful presentations of data.
+
+-   Good storytelling connects data to real-world problems and solutions.
+
+. . .
+
+For example, a simple bar chart can be enhanced by context and narrative to explain a business trend or social issue.
+
+## 
+
+</br>
+
+::::: columns
+::: {.column width="70%"}
+> “The most powerful person in the world is the storyteller.” – Steve Jobs
+:::
+
+::: {.column width="30%"}
+![](images/steve_jobs.png)
+:::
+:::::
+
+## The Three Components of a Data Story
+
+1.  Data (What?)
+
+-   The foundation—collected, cleaned, and analyzed.
+-   Provides objective evidence to support claims.
+
+2.  Visuals (How?)
+
+-   Graphs, charts, and maps help translate numbers into meaningful insights.
+-   Good design guides the audience to the key message.
+
+## 
+
+</br>
+
+3.  Narrative (Why?)
+
+-   Puts data into context—explains the significance of findings.
+-   Answers: Why does this matter? Who is affected? What should be done?
+
+## Structuring a data story
+
+1.  Introduction (Set the Stage) 📌
+
+-   Define the problem or question you’re addressing.
+-   Provide relevant background or context.
+
+. . .
+
+2.  Main Findings (Show the Data) 📊
+
+-   Use effective visuals (histograms, box plots, line charts, scatter plots, etc.).
+-   Highlight key trends, comparisons, and relationships.
+
+## 
+
+</br>
+
+3.  Insights & Implications (So What?) 💡
+
+-   Explain why the findings matter.
+-   Suggest potential actions or decisions based on the insights.
+
+. . .
+
+For example: A study on food pricing inequality might start with disparities in NYC, show visualizations comparing food prices across neighborhoods, and conclude with recommendations for policymakers.
+
+## Best practices for storytelling
+
+::: incremental
+-   **Know Your Audience** – Tailor the message to decision-makers, engineers, or the public.
+
+-   **Keep it Simple** – Avoid unnecessary complexity; [**clarity is key**]{style="color:darkblue;"}.
+
+-   **Use the Right Visuals** – Choose the best chart type for your message.
+
+-   **Emphasize Key Takeaways** – Bold the most important insights.
+
+-   **Create a Narrative Flow** – Guide the audience through the story step by step.
+:::
+
+## 
+
+![](images/geek.jpg){fig-align="center"}
+
+::: {style="font-size: 50%;"}
+https://www.amazon.com/Even-Geek-Speak-Joey-Asher/dp/0978577604
+:::
 
 # [Return to main page](https://alanrvazquez.github.io/TEC-IN2039-EN/)

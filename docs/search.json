@@ -1815,134 +1815,225 @@
   {
     "objectID": "T1_Introduction/Introduction.slides.html#agenda",
     "href": "T1_Introduction/Introduction.slides.html#agenda",
-    "title": "What is data Visualization?",
+    "title": "What is Data Visualization?",
     "section": "Agenda",
-    "text": "Agenda\n\nIntroduction to data science\nThree principles of data visualization\nActivity\nStorytelling"
+    "text": "Agenda\n\n\nIntroduction to data science\nThree principles of data visualization\nActivity\nStorytelling for data visualization"
   },
   {
     "objectID": "T1_Introduction/Introduction.slides.html#data-science-is",
     "href": "T1_Introduction/Introduction.slides.html#data-science-is",
-    "title": "What is data Visualization?",
+    "title": "What is Data Visualization?",
     "section": "Data science is …",
     "text": "Data science is …\na multidisciplinary field that uses scientific methods, processes, algorithms and systems to extract knowledge and insights from vast amounts of structured and unstructured data."
   },
   {
     "objectID": "T1_Introduction/Introduction.slides.html#the-scheme-of-data-science",
     "href": "T1_Introduction/Introduction.slides.html#the-scheme-of-data-science",
-    "title": "What is data Visualization?",
+    "title": "What is Data Visualization?",
     "section": "The scheme of data science",
     "text": "The scheme of data science\n\n\nProvost, F., & Fawcett, T. (2013). Data Science for Business: What you need to know about data mining and data-analytic thinking. O’Reilly Media, Inc."
   },
   {
     "objectID": "T1_Introduction/Introduction.slides.html#business-understanding",
     "href": "T1_Introduction/Introduction.slides.html#business-understanding",
-    "title": "What is data Visualization?",
+    "title": "What is Data Visualization?",
     "section": "Business understanding",
     "text": "Business understanding\n\n\nBusiness understanding refers to defining the business problem to be solved.\nThe goal is to reframe the business problem as a data science problem.\nOften, reframing the problem and designing a solution is an iterative process."
   },
   {
     "objectID": "T1_Introduction/Introduction.slides.html#data-understanding-i",
     "href": "T1_Introduction/Introduction.slides.html#data-understanding-i",
-    "title": "What is data Visualization?",
+    "title": "What is Data Visualization?",
     "section": "Data understanding I",
     "text": "Data understanding I\n\n\nIf the goal is to solve a business problem, the data that makes up the raw material available from which the solution will be built.\nThe available data rarely matches the problem.\nFor example, historical data is often collected for purposes unrelated to the current business problem or for no explicit purpose at all.\n\n\n\n\nOur goal is to turn data into information that answers useful questions."
   },
   {
     "objectID": "T1_Introduction/Introduction.slides.html#data-types",
     "href": "T1_Introduction/Introduction.slides.html#data-types",
-    "title": "What is data Visualization?",
+    "title": "What is Data Visualization?",
     "section": "Data types",
     "text": "Data types\n\n\n\nText\n\n\nImages\n\nVideo\n\n\nAudio"
   },
   {
     "objectID": "T1_Introduction/Introduction.slides.html#numerical-data",
     "href": "T1_Introduction/Introduction.slides.html#numerical-data",
-    "title": "What is data Visualization?",
+    "title": "What is Data Visualization?",
     "section": "Numerical data",
-    "text": "Numerical data\nData science methodology is based on numerical data given in tables.\n\n\nIn fact, texts, images, videos or audios are transformed into this format to process them.\n\n\nIn this course, we will assume that the data is in a table."
+    "text": "Numerical data\n\nData science methodology is based on numerical data given in tables.\n\n\nIn fact, texts, images, videos or audios are transformed into this format to process them.\n\n\nIn this course, we will assume that the data is in a table."
   },
   {
     "objectID": "T1_Introduction/Introduction.slides.html#what-is-data-visualization",
     "href": "T1_Introduction/Introduction.slides.html#what-is-data-visualization",
-    "title": "What is data Visualization?",
-    "section": "What is Data Visualization?",
-    "text": "What is Data Visualization?\n\n“A visualization [of data] is any visual presentation intended to reveal evidence, making the invisible visible.” Alberto Cairo (2015)."
+    "title": "What is Data Visualization?",
+    "section": "What is data visualization?",
+    "text": "What is data visualization?\n\n“A visualization [of data] is any visual presentation intended to reveal evidence, making the invisible visible.” Alberto Cairo (2015)."
   },
   {
     "objectID": "T1_Introduction/Introduction.slides.html#section",
     "href": "T1_Introduction/Introduction.slides.html#section",
-    "title": "What is data Visualization?",
+    "title": "What is Data Visualization?",
     "section": "",
     "text": "https://www.nytimes.com/2019/02/28/learning/whats-going-on-in-this-graph-march-6-2019.html"
   },
   {
     "objectID": "T1_Introduction/Introduction.slides.html#section-1",
     "href": "T1_Introduction/Introduction.slides.html#section-1",
-    "title": "What is data Visualization?",
+    "title": "What is Data Visualization?",
     "section": "",
     "text": "https://www.nytimes.com/2018/09/18/learning/whats-going-on-in-this-graph-sept-19-2018.html"
   },
   {
     "objectID": "T1_Introduction/Introduction.slides.html#section-2",
     "href": "T1_Introduction/Introduction.slides.html#section-2",
-    "title": "What is data Visualization?",
+    "title": "What is Data Visualization?",
     "section": "",
     "text": "https://www.nytimes.com/2018/10/16/learning/whats-going-on-in-this-graph-oct-17-2018.html"
   },
   {
     "objectID": "T1_Introduction/Introduction.slides.html#section-3",
     "href": "T1_Introduction/Introduction.slides.html#section-3",
-    "title": "What is data Visualization?",
+    "title": "What is Data Visualization?",
     "section": "",
     "text": "At its core, data visualization allows you to delve into complex datasets to extract meaningful insights using graphical displays.\n\nData visualizations are primarily concerned with providing evidence and enabling the audience to explore and draw their own conclusions about what the visualizations reveal about the data.\n\n\nData visualization has 3 key principles…\n\nAs data scientists, we create data visualizations in order to understand our data and explain our analyses to other people. A plot should have a message, and it’s our job to communicate this message as clearly as possible."
   },
   {
     "objectID": "T1_Introduction/Introduction.slides.html#principle-1-define-the-message-or-question",
     "href": "T1_Introduction/Introduction.slides.html#principle-1-define-the-message-or-question",
-    "title": "What is data Visualization?",
+    "title": "What is Data Visualization?",
     "section": "Principle 1: Define the Message or Question",
-    "text": "Principle 1: Define the Message or Question\nFormulate the question of interest or the message you want to convey.\n\n\n\n\n\n\n\n\n\n\n\nEl mensaje puede ser una pregunta\n\nWhat is the key comparison?\nHow do we emphasize it?\nDo you have reason to expect that one group/observation might be different?\nWhy might your finding about shape matter?\nWhat additional comparison might add value to the investigation?\nAre there any potentially important features to compare against?"
+    "text": "Principle 1: Define the Message or Question\n\nFormulate the question of interest or the message you want to convey.\n\n\n\n\n\n\n\n\n\n\n\nEl mensaje puede ser una pregunta\n\nWhat is the key comparison?\nHow do we emphasize it?\nDo you have reason to expect that one group/observation might be different?\nWhy might your finding about shape matter?\nWhat additional comparison might add value to the investigation?\nAre there any potentially important features to compare against?"
   },
   {
     "objectID": "T1_Introduction/Introduction.slides.html#principle-2-turn-data-into-information",
     "href": "T1_Introduction/Introduction.slides.html#principle-2-turn-data-into-information",
-    "title": "What is data Visualization?",
+    "title": "What is Data Visualization?",
     "section": "Principle 2: Turn Data into Information",
     "text": "Principle 2: Turn Data into Information\nYour graph should use data to convey the message or answer the question. In other words, it should transform data into information.\n\n\nEnhance your graph with color symbols and text to convey additional information."
   },
   {
     "objectID": "T1_Introduction/Introduction.slides.html#principle-3-apply-graphic-design-principles",
     "href": "T1_Introduction/Introduction.slides.html#principle-3-apply-graphic-design-principles",
-    "title": "What is data Visualization?",
+    "title": "What is Data Visualization?",
     "section": "Principle 3: Apply Graphic Design Principles",
-    "text": "Principle 3: Apply Graphic Design Principles\n\n\n\n\n\n\nObjects are easily identifiable by color.\nUse direct labels instead of a legend.\nElements such as text, lines, and shapes of the same nature should look similar.\nBalance graphics and text.\nBe cautious with default settings in visualization software.\nUse a grid-based layout to organize your visualization.\n\n\n\n\n\n\n\n\n\n\n\n\nDon’t limit yourself to simple elements. Enhance your graph with color symbols to convey additional information. If possible, add context with markers and reference labels.\nAdditionally, include a legend in the graph that describes key features and summarizes its conclusions."
+    "text": "Principle 3: Apply Graphic Design Principles\n\n\n\n\n\n\n\nObjects are easily identifiable by color.\nUse direct labels instead of a legend.\nElements such as text, lines, and shapes of the same nature should look similar.\nBalance graphics and text.\nBe cautious with default settings in visualization software.\nUse a grid-based layout to organize your visualization.\n\n\n\n\n\n\n\n\n\n\n\n\nDon’t limit yourself to simple elements. Enhance your graph with color symbols to convey additional information. If possible, add context with markers and reference labels.\nAdditionally, include a legend in the graph that describes key features and summarizes its conclusions."
   },
   {
     "objectID": "T1_Introduction/Introduction.slides.html#example",
     "href": "T1_Introduction/Introduction.slides.html#example",
-    "title": "What is data Visualization?",
+    "title": "What is Data Visualization?",
     "section": "Example",
     "text": "Example\n\nPrinciple 1: It is cheaper to take Uber than to own a car in four of the five largest cities in the USA.\n\n\n\n\nWeekly cost (in USD) of daily commuting\n\n\nCity\nUber\nAuto\n\n\n\n\nNew York City\n142\n218\n\n\nWashington D.C.\n96\n130\n\n\nChicago\n77\n116\n\n\nLos Angeles\n62\n89\n\n\nDallas\n181\n65\n\n\n\n\n\n\n\nThe estimated costs are based on a twice-daily 10.4 mile one-way commute at peak times over the course of a week using either the UberPool option (where available) or alternatively UberX vs the cost of using a personal vehicle (including any associated costs of ownership). Study conducted in February 2017."
   },
   {
     "objectID": "T1_Introduction/Introduction.slides.html#section-4",
     "href": "T1_Introduction/Introduction.slides.html#section-4",
-    "title": "What is data Visualization?",
+    "title": "What is Data Visualization?",
     "section": "",
     "text": "Principle 2: Turn data into information."
   },
   {
     "objectID": "T1_Introduction/Introduction.slides.html#section-5",
     "href": "T1_Introduction/Introduction.slides.html#section-5",
-    "title": "What is data Visualization?",
+    "title": "What is Data Visualization?",
     "section": "",
     "text": "Principle 3: Apply Graphic Design Principles."
   },
   {
     "objectID": "T1_Introduction/Introduction.slides.html#section-6",
     "href": "T1_Introduction/Introduction.slides.html#section-6",
-    "title": "What is data Visualization?",
+    "title": "What is Data Visualization?",
     "section": "",
     "text": "“The greatest value of a picture is when it forces us to notice what we never expected to see.” John W. Tukey.\n\n\n\n\n\nhttps://www.storytellingwithdata.com/ is an excellent guide on data visualization."
+  },
+  {
+    "objectID": "T1_Introduction/Introduction.slides.html#why-storytelling-matters-in-data-visualization",
+    "href": "T1_Introduction/Introduction.slides.html#why-storytelling-matters-in-data-visualization",
+    "title": "What is Data Visualization?",
+    "section": "Why storytelling matters in data visualization",
+    "text": "Why storytelling matters in data visualization\n\nRaw data alone is not enough—insights must be communicated effectively.\nDecision-makers rely on clear, engaging, and meaningful presentations of data.\nGood storytelling connects data to real-world problems and solutions.\n\n\nFor example, a simple bar chart can be enhanced by context and narrative to explain a business trend or social issue."
+  },
+  {
+    "objectID": "T1_Introduction/Introduction.slides.html#the-three-components-of-a-data-story",
+    "href": "T1_Introduction/Introduction.slides.html#the-three-components-of-a-data-story",
+    "title": "What is Data Visualization?",
+    "section": "The Three Components of a Data Story",
+    "text": "The Three Components of a Data Story\n\nData (What?)\n\n\nThe foundation—collected, cleaned, and analyzed.\nProvides objective evidence to support claims.\n\n\nVisuals (How?)\n\n\nGraphs, charts, and maps help translate numbers into meaningful insights.\nGood design guides the audience to the key message."
+  },
+  {
+    "objectID": "T1_Introduction/Introduction.slides.html#section-7",
+    "href": "T1_Introduction/Introduction.slides.html#section-7",
+    "title": "What is Data Visualization?",
+    "section": "",
+    "text": "“The most powerful person in the world is the storyteller.” – Steve Jobs"
+  },
+  {
+    "objectID": "T1_Introduction/Introduction.slides.html#structuring-a-data-story",
+    "href": "T1_Introduction/Introduction.slides.html#structuring-a-data-story",
+    "title": "What is Data Visualization?",
+    "section": "Structuring a data story",
+    "text": "Structuring a data story\n\nIntroduction (Set the Stage) 📌\n\n\nDefine the problem or question you’re addressing.\nProvide relevant background or context.\n\n\n\nMain Findings (Show the Data) 📊\n\n\nUse effective visuals (histograms, box plots, line charts, scatter plots, etc.).\nHighlight key trends, comparisons, and relationships."
+  },
+  {
+    "objectID": "T1_Introduction/Introduction.slides.html#section-8",
+    "href": "T1_Introduction/Introduction.slides.html#section-8",
+    "title": "What is Data Visualization?",
+    "section": "",
+    "text": "Narrative (Why?)\n\n\nPuts data into context—explains the significance of findings.\nAnswers: Why does this matter? Who is affected? What should be done?"
+  },
+  {
+    "objectID": "T1_Introduction/Introduction.slides.html#for-example",
+    "href": "T1_Introduction/Introduction.slides.html#for-example",
+    "title": "What is Data Visualization?",
+    "section": "For example",
+    "text": "For example\n\nA study on food pricing inequality might start with disparities in NYC, show visualizations comparing food prices across neighborhoods, and conclude with recommendations for policymakers."
+  },
+  {
+    "objectID": "T1_Introduction/Introduction.slides.html#best-practices-for-storytelling",
+    "href": "T1_Introduction/Introduction.slides.html#best-practices-for-storytelling",
+    "title": "What is Data Visualization?",
+    "section": "Best practices for storytelling",
+    "text": "Best practices for storytelling\n\n\nKnow Your Audience – Tailor the message to decision-makers, engineers, or the public.\nKeep it Simple – Avoid unnecessary complexity; clarity is key.\nUse the Right Visuals – Choose the best chart type for your message.\nEmphasize Key Takeaways – Bold the most important insights.\nCreate a Narrative Flow – Guide the audience through the story step by step."
+  },
+  {
+    "objectID": "T1_Introduction/Introduction.slides.html#section-9",
+    "href": "T1_Introduction/Introduction.slides.html#section-9",
+    "title": "What is Data Visualization?",
+    "section": "",
+    "text": "Insights & Implications (So What?) 💡\n\n\nExplain why the findings matter.\nSuggest potential actions or decisions based on the insights.\n\n\nFor example: A study on food pricing inequality might start with disparities in NYC, show visualizations comparing food prices across neighborhoods, and conclude with recommendations for policymakers."
+  },
+  {
+    "objectID": "T1_Introduction/Introduction.slides.html#data-understanding",
+    "href": "T1_Introduction/Introduction.slides.html#data-understanding",
+    "title": "What is Data Visualization?",
+    "section": "Data understanding",
+    "text": "Data understanding\n\n\nIf the goal is to solve a business problem, the data that makes up the raw material available from which the solution will be built.\nThe available data rarely matches the problem.\nFor example, historical data is often collected for purposes unrelated to the current business problem or for no explicit purpose at all.\n\n\n\n\nOur goal is to turn data into information that answers useful questions."
+  },
+  {
+    "objectID": "T1_Introduction/Introduction.slides.html#problem-situation",
+    "href": "T1_Introduction/Introduction.slides.html#problem-situation",
+    "title": "What is Data Visualization?",
+    "section": "Problem situation",
+    "text": "Problem situation\n\nFood pricing inequality is a crucial issue affecting access to affordable and nutritious food, particularly in New York City.\nPrevious work has suggested that the price of food sold at supermarkets may vary according to the socioeconomic characteristics of a neighborhood.\nGiven the importance of food prices in securing access to food, understanding how food prices vary across neighborhoods is crucial to assessing affordability."
+  },
+  {
+    "objectID": "T1_Introduction/Introduction.slides.html#goal-of-the-problem-situation",
+    "href": "T1_Introduction/Introduction.slides.html#goal-of-the-problem-situation",
+    "title": "What is Data Visualization?",
+    "section": "Goal of the problem situation",
+    "text": "Goal of the problem situation\n\n\nThis problem situation concerns the creation of a poster that studies the disparities in the prices of food products across the neighborhoods in New York City.\n\n\n\nTo this end, you will have two datasets with data about food prices of a sample of supermarkets and statistics of the neighborhoods where they are located."
+  },
+  {
+    "objectID": "T1_Introduction/Introduction.slides.html#activity-cooperative-mode",
+    "href": "T1_Introduction/Introduction.slides.html#activity-cooperative-mode",
+    "title": "What is Data Visualization?",
+    "section": "Activity (cooperative mode)",
+    "text": "Activity (cooperative mode)\n\nGet together with a partner.\nFind a good and a bad example of a visualization (chart) online.\nSave the visualizations (for example, by taking a screenshot).\nWrite a short critique (3-4 sentences) of each visualization.\nUpload a document with your critiques and images to Canvas."
+  },
+  {
+    "objectID": "T1_Introduction/Introduction.slides.html#section-10",
+    "href": "T1_Introduction/Introduction.slides.html#section-10",
+    "title": "What is Data Visualization?",
+    "section": "",
+    "text": "https://www.amazon.com/Even-Geek-Speak-Joey-Asher/dp/0978577604"
   }
 ]
