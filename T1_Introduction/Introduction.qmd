@@ -1,6 +1,6 @@
 ---
 title: "What is Data Visualization?"
-subtitle: "IN1002B: Data Visualization for Decision Making"
+subtitle: "IN2039: Data Visualization for Decision Making"
 author: 
   - name: Alan R. Vazquez
     affiliations:
