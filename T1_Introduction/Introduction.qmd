@@ -147,7 +147,7 @@ To this end, you will have two datasets with data about food prices of a sample 
 :::
 :::::
 
-# The three principles of data science
+# The three principles of data visualization
 
 ## What is data visualization?
 
