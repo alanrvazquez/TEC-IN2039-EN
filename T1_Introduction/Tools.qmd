@@ -20,13 +20,17 @@ jupyter: python3
 
 ## Agenda
 
-1.  Introduction to python
-2.  Reading data with python
+</br>
+
+1.  Introduction to Python
+2.  Reading data with Python
 3.  Creating our first plot
 
-# Introduction to python
+# Introduction to Python
 
 ## Python
+
+</br>
 
 ::::: columns
 ::: {.column width="70%"}
@@ -46,9 +50,9 @@ jupyter: python3
 
 ## Google Colab
 
-*Google's free cloud collaboration platform for creating python documents.*
+*Google's free cloud collaboration platform for creating Python documents.*
 
--   Run python and collaborate on Jupyter notebooks for free.
+-   Run Python and collaborate on Jupyter notebooks for free.
 
 -   Harness the power of GPUs for free to accelerate your data science projects.
 
@@ -67,6 +71,15 @@ What do you think will happen if we run this command?
 print("Hello world!")
 ```
 
+. . .
+
+```{python}
+#| echo: false
+#| output: true
+
+print("Hello world!")
+```
+
 ## Let's try another command
 
 What do you think will happen if we run this command?
@@ -78,7 +91,16 @@ What do you think will happen if we run this command?
 sum([1, 5, 10])
 ```
 
-## Use python as a basic calculator
+. . .
+
+```{python}
+#| echo: false
+#| output: true
+
+sum([1, 5, 10])
+```
+
+## Use Python as a basic calculator
 
 ```{python}
 #| echo: true
@@ -110,7 +132,9 @@ sum([1, 5, 10])
 
 ## Comments
 
-Sometimes we write things in the coding window that we want python to ignore. These are called comments and start with `#`.
+</br>
+
+Sometimes we write things in the coding window that we want Python to ignore. These are called comments and start with `#`.
 
 </br>
 
@@ -128,9 +152,11 @@ Python will ignore the comments and just execute the code.
 Si desea escribir un comentario que ocupe más de una línea, es una buena idea poner un \# al principio de cada línea.
 :::
 
-## Introduction to functions in R
+## Introduction to functions in Python
 
-One of the best things about python is that there are many built-in commands you can use. These are called *functions*.
+</br>
+
+One of the cool things about Python is that there are many built-in commands you can use. These are called *functions*.
 
 . . .
 
@@ -177,11 +203,12 @@ This is accomplished by using an assignment operator, which can be an equals sym
 
 . . .
 
-You can make up any name you want for a Python object. However, there are two basic rules for this:
+You can make up any name you want for a Python object. However, there are three basic rules for this:
 
 ::: incremental
 1.  It has to be different from a function name in Python.
-2.  It has to be as specific as possible.
+2.  It has to be specific possible yet succinct.
+3.  It must not have a period (.) in it.
 :::
 
 ## For example
@@ -209,11 +236,13 @@ You can also use `print(my_favorite_number)`.
 
 ## Lists
 
-So far we have used python objects to store a single number. But in statistics we are dealing with variation, which by definition needs more than one number.
+</br>
+
+So far we have used Python objects to store a single number. But in statistics we are dealing with variation, which by definition needs more than one number.
 
 . . .
 
-A python object can also store a complete set of numbers, called a *list*.
+A Python object can also store a complete set of numbers, called a ***list***.
 
 You can think of a list as a vector of numbers (or values).
 
@@ -229,7 +258,7 @@ puedes pensar que el c es por combinar
 
 </br>
 
-This code creates two vectors
+This code creates two lists or vectors:
 
 ```{python}
 #| echo: true
@@ -238,7 +267,9 @@ my_list = [1, 2, 3, 4, 5]
 my_list_2 = [10, 10, 10, 10, 10]
 ```
 
-Let's see its content
+. . .
+
+Let's see their content:
 
 ```{python}
 #| echo: true
@@ -285,15 +316,15 @@ my_list[1]
 my_list[0]
 ```
 
-## A little more about objects in python
+## A little more about Python objects
 
 </br>
 
-You can think of python objects as containers that hold values.
+You can think of Python objects as containers that hold values.
 
-A python object can hold a single value, or it can hold a group of values (as in a vector).
+A Python object can hold a single value, or it can hold a group of values (as in a vector).
 
-So far, we've only put numbers into python objects.
+So far, we've only put numbers into Python objects.
 
 . . .
 
@@ -302,6 +333,8 @@ So far, we've only put numbers into python objects.
 ***Python objects can actually contain three types of values: numbers, characters, and booleans.***
 
 ## Character values
+
+</br>
 
 Characters are made up of text, such as words or sentences. An example of a list with characters as elements is:
 
@@ -330,7 +363,7 @@ We may have a question like:
 
 . . .
 
-We can ask python to find out and return the answer `True` or `False`.
+We can ask Python to find out and return the answer `True` or `False`.
 
 ```{python}
 #| echo: true
@@ -342,7 +375,7 @@ many_greetings[1] == "hola"
 
 </br>
 
-Most of the questions we ask python to answer with `True` or `False` involve comparison operators like `>`, `<`, `>=`, `<=`, and `==`.
+Most of the questions we ask Python to answer with `True` or `False` involve comparison operators like `>`, `<`, `>=`, `<=`, and `==`.
 
 The double `==` sign checks whether two values are equal. There is even a comparison operator to check whether values are *not* equal: `!=`.
 
@@ -394,15 +427,15 @@ We often have to find these mistakes through trial and error.
 
 </br>
 
-Libraries are the fundamental units of reproducible python code. They include reusable python functions, documentation describing how to use them, and sample data.
+Libraries are the fundamental units of reproducible Python code. They include reusable Python functions, documentation describing how to use them, and sample data.
 
 In this course, we will be working mostly with the following libraries:
 
--   `pandas` for data manipulation
--   `matplotlib` and `seaborn` for data visualization
--   `statsmodels` and `scikit-learn` for data modelling
+-   `pandas` for data manipulation.
+-   `matplotlib` and `seaborn` for data visualization.
+-   `statsmodels` for data modelling.
 
-# Reading data with python
+# Reading data with Python
 
 ## Data organization
 
@@ -508,7 +541,13 @@ The dataset `penguins.xlsx` contains data from penguins living in three islands.
 
 ![](images/penguins_bill.png){fig-align="center"}
 
+## Alan Vazquez with a gentoo penguin
+
+![](images/alan_pingu.jpg){fig-align="center"}
+
 ## pandas library
+
+</br>
 
 ::::: columns
 ::: {.column width="30%"}
@@ -517,7 +556,7 @@ The dataset `penguins.xlsx` contains data from penguins living in three islands.
 
 ::: {.column width="70%"}
 -   **pandas** is an open-source Python library for data manipulation and analysis.
--   It is built on top of **numpy** for high-performance data operations..
+-   It is built on top of **numpy** for high-performance data operations.
 -   It allows the user to import, clean, transform, and analyze data efficiently
 -   <https://pandas.pydata.org/>
 :::
@@ -545,7 +584,7 @@ The command `as pd` allows us to have a short name for **pandas**. To use a func
 
 </br>
 
-The following code shows how to read the data in the file "penguins.xlsx" into python.
+The following code shows how to read the data in the file "penguins.xlsx" into Python.
 
 ```{python}
 #| echo: true
@@ -600,13 +639,15 @@ rows_penguins_data
 
 ## 
 
+</br>
+
 ```{python}
 #| echo: true
 
 rows_penguins_data
 ```
 
-Note that the index 2 and 5 refer to observations 3 and 7, respectively, in the dataset. This is because the first index in python is 0.
+Note that the index 2 and 5 refer to observations 3 and 7, respectively, in the dataset. This is because the first index in Python is 0.
 
 ## Indexing rows and columns
 
@@ -656,7 +697,7 @@ import seaborn as sns
 
 Like **pandas**, the command `as sns` allows us to have a short name for **seaborn**. Similarly, we rename **matplotlib** as **plt**.
 
-## Seaborn Plot Structure
+## Seaborn plot structure
 
 Seaborn has a structured approach to creating visualizations:
 
@@ -674,13 +715,13 @@ Seaborn has a structured approach to creating visualizations:
 
 plt.show()
 
-## Ejemplo
+## Example: Principle 1
 
 Is there a difference between bill length and bill depth across penguin species?
 
 ![](images/penguins_bill.png){fig-align="center"}
 
-## Ejemplo
+## Example: Principle 1
 
 Is there a difference between bill length and bill depth across penguin species?
 
@@ -699,7 +740,7 @@ sns.scatterplot(data=penguins_data, x="bill_depth_mm", y="bill_length_mm",
 plt.show() # Display the plot.
 ```
 
-## Adding titles and labels
+## Principle 2: Adding titles and labels
 
 ```{python}
 #| echo: true
@@ -752,7 +793,7 @@ We can also use the argument `fontsize` and other functions to improve the aspec
 -   `plt.yticks(fontsize)`: Font size of the y axis labels.
 -   `plt.xticks(fontsize)`: Font size of the x axis labels.
 
-## 
+## Applying Principle 3
 
 ```{python}
 #| echo: true
@@ -760,7 +801,7 @@ We can also use the argument `fontsize` and other functions to improve the aspec
 #| fig-align: center
 #| code-fold: true
 
-plt.figure(figsize=(8, 6))
+plt.figure(figsize=(7, 5))
 sns.scatterplot(data=penguins_data, x="bill_depth_mm", y="bill_length_mm", 
                 hue="species", palette="viridis")
 plt.title("Bill Depth vs. Bill Length", fontsize = 12)
@@ -798,7 +839,7 @@ plt.savefig('scatter_plot.png',dpi=300) # Save figure.
 
 1.  Open the following Google Colab link:
 
-    <https://colab.research.google.com/drive/1c-sy5yQY1DwgaZAI6YnDLMTEYMpLCWyX?usp=sharing>
+    <https://colab.research.google.com/drive/1xLoaOMharQmmasNApjm38jZcw-gtcxvm?usp=sharing>
 
 2.  Copy the notebook to your drive.
 
