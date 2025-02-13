@@ -273,11 +273,11 @@
     "text": "Comments\n\nSometimes we write things in the coding window that we want Python to ignore. These are called comments and start with #.\n\nPython will ignore the comments and just execute the code.\n\n# you can put whatever after #\n# for example... blah blah blah\n\n\nSi desea escribir un comentario que ocupe más de una línea, es una buena idea poner un # al principio de cada línea."
   },
   {
-    "objectID": "T1_Introduction/Tools.slides.html#introduction-to-functions-in-r",
-    "href": "T1_Introduction/Tools.slides.html#introduction-to-functions-in-r",
+    "objectID": "T1_Introduction/Tools.slides.html#introduction-to-functions-in-python",
+    "href": "T1_Introduction/Tools.slides.html#introduction-to-functions-in-python",
     "title": "Tools for Data Analysis and Visualization",
-    "section": "Introduction to functions in R",
-    "text": "Introduction to functions in R\nOne of the best things about python is that there are many built-in commands you can use. These are called functions.\n\nFunctions have two basic parts:\n\n\nThe first part is the name of the function (for example, sum).\nThe second part is the input to the function, which goes inside the parentheses (sum([1, 5, 15]))."
+    "section": "Introduction to functions in Python",
+    "text": "Introduction to functions in Python\n\nOne of the cool things about Python is that there are many built-in commands you can use. These are called functions.\n\nFunctions have two basic parts:\n\n\nThe first part is the name of the function (for example, sum).\nThe second part is the input to the function, which goes inside the parentheses (sum([1, 5, 15]))."
   },
   {
     "objectID": "T1_Introduction/Tools.slides.html#python-is-strict",
@@ -329,11 +329,11 @@
     "text": "Indexing\n\nWe can index a position in the vector using square brackets with a number like this: [1].\nSo, if we wanted to print the contents of the first position in my_list, we could write\n\nmy_list[1]\n\n2\n\n\nAn feature of Python is that the first element of a list or vector is indexed using the number 0.\n\nmy_list[0]\n\n1"
   },
   {
-    "objectID": "T1_Introduction/Tools.slides.html#a-little-more-about-objects-in-python",
-    "href": "T1_Introduction/Tools.slides.html#a-little-more-about-objects-in-python",
+    "objectID": "T1_Introduction/Tools.slides.html#a-little-more-about-python-objects",
+    "href": "T1_Introduction/Tools.slides.html#a-little-more-about-python-objects",
     "title": "Tools for Data Analysis and Visualization",
-    "section": "A little more about objects in python",
-    "text": "A little more about objects in python\n\nYou can think of python objects as containers that hold values.\nA python object can hold a single value, or it can hold a group of values (as in a vector).\nSo far, we’ve only put numbers into python objects.\n\n\nPython objects can actually contain three types of values: numbers, characters, and booleans."
+    "section": "A little more about Python objects",
+    "text": "A little more about Python objects\n\nYou can think of Python objects as containers that hold values.\nA Python object can hold a single value, or it can hold a group of values (as in a vector).\nSo far, we’ve only put numbers into Python objects.\n\n\nPython objects can actually contain three types of values: numbers, characters, and booleans."
   },
   {
     "objectID": "T1_Introduction/Tools.slides.html#character-values",
@@ -418,6 +418,13 @@
     "title": "Tools for Data Analysis and Visualization",
     "section": "",
     "text": "The dataset penguins.xlsx contains data from penguins living in three islands."
+  },
+  {
+    "objectID": "T1_Introduction/Tools.slides.html#alan-vazquez-with-a-gentoo-penguin",
+    "href": "T1_Introduction/Tools.slides.html#alan-vazquez-with-a-gentoo-penguin",
+    "title": "Tools for Data Analysis and Visualization",
+    "section": "Alan Vazquez with a gentoo penguin",
+    "text": "Alan Vazquez with a gentoo penguin"
   },
   {
     "objectID": "T1_Introduction/Tools.slides.html#pandas-library",
@@ -511,25 +518,25 @@
     "text": "Seaborn plot structure\nSeaborn has a structured approach to creating visualizations:\nplt.figure(figsize=(WIDTH, HEIGHT))\nsns.PLOTTYPE(data=my_data, x=“Variable1”, y=“Variable2”, hue=“Variable3”, MOREOPTIONS)\nplt.title(“Title”)\nplt.xlabel(“X-axis label”)\nplt.ylabel(“Y-axis label”)\nplt.MOREOPTIONS()\nplt.show()"
   },
   {
-    "objectID": "T1_Introduction/Tools.slides.html#ejemplo",
-    "href": "T1_Introduction/Tools.slides.html#ejemplo",
+    "objectID": "T1_Introduction/Tools.slides.html#example-principle-1",
+    "href": "T1_Introduction/Tools.slides.html#example-principle-1",
     "title": "Tools for Data Analysis and Visualization",
-    "section": "Ejemplo",
-    "text": "Ejemplo\nIs there a difference between bill length and bill depth across penguin species?\n\nplt.figure(figsize=(6, 4)) # Set figure size.\nsns.scatterplot(data=penguins_data, x=\"bill_depth_mm\", y=\"bill_length_mm\", \n                hue=\"species\") # Define type of plot.\nplt.show() # Display the plot."
+    "section": "Example: Principle 1",
+    "text": "Example: Principle 1\nIs there a difference between bill length and bill depth across penguin species?"
   },
   {
-    "objectID": "T1_Introduction/Tools.slides.html#ejemplo-1",
-    "href": "T1_Introduction/Tools.slides.html#ejemplo-1",
+    "objectID": "T1_Introduction/Tools.slides.html#example-principle-1-1",
+    "href": "T1_Introduction/Tools.slides.html#example-principle-1-1",
     "title": "Tools for Data Analysis and Visualization",
-    "section": "Ejemplo",
-    "text": "Ejemplo\nIs there a difference between bill length and bill depth across penguin species?\n\nplt.figure(figsize=(6, 4)) # Set figure size.\nsns.scatterplot(data=penguins_data, x=\"bill_depth_mm\", y=\"bill_length_mm\", \n                hue=\"species\") # Define type of plot.\nplt.show() # Display the plot."
+    "section": "Example: Principle 1",
+    "text": "Example: Principle 1\nIs there a difference between bill length and bill depth across penguin species?\n\nplt.figure(figsize=(6, 4)) # Set figure size.\nsns.scatterplot(data=penguins_data, x=\"bill_depth_mm\", y=\"bill_length_mm\", \n                hue=\"species\") # Define type of plot.\nplt.show() # Display the plot."
   },
   {
-    "objectID": "T1_Introduction/Tools.slides.html#adding-titles-and-labels",
-    "href": "T1_Introduction/Tools.slides.html#adding-titles-and-labels",
+    "objectID": "T1_Introduction/Tools.slides.html#principle-2-adding-titles-and-labels",
+    "href": "T1_Introduction/Tools.slides.html#principle-2-adding-titles-and-labels",
     "title": "Tools for Data Analysis and Visualization",
-    "section": "Adding titles and labels",
-    "text": "Adding titles and labels\n\nplt.figure(figsize=(6, 4))\nsns.scatterplot(data=penguins_data, x=\"bill_depth_mm\", y=\"bill_length_mm\", \n                hue=\"species\")\nplt.title(\"Bill Depth vs. Bill Length\")\nplt.xlabel(\"Bill Depth (mm)\")\nplt.ylabel(\"Bill Length (mm)\")\nplt.legend(title=\"Species\")\nplt.show()"
+    "section": "Principle 2: Adding titles and labels",
+    "text": "Principle 2: Adding titles and labels\n\nplt.figure(figsize=(6, 4))\nsns.scatterplot(data=penguins_data, x=\"bill_depth_mm\", y=\"bill_length_mm\", \n                hue=\"species\")\nplt.title(\"Bill Depth vs. Bill Length\")\nplt.xlabel(\"Bill Depth (mm)\")\nplt.ylabel(\"Bill Length (mm)\")\nplt.legend(title=\"Species\")\nplt.show()"
   },
   {
     "objectID": "T1_Introduction/Tools.slides.html#changing-theme",
@@ -546,11 +553,11 @@
     "text": "More options\n\nWe can also use the argument fontsize and other functions to improve the aspect of the figure:\n\nplt.title(fontsize): Font size of the title.\nplt.ylabel(fontsize): Font size of y axis title.\nplt.xlabel(fontsize): Font size of x axis title.\nplt.yticks(fontsize): Font size of the y axis labels.\nplt.xticks(fontsize): Font size of the x axis labels."
   },
   {
-    "objectID": "T1_Introduction/Tools.slides.html#section-5",
-    "href": "T1_Introduction/Tools.slides.html#section-5",
+    "objectID": "T1_Introduction/Tools.slides.html#applying-principle-3",
+    "href": "T1_Introduction/Tools.slides.html#applying-principle-3",
     "title": "Tools for Data Analysis and Visualization",
-    "section": "",
-    "text": "Code\nplt.figure(figsize=(8, 6))\nsns.scatterplot(data=penguins_data, x=\"bill_depth_mm\", y=\"bill_length_mm\", \n                hue=\"species\", palette=\"viridis\")\nplt.title(\"Bill Depth vs. Bill Length\", fontsize = 12)\nplt.xlabel(\"Bill Depth (mm)\", fontsize = 12)\nplt.ylabel(\"Bill Length (mm)\", fontsize = 12)\nplt.legend(title=\"Species\", fontsize = 12)\nplt.xticks(fontsize = 12)\nplt.yticks(fontsize = 12)\nplt.show()"
+    "section": "Applying Principle 3",
+    "text": "Applying Principle 3\n\n\nCode\nplt.figure(figsize=(7, 5))\nsns.scatterplot(data=penguins_data, x=\"bill_depth_mm\", y=\"bill_length_mm\", \n                hue=\"species\", palette=\"viridis\")\nplt.title(\"Bill Depth vs. Bill Length\", fontsize = 12)\nplt.xlabel(\"Bill Depth (mm)\", fontsize = 12)\nplt.ylabel(\"Bill Length (mm)\", fontsize = 12)\nplt.legend(title=\"Species\", fontsize = 12)\nplt.xticks(fontsize = 12)\nplt.yticks(fontsize = 12)\nplt.show()"
   },
   {
     "objectID": "T1_Introduction/Tools.slides.html#saving-plots",
@@ -2021,68 +2028,5 @@
     "title": "What is Data Visualization?",
     "section": "",
     "text": "https://www.amazon.com/Even-Geek-Speak-Joey-Asher/dp/0978577604"
-  },
-  {
-    "objectID": "T1_Introduction/Tools.slides.html#introduction-to-functions-in-python",
-    "href": "T1_Introduction/Tools.slides.html#introduction-to-functions-in-python",
-    "title": "Tools for Data Analysis and Visualization",
-    "section": "Introduction to functions in Python",
-    "text": "Introduction to functions in Python\n\nOne of the cool things about Python is that there are many built-in commands you can use. These are called functions.\n\nFunctions have two basic parts:\n\n\nThe first part is the name of the function (for example, sum).\nThe second part is the input to the function, which goes inside the parentheses (sum([1, 5, 15]))."
-  },
-  {
-    "objectID": "T1_Introduction/Tools.slides.html#a-little-more-about-python-objects",
-    "href": "T1_Introduction/Tools.slides.html#a-little-more-about-python-objects",
-    "title": "Tools for Data Analysis and Visualization",
-    "section": "A little more about Python objects",
-    "text": "A little more about Python objects\n\nYou can think of Python objects as containers that hold values.\nA Python object can hold a single value, or it can hold a group of values (as in a vector).\nSo far, we’ve only put numbers into Python objects.\n\n\nPython objects can actually contain three types of values: numbers, characters, and booleans."
-  },
-  {
-    "objectID": "T1_Introduction/Tools.slides.html#alan-vazquez-with-a-gentoo-penguin",
-    "href": "T1_Introduction/Tools.slides.html#alan-vazquez-with-a-gentoo-penguin",
-    "title": "Tools for Data Analysis and Visualization",
-    "section": "Alan Vazquez with a gentoo penguin",
-    "text": "Alan Vazquez with a gentoo penguin"
-  },
-  {
-    "objectID": "T1_Introduction/Tools.slides.html#example",
-    "href": "T1_Introduction/Tools.slides.html#example",
-    "title": "Tools for Data Analysis and Visualization",
-    "section": "Example",
-    "text": "Example\nIs there a difference between bill length and bill depth across penguin species?"
-  },
-  {
-    "objectID": "T1_Introduction/Tools.slides.html#example-principle-1",
-    "href": "T1_Introduction/Tools.slides.html#example-principle-1",
-    "title": "Tools for Data Analysis and Visualization",
-    "section": "Example: Principle 1",
-    "text": "Example: Principle 1\nIs there a difference between bill length and bill depth across penguin species?"
-  },
-  {
-    "objectID": "T1_Introduction/Tools.slides.html#example-principle-1-1",
-    "href": "T1_Introduction/Tools.slides.html#example-principle-1-1",
-    "title": "Tools for Data Analysis and Visualization",
-    "section": "Example: Principle 1",
-    "text": "Example: Principle 1\nIs there a difference between bill length and bill depth across penguin species?\n\nplt.figure(figsize=(6, 4)) # Set figure size.\nsns.scatterplot(data=penguins_data, x=\"bill_depth_mm\", y=\"bill_length_mm\", \n                hue=\"species\") # Define type of plot.\nplt.show() # Display the plot."
-  },
-  {
-    "objectID": "T1_Introduction/Tools.slides.html#principle-2-adding-titles-and-labels",
-    "href": "T1_Introduction/Tools.slides.html#principle-2-adding-titles-and-labels",
-    "title": "Tools for Data Analysis and Visualization",
-    "section": "Principle 2: Adding titles and labels",
-    "text": "Principle 2: Adding titles and labels\n\nplt.figure(figsize=(6, 4))\nsns.scatterplot(data=penguins_data, x=\"bill_depth_mm\", y=\"bill_length_mm\", \n                hue=\"species\")\nplt.title(\"Bill Depth vs. Bill Length\")\nplt.xlabel(\"Bill Depth (mm)\")\nplt.ylabel(\"Bill Length (mm)\")\nplt.legend(title=\"Species\")\nplt.show()"
-  },
-  {
-    "objectID": "T1_Introduction/Tools.slides.html#principle-3-changing-theme",
-    "href": "T1_Introduction/Tools.slides.html#principle-3-changing-theme",
-    "title": "Tools for Data Analysis and Visualization",
-    "section": "Principle 3: Changing theme",
-    "text": "Principle 3: Changing theme\n\nplt.figure(figsize=(6, 4))\nsns.scatterplot(data=penguins_data, x=\"bill_depth_mm\", y=\"bill_length_mm\", \n                hue=\"species\", palette=\"viridis\")\nplt.title(\"Bill Depth vs. Bill Length\")\nplt.xlabel(\"Bill Depth (mm)\")\nplt.ylabel(\"Bill Length (mm)\")\nplt.legend(title=\"Species\")\nplt.show()"
-  },
-  {
-    "objectID": "T1_Introduction/Tools.slides.html#applying-principle-3",
-    "href": "T1_Introduction/Tools.slides.html#applying-principle-3",
-    "title": "Tools for Data Analysis and Visualization",
-    "section": "Applying Principle 3",
-    "text": "Applying Principle 3\n\n\nCode\nplt.figure(figsize=(7, 5))\nsns.scatterplot(data=penguins_data, x=\"bill_depth_mm\", y=\"bill_length_mm\", \n                hue=\"species\", palette=\"viridis\")\nplt.title(\"Bill Depth vs. Bill Length\", fontsize = 12)\nplt.xlabel(\"Bill Depth (mm)\", fontsize = 12)\nplt.ylabel(\"Bill Length (mm)\", fontsize = 12)\nplt.legend(title=\"Species\", fontsize = 12)\nplt.xticks(fontsize = 12)\nplt.yticks(fontsize = 12)\nplt.show()"
   }
 ]
