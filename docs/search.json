@@ -245,11 +245,11 @@
     "text": "Google Colab\nGoogle’s free cloud collaboration platform for creating Python documents.\n\nRun Python and collaborate on Jupyter notebooks for free.\nHarness the power of GPUs for free to accelerate your data science projects.\nEasily save and upload your notebooks to Google Drive."
   },
   {
-    "objectID": "T1_Introduction/Tools.slides.html#lets-try-a-command-in-r",
-    "href": "T1_Introduction/Tools.slides.html#lets-try-a-command-in-r",
+    "objectID": "T1_Introduction/Tools.slides.html#lets-try-a-command-in-python",
+    "href": "T1_Introduction/Tools.slides.html#lets-try-a-command-in-python",
     "title": "Tools for Data Analysis and Visualization",
-    "section": "Let’s try a command in R",
-    "text": "Let’s try a command in R\nWhat do you think will happen if we run this command?\n\nprint(\"Hello world!\")\n\n\n\n\nHello world!"
+    "section": "Let’s try a command in Python",
+    "text": "Let’s try a command in Python\nWhat do you think will happen if we run this command?\n\nprint(\"Hello world!\")\n\n\n\n\nHello world!"
   },
   {
     "objectID": "T1_Introduction/Tools.slides.html#lets-try-another-command",
@@ -525,11 +525,11 @@
     "text": "Example: Principle 1\nIs there a difference between bill length and bill depth across penguin species?"
   },
   {
-    "objectID": "T1_Introduction/Tools.slides.html#example-principle-1-1",
-    "href": "T1_Introduction/Tools.slides.html#example-principle-1-1",
+    "objectID": "T1_Introduction/Tools.slides.html#apply-principle-2",
+    "href": "T1_Introduction/Tools.slides.html#apply-principle-2",
     "title": "Tools for Data Analysis and Visualization",
-    "section": "Example: Principle 1",
-    "text": "Example: Principle 1\nIs there a difference between bill length and bill depth across penguin species?\n\nplt.figure(figsize=(6, 4)) # Set figure size.\nsns.scatterplot(data=penguins_data, x=\"bill_depth_mm\", y=\"bill_length_mm\", \n                hue=\"species\") # Define type of plot.\nplt.show() # Display the plot."
+    "section": "Apply Principle 2",
+    "text": "Apply Principle 2\nIs there a difference between bill length and bill depth across penguin species?\n\nplt.figure(figsize=(6, 4)) # Set figure size.\nsns.scatterplot(data=penguins_data, x=\"bill_depth_mm\", y=\"bill_length_mm\", \n                hue=\"species\") # Define type of plot.\nplt.show() # Display the plot."
   },
   {
     "objectID": "T1_Introduction/Tools.slides.html#principle-2-adding-titles-and-labels",
@@ -2028,19 +2028,5 @@
     "title": "What is Data Visualization?",
     "section": "",
     "text": "https://www.amazon.com/Even-Geek-Speak-Joey-Asher/dp/0978577604"
-  },
-  {
-    "objectID": "T1_Introduction/Tools.slides.html#lets-try-a-command-in-python",
-    "href": "T1_Introduction/Tools.slides.html#lets-try-a-command-in-python",
-    "title": "Tools for Data Analysis and Visualization",
-    "section": "Let’s try a command in Python",
-    "text": "Let’s try a command in Python\nWhat do you think will happen if we run this command?\n\nprint(\"Hello world!\")\n\n\n\n\nHello world!"
-  },
-  {
-    "objectID": "T1_Introduction/Tools.slides.html#apply-principle-2",
-    "href": "T1_Introduction/Tools.slides.html#apply-principle-2",
-    "title": "Tools for Data Analysis and Visualization",
-    "section": "Apply Principle 2",
-    "text": "Apply Principle 2\nIs there a difference between bill length and bill depth across penguin species?\n\nplt.figure(figsize=(6, 4)) # Set figure size.\nsns.scatterplot(data=penguins_data, x=\"bill_depth_mm\", y=\"bill_length_mm\", \n                hue=\"species\") # Define type of plot.\nplt.show() # Display the plot."
   }
 ]
