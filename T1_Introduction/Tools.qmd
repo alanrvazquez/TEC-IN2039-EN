@@ -60,7 +60,7 @@ jupyter: python3
 
 ![](images/Google_Colaboratory_SVG_Logo.svg.png){fig-align="right" width="2560"}
 
-## Let's try a command in R
+## Let's try a command in Python
 
 What do you think will happen if we run this command?
 
@@ -721,7 +721,7 @@ Is there a difference between bill length and bill depth across penguin species?
 
 ![](images/penguins_bill.png){fig-align="center"}
 
-## Example: Principle 1
+## Apply Principle 2
 
 Is there a difference between bill length and bill depth across penguin species?
 

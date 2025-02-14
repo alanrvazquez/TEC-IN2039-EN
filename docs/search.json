@@ -2028,5 +2028,19 @@
     "title": "What is Data Visualization?",
     "section": "",
     "text": "https://www.amazon.com/Even-Geek-Speak-Joey-Asher/dp/0978577604"
+  },
+  {
+    "objectID": "T1_Introduction/Tools.slides.html#lets-try-a-command-in-python",
+    "href": "T1_Introduction/Tools.slides.html#lets-try-a-command-in-python",
+    "title": "Tools for Data Analysis and Visualization",
+    "section": "Let’s try a command in Python",
+    "text": "Let’s try a command in Python\nWhat do you think will happen if we run this command?\n\nprint(\"Hello world!\")\n\n\n\n\nHello world!"
+  },
+  {
+    "objectID": "T1_Introduction/Tools.slides.html#apply-principle-2",
+    "href": "T1_Introduction/Tools.slides.html#apply-principle-2",
+    "title": "Tools for Data Analysis and Visualization",
+    "section": "Apply Principle 2",
+    "text": "Apply Principle 2\nIs there a difference between bill length and bill depth across penguin species?\n\nplt.figure(figsize=(6, 4)) # Set figure size.\nsns.scatterplot(data=penguins_data, x=\"bill_depth_mm\", y=\"bill_length_mm\", \n                hue=\"species\") # Define type of plot.\nplt.show() # Display the plot."
   }
 ]
