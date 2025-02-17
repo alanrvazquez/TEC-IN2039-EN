@@ -494,7 +494,7 @@ mean_penguins_data
 ![](images/python_book.jpg){fig-align="center"}
 
 ::: {style="font-size: 50%;"}
-[https://www.amazon.com.mx/Python-Data-Analysis-English-McKinney-ebook/dp/B0B9HY3WX7](https://www.amazon.com.mx/Python-Data-Analysis-English-McKinney-ebook/dp/B0B9HY3WX7)
+[https://wesmckinney.com/book/](https://wesmckinney.com/book/)
 :::
 
 ## Final remarks
