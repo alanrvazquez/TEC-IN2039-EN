@@ -39,7 +39,7 @@
     "href": "T3_Categorical_Data/Categorical.slides.html#defining-categorical-variables-in-python",
     "title": "Categorical Variables",
     "section": "Defining categorical variables in Python",
-    "text": "Defining categorical variables in Python\nTo ensure Python correctly recognizes these variables as categorical, we use the astype() function:\n\n\n# Convert categorical variables to 'category' type\npenguins_data[['species', 'island', 'sex']] = (penguins_data\n  .filter(['species', 'island', 'sex'], axis = 1)\n  .astype('category')\n)  \n\n\nNote that we have just replaced the penguins_data object with its new version."
+    "text": "Defining categorical variables in Python\nTo ensure Python correctly recognizes these variables as categorical, we use the .astype() function:\n\n\n# Convert categorical variables to 'category' type\npenguins_data[['species', 'island', 'sex']] = (penguins_data\n  .filter(['species', 'island', 'sex'], axis = 1)\n  .astype('category')\n)  \n\n\nNote that we have just replaced the penguins_data object with its new version."
   },
   {
     "objectID": "T3_Categorical_Data/Categorical.slides.html#section-1",

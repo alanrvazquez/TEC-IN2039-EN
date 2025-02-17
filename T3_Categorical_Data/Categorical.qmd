@@ -94,7 +94,7 @@ By default, **pandas** interprets these variables as `object` types because they
 
 ## Defining categorical variables in Python
 
-To ensure Python correctly recognizes these variables as categorical, we use the `astype()` function:
+To ensure Python correctly recognizes these variables as categorical, we use the `.astype()` function:
 
 </br>
 
