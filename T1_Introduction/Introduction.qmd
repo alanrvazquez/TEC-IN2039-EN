@@ -513,7 +513,7 @@ For example: A study on food pricing inequality might start with disparities in 
 ![](images/geek.jpg){fig-align="center"}
 
 ::: {style="font-size: 50%;"}
-https://www.amazon.com/Even-Geek-Speak-Joey-Asher/dp/0978577604
+[https://www.amazon.com/Even-Geek-Speak-Joey-Asher/dp/0978577604](https://www.amazon.com/Even-Geek-Speak-Joey-Asher/dp/0978577604)
 :::
 
 # [Return to main page](https://alanrvazquez.github.io/TEC-IN2039-EN/)
