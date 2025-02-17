@@ -1152,7 +1152,7 @@
     "href": "T2_Type_of_Variables/Types.slides.html#agenda",
     "title": "Types of Variables",
     "section": "Agenda",
-    "text": "Agenda\n\nWhat type is my data?\nData manipulation with pandas"
+    "text": "Agenda\n\n\nWhat type is my data?\nData manipulation with pandas"
   },
   {
     "objectID": "T2_Type_of_Variables/Types.slides.html#types-of-variables",
@@ -1166,7 +1166,7 @@
     "href": "T2_Type_of_Variables/Types.slides.html#numerical-variables",
     "title": "Types of Variables",
     "section": "Numerical variables",
-    "text": "Numerical variables\nThese take values that represent numerical measurements or quantities.\n\n\nHeight (in centimeters).\nWeight (in kilograms).\nAge (in years).\nPrice (in dollars).\nTime (in hours or seconds).\nExam score (number of points on a 100-point scale)."
+    "text": "Numerical variables\n\nThese take values that represent numerical measurements or quantities.\n\n\nHeight (in centimeters).\nWeight (in kilograms).\nAge (in years).\nPrice (in dollars).\nTime (in hours or seconds).\nExam score (number of points on a 100-point scale)."
   },
   {
     "objectID": "T2_Type_of_Variables/Types.slides.html#types-of-numerical-variables",
@@ -1187,14 +1187,14 @@
     "href": "T2_Type_of_Variables/Types.slides.html#categorical-variables",
     "title": "Types of Variables",
     "section": "Categorical variables",
-    "text": "Categorical variables\nThese take values that fall into categories.\n\n\nA category is a class or division of people or things that share particular characteristics.\n\n\n\n\n\n\n\n\n\n\nVariable\nCategories\n\n\nAmazon review\n1\\(\\bigstar\\), 2\\(\\bigstar\\), 3\\(\\bigstar\\), 4\\(\\bigstar\\), 5\\(\\bigstar\\)\n\n\nCountry of origin\nMéxico, Canadá, EUA\n\n\nPostal code\n72703, 90034, 3000, …"
+    "text": "Categorical variables\n\nThese take values that fall into categories.\n\n\nA category is a class or division of people or things that share particular characteristics.\n\n\n\n\n\n\n\n\n\n\nVariable\nCategories\n\n\nAmazon review\n1\\(\\bigstar\\), 2\\(\\bigstar\\), 3\\(\\bigstar\\), 4\\(\\bigstar\\), 5\\(\\bigstar\\)\n\n\nCountry of origin\nMéxico, Canadá, EUA\n\n\nPostal code\n72703, 90034, 3000, …"
   },
   {
     "objectID": "T2_Type_of_Variables/Types.slides.html#classification-of-categorical-variables",
     "href": "T2_Type_of_Variables/Types.slides.html#classification-of-categorical-variables",
     "title": "Types of Variables",
-    "section": "Classification of Categorical Variables",
-    "text": "Classification of Categorical Variables\n\n\nCategorical variables are divided into two important types:\n\nNominal\nOrdinal\n\n\nThe distinction depends on whether the categories have a meaningful order or not."
+    "section": "Classification of categorical variables",
+    "text": "Classification of categorical variables\n\n\nCategorical variables are divided into two important types:\n\nNominal\nOrdinal\n\n\nThe distinction depends on whether the categories have a meaningful order or not."
   },
   {
     "objectID": "T2_Type_of_Variables/Types.slides.html#nominal-categorical-variables",
@@ -1228,8 +1228,8 @@
     "objectID": "T2_Type_of_Variables/Types.slides.html#a-general-difference-is",
     "href": "T2_Type_of_Variables/Types.slides.html#a-general-difference-is",
     "title": "Types of Variables",
-    "section": "A General Difference Is …",
-    "text": "A General Difference Is …\n\n\nQuantitative variables (discrete or continuous) are those where addition or subtraction makes sense.\nCategorical variables (nominal or ordinal) are those where addition or subtraction does NOT make sense."
+    "section": "A general difference is …",
+    "text": "A general difference is …\n\n\nQuantitative variables (discrete or continuous) are those where addition or subtraction makes sense.\nCategorical variables (nominal or ordinal) are those where addition or subtraction does NOT make sense."
   },
   {
     "objectID": "T2_Type_of_Variables/Types.slides.html#how-do-we-check-the-type-of-variable",
@@ -1250,7 +1250,7 @@
     "href": "T2_Type_of_Variables/Types.slides.html#general-python-formats",
     "title": "Types of Variables",
     "section": "General Python formats",
-    "text": "General Python formats\n\n\nfloat64 format for numerical variables with decimals.\nint64 format for numerical variables with integers.\nobject format for general variables with characters."
+    "text": "General Python formats\n\n\nfloat64 format for numerical variables with decimals. It is used for continuous variables.\nint64 format for numerical variables with integers. It is used for discrete variables.\nobject format for general variables with characters. It is used for nominal and ordinal variables. However, we must inform Python about this. More on that later."
   },
   {
     "objectID": "T2_Type_of_Variables/Types.slides.html#activity-solo-mode",
@@ -1271,7 +1271,7 @@
     "href": "T2_Type_of_Variables/Types.slides.html#key-pandas-methods",
     "title": "Types of Variables",
     "section": "Key pandas methods",
-    "text": "Key pandas methods\npandas provides methods or functions to solve common data manipulation tasks:\n\n\n.filter() select specific columns or rows.\n.query() filters observations based on conditions.\n.assign() adds new variables that are functions of existing variables.\n.sort_values() changes the order of rows.\n.agg() reduces multiple values to a single numerical summary."
+    "text": "Key pandas methods\npandas provides methods or functions to solve common data manipulation tasks:\n\n\n.filter() selects specific columns or rows.\n.query() filters observations based on conditions.\n.assign() adds new variables that are functions of existing variables.\n.sort_values() changes the order of rows.\n.agg() reduces multiple values to a single numerical summary."
   },
   {
     "objectID": "T2_Type_of_Variables/Types.slides.html#section-2",
@@ -1313,7 +1313,7 @@
     "href": "T2_Type_of_Variables/Types.slides.html#filtering-rows-with-.query",
     "title": "Types of Variables",
     "section": "Filtering rows with .query()",
-    "text": "Filtering rows with .query()\nAn alternative way of selecting rows is .query(). Compared to .filter(), .query() allows us to filter the data using statements or queries involving the variables.\n\nFor example, let’s filter the data for the species “Gentoo.”\n\n(penguins_data\n  .query(\"species == 'Gentoo'\")\n)"
+    "text": "Filtering rows with .query()\n\nAn alternative way of selecting rows is .query(). Compared to .filter(), .query() allows us to filter the data using statements or queries involving the variables.\n\nFor example, let’s filter the data for the species “Gentoo.”\n\n(penguins_data\n  .query(\"species == 'Gentoo'\")\n)"
   },
   {
     "objectID": "T2_Type_of_Variables/Types.slides.html#section-6",
@@ -1376,21 +1376,21 @@
     "href": "T2_Type_of_Variables/Types.slides.html#summarizing-with-.agg",
     "title": "Types of Variables",
     "section": "Summarizing with .agg()",
-    "text": "Summarizing with .agg()\nWe can calculate the average of the columns bill_length_mm, bill_depth_mm, and body_mass_g.\n\n(penguins_data\n  .filter([\"bill_length_mm\", \"bill_depth_mm\", \"body_mass_g\"], axis = 1)\n  .agg([\"mean\"])\n)\n\n\n\n\n\n\n\n\nbill_length_mm\nbill_depth_mm\nbody_mass_g\n\n\n\n\nmean\n43.92193\n17.15117\n4201.754386\n\n\n\n\n\n\n\n\n\nBy default, agg() ignores missing values."
+    "text": "Summarizing with .agg()\nWe can calculate summary statistics of the columns bill_length_mm, bill_depth_mm, and body_mass_g.\n\n(penguins_data\n  .filter([\"bill_length_mm\", \"bill_depth_mm\", \"body_mass_g\"], axis = 1)\n  .agg([\"mean\"])\n)\n\n\n\n\n\n\n\n\nbill_length_mm\nbill_depth_mm\nbody_mass_g\n\n\n\n\nmean\n43.92193\n17.15117\n4201.754386\n\n\n\n\n\n\n\n\n\nBy default, agg() ignores missing values."
   },
   {
     "objectID": "T2_Type_of_Variables/Types.slides.html#saving-results-in-new-objects",
     "href": "T2_Type_of_Variables/Types.slides.html#saving-results-in-new-objects",
     "title": "Types of Variables",
     "section": "Saving results in new objects",
-    "text": "Saving results in new objects\nAfter performing operations on our data, we can save the modified dataset as a new object.\n\nmean_penguins_data = (penguins_data\n  .filter([\"bill_length_mm\", \"bill_depth_mm\", \"body_mass_g\"], axis = 1)\n  .agg([\"mean\"])\n)\n\nmean_penguins_data\n\n\n\n\n\n\n\n\nbill_length_mm\nbill_depth_mm\nbody_mass_g\n\n\n\n\nmean\n43.92193\n17.15117\n4201.754386"
+    "text": "Saving results in new objects\n\nAfter performing operations on our data, we can save the modified dataset as a new object.\n\nmean_penguins_data = (penguins_data\n  .filter([\"bill_length_mm\", \"bill_depth_mm\", \"body_mass_g\"], axis = 1)\n  .agg([\"mean\"])\n)\n\nmean_penguins_data\n\n\n\n\n\n\n\n\nbill_length_mm\nbill_depth_mm\nbody_mass_g\n\n\n\n\nmean\n43.92193\n17.15117\n4201.754386"
   },
   {
     "objectID": "T2_Type_of_Variables/Types.slides.html#final-remarks",
     "href": "T2_Type_of_Variables/Types.slides.html#final-remarks",
     "title": "Types of Variables",
-    "section": "Final Remarks",
-    "text": "Final Remarks\n\n\npandas is a Python library for data manipulation.\nUnderstanding variable types helps determine the best operations and visualizations.\nThere are specific charts for numerical and categorical variables.\nThroughout this course, we will explore various visualizations for different types of data."
+    "section": "Final remarks",
+    "text": "Final remarks\n\n\npandas is a Python library for data manipulation.\nUnderstanding variable types helps determine the best operations and visualizations.\nThere are specific charts for numerical and categorical variables.\nThroughout this course, we will explore various visualizations for different types of data."
   },
   {
     "objectID": "about.html",
@@ -2028,5 +2028,12 @@
     "title": "What is Data Visualization?",
     "section": "",
     "text": "https://www.amazon.com/Even-Geek-Speak-Joey-Asher/dp/0978577604"
+  },
+  {
+    "objectID": "T2_Type_of_Variables/Types.slides.html#more-on-pandas",
+    "href": "T2_Type_of_Variables/Types.slides.html#more-on-pandas",
+    "title": "Types of Variables",
+    "section": "More on pandas",
+    "text": "More on pandas\n\n\nhttps://www.amazon.com.mx/Python-Data-Analysis-English-McKinney-ebook/dp/B0B9HY3WX7"
   }
 ]
