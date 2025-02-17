@@ -630,7 +630,7 @@ Alan R. Vazquez
 <h2>How do we check the type of variable?</h2>
 <p><br></p>
 <p>As an example, we will use “penguins.xlsx” dataset. Let’s load it using <strong>pandas</strong>.</p>
-<div id="f93f3673" class="cell" data-execution_count="1">
+<div id="3f70d337" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a></a><span class="co"># Load pandas.</span></span>
 <span id="cb1-2"><a></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-3"><a></a></span>
@@ -642,7 +642,7 @@ Alan R. Vazquez
 <h2></h2>
 <p><br></p>
 <p>In Python, we check the type of each variable in a dataset using the function <code>info()</code>.</p>
-<div id="b8db591e" class="cell" data-execution_count="2">
+<div id="05096815" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a></a>penguins_data.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
@@ -712,11 +712,11 @@ memory usage: 21.6+ KB</code></pre>
 <section id="selecting-columns-with-.filter" class="slide level2">
 <h2>Selecting columns with <code>.filter()</code></h2>
 <p>Select the columns <code>species</code>, <code>body_mass_g</code> and <code>sex</code>.</p>
-<div id="a44638a0" class="cell" data-execution_count="3">
+<div id="2492d056" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a></a>(penguins_data</span>
 <span id="cb4-2"><a></a>  .<span class="bu">filter</span>([<span class="st">"species"</span>, <span class="st">"body_mass_g"</span>, <span class="st">"sex"</span>], axis <span class="op">=</span> <span class="dv">1</span>)</span>
 <span id="cb4-3"><a></a>).head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="20">
+<div class="cell-output cell-output-display" data-execution_count="3">
 <div>
 <style scoped="">
     .dataframe tbody tr th:only-of-type {
@@ -783,7 +783,7 @@ memory usage: 21.6+ KB</code></pre>
 <h2></h2>
 <p><br></p>
 <p>The <code>axis</code> argument tells <code>.filter()</code> whether to select rows (<code>0</code>) or columns (<code>1</code>) from the dataframe.</p>
-<div id="9f209fd9" class="cell" data-execution_count="4">
+<div id="658c81b5" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a></a>(penguins_data</span>
 <span id="cb5-2"><a></a>  .<span class="bu">filter</span>([<span class="st">"species"</span>, <span class="st">"body_mass_g"</span>, <span class="st">"sex"</span>], axis <span class="op">=</span> <span class="dv">1</span>)</span>
 <span id="cb5-3"><a></a>).head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -797,11 +797,11 @@ memory usage: 21.6+ KB</code></pre>
 <h2></h2>
 <p><br></p>
 <p>We can also use <code>.filter()</code> to select rows too. To this end, we set <code>axis = 1</code>. We can select specific rows, such as 0 and 10.</p>
-<div id="574d1f44" class="cell" data-execution_count="5">
+<div id="c1923a89" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a></a>(penguins_data</span>
 <span id="cb6-2"><a></a>  .<span class="bu">filter</span>([<span class="dv">0</span>, <span class="dv">10</span>], axis <span class="op">=</span> <span class="dv">0</span>)</span>
 <span id="cb6-3"><a></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="22">
+<div class="cell-output cell-output-display" data-execution_count="5">
 <div>
 <style scoped="">
     .dataframe tbody tr th:only-of-type {
@@ -864,11 +864,11 @@ memory usage: 21.6+ KB</code></pre>
 <section id="section-5" class="slide level2">
 <h2></h2>
 <p>Or, we can select a set of rows using the function <code>range()</code>. For example, let’s select the first 5 rows.</p>
-<div id="0ee46367" class="cell" data-execution_count="6">
+<div id="384989e7" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a></a>(penguins_data</span>
 <span id="cb7-2"><a></a>  .<span class="bu">filter</span>(<span class="bu">range</span>(<span class="dv">5</span>), axis <span class="op">=</span> <span class="dv">0</span>)</span>
 <span id="cb7-3"><a></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="23">
+<div class="cell-output cell-output-display" data-execution_count="6">
 <div>
 <style scoped="">
     .dataframe tbody tr th:only-of-type {
@@ -967,7 +967,7 @@ memory usage: 21.6+ KB</code></pre>
 <p>An alternative way of selecting rows is <code>.query()</code>. Compared to <code>.filter()</code>, <code>.query()</code> allows us to filter the data using statements or <em>queries</em> involving the variables.</p>
 <p><br></p>
 <p>For example, let’s filter the data for the species “Gentoo.”</p>
-<div id="c2dc0620" class="cell" data-execution_count="7">
+<div id="a1627761" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a></a>(penguins_data</span>
 <span id="cb8-2"><a></a>  .query(<span class="st">"species == 'Gentoo'"</span>)</span>
 <span id="cb8-3"><a></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -976,11 +976,11 @@ memory usage: 21.6+ KB</code></pre>
 <section id="section-6" class="slide level2">
 <h2></h2>
 <p><br></p>
-<div id="7b18030a" class="cell" data-execution_count="8">
+<div id="08191fbb" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a></a>(penguins_data</span>
 <span id="cb9-2"><a></a>  .query(<span class="st">"species == 'Gentoo'"</span>)</span>
 <span id="cb9-3"><a></a>).head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="25">
+<div class="cell-output cell-output-display" data-execution_count="8">
 <div>
 <style scoped="">
     .dataframe tbody tr th:only-of-type {
@@ -1076,11 +1076,11 @@ memory usage: 21.6+ KB</code></pre>
 <section id="section-7" class="slide level2">
 <h2></h2>
 <p>We can also filter the data to get penguins with a body mass greater than 5000g.</p>
-<div id="c1a7d151" class="cell" data-execution_count="9">
+<div id="0df9eeaa" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a></a>(penguins_data</span>
 <span id="cb10-2"><a></a>  .query(<span class="st">"body_mass_g &gt; 5000"</span>)</span>
 <span id="cb10-3"><a></a>).head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="26">
+<div class="cell-output cell-output-display" data-execution_count="9">
 <div>
 <style scoped="">
     .dataframe tbody tr th:only-of-type {
@@ -1176,12 +1176,12 @@ memory usage: 21.6+ KB</code></pre>
 <section id="section-8" class="slide level2">
 <h2></h2>
 <p>We can even <strong>combine</strong> <code>.filter()</code> and <code>.query()</code>. For example, let’s select the columns <code>species</code>, <code>body_mass_g</code> and <code>sex</code>, then filter the data for the “Gentoo” species.</p>
-<div id="dd531250" class="cell" data-execution_count="10">
+<div id="172631b4" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a></a>(penguins_data</span>
 <span id="cb11-2"><a></a>  .<span class="bu">filter</span>([<span class="st">"species"</span>, <span class="st">"body_mass_g"</span>, <span class="st">"sex"</span>], axis <span class="op">=</span> <span class="dv">1</span>)</span>
 <span id="cb11-3"><a></a>  .query(<span class="st">"species == 'Gentoo'"</span>)</span>
 <span id="cb11-4"><a></a>).head(<span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="27">
+<div class="cell-output cell-output-display" data-execution_count="10">
 <div>
 <style scoped="">
     .dataframe tbody tr th:only-of-type {
@@ -1242,7 +1242,7 @@ memory usage: 21.6+ KB</code></pre>
 <h2>Create new columns with <code>.assign()</code></h2>
 <p>With <code>.assign()</code>, we can create new columns (variables) that are functions of existing ones. This function uses a special Python keyword called <code>lambda</code>. Technically, this keyword defines an <em>anonymous</em> function.</p>
 <p>For example, we create a new variable <code>LDRatio</code> equaling the ratio of <code>bill_length_mm</code> and <code>bill_depth_mm</code>.</p>
-<div id="f88dab01" class="cell" data-execution_count="11">
+<div id="a6ebdc19" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a></a>(penguins_data</span>
 <span id="cb12-2"><a></a>  .assign(LDRatio <span class="op">=</span> <span class="kw">lambda</span> df: df[<span class="st">"bill_length_mm"</span>] <span class="op">/</span> df[<span class="st">"bill_depth_mm"</span>])</span>
 <span id="cb12-3"><a></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1252,7 +1252,7 @@ memory usage: 21.6+ KB</code></pre>
 <h2></h2>
 <p><br></p>
 <p>In this code, the <code>df</code> after <code>lambda</code> indicates that the dataframe (<code>penguins_data</code>) will be referred to as <code>df</code> inside the function. The colon <code>:</code> sets the start of the function.</p>
-<div id="4628d602" class="cell" data-execution_count="12">
+<div id="eca3909a" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a></a>(penguins_data</span>
 <span id="cb13-2"><a></a>  .assign(LDRatio <span class="op">=</span> <span class="kw">lambda</span> df: df[<span class="st">"bill_length_mm"</span>] <span class="op">/</span> df[<span class="st">"bill_depth_mm"</span>])</span>
 <span id="cb13-3"><a></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1262,12 +1262,12 @@ memory usage: 21.6+ KB</code></pre>
 <section id="section-10" class="slide level2">
 <h2></h2>
 <p>We can see the new variable using <code>.filter()</code>.</p>
-<div id="aca96e48" class="cell" data-execution_count="13">
+<div id="1533a471" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a></a>(penguins_data</span>
 <span id="cb14-2"><a></a>  .assign(LDRatio <span class="op">=</span> <span class="kw">lambda</span> df: df[<span class="st">"bill_length_mm"</span>] <span class="op">/</span> df[<span class="st">"bill_depth_mm"</span>])</span>
 <span id="cb14-3"><a></a>  .<span class="bu">filter</span>([<span class="st">"bill_length_mm"</span>, <span class="st">"bill_depth_mm"</span>, <span class="st">"LDRatio"</span>], axis <span class="op">=</span> <span class="dv">1</span>)</span>
 <span id="cb14-4"><a></a>).head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="30">
+<div class="cell-output cell-output-display" data-execution_count="13">
 <div>
 <style scoped="">
     .dataframe tbody tr th:only-of-type {
@@ -1333,11 +1333,11 @@ memory usage: 21.6+ KB</code></pre>
 <section id="sorting-with-.sort_values" class="slide level2">
 <h2>Sorting with <code>.sort_values()</code></h2>
 <p>We can sort the data based on a column like <code>bill_length_mm</code>.</p>
-<div id="1b6c49b5" class="cell" data-execution_count="14">
+<div id="e00c2b11" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a></a>(penguins_data</span>
 <span id="cb15-2"><a></a>  .sort_values(<span class="st">"bill_length_mm"</span>)</span>
 <span id="cb15-3"><a></a>).head(<span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="31">
+<div class="cell-output cell-output-display" data-execution_count="14">
 <div>
 <style scoped="">
     .dataframe tbody tr th:only-of-type {
@@ -1422,11 +1422,11 @@ memory usage: 21.6+ KB</code></pre>
 <section id="section-11" class="slide level2">
 <h2></h2>
 <p>To sort in descending order, use <code>ascending=False</code> inside <code>sort_values()</code>.</p>
-<div id="70105c86" class="cell" data-execution_count="15">
+<div id="4190a630" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a></a>(penguins_data</span>
 <span id="cb16-2"><a></a>  .sort_values(<span class="st">"bill_length_mm"</span>, ascending<span class="op">=</span><span class="va">False</span>)</span>
 <span id="cb16-3"><a></a>).head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="32">
+<div class="cell-output cell-output-display" data-execution_count="15">
 <div>
 <style scoped="">
     .dataframe tbody tr th:only-of-type {
@@ -1522,12 +1522,12 @@ memory usage: 21.6+ KB</code></pre>
 <section id="summarizing-with-.agg" class="slide level2">
 <h2>Summarizing with <code>.agg()</code></h2>
 <p>We can calculate summary statistics of the columns <code>bill_length_mm</code>, <code>bill_depth_mm</code>, and <code>body_mass_g</code>.</p>
-<div id="663dc109" class="cell" data-execution_count="16">
+<div id="e385928d" class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a></a>(penguins_data</span>
 <span id="cb17-2"><a></a>  .<span class="bu">filter</span>([<span class="st">"bill_length_mm"</span>, <span class="st">"bill_depth_mm"</span>, <span class="st">"body_mass_g"</span>], axis <span class="op">=</span> <span class="dv">1</span>)</span>
 <span id="cb17-3"><a></a>  .agg([<span class="st">"mean"</span>])</span>
 <span id="cb17-4"><a></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="33">
+<div class="cell-output cell-output-display" data-execution_count="16">
 <div>
 <style scoped="">
     .dataframe tbody tr th:only-of-type {
@@ -1574,14 +1574,14 @@ memory usage: 21.6+ KB</code></pre>
 <h2>Saving results in new objects</h2>
 <p><br></p>
 <p>After performing operations on our data, we can save the modified dataset as a new object.</p>
-<div id="0d63a175" class="cell" data-execution_count="17">
+<div id="a5afcbe3" class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a></a>mean_penguins_data <span class="op">=</span> (penguins_data</span>
 <span id="cb18-2"><a></a>  .<span class="bu">filter</span>([<span class="st">"bill_length_mm"</span>, <span class="st">"bill_depth_mm"</span>, <span class="st">"body_mass_g"</span>], axis <span class="op">=</span> <span class="dv">1</span>)</span>
 <span id="cb18-3"><a></a>  .agg([<span class="st">"mean"</span>])</span>
 <span id="cb18-4"><a></a>)</span>
 <span id="cb18-5"><a></a></span>
 <span id="cb18-6"><a></a>mean_penguins_data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="34">
+<div class="cell-output cell-output-display" data-execution_count="17">
 <div>
 <style scoped="">
     .dataframe tbody tr th:only-of-type {
