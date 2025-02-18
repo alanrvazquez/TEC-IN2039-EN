@@ -176,7 +176,7 @@ In practice, boolean values (`TRUE` and `FALSE`) often represent nominal categor
 
 ## Remember
 
-![](images/kinds_of_data.png){fig-align="center" width="397"}
+![](images/kinds_of_data3.png){fig-align="center" width="397"}
 
 ## A general difference is ...
 
@@ -494,7 +494,7 @@ mean_penguins_data
 ![](images/python_book.jpg){fig-align="center"}
 
 ::: {style="font-size: 50%;"}
-[https://wesmckinney.com/book/](https://wesmckinney.com/book/)
+<https://wesmckinney.com/book/>
 :::
 
 ## Final remarks
