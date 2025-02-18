@@ -151,7 +151,7 @@ The most commonly used statistical summaries for categorical data are:
 
 Summarizes a categorical variable by counting the values per category.
 
-| **Especie** | **Frecuencia** |
+| **Specie** | **Frequency** |
 |-------------|----------------|
 | Adelie      | 152            |
 | Chinstrap   | 68             |

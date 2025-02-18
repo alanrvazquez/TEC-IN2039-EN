@@ -60,7 +60,7 @@
     "href": "T3_Categorical_Data/Categorical.slides.html#frequency-table",
     "title": "Categorical Variables",
     "section": "Frequency table",
-    "text": "Frequency table\nSummarizes a categorical variable by counting the values per category.\n\n\n\nEspecie\nFrecuencia\n\n\n\n\nAdelie\n152\n\n\nChinstrap\n68\n\n\nGentoo\n124\n\n\nTotal\n344\n\n\n\n\nFrequency: Number of observations in each category.\nTotal: Total sum of observations.\n\n\n\nVentajas de las frequencias.\nResumen claro y conciso de los datos categóricos.\nFacilita la identificación de patrones y tendencias.\nAyuda en la toma de decisiones informadas."
+    "text": "Frequency table\nSummarizes a categorical variable by counting the values per category.\n\n\n\nSpecie\nFrequency\n\n\n\n\nAdelie\n152\n\n\nChinstrap\n68\n\n\nGentoo\n124\n\n\nTotal\n344\n\n\n\n\nFrequency: Number of observations in each category.\nTotal: Total sum of observations.\n\n\n\nVentajas de las frequencias.\nResumen claro y conciso de los datos categóricos.\nFacilita la identificación de patrones y tendencias.\nAyuda en la toma de decisiones informadas."
   },
   {
     "objectID": "T3_Categorical_Data/Categorical.slides.html#frequency-table-in-python",
