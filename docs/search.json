@@ -4,7 +4,7 @@
     "href": "T3_Categorical_Data/Categorical.slides.html#agenda",
     "title": "Categorical Variables",
     "section": "Agenda",
-    "text": "Agenda\n\nIntroduction\nSummary statistics\nBar chart\nPie chart\nTransforming categorical variables"
+    "text": "Agenda\n\n\nIntroduction\nSummary statistics\nBar chart\nPie chart\nTransforming categorical variables"
   },
   {
     "objectID": "T3_Categorical_Data/Categorical.slides.html#first-things-first",
@@ -123,14 +123,14 @@
     "href": "T3_Categorical_Data/Categorical.slides.html#apply-principle-3",
     "title": "Categorical Variables",
     "section": "Apply Principle 3",
-    "text": "Apply Principle 3\n\nApply graphic design principles.\n\n\nWe can improve categorical variable charts using these techniques:\n\n\nRe-label categories to make them more informative.\nRe-order categories to follow a logical sequence.\nCollapse categories to simplify the chart."
+    "text": "Apply Principle 3\n\n\nApply graphic design principles.\n\n\nWe can improve categorical variable charts using these techniques:\n\n\nRe-label categories to make them more informative.\nRe-order categories to follow a logical sequence.\nCollapse categories to simplify the chart."
   },
   {
     "objectID": "T3_Categorical_Data/Categorical.slides.html#example-2-boston-housing-dataset",
     "href": "T3_Categorical_Data/Categorical.slides.html#example-2-boston-housing-dataset",
     "title": "Categorical Variables",
     "section": "Example 2: Boston Housing Dataset",
-    "text": "Example 2: Boston Housing Dataset\nThis dataset contains information collected by the U.S. Census Bureau on housing in the Boston, Massachusetts area."
+    "text": "Example 2: Boston Housing Dataset\n\nThis dataset contains information collected by the U.S. Census Bureau on housing in the Boston, Massachusetts area."
   },
   {
     "objectID": "T3_Categorical_Data/Categorical.slides.html#section-3",
@@ -151,7 +151,7 @@
     "href": "T3_Categorical_Data/Categorical.slides.html#remember",
     "title": "Categorical Variables",
     "section": "Remember…",
-    "text": "Remember…\nMake sure Python correctly recognizes categorical variables.\n\nBoston_dataset[[\"chas\", \"rad\"]] = (Boston_dataset\n .filter([\"chas\", \"rad\"], axis = 1)\n .astype(\"category\")\n )"
+    "text": "Remember…\n\nMake sure Python correctly recognizes categorical variables.\n\nBoston_dataset[[\"chas\", \"rad\"]] = (Boston_dataset\n .filter([\"chas\", \"rad\"], axis = 1)\n .astype(\"category\")\n )"
   },
   {
     "objectID": "T3_Categorical_Data/Categorical.slides.html#initial-graph",
@@ -165,28 +165,28 @@
     "href": "T3_Categorical_Data/Categorical.slides.html#re-labeling-categories",
     "title": "Categorical Variables",
     "section": "Re-labeling categories",
-    "text": "Re-labeling categories\nTo improve readability of the bar chart, rename the categories in the chas variable.\n\nCheck the category names in the variable using the unique() function.\n\n\nBoston_dataset[\"chas\"].unique()  \n\n[0, 1]\nCategories (2, int64): [0, 1]"
+    "text": "Re-labeling categories\n\nTo improve readability of the bar chart, rename the categories in the chas variable.\n\nCheck the category names in the variable using the unique() function.\n\n\nBoston_dataset[\"chas\"].unique()  \n\n[0, 1]\nCategories (2, int64): [0, 1]"
   },
   {
     "objectID": "T3_Categorical_Data/Categorical.slides.html#section-5",
     "href": "T3_Categorical_Data/Categorical.slides.html#section-5",
     "title": "Categorical Variables",
     "section": "",
-    "text": "Replace the category names using .map().\n\n\nBoston_dataset[\"chas\"] = Boston_dataset[\"chas\"].map({0: \"No\", 1: \"Yes\"})"
+    "text": "Replace the category names using .map().\n\n\nBoston_dataset[\"chas\"] = Boston_dataset[\"chas\"].map({0: \"No\", 1: \"Yes\"})\n\n\n\nEnsure the category names have changed.\n\n\nBoston_dataset[\"chas\"].unique()\n\n['No', 'Yes']\nCategories (2, object): ['No', 'Yes']"
   },
   {
     "objectID": "T3_Categorical_Data/Categorical.slides.html#lets-see-what-happens-now.",
     "href": "T3_Categorical_Data/Categorical.slides.html#lets-see-what-happens-now.",
     "title": "Categorical Variables",
     "section": "Let’s see what happens now.",
-    "text": "Let’s see what happens now.\n\nplt.figure(figsize=(6, 4))\nsns.countplot(data=Boston_dataset, x=\"chas\")\nplt.show()\n\n\n\n\n\n\n\n\nMuch better! 😃"
+    "text": "Let’s see what happens now.\n\nplt.figure(figsize=(6, 4))\nsns.countplot(data = Boston_dataset, x = \"chas\")\nplt.show()\n\n\n\n\n\n\n\n\nMuch better! 😃"
   },
   {
     "objectID": "T3_Categorical_Data/Categorical.slides.html#re-ordering-categories",
     "href": "T3_Categorical_Data/Categorical.slides.html#re-ordering-categories",
     "title": "Categorical Variables",
-    "section": "Re-ordering Categories",
-    "text": "Re-ordering Categories\nNow, let’s create a bar chart for rad.\n\nplt.figure(figsize=(5, 5))\nsns.countplot(data=Boston_dataset, x=\"rad\")\nplt.show()\n\n\n\n\n\n\n\n\nThe categories do not follow a natural order from left to right: Low, Medium, y High."
+    "section": "Re-ordering categories",
+    "text": "Re-ordering categories\nNow, let’s create a bar chart for rad.\n\nplt.figure(figsize=(5, 5))\nsns.countplot(data=Boston_dataset, x=\"rad\")\nplt.show()\n\n\n\n\n\n\n\n\nThe categories do not follow a natural order from left to right: Low, Medium, y High."
   },
   {
     "objectID": "T3_Categorical_Data/Categorical.slides.html#section-6",

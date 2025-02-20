@@ -20,6 +20,8 @@ jupyter: python3
 
 ## Agenda
 
+</br>
+
 1.  Introduction
 2.  Summary statistics
 3.  Bar chart
@@ -152,11 +154,11 @@ The most commonly used statistical summaries for categorical data are:
 Summarizes a categorical variable by counting the values per category.
 
 | **Specie** | **Frequency** |
-|-------------|----------------|
-| Adelie      | 152            |
-| Chinstrap   | 68             |
-| Gentoo      | 124            |
-| **Total**   | **344**        |
+|------------|---------------|
+| Adelie     | 152           |
+| Chinstrap  | 68            |
+| Gentoo     | 124           |
+| **Total**  | **344**       |
 
 -   **Frequency**: Number of observations in each category.
 
@@ -323,6 +325,8 @@ Pie charts versus bar charts.
 
 ## Apply Principle 3
 
+</br>
+
 > *Apply graphic design principles.*
 
 . . .
@@ -336,6 +340,8 @@ We can improve categorical variable charts using these techniques:
 :::
 
 ## Example 2: Boston Housing Dataset
+
+</br>
 
 This dataset contains information collected by the U.S. Census Bureau on housing in the Boston, Massachusetts area.
 
@@ -373,6 +379,8 @@ We concentrate on the following variables:
 
 ## Remember...
 
+</br>
+
 Make sure Python correctly recognizes categorical variables.
 
 ```{python}
@@ -404,6 +412,8 @@ However, the categories are not very informative.
 
 ## Re-labeling categories
 
+</br>
+
 To improve readability of the bar chart, rename the categories in the `chas` variable.
 
 1.  Check the category names in the variable using the `unique()` function.
@@ -417,6 +427,8 @@ Boston_dataset["chas"].unique()
 
 ## 
 
+</br>
+
 2.  Replace the category names using `.map()`.
 
 ```{python}
@@ -424,6 +436,17 @@ Boston_dataset["chas"].unique()
 #| output: true
 
 Boston_dataset["chas"] = Boston_dataset["chas"].map({0: "No", 1: "Yes"})
+```
+
+</br>
+
+3.  Ensure the category names have changed.
+
+```{python}
+#| echo: true
+#| output: true
+
+Boston_dataset["chas"].unique()
 ```
 
 ## Let's see what happens now.
@@ -435,13 +458,13 @@ Boston_dataset["chas"] = Boston_dataset["chas"].map({0: "No", 1: "Yes"})
 #| fig-pos: center 
 
 plt.figure(figsize=(6, 4))
-sns.countplot(data=Boston_dataset, x="chas")
+sns.countplot(data = Boston_dataset, x = "chas")
 plt.show()
 ```
 
 Much better! 😃
 
-## Re-ordering Categories
+## Re-ordering categories
 
 Now, let's create a bar chart for `rad`.
 
