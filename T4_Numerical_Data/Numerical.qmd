@@ -20,6 +20,8 @@ jupyter: python3
 
 ## Agenda
 
+</br>
+
 1.  Introduction to the example
 2.  Summary statistics
 3.  Graphs for numerical variables
@@ -42,7 +44,11 @@ The file "CYLT.xlsx" contains 50 cycle times of a piston operating under fixed c
 
 ## Remember to import the required libraries
 
+</br>
+
 We will use the libraries `pandas`, `matplotlib`, and `seaborn`.
+
+</br>
 
 Let's load them in Google Colab before we start.
 
@@ -67,7 +73,7 @@ piston_data = pd.read_excel("CYCLT.xlsx")
 piston_data.head()
 ```
 
-## Variable Type
+## Variable type
 
 </br>
 
@@ -101,6 +107,8 @@ For **numerical** data, the most popular summary statistics are:
 
 > Indicates the center of the data.
 
+</br>
+
 Let $y_1, y_2, \ldots, y_n$ be an observed sample of size $n$.
 
 The mean is
@@ -111,26 +119,24 @@ $$\bar{y} = \frac{1}{n}\sum_{i=1}^{n} y_i = \frac{y_1 + y_2 + \cdots + y_n}{n}.$
 
 </br>
 
-In Python, we calculate the mean using the function `mean()`.
+In Python, we can calculate the mean using chaining. To this end, we use the function `.agg()` with "mean".
 
 ```{python}
 #| echo: true
 #| output: true
 
-(piston_data
- .agg("mean")
-)
+piston_data_mean = (piston_data
+                    .agg("mean")
+                   )
+piston_data_mean
 ```
 
-</br>
-
-We use the function print to show the number. Otherwise, python will show the computer type of value stored in `piston_data_mean`.
 
 ## 
 
 </br>
 
-You can also round the result to, say, two decimals.
+You can also round the result to, say, two decimals using the function `round()`.
 
 ```{python}
 #| echo: true
@@ -139,7 +145,7 @@ You can also round the result to, say, two decimals.
 piston_data_mean = (piston_data
  .agg("mean")
 )
-print( round(piston_data_mean, 2) )
+round(piston_data_mean, 2)
 ```
 
 </br>
@@ -149,6 +155,8 @@ print( round(piston_data_mean, 2) )
 ## Variance
 
 > Indicates how spread out the data are around the mean.
+
+</br>
 
 Let $y_1, y_2, \ldots, y_n$ be an observed sample of size $n$. The variance is
 
@@ -164,15 +172,16 @@ $$
 
 </br>
 
-In python, the variance is calculated using the function `var()`.
+In Python, the variance is calculated using `.agg()` with "var".
 
 ```{python}
 #| echo: true
 #| output: true
 
-(piston_data
- .agg("var")
-)
+piston_data_var = (piston_data
+                  .agg("var")
+                  )
+round(piston_data_var, 3)
 ```
 
 </br>
@@ -195,20 +204,21 @@ This quantity is known as the standard deviation. [*It is in the same units as t
 
 </br>
 
-In python, the standard deviation is calculated using the function `std()`.
+In Python, the standard deviation is calculated using the the function `.agg()` and with "std".
 
 ```{python}
 #| echo: true
 #| output: true
 
-(piston_data
- .agg("std")
-)
+piston_data_sd = (piston_data
+                  .agg("std")
+                 )
+round(piston_data_sd, 3)
 ```
 
 </br>
 
-[*Interpretation:*]{style="color:darkgray;"} On average, a piston takes 0.652 seconds to complete a cycle, with a variation of $\pm 0.373$ seconds.
+[*Interpretation:*]{style="color:darkgray;"} On average, a piston takes 0.652 seconds to complete a cycle, with a variation of $\pm$ 0.373 seconds.
 
 ## Quartiles
 
@@ -238,7 +248,7 @@ The generalization of quartiles are percentiles or **quantiles**.
 
 ## 
 
-In python, the quartiles are calculated using the function `quantile()`.
+In Python, the quartiles are calculated using the function `.agg()` with "quantile".
 
 ::::: columns
 ::: {.column width="60%"}
@@ -268,7 +278,7 @@ set_quantiles = [0.25, 0.5, 0.75]
 
 ## Maximum and minimum
 
-We compute the **maximum** and **minimum** using the functions `max()` and `min()`, respectively.
+We compute the **maximum** and **minimum** using `.agg()` with "max" and "min", respectively.
 
 ```{python}
 #| echo: true
@@ -308,6 +318,8 @@ The average and median estimate the central value of the data in different ways.
 
 The average is used when the data is symmetrically or evenly distributed and there are no significant outliers.
 
+</br>
+
 For example, the height of a large sample of people in a homogeneous population.
 
 ## When do we use the median?
@@ -322,13 +334,13 @@ For example:
 
 -   House prices in a city (where a few very expensive properties can inflate the mean).
 
-## Activity (*only* mode) Part 1
+## Activity (*solo* mode) Part 1
 
 A company that manufactures capacitor retaining bolts for automobile engines implemented a quality control system. As part of this quality control system, a team of engineers decided to record the number of nonconforming bolts produced each shift.
 
 The file `bolts.xlsx` contains the number of non-conforming bolts during the last 45 shifts.
 
--   Calculates and interprets the average, variance, standard deviation, quartiles, minimum and maximum.
+-   Calculate and interpret the average, variance, standard deviation, quartiles, minimum and maximum.
 
 # Data visualizations for numerical variables
 
@@ -338,12 +350,14 @@ The file `bolts.xlsx` contains the number of non-conforming bolts during the las
 
 . . .
 
+</br>
+
 Typical questions about a numeric variable $X$ are:
 
 ::: incremental
 -   What is the shape of the observations of the variable $X$?
 
--   Are there unusual or atypical observations in the variable $X$?
+-   Are there atypical observations in the variable $X$?
 
 -   Does the shape of the observations of the variable $X$ resemble a bell?
 :::
@@ -354,10 +368,12 @@ Typical questions about a numeric variable $X$ are:
 
 . . .
 
+</br>
+
 Two common types of graphs to visualize a numerical variable are:
 
--   Histogram.
--   Box plot.
+-   Histogram
+-   Box plot
 
 . . .
 
@@ -380,6 +396,8 @@ It is built using a ***frequency table***.
 Python automatically calculates the frequency table for numerical data. The histogram is a visualization of this table.
 
 ## 
+
+</br>
 
 To create a histogram, we use the function `histplot()` from **seabron**.
 
@@ -523,6 +541,8 @@ Basically, if your observations follow a normal distribution, you can use statis
 
 ## Boxplot
 
+</br>
+
 A boxplot helps us visualize the distribution of observations using quartiles.
 
 . . .
@@ -541,7 +561,7 @@ The interquartile range is the distance needed to encompass the middle half of t
 
 ![](images/clipboard-84021266.png){fig-align="center"}
 
-Learn more in that league [**https://towardsdatascience.com/why-1-5-in-iqr-method-of-outlier-detection-5d07fdc82097**](#0){.uri}
+Learn more here [https://builtin.com/articles/1-5-iqr-rule](https://builtin.com/articles/1-5-iqr-rule)
 
 ## Outliers
 
@@ -594,4 +614,4 @@ The file `bolts.xlsx` contains the number of non-conforming bolts during the las
 -   Histogram
 -   Boxplot
 
-# [Return to main page](https://alanrvazquez.github.io/TEC-IN102039-EN/)
+# [Return to main page](https://alanrvazquez.github.io/TEC-IN2039-EN/)

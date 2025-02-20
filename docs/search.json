@@ -578,7 +578,7 @@
     "href": "T4_Numerical_Data/Numerical.slides.html#agenda",
     "title": "Numerical Variables",
     "section": "Agenda",
-    "text": "Agenda\n\nIntroduction to the example\nSummary statistics\nGraphs for numerical variables"
+    "text": "Agenda\n\n\nIntroduction to the example\nSummary statistics\nGraphs for numerical variables"
   },
   {
     "objectID": "T4_Numerical_Data/Numerical.slides.html#example",
@@ -592,7 +592,7 @@
     "href": "T4_Numerical_Data/Numerical.slides.html#remember-to-import-the-required-libraries",
     "title": "Numerical Variables",
     "section": "Remember to import the required libraries",
-    "text": "Remember to import the required libraries\nWe will use the libraries pandas, matplotlib, and seaborn.\nLet’s load them in Google Colab before we start.\n\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns"
+    "text": "Remember to import the required libraries\n\nWe will use the libraries pandas, matplotlib, and seaborn.\n\nLet’s load them in Google Colab before we start.\n\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns"
   },
   {
     "objectID": "T4_Numerical_Data/Numerical.slides.html#load-the-data",
@@ -605,8 +605,8 @@
     "objectID": "T4_Numerical_Data/Numerical.slides.html#variable-type",
     "href": "T4_Numerical_Data/Numerical.slides.html#variable-type",
     "title": "Numerical Variables",
-    "section": "Variable Type",
-    "text": "Variable Type\n\nIn Python, numerical data is stored as float64.\n\npiston_data.info()\n\n&lt;class 'pandas.core.frame.DataFrame'&gt;\nRangeIndex: 50 entries, 0 to 49\nData columns (total 1 columns):\n #   Column      Non-Null Count  Dtype  \n---  ------      --------------  -----  \n 0   cycle_time  50 non-null     float64\ndtypes: float64(1)\nmemory usage: 528.0 bytes\n\n\nWe can see that Python recognizes our data correctly."
+    "section": "Variable type",
+    "text": "Variable type\n\nIn Python, numerical data is stored as float64.\n\npiston_data.info()\n\n&lt;class 'pandas.core.frame.DataFrame'&gt;\nRangeIndex: 50 entries, 0 to 49\nData columns (total 1 columns):\n #   Column      Non-Null Count  Dtype  \n---  ------      --------------  -----  \n 0   cycle_time  50 non-null     float64\ndtypes: float64(1)\nmemory usage: 528.0 bytes\n\n\nWe can see that Python recognizes our data correctly."
   },
   {
     "objectID": "T4_Numerical_Data/Numerical.slides.html#summary-statistic",
@@ -620,35 +620,35 @@
     "href": "T4_Numerical_Data/Numerical.slides.html#mean",
     "title": "Numerical Variables",
     "section": "Mean",
-    "text": "Mean\n\nIndicates the center of the data.\n\nLet \\(y_1, y_2, \\ldots, y_n\\) be an observed sample of size \\(n\\).\nThe mean is\n\\[\\bar{y} = \\frac{1}{n}\\sum_{i=1}^{n} y_i = \\frac{y_1 + y_2 + \\cdots + y_n}{n}.\\]"
+    "text": "Mean\n\nIndicates the center of the data.\n\n\nLet \\(y_1, y_2, \\ldots, y_n\\) be an observed sample of size \\(n\\).\nThe mean is\n\\[\\bar{y} = \\frac{1}{n}\\sum_{i=1}^{n} y_i = \\frac{y_1 + y_2 + \\cdots + y_n}{n}.\\]"
   },
   {
     "objectID": "T4_Numerical_Data/Numerical.slides.html#section",
     "href": "T4_Numerical_Data/Numerical.slides.html#section",
     "title": "Numerical Variables",
     "section": "",
-    "text": "In Python, we calculate the mean using the function mean().\n\n(piston_data\n .agg(\"mean\")\n)\n\ncycle_time    0.65246\ndtype: float64\n\n\n\nWe use the function print to show the number. Otherwise, python will show the computer type of value stored in piston_data_mean."
+    "text": "In Python, we can calculate the mean using chaining. To this end, we use the function .agg() with “mean”.\n\npiston_data_mean = (piston_data\n                    .agg(\"mean\")\n                   )\npiston_data_mean\n\ncycle_time    0.65246\ndtype: float64"
   },
   {
     "objectID": "T4_Numerical_Data/Numerical.slides.html#section-1",
     "href": "T4_Numerical_Data/Numerical.slides.html#section-1",
     "title": "Numerical Variables",
     "section": "",
-    "text": "You can also round the result to, say, two decimals.\n\npiston_data_mean = (piston_data\n .agg(\"mean\")\n)\nprint( round(piston_data_mean, 2) )\n\ncycle_time    0.65\ndtype: float64\n\n\n\nInterpretation: On average, the piston takes 0.652 seconds to complete a cycle."
+    "text": "You can also round the result to, say, two decimals using the function round().\n\npiston_data_mean = (piston_data\n .agg(\"mean\")\n)\nround(piston_data_mean, 2)\n\ncycle_time    0.65\ndtype: float64\n\n\n\nInterpretation: On average, the piston takes 0.652 seconds to complete a cycle."
   },
   {
     "objectID": "T4_Numerical_Data/Numerical.slides.html#variance",
     "href": "T4_Numerical_Data/Numerical.slides.html#variance",
     "title": "Numerical Variables",
     "section": "Variance",
-    "text": "Variance\n\nIndicates how spread out the data are around the mean.\n\nLet \\(y_1, y_2, \\ldots, y_n\\) be an observed sample of size \\(n\\). The variance is\n\\[\ns^2 = \\frac{1}{n-1} \\sum_{i=1}^{n} (y_i - \\bar{y})^2 = \\frac{(y_1 - \\bar{y})^2  + \\cdots + (y_n - \\bar{y})^2}{n-1}\n\\]\n\nThe variance is like an average of the squared differences between each observation and the mean."
+    "text": "Variance\n\nIndicates how spread out the data are around the mean.\n\n\nLet \\(y_1, y_2, \\ldots, y_n\\) be an observed sample of size \\(n\\). The variance is\n\\[\ns^2 = \\frac{1}{n-1} \\sum_{i=1}^{n} (y_i - \\bar{y})^2 = \\frac{(y_1 - \\bar{y})^2  + \\cdots + (y_n - \\bar{y})^2}{n-1}\n\\]\n\nThe variance is like an average of the squared differences between each observation and the mean."
   },
   {
     "objectID": "T4_Numerical_Data/Numerical.slides.html#section-2",
     "href": "T4_Numerical_Data/Numerical.slides.html#section-2",
     "title": "Numerical Variables",
     "section": "",
-    "text": "In python, the variance is calculated using the function var().\n\n(piston_data\n .agg(\"var\")\n)\n\ncycle_time    0.139107\ndtype: float64\n\n\n\nInterpretation: The variance of the piston cycle times is 0.139. A larger variance means greater dispersion of the data around the mean."
+    "text": "In Python, the variance is calculated using .agg() with “var”.\n\npiston_data_var = (piston_data\n                  .agg(\"var\")\n                  )\nround(piston_data_var, 3)\n\ncycle_time    0.139\ndtype: float64\n\n\n\nInterpretation: The variance of the piston cycle times is 0.139. A larger variance means greater dispersion of the data around the mean."
   },
   {
     "objectID": "T4_Numerical_Data/Numerical.slides.html#standard-deviation",
@@ -662,7 +662,7 @@
     "href": "T4_Numerical_Data/Numerical.slides.html#section-3",
     "title": "Numerical Variables",
     "section": "",
-    "text": "In python, the standard deviation is calculated using the function std().\n\n(piston_data\n .agg(\"std\")\n)\n\ncycle_time    0.372971\ndtype: float64\n\n\n\nInterpretation: On average, a piston takes 0.652 seconds to complete a cycle, with a variation of \\(\\pm 0.373\\) seconds."
+    "text": "In Python, the standard deviation is calculated using the the function .agg() and with “std”.\n\npiston_data_sd = (piston_data\n                  .agg(\"std\")\n                 )\nround(piston_data_sd, 3)\n\ncycle_time    0.373\ndtype: float64\n\n\n\nInterpretation: On average, a piston takes 0.652 seconds to complete a cycle, with a variation of \\(\\pm\\) 0.373 seconds."
   },
   {
     "objectID": "T4_Numerical_Data/Numerical.slides.html#quartiles",
@@ -683,14 +683,14 @@
     "href": "T4_Numerical_Data/Numerical.slides.html#section-5",
     "title": "Numerical Variables",
     "section": "",
-    "text": "In python, the quartiles are calculated using the function quantile().\n\n\n\n# Set the quantiles.\nset_quantiles = [0.25, 0.5, 0.75]\n# Compute the quantiles.\n(piston_data\n .agg(\"quantile\", q = set_quantiles)\n)\n\n\n\n\n\n\n\n\ncycle_time\n\n\n\n\n0.25\n0.3050\n\n\n0.50\n0.5455\n\n\n0.75\n1.0690\n\n\n\n\n\n\n\n\nInterpretation:\n\n25% of cycle times are below 0.305 sec.\n50% of cycle times are below 0.546 sec.\n75% of cycle times are below 1.07 sec."
+    "text": "In Python, the quartiles are calculated using the function .agg() with “quantile”.\n\n\n\n# Set the quantiles.\nset_quantiles = [0.25, 0.5, 0.75]\n# Compute the quantiles.\n(piston_data\n .agg(\"quantile\", q = set_quantiles)\n)\n\n\n\n\n\n\n\n\ncycle_time\n\n\n\n\n0.25\n0.3050\n\n\n0.50\n0.5455\n\n\n0.75\n1.0690\n\n\n\n\n\n\n\n\nInterpretation:\n\n25% of cycle times are below 0.305 sec.\n50% of cycle times are below 0.546 sec.\n75% of cycle times are below 1.07 sec."
   },
   {
     "objectID": "T4_Numerical_Data/Numerical.slides.html#maximum-and-minimum",
     "href": "T4_Numerical_Data/Numerical.slides.html#maximum-and-minimum",
     "title": "Numerical Variables",
     "section": "Maximum and minimum",
-    "text": "Maximum and minimum\nWe compute the maximum and minimum using the functions max() and min(), respectively.\n\n(piston_data\n .agg(\"max\")\n)\n\ncycle_time    1.141\ndtype: float64\n\n\nInterpretation: The maximum cycle time is 1.14 seconds.\n\n(piston_data\n .agg(\"min\")\n)\n\ncycle_time    0.175\ndtype: float64\n\n\nInterpretation: The minimum cycle time is 0.175 seconds."
+    "text": "Maximum and minimum\nWe compute the maximum and minimum using .agg() with “max” and “min”, respectively.\n\n(piston_data\n .agg(\"max\")\n)\n\ncycle_time    1.141\ndtype: float64\n\n\nInterpretation: The maximum cycle time is 1.14 seconds.\n\n(piston_data\n .agg(\"min\")\n)\n\ncycle_time    0.175\ndtype: float64\n\n\nInterpretation: The minimum cycle time is 0.175 seconds."
   },
   {
     "objectID": "T4_Numerical_Data/Numerical.slides.html#average-vs.-median",
@@ -704,7 +704,7 @@
     "href": "T4_Numerical_Data/Numerical.slides.html#when-do-we-use-the-average",
     "title": "Numerical Variables",
     "section": "When do we use the average?",
-    "text": "When do we use the average?\n\nThe average is used when the data is symmetrically or evenly distributed and there are no significant outliers.\nFor example, the height of a large sample of people in a homogeneous population."
+    "text": "When do we use the average?\n\nThe average is used when the data is symmetrically or evenly distributed and there are no significant outliers.\n\nFor example, the height of a large sample of people in a homogeneous population."
   },
   {
     "objectID": "T4_Numerical_Data/Numerical.slides.html#when-do-we-use-the-median",
@@ -725,14 +725,14 @@
     "href": "T4_Numerical_Data/Numerical.slides.html#principle-1",
     "title": "Numerical Variables",
     "section": "Principle 1",
-    "text": "Principle 1\n\nFormulate the question of interest.\n\n\nTypical questions about a numeric variable \\(X\\) are:\n\n\nWhat is the shape of the observations of the variable \\(X\\)?\nAre there unusual or atypical observations in the variable \\(X\\)?\nDoes the shape of the observations of the variable \\(X\\) resemble a bell?"
+    "text": "Principle 1\n\nFormulate the question of interest.\n\n\n\nTypical questions about a numeric variable \\(X\\) are:\n\n\nWhat is the shape of the observations of the variable \\(X\\)?\nAre there atypical observations in the variable \\(X\\)?\nDoes the shape of the observations of the variable \\(X\\) resemble a bell?"
   },
   {
     "objectID": "T4_Numerical_Data/Numerical.slides.html#principle-2",
     "href": "T4_Numerical_Data/Numerical.slides.html#principle-2",
     "title": "Numerical Variables",
     "section": "Principle 2",
-    "text": "Principle 2\n\nTransform data into information.\n\n\nTwo common types of graphs to visualize a numerical variable are:\n\nHistogram.\nBox plot.\n\n\n\nBasically, they are different ways of visualizing the “shape” or distribution of the variable."
+    "text": "Principle 2\n\nTransform data into information.\n\n\n\nTwo common types of graphs to visualize a numerical variable are:\n\nHistogram\nBox plot\n\n\n\nBasically, they are different ways of visualizing the “shape” or distribution of the variable."
   },
   {
     "objectID": "T4_Numerical_Data/Numerical.slides.html#histogram",
@@ -802,14 +802,14 @@
     "href": "T4_Numerical_Data/Numerical.slides.html#boxplot",
     "title": "Numerical Variables",
     "section": "Boxplot",
-    "text": "Boxplot\nA boxplot helps us visualize the distribution of observations using quartiles.\n\n\nIt is very effective for detecting “outliers.”\n\n\n\nAn important component of the boxplot is the interquartile range (IQR), which is the difference between the third quartile and the first quartile (\\(Q_3 - Q_1\\)).\n\n\nThe interquartile range is the distance needed to encompass the middle half of the data."
+    "text": "Boxplot\n\nA boxplot helps us visualize the distribution of observations using quartiles.\n\n\nIt is very effective for detecting “outliers.”\n\n\n\nAn important component of the boxplot is the interquartile range (IQR), which is the difference between the third quartile and the first quartile (\\(Q_3 - Q_1\\)).\n\n\nThe interquartile range is the distance needed to encompass the middle half of the data."
   },
   {
     "objectID": "T4_Numerical_Data/Numerical.slides.html#anatomy-of-a-box-plot",
     "href": "T4_Numerical_Data/Numerical.slides.html#anatomy-of-a-box-plot",
     "title": "Numerical Variables",
     "section": "Anatomy of a Box Plot",
-    "text": "Anatomy of a Box Plot\n\nLearn more in that league https://towardsdatascience.com/why-1-5-in-iqr-method-of-outlier-detection-5d07fdc82097"
+    "text": "Anatomy of a Box Plot\n\nLearn more here https://builtin.com/articles/1-5-iqr-rule"
   },
   {
     "objectID": "T4_Numerical_Data/Numerical.slides.html#outliers",
@@ -2035,5 +2035,12 @@
     "title": "What is Data Visualization?",
     "section": "",
     "text": "https://www.amazon.com/Even-Geek-Speak-Joey-Asher/dp/0978577604"
+  },
+  {
+    "objectID": "T4_Numerical_Data/Numerical.slides.html#activity-solo-mode-part-1",
+    "href": "T4_Numerical_Data/Numerical.slides.html#activity-solo-mode-part-1",
+    "title": "Numerical Variables",
+    "section": "Activity (solo mode) Part 1",
+    "text": "Activity (solo mode) Part 1\nA company that manufactures capacitor retaining bolts for automobile engines implemented a quality control system. As part of this quality control system, a team of engineers decided to record the number of nonconforming bolts produced each shift.\nThe file bolts.xlsx contains the number of non-conforming bolts during the last 45 shifts.\n\nCalculate and interpret the average, variance, standard deviation, quartiles, minimum and maximum."
   }
 ]
