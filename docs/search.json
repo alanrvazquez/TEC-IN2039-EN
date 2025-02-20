@@ -112,11 +112,11 @@
     "text": "Pie chart\n\n\n\n\nA pie chart divides a circle into sections representing different categories of a variable.\nThe size of each section corresponds to the relative frequency of that category.\nIt provides a quick visual comparison of proportions.\n\n\n\n\n\n\nPie charts versus bar charts.\nBar charts can serve as a good way to show comparisons between categories. It is generally observed that new trends tend to shy away from using pie charts, as it is difficult for the human eye to judge the exact angle that shows the value of a category in a pie chart."
   },
   {
-    "objectID": "T3_Categorical_Data/Categorical.slides.html#mini-activity-solo-mode.-part-1",
-    "href": "T3_Categorical_Data/Categorical.slides.html#mini-activity-solo-mode.-part-1",
+    "objectID": "T3_Categorical_Data/Categorical.slides.html#mini-activity-solo-mode-part-1",
+    "href": "T3_Categorical_Data/Categorical.slides.html#mini-activity-solo-mode-part-1",
     "title": "Categorical Variables",
-    "section": "Mini-Activity (solo mode). Part 1",
-    "text": "Mini-Activity (solo mode). Part 1\n\nAsk ChatGPT or Gemini\n\nGo to https://chat.openai.com/\nAsk ChatGPT how to create a pie chart using matplotlib and seaborn in Python\nThe pie chart must visualize the proportions for the island variable in the penguin_data dataset."
+    "section": "Mini-Activity (solo mode): Part 1",
+    "text": "Mini-Activity (solo mode): Part 1\n\nAsk ChatGPT or Gemini\n\nGo to https://chat.openai.com/\nAsk ChatGPT how to create a pie chart using matplotlib and seaborn in Python\nThe pie chart must visualize the proportions of the categories of the island variable in the penguin_data dataset."
   },
   {
     "objectID": "T3_Categorical_Data/Categorical.slides.html#part-2",
@@ -2042,19 +2042,5 @@
     "title": "What is Data Visualization?",
     "section": "",
     "text": "https://www.amazon.com/Even-Geek-Speak-Joey-Asher/dp/0978577604"
-  },
-  {
-    "objectID": "T3_Categorical_Data/Categorical.slides.html#mini-activity-solo-mode-part-1",
-    "href": "T3_Categorical_Data/Categorical.slides.html#mini-activity-solo-mode-part-1",
-    "title": "Categorical Variables",
-    "section": "Mini-Activity (solo mode): Part 1",
-    "text": "Mini-Activity (solo mode): Part 1\n\nAsk ChatGPT or Gemini\n\nGo to https://chat.openai.com/\nAsk ChatGPT how to create a pie chart using matplotlib and seaborn in Python\nThe pie chart must visualize the proportions of the categories of the island variable in the penguin_data dataset."
-  },
-  {
-    "objectID": "T3_Categorical_Data/Categorical.slides.html#section-10",
-    "href": "T3_Categorical_Data/Categorical.slides.html#section-10",
-    "title": "Categorical Variables",
-    "section": "",
-    "text": "Collapsing categories simplifies the graph\n\nplt.figure(figsize=(5.5, 3.5))\nsns.countplot(data=Boston_dataset, x=\"rad\")\nplt.show()\n\n\n\n\n\n\n\n\nIt also allows us to emphasize a category like Low and see how it compares to the other categories (as a whole)."
   }
 ]
