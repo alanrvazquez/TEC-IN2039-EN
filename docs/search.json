@@ -116,14 +116,14 @@
     "href": "T3_Categorical_Data/Categorical.slides.html#mini-activity-solo-mode.-part-1",
     "title": "Categorical Variables",
     "section": "Mini-Activity (solo mode). Part 1",
-    "text": "Mini-Activity (solo mode). Part 1\n\nAsk ChatGPT or Gemini\n\nGo to https://chat.openai.com/\nAsk ChatGPT how to create a pie chart using matplotlib and seaborn in Python\nIf needed, adapt the code to create a pie chart for the island variable in penguin_data."
+    "text": "Mini-Activity (solo mode). Part 1\n\nAsk ChatGPT or Gemini\n\nGo to https://chat.openai.com/\nAsk ChatGPT how to create a pie chart using matplotlib and seaborn in Python\nThe pie chart must visualize the proportions for the island variable in the penguin_data dataset."
   },
   {
     "objectID": "T3_Categorical_Data/Categorical.slides.html#part-2",
     "href": "T3_Categorical_Data/Categorical.slides.html#part-2",
     "title": "Categorical Variables",
     "section": "Part 2",
-    "text": "Part 2\n\nAsk ChatGPT or Gemini to create a pie chart using the prompt:\n\nYou are an expert in data visualization using the libraries “matplotlib” and “seaborn” of the Python programming language. You want to visualize the proportions of three species of penguins using a pie chart. To construct the graph, use the “penguin_data” dataset. The variable “island” contains the categories of penguins. To enhance the graph, add the title “Proportion of Penguins” and use different colors for the categories of penguins.\n\nDiscuss the pie charts created by you and this prompt."
+    "text": "Part 2\n\nAsk ChatGPT or Gemini to create a pie chart using the prompt:\n\n\nYou are an expert in data visualization using the libraries “matplotlib” and “seaborn” of the Python programming language. The goal is to visualize the proportions of three species of penguins using a pie chart. To achieve this goal, perform the following steps:\n\nUse the “penguin_data” dataset.\nThe variable “island” contains the categories of penguins.\nTo enhance the graph, add the title “Proportion of Penguins” and use different colors for the categories of penguins.\n\nCreate the pie chart following the aforementioned instructions.\n\n\nDiscuss the pie charts created by you and this prompt."
   },
   {
     "objectID": "T3_Categorical_Data/Categorical.slides.html#apply-principle-3",
@@ -2042,5 +2042,19 @@
     "title": "What is Data Visualization?",
     "section": "",
     "text": "https://www.amazon.com/Even-Geek-Speak-Joey-Asher/dp/0978577604"
+  },
+  {
+    "objectID": "T3_Categorical_Data/Categorical.slides.html#mini-activity-solo-mode-part-1",
+    "href": "T3_Categorical_Data/Categorical.slides.html#mini-activity-solo-mode-part-1",
+    "title": "Categorical Variables",
+    "section": "Mini-Activity (solo mode): Part 1",
+    "text": "Mini-Activity (solo mode): Part 1\n\nAsk ChatGPT or Gemini\n\nGo to https://chat.openai.com/\nAsk ChatGPT how to create a pie chart using matplotlib and seaborn in Python\nThe pie chart must visualize the proportions of the categories of the island variable in the penguin_data dataset."
+  },
+  {
+    "objectID": "T3_Categorical_Data/Categorical.slides.html#section-10",
+    "href": "T3_Categorical_Data/Categorical.slides.html#section-10",
+    "title": "Categorical Variables",
+    "section": "",
+    "text": "Collapsing categories simplifies the graph\n\nplt.figure(figsize=(5.5, 3.5))\nsns.countplot(data=Boston_dataset, x=\"rad\")\nplt.show()\n\n\n\n\n\n\n\n\nIt also allows us to emphasize a category like Low and see how it compares to the other categories (as a whole)."
   }
 ]

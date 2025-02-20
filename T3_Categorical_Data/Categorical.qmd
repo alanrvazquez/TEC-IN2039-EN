@@ -313,7 +313,7 @@ Pie charts versus bar charts.
 **Bar charts can serve as a good way to show comparisons between categories**. It is generally observed that new trends tend to shy away from using pie charts, as it is difficult for the human eye to judge the exact angle that shows the value of a category in a pie chart.
 :::
 
-## Mini-Activity (*solo* mode). Part 1
+## Mini-Activity (*solo* mode): Part 1
 
 </br>
 
@@ -321,15 +321,24 @@ Pie charts versus bar charts.
 
 1.  Go to <https://chat.openai.com/>
 2.  Ask ChatGPT how to create a pie chart using **matplotlib** and **seaborn** in Python
-3.  If needed, adapt the code to create a pie chart for the `island` variable in `penguin_data`.
+3.  The pie chart must visualize the proportions of the categories of the `island` variable in the `penguin_data` dataset.
 
 ## Part 2
 
-1.  Ask ChatGPT or Gemini to create a pie chart using the prompt:
+4.  Ask ChatGPT or Gemini to create a pie chart using the prompt:
 
-*You are an expert in data visualization using the libraries "matplotlib" and "seaborn" of the Python programming language. You want to visualize the proportions of three species of penguins using a pie chart. To construct the graph, use the "penguin_data" dataset. The variable "island" contains the categories of penguins. To enhance the graph, add the title "Proportion of Penguins" and use different colors for the categories of penguins.* 
+::: {style="font-size: 65%;"}
+You are an expert in data visualization using the libraries "matplotlib" and "seaborn" of the Python programming language. The goal is to visualize the proportions of three species of penguins using a pie chart. To achieve this goal, perform the following steps:
+ 
+1. Use the "penguin_data" dataset. 
+2. The variable "island" contains the categories of penguins. 
+3. To enhance the graph, add the title "Proportion of Penguins" and use different colors for the categories of penguins. 
 
-3. Discuss the pie charts created by you and this prompt.
+Create the pie chart following the aforementioned instructions.
+:::
+
+
+5. Discuss the pie charts created by you and this prompt.
 
 # Transforming categorical variables
 
