@@ -714,11 +714,11 @@
     "text": "When do we use the median?\n\nThe median is used when there are outliers that could skew the mean.\nFor example:\n\nAnnual household income in a country (where there are a few billionaires who distort the mean).\nHouse prices in a city (where a few very expensive properties can inflate the mean)."
   },
   {
-    "objectID": "T4_Numerical_Data/Numerical.slides.html#activity-only-mode-part-1",
-    "href": "T4_Numerical_Data/Numerical.slides.html#activity-only-mode-part-1",
+    "objectID": "T4_Numerical_Data/Numerical.slides.html#activity-solo-mode-part-1",
+    "href": "T4_Numerical_Data/Numerical.slides.html#activity-solo-mode-part-1",
     "title": "Numerical Variables",
-    "section": "Activity (only mode) Part 1",
-    "text": "Activity (only mode) Part 1\nA company that manufactures capacitor retaining bolts for automobile engines implemented a quality control system. As part of this quality control system, a team of engineers decided to record the number of nonconforming bolts produced each shift.\nThe file bolts.xlsx contains the number of non-conforming bolts during the last 45 shifts.\n\nCalculates and interprets the average, variance, standard deviation, quartiles, minimum and maximum."
+    "section": "Activity (solo mode) Part 1",
+    "text": "Activity (solo mode) Part 1\nA company that manufactures capacitor retaining bolts for automobile engines implemented a quality control system. As part of this quality control system, a team of engineers decided to record the number of nonconforming bolts produced each shift.\nThe file bolts.xlsx contains the number of non-conforming bolts during the last 45 shifts.\n\nCalculate and interpret the average, variance, standard deviation, quartiles, minimum and maximum."
   },
   {
     "objectID": "T4_Numerical_Data/Numerical.slides.html#principle-1",
@@ -2035,12 +2035,5 @@
     "title": "What is Data Visualization?",
     "section": "",
     "text": "https://www.amazon.com/Even-Geek-Speak-Joey-Asher/dp/0978577604"
-  },
-  {
-    "objectID": "T4_Numerical_Data/Numerical.slides.html#activity-solo-mode-part-1",
-    "href": "T4_Numerical_Data/Numerical.slides.html#activity-solo-mode-part-1",
-    "title": "Numerical Variables",
-    "section": "Activity (solo mode) Part 1",
-    "text": "Activity (solo mode) Part 1\nA company that manufactures capacitor retaining bolts for automobile engines implemented a quality control system. As part of this quality control system, a team of engineers decided to record the number of nonconforming bolts produced each shift.\nThe file bolts.xlsx contains the number of non-conforming bolts during the last 45 shifts.\n\nCalculate and interpret the average, variance, standard deviation, quartiles, minimum and maximum."
   }
 ]
