@@ -328,7 +328,7 @@ Pie charts versus bar charts.
 4.  Ask ChatGPT or Gemini to create a pie chart using the prompt:
 
 ::: {style="font-size: 65%;"}
-You are an expert in data visualization using the libraries "matplotlib" and "seaborn" of the Python programming language. The goal is to visualize the proportions of three species of penguins using a pie chart. To achieve this goal, perform the following steps:
+You are an expert in data visualization using the libraries "matplotlib" and "seaborn" of the Python programming language. The goal is to visualize the proportions of three islands of penguins using a pie chart. To achieve this goal, perform the following steps:
  
 1. Use the "penguin_data" dataset. 
 2. The variable "island" contains the categories of penguins. 
