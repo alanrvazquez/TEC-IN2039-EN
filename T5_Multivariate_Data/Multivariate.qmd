@@ -20,6 +20,8 @@ editor: visual
 
 ## Agenda
 
+</br>
+
 1.  Data with more than one variable
 
 2.  Two numerical variables
@@ -85,7 +87,7 @@ auto_data = pd.read_excel("auto_dataset.xlsx")
 auto_data.head(4)
 ```
 
-## Principle 1: Formulate the question
+## Principle 1: Define the question
 
 In the context of multiple-variable data, typical questions to study include:
 
@@ -103,12 +105,14 @@ In the context of multiple-variable data, typical questions to study include:
 
 There are various types of graphs that help us explore relationships between two or more variables.
 
+</br>
+
 ::: center
 | Type        | Graph Type                                |
 |:------------|:------------------------------------------|
 | Numerical   | Scatter plot, line graph                  |
 | Categorical | Side-by-side bar chart, stacked bar chart |
-| Mixed       | GSide-by-side box plot, bubble chart      |
+| Mixed       | Side-by-side box plot, bubble chart      |
 :::
 
 ::: notes
@@ -131,11 +135,9 @@ The other variable is called the *independent* or *predictor variable*, denoted 
 
 . . .
 
-> Our goal is to determine whether changes in variable $X$ are associated with changes in variable $Y$, and the nature of this association.
+> Our goal is to determine whether changes in $X$ are associated with changes in $Y$, and the nature of this association.
 
 ## Scatter plot
-
-</br>
 
 The most common graph for examining the relationship between two numerical variables is the [***scatter plot***]{style="color:#174062;"}.
 
@@ -144,6 +146,8 @@ The most common graph for examining the relationship between two numerical varia
 Variables $X$ and $Y$ are placed on the horizontal and vertical axes, respectively. Each point on the graph represents a pair of $X$ and $Y$ values.
 
 . . .
+
+</br>
 
 > The goal is to explore linear or non-linear relationships between variables.
 
@@ -175,7 +179,7 @@ plt.show()
 #| output: true
 
 plt.figure(figsize=(8, 6))
-sns.scatterplot(data=auto_data, x="weight", y="mpg")
+sns.scatterplot(data = auto_data, x = "weight", y = "mpg")
 plt.show()
 ```
 
@@ -256,7 +260,7 @@ plt.show()
 
 ## 
 
-If necessary, we can also adjust the horizontal axis to show 0 as well. To this end we use the `xlim()` function.
+If necessary, we can also adjust the horizontal axis to show 0 as well. To this end, we use the `xlim()` function.
 
 ```{python}
 #| fig-align: center
@@ -331,6 +335,8 @@ Each point represents a value at a given moment.
 
 . . .
 
+</br>
+
 > The objective is to explore trends over time or the evolution of a continuous variable.
 
 ## Example 2
@@ -356,14 +362,14 @@ spotify_data.head(4)
 
 ## 
 
-We will focus on the song *Despacito* by Luis Fonsi. To construct line plots, we use the function`lineplot()` in **seaborn**.
+We will focus on the song *Despacito* by Luis Fonsi. To construct line plots, we use the function `lineplot()` in **seaborn**.
 
 ```{python}
 #| echo: true
 #| fig-align: center
 
 plt.figure(figsize=(7, 5))
-sns.lineplot(data=spotify_data, x="Date", y="Despacito")
+sns.lineplot(data = spotify_data, x = "Date", y = "Despacito")
 plt.show()
 ```
 
@@ -404,7 +410,7 @@ To change the line type, set the `linestyle` parameter to a character shown belo
 
 # A Categorical and a Numerical Variable
 
-## Divide the Data into Groups!
+## Divide the data into groups!
 
 To examine the relationship between a numerical and a categorical variable, we use the categorical variable to divide the data into groups. This way, we **compare the distribution** of the numerical variable among these groups.
 
@@ -419,7 +425,7 @@ In this context:
 
 The [side-by-side boxplot]{style="color:#D70040;"} is the most effective way to study the relationship between a categorical and a numerical variable.
 
-## Boxplot by Groups
+## Boxplot by groups
 
 </br>
 
@@ -429,7 +435,7 @@ The side-by-side boxplot compares the distribution of a variable across differen
 
 In **seaborn**, the plot is obtained using the function:
 
-`sns.boxplot(data=data_set, x=X, y=Y)`.
+`sns.boxplot(data = data_set, x = X, y = Y)`.
 
 ## 
 
@@ -440,7 +446,7 @@ For example, if we want to compare the distributions of miles per gallon of cars
 #| echo: true
 
 plt.figure(figsize=(7, 5))
-sns.boxplot(data=auto_data, x="origin", y="mpg")
+sns.boxplot(data = auto_data, x = "origin", y = "mpg")
 plt.show() 
 ```
 
@@ -485,7 +491,7 @@ plt.show()
 
 Alternatively, we can summarize the values of the numerical variable $Y$ for each category of the variable $X$ using the median or the mean.
 
-For example, let's plot the average miles per gallon of cars produced in America, Europe, and Japan. First, we calculate the average for each category using `groupby()` and `mean()`.
+For example, let's plot the average miles per gallon of cars produced in America, Europe, and Japan. First, we calculate the average for each category using `.groupby()` and `mean()`.
 
 ```{python}
 #| echo: true
@@ -571,12 +577,13 @@ plt.xlabel("Average Miles Per Gallon", fontsize=15)
 plt.ylabel("Origen", fontsize=15)
 # Set x-axis limits
 plt.xlim(0, 35)
+plt.grid()  # Add a grid
 plt.show() 
 ```
 
-## Bar Chart
+## Bar chart
 
-To create a bar chart where the bar length equals a specific value, we use the function `barplot()` dfrom the **seaborn**.
+To create a bar chart where the bar length equals a specific value, we use the function `barplot()` from the **seaborn**.
 
 ```{python}
 #| fig-align: center
@@ -611,7 +618,9 @@ plt.show()
 
 # Two Categorical Variables
 
-## Divide the Data into Groups!
+## Divide the data into groups!
+
+</br>
 
 With two categorical variables, we compare the distribution of one variable across subgroups defined by the other variable.
 
@@ -657,9 +666,11 @@ penguins_data[['species', 'island', 'sex']] = (penguins_data
 
 ## Stacked bar chart
 
-The side-by-side bar chart is generated using the `.histplot()` function, assigning the $X$ variable to the `hue` argument and setting `multiple='stack'`.
+The stacked bar chart is generated using the `histplot()` function, assigning the $X$ variable to the `hue` argument and setting `multiple='stack'`.
 
 . . .
+
+</br>
 
 For example, to study the distribution of penguin species across the three different islands, we use the following:
 
@@ -678,6 +689,8 @@ plt.show()
 ```
 
 ## 
+
+</br>
 
 The chart shows the frequency of each species, separated by island name.
 
@@ -701,7 +714,9 @@ plt.show()
 
 An alternative to the previous chart is to place the bars side by side for the categories of the $X$ variable.
 
-In this case, we use the `.countplot()` function of **seaborn**.
+</br>
+
+In this case, we use the `countplot()` function of **seaborn**.
 
 ```{python}
 #| fig-align: center
@@ -731,7 +746,7 @@ plt.ylabel("Count", fontsize=15)
 plt.show()
 ```
 
-## Stacked or Side-by-Side?
+## Stacked or side-by-side?
 
 </br>
 
@@ -753,11 +768,13 @@ Advantages of **side-by-side** bars:
 
 -   Better for comparing between groups.
 
-## Statistical Summaries
+## Statistical summaries
+
+</br>
 
 For categorical variables, the most common statistical summaries are frequency and relative frequency.
 
-With **pandas**, we calculate frequency using the `size()`, function, which counts the unique values of one or more variables. We also use `groupby()` to compute the distribution by categorical variables.
+With **pandas**, we calculate frequency using the `.size()`, function, which counts the unique values of one or more variables. We also use `.groupby()` to compute the distribution by categorical variables.
 
 ```{python}
 #| echo: true
@@ -785,7 +802,7 @@ print(count_data)
 
 ## 
 
-To calculate relative frequency, we use `assign()` along with the `lambda`, function, which calculates the proportions of a column.
+To calculate relative frequency, we use `.assign()` along with the `lambda`, function, which calculates the proportions of a column.
 
 ```{python}
 #| fig-align: center
@@ -804,7 +821,7 @@ print(rel_freq_table)
 
 # More than One Variable
 
-## Charts for Three Variables
+## Charts for three variables
 
 </br>
 
@@ -829,7 +846,7 @@ plt.ylabel("Miles per Gallon (MPG)")
 plt.show() 
 ```
 
-## Faceted or lattice Plot
+## Faceted or lattice plot
 
 A faceted plot visualizes the relationship or distribution of one or two variables for each subgroup defined by a third variable $Z$.
 
@@ -878,7 +895,7 @@ plt.show()
 
 </br>
 
-We can use the functions `.lineplot()` and `FacetGrid()` to visualize the evolution of play counts for the 5 songs in the file "spotify.xlsx" over time.
+We can use the functions `lineplot()` and `FacetGrid()` to visualize the evolution of play counts for the 5 songs in the file "spotify.xlsx" over time.
 
 </br>
 
