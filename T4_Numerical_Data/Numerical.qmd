@@ -98,7 +98,7 @@ For **numerical** data, the most popular summary statistics are:
 
 ::: incremental
 -   [Mean]{style="color:darkblue;"}
--   [Variance]{style="color:darkblue;"} and [sample standard deviation]{style="color:darkblue;"}
+-   [Variance]{style="color:darkblue;"} and [standard deviation]{style="color:darkblue;"}
 -   [Quartiles]{style="color:darkgreen;"}
 -   Maximum and minimum
 :::
@@ -130,7 +130,6 @@ piston_data_mean = (piston_data
                    )
 piston_data_mean
 ```
-
 
 ## 
 
@@ -222,11 +221,11 @@ round(piston_data_sd, 3)
 
 ## Quartiles
 
-The [**sample median**]{style="color:darkgreen;"} is the middle number of the ordered data values.
+The [**median**]{style="color:darkgreen;"} is the middle number of the ordered data values.
 
 . . .
 
-[**Sample quartiles**]{style="color:darkgreen;"} divide the data as nearly as possible into quarters:
+[**Quartiles**]{style="color:darkgreen;"} divide the data as nearly as possible into quarters:
 
 ::: incremental
 -   First quartile ($Q_1$) is the median of the lower half of the data.
@@ -302,21 +301,21 @@ We compute the **maximum** and **minimum** using `.agg()` with "max" and "min", 
 
 [*Interpretation:*]{style="color:darkgray;"} The minimum cycle time is 0.175 seconds.
 
-## Average vs. Median
+## Mean vs. Median
 
 </br>
 
-The average and median estimate the central value of the data in different ways.
+The mean and median estimate the central value of the data in different ways.
 
--   The average is the sum of the values divided by the total.
+-   The mean is the sum of the values divided by the total.
 
 -   The median is the central value of an ordered set of data.
 
-## When do we use the average?
+## When do we use the mean?
 
 </br>
 
-The average is used when the data is symmetrically or evenly distributed and there are no significant outliers.
+The mean is used when the data is symmetrically or evenly distributed and there are no significant outliers.
 
 </br>
 
@@ -340,7 +339,7 @@ A company that manufactures capacitor retaining bolts for automobile engines imp
 
 The file `bolts.xlsx` contains the number of non-conforming bolts during the last 45 shifts.
 
--   Calculate and interpret the average, variance, standard deviation, quartiles, minimum and maximum.
+-   Calculate and interpret the mean, variance, standard deviation, quartiles, minimum and maximum.
 
 # Data visualizations for numerical variables
 
@@ -561,7 +560,7 @@ The interquartile range is the distance needed to encompass the middle half of t
 
 ![](images/clipboard-84021266.png){fig-align="center"}
 
-Learn more here [https://builtin.com/articles/1-5-iqr-rule](https://builtin.com/articles/1-5-iqr-rule)
+Learn more here <https://builtin.com/articles/1-5-iqr-rule>
 
 ## Outliers
 

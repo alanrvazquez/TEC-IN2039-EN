@@ -620,7 +620,7 @@
     "href": "T4_Numerical_Data/Numerical.slides.html#summary-statistic",
     "title": "Numerical Variables",
     "section": "Summary statistic",
-    "text": "Summary statistic\n\nHelps us to summarize a list of observations in a simple way.\n\nFor numerical data, the most popular summary statistics are:\n\n\nMean\nVariance and sample standard deviation\nQuartiles\nMaximum and minimum"
+    "text": "Summary statistic\n\nHelps us to summarize a list of observations in a simple way.\n\nFor numerical data, the most popular summary statistics are:\n\n\nMean\nVariance and standard deviation\nQuartiles\nMaximum and minimum"
   },
   {
     "objectID": "T4_Numerical_Data/Numerical.slides.html#mean",
@@ -676,7 +676,7 @@
     "href": "T4_Numerical_Data/Numerical.slides.html#quartiles",
     "title": "Numerical Variables",
     "section": "Quartiles",
-    "text": "Quartiles\nThe sample median is the middle number of the ordered data values.\n\nSample quartiles divide the data as nearly as possible into quarters:\n\n\nFirst quartile (\\(Q_1\\)) is the median of the lower half of the data.\nSecond quartile (\\(Q_2\\)) is the median of the data.\nThird quartile (\\(Q_3\\)) is the median of the upper half of the data."
+    "text": "Quartiles\nThe median is the middle number of the ordered data values.\n\nQuartiles divide the data as nearly as possible into quarters:\n\n\nFirst quartile (\\(Q_1\\)) is the median of the lower half of the data.\nSecond quartile (\\(Q_2\\)) is the median of the data.\nThird quartile (\\(Q_3\\)) is the median of the upper half of the data."
   },
   {
     "objectID": "T4_Numerical_Data/Numerical.slides.html#section-4",
@@ -725,7 +725,7 @@
     "href": "T4_Numerical_Data/Numerical.slides.html#activity-solo-mode-part-1",
     "title": "Numerical Variables",
     "section": "Activity (solo mode) Part 1",
-    "text": "Activity (solo mode) Part 1\nA company that manufactures capacitor retaining bolts for automobile engines implemented a quality control system. As part of this quality control system, a team of engineers decided to record the number of nonconforming bolts produced each shift.\nThe file bolts.xlsx contains the number of non-conforming bolts during the last 45 shifts.\n\nCalculate and interpret the average, variance, standard deviation, quartiles, minimum and maximum."
+    "text": "Activity (solo mode) Part 1\nA company that manufactures capacitor retaining bolts for automobile engines implemented a quality control system. As part of this quality control system, a team of engineers decided to record the number of nonconforming bolts produced each shift.\nThe file bolts.xlsx contains the number of non-conforming bolts during the last 45 shifts.\n\nCalculate and interpret the mean, variance, standard deviation, quartiles, minimum and maximum."
   },
   {
     "objectID": "T4_Numerical_Data/Numerical.slides.html#principle-1",
@@ -2042,5 +2042,19 @@
     "title": "What is Data Visualization?",
     "section": "",
     "text": "https://www.amazon.com/Even-Geek-Speak-Joey-Asher/dp/0978577604"
+  },
+  {
+    "objectID": "T4_Numerical_Data/Numerical.slides.html#mean-vs.-median",
+    "href": "T4_Numerical_Data/Numerical.slides.html#mean-vs.-median",
+    "title": "Numerical Variables",
+    "section": "Mean vs. Median",
+    "text": "Mean vs. Median\n\nThe mean and median estimate the central value of the data in different ways.\n\nThe mean is the sum of the values divided by the total.\nThe median is the central value of an ordered set of data."
+  },
+  {
+    "objectID": "T4_Numerical_Data/Numerical.slides.html#when-do-we-use-the-mean",
+    "href": "T4_Numerical_Data/Numerical.slides.html#when-do-we-use-the-mean",
+    "title": "Numerical Variables",
+    "section": "When do we use the mean?",
+    "text": "When do we use the mean?\n\nThe mean is used when the data is symmetrically or evenly distributed and there are no significant outliers.\n\nFor example, the height of a large sample of people in a homogeneous population."
   }
 ]
