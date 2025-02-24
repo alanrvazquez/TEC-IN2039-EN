@@ -1449,11 +1449,11 @@
     "text": "auto_data.head(4)\n\n\n\n\n\n\n\n\nmpg\ncylinders\ndisplacement\nhorsepower\nweight\nacceleration\nyear\norigin\ncar name\n\n\n\n\n0\n18.0\n8\n307.0\n130\n3504\n12.0\n70\nAmerican\nchevrolet chevelle malibu\n\n\n1\n15.0\n8\n350.0\n165\n3693\n11.5\n70\nAmerican\nbuick skylark 320\n\n\n2\n18.0\n8\n318.0\n150\n3436\n11.0\n70\nAmerican\nplymouth satellite\n\n\n3\n16.0\n8\n304.0\n150\n3433\n12.0\n70\nAmerican\namc rebel sst"
   },
   {
-    "objectID": "T5_Multivariate_Data/Multivariate.slides.html#principle-1-formulate-the-question",
-    "href": "T5_Multivariate_Data/Multivariate.slides.html#principle-1-formulate-the-question",
+    "objectID": "T5_Multivariate_Data/Multivariate.slides.html#principle-1-define-the-question",
+    "href": "T5_Multivariate_Data/Multivariate.slides.html#principle-1-define-the-question",
     "title": "Multivariable Data",
-    "section": "Principle 1: Formulate the question",
-    "text": "Principle 1: Formulate the question\nIn the context of multiple-variable data, typical questions to study include:\n\n\nHow are variable \\(X\\) and variable \\(Y\\) related?\nIs the distribution of variable \\(X\\) the same across all subgroups defined by variable \\(Z\\)?\nAre there any unusual observations in the combination of values for variables \\(X\\) and \\(Y\\)?\nAre there any unusual observations in \\(X\\) for a subgroup of variable \\(Z\\)?"
+    "section": "Principle 1: Define the question",
+    "text": "Principle 1: Define the question\nIn the context of multiple-variable data, typical questions to study include:\n\n\nHow are variable \\(X\\) and variable \\(Y\\) related?\nIs the distribution of variable \\(X\\) the same across all subgroups defined by variable \\(Z\\)?\nAre there any unusual observations in the combination of values for variables \\(X\\) and \\(Y\\)?\nAre there any unusual observations in \\(X\\) for a subgroup of variable \\(Z\\)?"
   },
   {
     "objectID": "T5_Multivariate_Data/Multivariate.slides.html#principle-2-turn-data-into-information",
@@ -2042,12 +2042,5 @@
     "title": "What is Data Visualization?",
     "section": "",
     "text": "https://www.amazon.com/Even-Geek-Speak-Joey-Asher/dp/0978577604"
-  },
-  {
-    "objectID": "T5_Multivariate_Data/Multivariate.slides.html#principle-1-define-the-question",
-    "href": "T5_Multivariate_Data/Multivariate.slides.html#principle-1-define-the-question",
-    "title": "Multivariable Data",
-    "section": "Principle 1: Define the question",
-    "text": "Principle 1: Define the question\nIn the context of multiple-variable data, typical questions to study include:\n\n\nHow are variable \\(X\\) and variable \\(Y\\) related?\nIs the distribution of variable \\(X\\) the same across all subgroups defined by variable \\(Z\\)?\nAre there any unusual observations in the combination of values for variables \\(X\\) and \\(Y\\)?\nAre there any unusual observations in \\(X\\) for a subgroup of variable \\(Z\\)?"
   }
 ]
