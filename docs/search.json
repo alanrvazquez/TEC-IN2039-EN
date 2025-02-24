@@ -700,18 +700,18 @@
     "text": "Maximum and minimum\nWe compute the maximum and minimum using .agg() with “max” and “min”, respectively.\n\n(piston_data\n .agg(\"max\")\n)\n\ncycle_time    1.141\ndtype: float64\n\n\nInterpretation: The maximum cycle time is 1.14 seconds.\n\n(piston_data\n .agg(\"min\")\n)\n\ncycle_time    0.175\ndtype: float64\n\n\nInterpretation: The minimum cycle time is 0.175 seconds."
   },
   {
-    "objectID": "T4_Numerical_Data/Numerical.slides.html#average-vs.-median",
-    "href": "T4_Numerical_Data/Numerical.slides.html#average-vs.-median",
+    "objectID": "T4_Numerical_Data/Numerical.slides.html#mean-vs.-median",
+    "href": "T4_Numerical_Data/Numerical.slides.html#mean-vs.-median",
     "title": "Numerical Variables",
-    "section": "Average vs. Median",
-    "text": "Average vs. Median\n\nThe average and median estimate the central value of the data in different ways.\n\nThe average is the sum of the values divided by the total.\nThe median is the central value of an ordered set of data."
+    "section": "Mean vs. Median",
+    "text": "Mean vs. Median\n\nThe mean and median estimate the central value of the data in different ways.\n\nThe mean is the sum of the values divided by the total.\nThe median is the central value of an ordered set of data."
   },
   {
-    "objectID": "T4_Numerical_Data/Numerical.slides.html#when-do-we-use-the-average",
-    "href": "T4_Numerical_Data/Numerical.slides.html#when-do-we-use-the-average",
+    "objectID": "T4_Numerical_Data/Numerical.slides.html#when-do-we-use-the-mean",
+    "href": "T4_Numerical_Data/Numerical.slides.html#when-do-we-use-the-mean",
     "title": "Numerical Variables",
-    "section": "When do we use the average?",
-    "text": "When do we use the average?\n\nThe average is used when the data is symmetrically or evenly distributed and there are no significant outliers.\n\nFor example, the height of a large sample of people in a homogeneous population."
+    "section": "When do we use the mean?",
+    "text": "When do we use the mean?\n\nThe mean is used when the data is symmetrically or evenly distributed and there are no significant outliers.\n\nFor example, the height of a large sample of people in a homogeneous population."
   },
   {
     "objectID": "T4_Numerical_Data/Numerical.slides.html#when-do-we-use-the-median",
@@ -2042,19 +2042,5 @@
     "title": "What is Data Visualization?",
     "section": "",
     "text": "https://www.amazon.com/Even-Geek-Speak-Joey-Asher/dp/0978577604"
-  },
-  {
-    "objectID": "T4_Numerical_Data/Numerical.slides.html#mean-vs.-median",
-    "href": "T4_Numerical_Data/Numerical.slides.html#mean-vs.-median",
-    "title": "Numerical Variables",
-    "section": "Mean vs. Median",
-    "text": "Mean vs. Median\n\nThe mean and median estimate the central value of the data in different ways.\n\nThe mean is the sum of the values divided by the total.\nThe median is the central value of an ordered set of data."
-  },
-  {
-    "objectID": "T4_Numerical_Data/Numerical.slides.html#when-do-we-use-the-mean",
-    "href": "T4_Numerical_Data/Numerical.slides.html#when-do-we-use-the-mean",
-    "title": "Numerical Variables",
-    "section": "When do we use the mean?",
-    "text": "When do we use the mean?\n\nThe mean is used when the data is symmetrically or evenly distributed and there are no significant outliers.\n\nFor example, the height of a large sample of people in a homogeneous population."
   }
 ]
