@@ -16,7 +16,7 @@ author:
 4.  Categorical variables ([slides](/T3_Categorical_Data/Categorical.slides.html)) ([colab](https://drive.google.com/file/d/1_qGqPiDaUmah2m4IdJcYTrsqgRz7cwlo/view?usp=sharing))
 5.  Numerical variables ([slides](/T4_Numerical_Data/Numerical.slides.html)) ([colab](https://drive.google.com/file/d/1QoRxm9joB0331wlRSpD5BJoUp6j2mFCW/view?usp=sharing))
 6.  Multivariate data ([slides](/T5_Multivariate_Data/Multivariate.slides.html)) ([colab](https://drive.google.com/file/d/1MUvdL0GV1PMZWlYg9Qp2G1ocdmp822M2/view?usp=sharing))
-7.  Simple linear regression ([slides](/T6_Introduction_Linear_Regression/LR.slides.html)) ([colab](https://drive.google.com/file/d/1dQaz3JcFOpJrg9S39G8pi-rNS_8YhXaa/view?usp=sharing))
+7.  Simple regression ([slides](/T6_Introduction_Linear_Regression/LR.slides.html)) ([colab](https://drive.google.com/file/d/1dQaz3JcFOpJrg9S39G8pi-rNS_8YhXaa/view?usp=sharing))
 
 ## About the author
 
@@ -24,4 +24,8 @@ Alan R. Vazquez ([website](https://alanrvazquez.netlify.app/)) is a Research Pro
 
 ## License
 
-<p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><a property="dct:title" rel="cc:attributionURL" href="https://alanrvazquez.github.io/TEC-IN2039-EN/">IN2039 Data Visualization for Decision Making</a> by <a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="https://alanrvazquez.netlify.app/">Alan R. Vazquez</a> is licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">CC BY-NC-SA 4.0<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" alt=""><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" alt=""><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/nc.svg?ref=chooser-v1" alt=""><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/sa.svg?ref=chooser-v1" alt=""></a></p> 
+<p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/">
+
+<a property="dct:title" rel="cc:attributionURL" href="https://alanrvazquez.github.io/TEC-IN2039-EN/">IN2039 Data Visualization for Decision Making</a> by <a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="https://alanrvazquez.netlify.app/">Alan R. Vazquez</a> is licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">CC BY-NC-SA 4.0<img src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" style="height:22px!important;margin-left:3px;vertical-align:text-bottom;"/><img src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" style="height:22px!important;margin-left:3px;vertical-align:text-bottom;"/><img src="https://mirrors.creativecommons.org/presskit/icons/nc.svg?ref=chooser-v1" style="height:22px!important;margin-left:3px;vertical-align:text-bottom;"/><img src="https://mirrors.creativecommons.org/presskit/icons/sa.svg?ref=chooser-v1" style="height:22px!important;margin-left:3px;vertical-align:text-bottom;"/></a>
+
+</p>

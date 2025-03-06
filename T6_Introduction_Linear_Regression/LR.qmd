@@ -1,5 +1,5 @@
 ---
-title: Introduction to Linear Regression 
+title: Introduction to Simple Regression 
 subtitle: "IN2039: Data Visualization for Decision Making"
 author: 
   - name: Alan R. Vazquez
@@ -20,6 +20,8 @@ editor: visual
 ---
 
 ## Agenda
+
+</br>
 
 1.  Introduction
 
@@ -106,11 +108,11 @@ plt.yticks(fontsize=10)
 plt.show()
 ```
 
-## Regression Problem
+## Regression problem
 
 </br>
 
-**Objetive**: Objective: Find the best function $f(X)$ of the predictor $X$ that describes the response $Y$.
+**Objetive**: Find the best function $f(X)$ of the predictor $X$ that describes the response $Y$.
 
 . . .
 
@@ -124,6 +126,8 @@ where $\epsilon$ is a natural (random) error.
 
 ## 
 
+</br>
+
 -   In practice, it is very difficult to know the true structure of the function $f(X)$.
 
 ::: incremental
@@ -135,9 +139,9 @@ where $\epsilon$ is a natural (random) error.
     2.  Estimate the elements of the "formula" using the data.
 :::
 
-# Simple Linear Regression
+# Simple linear regression
 
-## Linear Regression Model
+## Linear regression model
 
 A very common function $f(X)$ to predict a response $Y$ is the **linear regression model**.
 
@@ -163,7 +167,7 @@ where $\bar{X} = \sum_{i=1}^n X_i/n$ and $\bar{Y} = \sum_{i=1}^n Y_i/n$.
 
 These formulas are derived from the method of [*least squares*]{style="color:orange;"}.
 
-## Fitting Regression Models in R
+## Fitting regression models in R
 
 To fit a linear regression model, we use the `regplot()` in **seaborn**.
 
@@ -200,7 +204,7 @@ plt.legend()
 plt.show()
 ```
 
-## For Our Example
+## For our example
 
 $\hat{Y}_i = 46.32 -0.0076 X_i$
 
@@ -219,7 +223,7 @@ plt.legend()
 plt.show()
 ```
 
-## The Formula
+## The formula
 
 $\text{mpg}_i = 46.32 - 0.0076 \times \text{peso}_i$
 
@@ -238,7 +242,7 @@ plt.legend()
 plt.show()
 ```
 
-## Interpretation of the Coefficients
+## Interpretation of the coefficients
 
 [What does $\hat{\beta}_0 = 46.32$ mean?]{style="color:darkblue;"}
 
@@ -353,6 +357,8 @@ No! The model has [**errors**]{style="color:darkgreen;"}.
 
 . . .
 
+</br>
+
 Technically, the error of the *i*-th observation is given by: $e_i = Y_i - \hat{Y}_i = Y_i - \hat{\beta}_0 - \hat{\beta}_1 X_i$.
 
 ## In fact ...
@@ -379,22 +385,24 @@ The behavior of the errors ($e_i$'s) indicates whether the model is correct or n
 
 ## Graphical analysis of errors
 
+</br>
+
 To evaluate these behaviors, we use two scatter plots of the errors:
 
 -   **Horizontal Axis** = Errors and **Vertical Axis** = Predictions. This plot helps validate the first two assumptions (**errors around 0 and constant dispersion**).
 
--   **Eje Horizontal** = Errores y **Eje Vertical** = Tiempo en que se tomó la observación. Está gráfica permite validar el tercer supuesto (**independencia**).
+-   **Horizontal Axis** = Errors and **Vertical Axis** = time in which the observation was taken. This graph allows us to validate the third assumption (**independencia**).
 
 ## statsmodels library
 
--   **statsmodels** is a powerful python library for statistical modeling, data analysis, and hypothesis testing.
+-   **statsmodels** is a powerful Python library for statistical modeling, data analysis, and hypothesis testing.
 -   It provides classes and functions for estimating statistical models.
 -   It is built on top of libraries such as **NumPy**, **SciPy**, and **pandas**
 -   <https://www.statsmodels.org/stable/index.html>
 
 ![](images/statsmodels-logo-v2-horizontal-dark.svg){fig-align="center"}
 
-## Load the libraries
+## Load the library
 
 </br>
 
@@ -460,13 +468,15 @@ To show the estimated coefficients, we use the argument `params` of the `linear_
 print(linear_model.params)
 ```
 
+</br>
+
 The elements in the vector above are the estimates $\hat{\beta}_0 = 46.317$ and $\hat{\beta}_1 = -0.00767$.
 
 ## Residuals and fitted values
 
 </br>
 
-To create the plots for the residuals, we need the predicted values ($\hat{Y}_i$'s) of the response and the residuals ($e_i$'s) first. To this end, we use the commands below.
+To create the plots for the residuals, we need the predicted (fitted) values ($\hat{Y}_i$'s) of the response and the residuals ($e_i$'s) first. To this end, we use the commands below.
 
 ```{python}
 #| echo: true
@@ -519,7 +529,6 @@ plt.show()
 
 </br>
 
-</br>
 
 -   The two plots **do not** validate the assumptions of the linear regression model.
 
