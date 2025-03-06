@@ -1495,7 +1495,7 @@
     "href": "T5_Multivariate_Data/Multivariate.slides.html#principle-3-apply-graphic-design-principles",
     "title": "Multivariable Data",
     "section": "Principle 3: Apply graphic design principles",
-    "text": "Principle 3: Apply graphic design principles\nFollowing Principle 3, we can modify the default function values to define different colors or shapes for the points in the graph.\nSpecifically, you can change the color, shape, and size of points using the arguments color, shape and s, respectively.\n\nsns.scatterplot(data=data_set, x=X, y=Y, color, marker, s)"
+    "text": "Principle 3: Apply graphic design principles\nFollowing Principle 3, we can modify the default function values to define different colors or shapes for the points in the graph.\nSpecifically, you can change the color, shape, and size of points using the arguments color, marker and s, respectively.\n\nsns.scatterplot(data=data_set, x=X, y=Y, color, marker, s)"
   },
   {
     "objectID": "T5_Multivariate_Data/Multivariate.slides.html#section-2",
@@ -1572,7 +1572,7 @@
     "href": "T5_Multivariate_Data/Multivariate.slides.html#applying-principle-3",
     "title": "Multivariable Data",
     "section": "Applying Principle 3",
-    "text": "Applying Principle 3\nWe can change various aspects of the graph using additional arguments linetype, size, and color.\n\nsns.lineplot(data = data_set, x = x, y = Y, linestyle, linewidth, color)."
+    "text": "Applying Principle 3\nWe can change various aspects of the graph using additional arguments linestyle, linewidth, and color.\n\nsns.lineplot(data = data_set, x = x, y = Y, linestyle, linewidth, color)."
   },
   {
     "objectID": "T5_Multivariate_Data/Multivariate.slides.html#section-7",
@@ -2042,5 +2042,12 @@
     "title": "What is Data Visualization?",
     "section": "",
     "text": "https://www.amazon.com/Even-Geek-Speak-Joey-Asher/dp/0978577604"
+  },
+  {
+    "objectID": "T5_Multivariate_Data/Multivariate.slides.html#line-styles",
+    "href": "T5_Multivariate_Data/Multivariate.slides.html#line-styles",
+    "title": "Multivariable Data",
+    "section": "Line styles",
+    "text": "Line styles\n\nTo change the line type, set the linestyle parameter to a character shown below."
   }
 ]

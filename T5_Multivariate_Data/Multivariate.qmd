@@ -112,7 +112,7 @@ There are various types of graphs that help us explore relationships between two
 |:------------|:------------------------------------------|
 | Numerical   | Scatter plot, line graph                  |
 | Categorical | Side-by-side bar chart, stacked bar chart |
-| Mixed       | Side-by-side box plot, bubble chart      |
+| Mixed       | Side-by-side box plot, bubble chart       |
 :::
 
 ::: notes
@@ -187,7 +187,7 @@ plt.show()
 
 Following Principle 3, we can modify the default function values to define different colors or shapes for the points in the graph.
 
-Specifically, you can change the color, shape, and size of points using the arguments `color`, `shape` and `s`, respectively.
+Specifically, you can change the color, shape, and size of points using the arguments `color`, `marker` and `s`, respectively.
 
 </br>
 
@@ -375,7 +375,7 @@ plt.show()
 
 ## Applying Principle 3
 
-We can change various aspects of the graph using additional arguments `linetype`, `size`, and `color`.
+We can change various aspects of the graph using additional arguments `linestyle`, `linewidth`, and `color`.
 
 </br>
 
@@ -400,7 +400,7 @@ plt.xticks(fontsize=12)
 plt.show()
 ```
 
-## Line types
+## Line styles
 
 </br>
 
