@@ -851,14 +851,14 @@
     "href": "index.html",
     "title": "IN2039 Data Visualization for Decision Making",
     "section": "",
-    "text": "Course topics\n\nIntroduction (slides)\nTools (slides) (colab)\nTypes of variables (slides) (colab) (pandas cheat sheet)\nCategorical variables (slides) (colab)\nNumerical variables (slides) (colab)\nMultivariate data (slides) (colab)\nSimple linear regression (slides) (colab)\n\n\n\nAbout the author\nAlan R. Vazquez (website) is a Research Professor at the Department of Industrial Engineering at Tecnologico de Monterrey, Monterrey campus.\n\n\nLicense\n\nIN2039 Data Visualization for Decision Making by Alan R. Vazquez is licensed under CC BY-NC-SA 4.0"
+    "text": "Course topics\n\nIntroduction (slides)\nTools (slides) (colab)\nTypes of variables (slides) (colab) (pandas cheat sheet)\nCategorical variables (slides) (colab)\nNumerical variables (slides) (colab)\nMultivariate data (slides) (colab)\nSimple regression (slides) (colab)\n\n\n\nAbout the author\nAlan R. Vazquez (website) is a Research Professor at the Department of Industrial Engineering at Tecnologico de Monterrey, Monterrey campus.\n\n\nLicense\n\nIN2039 Data Visualization for Decision Making by Alan R. Vazquez is licensed under CC BY-NC-SA 4.0"
   },
   {
     "objectID": "index.slides.html#course-topics",
     "href": "index.slides.html#course-topics",
     "title": "IN2039 Data Visualization for Decision Making",
     "section": "Course topics",
-    "text": "Course topics\n\nIntroduction (slides)\nTools (slides) (colab)\nTypes of variables (slides) (colab) (pandas cheat sheet)\nCategorical variables (slides) (colab)\nNumerical variables (slides) (colab)\nMultivariate data (slides) (colab)\nSimple linear regression (slides) (colab)"
+    "text": "Course topics\n\nIntroduction (slides)\nTools (slides) (colab)\nTypes of variables (slides) (colab) (pandas cheat sheet)\nCategorical variables (slides) (colab)\nNumerical variables (slides) (colab)\nMultivariate data (slides) (colab)\nSimple regression (slides) (colab)"
   },
   {
     "objectID": "index.slides.html#about-the-author",
@@ -1036,11 +1036,11 @@
     "text": "statsmodels library\n\nstatsmodels is a powerful Python library for statistical modeling, data analysis, and hypothesis testing.\nIt provides classes and functions for estimating statistical models.\nIt is built on top of libraries such as NumPy, SciPy, and pandas\nhttps://www.statsmodels.org/stable/index.html"
   },
   {
-    "objectID": "T6_Introduction_Linear_Regression/LR.slides.html#load-the-libraries",
-    "href": "T6_Introduction_Linear_Regression/LR.slides.html#load-the-libraries",
+    "objectID": "T6_Introduction_Linear_Regression/LR.slides.html#load-the-library",
+    "href": "T6_Introduction_Linear_Regression/LR.slides.html#load-the-library",
     "title": "Introduction to Simple Regression",
-    "section": "Load the libraries",
-    "text": "Load the libraries\n\nLet’s import statsmodels into Python\n\nimport statsmodels.api as sm"
+    "section": "Load the library",
+    "text": "Load the library\n\nLet’s import statsmodels into Python\n\nimport statsmodels.api as sm"
   },
   {
     "objectID": "T6_Introduction_Linear_Regression/LR.slides.html#fit-a-linear-model",
@@ -1582,11 +1582,11 @@
     "text": "Code\n# Create the line plot\nplt.figure(figsize=(10, 6))\nsns.lineplot(data=spotify_data, x=\"Date\", y=\"Despacito\", linestyle = '-',\n            color=\"darkblue\", linewidth=1.3)\nplt.title(\"Popularity of the song Despacito by Luis Fonsi\", fontsize=16)\nplt.xlabel(\"Date\", fontsize=12)\nplt.ylabel(\"Number of plays on Spotify\", fontsize=15)\nplt.yticks(fontsize=12)\nplt.xticks(fontsize=12)\nplt.show()"
   },
   {
-    "objectID": "T5_Multivariate_Data/Multivariate.slides.html#line-types",
-    "href": "T5_Multivariate_Data/Multivariate.slides.html#line-types",
+    "objectID": "T5_Multivariate_Data/Multivariate.slides.html#line-styles",
+    "href": "T5_Multivariate_Data/Multivariate.slides.html#line-styles",
     "title": "Multivariable Data",
-    "section": "Line types",
-    "text": "Line types\n\nTo change the line type, set the linestyle parameter to a character shown below."
+    "section": "Line styles",
+    "text": "Line styles\n\nTo change the line type, set the linestyle parameter to a character shown below."
   },
   {
     "objectID": "T5_Multivariate_Data/Multivariate.slides.html#divide-the-data-into-groups",
@@ -2042,19 +2042,5 @@
     "title": "What is Data Visualization?",
     "section": "",
     "text": "https://www.amazon.com/Even-Geek-Speak-Joey-Asher/dp/0978577604"
-  },
-  {
-    "objectID": "T5_Multivariate_Data/Multivariate.slides.html#line-styles",
-    "href": "T5_Multivariate_Data/Multivariate.slides.html#line-styles",
-    "title": "Multivariable Data",
-    "section": "Line styles",
-    "text": "Line styles\n\nTo change the line type, set the linestyle parameter to a character shown below."
-  },
-  {
-    "objectID": "T6_Introduction_Linear_Regression/LR.slides.html#load-the-library",
-    "href": "T6_Introduction_Linear_Regression/LR.slides.html#load-the-library",
-    "title": "Introduction to Simple Regression",
-    "section": "Load the library",
-    "text": "Load the library\n\nLet’s import statsmodels into Python\n\nimport statsmodels.api as sm"
   }
 ]
