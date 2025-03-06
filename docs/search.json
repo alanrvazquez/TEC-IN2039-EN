@@ -970,7 +970,7 @@
     "href": "T6_Introduction_Linear_Regression/LR.slides.html#the-formula",
     "title": "Introduction to Simple Regression",
     "section": "The formula",
-    "text": "The formula\n\\(\\text{mpg}_i = 46.32 - 0.0076 \\times \\text{peso}_i\\)"
+    "text": "The formula\n\\(\\text{mpg}_i = 46.32 - 0.0076 \\times \\text{weight}_i\\)"
   },
   {
     "objectID": "T6_Introduction_Linear_Regression/LR.slides.html#interpretation-of-the-coefficients",

@@ -225,7 +225,7 @@ plt.show()
 
 ## The formula
 
-$\text{mpg}_i = 46.32 - 0.0076 \times \text{peso}_i$
+$\text{mpg}_i = 46.32 - 0.0076 \times \text{weight}_i$
 
 ```{python}
 #| fig-align: center
