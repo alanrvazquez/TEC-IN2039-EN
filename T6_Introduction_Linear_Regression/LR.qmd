@@ -167,7 +167,7 @@ where $\bar{X} = \sum_{i=1}^n X_i/n$ and $\bar{Y} = \sum_{i=1}^n Y_i/n$.
 
 These formulas are derived from the method of [*least squares*]{style="color:orange;"}.
 
-## Fitting regression models in R
+## Fitting regression models in Python
 
 To fit a linear regression model, we use the `regplot()` in **seaborn**.
 
@@ -389,9 +389,9 @@ The behavior of the errors ($e_i$'s) indicates whether the model is correct or n
 
 To evaluate these behaviors, we use two scatter plots of the errors:
 
--   **Horizontal Axis** = Errors and **Vertical Axis** = Predictions. This plot helps validate the first two assumptions (**errors around 0 and constant dispersion**).
+-   **Vertical Axis** = Errors and **Horizontal Axis** = Predictions. This plot helps validate the first two assumptions (**errors around 0 and constant dispersion**).
 
--   **Horizontal Axis** = Errors and **Vertical Axis** = time in which the observation was taken. This graph allows us to validate the third assumption (**independencia**).
+-   **Vertical Axis** = Errors and **Horizontal Axis** = time in which the observation was taken. This graph allows us to validate the third assumption (**independencia**).
 
 ## statsmodels library
 

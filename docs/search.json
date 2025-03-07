@@ -945,11 +945,11 @@
     "text": "Principle 2: Turn data into information\nThe values of \\(\\hat{\\beta}_0\\) and \\(\\hat{\\beta}_1\\) are obtained using the data. Specifically, the formulas for the coefficients are:\n\\[\\hat{\\beta}_1 = \\frac{ \\sum_{i=1}^{n} (Y_i - \\bar{Y}) (X_i - \\bar{X}) }{\\sum_{i=1}^{n} (X_i - \\bar{X})^2} \\text{  y  } \\hat{\\beta}_0 = \\bar{Y} - \\hat{\\beta}_1 \\bar{X},\\]\nwhere \\(\\bar{X} = \\sum_{i=1}^n X_i/n\\) and \\(\\bar{Y} = \\sum_{i=1}^n Y_i/n\\).\nThese formulas are derived from the method of least squares."
   },
   {
-    "objectID": "T6_Introduction_Linear_Regression/LR.slides.html#fitting-regression-models-in-r",
-    "href": "T6_Introduction_Linear_Regression/LR.slides.html#fitting-regression-models-in-r",
+    "objectID": "T6_Introduction_Linear_Regression/LR.slides.html#fitting-regression-models-in-python",
+    "href": "T6_Introduction_Linear_Regression/LR.slides.html#fitting-regression-models-in-python",
     "title": "Introduction to Simple Regression",
-    "section": "Fitting regression models in R",
-    "text": "Fitting regression models in R\nTo fit a linear regression model, we use the regplot() in seaborn.\n\nplt.figure(figsize=(5.8, 3.8))\nsns.regplot(data=auto_data, x=\"weight\", y=\"mpg\")\nplt.xlabel(\"Weight (lb)\")\nplt.ylabel(\"Miles per Gallon (mpg)\")\nplt.show()"
+    "section": "Fitting regression models in Python",
+    "text": "Fitting regression models in Python\nTo fit a linear regression model, we use the regplot() in seaborn.\n\nplt.figure(figsize=(5.8, 3.8))\nsns.regplot(data=auto_data, x=\"weight\", y=\"mpg\")\nplt.xlabel(\"Weight (lb)\")\nplt.ylabel(\"Miles per Gallon (mpg)\")\nplt.show()"
   },
   {
     "objectID": "T6_Introduction_Linear_Regression/LR.slides.html#section-3",
@@ -1026,7 +1026,7 @@
     "href": "T6_Introduction_Linear_Regression/LR.slides.html#graphical-analysis-of-errors",
     "title": "Introduction to Simple Regression",
     "section": "Graphical analysis of errors",
-    "text": "Graphical analysis of errors\n\nTo evaluate these behaviors, we use two scatter plots of the errors:\n\nHorizontal Axis = Errors and Vertical Axis = Predictions. This plot helps validate the first two assumptions (errors around 0 and constant dispersion).\nHorizontal Axis = Errors and Vertical Axis = time in which the observation was taken. This graph allows us to validate the third assumption (independencia)."
+    "text": "Graphical analysis of errors\n\nTo evaluate these behaviors, we use two scatter plots of the errors:\n\nVertical Axis = Errors and Horizontal Axis = Predictions. This plot helps validate the first two assumptions (errors around 0 and constant dispersion).\nVertical Axis = Errors and Horizontal Axis = time in which the observation was taken. This graph allows us to validate the third assumption (independencia)."
   },
   {
     "objectID": "T6_Introduction_Linear_Regression/LR.slides.html#statsmodels-library",

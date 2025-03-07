@@ -427,7 +427,7 @@ Alan R. Vazquez
 <h2>Load Libraries</h2>
 <p><br></p>
 <p>Let’s import the <code>pandas</code>, <code>matplotlib</code>, and <code>seaborn</code> in Google Colab before starting.</p>
-<div id="e89b1315" class="cell" data-execution_count="1">
+<div id="a5fe3a1f" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a></a><span class="im">import</span> pandas <span class="im">as</span> pd      </span>
 <span id="cb1-2"><a></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt  </span>
 <span id="cb1-3"><a></a><span class="im">import</span> seaborn <span class="im">as</span> sns    </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -452,13 +452,13 @@ Alan R. Vazquez
 <p><br></p>
 <p>Consider data from 392 cars, including miles per gallon, number of cylinders, horsepower, weight, acceleration, year, origin, among other variables.</p>
 <p>The data is in the file “auto_dataset.xlsx”.</p>
-<div id="603cef91" class="cell" data-execution_count="2">
+<div id="df52c59a" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a></a>auto_data <span class="op">=</span> pd.read_excel(<span class="st">"auto_dataset.xlsx"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="section" class="slide level2">
 <h2></h2>
-<div id="3f5d94e0" class="cell" data-execution_count="3">
+<div id="b4890a32" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a></a>auto_data.head(<span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="3">
 <div>
@@ -640,7 +640,7 @@ Alan R. Vazquez
 <p>To create scatter plots in <strong>seaborn</strong>, we use the function <code>scatterplot()</code>.</p>
 <div class="fragment">
 <p>For example, let’s create a plot to explore the relationship between a car’s weight (<code>weight</code>) and its fuel efficiency in miles per gallon (<code>mpg</code>)</p>
-<div id="cf1a3f5d" class="cell" data-execution_count="4">
+<div id="03383d21" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">6</span>))</span>
 <span id="cb4-2"><a></a>sns.scatterplot(data <span class="op">=</span> auto_data, x <span class="op">=</span> <span class="st">"weight"</span>, y <span class="op">=</span> <span class="st">"mpg"</span>)</span>
 <span id="cb4-3"><a></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -649,7 +649,7 @@ Alan R. Vazquez
 </section>
 <section id="section-1" class="slide level2">
 <h2></h2>
-<div id="30d3b652" class="cell" data-execution_count="5">
+<div id="0c2be71e" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">6</span>))</span>
 <span id="cb5-2"><a></a>sns.scatterplot(data <span class="op">=</span> auto_data, x <span class="op">=</span> <span class="st">"weight"</span>, y <span class="op">=</span> <span class="st">"mpg"</span>)</span>
 <span id="cb5-3"><a></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -671,7 +671,7 @@ Alan R. Vazquez
 </section>
 <section id="section-2" class="slide level2">
 <h2></h2>
-<div id="959f5d18" class="cell" data-execution_count="6">
+<div id="3e28e71e" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">6</span>))</span>
 <span id="cb6-2"><a></a>sns.scatterplot(data<span class="op">=</span>auto_data, x<span class="op">=</span><span class="st">"weight"</span>, y<span class="op">=</span><span class="st">"mpg"</span>, color<span class="op">=</span><span class="st">"blue"</span>, </span>
 <span id="cb6-3"><a></a>                marker<span class="op">=</span><span class="st">"x"</span>, s<span class="op">=</span><span class="dv">100</span>)</span>
@@ -698,7 +698,7 @@ Alan R. Vazquez
 <section id="section-3" class="slide level2">
 <h2></h2>
 <p>Continuing with Principle 3, you can use previously seen functions to further improve the graph’s appearance.</p>
-<div id="79dc8967" class="cell" data-execution_count="7">
+<div id="5d711042" class="cell" data-execution_count="7">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">7</span>, <span class="dv">5</span>))</span>
@@ -724,7 +724,7 @@ Alan R. Vazquez
 <section id="include-zero" class="slide level2">
 <h2>Include zero</h2>
 <p>In the previous graph, the minimum vertical axis value is around 10. To adjust the minimum value to 0, we use the additional function <code>ylim()</code> below.</p>
-<div id="008bbfdf" class="cell" data-execution_count="8">
+<div id="2c8841bd" class="cell" data-execution_count="8">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a></a><span class="co"># Create the scatter plot with custom color and size</span></span>
@@ -753,7 +753,7 @@ Alan R. Vazquez
 <section id="section-4" class="slide level2">
 <h2></h2>
 <p>If necessary, we can also adjust the horizontal axis to show 0 as well. To this end, we use the <code>xlim()</code> function.</p>
-<div id="360ebb6e" class="cell" data-execution_count="9">
+<div id="9195749c" class="cell" data-execution_count="9">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a></a><span class="co"># Create the scatter plot with custom color and size</span></span>
@@ -786,7 +786,7 @@ Alan R. Vazquez
 <p>Individual variable graphs (such as histograms) do not allow us to study the relationship between two variables. They only provide information on the <em>distribution</em> of each variable.</p>
 <div class="columns">
 <div class="column" style="width:50%;">
-<div id="f8a5d9cf" class="cell" data-execution_count="10">
+<div id="5bf52f53" class="cell" data-execution_count="10">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">4</span>, <span class="dv">3</span>))</span>
@@ -807,7 +807,7 @@ Alan R. Vazquez
 </div>
 </div>
 </div><div class="column" style="width:50%;">
-<div id="336deaa9" class="cell" data-execution_count="11">
+<div id="1926dc04" class="cell" data-execution_count="11">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">4</span>, <span class="dv">3</span>))</span>
@@ -848,13 +848,13 @@ Alan R. Vazquez
 <h2>Example 2</h2>
 <p><br></p>
 <p>Consider the data in the file “spotify.xlsx”. This dataset contains the global daily streams of the top five most popular songs on the music streaming service Spotify in 2017.</p>
-<div id="219f5440" class="cell" data-execution_count="12">
+<div id="a629b609" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a></a>spotify_data <span class="op">=</span> pd.read_excel(<span class="st">"spotify.xlsx"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="section-5" class="slide level2">
 <h2></h2>
-<div id="93ec962a" class="cell" data-execution_count="13">
+<div id="88816154" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a></a>spotify_data.head(<span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="13">
 <div>
@@ -936,7 +936,7 @@ Alan R. Vazquez
 <section id="section-6" class="slide level2">
 <h2></h2>
 <p>We will focus on the song <em>Despacito</em> by Luis Fonsi. To construct line plots, we use the function <code>lineplot()</code> in <strong>seaborn</strong>.</p>
-<div id="71267399" class="cell" data-execution_count="14">
+<div id="4eb9e057" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">7</span>, <span class="dv">5</span>))</span>
 <span id="cb14-2"><a></a>sns.lineplot(data <span class="op">=</span> spotify_data, x <span class="op">=</span> <span class="st">"Date"</span>, y <span class="op">=</span> <span class="st">"Despacito"</span>)</span>
 <span id="cb14-3"><a></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -957,7 +957,7 @@ Alan R. Vazquez
 </section>
 <section id="section-7" class="slide level2">
 <h2></h2>
-<div id="f29468e1" class="cell" data-execution_count="15">
+<div id="2a8997f9" class="cell" data-execution_count="15">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a></a><span class="co"># Create the line plot</span></span>
@@ -1016,7 +1016,7 @@ Alan R. Vazquez
 <section id="section-8" class="slide level2">
 <h2></h2>
 <p>For example, if we want to compare the distributions of miles per gallon of cars built in America, Europe, or Japan, we use the following command:</p>
-<div id="5e2b836b" class="cell" data-execution_count="16">
+<div id="6b8b15ab" class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">7</span>, <span class="dv">5</span>))</span>
 <span id="cb16-2"><a></a>sns.boxplot(data <span class="op">=</span> auto_data, x <span class="op">=</span> <span class="st">"origin"</span>, y <span class="op">=</span> <span class="st">"mpg"</span>)</span>
 <span id="cb16-3"><a></a>plt.show() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1031,7 +1031,7 @@ Alan R. Vazquez
 </section>
 <section id="applying-principle-3-1" class="slide level2">
 <h2>Applying Principle 3</h2>
-<div id="e2f65b9d" class="cell" data-execution_count="17">
+<div id="dcfa8191" class="cell" data-execution_count="17">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">7</span>, <span class="dv">5</span>))</span>
@@ -1055,7 +1055,7 @@ Alan R. Vazquez
 <section id="section-9" class="slide level2">
 <h2></h2>
 <p>We can also change the format of outlier points using the arguments <code>marker</code>, <code>markersize</code>, and <code>markerfacecolor</code> inside the argument <code>flierprops</code> in <code>sns.boxplot</code>.</p>
-<div id="0963a11b" class="cell" data-execution_count="18">
+<div id="21ced8cd" class="cell" data-execution_count="18">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">6</span>, <span class="dv">4</span>))</span>
@@ -1081,7 +1081,7 @@ Alan R. Vazquez
 <h2>Plotting statistical summaries by groups</h2>
 <p>Alternatively, we can summarize the values of the numerical variable <span class="math inline">\(Y\)</span> for each category of the variable <span class="math inline">\(X\)</span> using the median or the mean.</p>
 <p>For example, let’s plot the average miles per gallon of cars produced in America, Europe, and Japan. First, we calculate the average for each category using <code>.groupby()</code> and <code>mean()</code>.</p>
-<div id="4cae2dc8" class="cell" data-execution_count="19">
+<div id="b53c925b" class="cell" data-execution_count="19">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a></a>sum_auto <span class="op">=</span> (auto_data</span>
 <span id="cb19-2"><a></a>  .<span class="bu">filter</span>([<span class="st">'mpg'</span>, <span class="st">'origin'</span>], axis <span class="op">=</span> <span class="dv">1</span>)</span>
 <span id="cb19-3"><a></a>  .groupby([<span class="st">"origin"</span>], observed <span class="op">=</span> <span class="va">True</span>)</span>
@@ -1093,7 +1093,7 @@ Alan R. Vazquez
 <h2></h2>
 <p><br></p>
 <p>The data to be plotted are:</p>
-<div id="71ed3c08" class="cell" data-execution_count="20">
+<div id="1527bde5" class="cell" data-execution_count="20">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a></a>sum_auto</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="20">
 <div>
@@ -1155,7 +1155,7 @@ Alan R. Vazquez
 <h2>Cleveland dot plot</h2>
 <p><br></p>
 <p>The Cleveland dot plot encodes quantitative data across different categories. It is an alternative to a bar chart. It is obtained using the function <code>scatterplot()</code>.</p>
-<div id="5b90caa7" class="cell" data-execution_count="21">
+<div id="acef1813" class="cell" data-execution_count="21">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">6</span>))</span>
 <span id="cb21-2"><a></a>sns.scatterplot(data<span class="op">=</span>sum_auto, x<span class="op">=</span><span class="st">'meanMPG'</span>, y<span class="op">=</span><span class="st">'origin'</span>)</span>
 <span id="cb21-3"><a></a>plt.title(<span class="st">"Average Miles per Gallon by Origin"</span>, fontsize<span class="op">=</span><span class="dv">17</span>)</span>
@@ -1166,7 +1166,7 @@ Alan R. Vazquez
 </section>
 <section id="section-12" class="slide level2">
 <h2></h2>
-<div id="c66d0dd8" class="cell" data-execution_count="22">
+<div id="642d8d86" class="cell" data-execution_count="22">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -1179,7 +1179,7 @@ Alan R. Vazquez
 <section id="improving-the-plot" class="slide level2">
 <h2>Improving the plot</h2>
 <p>We apply Principle 3 to improve the plot.</p>
-<div id="5c9189a1" class="cell" data-execution_count="23">
+<div id="2ac4cea8" class="cell" data-execution_count="23">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">7</span>, <span class="dv">5</span>))</span>
@@ -1204,7 +1204,7 @@ Alan R. Vazquez
 <section id="bar-chart" class="slide level2">
 <h2>Bar chart</h2>
 <p>To create a bar chart where the bar length equals a specific value, we use the function <code>barplot()</code> from the <strong>seaborn</strong>.</p>
-<div id="ab5e7926" class="cell" data-execution_count="24">
+<div id="bd2c5e12" class="cell" data-execution_count="24">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">5</span>, <span class="dv">3</span>))</span>
 <span id="cb23-2"><a></a>sns.barplot(data<span class="op">=</span>sum_auto, x<span class="op">=</span><span class="st">'meanMPG'</span>, y<span class="op">=</span><span class="st">'origin'</span>)</span>
 <span id="cb23-3"><a></a>plt.title(<span class="st">"Average Miles per Gallon by Origin"</span>)</span>
@@ -1223,7 +1223,7 @@ Alan R. Vazquez
 <section id="section-13" class="slide level2">
 <h2></h2>
 <p>We can use similar commands as the Cleveland dot plot to improve the bar chart.</p>
-<div id="d0e003fc" class="cell" data-execution_count="25">
+<div id="351436da" class="cell" data-execution_count="25">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">7</span>, <span class="dv">5</span>))</span>
@@ -1264,7 +1264,7 @@ Alan R. Vazquez
 <section id="example-3" class="slide level2">
 <h2>Example 3</h2>
 <p>As an example, let’s consider the data in the file “penguins.xlsx”.</p>
-<div id="fc8c89e7" class="cell" data-execution_count="26">
+<div id="9f5d222e" class="cell" data-execution_count="26">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a></a>penguins_data <span class="op">=</span> pd.read_excel(<span class="st">"penguins.xlsx"</span>)</span>
 <span id="cb25-2"><a></a>penguins_data.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="26">
@@ -1369,7 +1369,7 @@ Alan R. Vazquez
 <li>The island they come from (<code>island</code>).</li>
 </ul>
 <p>Make sure they are specified as <code>factor</code> in Python!</p>
-<div id="8a7fc5b8" class="cell" data-execution_count="27">
+<div id="2aacccf2" class="cell" data-execution_count="27">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a></a>penguins_data[[<span class="st">'species'</span>, <span class="st">'island'</span>, <span class="st">'sex'</span>]] <span class="op">=</span> (penguins_data</span>
 <span id="cb26-2"><a></a>                                              .<span class="bu">filter</span>([<span class="st">'species'</span>, <span class="st">'island'</span>, <span class="st">'sex'</span>], axis <span class="op">=</span> <span class="dv">1</span>)</span>
 <span id="cb26-3"><a></a>                                              .astype(<span class="st">'category'</span>)</span>
@@ -1382,7 +1382,7 @@ Alan R. Vazquez
 <div class="fragment">
 <p><br></p>
 <p>For example, to study the distribution of penguin species across the three different islands, we use the following:</p>
-<div id="b9df7ab2" class="cell" data-execution_count="28">
+<div id="ebd56d3b" class="cell" data-execution_count="28">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">6</span>))</span>
 <span id="cb27-2"><a></a>sns.histplot(data<span class="op">=</span>penguins_data, x<span class="op">=</span><span class="st">'species'</span>, hue<span class="op">=</span><span class="st">'island'</span>, </span>
 <span id="cb27-3"><a></a>              multiple<span class="op">=</span><span class="st">'stack'</span>)</span>
@@ -1397,7 +1397,7 @@ Alan R. Vazquez
 <h2></h2>
 <p><br></p>
 <p>The chart shows the frequency of each species, separated by island name.</p>
-<div id="0f03499d" class="cell" data-execution_count="29">
+<div id="f1e4c5eb" class="cell" data-execution_count="29">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -1413,7 +1413,7 @@ Alan R. Vazquez
 <p>An alternative to the previous chart is to place the bars side by side for the categories of the <span class="math inline">\(X\)</span> variable.</p>
 <p><br></p>
 <p>In this case, we use the <code>countplot()</code> function of <strong>seaborn</strong>.</p>
-<div id="4d76f456" class="cell" data-execution_count="30">
+<div id="0e15d30d" class="cell" data-execution_count="30">
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">6</span>))</span>
 <span id="cb28-2"><a></a>sns.countplot(data<span class="op">=</span>penguins_data, x<span class="op">=</span><span class="st">'species'</span>, hue<span class="op">=</span><span class="st">'island'</span>)</span>
 <span id="cb28-3"><a></a>plt.title(<span class="st">"Distribution of Penguin Species by Island"</span>, fontsize<span class="op">=</span><span class="dv">17</span>)</span>
@@ -1424,7 +1424,7 @@ Alan R. Vazquez
 </section>
 <section id="section-16" class="slide level2">
 <h2></h2>
-<div id="bde6474a" class="cell" data-execution_count="31">
+<div id="28e540f9" class="cell" data-execution_count="31">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -1458,7 +1458,7 @@ Alan R. Vazquez
 <p><br></p>
 <p>For categorical variables, the most common statistical summaries are frequency and relative frequency.</p>
 <p>With <strong>pandas</strong>, we calculate frequency using the <code>.size()</code>, function, which counts the unique values of one or more variables. We also use <code>.groupby()</code> to compute the distribution by categorical variables.</p>
-<div id="3b20f555" class="cell" data-execution_count="32">
+<div id="2ce362e4" class="cell" data-execution_count="32">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a></a>count_data <span class="op">=</span> (penguins_data</span>
 <span id="cb29-2"><a></a>  .groupby([<span class="st">'island'</span>, <span class="st">'species'</span>], observed <span class="op">=</span> <span class="va">True</span>)</span>
 <span id="cb29-3"><a></a>  .size()</span>
@@ -1469,7 +1469,7 @@ Alan R. Vazquez
 <section id="section-18" class="slide level2">
 <h2></h2>
 <p><br></p>
-<div id="3119c317" class="cell" data-execution_count="33">
+<div id="c5c39c07" class="cell" data-execution_count="33">
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a></a><span class="co"># Show the result</span></span>
 <span id="cb30-2"><a></a><span class="bu">print</span>(count_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -1485,7 +1485,7 @@ Alan R. Vazquez
 <section id="section-19" class="slide level2">
 <h2></h2>
 <p>To calculate relative frequency, we use <code>.assign()</code> along with the <code>lambda</code>, function, which calculates the proportions of a column.</p>
-<div id="da6c2875" class="cell" data-execution_count="34">
+<div id="0d639506" class="cell" data-execution_count="34">
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a></a>rel_freq_table <span class="op">=</span> (penguins_data</span>
 <span id="cb32-2"><a></a>  .groupby([<span class="st">'island'</span>, <span class="st">'species'</span>], observed <span class="op">=</span> <span class="va">True</span>)</span>
 <span id="cb32-3"><a></a>  .size()</span>
@@ -1521,7 +1521,7 @@ Alan R. Vazquez
 <section id="scatter-plot-by-color" class="slide level2">
 <h2>Scatter plot by color</h2>
 <p>For two numerical variables and one categorical variable.</p>
-<div id="91694e4c" class="cell" data-execution_count="35">
+<div id="20197314" class="cell" data-execution_count="35">
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a></a>plt.figure(figsize<span class="op">=</span>(<span class="fl">6.2</span>, <span class="fl">4.2</span>))</span>
 <span id="cb34-2"><a></a>sns.scatterplot(data <span class="op">=</span> auto_data, x<span class="op">=</span><span class="st">'weight'</span>, y<span class="op">=</span><span class="st">'mpg'</span>, hue<span class="op">=</span><span class="st">'origin'</span>)</span>
 <span id="cb34-3"><a></a>plt.xlabel(<span class="st">"Weight (lb)"</span>)</span>
@@ -1544,7 +1544,7 @@ Alan R. Vazquez
 </div>
 <div class="fragment">
 <p>To create the plot, use the <code>FacetGrid()</code> function in <strong>seaborn</strong> with the following syntax:</p>
-<div id="90f0b98c" class="cell" data-execution_count="36">
+<div id="d7ed568b" class="cell" data-execution_count="36">
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">6</span>))</span>
 <span id="cb35-2"><a></a>g <span class="op">=</span> sns.FacetGrid(auto_data, col<span class="op">=</span><span class="st">'origin'</span>)</span>
 <span id="cb35-3"><a></a>g.<span class="bu">map</span>(sns.scatterplot, <span class="st">'weight'</span>, <span class="st">'mpg'</span>)</span>
@@ -1558,7 +1558,7 @@ Alan R. Vazquez
 <h2></h2>
 <p><br></p>
 <p>The function produces a grid with 1 column and 3 rows of charts. Each row accommodates one category of <code>origin</code>.</p>
-<div id="6645aa78" class="cell" data-execution_count="37">
+<div id="21399d48" class="cell" data-execution_count="37">
 <div class="cell-output cell-output-display">
 <pre><code>&lt;Figure size 768x576 with 0 Axes&gt;</code></pre>
 </div>
@@ -1589,7 +1589,7 @@ Alan R. Vazquez
 <h2></h2>
 <p><br></p>
 <p>To format the data, we use the <code>melt()</code> function from the <strong>pandas</strong> library.</p>
-<div id="e582101c" class="cell" data-execution_count="38">
+<div id="c422b833" class="cell" data-execution_count="38">
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a></a>data_lines <span class="op">=</span> spotify_data.melt(id_vars<span class="op">=</span>[<span class="st">"Date"</span>], </span>
 <span id="cb37-2"><a></a>                                value_vars<span class="op">=</span>[<span class="st">"Shape of You"</span>, <span class="st">"Despacito"</span>, <span class="st">"Something Just Like This"</span>, <span class="st">"HUMBLE."</span>, <span class="st">"Unforgettable"</span>], </span>
 <span id="cb37-3"><a></a>                                var_name<span class="op">=</span><span class="st">"Song"</span>, </span>
@@ -1598,7 +1598,7 @@ Alan R. Vazquez
 </section>
 <section id="section-22" class="slide level2">
 <h2></h2>
-<div id="d6389e4b" class="cell" data-execution_count="39">
+<div id="ddf146e8" class="cell" data-execution_count="39">
 <div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a></a>data_lines.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="39">
 <div>
@@ -1666,7 +1666,7 @@ Alan R. Vazquez
 <section id="section-23" class="slide level2">
 <h2></h2>
 <p>Now, we apply similar functions to the <code>data_lines</code> object.</p>
-<div id="2b4ea77a" class="cell" data-execution_count="40">
+<div id="71ca32ff" class="cell" data-execution_count="40">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a></a><span class="co"># Create the line plot and facet by 'Cancion'</span></span>
@@ -1700,7 +1700,7 @@ Alan R. Vazquez
 <section id="section-24" class="slide level2">
 <h2></h2>
 <p>Or we can plot all lines on a single chart.</p>
-<div id="c3baf58d" class="cell" data-execution_count="41">
+<div id="b54c90bb" class="cell" data-execution_count="41">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a></a><span class="co"># Create the line plot with color mapped to 'Cancion'</span></span>
@@ -1727,7 +1727,7 @@ Alan R. Vazquez
 </section>
 <section id="applying-principle-3-2" class="slide level2">
 <h2>Applying Principle 3</h2>
-<div id="b993ec75" class="cell" data-execution_count="42">
+<div id="6f15bf55" class="cell" data-execution_count="42">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a></a><span class="co"># Create the line plot with color mapped to 'Cancion'</span></span>
@@ -1755,7 +1755,7 @@ Alan R. Vazquez
 <h2>Graphs for four variables</h2>
 <p>A common chart for four variables is the scatter plot, where the color and size of the symbols depend on two <span style="color:#8B8000;"><strong>categorical</strong></span> variables.</p>
 <p><br></p>
-<div id="cf7735cb" class="cell" data-execution_count="43">
+<div id="87d0253f" class="cell" data-execution_count="43">
 <div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">6</span>))</span>
 <span id="cb43-2"><a></a>sns.scatterplot(data<span class="op">=</span>penguins_data, x<span class="op">=</span><span class="st">'bill_depth_mm'</span>, y<span class="op">=</span><span class="st">'bill_length_mm'</span>,</span>
 <span id="cb43-3"><a></a>    hue<span class="op">=</span><span class="st">'species'</span>, size<span class="op">=</span><span class="st">'island'</span>)</span>
@@ -1767,7 +1767,7 @@ Alan R. Vazquez
 </section>
 <section id="section-25" class="slide level2">
 <h2></h2>
-<div id="7ee53434" class="cell" data-execution_count="44">
+<div id="1506b937" class="cell" data-execution_count="44">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
