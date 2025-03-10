@@ -1,0 +1,1308 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.57">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Alan R. Vazquez">
+
+<title>Introduction to Simple Regression – IN2039 Data Visualization for Decision Making</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">
+      IN2039 Data Visualization for Decision Making
+      </li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">IN2039 Data Visualization for Decision Making</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../TEC-IN2039-EN-index.qmd" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Home</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#agenda" id="toc-agenda" class="nav-link active" data-scroll-target="#agenda">Agenda</a></li>
+  <li><a href="#loading-the-libraries" id="toc-loading-the-libraries" class="nav-link" data-scroll-target="#loading-the-libraries">Loading the Libraries</a></li>
+  <li><a href="#example" id="toc-example" class="nav-link" data-scroll-target="#example">Example</a></li>
+  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"></a></li>
+  <li><a href="#relationship-between-two-numerical-variables" id="toc-relationship-between-two-numerical-variables" class="nav-link" data-scroll-target="#relationship-between-two-numerical-variables">Relationship Between Two Numerical Variables</a>
+  <ul class="collapse">
+  <li><a href="#principle-1-formulate-the-question-or-message" id="toc-principle-1-formulate-the-question-or-message" class="nav-link" data-scroll-target="#principle-1-formulate-the-question-or-message">Principle 1: Formulate the question or message</a></li>
+  <li><a href="#section-1" id="toc-section-1" class="nav-link" data-scroll-target="#section-1"></a></li>
+  <li><a href="#regression-problem" id="toc-regression-problem" class="nav-link" data-scroll-target="#regression-problem">Regression problem</a></li>
+  <li><a href="#section-2" id="toc-section-2" class="nav-link" data-scroll-target="#section-2"></a></li>
+  </ul></li>
+  <li><a href="#simple-linear-regression" id="toc-simple-linear-regression" class="nav-link" data-scroll-target="#simple-linear-regression">Simple linear regression</a>
+  <ul class="collapse">
+  <li><a href="#linear-regression-model" id="toc-linear-regression-model" class="nav-link" data-scroll-target="#linear-regression-model">Linear regression model</a></li>
+  <li><a href="#principle-2-turn-data-into-information" id="toc-principle-2-turn-data-into-information" class="nav-link" data-scroll-target="#principle-2-turn-data-into-information">Principle 2: Turn data into information</a></li>
+  <li><a href="#fitting-regression-models-in-python" id="toc-fitting-regression-models-in-python" class="nav-link" data-scroll-target="#fitting-regression-models-in-python">Fitting regression models in Python</a></li>
+  <li><a href="#section-3" id="toc-section-3" class="nav-link" data-scroll-target="#section-3"></a></li>
+  <li><a href="#for-our-example" id="toc-for-our-example" class="nav-link" data-scroll-target="#for-our-example">For our example</a></li>
+  <li><a href="#the-formula" id="toc-the-formula" class="nav-link" data-scroll-target="#the-formula">The formula</a></li>
+  <li><a href="#interpretation-of-the-coefficients" id="toc-interpretation-of-the-coefficients" class="nav-link" data-scroll-target="#interpretation-of-the-coefficients">Interpretation of the coefficients</a></li>
+  <li><a href="#section-4" id="toc-section-4" class="nav-link" data-scroll-target="#section-4"></a></li>
+  <li><a href="#section-5" id="toc-section-5" class="nav-link" data-scroll-target="#section-5"></a></li>
+  <li><a href="#interpretation-of-hatbeta_1" id="toc-interpretation-of-hatbeta_1" class="nav-link" data-scroll-target="#interpretation-of-hatbeta_1">Interpretation of <span class="math inline">\(\hat{\beta}_1\)</span></a></li>
+  <li><a href="#do-all-points-fall-exactly-on-the-line" id="toc-do-all-points-fall-exactly-on-the-line" class="nav-link" data-scroll-target="#do-all-points-fall-exactly-on-the-line">Do all points fall exactly on the line?</a></li>
+  <li><a href="#in-fact" id="toc-in-fact" class="nav-link" data-scroll-target="#in-fact">In fact …</a></li>
+  <li><a href="#inspecting-the-errors" id="toc-inspecting-the-errors" class="nav-link" data-scroll-target="#inspecting-the-errors">Inspecting the errors</a></li>
+  <li><a href="#graphical-analysis-of-errors" id="toc-graphical-analysis-of-errors" class="nav-link" data-scroll-target="#graphical-analysis-of-errors">Graphical analysis of errors</a></li>
+  <li><a href="#statsmodels-library" id="toc-statsmodels-library" class="nav-link" data-scroll-target="#statsmodels-library">statsmodels library</a></li>
+  <li><a href="#load-the-library" id="toc-load-the-library" class="nav-link" data-scroll-target="#load-the-library">Load the library</a></li>
+  <li><a href="#fit-a-linear-model" id="toc-fit-a-linear-model" class="nav-link" data-scroll-target="#fit-a-linear-model">Fit a linear model</a></li>
+  <li><a href="#section-6" id="toc-section-6" class="nav-link" data-scroll-target="#section-6"></a></li>
+  <li><a href="#section-7" id="toc-section-7" class="nav-link" data-scroll-target="#section-7"></a></li>
+  <li><a href="#residuals-and-fitted-values" id="toc-residuals-and-fitted-values" class="nav-link" data-scroll-target="#residuals-and-fitted-values">Residuals and fitted values</a></li>
+  <li><a href="#constant-dispersion" id="toc-constant-dispersion" class="nav-link" data-scroll-target="#constant-dispersion">Constant dispersion</a></li>
+  <li><a href="#independent-errors" id="toc-independent-errors" class="nav-link" data-scroll-target="#independent-errors">Independent errors</a></li>
+  <li><a href="#comments" id="toc-comments" class="nav-link" data-scroll-target="#comments">Comments</a></li>
+  <li><a href="#section-8" id="toc-section-8" class="nav-link" data-scroll-target="#section-8"></a></li>
+  </ul></li>
+  <li><a href="#local-regression" id="toc-local-regression" class="nav-link" data-scroll-target="#local-regression">Local Regression</a>
+  <ul class="collapse">
+  <li><a href="#local-regression-1" id="toc-local-regression-1" class="nav-link" data-scroll-target="#local-regression-1">Local regression</a></li>
+  <li><a href="#section-9" id="toc-section-9" class="nav-link" data-scroll-target="#section-9"></a></li>
+  <li><a href="#section-10" id="toc-section-10" class="nav-link" data-scroll-target="#section-10"></a></li>
+  <li><a href="#another-example" id="toc-another-example" class="nav-link" data-scroll-target="#another-example">Another example</a></li>
+  <li><a href="#linear-regression" id="toc-linear-regression" class="nav-link" data-scroll-target="#linear-regression">Linear regression</a></li>
+  <li><a href="#local-regression-2" id="toc-local-regression-2" class="nav-link" data-scroll-target="#local-regression-2">Local regression</a></li>
+  <li><a href="#discussion" id="toc-discussion" class="nav-link" data-scroll-target="#discussion">Discussion</a></li>
+  <li><a href="#section-11" id="toc-section-11" class="nav-link" data-scroll-target="#section-11"></a></li>
+  </ul></li>
+  <li><a href="#return-to-the-main-page" id="toc-return-to-the-main-page" class="nav-link" data-scroll-target="#return-to-the-main-page">Return to the main page</a></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="LR.slides.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Introduction to Simple Regression</h1>
+<p class="subtitle lead">IN2039: Data Visualization for Decision Making</p>
+</div>
+
+
+<div class="quarto-title-meta-author">
+  <div class="quarto-title-meta-heading">Author</div>
+  <div class="quarto-title-meta-heading">Affiliation</div>
+  
+    <div class="quarto-title-meta-contents">
+    <p class="author">Alan R. Vazquez </p>
+  </div>
+  <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            Department of Industrial Engineering
+          </p>
+      </div>
+  </div>
+
+<div class="quarto-title-meta">
+
+      
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="agenda" class="level3">
+<h3 class="anchored" data-anchor-id="agenda">Agenda</h3>
+<p><br></p>
+<ol type="1">
+<li><p>Introduction</p></li>
+<li><p>Relationship between two numerical variables</p></li>
+<li><p>Simple linear regression</p></li>
+<li><p>Local regression</p></li>
+</ol>
+</section>
+<section id="loading-the-libraries" class="level3">
+<h3 class="anchored" data-anchor-id="loading-the-libraries">Loading the Libraries</h3>
+<p><br></p>
+<p>Let’s import the <code>pandas</code>, <code>matplotlib</code>, and <code>seaborn</code> in Google Colab.</p>
+<div id="b779c019" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="example" class="level3">
+<h3 class="anchored" data-anchor-id="example">Example</h3>
+<p><br></p>
+<p>We will use data from 392 cars, including miles per gallon, number of cylinders, horsepower, weight, acceleration, year, origin, and other variables.</p>
+<p>The data is in the file “auto_dataset.xlsx”.</p>
+<div id="1868b0d1" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>auto_data <span class="op">=</span> pd.read_excel(<span class="st">"auto_dataset.xlsx"</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Set categorical variable.</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>auto_data[[<span class="st">'origin'</span>]] <span class="op">=</span> auto_data[[<span class="st">'origin'</span>]].astype(<span class="st">'category'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="section" class="level3">
+<h3 class="anchored" data-anchor-id="section"></h3>
+<div id="a14df4d1" class="cell" data-execution_count="3">
+<div class="cell-output cell-output-display" data-execution_count="3">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">mpg</th>
+<th data-quarto-table-cell-role="th">cylinders</th>
+<th data-quarto-table-cell-role="th">displacement</th>
+<th data-quarto-table-cell-role="th">horsepower</th>
+<th data-quarto-table-cell-role="th">weight</th>
+<th data-quarto-table-cell-role="th">acceleration</th>
+<th data-quarto-table-cell-role="th">year</th>
+<th data-quarto-table-cell-role="th">origin</th>
+<th data-quarto-table-cell-role="th">car name</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>18.0</td>
+<td>8</td>
+<td>307.0</td>
+<td>130</td>
+<td>3504</td>
+<td>12.0</td>
+<td>70</td>
+<td>American</td>
+<td>chevrolet chevelle malibu</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>15.0</td>
+<td>8</td>
+<td>350.0</td>
+<td>165</td>
+<td>3693</td>
+<td>11.5</td>
+<td>70</td>
+<td>American</td>
+<td>buick skylark 320</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>18.0</td>
+<td>8</td>
+<td>318.0</td>
+<td>150</td>
+<td>3436</td>
+<td>11.0</td>
+<td>70</td>
+<td>American</td>
+<td>plymouth satellite</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>16.0</td>
+<td>8</td>
+<td>304.0</td>
+<td>150</td>
+<td>3433</td>
+<td>12.0</td>
+<td>70</td>
+<td>American</td>
+<td>amc rebel sst</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
+<section id="relationship-between-two-numerical-variables" class="level2">
+<h2 class="anchored" data-anchor-id="relationship-between-two-numerical-variables">Relationship Between Two Numerical Variables</h2>
+<section id="principle-1-formulate-the-question-or-message" class="level3">
+<h3 class="anchored" data-anchor-id="principle-1-formulate-the-question-or-message">Principle 1: Formulate the question or message</h3>
+<p><br></p>
+<p>Questions we can answer with simple linear regression:</p>
+<div class="incremental">
+<ul class="incremental">
+<li><p>Is there a relationship between a response variable and predictors?</p></li>
+<li><p>How strong is the relationship?</p></li>
+<li><p>What is the uncertainty?</p></li>
+<li><p>How precisely can we predict a future outcome?</p></li>
+</ul>
+</div>
+</section>
+<section id="section-1" class="level3">
+<h3 class="anchored" data-anchor-id="section-1"></h3>
+<p>Is there a relationship between a car’s weight and its miles per gallon?</p>
+<div id="ed211585" class="cell" data-execution_count="4">
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="LR_files/figure-revealjs/cell-5-output-1.png" class="quarto-figure quarto-figure-center figure-img" width="666" height="510"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="regression-problem" class="level3">
+<h3 class="anchored" data-anchor-id="regression-problem">Regression problem</h3>
+<p><br></p>
+<p><strong>Objetive</strong>: Find the best function <span class="math inline">\(f(X)\)</span> of the predictor <span class="math inline">\(X\)</span> that describes the response <span class="math inline">\(Y\)</span>.</p>
+<p>. . .</p>
+<p>Mathematically, we want to establish the following relationship:</p>
+<p><span class="math display">\[
+Y = f(X) + \epsilon,
+\]</span></p>
+<p>where <span class="math inline">\(\epsilon\)</span> is a natural (random) error.</p>
+</section>
+<section id="section-2" class="level3">
+<h3 class="anchored" data-anchor-id="section-2"></h3>
+<p><br></p>
+<ul>
+<li>In practice, it is very difficult to know the true structure of the function <span class="math inline">\(f(X)\)</span>.</li>
+</ul>
+<div class="incremental">
+<ul class="incremental">
+<li><p>The best we can do is construct an approximation (function) <span class="math inline">\(\hat{f}(X)\)</span>.</p></li>
+<li><p>There are several strategies to build <span class="math inline">\(\hat{f}(X)\)</span>, one of the most common is:</p>
+<ol class="incremental" type="1">
+<li>Define a simple “structure” or “formula.”</li>
+<li>Estimate the elements of the “formula” using the data.</li>
+</ol></li>
+</ul>
+</div>
+</section>
+</section>
+<section id="simple-linear-regression" class="level2">
+<h2 class="anchored" data-anchor-id="simple-linear-regression">Simple linear regression</h2>
+<section id="linear-regression-model" class="level3">
+<h3 class="anchored" data-anchor-id="linear-regression-model">Linear regression model</h3>
+<p>A very common function <span class="math inline">\(f(X)\)</span> to predict a response <span class="math inline">\(Y\)</span> is the <strong>linear regression model</strong>.</p>
+<p>Its mathematical form is:</p>
+<p><span class="math display">\[
+\hat{Y}_i = \hat{\beta}_0 + \hat{\beta}_1 X_i,
+\]</span></p>
+<div class="incremental">
+<ul class="incremental">
+<li>Where <span class="math inline">\(i\)</span> is the index of the <span class="math inline">\(n\)</span> observations, and</li>
+<li><span class="math inline">\(\hat{Y}_i\)</span> is the predicted value of the actual response <span class="math inline">\(Y_i\)</span> associated with a predictor value <span class="math inline">\(X_i\)</span>.</li>
+<li>The values <span class="math inline">\(\hat{\beta}_0\)</span> and <span class="math inline">\(\hat{\beta}_1\)</span> are called <span style="color:darkblue;">coefficients</span> of the model.</li>
+</ul>
+</div>
+</section>
+<section id="principle-2-turn-data-into-information" class="level3">
+<h3 class="anchored" data-anchor-id="principle-2-turn-data-into-information">Principle 2: Turn data into information</h3>
+<p>The values of <span class="math inline">\(\hat{\beta}_0\)</span> and <span class="math inline">\(\hat{\beta}_1\)</span> are obtained using the data. Specifically, the formulas for the coefficients are:</p>
+<p><span class="math display">\[\hat{\beta}_1 = \frac{ \sum_{i=1}^{n} (Y_i - \bar{Y}) (X_i - \bar{X}) }{\sum_{i=1}^{n} (X_i - \bar{X})^2} \text{  y  } \hat{\beta}_0 = \bar{Y} - \hat{\beta}_1 \bar{X},\]</span></p>
+<p>where <span class="math inline">\(\bar{X} = \sum_{i=1}^n X_i/n\)</span> and <span class="math inline">\(\bar{Y} = \sum_{i=1}^n Y_i/n\)</span>.</p>
+<p>These formulas are derived from the method of <span style="color:orange;"><em>least squares</em></span>.</p>
+</section>
+<section id="fitting-regression-models-in-python" class="level3">
+<h3 class="anchored" data-anchor-id="fitting-regression-models-in-python">Fitting regression models in Python</h3>
+<p>To fit a linear regression model, we use the <code>regplot()</code> in <strong>seaborn</strong>.</p>
+<div id="1053ba2c" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="fl">5.8</span>, <span class="fl">3.8</span>))</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>sns.regplot(data<span class="op">=</span>auto_data, x<span class="op">=</span><span class="st">"weight"</span>, y<span class="op">=</span><span class="st">"mpg"</span>)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Weight (lb)"</span>)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Miles per Gallon (mpg)"</span>)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="LR_files/figure-revealjs/cell-6-output-1.png" class="quarto-figure quarto-figure-center figure-img" width="495" height="341"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="section-3" class="level3">
+<h3 class="anchored" data-anchor-id="section-3"></h3>
+<p><br></p>
+<p>We can modify the line type, thickness, and color using the arguments <code>linestyle</code>, <code>linewidth</code>, and <code>color</code>, respectively, in the <code>line_kws</code> argument of the function.</p>
+<div id="7f7d4715" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">6</span>))</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>sns.regplot(data<span class="op">=</span>auto_data, x<span class="op">=</span><span class="st">"weight"</span>, y<span class="op">=</span><span class="st">"mpg"</span>,  </span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>            scatter_kws<span class="op">=</span>{<span class="st">"color"</span>: <span class="st">"blue"</span>},</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>            line_kws<span class="op">=</span>{<span class="st">"linestyle"</span>: <span class="st">"-"</span>, <span class="st">"linewidth"</span>: <span class="dv">3</span>, <span class="st">"color"</span>: <span class="st">"red"</span>, </span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>                      <span class="st">"label"</span>: <span class="st">"Linear Fit"</span>})</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Weight (lb)"</span>)</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Miles per Gallon (mpg)"</span>)</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="for-our-example" class="level3">
+<h3 class="anchored" data-anchor-id="for-our-example">For our example</h3>
+<p><span class="math inline">\(\hat{Y}_i = 46.32 -0.0076 X_i\)</span></p>
+<div id="41fa0bd2" class="cell" data-execution_count="7">
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="LR_files/figure-revealjs/cell-8-output-1.png" class="quarto-figure quarto-figure-center figure-img" width="659" height="503"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="the-formula" class="level3">
+<h3 class="anchored" data-anchor-id="the-formula">The formula</h3>
+<p><span class="math inline">\(\text{mpg}_i = 46.32 - 0.0076 \times \text{weight}_i\)</span></p>
+<div id="9fe12c27" class="cell" data-execution_count="8">
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="LR_files/figure-revealjs/cell-9-output-1.png" class="quarto-figure quarto-figure-center figure-img" width="659" height="503"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="interpretation-of-the-coefficients" class="level3">
+<h3 class="anchored" data-anchor-id="interpretation-of-the-coefficients">Interpretation of the coefficients</h3>
+<p><span style="color:darkblue;">What does <span class="math inline">\(\hat{\beta}_0 = 46.32\)</span> mean?</span></p>
+<p>. . .</p>
+<p><span class="math inline">\(\hat{\beta}_0\)</span> is the average response value when <span class="math inline">\(X_i = 0\)</span>.</p>
+<div id="acc66f88" class="cell" data-execution_count="9">
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="LR_files/figure-revealjs/cell-10-output-1.png" class="quarto-figure quarto-figure-center figure-img" width="815" height="441"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="section-4" class="level3">
+<h3 class="anchored" data-anchor-id="section-4"></h3>
+<p>Does <span class="math inline">\(\hat{\beta}_0 = 46.32\)</span> make sense?</p>
+<div id="dca92e77" class="cell" data-execution_count="10">
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="LR_files/figure-revealjs/cell-11-output-1.png" class="quarto-figure quarto-figure-center figure-img" width="815" height="441"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>. . .</p>
+<p>No! Because there are no cars with a weight of 0.</p>
+</section>
+<section id="section-5" class="level3">
+<h3 class="anchored" data-anchor-id="section-5"></h3>
+<p><span style="color:darkblue;">What does <span class="math inline">\(\hat{\beta}_1 = - 0.0076\)</span> mean?</span></p>
+<p>. . .</p>
+<p><span class="math inline">\(\hat{\beta}_1\)</span> is the average change in the response when <span class="math inline">\(X_i\)</span> increases by one unit.</p>
+<div id="4536ef07" class="cell" data-execution_count="11">
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="LR_files/figure-revealjs/cell-12-output-1.png" class="quarto-figure quarto-figure-center figure-img" width="622" height="466"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="interpretation-of-hatbeta_1" class="level3">
+<h3 class="anchored" data-anchor-id="interpretation-of-hatbeta_1">Interpretation of <span class="math inline">\(\hat{\beta}_1\)</span></h3>
+<p><br></p>
+<p><br></p>
+<p><em>For every extra pound in a car’s weight, the car has an average reduction of 0.0076 miles per gallon.</em></p>
+</section>
+<section id="do-all-points-fall-exactly-on-the-line" class="level3">
+<h3 class="anchored" data-anchor-id="do-all-points-fall-exactly-on-the-line">Do all points fall exactly on the line?</h3>
+<p><br></p>
+<p>. . .</p>
+<p>No! The model has <span style="color:darkgreen;"><strong>errors</strong></span>.</p>
+<p>. . .</p>
+<p><br></p>
+<p>Technically, the error of the <em>i</em>-th observation is given by: <span class="math inline">\(e_i = Y_i - \hat{Y}_i = Y_i - \hat{\beta}_0 - \hat{\beta}_1 X_i\)</span>.</p>
+</section>
+<section id="in-fact" class="level3">
+<h3 class="anchored" data-anchor-id="in-fact">In fact …</h3>
+<p><br></p>
+<p>The formulas for <span class="math inline">\(\hat{\beta}_0\)</span> and <span class="math inline">\(\hat{\beta}_1\)</span> are obtained by minimizing the sum of squared errors.</p>
+<p>Specifically, the <span style="color:orange;">least squares method</span> finds <span class="math inline">\(\hat{\beta}_0\)</span> and <span class="math inline">\(\hat{\beta}_1\)</span> by minimizing the function:</p>
+<p><span class="math display">\[\begin{align}
+g(\hat{\beta}_0, \hat{\beta}_1) &amp; = \sum_{i=1}^{n} (e_{i})^2 = \sum_{i=1}^{n} (Y_i - (\hat{\beta}_0 + \hat{\beta}_1 X_i ))^2.
+\end{align}\]</span></p>
+</section>
+<section id="inspecting-the-errors" class="level3">
+<h3 class="anchored" data-anchor-id="inspecting-the-errors">Inspecting the errors</h3>
+<p>The behavior of the errors (<span class="math inline">\(e_i\)</span>’s) indicates whether the model is correct or not. If the model is correct, the errors should behave as follows:</p>
+<div class="incremental">
+<ol class="incremental" type="1">
+<li>On average, they should <strong>be around 0</strong> for each predicted value <span class="math inline">\(\hat{Y}_i\)</span>.</li>
+<li>They should have <strong>constant dispersion</strong> around each predicted value <span class="math inline">\(\hat{Y}_i\)</span>.</li>
+<li>They should be <strong>independent</strong> of each other, meaning they should not be related.</li>
+</ol>
+</div>
+</section>
+<section id="graphical-analysis-of-errors" class="level3">
+<h3 class="anchored" data-anchor-id="graphical-analysis-of-errors">Graphical analysis of errors</h3>
+<p><br></p>
+<p>To evaluate these behaviors, we use two scatter plots of the errors:</p>
+<ul>
+<li><p><strong>Vertical Axis</strong> = Errors and <strong>Horizontal Axis</strong> = Predictions. This plot helps validate the first two assumptions (<strong>errors around 0 and constant dispersion</strong>).</p></li>
+<li><p><strong>Vertical Axis</strong> = Errors and <strong>Horizontal Axis</strong> = time in which the observation was taken. This graph allows us to validate the third assumption (<strong>independencia</strong>).</p></li>
+</ul>
+</section>
+<section id="statsmodels-library" class="level3">
+<h3 class="anchored" data-anchor-id="statsmodels-library">statsmodels library</h3>
+<ul>
+<li><strong>statsmodels</strong> is a powerful Python library for statistical modeling, data analysis, and hypothesis testing.</li>
+<li>It provides classes and functions for estimating statistical models.</li>
+<li>It is built on top of libraries such as <strong>NumPy</strong>, <strong>SciPy</strong>, and <strong>pandas</strong></li>
+<li><a href="https://www.statsmodels.org/stable/index.html" class="uri">https://www.statsmodels.org/stable/index.html</a></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/statsmodels-logo-v2-horizontal-dark.svg" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+</section>
+<section id="load-the-library" class="level3">
+<h3 class="anchored" data-anchor-id="load-the-library">Load the library</h3>
+<p><br></p>
+<p>Let’s import <strong>statsmodels</strong> into Python</p>
+<div id="5a86a35e" class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> statsmodels.api <span class="im">as</span> sm</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="fit-a-linear-model" class="level3">
+<h3 class="anchored" data-anchor-id="fit-a-linear-model">Fit a linear model</h3>
+<p><br></p>
+<p>To fit a linear model in <strong>statsmodels</strong>, we first split the data set into a vector with the values of the predictor only, and a vector with the response values.</p>
+<div id="0e1354b9" class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Matrix with predictors.</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> auto_data[<span class="st">'weight'</span>]</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Add intercept.</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> sm.add_constant(X)  </span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Matrix with response.</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>Y <span class="op">=</span> auto_data[<span class="st">'mpg'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We also must include a vector of ones to the predictors to account for the intercept.</p>
+</section>
+<section id="section-6" class="level3">
+<h3 class="anchored" data-anchor-id="section-6"></h3>
+<p><br><br></p>
+<p>Next, we use the functions <code>OLS()</code> and <code>fit()</code> from <strong>statsmodels</strong>.</p>
+<div id="bb3b4dbc" class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create linear regression object</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>regr <span class="op">=</span> sm.OLS(Y, X)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Train the model using the training sets</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>linear_model <span class="op">=</span> regr.fit()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="section-7" class="level3">
+<h3 class="anchored" data-anchor-id="section-7"></h3>
+<p><br></p>
+<p>To show the estimated coefficients, we use the argument <code>params</code> of the <code>linear_model</code> object created previously.</p>
+<div id="4393bf1c" class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The estimated coefficients.</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(linear_model.params)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>const     46.317364
+weight    -0.007677
+dtype: float64</code></pre>
+</div>
+</div>
+<p><br></p>
+<p>The elements in the vector above are the estimates <span class="math inline">\(\hat{\beta}_0 = 46.317\)</span> and <span class="math inline">\(\hat{\beta}_1 = -0.00767\)</span>.</p>
+</section>
+<section id="residuals-and-fitted-values" class="level3">
+<h3 class="anchored" data-anchor-id="residuals-and-fitted-values">Residuals and fitted values</h3>
+<p><br></p>
+<p>To create the plots for the residuals, we need the predicted (fitted) values (<span class="math inline">\(\hat{Y}_i\)</span>’s) of the response and the residuals (<span class="math inline">\(e_i\)</span>’s) first. To this end, we use the commands below.</p>
+<div id="eb054450" class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Make predictions using the the model</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>Y_pred <span class="op">=</span> linear_model.fittedvalues</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate residuals.</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>residuals <span class="op">=</span> linear_model.resid</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="constant-dispersion" class="level3">
+<h3 class="anchored" data-anchor-id="constant-dispersion">Constant dispersion</h3>
+<div id="e591f97e" class="cell" data-execution_count="17">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Residual vs Fitted Values Plot</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="fl">7.5</span>, <span class="fl">5.5</span>))</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>sns.scatterplot(x <span class="op">=</span> Y_pred, y <span class="op">=</span> residuals, color<span class="op">=</span><span class="st">"darkblue"</span>, s <span class="op">=</span> <span class="dv">50</span>)</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>plt.axhline(y<span class="op">=</span><span class="dv">0</span>, color<span class="op">=</span><span class="st">'red'</span>, linestyle<span class="op">=</span><span class="st">'--'</span>)</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Fitted (predicted) Values'</span>, fontsize<span class="op">=</span><span class="dv">15</span>)</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Residuals'</span>, fontsize<span class="op">=</span><span class="dv">15</span>)</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>plt.yticks(fontsize<span class="op">=</span><span class="dv">12</span>)</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>plt.xticks(fontsize<span class="op">=</span><span class="dv">12</span>)</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="LR_files/figure-revealjs/cell-18-output-1.png" class="quarto-figure quarto-figure-center figure-img" width="651" height="476"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="independent-errors" class="level3">
+<h3 class="anchored" data-anchor-id="independent-errors">Independent errors</h3>
+<div id="5e8ccc2b" class="cell" data-execution_count="18">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Residuals vs Time (Case) Plot</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="fl">7.5</span>, <span class="fl">5.5</span>))</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>sns.scatterplot(x <span class="op">=</span> <span class="bu">range</span>(<span class="bu">len</span>(auto_data)), y <span class="op">=</span> residuals, </span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>                color<span class="op">=</span><span class="st">"darkblue"</span>, s <span class="op">=</span> <span class="dv">50</span>)</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>plt.axhline(y<span class="op">=</span><span class="dv">0</span>, color<span class="op">=</span><span class="st">'red'</span>, linestyle<span class="op">=</span><span class="st">'--'</span>)</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Time'</span>, fontsize<span class="op">=</span><span class="dv">15</span>)</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Residuals'</span>, fontsize<span class="op">=</span><span class="dv">15</span>)</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>plt.yticks(fontsize<span class="op">=</span><span class="dv">12</span>)</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>plt.xticks(fontsize<span class="op">=</span><span class="dv">12</span>)</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="LR_files/figure-revealjs/cell-19-output-1.png" class="quarto-figure quarto-figure-center figure-img" width="646" height="476"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="comments" class="level3">
+<h3 class="anchored" data-anchor-id="comments">Comments</h3>
+<p><br></p>
+<ul>
+<li><p>The two plots <strong>do not</strong> validate the assumptions of the linear regression model.</p></li>
+<li><p>There are methods to correct this, but we will not cover them here.</p></li>
+<li><p>If both assumptions are not validated, then the linear regression model is used only as a trend line or a reference for the data.</p></li>
+</ul>
+</section>
+<section id="section-8" class="level3">
+<h3 class="anchored" data-anchor-id="section-8"></h3>
+<p><br></p>
+<ul>
+<li><p>If both assumptions are validated, then the model can be used to predict the response for new observations and to check if there is a significant relationship between <span class="math inline">\(Y\)</span> and <span class="math inline">\(X\)</span>.</p></li>
+<li><p>You have explored about linear regression in IN1002B.</p></li>
+</ul>
+</section>
+</section>
+<section id="local-regression" class="level2">
+<h2 class="anchored" data-anchor-id="local-regression">Local Regression</h2>
+<section id="local-regression-1" class="level3">
+<h3 class="anchored" data-anchor-id="local-regression-1">Local regression</h3>
+<p>This is a modern alternative to the simple linear regression model for capturing complex relationships between two variables.</p>
+<p><span style="color:darkgray;"><strong>Basic Idea</strong></span>: It fits linear regression models to small subsets of the data. These subsets consist of observations that are close to each other.</p>
+<p>The most common method for fitting a local regression model is <strong>LOESS</strong>. We will omit the details of this method here since they require advanced statistical concepts.</p>
+</section>
+<section id="section-9" class="level3">
+<h3 class="anchored" data-anchor-id="section-9"></h3>
+<p>In Python, we fit a local regression by setting the <code>lowess</code> argument to <code>True</code> in the <code>regplot()</code> function.</p>
+<div id="42a87122" class="cell" data-execution_count="19">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">7</span>, <span class="dv">5</span>))</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>sns.regplot(data<span class="op">=</span>auto_data, x<span class="op">=</span><span class="st">"weight"</span>, y<span class="op">=</span><span class="st">"mpg"</span>, lowess<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="LR_files/figure-revealjs/cell-20-output-1.png" class="quarto-figure quarto-figure-center figure-img" width="585" height="429"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="section-10" class="level3">
+<h3 class="anchored" data-anchor-id="section-10"></h3>
+<p>We can change the color, thickness, and line type using the <code>color</code>, <code>linewidth</code>, and <code>linestyle</code>,arguments in the <code>line_kws</code> argument function.</p>
+<div id="06a9f722" class="cell" data-execution_count="20">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">6</span>, <span class="dv">4</span>))</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>sns.regplot(data<span class="op">=</span>auto_data, x<span class="op">=</span><span class="st">"weight"</span>, y<span class="op">=</span><span class="st">"mpg"</span>, scatter<span class="op">=</span><span class="va">True</span>, lowess<span class="op">=</span><span class="va">True</span>,</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>            line_kws<span class="op">=</span>{<span class="st">"color"</span>: <span class="st">"red"</span>, <span class="st">"linewidth"</span>: <span class="dv">2</span>, <span class="st">"linestyle"</span>: <span class="st">"--"</span>})</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="LR_files/figure-revealjs/cell-21-output-1.png" class="quarto-figure quarto-figure-center figure-img" width="510" height="356"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="another-example" class="level3">
+<h3 class="anchored" data-anchor-id="another-example">Another example</h3>
+<p>Let’s consider the relationship between car acceleration (<code>acceleration</code>) and the total volume of all engine cylinders (<code>displacement</code>).</p>
+<div id="742b4965" class="cell" data-execution_count="21">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="fl">5.5</span>, <span class="fl">3.5</span>))</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>sns.scatterplot(data<span class="op">=</span>auto_data, x<span class="op">=</span><span class="st">"displacement"</span>, y<span class="op">=</span><span class="st">"acceleration"</span>)</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="LR_files/figure-revealjs/cell-22-output-1.png" class="quarto-figure quarto-figure-center figure-img" width="486" height="319"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="linear-regression" class="level3">
+<h3 class="anchored" data-anchor-id="linear-regression">Linear regression</h3>
+<div id="cae69160" class="cell" data-execution_count="22">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">7</span>, <span class="dv">5</span>))</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>sns.regplot(data<span class="op">=</span>auto_data, x<span class="op">=</span><span class="st">"displacement"</span>, y<span class="op">=</span><span class="st">"acceleration"</span>, </span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>            scatter<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="LR_files/figure-revealjs/cell-23-output-1.png" class="quarto-figure quarto-figure-center figure-img" width="597" height="429"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="local-regression-2" class="level3">
+<h3 class="anchored" data-anchor-id="local-regression-2">Local regression</h3>
+<div id="35786ab9" class="cell" data-execution_count="23">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">7</span>, <span class="dv">5</span>))</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>sns.regplot(data<span class="op">=</span>auto_data, x<span class="op">=</span><span class="st">"displacement"</span>, y<span class="op">=</span><span class="st">"acceleration"</span>, </span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>            scatter<span class="op">=</span><span class="va">True</span>, lowess <span class="op">=</span> <span class="va">True</span>)</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="LR_files/figure-revealjs/cell-24-output-1.png" class="quarto-figure quarto-figure-center figure-img" width="597" height="429"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="discussion" class="level3">
+<h3 class="anchored" data-anchor-id="discussion">Discussion</h3>
+<p><br></p>
+<ul>
+<li>The simple linear regression model is easy to interpret due to its structure:</li>
+</ul>
+<p><span class="math display">\[
+\hat{Y}_i = \hat{\beta}_0 + \hat{\beta}_1 X_i.
+\]</span></p>
+<ul>
+<li>However, it may be too rigid to capture complex relationships between two variables.</li>
+</ul>
+</section>
+<section id="section-11" class="level3">
+<h3 class="anchored" data-anchor-id="section-11"></h3>
+<p><br></p>
+<ul>
+<li><p>Local regression is flexible and allows capturing complex relationships between two variables.</p></li>
+<li><p>However, it has a low level of interpretability because it does not provide an explicit equation to relate the predictor <span class="math inline">\(X\)</span> to the response <span class="math inline">\(Y\)</span>.</p></li>
+</ul>
+</section>
+</section>
+<section id="return-to-the-main-page" class="level2">
+<h2 class="anchored" data-anchor-id="return-to-the-main-page"><a href="https://alanrvazquez.github.io/TEC-IN2039-EN/">Return to the main page</a></h2>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

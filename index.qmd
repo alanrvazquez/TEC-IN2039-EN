@@ -17,6 +17,7 @@ author:
 5.  Numerical variables ([slides](/T4_Numerical_Data/Numerical.slides.html)) ([colab](https://drive.google.com/file/d/1QoRxm9joB0331wlRSpD5BJoUp6j2mFCW/view?usp=sharing))
 6.  Multivariate data ([slides](/T5_Multivariate_Data/Multivariate.slides.html)) ([colab](https://drive.google.com/file/d/1MUvdL0GV1PMZWlYg9Qp2G1ocdmp822M2/view?usp=sharing))
 7.  Simple regression ([slides](/T6_Introduction_Linear_Regression/LR.slides.html)) ([colab](https://drive.google.com/file/d/1dQaz3JcFOpJrg9S39G8pi-rNS_8YhXaa/view?usp=sharing))
+8.  Course recap ([slides](/T7_Recap/Recap.slides.html))
 
 ## About the author
 
