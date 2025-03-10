@@ -499,7 +499,7 @@ For example, let's plot the average miles per gallon of cars produced in America
 
 sum_auto = (auto_data
   .filter(['mpg', 'origin'], axis = 1)
-  .groupby(["origin"], observed = True)
+  .groupby(["origin"])
   .agg(meanMPG = ("mpg", "mean"))
 ) 
 ```
@@ -781,7 +781,7 @@ With **pandas**, we calculate frequency using the `.size()`, function, which cou
 #| output: true
 
 count_data = (penguins_data
-  .groupby(['island', 'species'], observed = True)
+  .groupby(['island', 'species'])
   .size()
   .reset_index(name='count')
   )
@@ -810,7 +810,7 @@ To calculate relative frequency, we use `.assign()` along with the `lambda`, fun
 #| output: true
 
 rel_freq_table = (penguins_data
-  .groupby(['island', 'species'], observed = True)
+  .groupby(['island', 'species'])
   .size()
   .reset_index(name='count')
   .assign(Proportion = lambda df: df["count"]/df["count"].sum())

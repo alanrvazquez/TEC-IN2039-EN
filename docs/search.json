@@ -1754,7 +1754,7 @@
     "href": "T5_Multivariate_Data/Multivariate.slides.html#plotting-statistical-summaries-by-groups",
     "title": "Multivariable Data",
     "section": "Plotting statistical summaries by groups",
-    "text": "Plotting statistical summaries by groups\nAlternatively, we can summarize the values of the numerical variable \\(Y\\) for each category of the variable \\(X\\) using the median or the mean.\nFor example, let’s plot the average miles per gallon of cars produced in America, Europe, and Japan. First, we calculate the average for each category using .groupby() and mean().\n\nsum_auto = (auto_data\n  .filter(['mpg', 'origin'], axis = 1)\n  .groupby([\"origin\"], observed = True)\n  .agg(meanMPG = (\"mpg\", \"mean\"))\n)"
+    "text": "Plotting statistical summaries by groups\nAlternatively, we can summarize the values of the numerical variable \\(Y\\) for each category of the variable \\(X\\) using the median or the mean.\nFor example, let’s plot the average miles per gallon of cars produced in America, Europe, and Japan. First, we calculate the average for each category using .groupby() and mean().\n\nsum_auto = (auto_data\n  .filter(['mpg', 'origin'], axis = 1)\n  .groupby([\"origin\"])\n  .agg(meanMPG = (\"mpg\", \"mean\"))\n)"
   },
   {
     "objectID": "T5_Multivariate_Data/Multivariate.slides.html#section-10",
@@ -1859,21 +1859,21 @@
     "href": "T5_Multivariate_Data/Multivariate.slides.html#statistical-summaries",
     "title": "Multivariable Data",
     "section": "Statistical summaries",
-    "text": "Statistical summaries\n\nFor categorical variables, the most common statistical summaries are frequency and relative frequency.\nWith pandas, we calculate frequency using the .size(), function, which counts the unique values of one or more variables. We also use .groupby() to compute the distribution by categorical variables.\n\ncount_data = (penguins_data\n  .groupby(['island', 'species'], observed = True)\n  .size()\n  .reset_index(name='count')\n  )"
+    "text": "Statistical summaries\n\nFor categorical variables, the most common statistical summaries are frequency and relative frequency.\nWith pandas, we calculate frequency using the .size(), function, which counts the unique values of one or more variables. We also use .groupby() to compute the distribution by categorical variables.\n\ncount_data = (penguins_data\n  .groupby(['island', 'species'])\n  .size()\n  .reset_index(name='count')\n  )"
   },
   {
     "objectID": "T5_Multivariate_Data/Multivariate.slides.html#section-18",
     "href": "T5_Multivariate_Data/Multivariate.slides.html#section-18",
     "title": "Multivariable Data",
     "section": "",
-    "text": "# Show the result\nprint(count_data)\n\n      island    species  count\n0     Biscoe     Adelie     44\n1     Biscoe     Gentoo    124\n2      Dream     Adelie     56\n3      Dream  Chinstrap     68\n4  Torgersen     Adelie     52"
+    "text": "# Show the result\nprint(count_data)\n\n      island    species  count\n0     Biscoe     Adelie     44\n1     Biscoe  Chinstrap      0\n2     Biscoe     Gentoo    124\n3      Dream     Adelie     56\n4      Dream  Chinstrap     68\n5      Dream     Gentoo      0\n6  Torgersen     Adelie     52\n7  Torgersen  Chinstrap      0\n8  Torgersen     Gentoo      0"
   },
   {
     "objectID": "T5_Multivariate_Data/Multivariate.slides.html#section-19",
     "href": "T5_Multivariate_Data/Multivariate.slides.html#section-19",
     "title": "Multivariable Data",
     "section": "",
-    "text": "To calculate relative frequency, we use .assign() along with the lambda, function, which calculates the proportions of a column.\n\nrel_freq_table = (penguins_data\n  .groupby(['island', 'species'], observed = True)\n  .size()\n  .reset_index(name='count')\n  .assign(Proportion = lambda df: df[\"count\"]/df[\"count\"].sum())\n  )\n  \nprint(rel_freq_table)  \n\n      island    species  count  Proportion\n0     Biscoe     Adelie     44    0.127907\n1     Biscoe     Gentoo    124    0.360465\n2      Dream     Adelie     56    0.162791\n3      Dream  Chinstrap     68    0.197674\n4  Torgersen     Adelie     52    0.151163"
+    "text": "To calculate relative frequency, we use .assign() along with the lambda, function, which calculates the proportions of a column.\n\nrel_freq_table = (penguins_data\n  .groupby(['island', 'species'])\n  .size()\n  .reset_index(name='count')\n  .assign(Proportion = lambda df: df[\"count\"]/df[\"count\"].sum())\n  )\n  \nprint(rel_freq_table)  \n\n      island    species  count  Proportion\n0     Biscoe     Adelie     44    0.127907\n1     Biscoe  Chinstrap      0    0.000000\n2     Biscoe     Gentoo    124    0.360465\n3      Dream     Adelie     56    0.162791\n4      Dream  Chinstrap     68    0.197674\n5      Dream     Gentoo      0    0.000000\n6  Torgersen     Adelie     52    0.151163\n7  Torgersen  Chinstrap      0    0.000000\n8  Torgersen     Gentoo      0    0.000000"
   },
   {
     "objectID": "T5_Multivariate_Data/Multivariate.slides.html#charts-for-three-variables",
