@@ -1,0 +1,406 @@
+---
+title: Course Recap 
+subtitle: "IN2039: Data Visualization for Decision Making"
+author: 
+  - name: Alan R. Vazquez
+    affiliations:
+      - name: Department of Industrial Engineering
+format: 
+  revealjs:
+    chalkboard: false
+    multiplex: true
+    footer: "Tecnologico de Monterrey"
+    logo: IN2039_logo.png
+    css: style.css
+    slide-number: True
+    html-math-method: mathjax
+execute:
+  echo: true
+editor: visual
+---
+
+```{python}
+#| echo: false
+#| output: false
+
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+auto_data = pd.read_excel("auto_dataset.xlsx") 
+spotify_data = pd.read_excel("spotify.xlsx")
+penguins_data = pd.read_excel("penguins.xlsx")
+```
+
+# Data Visualization and Its Principles
+
+## What is Data Visualization?
+
+> "A visualization \[of data\] is any visual display intended to reveal evidence, making the invisible visible." — Alberto Cairo (2015)
+"
+
+![](images/clipboard-3803538817.png){fig-align="center" width="814"}
+
+## 
+
+In essence, a data visualization allows you to drill down into complex data sets to gain meaningful insights through the use of graphical displays.
+
+<br/>
+
+Data visualizations are primarily concerned with providing evidence and allowing the audience to explore and come to their own conclusions about what the visualizations reveal about the data.
+
+::: notes
+As data scientists, we create data visualizations in order to understand our data and explain our analyses to other people. A plot should have a message, and it’s our job to communicate this message as clearly as possible.
+:::
+
+# The 3 Principles of Data Visualization
+
+## ***Principle 1*****:** Formulate the message
+
+The message often emerges when answering a key question.
+
+::::::: center
+:::::: columns
+::: {.column width="33%"}
+![](images/clipboard-1758479249.png){width="499"}
+:::
+
+::: {.column width="33%"}
+[![](https://c8.alamy.com/comp/2E5GH3G/be-ready-to-lose-all-your-money-on-bitcoin-fca-tells-consumers-financial-newspaper-headline-in-guardian-12-january-2021-great-britain-uk-europe-2E5GH3G.jpg){alt="Be ready to lose all your money on bitcoin, FCA tells consumers\" Financial newspaper  headline in Guardian 12 January 2021 Great Britain UK Europe Stock Photo -  Alamy"}](https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.alamy.com%2Fbe-ready-to-lose-all-your-money-on-bitcoin-fca-tells-consumers-financial-newspaper-headline-in-guardian-12-january-2021-great-britain-uk-europe-image399276404.html&psig=AOvVaw1j_DY1hqJ8N6YDmcJrt7O4&ust=1706894768727000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCNiE4-PUioQDFQAAAAAdAAAAABAD)
+:::
+
+::: {.column width="33%"}
+![](images/clipboard-1023529598.png)
+:::
+::::::
+:::::::
+
+::: notes
+El mensaje puede ser una pregunta
+
+-   ¿Cuál es la comparación importante?
+
+-   ¿Cómo la enfatizamos?
+
+-   Do you have reason to expect that one group/observation might be different?
+
+-   Why might your finding about shape matter?
+
+-   What additional comparison might bring added value to the investigation?
+
+-   Are there any potentially important features to create comparisons with/against?
+:::
+
+## ***Principle 2*****: *Turn data into information***
+
+Your visualization should use data to communicate the message or answer the question, effectively converting raw data into meaningful insights.
+
+::::::: center
+:::::: columns
+::: {.column width="33%"}
+![](images/clipboard-4189732703.png)
+:::
+
+::: {.column width="33%"}
+![](images/clipboard-1399795317.png)
+:::
+
+::: {.column width="33%"}
+![](images/clipboard-2893827168.png)
+:::
+::::::
+:::::::
+
+## *Principle 3: Apply the graphic design principles*
+
+::::::: center
+:::::: columns
+:::: {.column width="60%"}
+::: {style="font-size: 75%;"}
+1. Objects are easy to identify by color.
+2. Use direct labels instead of a legend.
+3. Similar elements should look alike.
+4. Balance graphics and text.
+5. Be careful with default visualization settings.
+6. Use a grid layout to organize the visualization.
+:::
+::::
+
+::: {.column width="40%"}
+![](images/clipboard-2746624499.png){width="484" height="339"}
+:::
+::::::
+:::::::
+
+::: notes
+No te limites a cosas simples. Enriquece tu gráfica con símbolos de color para transmitir información adicional. Si es posible, agrega contexto con marcadores y etiquetas de referencia.
+
+También, agrega una leyenda a la gráfica que describa las características importantes y resuma sus conclusiones.
+:::
+
+# Variable Types
+
+## Variable Types
+
+![](images/clipboard-2750534250.png)
+
+## Variable types define our analysis
+
+- They help specify the operations, visualizations, and models we can apply to data.
+
+- There are appropriate or designed charts to visualize numerical or categorical variables.
+
+# Statistical Summaries
+
+## Statistical summaries for categorical variables
+
+> A **statistical summary** helps us summarize a set of observations in a simple way.
+
+The most commonly used statistical summaries for categorical data are:
+
+- The [**frequency**]{style="color:darkblue;"} of a category is the number of observations that belong to that category.
+
+- The [**relative frequency**]{style="color:darkblue;"} is the frequency divided by the total number of observations.
+
+## Statistical Summaries for Numerical Variables
+
+The most commonly used statistical summaries for numerical data are:
+
+- [Average]{style="color:darkblue;"}
+- [Variance]{style="color:darkblue;"} and [Standard Deviation]{style="color:darkblue;"}
+- [Median]{style="color:darkgreen;"} and [Quartiles]{style="color:darkgreen;"}
+- [Maximum]{style="color:dark;"} and [Minimum]{style="color:dark;"}
+
+# Graphs by type and number of variables
+
+## Graphs for 1 variable
+
+::: center
+| Type       | Graph           |
+|:-----------|:------------------|
+| Categorical | Bar and Pie chart |
+:::
+
+![](images/pie-vs-bar-compare.png){fig-align="center"}
+
+## Graphs for 1 variable
+
+::: center
+| Type     | Graph                      |
+|:---------|:-----------------------------|
+| Numerical | Histogram and Box plot |
+:::
+
+::::: columns
+::: {.column width="50%"}
+```{python}
+#| fig-pos: center
+#| echo: false
+#| code-fold: true
+
+plt.figure(figsize=(8, 6))
+sns.histplot(auto_data, x = 'mpg', color="darkblue", bins=15)
+plt.xlabel("Miles per Gallon")
+plt.ylabel("Frequency")
+plt.title("Histogram of MPG")
+plt.show() 
+```
+:::
+
+::: {.column width="50%"}
+```{python}
+#| fig-pos: center
+#| echo: false
+#| code-fold: true
+
+plt.figure(figsize=(8, 6))
+sns.boxplot(auto_data, y = 'mpg', color="darkblue")
+plt.ylabel("Miles per Gallon")
+plt.title("Boxplot of MPG")
+plt.show()
+```
+:::
+:::::
+
+## Graphs for 2 variables
+
+::: center
+| Type      | Graph             |
+|:----------|:--------------------|
+| Numerical | Scatter and line plots |
+:::
+
+::::: columns
+::: {.column width="50%"}
+```{python}
+#| fig-pos: center
+#| echo: false
+#| code-fold: true
+
+plt.figure(figsize=(8, 6))
+sns.scatterplot(data=auto_data, x="weight", y="mpg", color="darkgreen")
+plt.xlabel("Weight (lb)")
+plt.ylabel("Miles per Gallon")
+plt.title("Relationship between Weight and MPG")
+plt.show()
+```
+:::
+
+::: {.column width="50%"}
+```{python}
+#| fig-pos: center
+#| echo: false
+#| code-fold: true
+
+plt.figure(figsize=(10, 6))
+sns.lineplot(data=spotify_data, x="Date", y="Despacito", color="darkblue")
+plt.xlabel("Date")
+plt.ylabel("Spotify Plays")
+plt.title("Popularity of 'Despacito' by Luis Fonsi")
+plt.show()
+```
+:::
+:::::
+
+## Graphs for 2 variables
+
+::: center
+| Type        | Graph                              |
+|:------------|:-------------------------------------|
+| Categorical | Side-by-side bars and stacked bars |
+:::
+
+::::: columns
+::: {.column width="50%"}
+![](images/unnamed-chunk-2-1.png){fig-align="center"}
+:::
+
+::: {.column width="50%"}
+![](images/stacked-bar-options-1.png){fig-align="center"}
+:::
+:::::
+
+## Graphs for 2 or more variables
+
+::: center
+| Type | Graph |
+|:------------|:---------------------------------------------------------|
+| Mixed | Cleveland, color and shape scatter plot, various lines, facets |
+:::
+
+::::: columns
+::: {.column width="50%"}
+```{python}
+#| fig-pos: center
+#| echo: false
+#| code-fold: true
+
+resumen_autos = (auto_data,
+                .groupby(Origin),
+                .agg("Mean"))
+
+
+# Create scatter plot
+plt.figure(figsize=(8, 6))
+sns.scatterplot(x="mpg", y="origin", data=resumen_autos, color="pink", s=100)
+plt.xlabel("Average Miles per Gallon", fontsize=20)
+plt.ylabel("Origin", fontsize=20)
+plt.title("Comparison of Cars from Different Regions", fontsize=20)
+plt.xlim(0, 35)
+plt.grid(True, linestyle="--", alpha=0.7)
+plt.xticks(fontsize=15)
+plt.yticks(fontsize=15)
+plt.show()
+```
+:::
+
+::: {.column width="50%"}
+```{python}
+#| fig-pos: center
+#| echo: false
+#| code-fold: true
+
+plt.figure(figsize=(8, 6))
+sns.scatterplot(data=penguins_data, x="bill_depth_mm", y="bill_length_mm", hue="species", style="island", size="island")
+plt.xlabel("Bill Depth (mm)")
+plt.ylabel("Bill Length (mm)")
+plt.title("Penguin Bill Dimensions by Species and Island")
+plt.legend()
+plt.show()
+```
+:::
+:::::
+
+## Graphs for 2 or more variables
+
+::: center
+| Type | Graph |
+|:------------|:---------------------------------------------------------|
+| Mixed | Cleveland, color and shape scatter plot, various lines, facets |
+:::
+
+```{python}
+#| fig-pos: center
+#| echo: false
+#| code-fold: true
+
+spotify_long = spotify_data.melt(id_vars=["Date"], var_name="Song", value_name="Plays")
+plt.figure(figsize=(10, 6))
+sns.lineplot(data=spotify_long, x="Date", y="Plays", hue="Song")
+plt.xlabel("Date")
+plt.ylabel("Spotify Plays")
+plt.title("Comparison of Top Songs' Popularity Over Time")
+plt.legend()
+plt.show()
+```
+
+
+# Linear Regression
+
+## Linear regression model
+
+A very common function $f(X)$ to predict a response ($Y$) is the **linear regression model**.
+
+It has the mathematical form:
+
+$$
+\hat{Y}_i = \hat{\beta}_0 + \hat{\beta}_1 X_i,
+$$
+
+- Where $i$ is the index of the $n$ observations, and
+- $\hat{Y}_i$ is the prediction of the actual value of the response $Y$ associated with a value of the predictor equal to $X_i$.
+- The values $\hat{\beta}_0$ and $\hat{\beta}_1$ are called the [coefficients]{style="color:darkblue;"} of the model.
+
+## For our example
+
+$\hat{Y}_i = 46.32 -0.0076 X_i$
+
+```{python}
+#| fig-pos: center
+#| echo: false
+
+plt.figure(figsize=(8, 6))
+sns.regplot(data=auto_data, x="weight", y="mpg", scatter=True, color="red", line_kws={"linewidth": 2}, label="Linear Fit")
+plt.xlabel("Weight (lb)")
+plt.ylabel("Miles per Gallon")
+plt.title("Linear Regression: MPG vs. Weight")
+plt.legend()
+plt.show()
+```
+
+## The formula
+
+$\text{mpg}_i = 46.32 - 0.0076 \times \text{weight}_i$
+
+```{python}
+#| fig-pos: center
+#| echo: false
+
+plt.show()
+```
+
+# Is this the end?
+
+No! For more on effective visualizations, visit <https://www.storytellingwithdata.com/>.
+
+# [Return to the main page](https://alanrvazquez.github.io/TEC-IN2039-EN/)
