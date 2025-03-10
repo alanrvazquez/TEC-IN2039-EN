@@ -43,6 +43,8 @@ penguins_data = pd.read_excel("penguins.xlsx")
 
 ## 
 
+<br/>
+
 In essence, a data visualization allows you to drill down into complex data sets to gain meaningful insights through the use of graphical displays.
 
 <br/>
@@ -55,9 +57,11 @@ As data scientists, we create data visualizations in order to understand our dat
 
 # The 3 Principles of Data Visualization
 
-## ***Principle 1*****:** Formulate the message
+## ***Principle 1*****:** Define the message or question
 
-The message often emerges when answering a key question.
+</br>
+
+Formulate the question of interest or the message you want to convey.
 
 ::::::: center
 :::::: columns
@@ -93,7 +97,9 @@ El mensaje puede ser una pregunta
 
 ## ***Principle 2*****: *Turn data into information***
 
-Your visualization should use data to communicate the message or answer the question, effectively converting raw data into meaningful insights.
+</br>
+
+Your graph should use data to communicate the message or answer the question. In other words, it should convert raw data into meaningful insights.
 
 ::::::: center
 :::::: columns
@@ -112,6 +118,8 @@ Your visualization should use data to communicate the message or answer the ques
 :::::::
 
 ## *Principle 3: Apply the graphic design principles*
+
+</br>
 
 ::::::: center
 :::::: columns
@@ -140,11 +148,13 @@ También, agrega una leyenda a la gráfica que describa las características imp
 
 # Variable Types
 
-## Variable Types
+## Variable types
 
-![](images/clipboard-2750534250.png)
+![](images/kinds_of_data3.png)
 
-## Variable types define our analysis
+## The type of variables defines our analysis
+
+</br>
 
 - They help specify the operations, visualizations, and models we can apply to data.
 
@@ -162,7 +172,9 @@ The most commonly used statistical summaries for categorical data are:
 
 - The [**relative frequency**]{style="color:darkblue;"} is the frequency divided by the total number of observations.
 
-## Statistical Summaries for Numerical Variables
+## Statistical summaries for numerical variables
+
+</br>
 
 The most commonly used statistical summaries for numerical data are:
 
@@ -178,7 +190,7 @@ The most commonly used statistical summaries for numerical data are:
 ::: center
 | Type       | Graph           |
 |:-----------|:------------------|
-| Categorical | Bar and Pie chart |
+| Categorical | Bar and Pie charts |
 :::
 
 ![](images/pie-vs-bar-compare.png){fig-align="center"}
@@ -198,7 +210,7 @@ The most commonly used statistical summaries for numerical data are:
 #| echo: false
 #| code-fold: true
 
-plt.figure(figsize=(8, 6))
+plt.figure(figsize=(6, 5))
 sns.histplot(auto_data, x = 'mpg', color="darkblue", bins=15)
 plt.xlabel("Miles per Gallon")
 plt.ylabel("Frequency")
@@ -213,7 +225,7 @@ plt.show()
 #| echo: false
 #| code-fold: true
 
-plt.figure(figsize=(8, 6))
+plt.figure(figsize=(6, 5))
 sns.boxplot(auto_data, y = 'mpg', color="darkblue")
 plt.ylabel("Miles per Gallon")
 plt.title("Boxplot of MPG")
@@ -237,7 +249,7 @@ plt.show()
 #| echo: false
 #| code-fold: true
 
-plt.figure(figsize=(8, 6))
+plt.figure(figsize=(6, 5))
 sns.scatterplot(data=auto_data, x="weight", y="mpg", color="darkgreen")
 plt.xlabel("Weight (lb)")
 plt.ylabel("Miles per Gallon")
@@ -252,7 +264,7 @@ plt.show()
 #| echo: false
 #| code-fold: true
 
-plt.figure(figsize=(10, 6))
+plt.figure(figsize=(6, 5))
 sns.lineplot(data=spotify_data, x="Date", y="Despacito", color="darkblue")
 plt.xlabel("Date")
 plt.ylabel("Spotify Plays")
@@ -295,17 +307,18 @@ plt.show()
 #| echo: false
 #| code-fold: true
 
-resumen_autos = (auto_data,
-                .groupby(Origin),
-                .agg("Mean"))
-
+resumen_autos = (auto_data
+  .filter(['mpg', 'origin'], axis = 1)
+  .groupby(["origin"])
+  .agg(meanMPG = ("mpg", "mean"))
+)
 
 # Create scatter plot
-plt.figure(figsize=(8, 6))
-sns.scatterplot(x="mpg", y="origin", data=resumen_autos, color="pink", s=100)
-plt.xlabel("Average Miles per Gallon", fontsize=20)
-plt.ylabel("Origin", fontsize=20)
-plt.title("Comparison of Cars from Different Regions", fontsize=20)
+plt.figure(figsize=(5, 4))
+sns.scatterplot(x="meanMPG", y="origin", data=resumen_autos, color="pink", s=100)
+plt.xlabel("Average Miles per Gallon", fontsize=15)
+plt.ylabel("Origin", fontsize=15)
+plt.title("Comparison of Cars from Different Regions", fontsize=15)
 plt.xlim(0, 35)
 plt.grid(True, linestyle="--", alpha=0.7)
 plt.xticks(fontsize=15)
@@ -320,8 +333,8 @@ plt.show()
 #| echo: false
 #| code-fold: true
 
-plt.figure(figsize=(8, 6))
-sns.scatterplot(data=penguins_data, x="bill_depth_mm", y="bill_length_mm", hue="species", style="island", size="island")
+plt.figure(figsize=(5, 4))
+sns.scatterplot(data=penguins_data, x="bill_depth_mm", y="bill_length_mm", hue="species", size="island")
 plt.xlabel("Bill Depth (mm)")
 plt.ylabel("Bill Length (mm)")
 plt.title("Penguin Bill Dimensions by Species and Island")
@@ -340,17 +353,19 @@ plt.show()
 :::
 
 ```{python}
-#| fig-pos: center
+#| fig-align: center
 #| echo: false
 #| code-fold: true
 
-spotify_long = spotify_data.melt(id_vars=["Date"], var_name="Song", value_name="Plays")
-plt.figure(figsize=(10, 6))
-sns.lineplot(data=spotify_long, x="Date", y="Plays", hue="Song")
+data_lines = spotify_data.melt(id_vars=["Date"], 
+                                value_vars=["Shape of You", "Despacito", "Something Just Like This", "HUMBLE.", "Unforgettable"], 
+                                var_name="Song", 
+                                value_name="Plays")
+plt.figure(figsize=(8, 4.5))
+sns.lineplot(data=data_lines, x="Date", y="Plays", hue="Song")
 plt.xlabel("Date")
 plt.ylabel("Spotify Plays")
 plt.title("Comparison of Top Songs' Popularity Over Time")
-plt.legend()
 plt.show()
 ```
 
@@ -359,9 +374,7 @@ plt.show()
 
 ## Linear regression model
 
-A very common function $f(X)$ to predict a response ($Y$) is the **linear regression model**.
-
-It has the mathematical form:
+A very common function $f(X)$ to predict a response ($Y$) is the **linear regression model**. It has the mathematical form:
 
 $$
 \hat{Y}_i = \hat{\beta}_0 + \hat{\beta}_1 X_i,
@@ -376,7 +389,7 @@ $$
 $\hat{Y}_i = 46.32 -0.0076 X_i$
 
 ```{python}
-#| fig-pos: center
+#| fig-align: center
 #| echo: false
 
 plt.figure(figsize=(8, 6))
@@ -393,9 +406,15 @@ plt.show()
 $\text{mpg}_i = 46.32 - 0.0076 \times \text{weight}_i$
 
 ```{python}
-#| fig-pos: center
+#| fig-align: center
 #| echo: false
 
+plt.figure(figsize=(8, 6))
+sns.regplot(data=auto_data, x="weight", y="mpg", scatter=True, color="red", line_kws={"linewidth": 2}, label="Linear Fit")
+plt.xlabel("Weight (lb)")
+plt.ylabel("Miles per Gallon")
+plt.title("Linear Regression: MPG vs. Weight")
+plt.legend()
 plt.show()
 ```
 

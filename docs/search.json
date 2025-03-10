@@ -2042,5 +2042,145 @@
     "title": "What is Data Visualization?",
     "section": "",
     "text": "https://www.amazon.com/Even-Geek-Speak-Joey-Asher/dp/0978577604"
+  },
+  {
+    "objectID": "T7_Recap/Recap.slides.html#what-is-data-visualization",
+    "href": "T7_Recap/Recap.slides.html#what-is-data-visualization",
+    "title": "Course Recap",
+    "section": "What is Data Visualization?",
+    "text": "What is Data Visualization?\n\n“A visualization [of data] is any visual display intended to reveal evidence, making the invisible visible.” — Alberto Cairo (2015) ”"
+  },
+  {
+    "objectID": "T7_Recap/Recap.slides.html#section",
+    "href": "T7_Recap/Recap.slides.html#section",
+    "title": "Course Recap",
+    "section": "",
+    "text": "In essence, a data visualization allows you to drill down into complex data sets to gain meaningful insights through the use of graphical displays.\n\nData visualizations are primarily concerned with providing evidence and allowing the audience to explore and come to their own conclusions about what the visualizations reveal about the data.\n\nAs data scientists, we create data visualizations in order to understand our data and explain our analyses to other people. A plot should have a message, and it’s our job to communicate this message as clearly as possible."
+  },
+  {
+    "objectID": "T7_Recap/Recap.slides.html#principle-1-formulate-the-message",
+    "href": "T7_Recap/Recap.slides.html#principle-1-formulate-the-message",
+    "title": "Course Recap",
+    "section": "Principle 1: Formulate the message",
+    "text": "Principle 1: Formulate the message\nThe message often emerges when answering a key question.\n\n\n\n\n\n\n\n\n\n\n\nEl mensaje puede ser una pregunta\n\n¿Cuál es la comparación importante?\n¿Cómo la enfatizamos?\nDo you have reason to expect that one group/observation might be different?\nWhy might your finding about shape matter?\nWhat additional comparison might bring added value to the investigation?\nAre there any potentially important features to create comparisons with/against?"
+  },
+  {
+    "objectID": "T7_Recap/Recap.slides.html#principle-2-turn-data-into-information",
+    "href": "T7_Recap/Recap.slides.html#principle-2-turn-data-into-information",
+    "title": "Course Recap",
+    "section": "Principle 2: Turn data into information",
+    "text": "Principle 2: Turn data into information\n\nYour graph should use data to communicate the message or answer the question. In other words, it should convert raw data into meaningful insights."
+  },
+  {
+    "objectID": "T7_Recap/Recap.slides.html#principle-3-apply-the-graphic-design-principles",
+    "href": "T7_Recap/Recap.slides.html#principle-3-apply-the-graphic-design-principles",
+    "title": "Course Recap",
+    "section": "Principle 3: Apply the graphic design principles",
+    "text": "Principle 3: Apply the graphic design principles\n\n\n\n\n\n\nObjects are easy to identify by color.\nUse direct labels instead of a legend.\nSimilar elements should look alike.\nBalance graphics and text.\nBe careful with default visualization settings.\nUse a grid layout to organize the visualization.\n\n\n\n\n\n\n\nNo te limites a cosas simples. Enriquece tu gráfica con símbolos de color para transmitir información adicional. Si es posible, agrega contexto con marcadores y etiquetas de referencia.\nTambién, agrega una leyenda a la gráfica que describa las características importantes y resuma sus conclusiones."
+  },
+  {
+    "objectID": "T7_Recap/Recap.slides.html#variable-types-1",
+    "href": "T7_Recap/Recap.slides.html#variable-types-1",
+    "title": "Course Recap",
+    "section": "Variable types",
+    "text": "Variable types"
+  },
+  {
+    "objectID": "T7_Recap/Recap.slides.html#variable-types-define-our-analysis",
+    "href": "T7_Recap/Recap.slides.html#variable-types-define-our-analysis",
+    "title": "Course Recap",
+    "section": "Variable types define our analysis",
+    "text": "Variable types define our analysis\n\nThey help specify the operations, visualizations, and models we can apply to data.\nThere are appropriate or designed charts to visualize numerical or categorical variables."
+  },
+  {
+    "objectID": "T7_Recap/Recap.slides.html#statistical-summaries-for-categorical-variables",
+    "href": "T7_Recap/Recap.slides.html#statistical-summaries-for-categorical-variables",
+    "title": "Course Recap",
+    "section": "Statistical summaries for categorical variables",
+    "text": "Statistical summaries for categorical variables\n\nA statistical summary helps us summarize a set of observations in a simple way.\n\nThe most commonly used statistical summaries for categorical data are:\n\nThe frequency of a category is the number of observations that belong to that category.\nThe relative frequency is the frequency divided by the total number of observations."
+  },
+  {
+    "objectID": "T7_Recap/Recap.slides.html#statistical-summaries-for-numerical-variables",
+    "href": "T7_Recap/Recap.slides.html#statistical-summaries-for-numerical-variables",
+    "title": "Course Recap",
+    "section": "Statistical summaries for numerical variables",
+    "text": "Statistical summaries for numerical variables\n\nThe most commonly used statistical summaries for numerical data are:\n\nAverage\nVariance and Standard Deviation\nMedian and Quartiles\nMaximum and Minimum"
+  },
+  {
+    "objectID": "T7_Recap/Recap.slides.html#graphs-for-1-variable",
+    "href": "T7_Recap/Recap.slides.html#graphs-for-1-variable",
+    "title": "Course Recap",
+    "section": "Graphs for 1 variable",
+    "text": "Graphs for 1 variable\n\n\n\n\nType\nGraph\n\n\n\n\nCategorical\nBar and Pie charts"
+  },
+  {
+    "objectID": "T7_Recap/Recap.slides.html#graphs-for-1-variable-1",
+    "href": "T7_Recap/Recap.slides.html#graphs-for-1-variable-1",
+    "title": "Course Recap",
+    "section": "Graphs for 1 variable",
+    "text": "Graphs for 1 variable\n\n\n\n\nType\nGraph\n\n\n\n\nNumerical\nHistogram and Box plot"
+  },
+  {
+    "objectID": "T7_Recap/Recap.slides.html#graphs-for-2-variables",
+    "href": "T7_Recap/Recap.slides.html#graphs-for-2-variables",
+    "title": "Course Recap",
+    "section": "Graphs for 2 variables",
+    "text": "Graphs for 2 variables\n\n\n\n\nType\nGraph\n\n\n\n\nNumerical\nScatter and line plots"
+  },
+  {
+    "objectID": "T7_Recap/Recap.slides.html#graphs-for-2-variables-1",
+    "href": "T7_Recap/Recap.slides.html#graphs-for-2-variables-1",
+    "title": "Course Recap",
+    "section": "Graphs for 2 variables",
+    "text": "Graphs for 2 variables\n\n\n\n\nType\nGraph\n\n\n\n\nCategorical\nSide-by-side bars and stacked bars"
+  },
+  {
+    "objectID": "T7_Recap/Recap.slides.html#graphs-for-2-or-more-variables",
+    "href": "T7_Recap/Recap.slides.html#graphs-for-2-or-more-variables",
+    "title": "Course Recap",
+    "section": "Graphs for 2 or more variables",
+    "text": "Graphs for 2 or more variables\n\n\n\n\n\n\n\n\nType\nGraph\n\n\n\n\nMixed\nCleveland, color and shape scatter plot, various lines, facets"
+  },
+  {
+    "objectID": "T7_Recap/Recap.slides.html#graphs-for-2-or-more-variables-1",
+    "href": "T7_Recap/Recap.slides.html#graphs-for-2-or-more-variables-1",
+    "title": "Course Recap",
+    "section": "Graphs for 2 or more variables",
+    "text": "Graphs for 2 or more variables\n\n\n\n\n\n\n\n\nType\nGraph\n\n\n\n\nMixed\nCleveland, color and shape scatter plot, various lines, facets"
+  },
+  {
+    "objectID": "T7_Recap/Recap.slides.html#linear-regression-model",
+    "href": "T7_Recap/Recap.slides.html#linear-regression-model",
+    "title": "Course Recap",
+    "section": "Linear regression model",
+    "text": "Linear regression model\nA very common function \\(f(X)\\) to predict a response (\\(Y\\)) is the linear regression model. It has the mathematical form:\n\\[\n\\hat{Y}_i = \\hat{\\beta}_0 + \\hat{\\beta}_1 X_i,\n\\]\n\nWhere \\(i\\) is the index of the \\(n\\) observations, and\n\\(\\hat{Y}_i\\) is the prediction of the actual value of the response \\(Y\\) associated with a value of the predictor equal to \\(X_i\\).\nThe values \\(\\hat{\\beta}_0\\) and \\(\\hat{\\beta}_1\\) are called the coefficients of the model."
+  },
+  {
+    "objectID": "T7_Recap/Recap.slides.html#for-our-example",
+    "href": "T7_Recap/Recap.slides.html#for-our-example",
+    "title": "Course Recap",
+    "section": "For our example",
+    "text": "For our example\n\\(\\hat{Y}_i = 46.32 -0.0076 X_i\\)"
+  },
+  {
+    "objectID": "T7_Recap/Recap.slides.html#the-formula",
+    "href": "T7_Recap/Recap.slides.html#the-formula",
+    "title": "Course Recap",
+    "section": "The formula",
+    "text": "The formula\n\\(\\text{mpg}_i = 46.32 - 0.0076 \\times \\text{weight}_i\\)"
+  },
+  {
+    "objectID": "T7_Recap/Recap.slides.html#principle-1-define-the-message-or-question",
+    "href": "T7_Recap/Recap.slides.html#principle-1-define-the-message-or-question",
+    "title": "Course Recap",
+    "section": "Principle 1: Define the message or question",
+    "text": "Principle 1: Define the message or question\n\nFormulate the question of interest or the message you want to convey.\n\n\n\n\n\n\n\n\n\n\n\nEl mensaje puede ser una pregunta\n\n¿Cuál es la comparación importante?\n¿Cómo la enfatizamos?\nDo you have reason to expect that one group/observation might be different?\nWhy might your finding about shape matter?\nWhat additional comparison might bring added value to the investigation?\nAre there any potentially important features to create comparisons with/against?"
+  },
+  {
+    "objectID": "T7_Recap/Recap.slides.html#the-type-of-variables-defines-our-analysis",
+    "href": "T7_Recap/Recap.slides.html#the-type-of-variables-defines-our-analysis",
+    "title": "Course Recap",
+    "section": "The type of variables defines our analysis",
+    "text": "The type of variables defines our analysis\n\n\nThey help specify the operations, visualizations, and models we can apply to data.\nThere are appropriate or designed charts to visualize numerical or categorical variables."
   }
 ]
