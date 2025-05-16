@@ -1,0 +1,1600 @@
+{
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "---\n",
+        "title: Multivariable Data  \n",
+        "subtitle: \"IN2039: Data Visualization for Decision Making\"\n",
+        "author: \n",
+        "  - name: Alan R. Vazquez\n",
+        "    affiliations:\n",
+        "      - name: Department of Industrial Engineering\n",
+        "format: \n",
+        "  revealjs:\n",
+        "    chalkboard: true\n",
+        "    multiplex: true\n",
+        "    footer: \"Tecnologico de Monterrey\"\n",
+        "    logo: IN2039_logo.png\n",
+        "    css: style.css\n",
+        "    slide-number: True\n",
+        "execute:\n",
+        "  echo: true  \n",
+        "editor: visual\n",
+        "---\n",
+        "\n",
+        "\n",
+        "## Agenda\n",
+        "\n",
+        "</br>\n",
+        "\n",
+        "1.  Data with more than one variable\n",
+        "\n",
+        "2.  Two numerical variables\n",
+        "\n",
+        "3.  One numerical and one categorical variable\n",
+        "\n",
+        "4.  Two categorical variables\n",
+        "\n",
+        "5.  Three or more variables\n",
+        "\n",
+        "## Load Libraries\n",
+        "\n",
+        "</br>\n",
+        "\n",
+        "Let's import the `pandas`, `matplotlib`, and `seaborn` in Google Colab before starting.\n"
+      ],
+      "id": "cd13d1f2"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| echo: true\n",
+        "#| output: false\n",
+        "\n",
+        "import pandas as pd      \n",
+        "import matplotlib.pyplot as plt  \n",
+        "import seaborn as sns    "
+      ],
+      "id": "702c0e0e",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Multivariate data\n",
+        "\n",
+        "</br>\n",
+        "\n",
+        "Multivariate data consists of datasets that contain observations of two or more variables.\n",
+        "\n",
+        "::: incremental\n",
+        "-   Variables can be numerical or categorical.\n",
+        "\n",
+        "-   Variables may or may not depend on each other.\n",
+        ":::\n",
+        "\n",
+        ". . .\n",
+        "\n",
+        "In fact, the **goal** is to determine whether there is a relationship between the variables and the type of relationship.\n",
+        "\n",
+        "## Example 1\n",
+        "\n",
+        "</br>\n",
+        "\n",
+        "Consider data from 392 cars, including miles per gallon, number of cylinders, horsepower, weight, acceleration, year, origin, among other variables.\n",
+        "\n",
+        "The data is in the file \"auto_dataset.xlsx\".\n"
+      ],
+      "id": "c7631894"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| echo: true\n",
+        "#| output: true\n",
+        "\n",
+        "auto_data = pd.read_excel(\"auto_dataset.xlsx\")"
+      ],
+      "id": "74aa7c9c",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## \n"
+      ],
+      "id": "ec28cf68"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| echo: true\n",
+        "#| output: true\n",
+        "\n",
+        "auto_data.head(4)"
+      ],
+      "id": "cd18aaa8",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Principle 1: Define the question\n",
+        "\n",
+        "In the context of multiple-variable data, typical questions to study include:\n",
+        "\n",
+        "::: incremental\n",
+        "-   How are variable $X$ and variable $Y$ related?\n",
+        "\n",
+        "-   Is the distribution of variable $X$ the same across all subgroups defined by variable $Z$?\n",
+        "\n",
+        "-   Are there any unusual observations in the combination of values for variables $X$ and $Y$?\n",
+        "\n",
+        "-   Are there any unusual observations in $X$ for a subgroup of variable $Z$?\n",
+        ":::\n",
+        "\n",
+        "## Principle 2: Turn data into information\n",
+        "\n",
+        "There are various types of graphs that help us explore relationships between two or more variables.\n",
+        "\n",
+        "</br>\n",
+        "\n",
+        "::: center\n",
+        "| Type        | Graph Type                                |\n",
+        "|:------------|:------------------------------------------|\n",
+        "| Numerical   | Scatter plot, line graph                  |\n",
+        "| Categorical | Side-by-side bar chart, stacked bar chart |\n",
+        "| Mixed       | Side-by-side box plot, bubble chart       |\n",
+        ":::\n",
+        "\n",
+        "::: notes\n",
+        "For two features, the combination of types (both quantitative, both qualitative, or a mix) matters.\n",
+        ":::\n",
+        "\n",
+        "# Two Numerical Variables\n",
+        "\n",
+        "## Independent and dependent variables\n",
+        "\n",
+        "When investigating the relationship between two variables (numerical or categorical), we use specific terminology.\n",
+        "\n",
+        ". . .\n",
+        "\n",
+        "One variable is called the *dependent* or *response variable*, denoted by the letter $Y$.\n",
+        "\n",
+        ". . .\n",
+        "\n",
+        "The other variable is called the *independent* or *predictor variable*, denoted by the letter $X$.\n",
+        "\n",
+        ". . .\n",
+        "\n",
+        "> Our goal is to determine whether changes in $X$ are associated with changes in $Y$, and the nature of this association.\n",
+        "\n",
+        "## Scatter plot\n",
+        "\n",
+        "The most common graph for examining the relationship between two numerical variables is the [***scatter plot***]{style=\"color:#174062;\"}.\n",
+        "\n",
+        ". . .\n",
+        "\n",
+        "Variables $X$ and $Y$ are placed on the horizontal and vertical axes, respectively. Each point on the graph represents a pair of $X$ and $Y$ values.\n",
+        "\n",
+        ". . .\n",
+        "\n",
+        "</br>\n",
+        "\n",
+        "> The goal is to explore linear or non-linear relationships between variables.\n",
+        "\n",
+        "## Scatter plot in Python\n",
+        "\n",
+        "</br>\n",
+        "\n",
+        "To create scatter plots in **seaborn**, we use the function `scatterplot()`.\n",
+        "\n",
+        ". . .\n",
+        "\n",
+        "For example, let's create a plot to explore the relationship between a car's weight (`weight`) and its fuel efficiency in miles per gallon (`mpg`)\n"
+      ],
+      "id": "0f75064e"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| fig-align: center\n",
+        "#| echo: true\n",
+        "#| output: false\n",
+        "\n",
+        "plt.figure(figsize=(8, 6))\n",
+        "sns.scatterplot(data = auto_data, x = \"weight\", y = \"mpg\")\n",
+        "plt.show()"
+      ],
+      "id": "dc8bb939",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## \n"
+      ],
+      "id": "f0e6d46f"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| fig-align: center\n",
+        "#| echo: true\n",
+        "#| output: true\n",
+        "\n",
+        "plt.figure(figsize=(8, 6))\n",
+        "sns.scatterplot(data = auto_data, x = \"weight\", y = \"mpg\")\n",
+        "plt.show()"
+      ],
+      "id": "a50a0b6f",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Principle 3: Apply graphic design principles\n",
+        "\n",
+        "Following Principle 3, we can modify the default function values to define different colors or shapes for the points in the graph.\n",
+        "\n",
+        "Specifically, you can change the color, shape, and size of points using the arguments `color`, `marker` and `s`, respectively.\n",
+        "\n",
+        "</br>\n",
+        "\n",
+        "`sns.scatterplot(data=data_set, x=X, y=Y, color, marker, s)`\n",
+        "\n",
+        "## \n"
+      ],
+      "id": "fccb3df8"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| fig-align: center\n",
+        "#| echo: true\n",
+        "\n",
+        "plt.figure(figsize=(8, 6))\n",
+        "sns.scatterplot(data=auto_data, x=\"weight\", y=\"mpg\", color=\"blue\", \n",
+        "                marker=\"x\", s=100)\n",
+        "plt.show()"
+      ],
+      "id": "9a0584d1",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Possible point shapes\n",
+        "\n",
+        "</br>\n",
+        "\n",
+        "To change the symbols used for points in a scatter plot, set the `marker` parameter to a number or character from the chart below.\n",
+        "\n",
+        "![](images/markers.png){fig-align=\"center\" width=\"605\" height=\"88\"}\n",
+        "\n",
+        "## \n",
+        "\n",
+        "Continuing with Principle 3, you can use previously seen functions to further improve the graph's appearance.\n"
+      ],
+      "id": "865de208"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| fig-align: center\n",
+        "#| echo: true\n",
+        "#| code-fold: true\n",
+        "\n",
+        "plt.figure(figsize=(7, 5))\n",
+        "sns.scatterplot(data=auto_data, x=\"weight\", y=\"mpg\", color=\"darkblue\", s=50)\n",
+        "# Customize the plot\n",
+        "plt.title(\"Weight and miles per gallon relationship in cars\", fontsize=17)\n",
+        "plt.xlabel(\"Weight (lb)\", fontsize=15)\n",
+        "plt.ylabel(\"Miles per gallon\", fontsize=15)\n",
+        "plt.yticks(fontsize=12)\n",
+        "plt.xticks(fontsize=12)\n",
+        "# Show the plot\n",
+        "plt.show() "
+      ],
+      "id": "cf1ec3f0",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Include zero\n",
+        "\n",
+        "In the previous graph, the minimum vertical axis value is around 10. To adjust the minimum value to 0, we use the additional function `ylim()` below.\n"
+      ],
+      "id": "22d5c2c0"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| fig-align: center\n",
+        "#| code-fold: true\n",
+        "#| echo: true\n",
+        "\n",
+        "# Create the scatter plot with custom color and size\n",
+        "plt.figure(figsize=(5.2, 3.2))\n",
+        "sns.scatterplot(data=auto_data, x=\"weight\", y=\"mpg\", color=\"darkblue\", s=50)\n",
+        "# Set y-axis limits\n",
+        "plt.ylim(0, 50)\n",
+        "# Customize the plot\n",
+        "plt.title(\"Weight and miles per gallon relationship in cars\", fontsize=17)\n",
+        "plt.xlabel(\"Weight (lb)\", fontsize=15)\n",
+        "plt.ylabel(\"Miles per gallon\", fontsize=15)\n",
+        "plt.yticks(fontsize=12)\n",
+        "plt.xticks(fontsize=12)\n",
+        "# Show the plot\n",
+        "plt.show()"
+      ],
+      "id": "8d0137bc",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## \n",
+        "\n",
+        "If necessary, we can also adjust the horizontal axis to show 0 as well. To this end, we use the `xlim()` function.\n"
+      ],
+      "id": "b7b375a4"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| fig-align: center\n",
+        "#| code-fold: true\n",
+        "#| echo: true\n",
+        "\n",
+        "# Create the scatter plot with custom color and size\n",
+        "plt.figure(figsize=(7, 5))\n",
+        "sns.scatterplot(data=auto_data, x=\"weight\", y=\"mpg\", color=\"darkblue\", s=50)\n",
+        "# Set y-axis limits\n",
+        "plt.ylim(0, 50)\n",
+        "# Set x-axis limits\n",
+        "plt.xlim(0, 5500)\n",
+        "# Customize the plot\n",
+        "plt.title(\"Weight and miles per gallon relationship in cars\", fontsize=17)\n",
+        "plt.xlabel(\"Weight (lb)\", fontsize=15)\n",
+        "plt.ylabel(\"Miles per gallon\", fontsize=15)\n",
+        "plt.yticks(fontsize=12)\n",
+        "plt.xticks(fontsize=12)\n",
+        "# Show the plot\n",
+        "plt.show()"
+      ],
+      "id": "0c5e4e58",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Individual graphs\n",
+        "\n",
+        "Individual variable graphs (such as histograms) do not allow us to study the relationship between two variables. They only provide information on the *distribution* of each variable.\n",
+        "\n",
+        "::::: columns\n",
+        "::: {.column width=\"50%\"}"
+      ],
+      "id": "0fe7151f"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| fig-align: center\n",
+        "#| echo: true\n",
+        "#| code-fold: true\n",
+        "\n",
+        "plt.figure(figsize=(4, 3))\n",
+        "sns.histplot(data=auto_data, x=\"mpg\", color=\"darkblue\", edgecolor=\"black\")\n",
+        "plt.title(\"Distribution of miles per gallon\", fontsize=17)\n",
+        "plt.xlabel(\"Miles per gallon\", fontsize=15)\n",
+        "plt.ylabel(\"Frequency\", fontsize=15)\n",
+        "plt.yticks(fontsize=12)\n",
+        "plt.xticks(fontsize=12)\n",
+        "plt.show()"
+      ],
+      "id": "8cc73665",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        ":::\n",
+        "\n",
+        "::: {.column width=\"50%\"}"
+      ],
+      "id": "095ba75e"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| fig-align: center\n",
+        "#| echo: true\n",
+        "#| code-fold: true\n",
+        "\n",
+        "plt.figure(figsize=(4, 3))\n",
+        "sns.histplot(data=auto_data, x=\"weight\", color=\"darkblue\", kde=False, edgecolor=\"black\")\n",
+        "plt.title(\"Distribution of weight\", fontsize=17)\n",
+        "plt.xlabel(\"Weight (lb)\", fontsize=15)\n",
+        "plt.ylabel(\"Frecuencia\", fontsize=15)\n",
+        "plt.yticks(fontsize=12)\n",
+        "plt.xticks(fontsize=12)\n",
+        "plt.show()"
+      ],
+      "id": "6400d9c4",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        ":::\n",
+        ":::::\n",
+        "\n",
+        "## Line graph\n",
+        "\n",
+        "A line graph is a visual representation of data where data points are connected by a line. Axes:\n",
+        "\n",
+        "-   $X$ (horizontal): Represents time or the independent variable.\n",
+        "-   $Y$ (vertical): Represents the dependent variable.\n",
+        "\n",
+        "Each point represents a value at a given moment.\n",
+        "\n",
+        ". . .\n",
+        "\n",
+        "</br>\n",
+        "\n",
+        "> The objective is to explore trends over time or the evolution of a continuous variable.\n",
+        "\n",
+        "## Example 2\n",
+        "\n",
+        "</br>\n",
+        "\n",
+        "Consider the data in the file \"spotify.xlsx\". This dataset contains the global daily streams of the top five most popular songs on the music streaming service Spotify in 2017.\n"
+      ],
+      "id": "988a6226"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| echo: true\n",
+        "\n",
+        "spotify_data = pd.read_excel(\"spotify.xlsx\")"
+      ],
+      "id": "0eb5048a",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## \n"
+      ],
+      "id": "b33da1ea"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| echo: true\n",
+        "#| output: true\n",
+        "\n",
+        "spotify_data.head(4)"
+      ],
+      "id": "05ea7d06",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## \n",
+        "\n",
+        "We will focus on the song *Despacito* by Luis Fonsi. To construct line plots, we use the function `lineplot()` in **seaborn**.\n"
+      ],
+      "id": "0aadf9dc"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| echo: true\n",
+        "#| fig-align: center\n",
+        "\n",
+        "plt.figure(figsize=(7, 5))\n",
+        "sns.lineplot(data = spotify_data, x = \"Date\", y = \"Despacito\")\n",
+        "plt.show()"
+      ],
+      "id": "912c420b",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Applying Principle 3\n",
+        "\n",
+        "We can change various aspects of the graph using additional arguments `linestyle`, `linewidth`, and `color`.\n",
+        "\n",
+        "</br>\n",
+        "\n",
+        "`sns.lineplot(data = data_set, x = x, y = Y, linestyle, linewidth, color)`.\n",
+        "\n",
+        "## \n"
+      ],
+      "id": "23a3c1cd"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| echo: true\n",
+        "#| code-fold: true\n",
+        "#| fig-align: center\n",
+        "\n",
+        "# Create the line plot\n",
+        "plt.figure(figsize=(10, 6))\n",
+        "sns.lineplot(data=spotify_data, x=\"Date\", y=\"Despacito\", linestyle = '-',\n",
+        "            color=\"darkblue\", linewidth=1.3)\n",
+        "plt.title(\"Popularity of the song Despacito by Luis Fonsi\", fontsize=16)\n",
+        "plt.xlabel(\"Date\", fontsize=12)\n",
+        "plt.ylabel(\"Number of plays on Spotify\", fontsize=15)\n",
+        "plt.yticks(fontsize=12)\n",
+        "plt.xticks(fontsize=12)\n",
+        "plt.show()"
+      ],
+      "id": "70187025",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Line styles\n",
+        "\n",
+        "</br>\n",
+        "\n",
+        "To change the line type, set the `linestyle` parameter to a character shown below.\n",
+        "\n",
+        "![](images/linetypes.png){fig-align=\"center\"}\n",
+        "\n",
+        "# A Categorical and a Numerical Variable\n",
+        "\n",
+        "## Divide the data into groups!\n",
+        "\n",
+        "To examine the relationship between a numerical and a categorical variable, we use the categorical variable to divide the data into groups. This way, we **compare the distribution** of the numerical variable among these groups.\n",
+        "\n",
+        ". . .\n",
+        "\n",
+        "In this context:\n",
+        "\n",
+        "-   $X$ is the categorical variable.\n",
+        "-   $Y$ is the numerical variable.\n",
+        "\n",
+        ". . .\n",
+        "\n",
+        "The [side-by-side boxplot]{style=\"color:#D70040;\"} is the most effective way to study the relationship between a categorical and a numerical variable.\n",
+        "\n",
+        "## Boxplot by groups\n",
+        "\n",
+        "</br>\n",
+        "\n",
+        "The side-by-side boxplot compares the distribution of a variable across different groups.\n",
+        "\n",
+        "</br>\n",
+        "\n",
+        "In **seaborn**, the plot is obtained using the function:\n",
+        "\n",
+        "`sns.boxplot(data = data_set, x = X, y = Y)`.\n",
+        "\n",
+        "## \n",
+        "\n",
+        "For example, if we want to compare the distributions of miles per gallon of cars built in America, Europe, or Japan, we use the following command:\n"
+      ],
+      "id": "b9dbc15a"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| fig-align: center\n",
+        "#| echo: true\n",
+        "\n",
+        "plt.figure(figsize=(7, 5))\n",
+        "sns.boxplot(data = auto_data, x = \"origin\", y = \"mpg\")\n",
+        "plt.show() "
+      ],
+      "id": "a514c0c7",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Applying Principle 3\n"
+      ],
+      "id": "4cad57cd"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| fig-align: center\n",
+        "#| echo: true\n",
+        "#| code-fold: true\n",
+        "\n",
+        "plt.figure(figsize=(7, 5))\n",
+        "sns.boxplot(data=auto_data, x=\"origin\", y=\"mpg\", color=\"lightblue\")\n",
+        "plt.title(\"Miles per Gallon Distribution by Origin\", fontsize=17)\n",
+        "plt.xlabel(\"Origen\", fontsize=15)\n",
+        "plt.ylabel(\"Miles per gallon\", fontsize=15)\n",
+        "plt.yticks(fontsize=12)\n",
+        "plt.xticks(fontsize=12)\n",
+        "plt.show()"
+      ],
+      "id": "ef667a90",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## \n",
+        "\n",
+        "We can also change the format of outlier points using the arguments `marker`, `markersize`, and `markerfacecolor` inside the argument `flierprops` in `sns.boxplot`.\n"
+      ],
+      "id": "6a331c53"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| fig-align: center\n",
+        "#| echo: true\n",
+        "#| code-fold: true\n",
+        "\n",
+        "plt.figure(figsize=(6, 4))\n",
+        "sns.boxplot(data=auto_data, x=\"origin\", y=\"mpg\", color=\"lightblue\",  \n",
+        "            flierprops=dict(marker=\"o\", markerfacecolor=\"purple\", markersize=8))\n",
+        "plt.title(\"Miles per Gallon Distribution by Origin\", fontsize=17)\n",
+        "plt.xlabel(\"Origen\", fontsize=15)\n",
+        "plt.ylabel(\"Miles per gallon\", fontsize=15)\n",
+        "plt.yticks(fontsize=12)\n",
+        "plt.xticks(fontsize=12)\n",
+        "plt.show()"
+      ],
+      "id": "2c56b45d",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Plotting statistical summaries by groups\n",
+        "\n",
+        "Alternatively, we can summarize the values of the numerical variable $Y$ for each category of the variable $X$ using the median or the mean.\n",
+        "\n",
+        "For example, let's plot the average miles per gallon of cars produced in America, Europe, and Japan. First, we calculate the average for each category using `.groupby()` and `mean()`.\n"
+      ],
+      "id": "3c226bb3"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| echo: true\n",
+        "#| output: false\n",
+        "\n",
+        "sum_auto = (auto_data\n",
+        "  .filter(['mpg', 'origin'], axis = 1)\n",
+        "  .groupby([\"origin\"])\n",
+        "  .agg(meanMPG = (\"mpg\", \"mean\"))\n",
+        ") "
+      ],
+      "id": "0ef4c90f",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## \n",
+        "\n",
+        "</br>\n",
+        "\n",
+        "The data to be plotted are:\n"
+      ],
+      "id": "5d85f7d4"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| echo: true\n",
+        "#| output: true\n",
+        "\n",
+        "sum_auto"
+      ],
+      "id": "dff9fc78",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## \n",
+        "\n",
+        "</br>\n",
+        "\n",
+        "Two common visualization types for plotting a numerical and a discrete variable when there is only one value per category are:\n",
+        "\n",
+        "-   Cleveland dot plot\n",
+        "-   Bar chart\n",
+        "\n",
+        "## Cleveland dot plot\n",
+        "\n",
+        "</br>\n",
+        "\n",
+        "The Cleveland dot plot encodes quantitative data across different categories. It is an alternative to a bar chart. It is obtained using the function `scatterplot()`.\n"
+      ],
+      "id": "ba3cd2bb"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| fig-align: center\n",
+        "#| echo: true\n",
+        "#| output: false\n",
+        "#| code-fold: false\n",
+        "\n",
+        "plt.figure(figsize=(8, 6))\n",
+        "sns.scatterplot(data=sum_auto, x='meanMPG', y='origin')\n",
+        "plt.title(\"Average Miles per Gallon by Origin\", fontsize=17)\n",
+        "plt.xlabel(\"Average Miles Per Gallon\", fontsize=15)\n",
+        "plt.ylabel(\"Origen\", fontsize=15)\n",
+        "plt.show() "
+      ],
+      "id": "95102dd6",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## \n"
+      ],
+      "id": "35c37ee7"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| fig-align: center\n",
+        "#| echo: false\n",
+        "#| output: true\n",
+        "\n",
+        "plt.figure(figsize=(8, 6))\n",
+        "sns.scatterplot(data=sum_auto, x='meanMPG', y='origin')\n",
+        "plt.title(\"Average Miles per Gallon by Origin\", fontsize=17)\n",
+        "plt.xlabel(\"Average Miles Per Gallon\", fontsize=15)\n",
+        "plt.ylabel(\"Origen\", fontsize=15)\n",
+        "plt.show() "
+      ],
+      "id": "a508e3d1",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Improving the plot\n",
+        "\n",
+        "We apply Principle 3 to improve the plot.\n"
+      ],
+      "id": "55510771"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| fig-align: center\n",
+        "#| echo: true\n",
+        "#| code-fold: true\n",
+        "\n",
+        "plt.figure(figsize=(7, 5))\n",
+        "sns.scatterplot(data=sum_auto, x='meanMPG', y='origin', s=100, color='pink')\n",
+        "plt.title(\"Average Miles per Gallon by Origin\", fontsize=17)\n",
+        "plt.xlabel(\"Average Miles Per Gallon\", fontsize=15)\n",
+        "plt.ylabel(\"Origen\", fontsize=15)\n",
+        "# Set x-axis limits\n",
+        "plt.xlim(0, 35)\n",
+        "plt.grid()  # Add a grid\n",
+        "plt.show() "
+      ],
+      "id": "9c8247a4",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Bar chart\n",
+        "\n",
+        "To create a bar chart where the bar length equals a specific value, we use the function `barplot()` from the **seaborn**.\n"
+      ],
+      "id": "c934cf65"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| fig-align: center\n",
+        "#| echo: true\n",
+        "#| code-fold: false\n",
+        "\n",
+        "plt.figure(figsize=(5, 3))\n",
+        "sns.barplot(data=sum_auto, x='meanMPG', y='origin')\n",
+        "plt.title(\"Average Miles per Gallon by Origin\")\n",
+        "plt.xlabel(\"Average Miles Per Gallon\")\n",
+        "plt.ylabel(\"Origen\")\n",
+        "plt.show() "
+      ],
+      "id": "f1c302a6",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## \n",
+        "\n",
+        "We can use similar commands as the Cleveland dot plot to improve the bar chart.\n"
+      ],
+      "id": "806d3532"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| fig-align: center\n",
+        "#| echo: true\n",
+        "#| code-fold: true\n",
+        "\n",
+        "plt.figure(figsize=(7, 5))\n",
+        "sns.barplot(data=sum_auto, x='meanMPG', y='origin', color='lightblue')\n",
+        "plt.title(\"Average Miles per Gallon by Origin\", fontsize=17)\n",
+        "plt.xlabel(\"Average Miles Per Gallon\", fontsize=15)\n",
+        "plt.ylabel(\"Origen\", fontsize=15)\n",
+        "plt.xlim(0, 35)\n",
+        "plt.show()"
+      ],
+      "id": "b06886e5",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "# Two Categorical Variables\n",
+        "\n",
+        "## Divide the data into groups!\n",
+        "\n",
+        "</br>\n",
+        "\n",
+        "With two categorical variables, we compare the distribution of one variable across subgroups defined by the other variable.\n",
+        "\n",
+        "In fact, we keep one variable constant and plot the distribution of the other.\n",
+        "\n",
+        ". . .\n",
+        "\n",
+        "To do this, the most popular charts are extensions of bar graphs:\n",
+        "\n",
+        "-   Stacked bar charts\n",
+        "-   Side-by-side bar charts\n",
+        "\n",
+        "## Example 3\n",
+        "\n",
+        "As an example, let's consider the data in the file \"penguins.xlsx\".\n"
+      ],
+      "id": "35e121f3"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| echo: true\n",
+        "\n",
+        "penguins_data = pd.read_excel(\"penguins.xlsx\")\n",
+        "penguins_data.head()"
+      ],
+      "id": "eb8d021f",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## \n",
+        "\n",
+        "</br>\n",
+        "\n",
+        "The data has two categorical variables:\n",
+        "\n",
+        "-   The species of penguins (`species`).\n",
+        "-   The island they come from (`island`).\n",
+        "\n",
+        "Make sure they are specified as `factor` in Python!\n"
+      ],
+      "id": "8a753efc"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| echo: true\n",
+        "\n",
+        "penguins_data[['species', 'island', 'sex']] = (penguins_data\n",
+        "                                              .filter(['species', 'island', 'sex'], axis = 1)\n",
+        "                                              .astype('category')\n",
+        ")"
+      ],
+      "id": "ecc3afb6",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Stacked bar chart\n",
+        "\n",
+        "The stacked bar chart is generated using the `histplot()` function, assigning the $X$ variable to the `hue` argument and setting `multiple='stack'`.\n",
+        "\n",
+        ". . .\n",
+        "\n",
+        "</br>\n",
+        "\n",
+        "For example, to study the distribution of penguin species across the three different islands, we use the following:\n"
+      ],
+      "id": "635c400f"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| fig-align: center\n",
+        "#| echo: true\n",
+        "#| output: false\n",
+        "\n",
+        "plt.figure(figsize=(8, 6))\n",
+        "sns.histplot(data=penguins_data, x='species', hue='island', \n",
+        "              multiple='stack')\n",
+        "plt.title(\"Distribution of Penguin Species by Island\", fontsize=17)\n",
+        "plt.xlabel(\"Species\", fontsize=15)\n",
+        "plt.ylabel(\"Count\", fontsize=15)\n",
+        "plt.show()"
+      ],
+      "id": "8b671e33",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## \n",
+        "\n",
+        "</br>\n",
+        "\n",
+        "The chart shows the frequency of each species, separated by island name.\n"
+      ],
+      "id": "572782a3"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| fig-align: center\n",
+        "#| echo: false\n",
+        "#| output: true\n",
+        "\n",
+        "plt.figure(figsize=(7, 5))\n",
+        "sns.histplot(data=penguins_data, x='species', hue='island', \n",
+        "              multiple='stack')\n",
+        "plt.title(\"Distribution of Penguin Species by Island\", fontsize=17)\n",
+        "plt.xlabel(\"Species\", fontsize=15)\n",
+        "plt.ylabel(\"Count\", fontsize=15)\n",
+        "plt.show()"
+      ],
+      "id": "b9ea55ad",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Side-by-side bar chart\n",
+        "\n",
+        "</br>\n",
+        "\n",
+        "An alternative to the previous chart is to place the bars side by side for the categories of the $X$ variable.\n",
+        "\n",
+        "</br>\n",
+        "\n",
+        "In this case, we use the `countplot()` function of **seaborn**.\n"
+      ],
+      "id": "90ff08ac"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| fig-align: center\n",
+        "#| echo: true\n",
+        "#| output: false\n",
+        "\n",
+        "plt.figure(figsize=(8, 6))\n",
+        "sns.countplot(data=penguins_data, x='species', hue='island')\n",
+        "plt.title(\"Distribution of Penguin Species by Island\", fontsize=17)\n",
+        "plt.xlabel(\"Species\", fontsize=15)\n",
+        "plt.ylabel(\"Count\", fontsize=15)\n",
+        "plt.show()"
+      ],
+      "id": "0bd4f320",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## \n"
+      ],
+      "id": "2c2a8795"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| fig-align: center\n",
+        "#| echo: false\n",
+        "#| output: true\n",
+        "\n",
+        "plt.figure(figsize=(8, 6))\n",
+        "sns.countplot(data=penguins_data, x='species', hue='island')\n",
+        "plt.title(\"Distribution of Penguin Species by Island\", fontsize=17)\n",
+        "plt.xlabel(\"Species\", fontsize=15)\n",
+        "plt.ylabel(\"Count\", fontsize=15)\n",
+        "plt.show()"
+      ],
+      "id": "8642363d",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Stacked or side-by-side?\n",
+        "\n",
+        "</br>\n",
+        "\n",
+        "The main difference between stacked and side-by-side bar charts is that the side-by-side chart shows values in separate bars within a category.\n",
+        "\n",
+        "Advantages of **stacked** bars:\n",
+        "\n",
+        "-   Easier to understand what proportions of a whole are divided among segments.\n",
+        "\n",
+        "-   Visually adds up each proportion.\n",
+        "\n",
+        "## \n",
+        "\n",
+        "</br>\n",
+        "\n",
+        "Advantages of **side-by-side** bars:\n",
+        "\n",
+        "-   Easier to compare the heights of each individual entity.\n",
+        "\n",
+        "-   Better for comparing between groups.\n",
+        "\n",
+        "## Statistical summaries\n",
+        "\n",
+        "</br>\n",
+        "\n",
+        "For categorical variables, the most common statistical summaries are frequency and relative frequency.\n",
+        "\n",
+        "With **pandas**, we calculate frequency using the `.size()`, function, which counts the unique values of one or more variables. We also use `.groupby()` to compute the distribution by categorical variables.\n"
+      ],
+      "id": "cf0058fc"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| echo: true\n",
+        "#| output: true\n",
+        "\n",
+        "count_data = (penguins_data\n",
+        "  .groupby(['island', 'species'])\n",
+        "  .size()\n",
+        "  .reset_index(name='count')\n",
+        "  )"
+      ],
+      "id": "f37b1e09",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## \n",
+        "\n",
+        "</br>\n"
+      ],
+      "id": "df4115ee"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| echo: true\n",
+        "#| output: true\n",
+        "\n",
+        "\n",
+        "# Show the result\n",
+        "print(count_data)"
+      ],
+      "id": "12006b8d",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## \n",
+        "\n",
+        "To calculate relative frequency, we use `.assign()` along with the `lambda`, function, which calculates the proportions of a column.\n"
+      ],
+      "id": "f77141fb"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| fig-align: center\n",
+        "#| echo: true\n",
+        "#| output: true\n",
+        "\n",
+        "rel_freq_table = (penguins_data\n",
+        "  .groupby(['island', 'species'])\n",
+        "  .size()\n",
+        "  .reset_index(name='count')\n",
+        "  .assign(Proportion = lambda df: df[\"count\"]/df[\"count\"].sum())\n",
+        "  )\n",
+        "  \n",
+        "print(rel_freq_table)  "
+      ],
+      "id": "bcab9224",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "# More than One Variable\n",
+        "\n",
+        "## Charts for three variables\n",
+        "\n",
+        "</br>\n",
+        "\n",
+        "-   When examining a distribution or relationship, we often want to compare it across data subgroups.\n",
+        "\n",
+        "-   This process of conditioning on additional variables leads to visualizations involving three or more variables.\n",
+        "\n",
+        "-   Here we explain how to create charts to visualize multiple variables.\n",
+        "\n",
+        "## Scatter plot by color\n",
+        "\n",
+        "For two numerical variables and one categorical variable.\n"
+      ],
+      "id": "39a83759"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| fig-align: center\n",
+        "#| echo: true\n",
+        "\n",
+        "plt.figure(figsize=(6.2, 4.2))\n",
+        "sns.scatterplot(data = auto_data, x='weight', y='mpg', hue='origin')\n",
+        "plt.xlabel(\"Weight (lb)\")\n",
+        "plt.ylabel(\"Miles per Gallon (MPG)\")\n",
+        "plt.show() "
+      ],
+      "id": "a93c6e08",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Faceted or lattice plot\n",
+        "\n",
+        "A faceted plot visualizes the relationship or distribution of one or two variables for each subgroup defined by a third variable $Z$.\n",
+        "\n",
+        ". . .\n",
+        "\n",
+        "**Idea:** Create a chart for each subgroup of $Z$.\n",
+        "\n",
+        ". . .\n",
+        "\n",
+        "To create the plot, use the `FacetGrid()` function in **seaborn** with the following syntax:\n"
+      ],
+      "id": "59318deb"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| fig-align: center\n",
+        "#| echo: true\n",
+        "#| code-fold: false\n",
+        "#| output: false\n",
+        "\n",
+        "plt.figure(figsize=(8, 6))\n",
+        "g = sns.FacetGrid(auto_data, col='origin')\n",
+        "g.map(sns.scatterplot, 'weight', 'mpg')\n",
+        "g.set_axis_labels(\"Weight (lb)\", \"Miles per Gallon (MPG)\")\n",
+        "g.set_titles(\"{col_name} Origin\")\n",
+        "plt.show()"
+      ],
+      "id": "9f365700",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## \n",
+        "\n",
+        "</br>\n",
+        "\n",
+        "The function produces a grid with 1 column and 3 rows of charts. Each row accommodates one category of `origin`.\n"
+      ],
+      "id": "40541e1c"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| fig-align: center\n",
+        "#| echo: false\n",
+        "#| output: true\n",
+        "\n",
+        "plt.figure(figsize=(8, 6))\n",
+        "g = sns.FacetGrid(auto_data, col='origin')\n",
+        "g.map(sns.scatterplot, 'weight', 'mpg')\n",
+        "g.set_axis_labels(\"Weight (lb)\", \"Miles per Gallon (MPG)\")\n",
+        "g.set_titles(\"{col_name} Origin\")\n",
+        "plt.show()"
+      ],
+      "id": "22e1ba05",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Multiple line charts\n",
+        "\n",
+        "</br>\n",
+        "\n",
+        "We can use the functions `lineplot()` and `FacetGrid()` to visualize the evolution of play counts for the 5 songs in the file \"spotify.xlsx\" over time.\n",
+        "\n",
+        "</br>\n",
+        "\n",
+        "However, we need to manipulate the data to obtain the format required by these functions.\n",
+        "\n",
+        "## The required format\n",
+        "\n",
+        "</br>\n",
+        "\n",
+        "For a multiple line chart, we need to merge the columns `Shape of You`, `Despacito`, `Something Just Like This`, `HUMBLE` and `Unforgettable` into two columns.\n",
+        "\n",
+        "One column will contain the number of plays, and the other will contain the song title.\n",
+        "\n",
+        "Both columns will be ordered by the variable `Date`.\n",
+        "\n",
+        "## \n",
+        "\n",
+        "</br>\n",
+        "\n",
+        "To format the data, we use the `melt()` function from the **pandas** library.\n"
+      ],
+      "id": "fa63c4ff"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| echo: true\n",
+        "\n",
+        "data_lines = spotify_data.melt(id_vars=[\"Date\"], \n",
+        "                                value_vars=[\"Shape of You\", \"Despacito\", \"Something Just Like This\", \"HUMBLE.\", \"Unforgettable\"], \n",
+        "                                var_name=\"Song\", \n",
+        "                                value_name=\"Plays\")"
+      ],
+      "id": "0bbed416",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## \n"
+      ],
+      "id": "3e43af77"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| echo: true\n",
+        "\n",
+        "data_lines.head()"
+      ],
+      "id": "b3cb999f",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## \n",
+        "\n",
+        "Now, we apply similar functions to the `data_lines` object.\n"
+      ],
+      "id": "0691d288"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| fig-align: center\n",
+        "#| code-fold: true\n",
+        "#| echo: true\n",
+        "\n",
+        "# Create the line plot and facet by 'Cancion'\n",
+        "plt.figure(figsize=(8, 6))\n",
+        "g = sns.FacetGrid(data_lines, col='Song')\n",
+        "g.map(sns.lineplot, 'Date', 'Plays')\n",
+        "\n",
+        "# Customize the plot\n",
+        "g.set_axis_labels(\"Date\", \"Plays\")\n",
+        "g.set_titles(\"{col_name} Song\")\n",
+        "\n",
+        "# Rotate the x-axis labels for better readability\n",
+        "for ax in g.axes.flat:\n",
+        "    ax.set_xticklabels(ax.get_xticklabels(), rotation=90)\n",
+        "\n",
+        "# Show the plot\n",
+        "plt.show()"
+      ],
+      "id": "e699bb74",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## \n",
+        "\n",
+        "Or we can plot all lines on a single chart.\n"
+      ],
+      "id": "0cd989a9"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| fig-align: center\n",
+        "#| code-fold: true\n",
+        "#| echo: true\n",
+        "\n",
+        "# Create the line plot with color mapped to 'Cancion'\n",
+        "plt.figure(figsize=(7, 5))\n",
+        "sns.lineplot(x='Date', y='Plays', hue='Song', data=data_lines)\n",
+        "\n",
+        "# Customize the plot\n",
+        "plt.title(\"Plays by Song Over Time\")\n",
+        "plt.xlabel(\"Date\")\n",
+        "plt.ylabel(\"Plays\")\n",
+        "plt.xticks(rotation=90)  # Rotate x-axis labels for better readability\n",
+        "\n",
+        "# Show the plot\n",
+        "plt.show()"
+      ],
+      "id": "f2fc2931",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Applying Principle 3\n"
+      ],
+      "id": "add8ea22"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| fig-align: center\n",
+        "#| code-fold: true\n",
+        "#| echo: true\n",
+        "\n",
+        "# Create the line plot with color mapped to 'Cancion'\n",
+        "plt.figure(figsize=(7.8, 5.8))\n",
+        "sns.lineplot(x='Date', y='Plays', hue='Song', data=data_lines)\n",
+        "\n",
+        "# Customize the plot\n",
+        "plt.title(\"Plays by Song Over Time\", fontsize = 17)\n",
+        "plt.xlabel(\"Date\", fontsize = 12)\n",
+        "plt.ylabel(\"Plays\", fontsize = 12)\n",
+        "\n",
+        "# Show the plot\n",
+        "plt.show()"
+      ],
+      "id": "818accc3",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Graphs for four variables\n",
+        "\n",
+        "A common chart for four variables is the scatter plot, where the color and size of the symbols depend on two [**categorical**]{style=\"color:#8B8000;\"} variables.\n",
+        "\n",
+        "</br>\n"
+      ],
+      "id": "14a9e118"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| fig-align: center\n",
+        "#| echo: true\n",
+        "#| output: false\n",
+        "\n",
+        "plt.figure(figsize=(8, 6))\n",
+        "sns.scatterplot(data=penguins_data, x='bill_depth_mm', y='bill_length_mm',\n",
+        "    hue='species', size='island')\n",
+        "plt.xlabel(\"Bill Depth (mm)\")\n",
+        "plt.ylabel(\"Bill Length (mm)\")\n",
+        "plt.title(\"Penguin Bill Dimensions by Species and Island\")\n",
+        "plt.show()"
+      ],
+      "id": "39214143",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## \n"
+      ],
+      "id": "f6b731f6"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| fig-align: center\n",
+        "#| echo: false\n",
+        "#| output: true\n",
+        "\n",
+        "plt.figure(figsize=(10, 8))\n",
+        "sns.scatterplot(data=penguins_data, x='bill_depth_mm', y='bill_length_mm',\n",
+        "    hue='species', size='island')\n",
+        "plt.xlabel(\"Bill Depth (mm)\")\n",
+        "plt.ylabel(\"Bill Length (mm)\")\n",
+        "plt.title(\"Penguin Bill Dimensions by Species and Island\")\n",
+        "plt.show()"
+      ],
+      "id": "de180058",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "# More Charts\n",
+        "\n",
+        "<https://seaborn.pydata.org/index.html>\n",
+        "\n",
+        "# [Return to Main Page](https://alanrvazquez.github.io/TEC-IN2039-EN/)"
+      ],
+      "id": "5eed09ba"
+    }
+  ],
+  "metadata": {
+    "kernelspec": {
+      "name": "python3",
+      "language": "python",
+      "display_name": "Python 3 (ipykernel)",
+      "path": "/Users/alanvazquez/Documents/GitHub/TEC-IN2039-EN/env/share/jupyter/kernels/python3"
+    }
+  },
+  "nbformat": 4,
+  "nbformat_minor": 5
+}

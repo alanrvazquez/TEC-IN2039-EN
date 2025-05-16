@@ -1,0 +1,866 @@
+{
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "---\n",
+        "title: \"Categorical Variables\"\n",
+        "subtitle: \"IN2039: Data Visualization for Decision Making\"\n",
+        "author: \n",
+        "  - name: Alan R. Vazquez\n",
+        "    affiliations:\n",
+        "      - name: Department of Industrial Engineering\n",
+        "format: \n",
+        "  revealjs:\n",
+        "    chalkboard: false\n",
+        "    multiplex: true\n",
+        "    footer: \"Tecnologico de Monterrey\"\n",
+        "    logo: IN2039_logo.png\n",
+        "    css: style.css\n",
+        "    slide-number: True\n",
+        "    html-math-method: mathjax\n",
+        "editor: visual\n",
+        "jupyter: python3\n",
+        "---\n",
+        "\n",
+        "\n",
+        "## Agenda\n",
+        "\n",
+        "</br>\n",
+        "\n",
+        "1.  Introduction\n",
+        "2.  Summary statistics\n",
+        "3.  Bar chart\n",
+        "4.  Pie chart\n",
+        "5.  Transforming categorical variables\n",
+        "\n",
+        "## First things first\n",
+        "\n",
+        "</br>\n",
+        "\n",
+        "Today, we will use Python to create charts and tables. For this, we will use libraries such as `pandas`, `matplotlib`, and `seaborn`.\n",
+        "\n",
+        "</br>\n",
+        "\n",
+        "Let's import them before we start.\n"
+      ],
+      "id": "c9c343f6"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| echo: true\n",
+        "#| output: false\n",
+        "\n",
+        "import pandas as pd\n",
+        "import matplotlib.pyplot as plt\n",
+        "import seaborn as sns"
+      ],
+      "id": "29fbc88e",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Example 1: Penguins dataset\n",
+        "\n",
+        "</br>\n",
+        "\n",
+        "We will illustrate today's concepts using the `penguins.xlsx` dataset.\n",
+        "\n",
+        "::::: columns\n",
+        "::: {.column width=\"68%\"}\n",
+        "Upload it to Google Colab and load it into Python using the following code:\n"
+      ],
+      "id": "299c2324"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| output: false\n",
+        "#| echo: true\n",
+        "#| code-overflow: wrap\n",
+        "\n",
+        "penguins_data = pd.read_excel(\"penguins.xlsx\")"
+      ],
+      "id": "9f7aee93",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        ":::\n",
+        "\n",
+        "::: {.column width=\"32%\"}\n",
+        "![](images/clipboard-1776523589.png){fig-align=\"right\" width=\"561\"}\n",
+        ":::\n",
+        ":::::\n",
+        "\n",
+        "In Google Colab, the file must be placed in the \"content\" folder.\n",
+        "\n",
+        "## \n",
+        "\n",
+        "We will focus on visualizing the following categorical variables: `species`, `island` y `sex`.\n"
+      ],
+      "id": "c2ef6b04"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| output: true\n",
+        "#| echo: true\n",
+        "\n",
+        "(penguins_data\n",
+        "  .filter(['species', 'island', 'sex'], axis = 1)\n",
+        ").head()"
+      ],
+      "id": "6b861fc8",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Ensuring Python recognizes categorical variables\n",
+        "\n",
+        "Although the variables `species`, `island` and `sex` are clearly categorical, Python does not automatically recognize them as such.\n",
+        "\n",
+        "By default, **pandas** interprets these variables as `object` types because they contain text.\n",
+        "\n",
+        "> In **pandas**, categorical variables should be explicitly converted to the `category` data type for efficient processing.\n",
+        "\n",
+        "## Defining categorical variables in Python\n",
+        "\n",
+        "To ensure Python correctly recognizes these variables as categorical, we use the `.astype()` function:\n",
+        "\n",
+        "</br>\n"
+      ],
+      "id": "74d4e779"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| echo: true\n",
+        "#| output: true\n",
+        "\n",
+        "# Convert categorical variables to 'category' type\n",
+        "penguins_data[['species', 'island', 'sex']] = (penguins_data\n",
+        "  .filter(['species', 'island', 'sex'], axis = 1)\n",
+        "  .astype('category')\n",
+        ")  "
+      ],
+      "id": "24afe36d",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "</br>\n",
+        "\n",
+        "Note that we have just replaced the `penguins_data` object with its new version.\n",
+        "\n",
+        "## \n",
+        "\n",
+        "</br>\n",
+        "\n",
+        "Now, the variables are correctly labeled as `categorical`.\n"
+      ],
+      "id": "1310c790"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| echo: true\n",
+        "#| output: true\n",
+        "\n",
+        "(penguins_data\n",
+        "  .filter(['species', 'island', 'sex'], axis = 1)\n",
+        "  .info()\n",
+        ")"
+      ],
+      "id": "ccd5da8f",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "# Summary statistics\n",
+        "\n",
+        "## Summary statistics\n",
+        "\n",
+        ". . .\n",
+        "\n",
+        "> A summary statistic helps us to summarize a list of observations in a simple way.\n",
+        "\n",
+        ". . .\n",
+        "\n",
+        "The most commonly used statistical summaries for categorical data are:\n",
+        "\n",
+        "::: incremental\n",
+        "-   The [**frequency**]{style=\"color:darkblue;\"} of a category is the number of observations that belong to that category.\n",
+        "\n",
+        "-   The [**relative frequency**]{style=\"color:darkblue;\"} is the frequency divided by the total number of observations.\n",
+        ":::\n",
+        "\n",
+        "## Frequency table\n",
+        "\n",
+        "Summarizes a categorical variable by counting the values per category.\n",
+        "\n",
+        "| **Specie** | **Frequency** |\n",
+        "|------------|---------------|\n",
+        "| Adelie     | 152           |\n",
+        "| Chinstrap  | 68            |\n",
+        "| Gentoo     | 124           |\n",
+        "| **Total**  | **344**       |\n",
+        "\n",
+        "-   **Frequency**: Number of observations in each category.\n",
+        "\n",
+        "-   **Total**: Total sum of observations.\n",
+        "\n",
+        "::: notes\n",
+        "1.  Ventajas de las frequencias.\n",
+        "\n",
+        "2.  Resumen claro y conciso de los datos categóricos.\n",
+        "\n",
+        "3.  Facilita la identificación de patrones y tendencias.\n",
+        "\n",
+        "4.  Ayuda en la toma de decisiones informadas.\n",
+        ":::\n",
+        "\n",
+        "## Frequency table in Python\n",
+        "\n",
+        "</br>\n",
+        "\n",
+        "To construct a frequency table in **pandas** we use the function `.value_counts()` together with `.filter()`.\n"
+      ],
+      "id": "9d5181a1"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| echo: true\n",
+        "#| output: true\n",
+        "#| code-overflow: wrap\n",
+        "\n",
+        "(penguins_data\n",
+        "  .filter(['species'], axis = 1)\n",
+        "  .value_counts()\n",
+        ")  "
+      ],
+      "id": "3e3b8eae",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Relative Frequency Table\n",
+        "\n",
+        "Summarizes a categorical variable by calculating the *proportion of values* per category.\n",
+        "\n",
+        "::::: columns\n",
+        "::: {.column width=\"55%\"}"
+      ],
+      "id": "d9821c15"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| echo: true\n",
+        "#| output: true\n",
+        "#| code-overflow: wrap\n",
+        "\n",
+        "(penguins_data\n",
+        " .filter(['species'], axis = 1)\n",
+        " .value_counts(normalize = True)\n",
+        ")"
+      ],
+      "id": "d2bfbb0d",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        ":::\n",
+        "\n",
+        "::: {.column width=\"45%\"}\n",
+        "| **Specie** | **Relative Frequency** |\n",
+        "|------------|------------------------|\n",
+        "| Adelie     | 0.4418605              |\n",
+        "| Chinstrap  | 0.1976744              |\n",
+        "| Gentoo     | 0.3604651              |\n",
+        "| **Suma**   | **1**                  |\n",
+        ":::\n",
+        ":::::\n",
+        "\n",
+        "-   **Relative frequency**: Number of observations in each category divided by the total.\n",
+        "\n",
+        "::: notes\n",
+        "La ventaja de la frequencia relativa es que se puede interpretar como una probabilidad. Lo que da mas información.\n",
+        ":::\n",
+        "\n",
+        "# Bar chart\n",
+        "\n",
+        "## Bar chart\n",
+        "\n",
+        "</br>\n",
+        "\n",
+        "> A bar chart visually represents a frequency or relative frequency table.\n",
+        "\n",
+        "The frequency (or relative frequency) is represented by a bar with a proportional height.\n",
+        "\n",
+        "We create the bar chart using the function `countplot()` from **seaborn**.\n",
+        "\n",
+        "## \n"
+      ],
+      "id": "fbfc56fc"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| echo: true\n",
+        "#| output: true\n",
+        "#| fig-align: center\n",
+        "#| code-fold: false\n",
+        "\n",
+        "# Create plot.\n",
+        "plt.figure(figsize=(8,6)) \n",
+        "sns.countplot(data=penguins_data, x=\"species\")\n",
+        "plt.show()"
+      ],
+      "id": "ac539986",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Plot for relative frequency\n",
+        "\n",
+        "If you want to plot relative frequencies, you can normalize the counts.\n"
+      ],
+      "id": "f76af995"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| echo: true\n",
+        "#| output: true\n",
+        "#| fig-align: center\n",
+        "#| code-fold: false\n",
+        "\n",
+        "# Create plot.\n",
+        "penguin_counts = penguins_data[\"species\"].value_counts(normalize=True)\n",
+        "plt.figure(figsize=(6, 3.3))\n",
+        "sns.barplot(x=penguin_counts.index, y=penguin_counts.values)\n",
+        "plt.ylabel(\"Relative Frequency\")\n",
+        "plt.show()"
+      ],
+      "id": "81b97b0f",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Example: Improving the graph\n",
+        "\n",
+        "Using Seaborn’s customization tools, we enhance the graph:\n"
+      ],
+      "id": "d728fd21"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| echo: true\n",
+        "#| output: true\n",
+        "#| fig-align: center\n",
+        "#| code-fold: false\n",
+        "\n",
+        "plt.figure(figsize=(6, 3.5))\n",
+        "sns.barplot(x=penguin_counts.index, y=penguin_counts.values, color=\"pink\")\n",
+        "plt.title(\"Penguin Proportions\")\n",
+        "plt.xlabel(\"Species Type\")\n",
+        "plt.ylabel(\"Relative Frequency\")\n",
+        "plt.show()"
+      ],
+      "id": "86d31de4",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "# Pie chart\n",
+        "\n",
+        "## Pie chart\n",
+        "\n",
+        ":::::: columns\n",
+        ":::: {.column width=\"50%\"}\n",
+        "::: incremental\n",
+        "-   A pie chart divides a circle into sections representing different categories of a variable.\n",
+        "\n",
+        "-   The size of each section corresponds to the relative frequency of that category.\n",
+        "\n",
+        "-   It provides a quick visual comparison of proportions.\n",
+        ":::\n",
+        "::::\n",
+        "\n",
+        "::: {.column width=\"50%\"}\n",
+        "![](images/clipboard-800609446.png)\n",
+        ":::\n",
+        "::::::\n",
+        "\n",
+        "::: notes\n",
+        "Pie charts versus bar charts.\n",
+        "\n",
+        "**Bar charts can serve as a good way to show comparisons between categories**. It is generally observed that new trends tend to shy away from using pie charts, as it is difficult for the human eye to judge the exact angle that shows the value of a category in a pie chart.\n",
+        ":::\n",
+        "\n",
+        "## Mini-Activity (*solo* mode): Part 1\n",
+        "\n",
+        "</br>\n",
+        "\n",
+        "[Ask ChatGPT or Gemini]{style=\"color:darkgreen;\"}\n",
+        "\n",
+        "1.  Go to <https://chat.openai.com/>\n",
+        "2.  Ask ChatGPT how to create a pie chart using **matplotlib** and **seaborn** in Python\n",
+        "3.  The pie chart must visualize the proportions of the categories of the `island` variable in the `penguin_data` dataset.\n",
+        "\n",
+        "## Part 2\n",
+        "\n",
+        "4.  Ask ChatGPT or Gemini to create a pie chart using the prompt:\n",
+        "\n",
+        "::: {style=\"font-size: 65%;\"}\n",
+        "You are an expert in data visualization using the libraries \"matplotlib\" and \"seaborn\" of the Python programming language. The goal is to visualize the proportions of three islands of penguins using a pie chart. To achieve this goal, perform the following steps:\n",
+        " \n",
+        "1. Use the \"penguin_data\" dataset. \n",
+        "2. The variable \"island\" contains the categories of penguins. \n",
+        "3. To enhance the graph, add the title \"Proportion of Penguins\" and use different colors for the categories of penguins. \n",
+        "\n",
+        "Create the pie chart following the aforementioned instructions.\n",
+        ":::\n",
+        "\n",
+        "\n",
+        "5. Discuss the pie charts created by you and this prompt.\n",
+        "\n",
+        "# Transforming categorical variables\n",
+        "\n",
+        "## Apply Principle 3\n",
+        "\n",
+        "</br>\n",
+        "\n",
+        "> *Apply graphic design principles.*\n",
+        "\n",
+        ". . .\n",
+        "\n",
+        "We can improve categorical variable charts using these techniques:\n",
+        "\n",
+        "::: incremental\n",
+        "-   Re-label categories to make them more informative.\n",
+        "-   Re-order categories to follow a logical sequence.\n",
+        "-   Collapse categories to simplify the chart.\n",
+        ":::\n",
+        "\n",
+        "## Example 2: Boston Housing Dataset\n",
+        "\n",
+        "</br>\n",
+        "\n",
+        "This dataset contains information collected by the U.S. Census Bureau on housing in the Boston, Massachusetts area.\n",
+        "\n",
+        "::::: columns\n",
+        "::: {.column width=\"60%\"}\n",
+        "![](images/boston_dataset.png)\n",
+        ":::\n",
+        "\n",
+        "::: {.column width=\"40%\"}\n",
+        "![](images/clipboard-3653087831.png)\n",
+        ":::\n",
+        ":::::\n",
+        "\n",
+        "## \n",
+        "\n",
+        "The dataset is in `Boston_dataset.xlsx`. Upload it to Google Colab and load it into Python using:\n"
+      ],
+      "id": "dfd5b510"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| echo: true\n",
+        "#| output: true\n",
+        "\n",
+        "Boston_dataset = pd.read_excel(\"Boston_dataset.xlsx\")\n",
+        "Boston_dataset.head()"
+      ],
+      "id": "6302f173",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## \n",
+        "\n",
+        "</br>\n",
+        "\n",
+        "We concentrate on the following variables:\n",
+        "\n",
+        "-   `chas` : Whether the house is next to the Charles River (1: Yes and 0: No)\n",
+        "\n",
+        "-   `rad` : Index of accessibility to radial highways (`Low`, `Medium`, `High`).\n",
+        "\n",
+        "## Remember...\n",
+        "\n",
+        "</br>\n",
+        "\n",
+        "Make sure Python correctly recognizes categorical variables.\n"
+      ],
+      "id": "e86bcff3"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| echo: true\n",
+        "#| output: true\n",
+        "\n",
+        "Boston_dataset[[\"chas\", \"rad\"]] = (Boston_dataset\n",
+        " .filter([\"chas\", \"rad\"], axis = 1)\n",
+        " .astype(\"category\")\n",
+        " )"
+      ],
+      "id": "19b1b69f",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Initial graph\n",
+        "\n",
+        "Let's create a bar chart for `chas`.\n"
+      ],
+      "id": "36452372"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| echo: true\n",
+        "#| output: true\n",
+        "#| fig-align: center\n",
+        "#| fig-pos: center\n",
+        "\n",
+        "plt.figure(figsize=(5, 5))\n",
+        "sns.countplot(data=Boston_dataset, x=\"chas\")\n",
+        "plt.show()"
+      ],
+      "id": "79fbe364",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "However, the categories are not very informative.\n",
+        "\n",
+        "## Re-labeling categories\n",
+        "\n",
+        "</br>\n",
+        "\n",
+        "To improve readability of the bar chart, rename the categories in the `chas` variable.\n",
+        "\n",
+        "1.  Check the category names in the variable using the `unique()` function.\n"
+      ],
+      "id": "a7a9187b"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| echo: true\n",
+        "#| output: true\n",
+        "\n",
+        "Boston_dataset[\"chas\"].unique()  "
+      ],
+      "id": "5cfc58e1",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## \n",
+        "\n",
+        "</br>\n",
+        "\n",
+        "2.  Replace the category names using `.map()`.\n"
+      ],
+      "id": "3bc84d00"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| echo: true\n",
+        "#| output: true\n",
+        "\n",
+        "Boston_dataset[\"chas\"] = Boston_dataset[\"chas\"].map({0: \"No\", 1: \"Yes\"})"
+      ],
+      "id": "5c86144e",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "</br>\n",
+        "\n",
+        "3.  Ensure the category names have changed.\n"
+      ],
+      "id": "aa82ad31"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| echo: true\n",
+        "#| output: true\n",
+        "\n",
+        "Boston_dataset[\"chas\"].unique()"
+      ],
+      "id": "b533f416",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Let's see what happens now.\n"
+      ],
+      "id": "704f7f97"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| echo: true\n",
+        "#| output: true\n",
+        "#| fig-align: center\n",
+        "#| fig-pos: center \n",
+        "\n",
+        "plt.figure(figsize=(6, 4))\n",
+        "sns.countplot(data = Boston_dataset, x = \"chas\")\n",
+        "plt.show()"
+      ],
+      "id": "cdc8855b",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "Much better! 😃\n",
+        "\n",
+        "## Re-ordering categories\n",
+        "\n",
+        "Now, let's create a bar chart for `rad`.\n"
+      ],
+      "id": "a468df81"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| echo: true\n",
+        "#| output: true\n",
+        "#| fig-align: center\n",
+        "#| fig-pos: center \n",
+        "\n",
+        "plt.figure(figsize=(5, 5))\n",
+        "sns.countplot(data=Boston_dataset, x=\"rad\")\n",
+        "plt.show()"
+      ],
+      "id": "8dd6f47c",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "The categories do not follow a natural order from left to right: `Low`, `Medium`, y `High`.\n",
+        "\n",
+        "## \n",
+        "\n",
+        "</br>\n",
+        "\n",
+        "To have the desired order in the categories, we must be more explicit when defining te categorical variable.\n"
+      ],
+      "id": "9fdd2cd2"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| echo: true\n",
+        "#| output: true\n",
+        "#| fig-pos: center\n",
+        "#| fig-align: center\n",
+        "\n",
+        "Boston_dataset[\"rad\"] = pd.Categorical(Boston_dataset[\"rad\"], \n",
+        "                                      categories=[\"Low\", \"Medium\", \"High\"], \n",
+        "                                      ordered=True)"
+      ],
+      "id": "0a791270",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## \n"
+      ],
+      "id": "44abda72"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| output: True\n",
+        "#| echo: true\n",
+        "#| fig-align: center\n",
+        "\n",
+        "plt.figure(figsize=(7, 5))\n",
+        "sns.countplot(data=Boston_dataset, x=\"rad\")\n",
+        "plt.show()"
+      ],
+      "id": "d473ea55",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "Much better! 😃\n",
+        "\n",
+        "## Collapsing\n",
+        "\n",
+        "</br>\n",
+        "\n",
+        "Some categorical variables tend to have many categories. For example, states in a country or postal codes. In these cases, it can be difficult to visualize all the categories in a single graph.\n",
+        "\n",
+        "One strategy for developing an effective visualization is to collapse categories.\n",
+        "\n",
+        "For example, in the variable `rad`, we can collapse the categories `Medium` and `High` into a single category called `Other`.\n",
+        "\n",
+        "## \n",
+        "\n",
+        "</br>\n",
+        "\n",
+        "To collapse categories in **pandas**, we use the `replace()` function.\n"
+      ],
+      "id": "ac067d0f"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| echo: true\n",
+        "#| output: true\n",
+        "#| fig-pos: center\n",
+        "\n",
+        "Boston_dataset[\"rad\"] = Boston_dataset[\"rad\"].replace({\"Medium\": \"Other\", \"High\": \"Other\"})\n",
+        "\n",
+        "Boston_dataset[\"rad\"].value_counts()"
+      ],
+      "id": "f9f26ca4",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## \n",
+        "\n",
+        "Collapsing categories simplifies the graph\n"
+      ],
+      "id": "36ee5f29"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| echo: true\n",
+        "#| output: true\n",
+        "#| fig-align: center\n",
+        "#| fig-pos: center\n",
+        "\n",
+        "plt.figure(figsize=(5.5, 3.5))\n",
+        "sns.countplot(data=Boston_dataset, x=\"rad\")\n",
+        "plt.show()"
+      ],
+      "id": "ba6f60b9",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "It also allows us to emphasize a category like `Low` and see how it compares to the other categories (as a whole).\n",
+        "\n",
+        "# [Return to main page](https://alanrvazquez.github.io/TEC-IN2039-EN/)"
+      ],
+      "id": "b648f64f"
+    }
+  ],
+  "metadata": {
+    "kernelspec": {
+      "name": "python3",
+      "language": "python",
+      "display_name": "Python 3 (ipykernel)",
+      "path": "/Users/alanvazquez/Documents/GitHub/TEC-IN2039-EN/env/share/jupyter/kernels/python3"
+    }
+  },
+  "nbformat": 4,
+  "nbformat_minor": 5
+}

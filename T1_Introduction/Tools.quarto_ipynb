@@ -1,0 +1,1281 @@
+{
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "---\n",
+        "title: \"Tools for Data Analysis and Visualization\"\n",
+        "subtitle: \"IN2039: Data Visualization for Decision Making\"\n",
+        "author: \n",
+        "  - name: Alan R. Vazquez\n",
+        "    affiliations:\n",
+        "      - name: Department of Industrial Engineering\n",
+        "format: \n",
+        "  revealjs:\n",
+        "    chalkboard: false\n",
+        "    multiplex: true\n",
+        "    footer: \"Tecnologico de Monterrey\"\n",
+        "    logo: IN2039_logo.png\n",
+        "    css: style.css\n",
+        "    slide-number: True\n",
+        "    html-math-method: mathjax\n",
+        "editor: visual\n",
+        "jupyter: python3\n",
+        "---\n",
+        "\n",
+        "\n",
+        "## Agenda\n",
+        "\n",
+        "</br>\n",
+        "\n",
+        "1.  Introduction to Python\n",
+        "2.  Reading data with Python\n",
+        "3.  Creating our first plot\n",
+        "\n",
+        "# Introduction to Python\n",
+        "\n",
+        "## Python\n",
+        "\n",
+        "</br>\n",
+        "\n",
+        "::::: columns\n",
+        "::: {.column width=\"70%\"}\n",
+        "-   A versatile programming language.\n",
+        "\n",
+        "-   It is free!\n",
+        "\n",
+        "-   It is widely used for data cleaning, data visualization, and data modelling.\n",
+        "\n",
+        "-   It can be extended with packages (libraries) developed by other users.\n",
+        ":::\n",
+        "\n",
+        "::: {.column width=\"30%\"}\n",
+        "![](images/python.png){fig-align=\"center\" width=\"324\"}\n",
+        ":::\n",
+        ":::::\n",
+        "\n",
+        "## Google Colab\n",
+        "\n",
+        "*Google's free cloud collaboration platform for creating Python documents.*\n",
+        "\n",
+        "-   Run Python and collaborate on Jupyter notebooks for free.\n",
+        "\n",
+        "-   Harness the power of GPUs for free to accelerate your data science projects.\n",
+        "\n",
+        "-   Easily save and upload your notebooks to Google Drive.\n",
+        "\n",
+        "![](images/Google_Colaboratory_SVG_Logo.svg.png){fig-align=\"right\" width=\"2560\"}\n",
+        "\n",
+        "## Let's try a command in Python\n",
+        "\n",
+        "What do you think will happen if we run this command?\n"
+      ],
+      "id": "892729f1"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| echo: true\n",
+        "#| output: false\n",
+        "\n",
+        "print(\"Hello world!\")"
+      ],
+      "id": "a32be535",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        ". . .\n"
+      ],
+      "id": "456a1ca1"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| echo: false\n",
+        "#| output: true\n",
+        "\n",
+        "print(\"Hello world!\")"
+      ],
+      "id": "b6f184c9",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Let's try another command\n",
+        "\n",
+        "What do you think will happen if we run this command?\n"
+      ],
+      "id": "007b731c"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| echo: true\n",
+        "#| output: false\n",
+        "\n",
+        "sum([1, 5, 10])"
+      ],
+      "id": "49dcd87b",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        ". . .\n"
+      ],
+      "id": "488a9041"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| echo: false\n",
+        "#| output: true\n",
+        "\n",
+        "sum([1, 5, 10])"
+      ],
+      "id": "a09a3754",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Use Python as a basic calculator\n"
+      ],
+      "id": "a13d1bed"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| echo: true\n",
+        "#| output: true\n",
+        "\n",
+        "5 + 1"
+      ],
+      "id": "154ef2c3",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| echo: true\n",
+        "#| output: true\n",
+        "\n",
+        "10 - 3"
+      ],
+      "id": "53fa462d",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| echo: true\n",
+        "#| output: true\n",
+        "\n",
+        "2 * 4"
+      ],
+      "id": "4b32d57e",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| echo: true\n",
+        "#| output: true\n",
+        "\n",
+        "9 / 3"
+      ],
+      "id": "7b8b47d9",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Comments\n",
+        "\n",
+        "</br>\n",
+        "\n",
+        "Sometimes we write things in the coding window that we want Python to ignore. These are called comments and start with `#`.\n",
+        "\n",
+        "</br>\n",
+        "\n",
+        "Python will ignore the comments and just execute the code.\n"
+      ],
+      "id": "05e16d78"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| echo: true\n",
+        "#| output: true\n",
+        "\n",
+        "# you can put whatever after #\n",
+        "# for example... blah blah blah"
+      ],
+      "id": "fc787f8b",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "::: notes\n",
+        "Si desea escribir un comentario que ocupe más de una línea, es una buena idea poner un \\# al principio de cada línea.\n",
+        ":::\n",
+        "\n",
+        "## Introduction to functions in Python\n",
+        "\n",
+        "</br>\n",
+        "\n",
+        "One of the cool things about Python is that there are many built-in commands you can use. These are called *functions*.\n",
+        "\n",
+        ". . .\n",
+        "\n",
+        "Functions have two basic parts:\n",
+        "\n",
+        "::: incremental\n",
+        "-   The first part is the name of the function (for example, `sum`).\n",
+        "\n",
+        "-   The second part is the input to the function, which goes inside the parentheses (`sum([1, 5, 15])`).\n",
+        ":::\n",
+        "\n",
+        "## Python is strict\n",
+        "\n",
+        "Python, like all programming languages, is very strict. For example, if you write\n"
+      ],
+      "id": "250de1f7"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| echo: true\n",
+        "sum([1, 100])"
+      ],
+      "id": "7b8f6ca0",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "it will tell you the answer, 101.\n",
+        "\n",
+        ". . .\n",
+        "\n",
+        "But if you write\n"
+      ],
+      "id": "042dfb3e"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| echo: true\n",
+        "#| error: true\n",
+        "Sum([1, 100])"
+      ],
+      "id": "8dcd8eb6",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "with the “s” capitalized, he will act like he has no idea what we are talking about!\n",
+        "\n",
+        "::: notes\n",
+        "lo mismo si olvidas incluir un parentesis\n",
+        ":::\n",
+        "\n",
+        "## Save your work in Python objects\n",
+        "\n",
+        "Virtually anything, including the results of any Python function, can be saved in an *object*.\n",
+        "\n",
+        "This is accomplished by using an assignment operator, which can be an equals symbol (`=`).\n",
+        "\n",
+        ". . .\n",
+        "\n",
+        "You can make up any name you want for a Python object. However, there are three basic rules for this:\n",
+        "\n",
+        "::: incremental\n",
+        "1.  It has to be different from a function name in Python.\n",
+        "2.  It has to be specific possible yet succinct.\n",
+        "3.  It must not have a period (.) in it.\n",
+        ":::\n",
+        "\n",
+        "## For example\n",
+        "\n",
+        "</br>\n"
+      ],
+      "id": "6a0e3f11"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| echo: true\n",
+        "\n",
+        "# This code will assign the number 18\n",
+        "# to the object called my_favorite_number\n",
+        "\n",
+        "my_favorite_number = 18"
+      ],
+      "id": "298d8980",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "After running this code, nothing happens. But if we run the object on its own, we can see what's inside it.\n"
+      ],
+      "id": "0d48f277"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| echo: true\n",
+        "\n",
+        "my_favorite_number"
+      ],
+      "id": "308b72ff",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "You can also use `print(my_favorite_number)`.\n",
+        "\n",
+        "## Lists\n",
+        "\n",
+        "</br>\n",
+        "\n",
+        "So far we have used Python objects to store a single number. But in statistics we are dealing with variation, which by definition needs more than one number.\n",
+        "\n",
+        ". . .\n",
+        "\n",
+        "A Python object can also store a complete set of numbers, called a ***list***.\n",
+        "\n",
+        "You can think of a list as a vector of numbers (or values).\n",
+        "\n",
+        ". . .\n",
+        "\n",
+        "The `[]` command can be used to combine several individual values into a list.\n",
+        "\n",
+        "::: notes\n",
+        "puedes pensar que el c es por combinar\n",
+        ":::\n",
+        "\n",
+        "## For example\n",
+        "\n",
+        "</br>\n",
+        "\n",
+        "This code creates two lists or vectors:\n"
+      ],
+      "id": "67fad50f"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| echo: true\n",
+        "\n",
+        "my_list = [1, 2, 3, 4, 5]\n",
+        "my_list_2 = [10, 10, 10, 10, 10]"
+      ],
+      "id": "95ee8d2a",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        ". . .\n",
+        "\n",
+        "Let's see their content:\n"
+      ],
+      "id": "79f3dfa7"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| echo: true\n",
+        "my_list"
+      ],
+      "id": "ce8edf0e",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| echo: true\n",
+        "my_list_2"
+      ],
+      "id": "e7b16db4",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Operations\n",
+        "\n",
+        "</br>\n",
+        "\n",
+        "We can do simple operations with vectors. For example, we can sum all the elements of a list.\n"
+      ],
+      "id": "928efc81"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| echo: true\n",
+        "\n",
+        "my_list = [1, 2, 3, 4, 5]\n",
+        "sum(my_list)"
+      ],
+      "id": "bb896576",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Indexing\n",
+        "\n",
+        "</br>\n",
+        "\n",
+        "We can index a position in the vector using square brackets with a number like this: `[1]`.\n",
+        "\n",
+        "So, if we wanted to print the contents of the first position in `my_list`, we could write\n"
+      ],
+      "id": "be5f3ad8"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| echo: true\n",
+        "\n",
+        "my_list[1]"
+      ],
+      "id": "f65ef192",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "[**An feature of Python is that the first element of a list or vector is indexed using the number 0.**]{style=\"color:red;\"}\n"
+      ],
+      "id": "37aeb73d"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| echo: true\n",
+        "\n",
+        "my_list[0]"
+      ],
+      "id": "0fcb8f03",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## A little more about Python objects\n",
+        "\n",
+        "</br>\n",
+        "\n",
+        "You can think of Python objects as containers that hold values.\n",
+        "\n",
+        "A Python object can hold a single value, or it can hold a group of values (as in a vector).\n",
+        "\n",
+        "So far, we've only put numbers into Python objects.\n",
+        "\n",
+        ". . .\n",
+        "\n",
+        "<br/>\n",
+        "\n",
+        "***Python objects can actually contain three types of values: numbers, characters, and booleans.***\n",
+        "\n",
+        "## Character values\n",
+        "\n",
+        "</br>\n",
+        "\n",
+        "Characters are made up of text, such as words or sentences. An example of a list with characters as elements is:\n",
+        "\n",
+        ". . .\n"
+      ],
+      "id": "1aeff5cc"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| echo: true\n",
+        "\n",
+        "many_greetings = [\"hi\", \"hello\", \"hola\", \"bonjour\", \"ni hao\", \"merhaba\"]\n",
+        "many_greetings"
+      ],
+      "id": "17372a94",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        ". . .\n",
+        "\n",
+        "It is important to know that numbers can also be treated as characters, depending on the context.\n",
+        "\n",
+        "For example, when 20 is enclosed in quotes (`\"20\"`) it will be treated as a character value, even though it encloses a number in quotes.\n",
+        "\n",
+        "## Boolean values\n",
+        "\n",
+        "Boolean values are `True` or `False`.\n",
+        "\n",
+        "We may have a question like:\n",
+        "\n",
+        "-   Is the first element of the vector `many_greetings` `\"hola\"`?\n",
+        "\n",
+        ". . .\n",
+        "\n",
+        "We can ask Python to find out and return the answer `True` or `False`.\n"
+      ],
+      "id": "40a058fe"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| echo: true\n",
+        "\n",
+        "many_greetings[1] == \"hola\""
+      ],
+      "id": "4ee547bc",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Logical operators\n",
+        "\n",
+        "</br>\n",
+        "\n",
+        "Most of the questions we ask Python to answer with `True` or `False` involve comparison operators like `>`, `<`, `>=`, `<=`, and `==`.\n",
+        "\n",
+        "The double `==` sign checks whether two values are equal. There is even a comparison operator to check whether values are *not* equal: `!=`.\n",
+        "\n",
+        "For example, `5 != 3` is a `True` statement.\n",
+        "\n",
+        "## Common logical operators\n",
+        "\n",
+        "</br>\n",
+        "\n",
+        "-   `>` (*larger than*)\n",
+        "\n",
+        "-   `>=` (*larger than or equal to*)\n",
+        "\n",
+        "-   `<` (*smaller than*)\n",
+        "\n",
+        "-   `<=` (*smaller than or equal to*)\n",
+        "\n",
+        "-   `==` (*equal to*)\n",
+        "\n",
+        "-   `!=` (*not equal to*)\n",
+        "\n",
+        "## Question\n",
+        "\n",
+        "</br>\n",
+        "\n",
+        "Read this code and predict its response. Then, run the code in Google Colab and validate if you were correct.\n"
+      ],
+      "id": "f2cddbdc"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| echo: true\n",
+        "#| output: false\n",
+        "\n",
+        "A = 1\n",
+        "B = 5\n",
+        "compare = A > B\n",
+        "compare"
+      ],
+      "id": "356484c5",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Programming culture: Trial and error\n",
+        "\n",
+        "</br>\n",
+        "\n",
+        "The best way to learn programming is to try things out and see what happens. Write some code, run it, and think about why it didn't work.\n",
+        "\n",
+        "There are many ways to make small mistakes in programming (for example, typing a capital letter when a lowercase letter is needed).\n",
+        "\n",
+        "We often have to find these mistakes through trial and error.\n",
+        "\n",
+        "## Python libraries\n",
+        "\n",
+        "</br>\n",
+        "\n",
+        "Libraries are the fundamental units of reproducible Python code. They include reusable Python functions, documentation describing how to use them, and sample data.\n",
+        "\n",
+        "In this course, we will be working mostly with the following libraries:\n",
+        "\n",
+        "-   `pandas` for data manipulation.\n",
+        "-   `matplotlib` and `seaborn` for data visualization.\n",
+        "-   `statsmodels` for data modelling.\n",
+        "\n",
+        "# Reading data with Python\n",
+        "\n",
+        "## Data organization\n",
+        "\n",
+        "In data science, we organize data into rows and columns.\n",
+        "\n",
+        "::: center\n",
+        "```         \n",
+        "    Condition  Age   Wt    Wt2\n",
+        "1  Uninformed   35  136  135.8\n",
+        "2  Uninformed   45  162  161.8\n",
+        "3    Informed   52  117  116.8\n",
+        "4    Informed   29  184  182.8\n",
+        "5  Uninformed   38  134  136.6\n",
+        "6    Informed   39  189  183.2\n",
+        "```\n",
+        ":::\n",
+        "\n",
+        ". . .\n",
+        "\n",
+        "The rows are the sampled cases. In this example, the rows are housekeepers from different hotels. There are six rows, so there are six housekeepers in this data set.\n",
+        "\n",
+        ". . .\n",
+        "\n",
+        "Depending on the study, the rows could be people, states, couples, mice—any case you're taking a sample from to study.\n",
+        "\n",
+        "## \n",
+        "\n",
+        "::::: columns\n",
+        "::: {.column width=\"50%\"}\n",
+        "The columns represent variables or attributes of each case that were measured.\n",
+        ":::\n",
+        "\n",
+        "::: {.column width=\"50%\"}\n",
+        "```         \n",
+        "    Condition  Age   Wt    Wt2\n",
+        "1  Uninformed   35  136  135.8\n",
+        "2  Uninformed   45  162  161.8\n",
+        "3    Informed   52  117  116.8\n",
+        "4    Informed   29  184  182.8\n",
+        "5  Uninformed   38  134  136.6\n",
+        "6    Informed   39  189  183.2\n",
+        "```\n",
+        ":::\n",
+        ":::::\n",
+        "\n",
+        ". . .\n",
+        "\n",
+        "<br/>\n",
+        "\n",
+        "In this study, housekeepers were either informed or not that their daily work of cleaning hotel rooms was equivalent to getting adequate exercise for good health.\n",
+        "\n",
+        ". . .\n",
+        "\n",
+        "<br/>\n",
+        "\n",
+        "So one of the variables, `Condition`, indicates whether they were informed of this fact or not.\n",
+        "\n",
+        "## \n",
+        "\n",
+        "</br>\n",
+        "\n",
+        "Other variables include the age of the housekeeper (`Age`), her weight before starting the study (`Wt`), and her weight at the end of the study (`Wt2`), measured four weeks later.\n",
+        "\n",
+        "<br/>\n",
+        "\n",
+        "Therefore, the values in each row represent the values of that particular case in each of the variables measured.\n",
+        "\n",
+        "```         \n",
+        "    Condition  Age   Wt    Wt2\n",
+        "1  Uninformed   35  136  135.8\n",
+        "2  Uninformed   45  162  161.8\n",
+        "3    Informed   52  117  116.8\n",
+        "4    Informed   29  184  182.8\n",
+        "5  Uninformed   38  134  136.6\n",
+        "6    Informed   39  189  183.2\n",
+        "```\n",
+        "\n",
+        "::: notes\n",
+        "¿Cuántas variables hay en este conjunto de datos?\n",
+        ":::\n",
+        "\n",
+        "## Loading data in Python\n",
+        "\n",
+        "In this course, we will assume that data is stored in an Excel file with the above organization. As an example, let's use the file `penguins.xlsx`.\n",
+        "\n",
+        "::::: columns\n",
+        "::: {.column width=\"50%\"}\n",
+        "![](images/print_excel.png){width=\"418\"}\n",
+        ":::\n",
+        "\n",
+        "::: {.column width=\"50%\"}\n",
+        "![](images/clipboard-1776523589.png){width=\"396\"}\n",
+        ":::\n",
+        ":::::\n",
+        "\n",
+        "::: {style=\"font-size: 85%;\"}\n",
+        "[***The file must be previously uploaded to Google Colab.***]{style=\"color:red;\"}\n",
+        ":::\n",
+        "\n",
+        "## \n",
+        "\n",
+        "The dataset `penguins.xlsx` contains data from penguins living in three islands.\n",
+        "\n",
+        "![](images/penguins_bill.png){fig-align=\"center\"}\n",
+        "\n",
+        "## Alan Vazquez with a gentoo penguin\n",
+        "\n",
+        "![](images/alan_pingu.jpg){fig-align=\"center\"}\n",
+        "\n",
+        "## pandas library\n",
+        "\n",
+        "</br>\n",
+        "\n",
+        "::::: columns\n",
+        "::: {.column width=\"30%\"}\n",
+        "![](images/pandas-logo-300.png){fig-align=\"left\"}\n",
+        ":::\n",
+        "\n",
+        "::: {.column width=\"70%\"}\n",
+        "-   **pandas** is an open-source Python library for data manipulation and analysis.\n",
+        "-   It is built on top of **numpy** for high-performance data operations.\n",
+        "-   It allows the user to import, clean, transform, and analyze data efficiently\n",
+        "-   <https://pandas.pydata.org/>\n",
+        ":::\n",
+        ":::::\n",
+        "\n",
+        "## Importing pandas\n",
+        "\n",
+        "Fortunately, the **pandas** library is already pre-installed in Google Colab.\n",
+        "\n",
+        "</br>\n",
+        "\n",
+        "However, we need to inform Google Colab that we want to use **pandas** and its functions using the following command:\n"
+      ],
+      "id": "f481c4b5"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| echo: true\n",
+        "\n",
+        "import pandas as pd"
+      ],
+      "id": "c6d6158d",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "</br>\n",
+        "\n",
+        "The command `as pd` allows us to have a short name for **pandas**. To use a function of **pandas**, we use the command `pd.function()`.\n",
+        "\n",
+        "## Loading data using pandas\n",
+        "\n",
+        "</br>\n",
+        "\n",
+        "The following code shows how to read the data in the file \"penguins.xlsx\" into Python.\n"
+      ],
+      "id": "98ebdd4d"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| echo: true\n",
+        "\n",
+        "# Load the Excel file into a pandas DataFrame.\n",
+        "penguins_data = pd.read_excel(\"penguins.xlsx\")"
+      ],
+      "id": "05b1faf6",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## The function head()\n",
+        "\n",
+        "The function `head()` allows you to print the first rows of a pandas data frame.\n"
+      ],
+      "id": "1e1a0f5f"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| echo: true\n",
+        "# Print the first 4 rows of the dataset.\n",
+        "penguins_data.head(4)"
+      ],
+      "id": "2f788dfd",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Indexing variables a dataset\n",
+        "\n",
+        "We can select a specific variables of a data frame using the syntaxis below.\n"
+      ],
+      "id": "e59daadf"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| echo: true\n",
+        "\n",
+        "penguins_data['bill_length_mm']"
+      ],
+      "id": "16641567",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "Here, we selected the variable `bill_length_mm` in the `penguins_data` dataset.\n",
+        "\n",
+        "## \n",
+        "\n",
+        "To index multiple variables of a data frame, we put the names of the variables in a list object. For example, we select `bill_length_mm`, `species`, and `island` as follows:\n"
+      ],
+      "id": "efec41aa"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| echo: true\n",
+        "\n",
+        "sub_penguins_data = penguins_data[ ['bill_length_mm',  'species', 'island'] ]\n",
+        "sub_penguins_data.head()"
+      ],
+      "id": "c1c1a9ea",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Indexing rows\n",
+        "\n",
+        "To index rows in a dataset, we use the argument `loc` from **pandas**. For example, we select the rows 3 to 6 of the `penguins_dataset` dataset:\n"
+      ],
+      "id": "5d8ab148"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| echo: true\n",
+        "\n",
+        "rows_penguins_data = penguins_data.loc[2:5]\n",
+        "rows_penguins_data"
+      ],
+      "id": "7dc829d5",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## \n",
+        "\n",
+        "</br>\n"
+      ],
+      "id": "6923dbe8"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| echo: true\n",
+        "\n",
+        "rows_penguins_data"
+      ],
+      "id": "80846f03",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "Note that the index 2 and 5 refer to observations 3 and 7, respectively, in the dataset. This is because the first index in Python is 0.\n",
+        "\n",
+        "## Indexing rows and columns\n",
+        "\n",
+        "Using `loc`, we can also retrieve a subset from the dataset by selecting specific columns and rows.\n"
+      ],
+      "id": "0083cb47"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| echo: true\n",
+        "\n",
+        "sub_rows_pdata = penguins_data.loc[2:5, ['bill_length_mm',  'species', 'island'] ]\n",
+        "sub_rows_pdata"
+      ],
+      "id": "f35f5454",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "# Creating our first plot\n",
+        "\n",
+        "## matplotlib library\n",
+        "\n",
+        "-   **matplotlib** is a comprehensive library for creating static, animated, and interactive visualizations in Python\n",
+        "-   It is widely used in the data science community for plotting data in various formats\n",
+        "-   Ideal for creating simple visualizations like line plots, bar charts, scatter plots, and more\n",
+        "-   <https://matplotlib.org/>\n",
+        "\n",
+        "![](images/matplotlib.png){fig-align=\"center\" width=\"519\"}\n",
+        "\n",
+        "## seaborn library\n",
+        "\n",
+        "-   **seaborn** is a Python library built on top of Matplotlib\n",
+        "-   Designed to make statistical data visualization easy and beautiful\n",
+        "-   Ideal for creating informative and attractive visualizations with minimal code\n",
+        "-   <https://seaborn.pydata.org/index.html>\n",
+        "\n",
+        "![](images/seaborn.png){fig-align=\"center\"}\n",
+        "\n",
+        "## Importing the libraries\n",
+        "\n",
+        "</br>\n",
+        "\n",
+        "The **matplotlib** and **seaborn** libraries are pre-installed in Google Colab. However, we need to tell Google Colab that we want to use them using the following command:\n"
+      ],
+      "id": "4b0b17f0"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| echo: true\n",
+        "\n",
+        "import matplotlib.pyplot as plt\n",
+        "import seaborn as sns"
+      ],
+      "id": "2d9b6034",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "</br>\n",
+        "\n",
+        "Like **pandas**, the command `as sns` allows us to have a short name for **seaborn**. Similarly, we rename **matplotlib** as **plt**.\n",
+        "\n",
+        "## Seaborn plot structure\n",
+        "\n",
+        "Seaborn has a structured approach to creating visualizations:\n",
+        "\n",
+        "[plt.figure(figsize=(WIDTH, HEIGHT))]{style=\"color:#964B00;\"}\n",
+        "\n",
+        "[sns.PLOTTYPE(data=my_data, x=\"Variable1\", y=\"Variable2\", hue=\"Variable3\", MOREOPTIONS)]{style=\"color:#619CFF;\"}\n",
+        "\n",
+        "[plt.title(\"Title\")]{style=\"color:#F8766D;\"}\n",
+        "\n",
+        "[plt.xlabel(\"X-axis label\")]{style=\"color:#F8766D;\"}\n",
+        "\n",
+        "[plt.ylabel(\"Y-axis label\")]{style=\"color:#F8766D;\"}\n",
+        "\n",
+        "[plt.MOREOPTIONS()]{style=\"color:#00BA38;\"}\n",
+        "\n",
+        "plt.show()\n",
+        "\n",
+        "## Example: Principle 1\n",
+        "\n",
+        "Is there a difference between bill length and bill depth across penguin species?\n",
+        "\n",
+        "![](images/penguins_bill.png){fig-align=\"center\"}\n",
+        "\n",
+        "## Apply Principle 2\n",
+        "\n",
+        "Is there a difference between bill length and bill depth across penguin species?\n"
+      ],
+      "id": "201ba7ed"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "output-location": "fragment",
+        "out.width": "80%"
+      },
+      "source": [
+        "#| echo: true\n",
+        "#| output: true\n",
+        "#| fig-align: center\n",
+        "#| code-overflow: wrap\n",
+        "#| fig-pos: center\n",
+        "\n",
+        "plt.figure(figsize=(6, 4)) # Set figure size.\n",
+        "sns.scatterplot(data=penguins_data, x=\"bill_depth_mm\", y=\"bill_length_mm\", \n",
+        "                hue=\"species\") # Define type of plot.\n",
+        "plt.show() # Display the plot."
+      ],
+      "id": "a020c51c",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Principle 2: Adding titles and labels\n"
+      ],
+      "id": "8c3b5af2"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "output-location": "fragment",
+        "out.width": "80%"
+      },
+      "source": [
+        "#| echo: true\n",
+        "#| output: true\n",
+        "#| code-overflow: wrap\n",
+        "#| fig-align: center\n",
+        "#| code-line-numbers: 4-7\n",
+        "\n",
+        "plt.figure(figsize=(6, 4))\n",
+        "sns.scatterplot(data=penguins_data, x=\"bill_depth_mm\", y=\"bill_length_mm\", \n",
+        "                hue=\"species\")\n",
+        "plt.title(\"Bill Depth vs. Bill Length\")\n",
+        "plt.xlabel(\"Bill Depth (mm)\")\n",
+        "plt.ylabel(\"Bill Length (mm)\")\n",
+        "plt.legend(title=\"Species\")\n",
+        "plt.show()"
+      ],
+      "id": "8d11ba24",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Changing theme\n"
+      ],
+      "id": "e20de68f"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "fig-height": 4
+      },
+      "source": [
+        "#| echo: true\n",
+        "#| output: true\n",
+        "#| code-overflow: wrap\n",
+        "#| fig-align: center\n",
+        "#| code-line-numbers: 2-3\n",
+        "\n",
+        "plt.figure(figsize=(6, 4))\n",
+        "sns.scatterplot(data=penguins_data, x=\"bill_depth_mm\", y=\"bill_length_mm\", \n",
+        "                hue=\"species\", palette=\"viridis\")\n",
+        "plt.title(\"Bill Depth vs. Bill Length\")\n",
+        "plt.xlabel(\"Bill Depth (mm)\")\n",
+        "plt.ylabel(\"Bill Length (mm)\")\n",
+        "plt.legend(title=\"Species\")\n",
+        "plt.show()"
+      ],
+      "id": "d1388177",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## More options\n",
+        "\n",
+        "</br>\n",
+        "\n",
+        "We can also use the argument `fontsize` and other functions to improve the aspect of the figure:\n",
+        "\n",
+        "-   `plt.title(fontsize)`: Font size of the title.\n",
+        "-   `plt.ylabel(fontsize)`: Font size of y axis title.\n",
+        "-   `plt.xlabel(fontsize)`: Font size of x axis title.\n",
+        "-   `plt.yticks(fontsize)`: Font size of the y axis labels.\n",
+        "-   `plt.xticks(fontsize)`: Font size of the x axis labels.\n",
+        "\n",
+        "## Applying Principle 3\n"
+      ],
+      "id": "237e934e"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| echo: true\n",
+        "#| output: true\n",
+        "#| fig-align: center\n",
+        "#| code-fold: true\n",
+        "\n",
+        "plt.figure(figsize=(7, 5))\n",
+        "sns.scatterplot(data=penguins_data, x=\"bill_depth_mm\", y=\"bill_length_mm\", \n",
+        "                hue=\"species\", palette=\"viridis\")\n",
+        "plt.title(\"Bill Depth vs. Bill Length\", fontsize = 12)\n",
+        "plt.xlabel(\"Bill Depth (mm)\", fontsize = 12)\n",
+        "plt.ylabel(\"Bill Length (mm)\", fontsize = 12)\n",
+        "plt.legend(title=\"Species\", fontsize = 12)\n",
+        "plt.xticks(fontsize = 12)\n",
+        "plt.yticks(fontsize = 12)\n",
+        "plt.show()"
+      ],
+      "id": "39a56aaf",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Saving plots\n",
+        "\n",
+        "</br>\n",
+        "\n",
+        "We save a figure using the `save.fig` function from **matplotlib**. The `dpi` argument of this function sets the resolution of the image. The higher the `dpi`, the better the resolution.\n"
+      ],
+      "id": "ec1e22c5"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| echo: true\n",
+        "#| output: false\n",
+        "\n",
+        "plt.figure(figsize=(5, 5))\n",
+        "sns.scatterplot(data=penguins_data, x=\"bill_depth_mm\", y=\"bill_length_mm\", \n",
+        "                hue=\"species\", palette=\"viridis\")\n",
+        "plt.title(\"Bill Depth vs. Bill Length\", fontsize = 12)\n",
+        "plt.xlabel(\"Bill Depth (mm)\", fontsize = 12)\n",
+        "plt.ylabel(\"Bill Length (mm)\", fontsize = 12)\n",
+        "plt.legend(title=\"Species\", fontsize = 12)\n",
+        "plt.xticks(fontsize = 12)\n",
+        "plt.yticks(fontsize = 12)\n",
+        "plt.savefig('scatter_plot.png',dpi=300) # Save figure."
+      ],
+      "id": "efccd031",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Mini-activity (*solo* mode)\n",
+        "\n",
+        "1.  Open the following Google Colab link:\n",
+        "\n",
+        "    <https://colab.research.google.com/drive/1xLoaOMharQmmasNApjm38jZcw-gtcxvm?usp=sharing>\n",
+        "\n",
+        "2.  Copy the notebook to your drive.\n",
+        "\n",
+        "3.  Answer the questions.\n",
+        "\n",
+        "# [Return to main page](https://alanrvazquez.github.io/TEC-IN2039-EN/)"
+      ],
+      "id": "d81ee3ce"
+    }
+  ],
+  "metadata": {
+    "kernelspec": {
+      "name": "python3",
+      "language": "python",
+      "display_name": "Python 3 (ipykernel)",
+      "path": "/Users/alanvazquez/Documents/GitHub/TEC-IN2039-EN/env/share/jupyter/kernels/python3"
+    }
+  },
+  "nbformat": 4,
+  "nbformat_minor": 5
+}

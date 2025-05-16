@@ -1,0 +1,735 @@
+{
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "---\n",
+        "title: \"Types of Variables\"\n",
+        "subtitle: \"IN2039: Data Visualization for Decision Making\"\n",
+        "author: \n",
+        "  - name: Alan R. Vazquez\n",
+        "    affiliations:\n",
+        "      - name: Department of Industrial Engineering\n",
+        "format: \n",
+        "  revealjs:\n",
+        "    chalkboard: false\n",
+        "    multiplex: true\n",
+        "    footer: \"Tecnologico de Monterrey\"\n",
+        "    logo: IN2039_logo.png\n",
+        "    css: style.css\n",
+        "    slide-number: True\n",
+        "    html-math-method: mathjax\n",
+        "editor: visual\n",
+        "jupyter: python3\n",
+        "---\n",
+        "\n",
+        "\n",
+        "## Agenda\n",
+        "\n",
+        "</br>\n",
+        "\n",
+        "1.  What type is my data?\n",
+        "2.  Data manipulation with pandas\n",
+        "\n",
+        "## Types of variables\n",
+        "\n",
+        "</br>\n",
+        "\n",
+        "Before creating a graph, we must examine the type of values that our dataset variables take.\n",
+        "\n",
+        ". . .\n",
+        "\n",
+        "There are two main types of variables:\n",
+        "\n",
+        "::: incremental\n",
+        "-   [Numerical variables.]{style=\"color:darkblue;\"}\n",
+        "\n",
+        "-   [Categorical variables.]{style=\"color:darkred;\"}\n",
+        ":::\n",
+        "\n",
+        "## Numerical variables\n",
+        "\n",
+        "</br>\n",
+        "\n",
+        "These take values that represent numerical measurements or quantities.\n",
+        "\n",
+        "::: incremental\n",
+        "-   Height (in centimeters).\n",
+        "-   Weight (in kilograms).\n",
+        "-   Age (in years).\n",
+        "-   Price (in dollars).\n",
+        "-   Time (in hours or seconds).\n",
+        "-   Exam score (number of points on a 100-point scale).\n",
+        ":::\n",
+        "\n",
+        "## Types of numerical variables\n",
+        "\n",
+        "</br>\n",
+        "\n",
+        "Numerical variables are divided into two types:\n",
+        "\n",
+        "-   [*Discrete*]{style=\"color:darkblue;\"}: variables that take integer values.\n",
+        "\n",
+        ". . .\n",
+        "\n",
+        "Examples:\n",
+        "\n",
+        "1.  Number of children (0, 1, 2, or 3)\n",
+        "2.  Number of students in a class (20, 30, or 35)\n",
+        "3.  Number of books in a library (10,000, 15,000, 20,000)\n",
+        "\n",
+        "## \n",
+        "\n",
+        "</br>\n",
+        "\n",
+        "-   [*Continuous*]{style=\"color:darkblue;\"}: variables that have a large range of possible values.\n",
+        "\n",
+        ". . .\n",
+        "\n",
+        "Examples:\n",
+        "\n",
+        "1.  A person’s height (could be *within the range* of 1.60 m to 1.85 m)\n",
+        "2.  Ambient temperature (could be *within the range* of -30 $^\\circ$C to 50 $^\\circ$C)\n",
+        "3.  Time for an Uber to arrive (*between* 5 and 60 minutes)\n",
+        "\n",
+        "## Categorical variables\n",
+        "\n",
+        "</br>\n",
+        "\n",
+        "These take values that fall into *categories*.\n",
+        "\n",
+        ". . .\n",
+        "\n",
+        "> A **category** is a class or division of people or things that share particular characteristics.\n",
+        "\n",
+        ". . .\n",
+        "\n",
+        "|  |  |\n",
+        "|------------------------------------|------------------------------------|\n",
+        "| **Variable** | **Categories** |\n",
+        "| Amazon review | 1$\\bigstar$, 2$\\bigstar$, 3$\\bigstar$, 4$\\bigstar$, 5$\\bigstar$ |\n",
+        "| Country of origin | México, Canadá, EUA |\n",
+        "| Postal code | 72703, 90034, 3000, ... |\n",
+        "\n",
+        "## Classification of categorical variables\n",
+        "\n",
+        "</br>\n",
+        "\n",
+        "</br>\n",
+        "\n",
+        "Categorical variables are divided into two important types:\n",
+        "\n",
+        "-   [*Nominal*]{style=\"color:darkred;\"}\n",
+        "-   [*Ordinal*]{style=\"color:darkgreen;\"}\n",
+        "\n",
+        "::: notes\n",
+        "The distinction depends on whether the categories have a meaningful order or not.\n",
+        ":::\n",
+        "\n",
+        "## Nominal categorical variables\n",
+        "\n",
+        "</br>\n",
+        "\n",
+        "A categorical variable is nominal if its categories **do not have** a specific order.\n",
+        "\n",
+        ". . .\n",
+        "\n",
+        "Examples:\n",
+        "\n",
+        "::: incremental\n",
+        "-   Political party affiliation (Democrat or Republican).\n",
+        "-   Dog breed (Shepherd, Hound, Terrier, Other).\n",
+        "-   Computer operating system (Windows, macOS, Linux).\n",
+        ":::\n",
+        "\n",
+        "## Ordinal categorical variables\n",
+        "\n",
+        "</br>\n",
+        "\n",
+        "A categorical variable is ordinal if its categories **do have a meaningful order**.\n",
+        "\n",
+        ". . .\n",
+        "\n",
+        "Examples:\n",
+        "\n",
+        "::: incremental\n",
+        "-   T-shirt size (Small, Medium, Large).\n",
+        "-   Education level (High School, University, Postgraduate).\n",
+        "-   Income level (Less than \\$250K, \\$250K-\\$500K, More than \\$500K)\n",
+        ":::\n",
+        "\n",
+        "::: notes\n",
+        "It is important to note that with an ordinal variable, the difference between, say, small and medium is not necessarily the same as the difference between medium and large. Additionally, the differences between consecutive categories may not be quantifiable. Think about star ratings in a restaurant review—how much better is one star compared to two stars?\n",
+        ":::\n",
+        "\n",
+        "## Interesting fact...\n",
+        "\n",
+        "</br>\n",
+        "\n",
+        "Integer values (e.g., 1, 2, 3, ..., 5) can represent nominal or ordinal categorical variables.\n",
+        "\n",
+        "|                |       |        |        |             |\n",
+        "|----------------|-------|--------|--------|-------------|\n",
+        "| Representation | 1     | 2      | 3      | 4           |\n",
+        "| **Blood Type** | *A*   | *B*    | *AB*   | *O*         |\n",
+        "| **Review**     | *Bad* | *Fair* | *Good* | *Very Good* |\n",
+        "\n",
+        "<!-- -->\n",
+        "\n",
+        ". . .\n",
+        "\n",
+        "In practice, boolean values (`TRUE` and `FALSE`) often represent nominal categories.\n",
+        "\n",
+        "## Remember\n",
+        "\n",
+        "![](images/kinds_of_data3.png){fig-align=\"center\" width=\"397\"}\n",
+        "\n",
+        "## A general difference is ...\n",
+        "\n",
+        "</br>\n",
+        "\n",
+        "-   Quantitative variables (discrete or continuous) are those where addition or subtraction makes sense.\n",
+        "\n",
+        "-   Categorical variables (nominal or ordinal) are those where addition or subtraction does **NOT** make sense.\n",
+        "\n",
+        "## How do we check the type of variable?\n",
+        "\n",
+        "</br>\n",
+        "\n",
+        "As an example, we will use \"penguins.xlsx\" dataset. Let's load it using **pandas**.\n"
+      ],
+      "id": "e4564ce4"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| echo: true\n",
+        "\n",
+        "# Load pandas.\n",
+        "import pandas as pd\n",
+        "\n",
+        "# Load the Excel file into a pandas DataFrame.\n",
+        "penguins_data = pd.read_excel(\"penguins.xlsx\")"
+      ],
+      "id": "a4292e1c",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## \n",
+        "\n",
+        "</br>\n",
+        "\n",
+        "In Python, we check the type of each variable in a dataset using the function `info()`.\n"
+      ],
+      "id": "af59f7d2"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| echo: true\n",
+        "\n",
+        "penguins_data.info()"
+      ],
+      "id": "a5b317c7",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## General Python formats\n",
+        "\n",
+        "</br>\n",
+        "\n",
+        "-   `float64` format for numerical variables with decimals. It is used for [*continuous*]{style=\"color:darkblue;\"} variables.\n",
+        "-   `int64` format for numerical variables with integers. It is used for [*discrete*]{style=\"color:darkblue;\"} variables.\n",
+        "-   `object` format for general variables with characters. It is used for [*nominal*]{style=\"color:darkred;\"} and [*ordinal*]{style=\"color:darkgreen;\"} variables. However, we must inform Python about this. More on that later.\n",
+        "\n",
+        "## Activity (*solo* mode)\n",
+        "\n",
+        "</br>\n",
+        "\n",
+        "1.  Go to the **Modules** section on our CANVAS website.\n",
+        "\n",
+        "2.  Complete the [**Activity 2.1: Types of Variables**]{style=\"color:darkblue;\"} individually.\n",
+        "\n",
+        "# Data manipulation with pandas\n",
+        "\n",
+        "## Chaining operations with pandas\n",
+        "\n",
+        "One of the most important techniques in **pandas** is [**chaining**]{style=\"color:brown;\"}, which allows for cleaner and more readable data manipulation.\n",
+        "\n",
+        "The general structure of chaining looks like this:\n",
+        "\n",
+        "![](images/chaining_pandas.png){fig-align=\"center\"}\n",
+        "\n",
+        "## Key pandas methods\n",
+        "\n",
+        "**pandas** provides methods or functions to solve common data manipulation tasks:\n",
+        "\n",
+        "::: incremental\n",
+        "-   `.filter()` selects specific columns or rows.\n",
+        "\n",
+        "-   `.query()` filters observations based on conditions.\n",
+        "\n",
+        "-   `.assign()` adds new variables that are functions of existing variables.\n",
+        "\n",
+        "-   `.sort_values()` changes the order of rows.\n",
+        "\n",
+        "-   `.agg()` reduces multiple values to a single numerical summary.\n",
+        ":::\n",
+        "\n",
+        "## \n",
+        "\n",
+        "![](images/pandas_manipulation.png){fig-align=\"center\"}\n",
+        "\n",
+        "To practice, we will use the dataset `penguins_data`.\n",
+        "\n",
+        "## Selecting columns with `.filter()`\n",
+        "\n",
+        "Select the columns `species`, `body_mass_g` and `sex`.\n"
+      ],
+      "id": "4d8e6dcf"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| eval: true\n",
+        "#| echo: true\n",
+        "\n",
+        "(penguins_data\n",
+        "  .filter([\"species\", \"body_mass_g\", \"sex\"], axis = 1)\n",
+        ").head()"
+      ],
+      "id": "44fc643e",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## \n",
+        "\n",
+        "</br>\n",
+        "\n",
+        "The `axis` argument tells `.filter()` whether to select rows (`0`) or columns (`1`) from the dataframe.\n"
+      ],
+      "id": "6ab7a1fe"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| output: false\n",
+        "#| echo: true\n",
+        "\n",
+        "(penguins_data\n",
+        "  .filter([\"species\", \"body_mass_g\", \"sex\"], axis = 1)\n",
+        ").head()"
+      ],
+      "id": "6c11854d",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "</br>\n",
+        "\n",
+        "> The `.head()` command allows us to print the first six rows of the newly produced dataframe. We **must** remove it to have the entire new dataframe.\n",
+        "\n",
+        "## \n",
+        "\n",
+        "</br>\n",
+        "\n",
+        "We can also use `.filter()` to select rows too. To this end, we set `axis = 1`. We can select specific rows, such as 0 and 10.\n"
+      ],
+      "id": "3810e077"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| output: true\n",
+        "#| echo: true\n",
+        "\n",
+        "(penguins_data\n",
+        "  .filter([0, 10], axis = 0)\n",
+        ")"
+      ],
+      "id": "d982eaa7",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## \n",
+        "\n",
+        "Or, we can select a set of rows using the function `range()`. For example, let's select the first 5 rows.\n"
+      ],
+      "id": "6585f5b9"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| output: true\n",
+        "#| echo: true\n",
+        "\n",
+        "(penguins_data\n",
+        "  .filter(range(5), axis = 0)\n",
+        ")"
+      ],
+      "id": "2ae0d625",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Filtering rows with `.query()`\n",
+        "\n",
+        "</br>\n",
+        "\n",
+        "An alternative way of selecting rows is `.query()`. Compared to `.filter()`, `.query()` allows us to filter the data using statements or *queries* involving the variables.\n",
+        "\n",
+        "</br>\n",
+        "\n",
+        "For example, let's filter the data for the species \"Gentoo.\"\n"
+      ],
+      "id": "214fb353"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| output: false\n",
+        "#| echo: true\n",
+        "\n",
+        "(penguins_data\n",
+        "  .query(\"species == 'Gentoo'\")\n",
+        ")"
+      ],
+      "id": "4c5c1a34",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## \n",
+        "\n",
+        "</br>\n"
+      ],
+      "id": "92c886e5"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| output: true\n",
+        "#| echo: true\n",
+        "\n",
+        "(penguins_data\n",
+        "  .query(\"species == 'Gentoo'\")\n",
+        ").head()"
+      ],
+      "id": "e86c227b",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## \n",
+        "\n",
+        "We can also filter the data to get penguins with a body mass greater than 5000g.\n"
+      ],
+      "id": "28c5e6d1"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| eval: true\n",
+        "#| echo: true\n",
+        "\n",
+        "(penguins_data\n",
+        "  .query(\"body_mass_g > 5000\")\n",
+        ").head()"
+      ],
+      "id": "4044920a",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## \n",
+        "\n",
+        "We can even **combine** `.filter()` and `.query()`. For example, let's select the columns `species`, `body_mass_g` and `sex`, then filter the data for the \"Gentoo\" species.\n"
+      ],
+      "id": "159ae3dd"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| eval: true\n",
+        "#| echo: true\n",
+        "\n",
+        "(penguins_data\n",
+        "  .filter([\"species\", \"body_mass_g\", \"sex\"], axis = 1)\n",
+        "  .query(\"species == 'Gentoo'\")\n",
+        ").head(4)"
+      ],
+      "id": "63c9eba8",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Create new columns with `.assign()`\n",
+        "\n",
+        "With `.assign()`, we can create new columns (variables) that are functions of existing ones. This function uses a special Python keyword called `lambda`. Technically, this keyword defines an *anonymous* function.\n",
+        "\n",
+        "For example, we create a new variable `LDRatio` equaling the ratio of `bill_length_mm` and `bill_depth_mm`.\n"
+      ],
+      "id": "edc3af9a"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| output: false\n",
+        "#| echo: true\n",
+        "\n",
+        "(penguins_data\n",
+        "  .assign(LDRatio = lambda df: df[\"bill_length_mm\"] / df[\"bill_depth_mm\"])\n",
+        ")"
+      ],
+      "id": "6131f972",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## \n",
+        "\n",
+        "</br>\n",
+        "\n",
+        "In this code, the `df` after `lambda` indicates that the dataframe (`penguins_data`) will be referred to as `df` inside the function. The colon `:` sets the start of the function.\n"
+      ],
+      "id": "9e4b91db"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| output: false\n",
+        "#| echo: true\n",
+        "\n",
+        "(penguins_data\n",
+        "  .assign(LDRatio = lambda df: df[\"bill_length_mm\"] / df[\"bill_depth_mm\"])\n",
+        ")"
+      ],
+      "id": "0f384bfa",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "The code appends the new variable to the end of the resulting dataframe.\n",
+        "\n",
+        "## \n",
+        "\n",
+        "We can see the new variable using `.filter()`.\n"
+      ],
+      "id": "a9e906ba"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| output: true\n",
+        "#| echo: true\n",
+        "\n",
+        "(penguins_data\n",
+        "  .assign(LDRatio = lambda df: df[\"bill_length_mm\"] / df[\"bill_depth_mm\"])\n",
+        "  .filter([\"bill_length_mm\", \"bill_depth_mm\", \"LDRatio\"], axis = 1)\n",
+        ").head()"
+      ],
+      "id": "aec5d597",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Sorting with `.sort_values()`\n",
+        "\n",
+        "We can sort the data based on a column like `bill_length_mm`.\n"
+      ],
+      "id": "9c0fa00e"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| eval: true\n",
+        "#| echo: true\n",
+        "\n",
+        "(penguins_data\n",
+        "  .sort_values(\"bill_length_mm\")\n",
+        ").head(4)"
+      ],
+      "id": "5af0cbde",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## \n",
+        "\n",
+        "To sort in descending order, use `ascending=False` inside `sort_values()`.\n"
+      ],
+      "id": "f6a693fc"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| eval: true\n",
+        "#| echo: true\n",
+        "\n",
+        "(penguins_data\n",
+        "  .sort_values(\"bill_length_mm\", ascending=False)\n",
+        ").head()"
+      ],
+      "id": "116f6dec",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Summarizing with `.agg()`\n",
+        "\n",
+        "We can calculate summary statistics of the columns `bill_length_mm`, `bill_depth_mm`, and `body_mass_g`.\n"
+      ],
+      "id": "e30d07ea"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| eval: true\n",
+        "#| echo: true\n",
+        "\n",
+        "(penguins_data\n",
+        "  .filter([\"bill_length_mm\", \"bill_depth_mm\", \"body_mass_g\"], axis = 1)\n",
+        "  .agg([\"mean\"])\n",
+        ")"
+      ],
+      "id": "980f9a98",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "</br>\n",
+        "\n",
+        "> By default, `agg()` ignores missing values.\n",
+        "\n",
+        "## Saving results in new objects\n",
+        "\n",
+        "</br>\n",
+        "\n",
+        "After performing operations on our data, we can save the modified dataset as a new object.\n"
+      ],
+      "id": "6bb5bcbc"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| eval: true\n",
+        "#| echo: true\n",
+        "\n",
+        "mean_penguins_data = (penguins_data\n",
+        "  .filter([\"bill_length_mm\", \"bill_depth_mm\", \"body_mass_g\"], axis = 1)\n",
+        "  .agg([\"mean\"])\n",
+        ")\n",
+        "\n",
+        "mean_penguins_data"
+      ],
+      "id": "61ac733d",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## More on pandas\n",
+        "\n",
+        "![](images/python_book.jpg){fig-align=\"center\"}\n",
+        "\n",
+        "::: {style=\"font-size: 50%;\"}\n",
+        "<https://wesmckinney.com/book/>\n",
+        ":::\n",
+        "\n",
+        "## Final remarks\n",
+        "\n",
+        "</br>\n",
+        "\n",
+        "-   **pandas** is a Python library for data manipulation.\n",
+        "-   Understanding variable types helps determine the best operations and visualizations.\n",
+        "-   There are specific charts for numerical and categorical variables.\n",
+        "-   Throughout this course, we will explore various visualizations for different types of data.\n",
+        "\n",
+        "# [Return to main page](https://alanrvazquez.github.io/TEC-IN2039-EN/)"
+      ],
+      "id": "6150704f"
+    }
+  ],
+  "metadata": {
+    "kernelspec": {
+      "name": "python3",
+      "language": "python",
+      "display_name": "Python 3 (ipykernel)",
+      "path": "/Users/alanvazquez/Documents/GitHub/TEC-IN2039-EN/env/share/jupyter/kernels/python3"
+    }
+  },
+  "nbformat": 4,
+  "nbformat_minor": 5
+}
