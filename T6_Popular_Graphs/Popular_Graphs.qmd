@@ -8,7 +8,7 @@ author:
 format: 
   revealjs:
     chalkboard: false
-    multiplex: true
+    multiplex: false
     footer: "Tecnologico de Monterrey"
     logo: IN2039_logo.png
     css: style.css
@@ -187,38 +187,14 @@ In practice, boolean values (`TRUE` and `FALSE`) often represent nominal categor
 
 -   Categorical variables (nominal or ordinal) are those where addition or subtraction does **NOT** make sense.
 
-## How do we check the type of variable?
-
-</br>
-
-As an example, we will use "penguins.xlsx" dataset. Let's load it using **pandas**.
 
 ```{r}
 #| output: true
 #| echo: false
 
-library(readxl)
-library(tidyverse)
-library(ggformula)
-penguins_data = read_excel("penguins.xlsx")
-head(penguins_data)
+
 ```
 
-
-## 
-
-The letter abbreviations below the column names describe the type of each variable:
-
-::: incremental
-- `dbl` stands for doubles or real numbers. For continuous variables.
-
-- `int` stands for integers. For discrete variables.
-
-- `fctr` stands for factors, which R uses to represent categorical variables (nominal and ordinal) with fixed possible values.
-
-- `lgl` stands for logical, vectors that contain only `TRUE` or `FALSE`. For categorical variables (nominal).
-
-:::
 
 ## Activity (*solo* mode)
 
@@ -234,37 +210,17 @@ The letter abbreviations below the column names describe the type of each variab
 
 </br>
 
-We will illustrate today's concepts using the `penguins.xlsx` dataset.
-
-::::: columns
-::: {.column width="68%"}
-Upload it to Google Colab and load it into R using the following code:
+We will illustrate the concepts using the `penguins.xlsx` dataset. We will focus on visualizing the following categorical variables: `species`, `island` y `sex`.
 
 ```{r}
 #| fig-pos: center
 #| echo: false
 #| output: true
 
+library(readxl)
+library(tidyverse)
+library(ggformula)
 penguins_data = read_excel("penguins.xlsx")
-```
-:::
-
-::: {.column width="32%"}
-![](images/clipboard-1776523589.png){fig-align="right" width="561"}
-:::
-:::::
-
-In Google Colab, the file must be placed in the "content" folder.
-
-## 
-
-We will focus on visualizing the following categorical variables: `species`, `island` y `sex`.
-
-```{r}
-#| fig-pos: center
-#| echo: false
-#| output: true
-
 penguins_data %>% 
   select(species, island, sex) %>%
   head()
@@ -272,20 +228,10 @@ penguins_data %>%
 
 ## Bar chart
 
-</br>
-
-> Visually represents a frequency table or relative frequencies.
-
-The frequency (or relative frequency) is represented by a bar of proportional height.
-
-. . .
-
-You can create a bar chart using the `gf_bar()` function like this:
-
-## 
+It visually represents frequencies or percentages of the categories of a categorical variable. The frequency (or percentage) is represented by a bar of proportional height.
 
 ```{r}
-#| fig-pos: center
+#| fig-align: center
 #| echo: false
 #| output: true
 
@@ -293,12 +239,12 @@ You can create a bar chart using the `gf_bar()` function like this:
 gf_bar( ~ species, data = penguins_data)
 ```
 
-## Plot for relative frequency
+## Bar chart for percentages
 
-If you want to graph the relative frequency, use the `gf_percents` function.
+</br>
 
 ```{r}
-#| fig-pos: center
+#| fig-align: center
 #| echo: false
 #| output: true
 
@@ -306,51 +252,10 @@ If you want to graph the relative frequency, use the `gf_percents` function.
 gf_percents( ~ species, data = penguins_data)
 ```
 
-## Pie chart
-
-:::::: columns
-:::: {.column width="50%"}
-::: incremental
--   A pie chart divides a circle into sections representing different categories of a variable.
-
--   The size of each section corresponds to the relative frequency of that category.
-
--   It provides a quick visual comparison of proportions.
-:::
-::::
-
-::: {.column width="50%"}
-![](images/clipboard-800609446.png)
-:::
-::::::
-
-::: notes
-Pie charts versus bar charts.
-
-**Bar charts can serve as a good way to show comparisons between categories**. It is generally observed that new trends tend to shy away from using pie charts, as it is difficult for the human eye to judge the exact angle that shows the value of a category in a pie chart.
-:::
-
-## Apply Principle 3
-
-</br>
-
-> *Apply graphic design principles.*
-
-. . .
-
-We can improve categorical variable charts using these techniques:
-
-::: incremental
--   Re-label categories to make them more informative.
--   Re-order categories to follow a logical sequence.
--   Collapse categories to simplify the chart.
-:::
 
 ## Example 2: Boston Housing Dataset
 
-</br>
-
-This dataset contains information collected by the U.S. Census Bureau on housing in the Boston, Massachusetts area.
+This dataset contains information collected by the U.S. Census Bureau on housing in the Boston, Massachusetts area. The dataset is in `Boston_dataset.xlsx`. 
 
 ::::: columns
 ::: {.column width="60%"}
@@ -362,9 +267,6 @@ This dataset contains information collected by the U.S. Census Bureau on housing
 :::
 :::::
 
-## 
-
-The dataset is in `Boston_dataset.xlsx`. Upload it to Google Colab and load it into R using:
 
 ```{r}
 #| fig-pos: center
@@ -372,7 +274,6 @@ The dataset is in `Boston_dataset.xlsx`. Upload it to Google Colab and load it i
 #| output: true
 
 Boston_dataset = read_excel("Boston_dataset.xlsx")
-Boston_dataset %>% head()
 ```
 
 ## 
@@ -390,21 +291,22 @@ We concentrate on the following variables:
 Let's create a bar chart for `chas`.
 
 ```{r}
-#| fig-pos: center
+#| fig-algin: center
 #| echo: false
 #| output: true
 
 Boston_dataset = Boston_dataset %>% 
-  mutate(chas = case_match(chas, "0" ~ "No", "1" ~ "Si"))
+  mutate_at(c("chas", "rad"), as.factor) %>% 
+  mutate(chas = case_match(chas, "0" ~ "No", "1" ~ "Yes"))
 gf_percents( ~ chas, data = Boston_dataset)
 ```
 
-## Re-ordering categories
+## 
 
 Now, let's create a bar chart for `rad`.
 
 ```{r}
-#| fig-pos: center
+#| fig-algin: center
 #| echo: false
 #| output: true
 
@@ -831,7 +733,7 @@ spotify_data %>% head(3)
 #| echo: false
 #| output: true
 
-mi_linea = gf_line(Despacito ~ Date, data = spotify_data, color = "darkblue", size = 1.3) + labs(title = "Popularidad de la canción despacito de Luis Fonsi", x = "Fecha", y = "Número de reproducciones en Spotify")
+mi_linea = gf_line(Despacito ~ Date, data = spotify_data, color = "darkblue", linewidth = 1.3) + labs(title = "Popularidad de la canción despacito de Luis Fonsi", x = "Fecha", y = "Número de reproducciones en Spotify")
 mi_linea = mi_linea + theme(axis.text=element_text(size=20), axis.title=element_text(size=18),
                                 plot.title=element_text(size=25)) 
 mi_linea
@@ -934,7 +836,7 @@ As an example, let's consider the data in the file "penguins.xlsx".
 #| echo: false
 #| output: true
 
-penguins_data.head()
+penguins_data %>% head()
 ```
 
 ## Stacked bar chart
