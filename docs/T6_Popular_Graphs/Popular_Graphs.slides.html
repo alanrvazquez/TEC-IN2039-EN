@@ -415,11 +415,13 @@ Alan R. Vazquez
 </section>
 <section id="section-2" class="slide level2">
 <h2></h2>
+<p><br></p>
 <p>Let’s create a bar chart for <code>chas</code>.</p>
 
 <img data-src="Popular_Graphs_files/figure-revealjs/unnamed-chunk-6-1.png" width="960" class="r-stretch"></section>
 <section id="section-3" class="slide level2">
 <h2></h2>
+<p><br></p>
 <p>Now, let’s create a bar chart for <code>rad</code>.</p>
 
 <img data-src="Popular_Graphs_files/figure-revealjs/unnamed-chunk-7-1.png" width="960" class="r-stretch"></section>
@@ -434,15 +436,15 @@ Alan R. Vazquez
 <h2></h2>
 <p>Collapsing categories simplifies the graph</p>
 
-<img data-src="Popular_Graphs_files/figure-revealjs/unnamed-chunk-8-1.png" data-fig-pos="center" width="960" class="r-stretch"><p>It also allows us to emphasize a category like <code>Low</code> and see how it compares to the other categories (as a whole).</p>
+<img data-src="Popular_Graphs_files/figure-revealjs/unnamed-chunk-8-1.png" width="960" class="r-stretch"><p>It also allows us to emphasize a category like <code>Low</code> and see how it compares to the other categories (as a whole).</p>
 </section></section>
 <section>
 <section id="one-numerical-variable" class="title-slide slide level1 center">
 <h1>One Numerical Variable</h1>
 
 </section>
-<section id="example" class="slide level2">
-<h2>Example</h2>
+<section id="example-3" class="slide level2">
+<h2>Example 3</h2>
 <div class="columns">
 <div class="column" style="width:70%;">
 <p>A piston is a mechanical device found in most engines.</p>
@@ -451,55 +453,6 @@ Alan R. Vazquez
 </div></div>
 <p>One measure of a piston’s performance is the time it takes to complete a cycle, which we call “cycle time” and is measured in seconds.</p>
 <p>The file “CYLT.xlsx” contains 50 cycle times of a piston operating under fixed conditions.</p>
-</section>
-<section id="load-the-data" class="slide level2">
-<h2>Load the data</h2>
-<p>In Google Colab, the file “CYLT.xlsx” should be placed in a folder called “Files”.</p>
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 6 × 1
-  cycle_time
-       &lt;dbl&gt;
-1      1.01 
-2      1.10 
-3      1.12 
-4      0.423
-5      1.02 
-6      1.07 </code></pre>
-</div>
-</div>
-</section>
-<section id="principle-1" class="slide level2">
-<h2>Principle 1</h2>
-<blockquote>
-<p>Formulate the question of interest.</p>
-</blockquote>
-<div class="fragment">
-<p><br></p>
-<p>Typical questions about a numeric variable <span class="math inline">\(X\)</span> are:</p>
-<ul>
-<li class="fragment"><p>What is the shape of the observations of the variable <span class="math inline">\(X\)</span>?</p></li>
-<li class="fragment"><p>Are there atypical observations in the variable <span class="math inline">\(X\)</span>?</p></li>
-<li class="fragment"><p>Does the shape of the observations of the variable <span class="math inline">\(X\)</span> resemble a bell?</p></li>
-</ul>
-</div>
-</section>
-<section id="principle-2" class="slide level2">
-<h2>Principle 2</h2>
-<blockquote>
-<p>Transform data into information.</p>
-</blockquote>
-<div class="fragment">
-<p><br></p>
-<p>Two common types of graphs to visualize a numerical variable are:</p>
-<ul>
-<li>Histogram</li>
-<li>Box plot</li>
-</ul>
-</div>
-<div class="fragment">
-<p>Basically, they are different ways of visualizing the “shape” or <span style="color:darkred;"><em>distribution</em></span> of the variable.</p>
-</div>
 </section>
 <section id="histogram" class="slide level2">
 <h2>Histogram</h2>
@@ -520,7 +473,7 @@ Alan R. Vazquez
 <h2></h2>
 <p><br></p>
 
-<img data-src="Popular_Graphs_files/figure-revealjs/unnamed-chunk-10-1.png" data-fig-pos="center" width="960" class="r-stretch"><aside class="notes">
+<img data-src="Popular_Graphs_files/figure-revealjs/unnamed-chunk-10-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"><aside class="notes">
 <p>The bars of the histogram touch each other. A gap indicates that there are no observations in that interval.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
@@ -563,9 +516,10 @@ Alan R. Vazquez
 <li>The number of bins is a parameter of the histogram that affects its appearance.</li>
 </ul>
 
-<img data-src="Popular_Graphs_files/figure-revealjs/unnamed-chunk-11-1.png" data-fig-pos="center" width="960" class="r-stretch"></section>
+<img data-src="Popular_Graphs_files/figure-revealjs/unnamed-chunk-11-1.png" width="960" class="r-stretch"></section>
 <section id="section-6" class="slide level2">
 <h2></h2>
+<p><br><br></p>
 <p><span style="font-size: 100%;">The left histogram uses 5 bins, and the right histogram uses 30 bins</span></p>
 <div class="columns">
 <div class="column" style="width:50%;">
@@ -589,7 +543,7 @@ Alan R. Vazquez
 </div>
 </div>
 </div></div>
-<p>In this course, we will use the default number of <code>bins</code>.</p>
+<p>My recommendation is to use the default number of <code>bins</code>.</p>
 <aside class="notes">
 <p>A histogram is a familiar type of plot that involves smoothing. A histogram aggregates data values by placing points into bins and plotting one bar for each bin. Smoothing here means that we cannot differentiate the location of individual points within a bin: the points are smoothly distributed across their bins.</p>
 <style type="text/css">
@@ -608,11 +562,11 @@ Alan R. Vazquez
 <h2>What to look for in a histogram?</h2>
 <p><br></p>
 <ul>
-<li>Symmetry and asymmetry of the distribution</li>
-<li>The number, location, and size of high-frequency regions (bins)</li>
-<li>Gaps where no values are observed</li>
-<li>Unusually large or anomalous values</li>
-<li>A <span style="color:#1e3f5a;"><strong>bell-shaped</strong></span> form</li>
+<li>Symmetry and asymmetry of the distribution.</li>
+<li>The number, location, and size of high-frequency regions (bins).</li>
+<li>Gaps where no values are observed.</li>
+<li>Unusually large or anomalous values.</li>
+<li>A <span style="color:#1e3f5a;"><strong>bell-shaped</strong></span> form.</li>
 </ul>
 </section>
 <section id="the-obsession-with-bell-curves" class="slide level2">
@@ -653,11 +607,10 @@ Alan R. Vazquez
 <p>In fact, the <strong>goal</strong> is to determine whether there is a relationship between the variables and the type of relationship.</p>
 </div>
 </section>
-<section id="example-1" class="slide level2">
-<h2>Example 1</h2>
+<section id="example-4" class="slide level2">
+<h2>Example 4</h2>
 <p><br></p>
-<p>Consider data from 392 cars, including miles per gallon, number of cylinders, horsepower, weight, acceleration, year, origin, among other variables.</p>
-<p>The data is in the file “auto_dataset.xlsx”.</p>
+<p>Consider data from 392 cars, including miles per gallon, number of cylinders, horsepower, weight, acceleration, year, origin, among other variables. The data is in the file “auto_dataset.xlsx”.</p>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 9
@@ -706,7 +659,7 @@ Alan R. Vazquez
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Mixed</td>
-<td style="text-align: left;">Side-by-side box plot, bubble chart</td>
+<td style="text-align: left;">Cleaveland Plot</td>
 </tr>
 </tbody>
 </table>
@@ -742,6 +695,7 @@ Alan R. Vazquez
 </section>
 <section id="scatter-plot" class="slide level2">
 <h2>Scatter plot</h2>
+<p><br></p>
 <p>The most common graph for examining the relationship between two numerical variables is the <span style="color:#174062;"><strong><em>scatter plot</em></strong></span>.</p>
 <div class="fragment">
 <p>Variables <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are placed on the horizontal and vertical axes, respectively. Each point on the graph represents a pair of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> values.</p>
@@ -755,15 +709,12 @@ Alan R. Vazquez
 </section>
 <section id="scatter-plot-1" class="slide level2">
 <h2>Scatter plot</h2>
+<p><br></p>
 
 <img data-src="Popular_Graphs_files/figure-revealjs/unnamed-chunk-15-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
-<section id="include-zero" class="slide level2">
-<h2>Include zero</h2>
-<p>In the previous graph, the minimum vertical axis value is around 10. To adjust the minimum value to 0, we use the additional function <code>ylim()</code> below.</p>
-
-<img data-src="Popular_Graphs_files/figure-revealjs/unnamed-chunk-16-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
 <section id="individual-graphs" class="slide level2">
 <h2>Individual graphs</h2>
+<p><br><br></p>
 <p>Individual variable graphs (such as histograms) do not allow us to study the relationship between two variables. They only provide information on the <em>distribution</em> of each variable.</p>
 <div class="columns">
 <div class="column" style="width:50%;">
@@ -771,7 +722,7 @@ Alan R. Vazquez
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="Popular_Graphs_files/figure-revealjs/unnamed-chunk-17-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+<p><img data-src="Popular_Graphs_files/figure-revealjs/unnamed-chunk-16-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
 </figure>
 </div>
 </div>
@@ -781,7 +732,7 @@ Alan R. Vazquez
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="Popular_Graphs_files/figure-revealjs/unnamed-chunk-18-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+<p><img data-src="Popular_Graphs_files/figure-revealjs/unnamed-chunk-17-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
 </figure>
 </div>
 </div>
@@ -821,31 +772,12 @@ Alan R. Vazquez
 </section>
 <section id="line-plot" class="slide level2">
 <h2>Line Plot</h2>
-
-<img data-src="Popular_Graphs_files/figure-revealjs/unnamed-chunk-20-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
-<section id="line-styles" class="slide level2">
-<h2>Line styles</h2>
 <p><br></p>
-<p>To change the line type, set the <code>linestyle</code> parameter to a character shown below.</p>
 
-<img data-src="images/linetypes.png" class="quarto-figure quarto-figure-center r-stretch"></section>
-<section id="divide-the-data-into-groups" class="slide level2">
-<h2>Divide the data into groups!</h2>
-<p>To examine the relationship between a numerical and a categorical variable, we use the categorical variable to divide the data into groups. This way, we <strong>compare the distribution</strong> of the numerical variable among these groups.</p>
-<div class="fragment">
-<p>In this context:</p>
-<ul>
-<li><span class="math inline">\(X\)</span> is the categorical variable.</li>
-<li><span class="math inline">\(Y\)</span> is the numerical variable.</li>
-</ul>
-</div>
-<div class="fragment">
-<p>The <span style="color:#D70040;">side-by-side boxplot</span> is the most effective way to study the relationship between a categorical and a numerical variable.</p>
-</div>
-</section>
+<img data-src="Popular_Graphs_files/figure-revealjs/unnamed-chunk-19-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
 <section id="plotting-statistical-summaries-by-groups" class="slide level2">
 <h2>Plotting statistical summaries by groups</h2>
-<p>Alternatively, we can summarize the values of the numerical variable <span class="math inline">\(Y\)</span> for each category of the variable <span class="math inline">\(X\)</span> using the median or the mean.</p>
+<p>We can summarize the values of the numerical variable <span class="math inline">\(Y\)</span> for each category of a categorical variable <span class="math inline">\(X\)</span> using the median or the mean.</p>
 <p>For example, let’s plot the average miles per gallon of cars produced in America, Europe, and Japan. Two common visualization types for plotting a numerical and a discrete variable when there is only one value per category are:</p>
 <ul>
 <li>Cleveland dot plot</li>
@@ -854,15 +786,14 @@ Alan R. Vazquez
 </section>
 <section id="cleveland-dot-plot" class="slide level2">
 <h2>Cleveland dot plot</h2>
-<p><br></p>
-<p>The Cleveland dot plot encodes quantitative data across different categories. It is an alternative to a bar chart. It is obtained using the function <code>scatterplot()</code>.</p>
+<p>The Cleveland dot plot encodes quantitative data across different categories. It is an alternative to a bar chart.</p>
 
-<img data-src="Popular_Graphs_files/figure-revealjs/unnamed-chunk-21-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
+<img data-src="Popular_Graphs_files/figure-revealjs/unnamed-chunk-20-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
 <section id="section-8" class="slide level2">
 <h2></h2>
 <p>We can use similar commands as the Cleveland dot plot to improve the bar chart.</p>
 
-<img data-src="Popular_Graphs_files/figure-revealjs/unnamed-chunk-22-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
+<img data-src="Popular_Graphs_files/figure-revealjs/unnamed-chunk-21-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
 <section id="two-categorical-variables" class="slide level2">
 <h2>Two Categorical Variables</h2>
 <p><br></p>
@@ -876,9 +807,10 @@ Alan R. Vazquez
 </ul>
 </div>
 </section>
-<section id="example-3" class="slide level2">
-<h2>Example 3</h2>
-<p>As an example, let’s consider the data in the file “penguins.xlsx”.</p>
+<section id="example-1-cont." class="slide level2">
+<h2>Example 1 (cont.)</h2>
+<p><br><br></p>
+<p>As an example, let’s consider the data in the file “penguins.xlsx” again.</p>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 8
@@ -896,30 +828,15 @@ Alan R. Vazquez
 </section>
 <section id="stacked-bar-chart" class="slide level2">
 <h2>Stacked bar chart</h2>
-<p>The stacked bar chart is generated using the <code>histplot()</code> function, assigning the <span class="math inline">\(X\)</span> variable to the <code>hue</code> argument and setting <code>multiple='stack'</code>.</p>
-<div class="fragment">
-<p><br></p>
-<p>For example, to study the distribution of penguin species across the three different islands, we use the following:</p>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="Popular_Graphs_files/figure-revealjs/unnamed-chunk-24-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>The chart shows the frequency of each species, separated by island name.</p>
-</div>
+<p>We study the distribution of penguin species across the three different islands using an stacked bar chart.</p>
+
+<img data-src="Popular_Graphs_files/figure-revealjs/unnamed-chunk-23-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"><p>The chart shows the frequency of each species, separated by island name.</p>
 </section>
 <section id="side-by-side-bar-chart" class="slide level2">
 <h2>Side-by-side bar chart</h2>
-<p><br></p>
-<p>An alternative to the previous chart is to place the bars side by side for the categories of the <span class="math inline">\(X\)</span> variable.</p>
-<p><br></p>
-<p>In this case, we use the <code>countplot()</code> function of <strong>seaborn</strong>.</p>
+<p>An alternative to the previous chart is to place the bars side by side for the categories of the categorical variable <span class="math inline">\(X\)</span>.</p>
 
-<img data-src="Popular_Graphs_files/figure-revealjs/unnamed-chunk-25-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
+<img data-src="Popular_Graphs_files/figure-revealjs/unnamed-chunk-24-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
 <section id="stacked-or-side-by-side" class="slide level2">
 <h2>Stacked or side-by-side?</h2>
 <p><br></p>
@@ -932,7 +849,7 @@ Alan R. Vazquez
 </section>
 <section id="section-9" class="slide level2">
 <h2></h2>
-<p><br></p>
+<p><br><br><br></p>
 <p>Advantages of <strong>side-by-side</strong> bars:</p>
 <ul>
 <li><p>Easier to compare the heights of each individual entity.</p></li>
@@ -952,32 +869,18 @@ Alan R. Vazquez
 <h2>Scatter plot by color</h2>
 <p>For two numerical variables and one categorical variable.</p>
 
-<img data-src="Popular_Graphs_files/figure-revealjs/unnamed-chunk-26-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
+<img data-src="Popular_Graphs_files/figure-revealjs/unnamed-chunk-25-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
 <section id="faceted-or-lattice-plot" class="slide level2">
 <h2>Faceted or lattice plot</h2>
 <p>A faceted plot visualizes the relationship or distribution of one or two variables for each subgroup defined by a third variable <span class="math inline">\(Z\)</span>.</p>
-<div class="fragment">
-<p><strong>Idea:</strong> Create a chart for each subgroup of <span class="math inline">\(Z\)</span>.</p>
-</div>
-<div class="fragment">
-<p>To create the plot, use the <code>FacetGrid()</code> function in <strong>seaborn</strong> with the following syntax:</p>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="Popular_Graphs_files/figure-revealjs/unnamed-chunk-27-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
-</figure>
-</div>
-</div>
-</div>
-</div>
-</section>
+
+<img data-src="Popular_Graphs_files/figure-revealjs/unnamed-chunk-26-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
 <section id="multiple-line-charts" class="slide level2">
 <h2>Multiple line charts</h2>
+<p><br><br></p>
+<p>Instead of visualizing one variable, we can visualize multiple variables simultaneously using a line plot. For example, we can show the evolution of play counts for the 5 songs in the file “spotify.xlsx” over time.</p>
 <p><br></p>
-<p>We can use the functions <code>lineplot()</code> and <code>FacetGrid()</code> to visualize the evolution of play counts for the 5 songs in the file “spotify.xlsx” over time.</p>
-<p><br></p>
-<p>However, we need to manipulate the data to obtain the format required by these functions.</p>
+<p>However, some data visualization packages necessitate a special format to produce the multiple lines plot.</p>
 </section>
 <section id="the-required-format" class="slide level2">
 <h2>The required format</h2>
@@ -989,7 +892,7 @@ Alan R. Vazquez
 <section id="section-10" class="slide level2">
 <h2></h2>
 <p><br></p>
-<p>To format the data, we use the <code>melt()</code> function from the <strong>pandas</strong> library.</p>
+<p>To format the data, we use the function <code>pivot_longer()</code> from the <strong>tidyr</strong> library.</p>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 4
@@ -1004,22 +907,23 @@ Alan R. Vazquez
 </div>
 </div>
 </section>
+<section id="facet-grid" class="slide level2">
+<h2>Facet grid</h2>
+<p><br></p>
+<p>Separate plots for each line.</p>
+
+<img data-src="Popular_Graphs_files/figure-revealjs/unnamed-chunk-28-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
 <section id="section-11" class="slide level2">
 <h2></h2>
-<p>Now, we apply similar functions to the <code>data_lines</code> object.</p>
-
-<img data-src="Popular_Graphs_files/figure-revealjs/unnamed-chunk-29-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
-<section id="section-12" class="slide level2">
-<h2></h2>
+<p><br></p>
 <p>Or we can plot all lines on a single chart.</p>
 
-<img data-src="Popular_Graphs_files/figure-revealjs/unnamed-chunk-30-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
+<img data-src="Popular_Graphs_files/figure-revealjs/unnamed-chunk-29-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
 <section id="graphs-for-four-variables" class="slide level2">
 <h2>Graphs for four variables</h2>
 <p>A common chart for four variables is the scatter plot, where the color and size of the symbols depend on two <span style="color:#8B8000;"><strong>categorical</strong></span> variables.</p>
-<p><br></p>
 
-<img data-src="Popular_Graphs_files/figure-revealjs/unnamed-chunk-31-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section></section>
+<img data-src="Popular_Graphs_files/figure-revealjs/unnamed-chunk-30-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section></section>
 <section id="return-to-main-page" class="title-slide slide level1 center">
 <h1><a href="https://alanrvazquez.github.io/TEC-IN2039-EN/">Return to main page</a></h1>
 

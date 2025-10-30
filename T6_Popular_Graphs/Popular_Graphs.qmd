@@ -288,6 +288,8 @@ We concentrate on the following variables:
 
 ## 
 
+</br>
+
 Let's create a bar chart for `chas`.
 
 ```{r}
@@ -302,6 +304,8 @@ gf_percents( ~ chas, data = Boston_dataset)
 ```
 
 ## 
+
+</br>
 
 Now, let's create a bar chart for `rad`.
 
@@ -330,7 +334,7 @@ For example, in the variable `rad`, we can collapse the categories `Medium` and 
 Collapsing categories simplifies the graph
 
 ```{r}
-#| fig-pos: center
+#| fig-algin: center
 #| echo: false
 #| output: true
 
@@ -344,7 +348,7 @@ It also allows us to emphasize a category like `Low` and see how it compares to 
 
 # One Numerical Variable
 
-## Example
+## Example 3
 
 ::::: columns
 ::: {.column width="70%"}
@@ -360,53 +364,14 @@ One measure of a piston's performance is the time it takes to complete a cycle, 
 
 The file "CYLT.xlsx" contains 50 cycle times of a piston operating under fixed conditions.
 
-## Load the data
-
-In Google Colab, the file "CYLT.xlsx" should be placed in a folder called "Files".
-
 ```{r}
 #| fig-pos: center
 #| echo: false
 #| output: true
 
 piston_data = read_excel("CYCLT.xlsx") 
-piston_data %>% head()
 ```
 
-## Principle 1
-
-> Formulate the question of interest.
-
-. . .
-
-</br>
-
-Typical questions about a numeric variable $X$ are:
-
-::: incremental
--   What is the shape of the observations of the variable $X$?
-
--   Are there atypical observations in the variable $X$?
-
--   Does the shape of the observations of the variable $X$ resemble a bell?
-:::
-
-## Principle 2
-
-> Transform data into information.
-
-. . .
-
-</br>
-
-Two common types of graphs to visualize a numerical variable are:
-
--   Histogram
--   Box plot
-
-. . .
-
-Basically, they are different ways of visualizing the "shape" or [*distribution*]{style="color:darkred;"} of the variable.
 
 ## Histogram
 
@@ -429,14 +394,14 @@ R automatically calculates the frequency table for numerical data. The histogram
 </br>
 
 ```{r}
-#| fig-pos: center
+#| fig-align: center
 #| echo: false
 #| output: true
 
 gf_histogram( ~ cycle_time, data = piston_data, color = "black",
-            fill = "pink") + labs(title = "Histograma de tiempo de ciclo", 
-            x = "Tiempo de ciclo (segundos)", y = "Frequencia", 
-            caption = "Datos de 50 pistones") + theme_bw() 
+            fill = "pink") + labs(title = "Histogram of cycle time", 
+            x = "Cycle Time (sec)", y = "Frequency", 
+            caption = "Data of 50 cycle times of a pisto") + theme_bw() 
 ```
 
 ::: notes
@@ -464,15 +429,19 @@ Tails and symmetry do not make sense in this setting.
 -   The number of bins is a parameter of the histogram that affects its appearance.
 
 ```{r}
-#| fig-pos: center
+#| fig-algin: center
 #| echo: false
 #| output: true
 
 gf_histogram( ~ cycle_time, data = piston_data, bins = 5, color = "black", 
-              fill = "white", title = "Fine bins")
+              fill = "pink") + labs(title = "Using Five Bins", 
+            x = "Cycle Time (sec)", y = "Frequency", 
+            caption = "Data of 50 cycle times of a pisto") + theme_bw() 
 ```
 
 ## 
+
+</br></br>
 
 [The left histogram uses 5 bins, and the right histogram uses 30 bins]{style="font-size: 100%;"}
 
@@ -484,7 +453,9 @@ gf_histogram( ~ cycle_time, data = piston_data, bins = 5, color = "black",
 #| output: true
 
 gf_histogram( ~ cycle_time, data = piston_data, bins = 5, 
-              color = "black", fill = "white") + labs(title = "Histogram of Cycle Time", x = "Cycle Time (seconds)", y = "Frequency")
+              color = "black", fill = "pink") + labs(title = "Using Five Bins", 
+            x = "Cycle Time (sec)", y = "Frequency", 
+            caption = "Data of 50 cycle times of a pisto") + theme_bw() 
               
 ```
 :::
@@ -496,12 +467,14 @@ gf_histogram( ~ cycle_time, data = piston_data, bins = 5,
 #| output: true
 
 gf_histogram( ~ cycle_time, data = piston_data, bins = 30, 
-              color = "black", fill = "white") + labs(title = "Histogram of Cycle Time", x = "Cycle Time (seconds)", y = "Frequency")
+              color = "black", fill = "pink") + labs(title = "Using 30 Bins", 
+            x = "Cycle Time (sec)", y = "Frequency", 
+            caption = "Data of 50 cycle times of a pisto") + theme_bw() 
 ```
 :::
 :::::
 
-In this course, we will use the default number of `bins`.
+My recommendation is to use the default number of `bins`.
 
 ::: notes
 A histogram is a familiar type of plot that involves smoothing. A histogram aggregates data values by placing points into bins and plotting one bar for each bin. Smoothing here means that we cannot differentiate the location of individual points within a bin: the points are smoothly distributed across their bins.
@@ -511,11 +484,11 @@ A histogram is a familiar type of plot that involves smoothing. A histogram aggr
 
 </br>
 
--   Symmetry and asymmetry of the distribution
--   The number, location, and size of high-frequency regions (bins)
--   Gaps where no values are observed
--   Unusually large or anomalous values
--   A [**bell-shaped**]{style="color:#1e3f5a;"} form
+-   Symmetry and asymmetry of the distribution.
+-   The number, location, and size of high-frequency regions (bins).
+-   Gaps where no values are observed.
+-   Unusually large or anomalous values.
+-   A [**bell-shaped**]{style="color:#1e3f5a;"} form.
 
 ## The obsession with bell curves
 
@@ -559,13 +532,11 @@ Multivariate data consists of datasets that contain observations of two or more 
 
 In fact, the **goal** is to determine whether there is a relationship between the variables and the type of relationship.
 
-## Example 1
+## Example 4
 
 </br>
 
-Consider data from 392 cars, including miles per gallon, number of cylinders, horsepower, weight, acceleration, year, origin, among other variables.
-
-The data is in the file "auto_dataset.xlsx".
+Consider data from 392 cars, including miles per gallon, number of cylinders, horsepower, weight, acceleration, year, origin, among other variables. The data is in the file "auto_dataset.xlsx".
 
 ```{r}
 #| echo: false
@@ -600,7 +571,7 @@ There are various types of graphs that help us explore relationships between two
 |:------------|:------------------------------------------|
 | Numerical   | Scatter plot, line graph                  |
 | Categorical | Side-by-side bar chart, stacked bar chart |
-| Mixed       | Side-by-side box plot, bubble chart       |
+| Mixed       | Cleaveland Plot                           |
 :::
 
 ::: notes
@@ -625,6 +596,8 @@ The other variable is called the *independent* or *predictor variable*, denoted 
 
 ## Scatter plot
 
+</br>
+
 The most common graph for examining the relationship between two numerical variables is the [***scatter plot***]{style="color:#174062;"}.
 
 . . .
@@ -639,31 +612,23 @@ Variables $X$ and $Y$ are placed on the horizontal and vertical axes, respective
 
 ## Scatter plot
 
+</br>
+
 ```{r}
 #| fig-align: center
 #| echo: false
 #| output: true
 
-mi_diagrama = gf_point(mpg ~ weight, data = auto_data, color = "darkblue", size = 2, linetype = 1) + labs(title = "Relación de peso y millas por galón en autos", x = "Peso (lb)", y = "Millas por galón")
+mi_diagrama = gf_point(mpg ~ weight, data = auto_data, color = "darkblue", size = 2, linetype = 1) + labs(title = "Relationship between Weight and MPG", x = "Weight (lb)", y = "Miles Per Gallon (MPG)")
 mi_diagrama = mi_diagrama + theme(axis.text=element_text(size=20), axis.title=element_text(size=20),
                                    plot.title=element_text(size=25)) 
 mi_diagrama
 ```
 
-## Include zero
-
-In the previous graph, the minimum vertical axis value is around 10. To adjust the minimum value to 0, we use the additional function `ylim()` below.
-
-```{r}
-#| fig-align: center
-#| echo: false
-#| output: true
-
-mi_diagrama = mi_diagrama + scale_y_continuous(limits = c(0, 50))
-mi_diagrama
-```
 
 ## Individual graphs
+
+</br></br>
 
 Individual variable graphs (such as histograms) do not allow us to study the relationship between two variables. They only provide information on the *distribution* of each variable.
 
@@ -675,7 +640,7 @@ Individual variable graphs (such as histograms) do not allow us to study the rel
 #| output: true
 
 histogram_mpg = gf_histogram( ~ mpg, data = auto_data, fill = "darkblue", color = "black") 
-histogram_mpg = histogram_mpg + labs(title = "Distribución de milas por galón", x = "Millas por galón", y = "Frecuencia")
+histogram_mpg = histogram_mpg + labs(title = "Distribution of MPG", x = "Miles Per Gallon (MPG)", y = "Frequency")
 histogram_mpg = histogram_mpg + theme(axis.text=element_text(size=20), axis.title=element_text(size=20),
                                        plot.title=element_text(size=25))
 histogram_mpg
@@ -689,7 +654,7 @@ histogram_mpg
 #| output: true
 
 histogram_weight = gf_histogram( ~ weight, data = auto_data, fill = "darkblue", color = "black") 
-histogram_weight = histogram_weight + labs(title = "Distribución de peso", x = "Peso (lb)", y = "Frecuencia")
+histogram_weight = histogram_weight + labs(title = "Distribution of Weight", x = "Weight (lb)", y = "Frequency")
 histogram_weight = histogram_weight + theme(axis.text=element_text(size=20), axis.title=element_text(size=20), plot.title=element_text(size=25))
 histogram_weight
 ```
@@ -728,43 +693,22 @@ spotify_data %>% head(3)
 
 ## Line Plot
 
+</br>
+
 ```{r}
 #| fig-align: center
 #| echo: false
 #| output: true
 
-mi_linea = gf_line(Despacito ~ Date, data = spotify_data, color = "darkblue", linewidth = 1.3) + labs(title = "Popularidad de la canción despacito de Luis Fonsi", x = "Fecha", y = "Número de reproducciones en Spotify")
+mi_linea = gf_line(Despacito ~ Date, data = spotify_data, color = "darkblue", linewidth = 1.3) + labs(title = "Popularity of 'Despasito' by Luis Fonsi", x = "Date", y = "Number of Plays in Spotify")
 mi_linea = mi_linea + theme(axis.text=element_text(size=20), axis.title=element_text(size=18),
                                 plot.title=element_text(size=25)) 
 mi_linea
 ```
 
-## Line styles
-
-</br>
-
-To change the line type, set the `linestyle` parameter to a character shown below.
-
-![](images/linetypes.png){fig-align="center"}
-
-## Divide the data into groups!
-
-To examine the relationship between a numerical and a categorical variable, we use the categorical variable to divide the data into groups. This way, we **compare the distribution** of the numerical variable among these groups.
-
-. . .
-
-In this context:
-
--   $X$ is the categorical variable.
--   $Y$ is the numerical variable.
-
-. . .
-
-The [side-by-side boxplot]{style="color:#D70040;"} is the most effective way to study the relationship between a categorical and a numerical variable.
-
 ## Plotting statistical summaries by groups
 
-Alternatively, we can summarize the values of the numerical variable $Y$ for each category of the variable $X$ using the median or the mean.
+We can summarize the values of the numerical variable $Y$ for each category of a categorical variable $X$ using the median or the mean.
 
 For example, let's plot the average miles per gallon of cars produced in America, Europe, and Japan. Two common visualization types for plotting a numerical and a discrete variable when there is only one value per category are:
 
@@ -773,9 +717,8 @@ For example, let's plot the average miles per gallon of cars produced in America
 
 ## Cleveland dot plot
 
-</br>
 
-The Cleveland dot plot encodes quantitative data across different categories. It is an alternative to a bar chart. It is obtained using the function `scatterplot()`.
+The Cleveland dot plot encodes quantitative data across different categories. It is an alternative to a bar chart. 
 
 ```{r}
 #| fig-align: center
@@ -787,8 +730,8 @@ resumen_autos = auto_data %>%
   group_by(origin) %>% 
   summarise("Promedio.mpg" = mean(mpg))
 gf_point(origin ~ Promedio.mpg, size = 10, color = "pink", data = resumen_autos) +
-  labs(y = "Origen", x = "Promedio de Millas por Galón", 
-       title = "Comparación de autos de diferences regiones") + 
+  labs(y = "Origin", x = "Average MPG", 
+       title = "Comparison Across of Cars Diferent Regions") + 
   scale_x_continuous(limits = c(0, 35)) + 
   theme_bw() + 
   theme(axis.text=element_text(size=20), axis.title=element_text(size=20),
@@ -806,8 +749,8 @@ We can use similar commands as the Cleveland dot plot to improve the bar chart.
 #| output: true
 
 gf_col(origin ~ Promedio.mpg, fill = "pink", data = resumen_autos) +
-  labs(y = "Origen", x = "Promedio de Millas por Galón", 
-       title = "Comparación de autos de diferences regiones") + 
+  labs(y = "Origin", x = "Average MPG", 
+       title = "Comparison Across of Cars Diferent Regions") + 
   theme_bw() + 
   theme(axis.text=element_text(size=20), axis.title=element_text(size=20),
         plot.title=element_text(size=20))
@@ -828,9 +771,11 @@ To do this, the most popular charts are extensions of bar graphs:
 -   Stacked bar charts
 -   Side-by-side bar charts
 
-## Example 3
+## Example 1 (cont.)
 
-As an example, let's consider the data in the file "penguins.xlsx".
+</br></br>
+
+As an example, let's consider the data in the file "penguins.xlsx" again.
 
 ```{r}
 #| echo: false
@@ -841,13 +786,7 @@ penguins_data %>% head()
 
 ## Stacked bar chart
 
-The stacked bar chart is generated using the `histplot()` function, assigning the $X$ variable to the `hue` argument and setting `multiple='stack'`.
-
-. . .
-
-</br>
-
-For example, to study the distribution of penguin species across the three different islands, we use the following:
+We study the distribution of penguin species across the three different islands using an stacked bar chart.
 
 ```{r}
 #| fig-align: center
@@ -861,13 +800,7 @@ The chart shows the frequency of each species, separated by island name.
 
 ## Side-by-side bar chart
 
-</br>
-
-An alternative to the previous chart is to place the bars side by side for the categories of the $X$ variable.
-
-</br>
-
-In this case, we use the `countplot()` function of **seaborn**.
+An alternative to the previous chart is to place the bars side by side for the categories of the categorical variable $X$.
 
 ```{r}
 #| fig-align: center
@@ -892,7 +825,7 @@ Advantages of **stacked** bars:
 
 ## 
 
-</br>
+</br></br></br>
 
 Advantages of **side-by-side** bars:
 
@@ -926,14 +859,6 @@ gf_point(mpg ~ weight, color = ~origin, data = auto_data)
 
 A faceted plot visualizes the relationship or distribution of one or two variables for each subgroup defined by a third variable $Z$.
 
-. . .
-
-**Idea:** Create a chart for each subgroup of $Z$.
-
-. . .
-
-To create the plot, use the `FacetGrid()` function in **seaborn** with the following syntax:
-
 ```{r}
 #| fig-align: center
 #| echo: false
@@ -945,13 +870,13 @@ gf_point(mpg ~ weight, data = auto_data) %>%
 
 ## Multiple line charts
 
+</br></br>
+
+Instead of visualizing one variable, we can visualize multiple variables simultaneously using a line plot. For example, we can show the evolution of play counts for the 5 songs in the file "spotify.xlsx" over time.
+
 </br>
 
-We can use the functions `lineplot()` and `FacetGrid()` to visualize the evolution of play counts for the 5 songs in the file "spotify.xlsx" over time.
-
-</br>
-
-However, we need to manipulate the data to obtain the format required by these functions.
+However, some data visualization packages necessitate a special format to produce the multiple lines plot. 
 
 ## The required format
 
@@ -967,7 +892,7 @@ Both columns will be ordered by the variable `Date`.
 
 </br>
 
-To format the data, we use the `melt()` function from the **pandas** library.
+To format the data, we use the function `pivot_longer()` from the **tidyr** library.
 
 ```{r}
 #| echo: false
@@ -981,9 +906,12 @@ data_lines = spotify_data %>%
 data_lines %>% head()
 ```
 
-## 
+## Facet grid
 
-Now, we apply similar functions to the `data_lines` object.
+</br>
+
+Separate plots for each line.
+
 
 ```{r}
 #| fig-align: center
@@ -996,6 +924,8 @@ gf_line(Reproducciones ~ Date, data = data_lines) %>%
 ```
 
 ## 
+
+</br>
 
 Or we can plot all lines on a single chart.
 
@@ -1010,8 +940,6 @@ gf_line(Reproducciones ~ Date, color = ~Cancion, data = data_lines)
 ## Graphs for four variables
 
 A common chart for four variables is the scatter plot, where the color and size of the symbols depend on two [**categorical**]{style="color:#8B8000;"} variables.
-
-</br>
 
 ```{r}
 #| fig-align: center
