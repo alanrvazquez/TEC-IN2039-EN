@@ -26,6 +26,212 @@ editor: visual
 3.  One Numerical Variable
 4.  Multiple Variables
 
+## Types of variables
+
+</br>
+
+Before creating a graph, we must examine the type of values that our dataset variables take.
+
+. . .
+
+There are two main types of variables:
+
+::: incremental
+-   [Numerical variables.]{style="color:darkblue;"}
+
+-   [Categorical variables.]{style="color:darkred;"}
+:::
+
+## Numerical variables
+
+</br>
+
+These take values that represent numerical measurements or quantities.
+
+::: incremental
+-   Height (in centimeters).
+-   Weight (in kilograms).
+-   Age (in years).
+-   Price (in dollars).
+-   Time (in hours or seconds).
+-   Exam score (number of points on a 100-point scale).
+:::
+
+## Types of numerical variables
+
+</br>
+
+Numerical variables are divided into two types:
+
+-   [*Discrete*]{style="color:darkblue;"}: variables that take integer values.
+
+. . .
+
+Examples:
+
+1.  Number of children (0, 1, 2, or 3)
+2.  Number of students in a class (20, 30, or 35)
+3.  Number of books in a library (10,000, 15,000, 20,000)
+
+## 
+
+</br>
+
+-   [*Continuous*]{style="color:darkblue;"}: variables that have a large range of possible values.
+
+. . .
+
+Examples:
+
+1.  A person’s height (could be *within the range* of 1.60 m to 1.85 m)
+2.  Ambient temperature (could be *within the range* of -30 $^\circ$C to 50 $^\circ$C)
+3.  Time for an Uber to arrive (*between* 5 and 60 minutes)
+
+## Categorical variables
+
+</br>
+
+These take values that fall into *categories*.
+
+. . .
+
+> A **category** is a class or division of people or things that share particular characteristics.
+
+. . .
+
+|  |  |
+|------------------------------------|------------------------------------|
+| **Variable** | **Categories** |
+| Amazon review | 1$\bigstar$, 2$\bigstar$, 3$\bigstar$, 4$\bigstar$, 5$\bigstar$ |
+| Country of origin | México, Canadá, EUA |
+| Postal code | 72703, 90034, 3000, ... |
+
+## Classification of categorical variables
+
+</br>
+
+</br>
+
+Categorical variables are divided into two important types:
+
+-   [*Nominal*]{style="color:darkred;"}
+-   [*Ordinal*]{style="color:darkgreen;"}
+
+::: notes
+The distinction depends on whether the categories have a meaningful order or not.
+:::
+
+## Nominal categorical variables
+
+</br>
+
+A categorical variable is nominal if its categories **do not have** a specific order.
+
+. . .
+
+Examples:
+
+::: incremental
+-   Political party affiliation (Democrat or Republican).
+-   Dog breed (Shepherd, Hound, Terrier, Other).
+-   Computer operating system (Windows, macOS, Linux).
+:::
+
+## Ordinal categorical variables
+
+</br>
+
+A categorical variable is ordinal if its categories **do have a meaningful order**.
+
+. . .
+
+Examples:
+
+::: incremental
+-   T-shirt size (Small, Medium, Large).
+-   Education level (High School, University, Postgraduate).
+-   Income level (Less than \$250K, \$250K-\$500K, More than \$500K)
+:::
+
+::: notes
+It is important to note that with an ordinal variable, the difference between, say, small and medium is not necessarily the same as the difference between medium and large. Additionally, the differences between consecutive categories may not be quantifiable. Think about star ratings in a restaurant review—how much better is one star compared to two stars?
+:::
+
+## Interesting fact...
+
+</br>
+
+Integer values (e.g., 1, 2, 3, ..., 5) can represent nominal or ordinal categorical variables.
+
+|                |       |        |        |             |
+|----------------|-------|--------|--------|-------------|
+| Representation | 1     | 2      | 3      | 4           |
+| **Blood Type** | *A*   | *B*    | *AB*   | *O*         |
+| **Review**     | *Bad* | *Fair* | *Good* | *Very Good* |
+
+<!-- -->
+
+. . .
+
+In practice, boolean values (`TRUE` and `FALSE`) often represent nominal categories.
+
+## Remember
+
+![](images/kinds_of_data3.png){fig-align="center" width="397"}
+
+## A general difference is ...
+
+</br>
+
+-   Quantitative variables (discrete or continuous) are those where addition or subtraction makes sense.
+
+-   Categorical variables (nominal or ordinal) are those where addition or subtraction does **NOT** make sense.
+
+## How do we check the type of variable?
+
+</br>
+
+As an example, we will use "penguins.xlsx" dataset. Let's load it using **pandas**.
+
+```{python}
+#| echo: true
+
+# Load pandas.
+import pandas as pd
+
+# Load the Excel file into a pandas DataFrame.
+penguins_data = pd.read_excel("penguins.xlsx")
+```
+
+## 
+
+</br>
+
+In Python, we check the type of each variable in a dataset using the function `info()`.
+
+```{python}
+#| echo: true
+
+penguins_data.info()
+```
+
+## General Python formats
+
+</br>
+
+-   `float64` format for numerical variables with decimals. It is used for [*continuous*]{style="color:darkblue;"} variables.
+-   `int64` format for numerical variables with integers. It is used for [*discrete*]{style="color:darkblue;"} variables.
+-   `object` format for general variables with characters. It is used for [*nominal*]{style="color:darkred;"} and [*ordinal*]{style="color:darkgreen;"} variables. However, we must inform Python about this. More on that later.
+
+## Activity (*solo* mode)
+
+</br>
+
+1.  Go to the **Modules** section on our CANVAS website.
+
+2.  Complete the [**Activity 2.1: Types of Variables**]{style="color:darkblue;"} individually.
+
+
 # One Categorical Variable
 
 ## Example 1: Penguins dataset
