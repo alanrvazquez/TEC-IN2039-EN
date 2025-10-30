@@ -193,35 +193,32 @@ In practice, boolean values (`TRUE` and `FALSE`) often represent nominal categor
 
 As an example, we will use "penguins.xlsx" dataset. Let's load it using **pandas**.
 
-```{python}
-#| echo: true
+```{r}
+#| output: true
+#| echo: false
 
-# Load pandas.
-import pandas as pd
-
-# Load the Excel file into a pandas DataFrame.
-penguins_data = pd.read_excel("penguins.xlsx")
+library(readxl)
+library(tidyverse)
+library(ggformula)
+penguins_data = read_excel("penguins.xlsx")
+head(penguins_data)
 ```
+
 
 ## 
 
-</br>
+The letter abbreviations below the column names describe the type of each variable:
 
-In Python, we check the type of each variable in a dataset using the function `info()`.
+::: incremental
+- `dbl` stands for doubles or real numbers. For continuous variables.
 
-```{python}
-#| echo: true
+- `int` stands for integers. For discrete variables.
 
-penguins_data.info()
-```
+- `fctr` stands for factors, which R uses to represent categorical variables (nominal and ordinal) with fixed possible values.
 
-## General Python formats
+- `lgl` stands for logical, vectors that contain only `TRUE` or `FALSE`. For categorical variables (nominal).
 
-</br>
-
--   `float64` format for numerical variables with decimals. It is used for [*continuous*]{style="color:darkblue;"} variables.
--   `int64` format for numerical variables with integers. It is used for [*discrete*]{style="color:darkblue;"} variables.
--   `object` format for general variables with characters. It is used for [*nominal*]{style="color:darkred;"} and [*ordinal*]{style="color:darkgreen;"} variables. However, we must inform Python about this. More on that later.
+:::
 
 ## Activity (*solo* mode)
 
