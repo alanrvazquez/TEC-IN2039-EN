@@ -465,29 +465,13 @@ Alan R. Vazquez
 <section id="section-4" class="slide level2">
 <h2></h2>
 <p><span style="color:#023562;"><strong>Principle 2</strong></span>: Turn data into information.</p>
-<div id="2808f031" class="cell" data-fig-height="4" data-execution_count="1">
-<div class="cell-output cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="Introduction_files/figure-revealjs/cell-2-output-1.png" class="quarto-figure quarto-figure-center" width="686" height="605"></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
+
+<img data-src="Introduction_files/figure-revealjs/unnamed-chunk-1-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
 <section id="section-5" class="slide level2">
 <h2></h2>
 <p><span style="color:#023562;"><strong>Principle 3</strong></span>: Apply Graphic Design Principles.</p>
-<div id="a206db39" class="cell" data-fig-height="4" data-execution_count="2">
-<div class="cell-output cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="Introduction_files/figure-revealjs/cell-3-output-1.png" class="quarto-figure quarto-figure-center" width="686" height="588"></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
+
+<img data-src="Introduction_files/figure-revealjs/unnamed-chunk-2-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
 <section id="section-6" class="slide level2">
 <h2></h2>
 <p><br></p>
@@ -536,7 +520,7 @@ Alan R. Vazquez
 </section>
 <section id="section-7" class="slide level2">
 <h2></h2>
-<p><br></p>
+<p><br><br><br></p>
 <div class="columns">
 <div class="column" style="width:70%;">
 <blockquote>
@@ -623,6 +607,39 @@ Alan R. Vazquez
 <img data-src="images/geek.jpg" class="quarto-figure quarto-figure-center r-stretch"><div style="font-size: 50%;">
 <p><a href="https://www.amazon.com/Even-Geek-Speak-Joey-Asher/dp/0978577604" class="uri">https://www.amazon.com/Even-Geek-Speak-Joey-Asher/dp/0978577604</a></p>
 </div>
+</section>
+<section id="advice-for-effective-presentations" class="slide level2">
+<h2>Advice for Effective Presentations</h2>
+<ol type="1">
+<li class="fragment"><p><strong>Avoid jargon overload.</strong> Speak in plain, everyday language your audience understands.</p></li>
+<li class="fragment"><p><strong>Develop the main objective</strong> Start your speech with “By [insert what you want to accomplish] you will [insert what your listener wants].”</p></li>
+<li class="fragment"><p><strong>Present the “so what.”</strong> Don’t dive straight into details — explain <em>why it matters</em> first.</p></li>
+<li class="fragment"><p><strong>Limit your slides.</strong> One main idea per slide keeps your message clear and focused.</p></li>
+</ol>
+</section>
+<section id="section-11" class="slide level2">
+<h2></h2>
+<ol start="5" type="1">
+<li><strong>Use the 3-points structure.</strong> Come up with no more than three points in support of your main objective. Support each of the points with facts or examples.</li>
+</ol>
+<ol start="6" type="1">
+<li class="fragment"><p><strong>Practice for clarity, not memorization.</strong> Rehearse enough to sound natural and confident.</p></li>
+<li class="fragment"><p><strong>You are the presentation.</strong> Visuals in PowerPoint reinforce a speaker’s message and help the audience key points. However, the presenter should always be the focus of the presentation, not the visuals.</p></li>
+<li class="fragment"><p><strong>End with a call to action.</strong> Tell your audience <em>what you want them to do next.</em></p></li>
+</ol>
+</section>
+<section id="take-home-activity" class="slide level2">
+<h2>Take-Home Activity</h2>
+<p>Prepare a short presentation (up to 5 minutes) about any topic you’re passionate about.</p>
+<p><strong>Guidelines</strong>:</p>
+<ul>
+<li>Use slides (PowerPoint or Google Slides — your choice).<br>
+</li>
+<li>Upload your slides to <strong>CANVAS</strong> before next class.<br>
+</li>
+<li>A few students will be randomly selected to present live.</li>
+</ul>
+<p>We won’t judge your topic. We’re looking for <strong>clarity, connection, and passion</strong>.</p>
 </section></section>
 <section id="return-to-main-page" class="title-slide slide level1 center">
 <h1><a href="https://alanrvazquez.github.io/TEC-IN2039-EN/">Return to main page</a></h1>
@@ -848,6 +865,44 @@ Alan R. Vazquez
         ]
       });
     </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
     <script id="quarto-html-after-body" type="application/javascript">
       window.document.addEventListener("DOMContentLoaded", function (event) {
         const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")

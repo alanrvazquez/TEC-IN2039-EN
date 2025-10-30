@@ -15,7 +15,6 @@ format:
     slide-number: True
     html-math-method: mathjax
 editor: visual
-jupyter: python3
 ---
 
 ## Agenda
@@ -309,81 +308,54 @@ The estimated costs are based on a twice-daily 10.4 mile one-way commute at peak
 
 [**Principle 2**]{style="color:#023562;"}: Turn data into information.
 
-```{python}
+```{r}
 #| echo: false
 #| output: true
 #| fig-height: 4
 #| fig-align: center
 
-import matplotlib.pyplot as plt
-import seaborn as sns
-import pandas as pd
-
+library(ggplot2)
+library(ggformula)
 # Sample data
-data = {
-    "City": ["New York City", "New York City", "Washington D.C.", "Washington D.C.", 
-             "Chicago", "Chicago", "Los Angeles", "Los Angeles", "Dallas", "Dallas"],
-    "Type": ["Car", "Uber"] * 5,
-    "Cost": [218, 142, 130, 96, 116, 77, 89, 62, 65, 181]
-}
+uber <- data.frame(
+  City = rep(c("New York City", "Washington D.C.", "Chicago", "Los Angeles", "Dallas"), each = 2),
+  Type = rep(c("Uber", "Auto"), times = 5),
+  Cost = c(142, 218, 96, 130, 77, 116, 62, 89, 181, 65)
+)
 
-uber_df = pd.DataFrame(data)
-
-# Set the style
-sns.set_style("whitegrid")
-plt.figure(figsize=(8, 7))
-
-# Create the line plot
-sns.lineplot(data=uber_df, x="Type", y="Cost", hue="City", marker="o", linewidth=2, alpha=0.7)
-
-# Customize the plot
-plt.title("It is cheaper to take Uber than own a car in four of the five largest U.S. cities.", fontsize=12)
-plt.ylabel("Cost (USD)", fontsize=18)
-plt.xticks(fontsize=18)
-plt.yticks(fontsize=15)
-plt.legend(title="City", fontsize=10)
-
-# Show the plot
-plt.show()
+slp_plot = ggplot(data = uber, aes(x = Type, y = Cost, group = City, color = factor(City))) 
+slp_plot = slp_plot + geom_line(size = 2, alpha = 0.5) 
+slp_plot = slp_plot + geom_point(size = 3)
+slp_plot = slp_plot + labs(title = "It is cheaper to take Uber than own a car in four of the five largest U.S. cities.", x = "", y = "Cost (USD)", color = "City")
+slp_plot
 ```
 
 ## 
 
 [**Principle 3**]{style="color:#023562;"}: Apply Graphic Design Principles.
 
-```{python}
+```{r}
 #| echo: false
 #| output: true
 #| fig-height: 4
 #| fig-align: center
 
-# Define custom colors
-custom_colors = {
-    "Chicago": "#619CFF", 
-    "Dallas": "red", 
-    "Los Angeles": "#619CFF", 
-    "New York City": "#619CFF", 
-    "Washington D.C.": "#619CFF"
-}
+library(ggplot2)
+library(ggformula)
+# Sample data
+uber <- data.frame(
+  City = rep(c("New York City", "Washington D.C.", "Chicago", "Los Angeles", "Dallas"), each = 2),
+  Type = rep(c("Uber", "Auto"), times = 5),
+  Cost = c(142, 218, 96, 130, 77, 116, 62, 89, 181, 65)
+)
 
-# Set the style
-sns.set_style("whitegrid")
-plt.figure(figsize=(8, 7))
-
-# Create the line plot with custom colors
-sns.lineplot(data=uber_df, x="Type", y="Cost", hue="City", marker="o", linewidth=2, alpha=0.7, 
-             palette=custom_colors)
-
-# Customize the plot
-plt.title("It is cheaper to take Uber than own a car in four of the five largest U.S. cities.", fontsize=12)
-plt.xlabel("")
-plt.ylabel("Cost (USD)", fontsize=18)
-plt.xticks(fontsize=18)
-plt.yticks(fontsize=15)
-plt.legend(title="City", fontsize=10)
-
-# Show the plot
-plt.show()
+slp_plot = ggplot(data = uber, aes(x = Type, y = Cost, group = City, color = factor(City))) 
+slp_plot = slp_plot + geom_line(size = 2, alpha = 0.5) 
+slp_plot = slp_plot + geom_point(size = 3)
+slp_plot = slp_plot + labs(title = "It is cheaper to take Uber than own a car in four of the five largest U.S. cities.", x = "", y = "Costo (USD)", color = "Ciudad")
+slp_plot = slp_plot + scale_color_manual(values = c("Chicago" = "#619CFF", "Dallas" = "red", "Los Angeles" = "#619CFF", "New York City" = "#619CFF", "Washington D.C." = "#619CFF"))
+slp_plot + theme_minimal() + theme(text = element_text(size = 15),
+        axis.text.x = element_text(size = 20), axis.text.y = element_text(size = 15))
 ```
 
 ## 
@@ -434,7 +406,7 @@ For example, a simple bar chart can be enhanced by context and narrative to expl
 
 ## 
 
-</br>
+</br></br></br>
 
 ::::: columns
 ::: {.column width="70%"}
@@ -445,6 +417,7 @@ For example, a simple bar chart can be enhanced by context and narrative to expl
 ![](images/steve_jobs.png)
 :::
 :::::
+
 
 ## The Three Components of a Data Story
 
@@ -515,5 +488,41 @@ For example: A study on food pricing inequality might start with disparities in 
 ::: {style="font-size: 50%;"}
 <https://www.amazon.com/Even-Geek-Speak-Joey-Asher/dp/0978577604>
 :::
+
+## Advice for Effective Presentations
+
+::: incremental
+1. **Avoid jargon overload.** Speak in plain, everyday language your audience understands.
+
+2. **Develop the main objective** Start your speech with "By [insert what you want to accomplish] you will [insert what your listener wants]."
+
+3. **Present the “so what.”** Don’t dive straight into details — explain *why it matters* first.
+
+4. **Limit your slides.**  One main idea per slide keeps your message clear and focused.
+:::
+
+## 
+
+5. **Use the 3-points structure.** Come up with no more than three points in support of your main objective. Support each of the points with facts or examples.
+
+::: incremental
+6. **Practice for clarity, not memorization.**  Rehearse enough to sound natural and confident.
+
+7. **You are the presentation.**  Visuals in PowerPoint reinforce a speaker's message and help the audience key points. However, the presenter should always be the focus of the presentation, not the visuals.
+
+8. **End with a call to action.**  Tell your audience *what you want them to do next.*
+:::
+
+## Take-Home Activity
+
+Prepare a short presentation (up to 5 minutes) about any topic you’re passionate about.
+
+**Guidelines**:
+
+- Use slides (PowerPoint or Google Slides — your choice).  
+- Upload your slides to **CANVAS** before next class.  
+- A few students will be randomly selected to present live.
+
+We won't judge your topic. We’re looking for **clarity, connection, and passion**.
 
 # [Return to main page](https://alanrvazquez.github.io/TEC-IN2039-EN/)
