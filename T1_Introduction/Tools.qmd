@@ -314,7 +314,6 @@ So, if we wanted to print the contents of the first position in `my_list`, we co
 my_list[1]
 ```
 
-
 ## A little more about R objects
 
 </br>
@@ -471,7 +470,6 @@ However, we need to inform Google Colab that we want to use **readxl** and its f
 library(readxl)
 ```
 
-
 ## Loading data using readxl
 
 </br>
@@ -497,7 +495,6 @@ The function `head()` allows you to print the first 6 rows of a data frame.
 head(penguins_data)
 ```
 
-
 ## Mini-activity (*solo* mode)
 
 1.  Open the following Google Colab link:
@@ -518,11 +515,11 @@ head(penguins_data)
 :::
 
 ::: {.column width="50%"}
-- **dplyr** allows you to manipulate data and generate statistical summaries.
+-   **dplyr** allows you to manipulate data and generate statistical summaries.
 
-- It is part of a collection of data science packages called **tidyverse**.
+-   It is part of a collection of data science packages called **tidyverse**.
 
-- <https://dplyr.tidyverse.org/>
+-   <https://dplyr.tidyverse.org/>
 :::
 :::::
 
@@ -548,16 +545,15 @@ The grammar for using pipe is as follows:
 **dplyr** is a data manipulation grammar that provides a set of verbs (functions) to solve the most common data manipulation challenges:
 
 ::: incremental
-- `filter()` selects observations based on their values.
+-   `filter()` selects observations based on their values.
 
-- `select()` selects variables based on their names.
+-   `select()` selects variables based on their names.
 
-- `mutate()` adds new variables that are functions of existing variables.
+-   `mutate()` adds new variables that are functions of existing variables.
 
-- `arrange()` changes the order of rows.
+-   `arrange()` changes the order of rows.
 
-- `summarise()` reduces multiple values to a single numerical summary.
-
+-   `summarise()` reduces multiple values to a single numerical summary.
 :::
 
 ## 
@@ -591,7 +587,6 @@ We can also filter the observations for the species "Gentoo."
 
 penguins_data %>% filter(species == "Gentoo") %>% head()
 ```
-
 
 ## Select columns with `select()`
 
@@ -651,7 +646,7 @@ penguins_data %>%
   head()
 ```
 
-##
+## 
 
 </br></br>
 
@@ -665,7 +660,6 @@ penguins_data %>%
   arrange(desc(bill_length_mm)) %>% 
   head()
 ```
-
 
 ## Summarize with `summarise()`
 
@@ -722,13 +716,12 @@ summary_penguins_data %>% head()
 
 </br>
 
-- **dplyr** is a library that allows us to manipulate data in R.
+-   **dplyr** is a library that allows us to manipulate data in R.
 
-- Variable types help specify the operations and visualizations we can apply to the data.
+-   Variable types help specify the operations and visualizations we can apply to the data.
 
-- There are appropriate or designed graphs for visualizing numeric or categorical variables.
+-   There are appropriate or designed graphs for visualizing numeric or categorical variables.
 
-- In this course, we will see several graphs for each variable type and their combinations.
-
+-   In this course, we will see several graphs for each variable type and their combinations.
 
 # [Return to main page](https://alanrvazquez.github.io/TEC-IN2039-EN/)
