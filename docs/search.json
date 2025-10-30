@@ -1992,7 +1992,7 @@
     "href": "T1_Introduction/Introduction.slides.html#data-understanding",
     "title": "What is Data Visualization?",
     "section": "Data understanding",
-    "text": "Data understanding\n\n\nIf the goal is to solve a business problem, the data that makes up the raw material available from which the solution will be built.\nThe available data rarely matches the problem.\nFor example, historical data is often collected for purposes unrelated to the current business problem or for no explicit purpose at all.\n\n\n\n\nOur goal is to turn data into information that answers useful questions."
+    "text": "Data understanding\n\nIf the goal is to solve a business problem, the data that makes up the raw material available from which the solution will be built.\nThe available data rarely matches the problem.\nFor example, historical data is often collected for purposes unrelated to the current business problem or for no explicit purpose at all.\n\n\n\nOur goal is to turn data into information that answers useful questions."
   },
   {
     "objectID": "T1_Introduction/Introduction.slides.html#data-types",
@@ -2076,7 +2076,7 @@
     "href": "T1_Introduction/Introduction.slides.html#principle-3-apply-graphic-design-principles",
     "title": "What is Data Visualization?",
     "section": "Principle 3: Apply Graphic Design Principles",
-    "text": "Principle 3: Apply Graphic Design Principles\n\n\n\n\n\n\n\nObjects are easily identifiable by color.\nUse direct labels instead of a legend.\nElements such as text, lines, and shapes of the same nature should look similar.\nBalance graphics and text.\nBe cautious with default settings in visualization software.\nUse a grid-based layout to organize your visualization.\n\n\n\n\n\n\n\n\n\n\n\n\nDon’t limit yourself to simple elements. Enhance your graph with color symbols to convey additional information. If possible, add context with markers and reference labels.\nAdditionally, include a legend in the graph that describes key features and summarizes its conclusions."
+    "text": "Principle 3: Apply Graphic Design Principles\n\n\n\n\n\n\nObjects are easily identifiable by color.\nUse direct labels instead of a legend.\nElements such as text, lines, and shapes of the same nature should look similar.\nBalance graphics and text.\nBe cautious with default settings in visualization software.\nUse a grid-based layout to organize your visualization.\n\n\n\n\n\n\n\n\n\n\n\nDon’t limit yourself to simple elements. Enhance your graph with color symbols to convey additional information. If possible, add context with markers and reference labels.\nAdditionally, include a legend in the graph that describes key features and summarizes its conclusions."
   },
   {
     "objectID": "T1_Introduction/Introduction.slides.html#example",
@@ -2160,7 +2160,7 @@
     "href": "T1_Introduction/Introduction.slides.html#best-practices-for-storytelling",
     "title": "What is Data Visualization?",
     "section": "Best practices for storytelling",
-    "text": "Best practices for storytelling\n\n\nKnow Your Audience – Tailor the message to decision-makers, engineers, or the public.\nKeep it Simple – Avoid unnecessary complexity; clarity is key.\nUse the Right Visuals – Choose the best chart type for your message.\nEmphasize Key Takeaways – Bold the most important insights.\nCreate a Narrative Flow – Guide the audience through the story step by step."
+    "text": "Best practices for storytelling\n\nKnow Your Audience – Tailor the message to decision-makers, engineers, or the public.\nKeep it Simple – Avoid unnecessary complexity; clarity is key.\nUse the Right Visuals – Choose the best chart type for your message.\nEmphasize Key Takeaways – Bold the most important insights.\nCreate a Narrative Flow – Guide the audience through the story step by step."
   },
   {
     "objectID": "T1_Introduction/Introduction.slides.html#section-10",
