@@ -529,7 +529,6 @@ plt.show()
 
 </br>
 
-
 -   The two plots **do not** validate the assumptions of the linear regression model.
 
 -   There are methods to correct this, but we will not cover them here.

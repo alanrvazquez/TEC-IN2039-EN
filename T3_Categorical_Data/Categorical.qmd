@@ -329,16 +329,15 @@ Pie charts versus bar charts.
 
 ::: {style="font-size: 65%;"}
 You are an expert in data visualization using the libraries "matplotlib" and "seaborn" of the Python programming language. The goal is to visualize the proportions of three islands of penguins using a pie chart. To achieve this goal, perform the following steps:
- 
-1. Use the "penguin_data" dataset. 
-2. The variable "island" contains the categories of penguins. 
-3. To enhance the graph, add the title "Proportion of Penguins" and use different colors for the categories of penguins. 
+
+1.  Use the "penguin_data" dataset.
+2.  The variable "island" contains the categories of penguins.
+3.  To enhance the graph, add the title "Proportion of Penguins" and use different colors for the categories of penguins.
 
 Create the pie chart following the aforementioned instructions.
 :::
 
-
-5. Discuss the pie charts created by you and this prompt.
+5.  Discuss the pie charts created by you and this prompt.
 
 # Transforming categorical variables
 
