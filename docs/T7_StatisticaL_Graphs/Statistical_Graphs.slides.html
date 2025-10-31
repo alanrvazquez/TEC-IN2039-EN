@@ -147,304 +147,21 @@ Alan R. Vazquez
 <h2>Agenda</h2>
 <p><br></p>
 <ol type="1">
-<li>Types of Variables</li>
-<li>One Categorical Variable</li>
-<li>One Numerical Variable</li>
-<li>Multiple Variables</li>
+<li><p>One Numerical Variable</p></li>
+<li><p>Multiple Variables</p>
+<ul>
+<li>Side-by-Side Box Plots</li>
+<li>Regression Plots</li>
+</ul></li>
 </ol>
 </section>
-<section id="types-of-variables" class="slide level2">
-<h2>Types of variables</h2>
-<p><br></p>
-<p>Before creating a graph, we must examine the type of values that our dataset variables take.</p>
-<div class="fragment">
-<p>There are two main types of variables:</p>
-<ul>
-<li class="fragment"><p><span style="color:darkblue;">Numerical variables.</span></p></li>
-<li class="fragment"><p><span style="color:darkred;">Categorical variables.</span></p></li>
-</ul>
-</div>
-</section>
-<section id="numerical-variables" class="slide level2">
-<h2>Numerical variables</h2>
-<p><br></p>
-<p>These take values that represent numerical measurements or quantities.</p>
-<ul>
-<li class="fragment">Height (in centimeters).</li>
-<li class="fragment">Weight (in kilograms).</li>
-<li class="fragment">Age (in years).</li>
-<li class="fragment">Price (in dollars).</li>
-<li class="fragment">Time (in hours or seconds).</li>
-<li class="fragment">Exam score (number of points on a 100-point scale).</li>
-</ul>
-</section>
-<section id="types-of-numerical-variables" class="slide level2">
-<h2>Types of numerical variables</h2>
-<p><br></p>
-<p>Numerical variables are divided into two types:</p>
-<ul>
-<li><span style="color:darkblue;"><em>Discrete</em></span>: variables that take integer values.</li>
-</ul>
-<div class="fragment">
-<p>Examples:</p>
-<ol type="1">
-<li>Number of children (0, 1, 2, or 3)</li>
-<li>Number of students in a class (20, 30, or 35)</li>
-<li>Number of books in a library (10,000, 15,000, 20,000)</li>
-</ol>
-</div>
-</section>
-<section id="section" class="slide level2">
-<h2></h2>
-<p><br></p>
-<ul>
-<li><span style="color:darkblue;"><em>Continuous</em></span>: variables that have a large range of possible values.</li>
-</ul>
-<div class="fragment">
-<p>Examples:</p>
-<ol type="1">
-<li>A person’s height (could be <em>within the range</em> of 1.60 m to 1.85 m)</li>
-<li>Ambient temperature (could be <em>within the range</em> of -30 <span class="math inline">\(^\circ\)</span>C to 50 <span class="math inline">\(^\circ\)</span>C)</li>
-<li>Time for an Uber to arrive (<em>between</em> 5 and 60 minutes)</li>
-</ol>
-</div>
-</section>
-<section id="categorical-variables" class="slide level2">
-<h2>Categorical variables</h2>
-<p><br></p>
-<p>These take values that fall into <em>categories</em>.</p>
-<div class="fragment">
-<blockquote>
-<p>A <strong>category</strong> is a class or division of people or things that share particular characteristics.</p>
-</blockquote>
-</div>
-<div class="fragment">
-<table class="caption-top">
-<colgroup>
-<col style="width: 50%">
-<col style="width: 50%">
-</colgroup>
-<tbody>
-<tr class="odd">
-<td><strong>Variable</strong></td>
-<td><strong>Categories</strong></td>
-</tr>
-<tr class="even">
-<td>Amazon review</td>
-<td>1<span class="math inline">\(\bigstar\)</span>, 2<span class="math inline">\(\bigstar\)</span>, 3<span class="math inline">\(\bigstar\)</span>, 4<span class="math inline">\(\bigstar\)</span>, 5<span class="math inline">\(\bigstar\)</span></td>
-</tr>
-<tr class="odd">
-<td>Country of origin</td>
-<td>México, Canadá, EUA</td>
-</tr>
-<tr class="even">
-<td>Postal code</td>
-<td>72703, 90034, 3000, …</td>
-</tr>
-</tbody>
-</table>
-</div>
-</section>
-<section id="classification-of-categorical-variables" class="slide level2">
-<h2>Classification of categorical variables</h2>
-<p><br></p>
-<p><br></p>
-<p>Categorical variables are divided into two important types:</p>
-<ul>
-<li><span style="color:darkred;"><em>Nominal</em></span></li>
-<li><span style="color:darkgreen;"><em>Ordinal</em></span></li>
-</ul>
-<aside class="notes">
-<p>The distinction depends on whether the categories have a meaningful order or not.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="nominal-categorical-variables" class="slide level2">
-<h2>Nominal categorical variables</h2>
-<p><br></p>
-<p>A categorical variable is nominal if its categories <strong>do not have</strong> a specific order.</p>
-<div class="fragment">
-<p>Examples:</p>
-<ul>
-<li class="fragment">Political party affiliation (Democrat or Republican).</li>
-<li class="fragment">Dog breed (Shepherd, Hound, Terrier, Other).</li>
-<li class="fragment">Computer operating system (Windows, macOS, Linux).</li>
-</ul>
-</div>
-</section>
-<section id="ordinal-categorical-variables" class="slide level2">
-<h2>Ordinal categorical variables</h2>
-<p><br></p>
-<p>A categorical variable is ordinal if its categories <strong>do have a meaningful order</strong>.</p>
-<div class="fragment">
-<p>Examples:</p>
-<ul>
-<li class="fragment">T-shirt size (Small, Medium, Large).</li>
-<li class="fragment">Education level (High School, University, Postgraduate).</li>
-<li class="fragment">Income level (Less than $250K, $250K-$500K, More than $500K)</li>
-</ul>
-<aside class="notes">
-<p>It is important to note that with an ordinal variable, the difference between, say, small and medium is not necessarily the same as the difference between medium and large. Additionally, the differences between consecutive categories may not be quantifiable. Think about star ratings in a restaurant review—how much better is one star compared to two stars?</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</div>
-</section>
-<section id="interesting-fact" class="slide level2">
-<h2>Interesting fact…</h2>
-<p><br></p>
-<p>Integer values (e.g., 1, 2, 3, …, 5) can represent nominal or ordinal categorical variables.</p>
-<table class="caption-top">
-<tbody>
-<tr class="odd">
-<td>Representation</td>
-<td>1</td>
-<td>2</td>
-<td>3</td>
-<td>4</td>
-</tr>
-<tr class="even">
-<td><strong>Blood Type</strong></td>
-<td><em>A</em></td>
-<td><em>B</em></td>
-<td><em>AB</em></td>
-<td><em>O</em></td>
-</tr>
-<tr class="odd">
-<td><strong>Review</strong></td>
-<td><em>Bad</em></td>
-<td><em>Fair</em></td>
-<td><em>Good</em></td>
-<td><em>Very Good</em></td>
-</tr>
-</tbody>
-</table>
-<!-- -->
-<div class="fragment">
-<p>In practice, boolean values (<code>TRUE</code> and <code>FALSE</code>) often represent nominal categories.</p>
-</div>
-</section>
-<section id="remember" class="slide level2">
-<h2>Remember</h2>
-
-<img data-src="images/kinds_of_data3.png" class="quarto-figure quarto-figure-center r-stretch" width="397"></section>
-<section id="a-general-difference-is" class="slide level2">
-<h2>A general difference is …</h2>
-<p><br></p>
-<ul>
-<li><p>Quantitative variables (discrete or continuous) are those where addition or subtraction makes sense.</p></li>
-<li><p>Categorical variables (nominal or ordinal) are those where addition or subtraction does <strong>NOT</strong> make sense.</p></li>
-</ul>
-</section>
-<section id="activity-solo-mode" class="slide level2">
-<h2>Activity (<em>solo</em> mode)</h2>
-<p><br></p>
-<ol type="1">
-<li><p>Go to the <strong>Modules</strong> section on our CANVAS website.</p></li>
-<li><p>Complete the <span style="color:darkblue;"><strong>Activity 2.1: Types of Variables</strong></span> individually.</p></li>
-</ol>
-</section>
-<section>
-<section id="one-categorical-variable" class="title-slide slide level1 center">
-<h1>One Categorical Variable</h1>
-
-</section>
-<section id="example-1-penguins-dataset" class="slide level2">
-<h2>Example 1: Penguins dataset</h2>
-<p><br></p>
-<p>We will illustrate the concepts using the <code>penguins.xlsx</code> dataset. We will focus on visualizing the following categorical variables: <code>species</code>, <code>island</code> y <code>sex</code>.</p>
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 6 × 3
-  species island    sex   
-  &lt;chr&gt;   &lt;chr&gt;     &lt;chr&gt; 
-1 Adelie  Torgersen male  
-2 Adelie  Torgersen female
-3 Adelie  Torgersen female
-4 Adelie  Torgersen &lt;NA&gt;  
-5 Adelie  Torgersen female
-6 Adelie  Torgersen male  </code></pre>
-</div>
-</div>
-</section>
-<section id="bar-chart" class="slide level2">
-<h2>Bar chart</h2>
-<p>It visually represents frequencies or percentages of the categories of a categorical variable. The frequency (or percentage) is represented by a bar of proportional height.</p>
-
-<img data-src="Statistical_Graphs_files/figure-revealjs/unnamed-chunk-3-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
-<section id="bar-chart-for-percentages" class="slide level2">
-<h2>Bar chart for percentages</h2>
-<p><br></p>
-
-<img data-src="Statistical_Graphs_files/figure-revealjs/unnamed-chunk-4-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
-<section id="example-2-boston-housing-dataset" class="slide level2">
-<h2>Example 2: Boston Housing Dataset</h2>
-<p>This dataset contains information collected by the U.S. Census Bureau on housing in the Boston, Massachusetts area. The dataset is in <code>Boston_dataset.xlsx</code>.</p>
-<div class="columns">
-<div class="column" style="width:60%;">
-<p><img data-src="images/boston_dataset.png"></p>
-</div><div class="column" style="width:40%;">
-<p><img data-src="images/clipboard-3653087831.png"></p>
-</div></div>
-</section>
-<section id="section-1" class="slide level2">
-<h2></h2>
-<p><br></p>
-<p>We concentrate on the following variables:</p>
-<ul>
-<li><p><code>chas</code> : Whether the house is next to the Charles River (1: Yes and 0: No)</p></li>
-<li><p><code>rad</code> : Index of accessibility to radial highways (<code>Low</code>, <code>Medium</code>, <code>High</code>).</p></li>
-</ul>
-</section>
-<section id="section-2" class="slide level2">
-<h2></h2>
-<p><br></p>
-<p>Let’s create a bar chart for <code>chas</code>.</p>
-
-<img data-src="Statistical_Graphs_files/figure-revealjs/unnamed-chunk-6-1.png" width="960" class="r-stretch"></section>
-<section id="section-3" class="slide level2">
-<h2></h2>
-<p><br></p>
-<p>Now, let’s create a bar chart for <code>rad</code>.</p>
-
-<img data-src="Statistical_Graphs_files/figure-revealjs/unnamed-chunk-7-1.png" width="960" class="r-stretch"></section>
-<section id="collapsing" class="slide level2">
-<h2>Collapsing</h2>
-<p><br></p>
-<p>Some categorical variables tend to have many categories. For example, states in a country or postal codes. In these cases, it can be difficult to visualize all the categories in a single graph.</p>
-<p>One strategy for developing an effective visualization is to collapse categories.</p>
-<p>For example, in the variable <code>rad</code>, we can collapse the categories <code>Medium</code> and <code>High</code> into a single category called <code>Other</code>.</p>
-</section>
-<section id="section-4" class="slide level2">
-<h2></h2>
-<p>Collapsing categories simplifies the graph</p>
-
-<img data-src="Statistical_Graphs_files/figure-revealjs/unnamed-chunk-8-1.png" width="960" class="r-stretch"><p>It also allows us to emphasize a category like <code>Low</code> and see how it compares to the other categories (as a whole).</p>
-</section></section>
 <section>
 <section id="one-numerical-variable" class="title-slide slide level1 center">
 <h1>One Numerical Variable</h1>
 
 </section>
-<section id="example-3" class="slide level2">
-<h2>Example 3</h2>
+<section id="example-1" class="slide level2">
+<h2>Example 1</h2>
 <div class="columns">
 <div class="column" style="width:70%;">
 <p>A piston is a mechanical device found in most engines.</p>
@@ -454,142 +171,171 @@ Alan R. Vazquez
 <p>One measure of a piston’s performance is the time it takes to complete a cycle, which we call “cycle time” and is measured in seconds.</p>
 <p>The file “CYLT.xlsx” contains 50 cycle times of a piston operating under fixed conditions.</p>
 </section>
-<section id="histogram" class="slide level2">
-<h2>Histogram</h2>
-<p>Visualizes the distribution of observations, indicating regions where observations are concentrated or sparse.</p>
-<div class="fragment">
-<p>It is built using a <strong><em>frequency table</em></strong>.</p>
-<ol type="1">
-<li>Define a maximum number of intervals or <em>bins</em> (from 5 to 30).</li>
-<li>Define the ranges of the intervals.</li>
-<li>Group the observations in the interval to which they belong.</li>
-</ol>
-</div>
-<div class="fragment">
-<p>R automatically calculates the frequency table for numerical data. The histogram is a visualization of this table.</p>
-</div>
-</section>
-<section id="section-5" class="slide level2">
-<h2></h2>
+<section id="summary-statistic" class="slide level2">
+<h2>Summary statistic</h2>
 <p><br></p>
-
-<img data-src="Statistical_Graphs_files/figure-revealjs/unnamed-chunk-10-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"><aside class="notes">
-<p>The bars of the histogram touch each other. A gap indicates that there are no observations in that interval.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="it-is-not-the-same-as-a-bar-chart" class="slide level2">
-<h2>It is not the same as a bar chart</h2>
-<p><br></p>
-<p>With categorical data, a bar chart looks similar to a histogram because it displays the frequency of categories.</p>
-<p>However, we cannot interpret the shape of a bar chart in the same way as a histogram.</p>
-<ol type="1">
-<li><p>The frequency of a category is represented by the height of the bar, and the width does not contain any information.</p></li>
-<li><p>A bar chart will not highlight outliers.</p></li>
-</ol>
-<aside class="notes">
-<p>Tails and symmetry do not make sense in this setting.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="number-of-bins" class="slide level2">
-<h2>Number of bins</h2>
+<blockquote>
+<p>Helps us to summarize a list of observations in a simple way.</p>
+</blockquote>
+<p>For <strong>numerical</strong> data, the most popular summary statistics are:</p>
 <ul>
-<li>The number of bins is a parameter of the histogram that affects its appearance.</li>
+<li class="fragment"><span style="color:darkblue;">Mean</span></li>
+<li class="fragment"><span style="color:darkblue;">Variance</span> and <span style="color:darkblue;">standard deviation</span></li>
+<li class="fragment"><span style="color:darkgreen;">Quartiles</span></li>
+<li class="fragment">Maximum and minimum</li>
 </ul>
-
-<img data-src="Statistical_Graphs_files/figure-revealjs/unnamed-chunk-11-1.png" width="960" class="r-stretch"></section>
-<section id="section-6" class="slide level2">
+</section>
+<section id="mean" class="slide level2">
+<h2>Mean</h2>
+<p><br></p>
+<blockquote>
+<p>Indicates the center of the data.</p>
+</blockquote>
+<p><br></p>
+<p>Let <span class="math inline">\(y_1, y_2, \ldots, y_n\)</span> be an observed sample of size <span class="math inline">\(n\)</span>.</p>
+<p>The mean is</p>
+<p><span class="math display">\[\bar{y} = \frac{1}{n}\sum_{i=1}^{n} y_i = \frac{y_1 + y_2 + \cdots + y_n}{n}.\]</span></p>
+</section>
+<section id="variance" class="slide level2">
+<h2>Variance</h2>
+<blockquote>
+<p>Indicates how spread out the data are around the mean.</p>
+</blockquote>
+<p><br></p>
+<p>Let <span class="math inline">\(y_1, y_2, \ldots, y_n\)</span> be an observed sample of size <span class="math inline">\(n\)</span>. The variance is</p>
+<p><span class="math display">\[
+s^2 = \frac{1}{n-1} \sum_{i=1}^{n} (y_i - \bar{y})^2 = \frac{(y_1 - \bar{y})^2  + \cdots + (y_n - \bar{y})^2}{n-1}
+\]</span></p>
+<div class="fragment">
+<p><em>The variance is like an average of the squared differences between each observation and the mean.</em></p>
+</div>
+</section>
+<section id="standard-deviation" class="slide level2">
+<h2>Standard deviation</h2>
+<p>A drawback of the variance is that it is not on the same scale as the actual observations.</p>
+<p>To obtain a measure of spread whose units are the same as those of the sample, we simply take the squared root of the variance</p>
+<p><span class="math display">\[
+s = \left(\frac{1}{n-1} \sum_{i=1}^{n} (y_i - \bar{y})^2 \right)^{1/2}
+\]</span></p>
+<p>This quantity is known as the standard deviation. <span style="color:purple;"><em>It is in the same units as the observations</em></span>.</p>
+</section>
+<section id="for-the-piston-data" class="slide level2">
+<h2>For the piston data</h2>
+<p><br><br></p>
+<ul>
+<li>The average of the cycle time of the piston is 0.652 seconds.</li>
+</ul>
+<ul>
+<li><p>The standard deviation of the cycle time of the piston is 0.373 seconds.</p></li>
+<li><p>Therefore, on average, a piston takes 0.652 seconds to complete a cycle, with a variation of <span class="math inline">\(\pm\)</span> 0.373 seconds.</p></li>
+</ul>
+</section>
+<section id="quartiles" class="slide level2">
+<h2>Quartiles</h2>
+<p><br><br></p>
+<p>The <span style="color:darkgreen;"><strong>median</strong></span> is the middle number of the ordered data values.</p>
+<div class="fragment">
+<p><span style="color:darkgreen;"><strong>Quartiles</strong></span> divide the data as nearly as possible into quarters:</p>
+<ul>
+<li class="fragment"><p>First quartile (<span class="math inline">\(Q_1\)</span>) is the median of the lower half of the data.</p></li>
+<li class="fragment"><p>Second quartile (<span class="math inline">\(Q_2\)</span>) is the median of the data.</p></li>
+<li class="fragment"><p>Third quartile (<span class="math inline">\(Q_3\)</span>) is the median of the upper half of the data.</p></li>
+</ul>
+</div>
+</section>
+<section id="section" class="slide level2">
 <h2></h2>
 <p><br><br></p>
-<p><span style="font-size: 100%;">The left histogram uses 5 bins, and the right histogram uses 30 bins</span></p>
-<div class="columns">
-<div class="column" style="width:50%;">
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="Statistical_Graphs_files/figure-revealjs/unnamed-chunk-12-1.png" data-fig-pos="center" width="960"></p>
-</figure>
-</div>
-</div>
-</div>
-</div><div class="column" style="width:50%;">
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="Statistical_Graphs_files/figure-revealjs/unnamed-chunk-13-1.png" data-fig-pos="center" width="960"></p>
-</figure>
-</div>
-</div>
-</div>
-</div></div>
-<p>My recommendation is to use the default number of <code>bins</code>.</p>
-<aside class="notes">
-<p>A histogram is a familiar type of plot that involves smoothing. A histogram aggregates data values by placing points into bins and plotting one bar for each bin. Smoothing here means that we cannot differentiate the location of individual points within a bin: the points are smoothly distributed across their bins.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
+
+<img data-src="images/clipboard-1950324610.png" class="r-stretch"><p><br></p>
+<p>The generalization of quartiles are percentiles or <strong>quantiles</strong>.</p>
 </section>
-<section id="what-to-look-for-in-a-histogram" class="slide level2">
-<h2>What to look for in a histogram?</h2>
-<p><br></p>
+<section id="for-the-piston-data-1" class="slide level2">
+<h2>For the piston data</h2>
+<p><br><br></p>
 <ul>
-<li>Symmetry and asymmetry of the distribution.</li>
-<li>The number, location, and size of high-frequency regions (bins).</li>
-<li>Gaps where no values are observed.</li>
-<li>Unusually large or anomalous values.</li>
-<li>A <span style="color:#1e3f5a;"><strong>bell-shaped</strong></span> form.</li>
+<li><p><span class="math inline">\(Q_1 = 0.305\)</span>. So, 25% of cycle times are below 0.305 seconds.</p></li>
+<li><p><span class="math inline">\(Q_2 = 0.546\)</span>. So, 50% of cycle times are below 0.546 seconds.</p></li>
+<li><p><span class="math inline">\(Q_3 = 1.07\)</span>. So, 75% of cycle times are below 1.07 seconds.</p></li>
+<li><p>The maximum cycle time is 1.14 seconds.</p></li>
+<li><p>The minimum cycle time is 0.175 seconds.</p></li>
 </ul>
 </section>
-<section id="the-obsession-with-bell-curves" class="slide level2">
-<h2>The obsession with bell curves</h2>
-<p><br></p>
-<div class="columns">
-<div class="column" style="width:50%;">
-<p>The <strong>normal distribution</strong> is a very important probability distribution in statistics.</p>
-</div><div class="column" style="width:50%;">
-<p><img data-src="images/clipboard-2759719598.png"></p>
-</div></div>
-<p>It is characterized by a symmetric bell-shaped curve centered around its mean, with the highest probability density at the mean and decreasing symmetrically towards the extremes</p>
+<section id="mean-vs.-median" class="slide level2">
+<h2>Mean vs.&nbsp;Median</h2>
+<p><br><br></p>
+<p>The mean and median estimate the central value of the data in different ways.</p>
+<ul>
+<li><p>The mean is the sum of the values divided by the total.</p></li>
+<li><p>The median is the central value of an ordered set of data.</p></li>
+</ul>
 </section>
-<section id="section-7" class="slide level2">
-<h2></h2>
-<p>Basically, if your observations follow a normal distribution, you can use statistical methods to draw conclusions based on mathematical theory.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="images/clipboard-983817526.png" class="quarto-figure quarto-figure-center" width="554" height="278"></p>
-</figure>
+<section id="when-do-we-use-the-mean" class="slide level2">
+<h2>When do we use the mean?</h2>
+<p><br></p>
+<p>The mean is used when the data is symmetrically or evenly distributed and there are no significant outliers.</p>
+<p><br></p>
+<p>For example, the height of a large sample of people in a homogeneous population.</p>
+</section>
+<section id="when-do-we-use-the-median" class="slide level2">
+<h2>When do we use the median?</h2>
+<p><br></p>
+<p>The median is used when there are outliers that could skew the mean.</p>
+<p>For example:</p>
+<ul>
+<li><p>Annual household income in a country (where there are a few billionaires who distort the mean).</p></li>
+<li><p>House prices in a city (where a few very expensive properties can inflate the mean).</p></li>
+</ul>
+</section>
+<section id="activity-solo-mode-part-1" class="slide level2">
+<h2>Activity (<em>solo</em> mode) Part 1</h2>
+<p>A company that manufactures capacitor retaining bolts for automobile engines implemented a quality control system. As part of this quality control system, a team of engineers decided to record the number of nonconforming bolts produced each shift.</p>
+<p>The file <code>bolts.xlsx</code> contains the number of non-conforming bolts during the last 45 shifts.</p>
+<ul>
+<li>Calculate and interpret the mean, variance, standard deviation, quartiles, minimum and maximum.</li>
+</ul>
+</section>
+<section id="boxplot" class="slide level2">
+<h2>Boxplot</h2>
+<p><br></p>
+<p>A boxplot helps us visualize the distribution of observations using quartiles.</p>
+<div class="fragment">
+<blockquote>
+<p>It is very effective for detecting “outliers.”</p>
+</blockquote>
 </div>
-<p><span style="color:darkred;"><em>What many people don’t know is that this condition is only needed if you have few observations (less than 50).</em></span></p>
-</section></section>
+<div class="fragment">
+<p>An important component of the boxplot is the <strong>interquartile range</strong> (<em>IQR</em>), which is the difference between the third quartile and the first quartile (<span class="math inline">\(Q_3 - Q_1\)</span>).</p>
+</div>
+<div class="fragment">
+<p>The interquartile range is the distance needed to encompass the middle half of the data.</p>
+</div>
+</section>
+<section id="anatomy-of-a-box-plot" class="slide level2">
+<h2>Anatomy of a Box Plot</h2>
+
+<img data-src="images/clipboard-84021266.png" class="quarto-figure quarto-figure-center r-stretch"><p>Learn more here <a href="https://builtin.com/articles/1-5-iqr-rule" class="uri">https://builtin.com/articles/1-5-iqr-rule</a></p>
+</section>
+<section id="outliers" class="slide level2">
+<h2>Outliers</h2>
+<p><br></p>
+<ul>
+<li><p>Outliers are points that are much larger or smaller than the rest of the sample points.</p></li>
+<li><p>Outliers may be data entry errors or they may be points that really are different from the rest.</p></li>
+<li><p>Outliers should not be deleted without considerable thought—sometimes calculations and analyses will be done with and without outliers and then compared.</p></li>
+</ul>
+</section>
+<section id="boxplot-for-the-piston-data" class="slide level2">
+<h2>Boxplot for the piston data</h2>
+<p>Usually, the box plot is shown vertically.</p>
+
+<img data-src="Statistical_Graphs_files/figure-revealjs/unnamed-chunk-5-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
+<section id="section-1" class="slide level2">
+<h2></h2>
+<p><br></p>
+<p>But in some cases, we may want to display the the box plot horizontally.</p>
+
+<img data-src="Statistical_Graphs_files/figure-revealjs/unnamed-chunk-6-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section></section>
 <section>
 <section id="multiple-variables" class="title-slide slide level1 center">
 <h1>Multiple Variables</h1>
@@ -607,8 +353,8 @@ Alan R. Vazquez
 <p>In fact, the <strong>goal</strong> is to determine whether there is a relationship between the variables and the type of relationship.</p>
 </div>
 </section>
-<section id="example-4" class="slide level2">
-<h2>Example 4</h2>
+<section id="example-2" class="slide level2">
+<h2>Example 2</h2>
 <p><br></p>
 <p>Consider data from 392 cars, including miles per gallon, number of cylinders, horsepower, weight, acceleration, year, origin, among other variables. The data is in the file “auto_dataset.xlsx”.</p>
 <div class="cell">
@@ -651,15 +397,11 @@ Alan R. Vazquez
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">Numerical</td>
-<td style="text-align: left;">Scatter plot, line graph</td>
+<td style="text-align: left;">Regression plot</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Categorical</td>
-<td style="text-align: left;">Side-by-side bar chart, stacked bar chart</td>
-</tr>
-<tr class="odd">
 <td style="text-align: left;">Mixed</td>
-<td style="text-align: left;">Cleaveland Plot</td>
+<td style="text-align: left;">Side-by-side box plot</td>
 </tr>
 </tbody>
 </table>
@@ -693,237 +435,188 @@ Alan R. Vazquez
 </blockquote>
 </div>
 </section>
-<section id="scatter-plot" class="slide level2">
-<h2>Scatter plot</h2>
-<p><br></p>
-<p>The most common graph for examining the relationship between two numerical variables is the <span style="color:#174062;"><strong><em>scatter plot</em></strong></span>.</p>
+<section id="categorical-and-numerical-variables" class="slide level2">
+<h2>Categorical and Numerical Variables</h2>
+<p>To examine the relationship between a numerical and a categorical variable, we use the categorical variable to divide the data into groups. This way, we <strong>compare the distribution</strong> of the numerical variable among these groups.</p>
 <div class="fragment">
-<p>Variables <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are placed on the horizontal and vertical axes, respectively. Each point on the graph represents a pair of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> values.</p>
+<p>In this context:</p>
+<ul>
+<li><span class="math inline">\(X\)</span> is the categorical variable.</li>
+<li><span class="math inline">\(Y\)</span> is the numerical variable.</li>
+</ul>
 </div>
 <div class="fragment">
-<p><br></p>
-<blockquote>
-<p>The goal is to explore linear or non-linear relationships between variables.</p>
-</blockquote>
+<p>The <span style="color:#D70040;">side-by-side boxplot</span> is the most effective way to study the relationship between a categorical and a numerical variable.</p>
 </div>
 </section>
-<section id="scatter-plot-1" class="slide level2">
-<h2>Scatter plot</h2>
+<section id="boxplot-by-groups" class="slide level2">
+<h2>Boxplot by groups</h2>
+<p>The side-by-side boxplot compares the distribution of a variable across different groups.</p>
+<p>For example, if we want to compare the distributions of miles per gallon of cars built in America, Europe, or Japan, we use the following command:</p>
+
+<img data-src="Statistical_Graphs_files/figure-revealjs/unnamed-chunk-8-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
+<section id="regression-plots" class="slide level2">
+<h2>Regression Plots</h2>
+<p><br></p>
+<p>Questions we can answer with simple linear regression:</p>
+<ul>
+<li class="fragment"><p>Is there a relationship between a response variable and predictors?</p></li>
+<li class="fragment"><p>How strong is the relationship?</p></li>
+<li class="fragment"><p>What is the uncertainty?</p></li>
+<li class="fragment"><p>How precisely can we predict a future outcome?</p></li>
+</ul>
+</section>
+<section id="section-2" class="slide level2">
+<h2></h2>
+<p>Is there a relationship between a car’s weight and its miles per gallon?</p>
+
+<img data-src="Statistical_Graphs_files/figure-revealjs/unnamed-chunk-9-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
+<section id="regression-problem" class="slide level2">
+<h2>Regression problem</h2>
+<p><br></p>
+<p><strong>Objetive</strong>: Find the best function <span class="math inline">\(f(X)\)</span> of the predictor <span class="math inline">\(X\)</span> that describes the response <span class="math inline">\(Y\)</span>.</p>
+<div class="fragment">
+<p>Mathematically, we want to establish the following relationship:</p>
+<p><span class="math display">\[
+Y = f(X) + \epsilon,
+\]</span></p>
+<p>where <span class="math inline">\(\epsilon\)</span> is a natural (random) error.</p>
+</div>
+</section>
+<section id="section-3" class="slide level2">
+<h2></h2>
+<p><br></p>
+<ul>
+<li>In practice, it is very difficult to know the true structure of the function <span class="math inline">\(f(X)\)</span>.</li>
+</ul>
+<ul>
+<li class="fragment"><p>The best we can do is construct an approximation (function) <span class="math inline">\(\hat{f}(X)\)</span>.</p></li>
+<li class="fragment"><p>There are several strategies to build <span class="math inline">\(\hat{f}(X)\)</span>, one of the most common is:</p>
+<ol type="1">
+<li class="fragment">Define a simple “structure” or “formula.”</li>
+<li class="fragment">Estimate the elements of the “formula” using the data.</li>
+</ol></li>
+</ul>
+</section>
+<section id="linear-regression-model" class="slide level2">
+<h2>Linear regression model</h2>
+<p>A very common function <span class="math inline">\(f(X)\)</span> to predict a response <span class="math inline">\(Y\)</span> is the <strong>linear regression model</strong>.</p>
+<p>Its mathematical form is:</p>
+<p><span class="math display">\[
+\hat{Y}_i = \hat{\beta}_0 + \hat{\beta}_1 X_i,
+\]</span></p>
+<ul>
+<li class="fragment">Where <span class="math inline">\(i\)</span> is the index of the <span class="math inline">\(n\)</span> observations, and</li>
+<li class="fragment"><span class="math inline">\(\hat{Y}_i\)</span> is the predicted value of the actual response <span class="math inline">\(Y_i\)</span> associated with a predictor value <span class="math inline">\(X_i\)</span>.</li>
+<li class="fragment">The values <span class="math inline">\(\hat{\beta}_0\)</span> and <span class="math inline">\(\hat{\beta}_1\)</span> are called <span style="color:darkblue;">coefficients</span> of the model.</li>
+</ul>
+</section>
+<section id="principle-2-turn-data-into-information-1" class="slide level2">
+<h2>Principle 2: Turn data into information</h2>
+<p>The values of <span class="math inline">\(\hat{\beta}_0\)</span> and <span class="math inline">\(\hat{\beta}_1\)</span> are obtained using the data. Specifically, the formulas for the coefficients are:</p>
+<p><span class="math display">\[\hat{\beta}_1 = \frac{ \sum_{i=1}^{n} (Y_i - \bar{Y}) (X_i - \bar{X}) }{\sum_{i=1}^{n} (X_i - \bar{X})^2} \text{  y  } \hat{\beta}_0 = \bar{Y} - \hat{\beta}_1 \bar{X},\]</span></p>
+<p>where <span class="math inline">\(\bar{X} = \sum_{i=1}^n X_i/n\)</span> and <span class="math inline">\(\bar{Y} = \sum_{i=1}^n Y_i/n\)</span>.</p>
+<p>These formulas are derived from the method of <span style="color:orange;"><em>least squares</em></span>.</p>
+</section>
+<section id="for-our-example" class="slide level2">
+<h2>For our example</h2>
+<p><span class="math inline">\(\hat{Y}_i = 46.32 -0.0076 X_i\)</span></p>
+
+<img data-src="Statistical_Graphs_files/figure-revealjs/unnamed-chunk-10-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
+<section id="the-formula" class="slide level2">
+<h2>The formula</h2>
+<p><span class="math inline">\(\text{mpg}_i = 46.32 - 0.0076 \times \text{weight}_i\)</span></p>
+
+<img data-src="Statistical_Graphs_files/figure-revealjs/unnamed-chunk-11-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
+<section id="interpretation-of-the-coefficients" class="slide level2">
+<h2>Interpretation of the coefficients</h2>
+<p><span style="color:darkblue;">What does <span class="math inline">\(\hat{\beta}_0 = 46.32\)</span> mean?</span></p>
+<div class="fragment">
+<p><span class="math inline">\(\hat{\beta}_0\)</span> is the average response value when <span class="math inline">\(X_i = 0\)</span>.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="Statistical_Graphs_files/figure-revealjs/unnamed-chunk-12-1.png" class="quarto-figure quarto-figure-center" style="width:80.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="section-4" class="slide level2">
+<h2></h2>
+<p>Does <span class="math inline">\(\hat{\beta}_0 = 46.32\)</span> make sense?</p>
+
+<img data-src="Statistical_Graphs_files/figure-revealjs/unnamed-chunk-13-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"><div class="fragment">
+<p>No! Because there are no cars with a weight of 0.</p>
+</div>
+</section>
+<section id="section-5" class="slide level2">
+<h2></h2>
+<p><span style="color:darkblue;">What does <span class="math inline">\(\hat{\beta}_1 = - 0.0076\)</span> mean?</span></p>
+<div class="fragment">
+<p><span class="math inline">\(\hat{\beta}_1\)</span> is the average change in the response when <span class="math inline">\(X_i\)</span> increases by one unit.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="Statistical_Graphs_files/figure-revealjs/unnamed-chunk-14-1.png" class="quarto-figure quarto-figure-center" style="width:80.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="interpretation-of-hatbeta_1" class="slide level2">
+<h2>Interpretation of <span class="math inline">\(\hat{\beta}_1\)</span></h2>
+<p><br></p>
+<p><br></p>
+<p><em>For every extra pound in a car’s weight, the car has an average reduction of 0.0076 miles per gallon.</em></p>
+</section>
+<section id="do-all-points-fall-exactly-on-the-line" class="slide level2">
+<h2>Do all points fall exactly on the line?</h2>
+<p><br><br></p>
+<div class="fragment">
+<p>No! The model has <span style="color:darkgreen;"><strong>errors</strong></span>.</p>
+</div>
+<div class="fragment">
+<p><br></p>
+<p>Technically, the error of the <em>i</em>-th observation is given by: <span class="math inline">\(\hat{e}_i = Y_i - \hat{Y}_i = Y_i - \hat{\beta}_0 - \hat{\beta}_1 X_i\)</span>.</p>
+<p>The behavior of the errors (<span class="math inline">\(e_i\)</span>’s) indicates whether the model is correct or not, which can be validated using a <strong>residual analysis</strong> (see IN1002B for example).</p>
+</div>
+</section>
+<section id="local-regression" class="slide level2">
+<h2>Local regression</h2>
+<p><br></p>
+<p>This is a modern alternative to the simple linear regression model for capturing complex relationships between two variables.</p>
+<p><span style="color:darkgray;"><strong>Basic Idea</strong></span>: It fits linear regression models to small subsets of the data. These subsets consist of observations that are close to each other.</p>
+<p>The most common method for fitting a local regression model is <strong>LOESS</strong>. We will omit the details of this method here since they require advanced statistical concepts.</p>
+</section>
+<section id="for-our-example-1" class="slide level2">
+<h2>For our example</h2>
 <p><br></p>
 
 <img data-src="Statistical_Graphs_files/figure-revealjs/unnamed-chunk-15-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
-<section id="individual-graphs" class="slide level2">
-<h2>Individual graphs</h2>
-<p><br><br></p>
-<p>Individual variable graphs (such as histograms) do not allow us to study the relationship between two variables. They only provide information on the <em>distribution</em> of each variable.</p>
-<div class="columns">
-<div class="column" style="width:50%;">
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="Statistical_Graphs_files/figure-revealjs/unnamed-chunk-16-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
-</figure>
-</div>
-</div>
-</div>
-</div><div class="column" style="width:50%;">
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="Statistical_Graphs_files/figure-revealjs/unnamed-chunk-17-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
-</figure>
-</div>
-</div>
-</div>
-</div></div>
-</section>
-<section id="line-graph" class="slide level2">
-<h2>Line graph</h2>
-<p>A line graph is a visual representation of data where data points are connected by a line. Axes:</p>
-<ul>
-<li><span class="math inline">\(X\)</span> (horizontal): Represents time or the independent variable.</li>
-<li><span class="math inline">\(Y\)</span> (vertical): Represents the dependent variable.</li>
-</ul>
-<p>Each point represents a value at a given moment.</p>
-<div class="fragment">
-<p><br></p>
-<blockquote>
-<p>The objective is to explore trends over time or the evolution of a continuous variable.</p>
-</blockquote>
-</div>
-</section>
-<section id="example-2" class="slide level2">
-<h2>Example 2</h2>
-<p><br></p>
-<p>Consider the data in the file “spotify.xlsx”. This dataset contains the global daily streams of the top five most popular songs on the music streaming service Spotify in 2017.</p>
-<div class="cell" data-layout-align="center">
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 3 × 7
-  Date                  Day `Shape of You` Despacito `Something Just Like This`
-  &lt;dttm&gt;              &lt;dbl&gt;          &lt;dbl&gt;     &lt;dbl&gt;                      &lt;dbl&gt;
-1 2017-01-06 00:00:00     1       12287078        NA                         NA
-2 2017-01-07 00:00:00     2       13190270        NA                         NA
-3 2017-01-08 00:00:00     3       13099919        NA                         NA
-# ℹ 2 more variables: HUMBLE. &lt;dbl&gt;, Unforgettable &lt;dbl&gt;</code></pre>
-</div>
-</div>
-</section>
-<section id="line-plot" class="slide level2">
-<h2>Line Plot</h2>
+<section id="another-example" class="slide level2">
+<h2>Another example</h2>
+<p>Let’s consider the relationship between car acceleration and the total volume of all engine cylinders.</p>
+
+<img data-src="Statistical_Graphs_files/figure-revealjs/unnamed-chunk-16-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
+<section id="linear-regression" class="slide level2">
+<h2>Linear regression</h2>
 <p><br></p>
 
-<img data-src="Statistical_Graphs_files/figure-revealjs/unnamed-chunk-19-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
-<section id="plotting-statistical-summaries-by-groups" class="slide level2">
-<h2>Plotting statistical summaries by groups</h2>
-<p>We can summarize the values of the numerical variable <span class="math inline">\(Y\)</span> for each category of a categorical variable <span class="math inline">\(X\)</span> using the median or the mean.</p>
-<p>For example, let’s plot the average miles per gallon of cars produced in America, Europe, and Japan. Two common visualization types for plotting a numerical and a discrete variable when there is only one value per category are:</p>
-<ul>
-<li>Cleveland dot plot</li>
-<li>Bar chart</li>
-</ul>
-</section>
-<section id="cleveland-dot-plot" class="slide level2">
-<h2>Cleveland dot plot</h2>
-<p>The Cleveland dot plot encodes quantitative data across different categories. It is an alternative to a bar chart.</p>
-
-<img data-src="Statistical_Graphs_files/figure-revealjs/unnamed-chunk-20-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
-<section id="section-8" class="slide level2">
-<h2></h2>
-<p>We can use similar commands as the Cleveland dot plot to improve the bar chart.</p>
-
-<img data-src="Statistical_Graphs_files/figure-revealjs/unnamed-chunk-21-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
-<section id="two-categorical-variables" class="slide level2">
-<h2>Two Categorical Variables</h2>
-<p><br></p>
-<p>With two categorical variables, we compare the distribution of one variable across subgroups defined by the other variable.</p>
-<p>In fact, we keep one variable constant and plot the distribution of the other.</p>
-<div class="fragment">
-<p>To do this, the most popular charts are extensions of bar graphs:</p>
-<ul>
-<li>Stacked bar charts</li>
-<li>Side-by-side bar charts</li>
-</ul>
-</div>
-</section>
-<section id="example-1-cont." class="slide level2">
-<h2>Example 1 (cont.)</h2>
-<p><br><br></p>
-<p>As an example, let’s consider the data in the file “penguins.xlsx” again.</p>
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 6 × 8
-  species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
-  &lt;chr&gt;   &lt;chr&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;dbl&gt;       &lt;dbl&gt;
-1 Adelie  Torgersen           39.1          18.7               181        3750
-2 Adelie  Torgersen           39.5          17.4               186        3800
-3 Adelie  Torgersen           40.3          18                 195        3250
-4 Adelie  Torgersen           NA            NA                  NA          NA
-5 Adelie  Torgersen           36.7          19.3               193        3450
-6 Adelie  Torgersen           39.3          20.6               190        3650
-# ℹ 2 more variables: sex &lt;chr&gt;, year &lt;dbl&gt;</code></pre>
-</div>
-</div>
-</section>
-<section id="stacked-bar-chart" class="slide level2">
-<h2>Stacked bar chart</h2>
-<p>We study the distribution of penguin species across the three different islands using an stacked bar chart.</p>
-
-<img data-src="Statistical_Graphs_files/figure-revealjs/unnamed-chunk-23-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"><p>The chart shows the frequency of each species, separated by island name.</p>
-</section>
-<section id="side-by-side-bar-chart" class="slide level2">
-<h2>Side-by-side bar chart</h2>
-<p>An alternative to the previous chart is to place the bars side by side for the categories of the categorical variable <span class="math inline">\(X\)</span>.</p>
-
-<img data-src="Statistical_Graphs_files/figure-revealjs/unnamed-chunk-24-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
-<section id="stacked-or-side-by-side" class="slide level2">
-<h2>Stacked or side-by-side?</h2>
-<p><br></p>
-<p>The main difference between stacked and side-by-side bar charts is that the side-by-side chart shows values in separate bars within a category.</p>
-<p>Advantages of <strong>stacked</strong> bars:</p>
-<ul>
-<li><p>Easier to understand what proportions of a whole are divided among segments.</p></li>
-<li><p>Visually adds up each proportion.</p></li>
-</ul>
-</section>
-<section id="section-9" class="slide level2">
-<h2></h2>
-<p><br><br><br></p>
-<p>Advantages of <strong>side-by-side</strong> bars:</p>
-<ul>
-<li><p>Easier to compare the heights of each individual entity.</p></li>
-<li><p>Better for comparing between groups.</p></li>
-</ul>
-</section>
-<section id="charts-for-three-variables" class="slide level2">
-<h2>Charts for three variables</h2>
+<img data-src="Statistical_Graphs_files/figure-revealjs/unnamed-chunk-17-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
+<section id="discussion" class="slide level2">
+<h2>Discussion</h2>
 <p><br></p>
 <ul>
-<li><p>When examining a distribution or relationship, we often want to compare it across data subgroups.</p></li>
-<li><p>This process of conditioning on additional variables leads to visualizations involving three or more variables.</p></li>
-<li><p>Here we explain how to create charts to visualize multiple variables.</p></li>
+<li><p>The simple linear regression model is easy to interpret due to its structure: <span class="math inline">\(\hat{Y}_i = \hat{\beta}_0 + \hat{\beta}_1 X_i.\)</span></p></li>
+<li><p>However, it may be too rigid to capture complex relationships between two variables.</p></li>
+<li><p>Local regression is flexible and allows capturing complex relationships between two variables, but it has a low level of interpretability because it does not provide an explicit equation.</p></li>
 </ul>
-</section>
-<section id="scatter-plot-by-color" class="slide level2">
-<h2>Scatter plot by color</h2>
-<p>For two numerical variables and one categorical variable.</p>
-
-<img data-src="Statistical_Graphs_files/figure-revealjs/unnamed-chunk-25-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
-<section id="faceted-or-lattice-plot" class="slide level2">
-<h2>Faceted or lattice plot</h2>
-<p>A faceted plot visualizes the relationship or distribution of one or two variables for each subgroup defined by a third variable <span class="math inline">\(Z\)</span>.</p>
-
-<img data-src="Statistical_Graphs_files/figure-revealjs/unnamed-chunk-26-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
-<section id="multiple-line-charts" class="slide level2">
-<h2>Multiple line charts</h2>
-<p><br><br></p>
-<p>Instead of visualizing one variable, we can visualize multiple variables simultaneously using a line plot. For example, we can show the evolution of play counts for the 5 songs in the file “spotify.xlsx” over time.</p>
-<p><br></p>
-<p>However, some data visualization packages necessitate a special format to produce the multiple lines plot.</p>
-</section>
-<section id="the-required-format" class="slide level2">
-<h2>The required format</h2>
-<p><br></p>
-<p>For a multiple line chart, we need to merge the columns <code>Shape of You</code>, <code>Despacito</code>, <code>Something Just Like This</code>, <code>HUMBLE</code> and <code>Unforgettable</code> into two columns.</p>
-<p>One column will contain the number of plays, and the other will contain the song title.</p>
-<p>Both columns will be ordered by the variable <code>Date</code>.</p>
-</section>
-<section id="section-10" class="slide level2">
-<h2></h2>
-<p><br></p>
-<p>To format the data, we use the function <code>pivot_longer()</code> from the <strong>tidyr</strong> library.</p>
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 6 × 4
-  Date                  Day Cancion                  Reproducciones
-  &lt;dttm&gt;              &lt;dbl&gt; &lt;chr&gt;                             &lt;dbl&gt;
-1 2017-01-06 00:00:00     1 Shape of You                   12287078
-2 2017-01-06 00:00:00     1 Despacito                            NA
-3 2017-01-06 00:00:00     1 Something Just Like This             NA
-4 2017-01-06 00:00:00     1 HUMBLE.                              NA
-5 2017-01-06 00:00:00     1 Unforgettable                        NA
-6 2017-01-07 00:00:00     2 Shape of You                   13190270</code></pre>
-</div>
-</div>
-</section>
-<section id="facet-grid" class="slide level2">
-<h2>Facet grid</h2>
-<p><br></p>
-<p>Separate plots for each line.</p>
-
-<img data-src="Statistical_Graphs_files/figure-revealjs/unnamed-chunk-28-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
-<section id="section-11" class="slide level2">
-<h2></h2>
-<p><br></p>
-<p>Or we can plot all lines on a single chart.</p>
-
-<img data-src="Statistical_Graphs_files/figure-revealjs/unnamed-chunk-29-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
-<section id="graphs-for-four-variables" class="slide level2">
-<h2>Graphs for four variables</h2>
-<p>A common chart for four variables is the scatter plot, where the color and size of the symbols depend on two <span style="color:#8B8000;"><strong>categorical</strong></span> variables.</p>
-
-<img data-src="Statistical_Graphs_files/figure-revealjs/unnamed-chunk-30-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section></section>
+</section></section>
 <section id="return-to-main-page" class="title-slide slide level1 center">
 <h1><a href="https://alanrvazquez.github.io/TEC-IN2039-EN/">Return to main page</a></h1>
 

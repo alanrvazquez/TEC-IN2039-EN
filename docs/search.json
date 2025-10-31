@@ -3259,7 +3259,7 @@
     "href": "T7_StatisticaL_Graphs/Statistical_Graphs.slides.html#agenda",
     "title": "Statistical Graphs",
     "section": "Agenda",
-    "text": "Agenda\n\n\nTypes of Variables\nOne Categorical Variable\nOne Numerical Variable\nMultiple Variables"
+    "text": "Agenda\n\n\nOne Numerical Variable\nMultiple Variables\n\nSide-by-Side Box Plots\nRegression Plots"
   },
   {
     "objectID": "T7_StatisticaL_Graphs/Statistical_Graphs.slides.html#types-of-variables",
@@ -3287,7 +3287,7 @@
     "href": "T7_StatisticaL_Graphs/Statistical_Graphs.slides.html#section",
     "title": "Statistical Graphs",
     "section": "",
-    "text": "Continuous: variables that have a large range of possible values.\n\n\nExamples:\n\nA person’s height (could be within the range of 1.60 m to 1.85 m)\nAmbient temperature (could be within the range of -30 \\(^\\circ\\)C to 50 \\(^\\circ\\)C)\nTime for an Uber to arrive (between 5 and 60 minutes)"
+    "text": "The generalization of quartiles are percentiles or quantiles."
   },
   {
     "objectID": "T7_StatisticaL_Graphs/Statistical_Graphs.slides.html#categorical-variables",
@@ -3378,21 +3378,21 @@
     "href": "T7_StatisticaL_Graphs/Statistical_Graphs.slides.html#section-1",
     "title": "Statistical Graphs",
     "section": "",
-    "text": "We concentrate on the following variables:\n\nchas : Whether the house is next to the Charles River (1: Yes and 0: No)\nrad : Index of accessibility to radial highways (Low, Medium, High)."
+    "text": "But in some cases, we may want to display the the box plot horizontally."
   },
   {
     "objectID": "T7_StatisticaL_Graphs/Statistical_Graphs.slides.html#section-2",
     "href": "T7_StatisticaL_Graphs/Statistical_Graphs.slides.html#section-2",
     "title": "Statistical Graphs",
     "section": "",
-    "text": "Let’s create a bar chart for chas."
+    "text": "Is there a relationship between a car’s weight and its miles per gallon?"
   },
   {
     "objectID": "T7_StatisticaL_Graphs/Statistical_Graphs.slides.html#section-3",
     "href": "T7_StatisticaL_Graphs/Statistical_Graphs.slides.html#section-3",
     "title": "Statistical Graphs",
     "section": "",
-    "text": "Now, let’s create a bar chart for rad."
+    "text": "In practice, it is very difficult to know the true structure of the function \\(f(X)\\).\n\n\nThe best we can do is construct an approximation (function) \\(\\hat{f}(X)\\).\nThere are several strategies to build \\(\\hat{f}(X)\\), one of the most common is:\n\nDefine a simple “structure” or “formula.”\nEstimate the elements of the “formula” using the data."
   },
   {
     "objectID": "T7_StatisticaL_Graphs/Statistical_Graphs.slides.html#collapsing",
@@ -3406,7 +3406,7 @@
     "href": "T7_StatisticaL_Graphs/Statistical_Graphs.slides.html#section-4",
     "title": "Statistical Graphs",
     "section": "",
-    "text": "Collapsing categories simplifies the graph\n\nIt also allows us to emphasize a category like Low and see how it compares to the other categories (as a whole)."
+    "text": "Does \\(\\hat{\\beta}_0 = 46.32\\) make sense?\n\n\nNo! Because there are no cars with a weight of 0."
   },
   {
     "objectID": "T7_StatisticaL_Graphs/Statistical_Graphs.slides.html#example-3",
@@ -3427,7 +3427,7 @@
     "href": "T7_StatisticaL_Graphs/Statistical_Graphs.slides.html#section-5",
     "title": "Statistical Graphs",
     "section": "",
-    "text": "The bars of the histogram touch each other. A gap indicates that there are no observations in that interval."
+    "text": "What does \\(\\hat{\\beta}_1 = - 0.0076\\) mean?\n\n\\(\\hat{\\beta}_1\\) is the average change in the response when \\(X_i\\) increases by one unit."
   },
   {
     "objectID": "T7_StatisticaL_Graphs/Statistical_Graphs.slides.html#it-is-not-the-same-as-a-bar-chart",
@@ -3448,7 +3448,7 @@
     "href": "T7_StatisticaL_Graphs/Statistical_Graphs.slides.html#section-6",
     "title": "Statistical Graphs",
     "section": "",
-    "text": "The left histogram uses 5 bins, and the right histogram uses 30 bins\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMy recommendation is to use the default number of bins.\n\nA histogram is a familiar type of plot that involves smoothing. A histogram aggregates data values by placing points into bins and plotting one bar for each bin. Smoothing here means that we cannot differentiate the location of individual points within a bin: the points are smoothly distributed across their bins."
+    "text": "Local regression is flexible and allows capturing complex relationships between two variables.\nHowever, it has a low level of interpretability because it does not provide an explicit equation to relate the predictor \\(X\\) to the response \\(Y\\)."
   },
   {
     "objectID": "T7_StatisticaL_Graphs/Statistical_Graphs.slides.html#what-to-look-for-in-a-histogram",
@@ -3469,7 +3469,7 @@
     "href": "T7_StatisticaL_Graphs/Statistical_Graphs.slides.html#section-7",
     "title": "Statistical Graphs",
     "section": "",
-    "text": "Basically, if your observations follow a normal distribution, you can use statistical methods to draw conclusions based on mathematical theory.\n\n\n\n\n\nWhat many people don’t know is that this condition is only needed if you have few observations (less than 50)."
+    "text": "Local regression is flexible and allows capturing complex relationships between two variables.\nHowever, it has a low level of interpretability because it does not provide an explicit equation to relate the predictor \\(X\\) to the response \\(Y\\)."
   },
   {
     "objectID": "T7_StatisticaL_Graphs/Statistical_Graphs.slides.html#multivariate-data",
@@ -3497,7 +3497,7 @@
     "href": "T7_StatisticaL_Graphs/Statistical_Graphs.slides.html#principle-2-turn-data-into-information",
     "title": "Statistical Graphs",
     "section": "Principle 2: Turn data into information",
-    "text": "Principle 2: Turn data into information\nThere are various types of graphs that help us explore relationships between two or more variables.\n\n\n\n\n\nType\nGraph Type\n\n\n\n\nNumerical\nScatter plot, line graph\n\n\nCategorical\nSide-by-side bar chart, stacked bar chart\n\n\nMixed\nCleaveland Plot\n\n\n\n\n\nFor two features, the combination of types (both quantitative, both qualitative, or a mix) matters."
+    "text": "Principle 2: Turn data into information\nThere are various types of graphs that help us explore relationships between two or more variables.\n\n\n\n\n\nType\nGraph Type\n\n\n\n\nNumerical\nRegression plot\n\n\nMixed\nSide-by-side box plot\n\n\n\n\n\nFor two features, the combination of types (both quantitative, both qualitative, or a mix) matters."
   },
   {
     "objectID": "T7_StatisticaL_Graphs/Statistical_Graphs.slides.html#independent-and-dependent-variables",
@@ -3539,7 +3539,7 @@
     "href": "T7_StatisticaL_Graphs/Statistical_Graphs.slides.html#example-2",
     "title": "Statistical Graphs",
     "section": "Example 2",
-    "text": "Example 2\n\nConsider the data in the file “spotify.xlsx”. This dataset contains the global daily streams of the top five most popular songs on the music streaming service Spotify in 2017.\n\n\n# A tibble: 3 × 7\n  Date                  Day `Shape of You` Despacito `Something Just Like This`\n  &lt;dttm&gt;              &lt;dbl&gt;          &lt;dbl&gt;     &lt;dbl&gt;                      &lt;dbl&gt;\n1 2017-01-06 00:00:00     1       12287078        NA                         NA\n2 2017-01-07 00:00:00     2       13190270        NA                         NA\n3 2017-01-08 00:00:00     3       13099919        NA                         NA\n# ℹ 2 more variables: HUMBLE. &lt;dbl&gt;, Unforgettable &lt;dbl&gt;"
+    "text": "Example 2\n\nConsider data from 392 cars, including miles per gallon, number of cylinders, horsepower, weight, acceleration, year, origin, among other variables. The data is in the file “auto_dataset.xlsx”.\n\n\n# A tibble: 6 × 9\n    mpg cylinders displacement horsepower weight acceleration  year origin  \n  &lt;dbl&gt;     &lt;dbl&gt;        &lt;dbl&gt; &lt;chr&gt;       &lt;dbl&gt;        &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;   \n1    18         8          307 130          3504         12      70 American\n2    15         8          350 165          3693         11.5    70 American\n3    18         8          318 150          3436         11      70 American\n4    16         8          304 150          3433         12      70 American\n5    17         8          302 140          3449         10.5    70 American\n6    15         8          429 198          4341         10      70 American\n# ℹ 1 more variable: `car name` &lt;chr&gt;"
   },
   {
     "objectID": "T7_StatisticaL_Graphs/Statistical_Graphs.slides.html#line-plot",
@@ -3567,7 +3567,7 @@
     "href": "T7_StatisticaL_Graphs/Statistical_Graphs.slides.html#section-8",
     "title": "Statistical Graphs",
     "section": "",
-    "text": "We can use similar commands as the Cleveland dot plot to improve the bar chart."
+    "text": "Local regression is flexible and allows capturing complex relationships between two variables.\nHowever, it has a low level of interpretability because it does not provide an explicit equation to relate the predictor \\(X\\) to the response \\(Y\\)."
   },
   {
     "objectID": "T7_StatisticaL_Graphs/Statistical_Graphs.slides.html#two-categorical-variables",
@@ -3673,5 +3673,257 @@
     "title": "Statistical Graphs",
     "section": "Graphs for four variables",
     "text": "Graphs for four variables\nA common chart for four variables is the scatter plot, where the color and size of the symbols depend on two categorical variables."
+  },
+  {
+    "objectID": "T7_StatisticaL_Graphs/Statistical_Graphs.slides.html#example-1",
+    "href": "T7_StatisticaL_Graphs/Statistical_Graphs.slides.html#example-1",
+    "title": "Statistical Graphs",
+    "section": "Example 1",
+    "text": "Example 1\n\n\nA piston is a mechanical device found in most engines.\n\n\n\nOne measure of a piston’s performance is the time it takes to complete a cycle, which we call “cycle time” and is measured in seconds.\nThe file “CYLT.xlsx” contains 50 cycle times of a piston operating under fixed conditions."
+  },
+  {
+    "objectID": "T7_StatisticaL_Graphs/Statistical_Graphs.slides.html#summary-statistic",
+    "href": "T7_StatisticaL_Graphs/Statistical_Graphs.slides.html#summary-statistic",
+    "title": "Statistical Graphs",
+    "section": "Summary statistic",
+    "text": "Summary statistic\n\n\nHelps us to summarize a list of observations in a simple way.\n\nFor numerical data, the most popular summary statistics are:\n\nMean\nVariance and standard deviation\nQuartiles\nMaximum and minimum"
+  },
+  {
+    "objectID": "T7_StatisticaL_Graphs/Statistical_Graphs.slides.html#mean",
+    "href": "T7_StatisticaL_Graphs/Statistical_Graphs.slides.html#mean",
+    "title": "Statistical Graphs",
+    "section": "Mean",
+    "text": "Mean\n\n\nIndicates the center of the data.\n\n\nLet \\(y_1, y_2, \\ldots, y_n\\) be an observed sample of size \\(n\\).\nThe mean is\n\\[\\bar{y} = \\frac{1}{n}\\sum_{i=1}^{n} y_i = \\frac{y_1 + y_2 + \\cdots + y_n}{n}.\\]"
+  },
+  {
+    "objectID": "T7_StatisticaL_Graphs/Statistical_Graphs.slides.html#variance",
+    "href": "T7_StatisticaL_Graphs/Statistical_Graphs.slides.html#variance",
+    "title": "Statistical Graphs",
+    "section": "Variance",
+    "text": "Variance\n\nIndicates how spread out the data are around the mean.\n\n\nLet \\(y_1, y_2, \\ldots, y_n\\) be an observed sample of size \\(n\\). The variance is\n\\[\ns^2 = \\frac{1}{n-1} \\sum_{i=1}^{n} (y_i - \\bar{y})^2 = \\frac{(y_1 - \\bar{y})^2  + \\cdots + (y_n - \\bar{y})^2}{n-1}\n\\]\n\nThe variance is like an average of the squared differences between each observation and the mean."
+  },
+  {
+    "objectID": "T7_StatisticaL_Graphs/Statistical_Graphs.slides.html#standard-deviation",
+    "href": "T7_StatisticaL_Graphs/Statistical_Graphs.slides.html#standard-deviation",
+    "title": "Statistical Graphs",
+    "section": "Standard deviation",
+    "text": "Standard deviation\nA drawback of the variance is that it is not on the same scale as the actual observations.\nTo obtain a measure of spread whose units are the same as those of the sample, we simply take the squared root of the variance\n\\[\ns = \\left(\\frac{1}{n-1} \\sum_{i=1}^{n} (y_i - \\bar{y})^2 \\right)^{1/2}\n\\]\nThis quantity is known as the standard deviation. It is in the same units as the observations."
+  },
+  {
+    "objectID": "T7_StatisticaL_Graphs/Statistical_Graphs.slides.html#for-the-piston-data",
+    "href": "T7_StatisticaL_Graphs/Statistical_Graphs.slides.html#for-the-piston-data",
+    "title": "Statistical Graphs",
+    "section": "For the piston data",
+    "text": "For the piston data\n\n\nThe average of the cycle time of the piston is 0.652 seconds.\n\n\nThe standard deviation of the cycle time of the piston is 0.373 seconds.\nTherefore, on average, a piston takes 0.652 seconds to complete a cycle, with a variation of \\(\\pm\\) 0.373 seconds."
+  },
+  {
+    "objectID": "T7_StatisticaL_Graphs/Statistical_Graphs.slides.html#quartiles",
+    "href": "T7_StatisticaL_Graphs/Statistical_Graphs.slides.html#quartiles",
+    "title": "Statistical Graphs",
+    "section": "Quartiles",
+    "text": "Quartiles\n\nThe median is the middle number of the ordered data values.\n\nQuartiles divide the data as nearly as possible into quarters:\n\nFirst quartile (\\(Q_1\\)) is the median of the lower half of the data.\nSecond quartile (\\(Q_2\\)) is the median of the data.\nThird quartile (\\(Q_3\\)) is the median of the upper half of the data."
+  },
+  {
+    "objectID": "T7_StatisticaL_Graphs/Statistical_Graphs.slides.html#maximum-and-minimum",
+    "href": "T7_StatisticaL_Graphs/Statistical_Graphs.slides.html#maximum-and-minimum",
+    "title": "Statistical Graphs",
+    "section": "Maximum and minimum",
+    "text": "Maximum and minimum\n\nThe maximum cycle time is 1.14 seconds.\n\n\n\n# A tibble: 1 × 1\n    Max\n  &lt;dbl&gt;\n1  1.14\n\n\n\nThe minimum cycle time is 0.175 seconds.\n\n\n\n# A tibble: 1 × 1\n    Min\n  &lt;dbl&gt;\n1 0.175\n\n\nInterpretation:"
+  },
+  {
+    "objectID": "T7_StatisticaL_Graphs/Statistical_Graphs.slides.html#mean-vs.-median",
+    "href": "T7_StatisticaL_Graphs/Statistical_Graphs.slides.html#mean-vs.-median",
+    "title": "Statistical Graphs",
+    "section": "Mean vs. Median",
+    "text": "Mean vs. Median\n\nThe mean and median estimate the central value of the data in different ways.\n\nThe mean is the sum of the values divided by the total.\nThe median is the central value of an ordered set of data."
+  },
+  {
+    "objectID": "T7_StatisticaL_Graphs/Statistical_Graphs.slides.html#when-do-we-use-the-mean",
+    "href": "T7_StatisticaL_Graphs/Statistical_Graphs.slides.html#when-do-we-use-the-mean",
+    "title": "Statistical Graphs",
+    "section": "When do we use the mean?",
+    "text": "When do we use the mean?\n\nThe mean is used when the data is symmetrically or evenly distributed and there are no significant outliers.\n\nFor example, the height of a large sample of people in a homogeneous population."
+  },
+  {
+    "objectID": "T7_StatisticaL_Graphs/Statistical_Graphs.slides.html#when-do-we-use-the-median",
+    "href": "T7_StatisticaL_Graphs/Statistical_Graphs.slides.html#when-do-we-use-the-median",
+    "title": "Statistical Graphs",
+    "section": "When do we use the median?",
+    "text": "When do we use the median?\n\nThe median is used when there are outliers that could skew the mean.\nFor example:\n\nAnnual household income in a country (where there are a few billionaires who distort the mean).\nHouse prices in a city (where a few very expensive properties can inflate the mean)."
+  },
+  {
+    "objectID": "T7_StatisticaL_Graphs/Statistical_Graphs.slides.html#activity-solo-mode-part-1",
+    "href": "T7_StatisticaL_Graphs/Statistical_Graphs.slides.html#activity-solo-mode-part-1",
+    "title": "Statistical Graphs",
+    "section": "Activity (solo mode) Part 1",
+    "text": "Activity (solo mode) Part 1\nA company that manufactures capacitor retaining bolts for automobile engines implemented a quality control system. As part of this quality control system, a team of engineers decided to record the number of nonconforming bolts produced each shift.\nThe file bolts.xlsx contains the number of non-conforming bolts during the last 45 shifts.\n\nCalculate and interpret the mean, variance, standard deviation, quartiles, minimum and maximum."
+  },
+  {
+    "objectID": "T7_StatisticaL_Graphs/Statistical_Graphs.slides.html#boxplot",
+    "href": "T7_StatisticaL_Graphs/Statistical_Graphs.slides.html#boxplot",
+    "title": "Statistical Graphs",
+    "section": "Boxplot",
+    "text": "Boxplot\n\nA boxplot helps us visualize the distribution of observations using quartiles.\n\n\nIt is very effective for detecting “outliers.”\n\n\n\nAn important component of the boxplot is the interquartile range (IQR), which is the difference between the third quartile and the first quartile (\\(Q_3 - Q_1\\)).\n\n\nThe interquartile range is the distance needed to encompass the middle half of the data."
+  },
+  {
+    "objectID": "T7_StatisticaL_Graphs/Statistical_Graphs.slides.html#anatomy-of-a-box-plot",
+    "href": "T7_StatisticaL_Graphs/Statistical_Graphs.slides.html#anatomy-of-a-box-plot",
+    "title": "Statistical Graphs",
+    "section": "Anatomy of a Box Plot",
+    "text": "Anatomy of a Box Plot\n\nLearn more here https://builtin.com/articles/1-5-iqr-rule"
+  },
+  {
+    "objectID": "T7_StatisticaL_Graphs/Statistical_Graphs.slides.html#outliers",
+    "href": "T7_StatisticaL_Graphs/Statistical_Graphs.slides.html#outliers",
+    "title": "Statistical Graphs",
+    "section": "Outliers",
+    "text": "Outliers\n\n\nOutliers are points that are much larger or smaller than the rest of the sample points.\nOutliers may be data entry errors or they may be points that really are different from the rest.\nOutliers should not be deleted without considerable thought—sometimes calculations and analyses will be done with and without outliers and then compared."
+  },
+  {
+    "objectID": "T7_StatisticaL_Graphs/Statistical_Graphs.slides.html#boxplot-for-the-piston-data",
+    "href": "T7_StatisticaL_Graphs/Statistical_Graphs.slides.html#boxplot-for-the-piston-data",
+    "title": "Statistical Graphs",
+    "section": "Boxplot for the piston data",
+    "text": "Boxplot for the piston data\nUsually, the box plot is shown vertically."
+  },
+  {
+    "objectID": "T7_StatisticaL_Graphs/Statistical_Graphs.slides.html#a-categorical-and-a-numerical-variable",
+    "href": "T7_StatisticaL_Graphs/Statistical_Graphs.slides.html#a-categorical-and-a-numerical-variable",
+    "title": "Statistical Graphs",
+    "section": "A Categorical and a Numerical Variable",
+    "text": "A Categorical and a Numerical Variable\nTo examine the relationship between a numerical and a categorical variable, we use the categorical variable to divide the data into groups. This way, we compare the distribution of the numerical variable among these groups.\n\nIn this context:\n\n\\(X\\) is the categorical variable.\n\\(Y\\) is the numerical variable.\n\n\n\nThe side-by-side boxplot is the most effective way to study the relationship between a categorical and a numerical variable."
+  },
+  {
+    "objectID": "T7_StatisticaL_Graphs/Statistical_Graphs.slides.html#boxplot-by-groups",
+    "href": "T7_StatisticaL_Graphs/Statistical_Graphs.slides.html#boxplot-by-groups",
+    "title": "Statistical Graphs",
+    "section": "Boxplot by groups",
+    "text": "Boxplot by groups\nThe side-by-side boxplot compares the distribution of a variable across different groups.\nFor example, if we want to compare the distributions of miles per gallon of cars built in America, Europe, or Japan, we use the following command:"
+  },
+  {
+    "objectID": "T7_StatisticaL_Graphs/Statistical_Graphs.slides.html#regression-plots",
+    "href": "T7_StatisticaL_Graphs/Statistical_Graphs.slides.html#regression-plots",
+    "title": "Statistical Graphs",
+    "section": "Regression Plots",
+    "text": "Regression Plots\n\nQuestions we can answer with simple linear regression:\n\nIs there a relationship between a response variable and predictors?\nHow strong is the relationship?\nWhat is the uncertainty?\nHow precisely can we predict a future outcome?"
+  },
+  {
+    "objectID": "T7_StatisticaL_Graphs/Statistical_Graphs.slides.html#regression-problem",
+    "href": "T7_StatisticaL_Graphs/Statistical_Graphs.slides.html#regression-problem",
+    "title": "Statistical Graphs",
+    "section": "Regression problem",
+    "text": "Regression problem\n\nObjetive: Find the best function \\(f(X)\\) of the predictor \\(X\\) that describes the response \\(Y\\).\n\nMathematically, we want to establish the following relationship:\n\\[\nY = f(X) + \\epsilon,\n\\]\nwhere \\(\\epsilon\\) is a natural (random) error."
+  },
+  {
+    "objectID": "T7_StatisticaL_Graphs/Statistical_Graphs.slides.html#linear-regression-model",
+    "href": "T7_StatisticaL_Graphs/Statistical_Graphs.slides.html#linear-regression-model",
+    "title": "Statistical Graphs",
+    "section": "Linear regression model",
+    "text": "Linear regression model\nA very common function \\(f(X)\\) to predict a response \\(Y\\) is the linear regression model.\nIts mathematical form is:\n\\[\n\\hat{Y}_i = \\hat{\\beta}_0 + \\hat{\\beta}_1 X_i,\n\\]\n\nWhere \\(i\\) is the index of the \\(n\\) observations, and\n\\(\\hat{Y}_i\\) is the predicted value of the actual response \\(Y_i\\) associated with a predictor value \\(X_i\\).\nThe values \\(\\hat{\\beta}_0\\) and \\(\\hat{\\beta}_1\\) are called coefficients of the model."
+  },
+  {
+    "objectID": "T7_StatisticaL_Graphs/Statistical_Graphs.slides.html#principle-2-turn-data-into-information-1",
+    "href": "T7_StatisticaL_Graphs/Statistical_Graphs.slides.html#principle-2-turn-data-into-information-1",
+    "title": "Statistical Graphs",
+    "section": "Principle 2: Turn data into information",
+    "text": "Principle 2: Turn data into information\nThe values of \\(\\hat{\\beta}_0\\) and \\(\\hat{\\beta}_1\\) are obtained using the data. Specifically, the formulas for the coefficients are:\n\\[\\hat{\\beta}_1 = \\frac{ \\sum_{i=1}^{n} (Y_i - \\bar{Y}) (X_i - \\bar{X}) }{\\sum_{i=1}^{n} (X_i - \\bar{X})^2} \\text{  y  } \\hat{\\beta}_0 = \\bar{Y} - \\hat{\\beta}_1 \\bar{X},\\]\nwhere \\(\\bar{X} = \\sum_{i=1}^n X_i/n\\) and \\(\\bar{Y} = \\sum_{i=1}^n Y_i/n\\).\nThese formulas are derived from the method of least squares."
+  },
+  {
+    "objectID": "T7_StatisticaL_Graphs/Statistical_Graphs.slides.html#fitting-regression-models",
+    "href": "T7_StatisticaL_Graphs/Statistical_Graphs.slides.html#fitting-regression-models",
+    "title": "Statistical Graphs",
+    "section": "Fitting regression models",
+    "text": "Fitting regression models\nTo fit a linear regression model, we use the regplot() in seaborn."
+  },
+  {
+    "objectID": "T7_StatisticaL_Graphs/Statistical_Graphs.slides.html#for-our-example",
+    "href": "T7_StatisticaL_Graphs/Statistical_Graphs.slides.html#for-our-example",
+    "title": "Statistical Graphs",
+    "section": "For our example",
+    "text": "For our example\n\\(\\hat{Y}_i = 46.32 -0.0076 X_i\\)"
+  },
+  {
+    "objectID": "T7_StatisticaL_Graphs/Statistical_Graphs.slides.html#the-formula",
+    "href": "T7_StatisticaL_Graphs/Statistical_Graphs.slides.html#the-formula",
+    "title": "Statistical Graphs",
+    "section": "The formula",
+    "text": "The formula\n\\(\\text{mpg}_i = 46.32 - 0.0076 \\times \\text{weight}_i\\)"
+  },
+  {
+    "objectID": "T7_StatisticaL_Graphs/Statistical_Graphs.slides.html#interpretation-of-the-coefficients",
+    "href": "T7_StatisticaL_Graphs/Statistical_Graphs.slides.html#interpretation-of-the-coefficients",
+    "title": "Statistical Graphs",
+    "section": "Interpretation of the coefficients",
+    "text": "Interpretation of the coefficients\nWhat does \\(\\hat{\\beta}_0 = 46.32\\) mean?\n\n\\(\\hat{\\beta}_0\\) is the average response value when \\(X_i = 0\\)."
+  },
+  {
+    "objectID": "T7_StatisticaL_Graphs/Statistical_Graphs.slides.html#interpretation-of-hatbeta_1",
+    "href": "T7_StatisticaL_Graphs/Statistical_Graphs.slides.html#interpretation-of-hatbeta_1",
+    "title": "Statistical Graphs",
+    "section": "Interpretation of \\(\\hat{\\beta}_1\\)",
+    "text": "Interpretation of \\(\\hat{\\beta}_1\\)\n\n\nFor every extra pound in a car’s weight, the car has an average reduction of 0.0076 miles per gallon."
+  },
+  {
+    "objectID": "T7_StatisticaL_Graphs/Statistical_Graphs.slides.html#do-all-points-fall-exactly-on-the-line",
+    "href": "T7_StatisticaL_Graphs/Statistical_Graphs.slides.html#do-all-points-fall-exactly-on-the-line",
+    "title": "Statistical Graphs",
+    "section": "Do all points fall exactly on the line?",
+    "text": "Do all points fall exactly on the line?\n\n\nNo! The model has errors.\n\n\n\nTechnically, the error of the i-th observation is given by: \\(\\hat{e}_i = Y_i - \\hat{Y}_i = Y_i - \\hat{\\beta}_0 - \\hat{\\beta}_1 X_i\\).\nThe behavior of the errors (\\(e_i\\)’s) indicates whether the model is correct or not, which can be validated using a residual analysis (see IN1002B for example)."
+  },
+  {
+    "objectID": "T7_StatisticaL_Graphs/Statistical_Graphs.slides.html#local-regression",
+    "href": "T7_StatisticaL_Graphs/Statistical_Graphs.slides.html#local-regression",
+    "title": "Statistical Graphs",
+    "section": "Local regression",
+    "text": "Local regression\n\nThis is a modern alternative to the simple linear regression model for capturing complex relationships between two variables.\nBasic Idea: It fits linear regression models to small subsets of the data. These subsets consist of observations that are close to each other.\nThe most common method for fitting a local regression model is LOESS. We will omit the details of this method here since they require advanced statistical concepts."
+  },
+  {
+    "objectID": "T7_StatisticaL_Graphs/Statistical_Graphs.slides.html#another-example",
+    "href": "T7_StatisticaL_Graphs/Statistical_Graphs.slides.html#another-example",
+    "title": "Statistical Graphs",
+    "section": "Another example",
+    "text": "Another example\nLet’s consider the relationship between car acceleration and the total volume of all engine cylinders."
+  },
+  {
+    "objectID": "T7_StatisticaL_Graphs/Statistical_Graphs.slides.html#linear-regression",
+    "href": "T7_StatisticaL_Graphs/Statistical_Graphs.slides.html#linear-regression",
+    "title": "Statistical Graphs",
+    "section": "Linear regression",
+    "text": "Linear regression"
+  },
+  {
+    "objectID": "T7_StatisticaL_Graphs/Statistical_Graphs.slides.html#discussion",
+    "href": "T7_StatisticaL_Graphs/Statistical_Graphs.slides.html#discussion",
+    "title": "Statistical Graphs",
+    "section": "Discussion",
+    "text": "Discussion\n\n\nThe simple linear regression model is easy to interpret due to its structure: \\(\\hat{Y}_i = \\hat{\\beta}_0 + \\hat{\\beta}_1 X_i.\\)\nHowever, it may be too rigid to capture complex relationships between two variables.\nLocal regression is flexible and allows capturing complex relationships between two variables, but it has a low level of interpretability because it does not provide an explicit equation."
+  },
+  {
+    "objectID": "T7_StatisticaL_Graphs/Statistical_Graphs.slides.html#for-the-piston-data-1",
+    "href": "T7_StatisticaL_Graphs/Statistical_Graphs.slides.html#for-the-piston-data-1",
+    "title": "Statistical Graphs",
+    "section": "For the piston data",
+    "text": "For the piston data\n\n\n\\(Q_1 = 0.305\\). So, 25% of cycle times are below 0.305 seconds.\n\\(Q_2 = 0.546\\). So, 50% of cycle times are below 0.546 seconds.\n\\(Q_3 = 1.07\\). So, 75% of cycle times are below 1.07 seconds.\nThe maximum cycle time is 1.14 seconds.\nThe minimum cycle time is 0.175 seconds."
+  },
+  {
+    "objectID": "T7_StatisticaL_Graphs/Statistical_Graphs.slides.html#categorical-and-numerical-variables",
+    "href": "T7_StatisticaL_Graphs/Statistical_Graphs.slides.html#categorical-and-numerical-variables",
+    "title": "Statistical Graphs",
+    "section": "Categorical and Numerical Variables",
+    "text": "Categorical and Numerical Variables\nTo examine the relationship between a numerical and a categorical variable, we use the categorical variable to divide the data into groups. This way, we compare the distribution of the numerical variable among these groups.\n\nIn this context:\n\n\\(X\\) is the categorical variable.\n\\(Y\\) is the numerical variable.\n\n\n\nThe side-by-side boxplot is the most effective way to study the relationship between a categorical and a numerical variable."
+  },
+  {
+    "objectID": "T7_StatisticaL_Graphs/Statistical_Graphs.slides.html#plot-of-a-simple-regression-model",
+    "href": "T7_StatisticaL_Graphs/Statistical_Graphs.slides.html#plot-of-a-simple-regression-model",
+    "title": "Statistical Graphs",
+    "section": "Plot of a simple regression model",
+    "text": "Plot of a simple regression model"
+  },
+  {
+    "objectID": "T7_StatisticaL_Graphs/Statistical_Graphs.slides.html#for-our-example-1",
+    "href": "T7_StatisticaL_Graphs/Statistical_Graphs.slides.html#for-our-example-1",
+    "title": "Statistical Graphs",
+    "section": "For our example",
+    "text": "For our example"
   }
 ]
