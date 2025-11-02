@@ -1,5 +1,5 @@
 ---
-title: "What is Data Visualization?"
+title: "Introduction to Data Visualization"
 subtitle: "IN2039: Data Visualization for Decision Making"
 author: 
   - name: Alan R. Vazquez
@@ -19,14 +19,13 @@ editor: visual
 
 ## Agenda
 
-</br>
+</br></br>
 
-1.  Introduction to data science
-2.  Three principles of data visualization
-3.  Activity
-4.  Storytelling for data visualization
+1.  Introduction to Data Science
+2.  Three Principles of Data Visualization
+3.  Storytelling for Data Visualization
 
-# Introduction to data science
+# Introduction to Data Science
 
 ## Data science is ...
 
@@ -120,33 +119,7 @@ Data science methodology is based on numerical data given in tables.
 
 [***In this course, we will assume that the data is in a table.***]{style="color:#023562;"}
 
-## Problem situation
-
-</br>
-
-Food pricing inequality is a crucial issue affecting access to affordable and nutritious food, particularly in **New York City**.
-
-Previous work has suggested that the price of food sold at supermarkets may vary according to the socioeconomic characteristics of a neighborhood.
-
-Given the importance of food prices in securing access to food, understanding how food prices vary across neighborhoods is crucial to assessing affordability.
-
-## Goal of the problem situation
-
-</br>
-
-> This problem situation concerns the creation of a poster that studies the disparities in the prices of food products across the neighborhoods in New York City.
-
-::::: columns
-::: {.column width="70%"}
-To this end, you will have two datasets with data about food prices of a sample of supermarkets and statistics of the neighborhoods where they are located.
-:::
-
-::: {.column width="30%"}
-![](images/NYC.png)
-:::
-:::::
-
-# The three principles of data visualization
+# The Three Principles of Data Visualization
 
 ## What is data visualization?
 
@@ -306,6 +279,8 @@ The estimated costs are based on a twice-daily 10.4 mile one-way commute at peak
 
 ## 
 
+</br></br>
+
 [**Principle 2**]{style="color:#023562;"}: Turn data into information.
 
 ```{r}
@@ -332,6 +307,8 @@ slp_plot
 
 ## 
 
+</br></br>
+
 [**Principle 3**]{style="color:#023562;"}: Apply Graphic Design Principles.
 
 ```{r}
@@ -352,7 +329,7 @@ uber <- data.frame(
 slp_plot = ggplot(data = uber, aes(x = Type, y = Cost, group = City, color = factor(City))) 
 slp_plot = slp_plot + geom_line(size = 2, alpha = 0.5) 
 slp_plot = slp_plot + geom_point(size = 3)
-slp_plot = slp_plot + labs(title = "It is cheaper to take Uber than own a car in four of the five largest U.S. cities.", x = "", y = "Costo (USD)", color = "Ciudad")
+slp_plot = slp_plot + labs(title = "It is cheaper to take Uber than own a car in four of the five largest U.S. cities.", x = "", y = "Costo (USD)", color = "City")
 slp_plot = slp_plot + scale_color_manual(values = c("Chicago" = "#619CFF", "Dallas" = "red", "Los Angeles" = "#619CFF", "New York City" = "#619CFF", "Washington D.C." = "#619CFF"))
 slp_plot + theme_minimal() + theme(text = element_text(size = 15),
         axis.text.x = element_text(size = 20), axis.text.y = element_text(size = 15))
@@ -376,23 +353,21 @@ slp_plot + theme_minimal() + theme(text = element_text(size = 15),
 
 <https://www.storytellingwithdata.com/> is an excellent guide on data visualization.
 
-# Activity
+## Activity 1.1 (*cooperative* mode)
 
-## Activity (cooperative mode)
+</br></br>
 
-1.  Get together with a partner.
+1.  Get together with a classmate
 
-2.  Find a good and a bad example of a visualization (chart) online.
+2.  Aanalyze the five data visualizations in this <a href="https://docs.google.com/presentation/d/1qBh3Lh7eMuXG9iaFZm44ucS4ihMX8nkgpb-1zGE6ZxE/edit?usp=sharing" target="_blank">Google Slides</a> file
 
-3.  Save the visualizations (for example, by taking a screenshot).
+3.  For each graph, write a short critique (3-4 sentences) using the three principles of data visualization.
 
-4.  Write a short critique (3-4 sentences) of each visualization.
+4.  Upload your document in PDF with your critiques to Canvas.
 
-5.  Upload a document with your critiques and images to Canvas.
+# Storytelling for Data Visualization
 
-# Storytelling for data visualization
-
-## Why storytelling matters in data visualization
+## Why storytelling matters in data visualization?
 
 -   Raw data alone is not enough—insights must be communicated effectively.
 
@@ -418,7 +393,7 @@ For example, a simple bar chart can be enhanced by context and narrative to expl
 :::
 :::::
 
-## The Three Components of a Data Story
+## Three Components of a Data Story
 
 1.  Data (What?)
 
