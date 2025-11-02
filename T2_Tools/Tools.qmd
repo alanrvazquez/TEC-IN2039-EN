@@ -8,7 +8,7 @@ author:
 format: 
   revealjs:
     chalkboard: false
-    multiplex: true
+    multiplex: false
     footer: "Tecnologico de Monterrey"
     logo: IN2039_logo.png
     css: style.css

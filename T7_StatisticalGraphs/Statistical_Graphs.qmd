@@ -25,8 +25,8 @@ editor: visual
 
 2.  Multiple Variables
 
-    - Side-by-Side Box Plots
-    - Regression Plots
+    -   Side-by-Side Box Plots
+    -   Regression Plots
 
 # One Numerical Variable
 
@@ -118,7 +118,7 @@ This quantity is known as the standard deviation. [*It is in the same units as t
 
 </br></br>
 
-- The average of the cycle time of the piston is 0.652 seconds.
+-   The average of the cycle time of the piston is 0.652 seconds.
 
 ```{r}
 #| echo: false
@@ -128,9 +128,9 @@ piston_data %>%
   summarise("Average" = mean(cycle_time))
 ```
 
-- The standard deviation of the cycle time of the piston is 0.373 seconds.
+-   The standard deviation of the cycle time of the piston is 0.373 seconds.
 
-- Therefore, on average, a piston takes 0.652 seconds to complete a cycle, with a variation of $\pm$ 0.373 seconds.
+-   Therefore, on average, a piston takes 0.652 seconds to complete a cycle, with a variation of $\pm$ 0.373 seconds.
 
 ```{r}
 #| echo: false
@@ -139,7 +139,6 @@ piston_data %>%
 piston_data %>% 
   summarise("Desv.Std" = sd(cycle_time))
 ```
-
 
 ## Quartiles
 
@@ -180,6 +179,7 @@ The generalization of quartiles are percentiles or **quantiles**.
 -   $Q_3 = 1.07$. So, 75% of cycle times are below 1.07 seconds.
 
 -   The maximum cycle time is 1.14 seconds.
+
 -   The minimum cycle time is 0.175 seconds.
 
 ```{r}
@@ -193,7 +193,6 @@ piston_data %>%
   reframe("Value" = quantile(cycle_time, mis.quantiles)) %>%
   mutate("Quantile" = mis.quantiles)
 ```
-
 
 ## Mean vs. Median
 
@@ -271,7 +270,7 @@ Learn more here <https://builtin.com/articles/1-5-iqr-rule>
 
 ## Boxplot for the piston data
 
-Usually, the box plot is shown vertically. 
+Usually, the box plot is shown vertically.
 
 ```{r}
 #| fig-align: center
@@ -285,7 +284,7 @@ gf_boxplot(cycle_time ~ 1, data = piston_data, color = "black", fill = "pink") +
 
 </br>
 
-But in some cases, we may want to display the the box plot horizontally. 
+But in some cases, we may want to display the the box plot horizontally.
 
 ```{r}
 #| fig-align: center
@@ -294,7 +293,6 @@ But in some cases, we may want to display the the box plot horizontally.
 
 gf_boxplot(~ cycle_time, data = piston_data, color = "black", fill = "pink") + labs(y = "Piston ", x = "Cycle Time (s)") + theme(axis.text=element_text(size=20), axis.title=element_text(size=20),plot.title=element_text(size=25))
 ```
-
 
 # Multiple Variables
 
@@ -349,10 +347,10 @@ There are various types of graphs that help us explore relationships between two
 </br>
 
 ::: center
-| Type        | Graph Type                                |
-|:------------|:------------------------------------------|
-| Numerical   | Regression plot                           |
-| Mixed       | Side-by-side box plot                     |
+| Type      | Graph Type            |
+|:----------|:----------------------|
+| Numerical | Regression plot       |
+| Mixed     | Side-by-side box plot |
 :::
 
 ::: notes
@@ -592,10 +590,9 @@ No! The model has [**errors**]{style="color:darkgreen;"}.
 
 </br>
 
-Technically, the error of the *i*-th observation is given by: $\hat{e}_i = Y_i - \hat{Y}_i = Y_i - \hat{\beta}_0 - \hat{\beta}_1 X_i$. 
+Technically, the error of the *i*-th observation is given by: $\hat{e}_i = Y_i - \hat{Y}_i = Y_i - \hat{\beta}_0 - \hat{\beta}_1 X_i$.
 
 The behavior of the errors ($e_i$'s) indicates whether the model is correct or not, which can be validated using a **residual analysis** (see IN1002B for example).
-
 
 ## Local regression
 
@@ -619,7 +616,6 @@ gf_point(mpg ~ weight, data = auto_data, color = "darkblue", size = 2) %>%
   gf_smooth(mpg ~ weight, method = "loess",
             color = "blue", linewidth = 2, lty = 1) + theme(axis.text=element_text(size=20), axis.title=element_text(size=20),plot.title=element_text(size=25)) + labs(x = "Weight (lb)", y = "MPG")
 ```
-
 
 ## Another example
 
@@ -646,7 +642,6 @@ gf_point(acceleration ~ displacement, data = auto_data) %>%
   gf_lm(acceleration ~ displacement, color = "blue", size = 2, lty = 1) + theme(axis.text=element_text(size=20), axis.title=element_text(size=20),plot.title=element_text(size=25))
 ```
 
-
 ## Discussion
 
 </br>
@@ -656,7 +651,5 @@ gf_point(acceleration ~ displacement, data = auto_data) %>%
 -   However, it may be too rigid to capture complex relationships between two variables.
 
 -   Local regression is flexible and allows capturing complex relationships between two variables, but it has a low level of interpretability because it does not provide an explicit equation.
-
-
 
 # [Return to main page](https://alanrvazquez.github.io/TEC-IN2039-EN/)

@@ -851,14 +851,14 @@
     "href": "index.html",
     "title": "IN2039 Data Visualization for Decision Making",
     "section": "",
-    "text": "Course topics\n\nIntroduction (slides)\nTools (slides) (colab)\nTypes of variables (slides) (colab) (pandas cheat sheet)\nCategorical variables (slides) (colab)\nNumerical variables (slides) (colab)\nMultivariate data (slides) (colab)\nSimple regression (slides) (colab)\nCourse recap (slides)\n\n\n\nAbout the author\nAlan R. Vazquez (website) is a Research Professor at the Department of Industrial Engineering at Tecnologico de Monterrey, Monterrey campus.\n\n\nLicense\n\nIN2039 Data Visualization for Decision Making by Alan R. Vazquez is licensed under CC BY-NC-SA 4.0"
+    "text": "Course topics\n\nIntroduction (slides)\nTools for Data Manipulation (slides) (colab) (dplyr cheat sheet)\nTidy Data (slides) (tidyr cheat sheet)\nWeb Scraping\nDashboard Technologies\nPopular graphs (slides)\nStatistical graphs (slides)\n\n\n\nAbout the author\nAlan R. Vazquez (website) is a Research Professor at the Department of Industrial Engineering at Tecnologico de Monterrey, Monterrey campus.\n\n\nLicense\n\nIN2039 Data Visualization for Decision Making by Alan R. Vazquez is licensed under CC BY-NC-SA 4.0"
   },
   {
     "objectID": "index.slides.html#course-topics",
     "href": "index.slides.html#course-topics",
     "title": "IN2039 Data Visualization for Decision Making",
     "section": "Course topics",
-    "text": "Course topics\n\nIntroduction (slides)\nTools (slides) (colab)\nTypes of variables (slides) (colab) (pandas cheat sheet)\nCategorical variables (slides) (colab)\nNumerical variables (slides) (colab)\nMultivariate data (slides) (colab)\nSimple regression (slides) (colab)\nCourse recap (slides)"
+    "text": "Course topics\n\nIntroduction (slides)\nTools for Data Manipulation (slides) (colab) (dplyr cheat sheet)\nTidy Data (slides) (tidyr cheat sheet)\nCategorical variables (slides) (colab)\nWeb Scraping\nDashboard Technologies\nPopular graphs (slides)\nStatistical graphs (slides)"
   },
   {
     "objectID": "index.slides.html#about-the-author",
@@ -2475,7 +2475,7 @@
     "href": "T1_Introduction/Introduction.html#storytelling-for-data-visualization",
     "title": "What is Data Visualization?",
     "section": "Storytelling for data visualization",
-    "text": "Storytelling for data visualization\n\nWhy storytelling matters in data visualization\n\nRaw data alone is not enough—insights must be communicated effectively.\nDecision-makers rely on clear, engaging, and meaningful presentations of data.\nGood storytelling connects data to real-world problems and solutions.\n\n. . .\nFor example, a simple bar chart can be enhanced by context and narrative to explain a business trend or social issue.\n\n\n\n\n\n\n\n“The most powerful person in the world is the storyteller.” – Steve Jobs\n\n\n\n\n\n\n\nThe Three Components of a Data Story\n\nData (What?)\n\n\nThe foundation—collected, cleaned, and analyzed.\nProvides objective evidence to support claims.\n\n\nVisuals (How?)\n\n\nGraphs, charts, and maps help translate numbers into meaningful insights.\nGood design guides the audience to the key message.\n\n\n\n\n\n\nNarrative (Why?)\n\n\nPuts data into context—explains the significance of findings.\nAnswers: Why does this matter? Who is affected? What should be done?\n\n\n\nStructuring a data story\n\nIntroduction (Set the Stage) 📌\n\n\nDefine the problem or question you’re addressing.\nProvide relevant background or context.\n\n. . .\n\nMain Findings (Show the Data) 📊\n\n\nUse effective visuals (histograms, box plots, line charts, scatter plots, etc.).\nHighlight key trends, comparisons, and relationships.\n\n\n\n\n\n\nInsights & Implications (So What?) 💡\n\n\nExplain why the findings matter.\nSuggest potential actions or decisions based on the insights.\n\n. . .\nFor example: A study on food pricing inequality might start with disparities in NYC, show visualizations comparing food prices across neighborhoods, and conclude with recommendations for policymakers.\n\n\nBest practices for storytelling\n\n\nKnow Your Audience – Tailor the message to decision-makers, engineers, or the public.\nKeep it Simple – Avoid unnecessary complexity; clarity is key.\nUse the Right Visuals – Choose the best chart type for your message.\nEmphasize Key Takeaways – Bold the most important insights.\nCreate a Narrative Flow – Guide the audience through the story step by step.\n\n\n\n\n\n\n\n\n\n\n\nhttps://www.amazon.com/Even-Geek-Speak-Joey-Asher/dp/0978577604"
+    "text": "Storytelling for data visualization\n\nWhy storytelling matters in data visualization\n\nRaw data alone is not enough—insights must be communicated effectively.\nDecision-makers rely on clear, engaging, and meaningful presentations of data.\nGood storytelling connects data to real-world problems and solutions.\n\n. . .\nFor example, a simple bar chart can be enhanced by context and narrative to explain a business trend or social issue.\n\n\n\n\n\n\n\n“The most powerful person in the world is the storyteller.” – Steve Jobs\n\n\n\n\n\n\n\nThe Three Components of a Data Story\n\nData (What?)\n\n\nThe foundation—collected, cleaned, and analyzed.\nProvides objective evidence to support claims.\n\n\nVisuals (How?)\n\n\nGraphs, charts, and maps help translate numbers into meaningful insights.\nGood design guides the audience to the key message.\n\n\n\n\n\n\nNarrative (Why?)\n\n\nPuts data into context—explains the significance of findings.\nAnswers: Why does this matter? Who is affected? What should be done?\n\n\n\nStructuring a data story\n\nIntroduction (Set the Stage) 📌\n\n\nDefine the problem or question you’re addressing.\nProvide relevant background or context.\n\n. . .\n\nMain Findings (Show the Data) 📊\n\n\nUse effective visuals (histograms, box plots, line charts, scatter plots, etc.).\nHighlight key trends, comparisons, and relationships.\n\n\n\n\n\n\nInsights & Implications (So What?) 💡\n\n\nExplain why the findings matter.\nSuggest potential actions or decisions based on the insights.\n\n. . .\nFor example: A study on food pricing inequality might start with disparities in NYC, show visualizations comparing food prices across neighborhoods, and conclude with recommendations for policymakers.\n\n\nBest practices for storytelling\n\n\nKnow Your Audience – Tailor the message to decision-makers, engineers, or the public.\nKeep it Simple – Avoid unnecessary complexity; clarity is key.\nUse the Right Visuals – Choose the best chart type for your message.\nEmphasize Key Takeaways – Bold the most important insights.\nCreate a Narrative Flow – Guide the audience through the story step by step.\n\n\n\n\n\n\n\n\n\n\n\nhttps://www.amazon.com/Even-Geek-Speak-Joey-Asher/dp/0978577604\n\n\n\nAdvice for Effective Presentations\n\n\nAvoid jargon overload. Speak in plain, everyday language your audience understands.\nDevelop the main objective Start your speech with “By [insert what you want to accomplish] you will [insert what your listener wants].”\nPresent the “so what.” Don’t dive straight into details — explain why it matters first.\nLimit your slides. One main idea per slide keeps your message clear and focused.\n\n\n\n\n\n\nUse the 3-points structure. Come up with no more than three points in support of your main objective. Support each of the points with facts or examples.\n\n\n\nPractice for clarity, not memorization. Rehearse enough to sound natural and confident.\nYou are the presentation. Visuals in PowerPoint reinforce a speaker’s message and help the audience key points. However, the presenter should always be the focus of the presentation, not the visuals.\nEnd with a call to action. Tell your audience what you want them to do next.\n\n\n\n\nTake-Home Activity\nPrepare a short presentation (up to 5 minutes) about any topic you’re passionate about.\nGuidelines:\n\nUse slides (PowerPoint or Google Slides — your choice).\n\nUpload your slides to CANVAS before next class.\n\nA few students will be randomly selected to present live.\n\nWe won’t judge your topic. We’re looking for clarity, connection, and passion."
   },
   {
     "objectID": "T1_Introduction/Introduction.html#return-to-main-page",
@@ -3925,5 +3925,950 @@
     "title": "Statistical Graphs",
     "section": "For our example",
     "text": "For our example"
+  },
+  {
+    "objectID": "T7_StatisticalGraphs/Statistical_Graphs.slides.html#agenda",
+    "href": "T7_StatisticalGraphs/Statistical_Graphs.slides.html#agenda",
+    "title": "Statistical Graphs",
+    "section": "Agenda",
+    "text": "Agenda\n\n\nOne Numerical Variable\nMultiple Variables\n\nSide-by-Side Box Plots\nRegression Plots"
+  },
+  {
+    "objectID": "T7_StatisticalGraphs/Statistical_Graphs.slides.html#example-1",
+    "href": "T7_StatisticalGraphs/Statistical_Graphs.slides.html#example-1",
+    "title": "Statistical Graphs",
+    "section": "Example 1",
+    "text": "Example 1\n\n\nA piston is a mechanical device found in most engines.\n\n\n\nOne measure of a piston’s performance is the time it takes to complete a cycle, which we call “cycle time” and is measured in seconds.\nThe file “CYLT.xlsx” contains 50 cycle times of a piston operating under fixed conditions."
+  },
+  {
+    "objectID": "T7_StatisticalGraphs/Statistical_Graphs.slides.html#summary-statistic",
+    "href": "T7_StatisticalGraphs/Statistical_Graphs.slides.html#summary-statistic",
+    "title": "Statistical Graphs",
+    "section": "Summary statistic",
+    "text": "Summary statistic\n\n\nHelps us to summarize a list of observations in a simple way.\n\nFor numerical data, the most popular summary statistics are:\n\nMean\nVariance and standard deviation\nQuartiles\nMaximum and minimum"
+  },
+  {
+    "objectID": "T7_StatisticalGraphs/Statistical_Graphs.slides.html#mean",
+    "href": "T7_StatisticalGraphs/Statistical_Graphs.slides.html#mean",
+    "title": "Statistical Graphs",
+    "section": "Mean",
+    "text": "Mean\n\n\nIndicates the center of the data.\n\n\nLet \\(y_1, y_2, \\ldots, y_n\\) be an observed sample of size \\(n\\).\nThe mean is\n\\[\\bar{y} = \\frac{1}{n}\\sum_{i=1}^{n} y_i = \\frac{y_1 + y_2 + \\cdots + y_n}{n}.\\]"
+  },
+  {
+    "objectID": "T7_StatisticalGraphs/Statistical_Graphs.slides.html#variance",
+    "href": "T7_StatisticalGraphs/Statistical_Graphs.slides.html#variance",
+    "title": "Statistical Graphs",
+    "section": "Variance",
+    "text": "Variance\n\nIndicates how spread out the data are around the mean.\n\n\nLet \\(y_1, y_2, \\ldots, y_n\\) be an observed sample of size \\(n\\). The variance is\n\\[\ns^2 = \\frac{1}{n-1} \\sum_{i=1}^{n} (y_i - \\bar{y})^2 = \\frac{(y_1 - \\bar{y})^2  + \\cdots + (y_n - \\bar{y})^2}{n-1}\n\\]\n\nThe variance is like an average of the squared differences between each observation and the mean."
+  },
+  {
+    "objectID": "T7_StatisticalGraphs/Statistical_Graphs.slides.html#standard-deviation",
+    "href": "T7_StatisticalGraphs/Statistical_Graphs.slides.html#standard-deviation",
+    "title": "Statistical Graphs",
+    "section": "Standard deviation",
+    "text": "Standard deviation\nA drawback of the variance is that it is not on the same scale as the actual observations.\nTo obtain a measure of spread whose units are the same as those of the sample, we simply take the squared root of the variance\n\\[\ns = \\left(\\frac{1}{n-1} \\sum_{i=1}^{n} (y_i - \\bar{y})^2 \\right)^{1/2}\n\\]\nThis quantity is known as the standard deviation. It is in the same units as the observations."
+  },
+  {
+    "objectID": "T7_StatisticalGraphs/Statistical_Graphs.slides.html#for-the-piston-data",
+    "href": "T7_StatisticalGraphs/Statistical_Graphs.slides.html#for-the-piston-data",
+    "title": "Statistical Graphs",
+    "section": "For the piston data",
+    "text": "For the piston data\n\n\nThe average of the cycle time of the piston is 0.652 seconds.\n\n\nThe standard deviation of the cycle time of the piston is 0.373 seconds.\nTherefore, on average, a piston takes 0.652 seconds to complete a cycle, with a variation of \\(\\pm\\) 0.373 seconds."
+  },
+  {
+    "objectID": "T7_StatisticalGraphs/Statistical_Graphs.slides.html#quartiles",
+    "href": "T7_StatisticalGraphs/Statistical_Graphs.slides.html#quartiles",
+    "title": "Statistical Graphs",
+    "section": "Quartiles",
+    "text": "Quartiles\n\nThe median is the middle number of the ordered data values.\n\nQuartiles divide the data as nearly as possible into quarters:\n\nFirst quartile (\\(Q_1\\)) is the median of the lower half of the data.\nSecond quartile (\\(Q_2\\)) is the median of the data.\nThird quartile (\\(Q_3\\)) is the median of the upper half of the data."
+  },
+  {
+    "objectID": "T7_StatisticalGraphs/Statistical_Graphs.slides.html#section",
+    "href": "T7_StatisticalGraphs/Statistical_Graphs.slides.html#section",
+    "title": "Statistical Graphs",
+    "section": "",
+    "text": "The generalization of quartiles are percentiles or quantiles."
+  },
+  {
+    "objectID": "T7_StatisticalGraphs/Statistical_Graphs.slides.html#for-the-piston-data-1",
+    "href": "T7_StatisticalGraphs/Statistical_Graphs.slides.html#for-the-piston-data-1",
+    "title": "Statistical Graphs",
+    "section": "For the piston data",
+    "text": "For the piston data\n\n\n\\(Q_1 = 0.305\\). So, 25% of cycle times are below 0.305 seconds.\n\\(Q_2 = 0.546\\). So, 50% of cycle times are below 0.546 seconds.\n\\(Q_3 = 1.07\\). So, 75% of cycle times are below 1.07 seconds.\nThe maximum cycle time is 1.14 seconds.\nThe minimum cycle time is 0.175 seconds."
+  },
+  {
+    "objectID": "T7_StatisticalGraphs/Statistical_Graphs.slides.html#mean-vs.-median",
+    "href": "T7_StatisticalGraphs/Statistical_Graphs.slides.html#mean-vs.-median",
+    "title": "Statistical Graphs",
+    "section": "Mean vs. Median",
+    "text": "Mean vs. Median\n\nThe mean and median estimate the central value of the data in different ways.\n\nThe mean is the sum of the values divided by the total.\nThe median is the central value of an ordered set of data."
+  },
+  {
+    "objectID": "T7_StatisticalGraphs/Statistical_Graphs.slides.html#when-do-we-use-the-mean",
+    "href": "T7_StatisticalGraphs/Statistical_Graphs.slides.html#when-do-we-use-the-mean",
+    "title": "Statistical Graphs",
+    "section": "When do we use the mean?",
+    "text": "When do we use the mean?\n\nThe mean is used when the data is symmetrically or evenly distributed and there are no significant outliers.\n\nFor example, the height of a large sample of people in a homogeneous population."
+  },
+  {
+    "objectID": "T7_StatisticalGraphs/Statistical_Graphs.slides.html#when-do-we-use-the-median",
+    "href": "T7_StatisticalGraphs/Statistical_Graphs.slides.html#when-do-we-use-the-median",
+    "title": "Statistical Graphs",
+    "section": "When do we use the median?",
+    "text": "When do we use the median?\n\nThe median is used when there are outliers that could skew the mean.\nFor example:\n\nAnnual household income in a country (where there are a few billionaires who distort the mean).\nHouse prices in a city (where a few very expensive properties can inflate the mean)."
+  },
+  {
+    "objectID": "T7_StatisticalGraphs/Statistical_Graphs.slides.html#activity-solo-mode-part-1",
+    "href": "T7_StatisticalGraphs/Statistical_Graphs.slides.html#activity-solo-mode-part-1",
+    "title": "Statistical Graphs",
+    "section": "Activity (solo mode) Part 1",
+    "text": "Activity (solo mode) Part 1\nA company that manufactures capacitor retaining bolts for automobile engines implemented a quality control system. As part of this quality control system, a team of engineers decided to record the number of nonconforming bolts produced each shift.\nThe file bolts.xlsx contains the number of non-conforming bolts during the last 45 shifts.\n\nCalculate and interpret the mean, variance, standard deviation, quartiles, minimum and maximum."
+  },
+  {
+    "objectID": "T7_StatisticalGraphs/Statistical_Graphs.slides.html#boxplot",
+    "href": "T7_StatisticalGraphs/Statistical_Graphs.slides.html#boxplot",
+    "title": "Statistical Graphs",
+    "section": "Boxplot",
+    "text": "Boxplot\n\nA boxplot helps us visualize the distribution of observations using quartiles.\n\n\nIt is very effective for detecting “outliers.”\n\n\n\nAn important component of the boxplot is the interquartile range (IQR), which is the difference between the third quartile and the first quartile (\\(Q_3 - Q_1\\)).\n\n\nThe interquartile range is the distance needed to encompass the middle half of the data."
+  },
+  {
+    "objectID": "T7_StatisticalGraphs/Statistical_Graphs.slides.html#anatomy-of-a-box-plot",
+    "href": "T7_StatisticalGraphs/Statistical_Graphs.slides.html#anatomy-of-a-box-plot",
+    "title": "Statistical Graphs",
+    "section": "Anatomy of a Box Plot",
+    "text": "Anatomy of a Box Plot\n\nLearn more here https://builtin.com/articles/1-5-iqr-rule"
+  },
+  {
+    "objectID": "T7_StatisticalGraphs/Statistical_Graphs.slides.html#outliers",
+    "href": "T7_StatisticalGraphs/Statistical_Graphs.slides.html#outliers",
+    "title": "Statistical Graphs",
+    "section": "Outliers",
+    "text": "Outliers\n\n\nOutliers are points that are much larger or smaller than the rest of the sample points.\nOutliers may be data entry errors or they may be points that really are different from the rest.\nOutliers should not be deleted without considerable thought—sometimes calculations and analyses will be done with and without outliers and then compared."
+  },
+  {
+    "objectID": "T7_StatisticalGraphs/Statistical_Graphs.slides.html#boxplot-for-the-piston-data",
+    "href": "T7_StatisticalGraphs/Statistical_Graphs.slides.html#boxplot-for-the-piston-data",
+    "title": "Statistical Graphs",
+    "section": "Boxplot for the piston data",
+    "text": "Boxplot for the piston data\nUsually, the box plot is shown vertically."
+  },
+  {
+    "objectID": "T7_StatisticalGraphs/Statistical_Graphs.slides.html#section-1",
+    "href": "T7_StatisticalGraphs/Statistical_Graphs.slides.html#section-1",
+    "title": "Statistical Graphs",
+    "section": "",
+    "text": "But in some cases, we may want to display the the box plot horizontally."
+  },
+  {
+    "objectID": "T7_StatisticalGraphs/Statistical_Graphs.slides.html#multivariate-data",
+    "href": "T7_StatisticalGraphs/Statistical_Graphs.slides.html#multivariate-data",
+    "title": "Statistical Graphs",
+    "section": "Multivariate data",
+    "text": "Multivariate data\n\nMultivariate data consists of datasets that contain observations of two or more variables.\n\nVariables can be numerical or categorical.\nVariables may or may not depend on each other.\n\n\nIn fact, the goal is to determine whether there is a relationship between the variables and the type of relationship."
+  },
+  {
+    "objectID": "T7_StatisticalGraphs/Statistical_Graphs.slides.html#example-2",
+    "href": "T7_StatisticalGraphs/Statistical_Graphs.slides.html#example-2",
+    "title": "Statistical Graphs",
+    "section": "Example 2",
+    "text": "Example 2\n\nConsider data from 392 cars, including miles per gallon, number of cylinders, horsepower, weight, acceleration, year, origin, among other variables. The data is in the file “auto_dataset.xlsx”.\n\n\n# A tibble: 6 × 9\n    mpg cylinders displacement horsepower weight acceleration  year origin  \n  &lt;dbl&gt;     &lt;dbl&gt;        &lt;dbl&gt; &lt;chr&gt;       &lt;dbl&gt;        &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;   \n1    18         8          307 130          3504         12      70 American\n2    15         8          350 165          3693         11.5    70 American\n3    18         8          318 150          3436         11      70 American\n4    16         8          304 150          3433         12      70 American\n5    17         8          302 140          3449         10.5    70 American\n6    15         8          429 198          4341         10      70 American\n# ℹ 1 more variable: `car name` &lt;chr&gt;"
+  },
+  {
+    "objectID": "T7_StatisticalGraphs/Statistical_Graphs.slides.html#principle-1-define-the-question",
+    "href": "T7_StatisticalGraphs/Statistical_Graphs.slides.html#principle-1-define-the-question",
+    "title": "Statistical Graphs",
+    "section": "Principle 1: Define the question",
+    "text": "Principle 1: Define the question\nIn the context of multiple-variable data, typical questions to study include:\n\nHow are variable \\(X\\) and variable \\(Y\\) related?\nIs the distribution of variable \\(X\\) the same across all subgroups defined by variable \\(Z\\)?\nAre there any unusual observations in the combination of values for variables \\(X\\) and \\(Y\\)?\nAre there any unusual observations in \\(X\\) for a subgroup of variable \\(Z\\)?"
+  },
+  {
+    "objectID": "T7_StatisticalGraphs/Statistical_Graphs.slides.html#principle-2-turn-data-into-information",
+    "href": "T7_StatisticalGraphs/Statistical_Graphs.slides.html#principle-2-turn-data-into-information",
+    "title": "Statistical Graphs",
+    "section": "Principle 2: Turn data into information",
+    "text": "Principle 2: Turn data into information\nThere are various types of graphs that help us explore relationships between two or more variables.\n\n\n\n\n\nType\nGraph Type\n\n\n\n\nNumerical\nRegression plot\n\n\nMixed\nSide-by-side box plot\n\n\n\n\n\nFor two features, the combination of types (both quantitative, both qualitative, or a mix) matters."
+  },
+  {
+    "objectID": "T7_StatisticalGraphs/Statistical_Graphs.slides.html#independent-and-dependent-variables",
+    "href": "T7_StatisticalGraphs/Statistical_Graphs.slides.html#independent-and-dependent-variables",
+    "title": "Statistical Graphs",
+    "section": "Independent and dependent variables",
+    "text": "Independent and dependent variables\nWhen investigating the relationship between two variables (numerical or categorical), we use specific terminology.\n\nOne variable is called the dependent or response variable, denoted by the letter \\(Y\\).\n\n\nThe other variable is called the independent or predictor variable, denoted by the letter \\(X\\).\n\n\n\nOur goal is to determine whether changes in \\(X\\) are associated with changes in \\(Y\\), and the nature of this association."
+  },
+  {
+    "objectID": "T7_StatisticalGraphs/Statistical_Graphs.slides.html#categorical-and-numerical-variables",
+    "href": "T7_StatisticalGraphs/Statistical_Graphs.slides.html#categorical-and-numerical-variables",
+    "title": "Statistical Graphs",
+    "section": "Categorical and Numerical Variables",
+    "text": "Categorical and Numerical Variables\nTo examine the relationship between a numerical and a categorical variable, we use the categorical variable to divide the data into groups. This way, we compare the distribution of the numerical variable among these groups.\n\nIn this context:\n\n\\(X\\) is the categorical variable.\n\\(Y\\) is the numerical variable.\n\n\n\nThe side-by-side boxplot is the most effective way to study the relationship between a categorical and a numerical variable."
+  },
+  {
+    "objectID": "T7_StatisticalGraphs/Statistical_Graphs.slides.html#boxplot-by-groups",
+    "href": "T7_StatisticalGraphs/Statistical_Graphs.slides.html#boxplot-by-groups",
+    "title": "Statistical Graphs",
+    "section": "Boxplot by groups",
+    "text": "Boxplot by groups\nThe side-by-side boxplot compares the distribution of a variable across different groups.\nFor example, if we want to compare the distributions of miles per gallon of cars built in America, Europe, or Japan, we use the following command:"
+  },
+  {
+    "objectID": "T7_StatisticalGraphs/Statistical_Graphs.slides.html#regression-plots",
+    "href": "T7_StatisticalGraphs/Statistical_Graphs.slides.html#regression-plots",
+    "title": "Statistical Graphs",
+    "section": "Regression Plots",
+    "text": "Regression Plots\n\nQuestions we can answer with simple linear regression:\n\nIs there a relationship between a response variable and predictors?\nHow strong is the relationship?\nWhat is the uncertainty?\nHow precisely can we predict a future outcome?"
+  },
+  {
+    "objectID": "T7_StatisticalGraphs/Statistical_Graphs.slides.html#section-2",
+    "href": "T7_StatisticalGraphs/Statistical_Graphs.slides.html#section-2",
+    "title": "Statistical Graphs",
+    "section": "",
+    "text": "Is there a relationship between a car’s weight and its miles per gallon?"
+  },
+  {
+    "objectID": "T7_StatisticalGraphs/Statistical_Graphs.slides.html#regression-problem",
+    "href": "T7_StatisticalGraphs/Statistical_Graphs.slides.html#regression-problem",
+    "title": "Statistical Graphs",
+    "section": "Regression problem",
+    "text": "Regression problem\n\nObjetive: Find the best function \\(f(X)\\) of the predictor \\(X\\) that describes the response \\(Y\\).\n\nMathematically, we want to establish the following relationship:\n\\[\nY = f(X) + \\epsilon,\n\\]\nwhere \\(\\epsilon\\) is a natural (random) error."
+  },
+  {
+    "objectID": "T7_StatisticalGraphs/Statistical_Graphs.slides.html#section-3",
+    "href": "T7_StatisticalGraphs/Statistical_Graphs.slides.html#section-3",
+    "title": "Statistical Graphs",
+    "section": "",
+    "text": "In practice, it is very difficult to know the true structure of the function \\(f(X)\\).\n\n\nThe best we can do is construct an approximation (function) \\(\\hat{f}(X)\\).\nThere are several strategies to build \\(\\hat{f}(X)\\), one of the most common is:\n\nDefine a simple “structure” or “formula.”\nEstimate the elements of the “formula” using the data."
+  },
+  {
+    "objectID": "T7_StatisticalGraphs/Statistical_Graphs.slides.html#linear-regression-model",
+    "href": "T7_StatisticalGraphs/Statistical_Graphs.slides.html#linear-regression-model",
+    "title": "Statistical Graphs",
+    "section": "Linear regression model",
+    "text": "Linear regression model\nA very common function \\(f(X)\\) to predict a response \\(Y\\) is the linear regression model.\nIts mathematical form is:\n\\[\n\\hat{Y}_i = \\hat{\\beta}_0 + \\hat{\\beta}_1 X_i,\n\\]\n\nWhere \\(i\\) is the index of the \\(n\\) observations, and\n\\(\\hat{Y}_i\\) is the predicted value of the actual response \\(Y_i\\) associated with a predictor value \\(X_i\\).\nThe values \\(\\hat{\\beta}_0\\) and \\(\\hat{\\beta}_1\\) are called coefficients of the model."
+  },
+  {
+    "objectID": "T7_StatisticalGraphs/Statistical_Graphs.slides.html#principle-2-turn-data-into-information-1",
+    "href": "T7_StatisticalGraphs/Statistical_Graphs.slides.html#principle-2-turn-data-into-information-1",
+    "title": "Statistical Graphs",
+    "section": "Principle 2: Turn data into information",
+    "text": "Principle 2: Turn data into information\nThe values of \\(\\hat{\\beta}_0\\) and \\(\\hat{\\beta}_1\\) are obtained using the data. Specifically, the formulas for the coefficients are:\n\\[\\hat{\\beta}_1 = \\frac{ \\sum_{i=1}^{n} (Y_i - \\bar{Y}) (X_i - \\bar{X}) }{\\sum_{i=1}^{n} (X_i - \\bar{X})^2} \\text{  y  } \\hat{\\beta}_0 = \\bar{Y} - \\hat{\\beta}_1 \\bar{X},\\]\nwhere \\(\\bar{X} = \\sum_{i=1}^n X_i/n\\) and \\(\\bar{Y} = \\sum_{i=1}^n Y_i/n\\).\nThese formulas are derived from the method of least squares."
+  },
+  {
+    "objectID": "T7_StatisticalGraphs/Statistical_Graphs.slides.html#for-our-example",
+    "href": "T7_StatisticalGraphs/Statistical_Graphs.slides.html#for-our-example",
+    "title": "Statistical Graphs",
+    "section": "For our example",
+    "text": "For our example\n\\(\\hat{Y}_i = 46.32 -0.0076 X_i\\)"
+  },
+  {
+    "objectID": "T7_StatisticalGraphs/Statistical_Graphs.slides.html#the-formula",
+    "href": "T7_StatisticalGraphs/Statistical_Graphs.slides.html#the-formula",
+    "title": "Statistical Graphs",
+    "section": "The formula",
+    "text": "The formula\n\\(\\text{mpg}_i = 46.32 - 0.0076 \\times \\text{weight}_i\\)"
+  },
+  {
+    "objectID": "T7_StatisticalGraphs/Statistical_Graphs.slides.html#interpretation-of-the-coefficients",
+    "href": "T7_StatisticalGraphs/Statistical_Graphs.slides.html#interpretation-of-the-coefficients",
+    "title": "Statistical Graphs",
+    "section": "Interpretation of the coefficients",
+    "text": "Interpretation of the coefficients\nWhat does \\(\\hat{\\beta}_0 = 46.32\\) mean?\n\n\\(\\hat{\\beta}_0\\) is the average response value when \\(X_i = 0\\)."
+  },
+  {
+    "objectID": "T7_StatisticalGraphs/Statistical_Graphs.slides.html#section-4",
+    "href": "T7_StatisticalGraphs/Statistical_Graphs.slides.html#section-4",
+    "title": "Statistical Graphs",
+    "section": "",
+    "text": "Does \\(\\hat{\\beta}_0 = 46.32\\) make sense?\n\n\nNo! Because there are no cars with a weight of 0."
+  },
+  {
+    "objectID": "T7_StatisticalGraphs/Statistical_Graphs.slides.html#section-5",
+    "href": "T7_StatisticalGraphs/Statistical_Graphs.slides.html#section-5",
+    "title": "Statistical Graphs",
+    "section": "",
+    "text": "What does \\(\\hat{\\beta}_1 = - 0.0076\\) mean?\n\n\\(\\hat{\\beta}_1\\) is the average change in the response when \\(X_i\\) increases by one unit."
+  },
+  {
+    "objectID": "T7_StatisticalGraphs/Statistical_Graphs.slides.html#interpretation-of-hatbeta_1",
+    "href": "T7_StatisticalGraphs/Statistical_Graphs.slides.html#interpretation-of-hatbeta_1",
+    "title": "Statistical Graphs",
+    "section": "Interpretation of \\(\\hat{\\beta}_1\\)",
+    "text": "Interpretation of \\(\\hat{\\beta}_1\\)\n\n\nFor every extra pound in a car’s weight, the car has an average reduction of 0.0076 miles per gallon."
+  },
+  {
+    "objectID": "T7_StatisticalGraphs/Statistical_Graphs.slides.html#do-all-points-fall-exactly-on-the-line",
+    "href": "T7_StatisticalGraphs/Statistical_Graphs.slides.html#do-all-points-fall-exactly-on-the-line",
+    "title": "Statistical Graphs",
+    "section": "Do all points fall exactly on the line?",
+    "text": "Do all points fall exactly on the line?\n\n\nNo! The model has errors.\n\n\n\nTechnically, the error of the i-th observation is given by: \\(\\hat{e}_i = Y_i - \\hat{Y}_i = Y_i - \\hat{\\beta}_0 - \\hat{\\beta}_1 X_i\\).\nThe behavior of the errors (\\(e_i\\)’s) indicates whether the model is correct or not, which can be validated using a residual analysis (see IN1002B for example)."
+  },
+  {
+    "objectID": "T7_StatisticalGraphs/Statistical_Graphs.slides.html#local-regression",
+    "href": "T7_StatisticalGraphs/Statistical_Graphs.slides.html#local-regression",
+    "title": "Statistical Graphs",
+    "section": "Local regression",
+    "text": "Local regression\n\nThis is a modern alternative to the simple linear regression model for capturing complex relationships between two variables.\nBasic Idea: It fits linear regression models to small subsets of the data. These subsets consist of observations that are close to each other.\nThe most common method for fitting a local regression model is LOESS. We will omit the details of this method here since they require advanced statistical concepts."
+  },
+  {
+    "objectID": "T7_StatisticalGraphs/Statistical_Graphs.slides.html#for-our-example-1",
+    "href": "T7_StatisticalGraphs/Statistical_Graphs.slides.html#for-our-example-1",
+    "title": "Statistical Graphs",
+    "section": "For our example",
+    "text": "For our example"
+  },
+  {
+    "objectID": "T7_StatisticalGraphs/Statistical_Graphs.slides.html#another-example",
+    "href": "T7_StatisticalGraphs/Statistical_Graphs.slides.html#another-example",
+    "title": "Statistical Graphs",
+    "section": "Another example",
+    "text": "Another example\nLet’s consider the relationship between car acceleration and the total volume of all engine cylinders."
+  },
+  {
+    "objectID": "T7_StatisticalGraphs/Statistical_Graphs.slides.html#linear-regression",
+    "href": "T7_StatisticalGraphs/Statistical_Graphs.slides.html#linear-regression",
+    "title": "Statistical Graphs",
+    "section": "Linear regression",
+    "text": "Linear regression"
+  },
+  {
+    "objectID": "T7_StatisticalGraphs/Statistical_Graphs.slides.html#discussion",
+    "href": "T7_StatisticalGraphs/Statistical_Graphs.slides.html#discussion",
+    "title": "Statistical Graphs",
+    "section": "Discussion",
+    "text": "Discussion\n\n\nThe simple linear regression model is easy to interpret due to its structure: \\(\\hat{Y}_i = \\hat{\\beta}_0 + \\hat{\\beta}_1 X_i.\\)\nHowever, it may be too rigid to capture complex relationships between two variables.\nLocal regression is flexible and allows capturing complex relationships between two variables, but it has a low level of interpretability because it does not provide an explicit equation."
+  },
+  {
+    "objectID": "T6_PopularGraphs/Popular_Graphs.slides.html#agenda",
+    "href": "T6_PopularGraphs/Popular_Graphs.slides.html#agenda",
+    "title": "Popular Graphs",
+    "section": "Agenda",
+    "text": "Agenda\n\n\nTypes of Variables\nOne Categorical Variable\nOne Numerical Variable\nMultiple Variables"
+  },
+  {
+    "objectID": "T6_PopularGraphs/Popular_Graphs.slides.html#types-of-variables",
+    "href": "T6_PopularGraphs/Popular_Graphs.slides.html#types-of-variables",
+    "title": "Popular Graphs",
+    "section": "Types of variables",
+    "text": "Types of variables\n\nBefore creating a graph, we must examine the type of values that our dataset variables take.\n\nThere are two main types of variables:\n\nNumerical variables.\nCategorical variables."
+  },
+  {
+    "objectID": "T6_PopularGraphs/Popular_Graphs.slides.html#numerical-variables",
+    "href": "T6_PopularGraphs/Popular_Graphs.slides.html#numerical-variables",
+    "title": "Popular Graphs",
+    "section": "Numerical variables",
+    "text": "Numerical variables\n\nThese take values that represent numerical measurements or quantities.\n\nHeight (in centimeters).\nWeight (in kilograms).\nAge (in years).\nPrice (in dollars).\nTime (in hours or seconds).\nExam score (number of points on a 100-point scale)."
+  },
+  {
+    "objectID": "T6_PopularGraphs/Popular_Graphs.slides.html#types-of-numerical-variables",
+    "href": "T6_PopularGraphs/Popular_Graphs.slides.html#types-of-numerical-variables",
+    "title": "Popular Graphs",
+    "section": "Types of numerical variables",
+    "text": "Types of numerical variables\n\nNumerical variables are divided into two types:\n\nDiscrete: variables that take integer values.\n\n\nExamples:\n\nNumber of children (0, 1, 2, or 3)\nNumber of students in a class (20, 30, or 35)\nNumber of books in a library (10,000, 15,000, 20,000)"
+  },
+  {
+    "objectID": "T6_PopularGraphs/Popular_Graphs.slides.html#section",
+    "href": "T6_PopularGraphs/Popular_Graphs.slides.html#section",
+    "title": "Popular Graphs",
+    "section": "",
+    "text": "Continuous: variables that have a large range of possible values.\n\n\nExamples:\n\nA person’s height (could be within the range of 1.60 m to 1.85 m)\nAmbient temperature (could be within the range of -30 \\(^\\circ\\)C to 50 \\(^\\circ\\)C)\nTime for an Uber to arrive (between 5 and 60 minutes)"
+  },
+  {
+    "objectID": "T6_PopularGraphs/Popular_Graphs.slides.html#categorical-variables",
+    "href": "T6_PopularGraphs/Popular_Graphs.slides.html#categorical-variables",
+    "title": "Popular Graphs",
+    "section": "Categorical variables",
+    "text": "Categorical variables\n\nThese take values that fall into categories.\n\n\nA category is a class or division of people or things that share particular characteristics.\n\n\n\n\n\n\n\n\n\n\nVariable\nCategories\n\n\nAmazon review\n1\\(\\bigstar\\), 2\\(\\bigstar\\), 3\\(\\bigstar\\), 4\\(\\bigstar\\), 5\\(\\bigstar\\)\n\n\nCountry of origin\nMéxico, Canadá, EUA\n\n\nPostal code\n72703, 90034, 3000, …"
+  },
+  {
+    "objectID": "T6_PopularGraphs/Popular_Graphs.slides.html#classification-of-categorical-variables",
+    "href": "T6_PopularGraphs/Popular_Graphs.slides.html#classification-of-categorical-variables",
+    "title": "Popular Graphs",
+    "section": "Classification of categorical variables",
+    "text": "Classification of categorical variables\n\n\nCategorical variables are divided into two important types:\n\nNominal\nOrdinal\n\n\nThe distinction depends on whether the categories have a meaningful order or not."
+  },
+  {
+    "objectID": "T6_PopularGraphs/Popular_Graphs.slides.html#nominal-categorical-variables",
+    "href": "T6_PopularGraphs/Popular_Graphs.slides.html#nominal-categorical-variables",
+    "title": "Popular Graphs",
+    "section": "Nominal categorical variables",
+    "text": "Nominal categorical variables\n\nA categorical variable is nominal if its categories do not have a specific order.\n\nExamples:\n\nPolitical party affiliation (Democrat or Republican).\nDog breed (Shepherd, Hound, Terrier, Other).\nComputer operating system (Windows, macOS, Linux)."
+  },
+  {
+    "objectID": "T6_PopularGraphs/Popular_Graphs.slides.html#ordinal-categorical-variables",
+    "href": "T6_PopularGraphs/Popular_Graphs.slides.html#ordinal-categorical-variables",
+    "title": "Popular Graphs",
+    "section": "Ordinal categorical variables",
+    "text": "Ordinal categorical variables\n\nA categorical variable is ordinal if its categories do have a meaningful order.\n\nExamples:\n\nT-shirt size (Small, Medium, Large).\nEducation level (High School, University, Postgraduate).\nIncome level (Less than $250K, $250K-$500K, More than $500K)\n\n\nIt is important to note that with an ordinal variable, the difference between, say, small and medium is not necessarily the same as the difference between medium and large. Additionally, the differences between consecutive categories may not be quantifiable. Think about star ratings in a restaurant review—how much better is one star compared to two stars?"
+  },
+  {
+    "objectID": "T6_PopularGraphs/Popular_Graphs.slides.html#interesting-fact",
+    "href": "T6_PopularGraphs/Popular_Graphs.slides.html#interesting-fact",
+    "title": "Popular Graphs",
+    "section": "Interesting fact…",
+    "text": "Interesting fact…\n\nInteger values (e.g., 1, 2, 3, …, 5) can represent nominal or ordinal categorical variables.\n\n\n\nRepresentation\n1\n2\n3\n4\n\n\nBlood Type\nA\nB\nAB\nO\n\n\nReview\nBad\nFair\nGood\nVery Good\n\n\n\n\n\nIn practice, boolean values (TRUE and FALSE) often represent nominal categories."
+  },
+  {
+    "objectID": "T6_PopularGraphs/Popular_Graphs.slides.html#remember",
+    "href": "T6_PopularGraphs/Popular_Graphs.slides.html#remember",
+    "title": "Popular Graphs",
+    "section": "Remember",
+    "text": "Remember"
+  },
+  {
+    "objectID": "T6_PopularGraphs/Popular_Graphs.slides.html#a-general-difference-is",
+    "href": "T6_PopularGraphs/Popular_Graphs.slides.html#a-general-difference-is",
+    "title": "Popular Graphs",
+    "section": "A general difference is …",
+    "text": "A general difference is …\n\n\nQuantitative variables (discrete or continuous) are those where addition or subtraction makes sense.\nCategorical variables (nominal or ordinal) are those where addition or subtraction does NOT make sense."
+  },
+  {
+    "objectID": "T6_PopularGraphs/Popular_Graphs.slides.html#activity-solo-mode",
+    "href": "T6_PopularGraphs/Popular_Graphs.slides.html#activity-solo-mode",
+    "title": "Popular Graphs",
+    "section": "Activity (solo mode)",
+    "text": "Activity (solo mode)\n\n\nGo to the Modules section on our CANVAS website.\nComplete the Activity 2.1: Types of Variables individually."
+  },
+  {
+    "objectID": "T6_PopularGraphs/Popular_Graphs.slides.html#example-1-penguins-dataset",
+    "href": "T6_PopularGraphs/Popular_Graphs.slides.html#example-1-penguins-dataset",
+    "title": "Popular Graphs",
+    "section": "Example 1: Penguins dataset",
+    "text": "Example 1: Penguins dataset\n\nWe will illustrate the concepts using the penguins.xlsx dataset. We will focus on visualizing the following categorical variables: species, island y sex.\n\n\n# A tibble: 6 × 3\n  species island    sex   \n  &lt;chr&gt;   &lt;chr&gt;     &lt;chr&gt; \n1 Adelie  Torgersen male  \n2 Adelie  Torgersen female\n3 Adelie  Torgersen female\n4 Adelie  Torgersen &lt;NA&gt;  \n5 Adelie  Torgersen female\n6 Adelie  Torgersen male"
+  },
+  {
+    "objectID": "T6_PopularGraphs/Popular_Graphs.slides.html#bar-chart",
+    "href": "T6_PopularGraphs/Popular_Graphs.slides.html#bar-chart",
+    "title": "Popular Graphs",
+    "section": "Bar chart",
+    "text": "Bar chart\nIt visually represents frequencies or percentages of the categories of a categorical variable. The frequency (or percentage) is represented by a bar of proportional height."
+  },
+  {
+    "objectID": "T6_PopularGraphs/Popular_Graphs.slides.html#bar-chart-for-percentages",
+    "href": "T6_PopularGraphs/Popular_Graphs.slides.html#bar-chart-for-percentages",
+    "title": "Popular Graphs",
+    "section": "Bar chart for percentages",
+    "text": "Bar chart for percentages"
+  },
+  {
+    "objectID": "T6_PopularGraphs/Popular_Graphs.slides.html#example-2-boston-housing-dataset",
+    "href": "T6_PopularGraphs/Popular_Graphs.slides.html#example-2-boston-housing-dataset",
+    "title": "Popular Graphs",
+    "section": "Example 2: Boston Housing Dataset",
+    "text": "Example 2: Boston Housing Dataset\nThis dataset contains information collected by the U.S. Census Bureau on housing in the Boston, Massachusetts area. The dataset is in Boston_dataset.xlsx."
+  },
+  {
+    "objectID": "T6_PopularGraphs/Popular_Graphs.slides.html#section-1",
+    "href": "T6_PopularGraphs/Popular_Graphs.slides.html#section-1",
+    "title": "Popular Graphs",
+    "section": "",
+    "text": "We concentrate on the following variables:\n\nchas : Whether the house is next to the Charles River (1: Yes and 0: No)\nrad : Index of accessibility to radial highways (Low, Medium, High)."
+  },
+  {
+    "objectID": "T6_PopularGraphs/Popular_Graphs.slides.html#section-2",
+    "href": "T6_PopularGraphs/Popular_Graphs.slides.html#section-2",
+    "title": "Popular Graphs",
+    "section": "",
+    "text": "Let’s create a bar chart for chas."
+  },
+  {
+    "objectID": "T6_PopularGraphs/Popular_Graphs.slides.html#section-3",
+    "href": "T6_PopularGraphs/Popular_Graphs.slides.html#section-3",
+    "title": "Popular Graphs",
+    "section": "",
+    "text": "Now, let’s create a bar chart for rad."
+  },
+  {
+    "objectID": "T6_PopularGraphs/Popular_Graphs.slides.html#collapsing",
+    "href": "T6_PopularGraphs/Popular_Graphs.slides.html#collapsing",
+    "title": "Popular Graphs",
+    "section": "Collapsing",
+    "text": "Collapsing\n\nSome categorical variables tend to have many categories. For example, states in a country or postal codes. In these cases, it can be difficult to visualize all the categories in a single graph.\nOne strategy for developing an effective visualization is to collapse categories.\nFor example, in the variable rad, we can collapse the categories Medium and High into a single category called Other."
+  },
+  {
+    "objectID": "T6_PopularGraphs/Popular_Graphs.slides.html#section-4",
+    "href": "T6_PopularGraphs/Popular_Graphs.slides.html#section-4",
+    "title": "Popular Graphs",
+    "section": "",
+    "text": "Collapsing categories simplifies the graph\n\nIt also allows us to emphasize a category like Low and see how it compares to the other categories (as a whole)."
+  },
+  {
+    "objectID": "T6_PopularGraphs/Popular_Graphs.slides.html#example-3",
+    "href": "T6_PopularGraphs/Popular_Graphs.slides.html#example-3",
+    "title": "Popular Graphs",
+    "section": "Example 3",
+    "text": "Example 3\n\n\nA piston is a mechanical device found in most engines.\n\n\n\nOne measure of a piston’s performance is the time it takes to complete a cycle, which we call “cycle time” and is measured in seconds.\nThe file “CYLT.xlsx” contains 50 cycle times of a piston operating under fixed conditions."
+  },
+  {
+    "objectID": "T6_PopularGraphs/Popular_Graphs.slides.html#histogram",
+    "href": "T6_PopularGraphs/Popular_Graphs.slides.html#histogram",
+    "title": "Popular Graphs",
+    "section": "Histogram",
+    "text": "Histogram\nVisualizes the distribution of observations, indicating regions where observations are concentrated or sparse.\n\nIt is built using a frequency table.\n\nDefine a maximum number of intervals or bins (from 5 to 30).\nDefine the ranges of the intervals.\nGroup the observations in the interval to which they belong.\n\n\n\nR automatically calculates the frequency table for numerical data. The histogram is a visualization of this table."
+  },
+  {
+    "objectID": "T6_PopularGraphs/Popular_Graphs.slides.html#section-5",
+    "href": "T6_PopularGraphs/Popular_Graphs.slides.html#section-5",
+    "title": "Popular Graphs",
+    "section": "",
+    "text": "The bars of the histogram touch each other. A gap indicates that there are no observations in that interval."
+  },
+  {
+    "objectID": "T6_PopularGraphs/Popular_Graphs.slides.html#it-is-not-the-same-as-a-bar-chart",
+    "href": "T6_PopularGraphs/Popular_Graphs.slides.html#it-is-not-the-same-as-a-bar-chart",
+    "title": "Popular Graphs",
+    "section": "It is not the same as a bar chart",
+    "text": "It is not the same as a bar chart\n\nWith categorical data, a bar chart looks similar to a histogram because it displays the frequency of categories.\nHowever, we cannot interpret the shape of a bar chart in the same way as a histogram.\n\nThe frequency of a category is represented by the height of the bar, and the width does not contain any information.\nA bar chart will not highlight outliers.\n\n\nTails and symmetry do not make sense in this setting."
+  },
+  {
+    "objectID": "T6_PopularGraphs/Popular_Graphs.slides.html#number-of-bins",
+    "href": "T6_PopularGraphs/Popular_Graphs.slides.html#number-of-bins",
+    "title": "Popular Graphs",
+    "section": "Number of bins",
+    "text": "Number of bins\n\nThe number of bins is a parameter of the histogram that affects its appearance."
+  },
+  {
+    "objectID": "T6_PopularGraphs/Popular_Graphs.slides.html#section-6",
+    "href": "T6_PopularGraphs/Popular_Graphs.slides.html#section-6",
+    "title": "Popular Graphs",
+    "section": "",
+    "text": "The left histogram uses 5 bins, and the right histogram uses 30 bins\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMy recommendation is to use the default number of bins.\n\nA histogram is a familiar type of plot that involves smoothing. A histogram aggregates data values by placing points into bins and plotting one bar for each bin. Smoothing here means that we cannot differentiate the location of individual points within a bin: the points are smoothly distributed across their bins."
+  },
+  {
+    "objectID": "T6_PopularGraphs/Popular_Graphs.slides.html#what-to-look-for-in-a-histogram",
+    "href": "T6_PopularGraphs/Popular_Graphs.slides.html#what-to-look-for-in-a-histogram",
+    "title": "Popular Graphs",
+    "section": "What to look for in a histogram?",
+    "text": "What to look for in a histogram?\n\n\nSymmetry and asymmetry of the distribution.\nThe number, location, and size of high-frequency regions (bins).\nGaps where no values are observed.\nUnusually large or anomalous values.\nA bell-shaped form."
+  },
+  {
+    "objectID": "T6_PopularGraphs/Popular_Graphs.slides.html#the-obsession-with-bell-curves",
+    "href": "T6_PopularGraphs/Popular_Graphs.slides.html#the-obsession-with-bell-curves",
+    "title": "Popular Graphs",
+    "section": "The obsession with bell curves",
+    "text": "The obsession with bell curves\n\n\n\nThe normal distribution is a very important probability distribution in statistics.\n\n\n\nIt is characterized by a symmetric bell-shaped curve centered around its mean, with the highest probability density at the mean and decreasing symmetrically towards the extremes"
+  },
+  {
+    "objectID": "T6_PopularGraphs/Popular_Graphs.slides.html#section-7",
+    "href": "T6_PopularGraphs/Popular_Graphs.slides.html#section-7",
+    "title": "Popular Graphs",
+    "section": "",
+    "text": "Basically, if your observations follow a normal distribution, you can use statistical methods to draw conclusions based on mathematical theory.\n\n\n\n\n\nWhat many people don’t know is that this condition is only needed if you have few observations (less than 50)."
+  },
+  {
+    "objectID": "T6_PopularGraphs/Popular_Graphs.slides.html#multivariate-data",
+    "href": "T6_PopularGraphs/Popular_Graphs.slides.html#multivariate-data",
+    "title": "Popular Graphs",
+    "section": "Multivariate data",
+    "text": "Multivariate data\n\nMultivariate data consists of datasets that contain observations of two or more variables.\n\nVariables can be numerical or categorical.\nVariables may or may not depend on each other.\n\n\nIn fact, the goal is to determine whether there is a relationship between the variables and the type of relationship."
+  },
+  {
+    "objectID": "T6_PopularGraphs/Popular_Graphs.slides.html#example-4",
+    "href": "T6_PopularGraphs/Popular_Graphs.slides.html#example-4",
+    "title": "Popular Graphs",
+    "section": "Example 4",
+    "text": "Example 4\n\nConsider data from 392 cars, including miles per gallon, number of cylinders, horsepower, weight, acceleration, year, origin, among other variables. The data is in the file “auto_dataset.xlsx”.\n\n\n# A tibble: 6 × 9\n    mpg cylinders displacement horsepower weight acceleration  year origin  \n  &lt;dbl&gt;     &lt;dbl&gt;        &lt;dbl&gt; &lt;chr&gt;       &lt;dbl&gt;        &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;   \n1    18         8          307 130          3504         12      70 American\n2    15         8          350 165          3693         11.5    70 American\n3    18         8          318 150          3436         11      70 American\n4    16         8          304 150          3433         12      70 American\n5    17         8          302 140          3449         10.5    70 American\n6    15         8          429 198          4341         10      70 American\n# ℹ 1 more variable: `car name` &lt;chr&gt;"
+  },
+  {
+    "objectID": "T6_PopularGraphs/Popular_Graphs.slides.html#principle-1-define-the-question",
+    "href": "T6_PopularGraphs/Popular_Graphs.slides.html#principle-1-define-the-question",
+    "title": "Popular Graphs",
+    "section": "Principle 1: Define the question",
+    "text": "Principle 1: Define the question\nIn the context of multiple-variable data, typical questions to study include:\n\nHow are variable \\(X\\) and variable \\(Y\\) related?\nIs the distribution of variable \\(X\\) the same across all subgroups defined by variable \\(Z\\)?\nAre there any unusual observations in the combination of values for variables \\(X\\) and \\(Y\\)?\nAre there any unusual observations in \\(X\\) for a subgroup of variable \\(Z\\)?"
+  },
+  {
+    "objectID": "T6_PopularGraphs/Popular_Graphs.slides.html#principle-2-turn-data-into-information",
+    "href": "T6_PopularGraphs/Popular_Graphs.slides.html#principle-2-turn-data-into-information",
+    "title": "Popular Graphs",
+    "section": "Principle 2: Turn data into information",
+    "text": "Principle 2: Turn data into information\nThere are various types of graphs that help us explore relationships between two or more variables.\n\n\n\n\n\nType\nGraph Type\n\n\n\n\nNumerical\nScatter plot, line graph\n\n\nCategorical\nSide-by-side bar chart, stacked bar chart\n\n\nMixed\nCleaveland Plot\n\n\n\n\n\nFor two features, the combination of types (both quantitative, both qualitative, or a mix) matters."
+  },
+  {
+    "objectID": "T6_PopularGraphs/Popular_Graphs.slides.html#independent-and-dependent-variables",
+    "href": "T6_PopularGraphs/Popular_Graphs.slides.html#independent-and-dependent-variables",
+    "title": "Popular Graphs",
+    "section": "Independent and dependent variables",
+    "text": "Independent and dependent variables\nWhen investigating the relationship between two variables (numerical or categorical), we use specific terminology.\n\nOne variable is called the dependent or response variable, denoted by the letter \\(Y\\).\n\n\nThe other variable is called the independent or predictor variable, denoted by the letter \\(X\\).\n\n\n\nOur goal is to determine whether changes in \\(X\\) are associated with changes in \\(Y\\), and the nature of this association."
+  },
+  {
+    "objectID": "T6_PopularGraphs/Popular_Graphs.slides.html#scatter-plot",
+    "href": "T6_PopularGraphs/Popular_Graphs.slides.html#scatter-plot",
+    "title": "Popular Graphs",
+    "section": "Scatter plot",
+    "text": "Scatter plot\n\nThe most common graph for examining the relationship between two numerical variables is the scatter plot.\n\nVariables \\(X\\) and \\(Y\\) are placed on the horizontal and vertical axes, respectively. Each point on the graph represents a pair of \\(X\\) and \\(Y\\) values.\n\n\n\n\nThe goal is to explore linear or non-linear relationships between variables."
+  },
+  {
+    "objectID": "T6_PopularGraphs/Popular_Graphs.slides.html#scatter-plot-1",
+    "href": "T6_PopularGraphs/Popular_Graphs.slides.html#scatter-plot-1",
+    "title": "Popular Graphs",
+    "section": "Scatter plot",
+    "text": "Scatter plot"
+  },
+  {
+    "objectID": "T6_PopularGraphs/Popular_Graphs.slides.html#individual-graphs",
+    "href": "T6_PopularGraphs/Popular_Graphs.slides.html#individual-graphs",
+    "title": "Popular Graphs",
+    "section": "Individual graphs",
+    "text": "Individual graphs\n\nIndividual variable graphs (such as histograms) do not allow us to study the relationship between two variables. They only provide information on the distribution of each variable."
+  },
+  {
+    "objectID": "T6_PopularGraphs/Popular_Graphs.slides.html#line-graph",
+    "href": "T6_PopularGraphs/Popular_Graphs.slides.html#line-graph",
+    "title": "Popular Graphs",
+    "section": "Line graph",
+    "text": "Line graph\nA line graph is a visual representation of data where data points are connected by a line. Axes:\n\n\\(X\\) (horizontal): Represents time or the independent variable.\n\\(Y\\) (vertical): Represents the dependent variable.\n\nEach point represents a value at a given moment.\n\n\n\nThe objective is to explore trends over time or the evolution of a continuous variable."
+  },
+  {
+    "objectID": "T6_PopularGraphs/Popular_Graphs.slides.html#example-2",
+    "href": "T6_PopularGraphs/Popular_Graphs.slides.html#example-2",
+    "title": "Popular Graphs",
+    "section": "Example 2",
+    "text": "Example 2\n\nConsider the data in the file “spotify.xlsx”. This dataset contains the global daily streams of the top five most popular songs on the music streaming service Spotify in 2017.\n\n\n# A tibble: 3 × 7\n  Date                  Day `Shape of You` Despacito `Something Just Like This`\n  &lt;dttm&gt;              &lt;dbl&gt;          &lt;dbl&gt;     &lt;dbl&gt;                      &lt;dbl&gt;\n1 2017-01-06 00:00:00     1       12287078        NA                         NA\n2 2017-01-07 00:00:00     2       13190270        NA                         NA\n3 2017-01-08 00:00:00     3       13099919        NA                         NA\n# ℹ 2 more variables: HUMBLE. &lt;dbl&gt;, Unforgettable &lt;dbl&gt;"
+  },
+  {
+    "objectID": "T6_PopularGraphs/Popular_Graphs.slides.html#line-plot",
+    "href": "T6_PopularGraphs/Popular_Graphs.slides.html#line-plot",
+    "title": "Popular Graphs",
+    "section": "Line Plot",
+    "text": "Line Plot"
+  },
+  {
+    "objectID": "T6_PopularGraphs/Popular_Graphs.slides.html#plotting-statistical-summaries-by-groups",
+    "href": "T6_PopularGraphs/Popular_Graphs.slides.html#plotting-statistical-summaries-by-groups",
+    "title": "Popular Graphs",
+    "section": "Plotting statistical summaries by groups",
+    "text": "Plotting statistical summaries by groups\nWe can summarize the values of the numerical variable \\(Y\\) for each category of a categorical variable \\(X\\) using the median or the mean.\nFor example, let’s plot the average miles per gallon of cars produced in America, Europe, and Japan. Two common visualization types for plotting a numerical and a discrete variable when there is only one value per category are:\n\nCleveland dot plot\nBar chart"
+  },
+  {
+    "objectID": "T6_PopularGraphs/Popular_Graphs.slides.html#cleveland-dot-plot",
+    "href": "T6_PopularGraphs/Popular_Graphs.slides.html#cleveland-dot-plot",
+    "title": "Popular Graphs",
+    "section": "Cleveland dot plot",
+    "text": "Cleveland dot plot\nThe Cleveland dot plot encodes quantitative data across different categories. It is an alternative to a bar chart."
+  },
+  {
+    "objectID": "T6_PopularGraphs/Popular_Graphs.slides.html#section-8",
+    "href": "T6_PopularGraphs/Popular_Graphs.slides.html#section-8",
+    "title": "Popular Graphs",
+    "section": "",
+    "text": "We can use similar commands as the Cleveland dot plot to improve the bar chart."
+  },
+  {
+    "objectID": "T6_PopularGraphs/Popular_Graphs.slides.html#two-categorical-variables",
+    "href": "T6_PopularGraphs/Popular_Graphs.slides.html#two-categorical-variables",
+    "title": "Popular Graphs",
+    "section": "Two Categorical Variables",
+    "text": "Two Categorical Variables\n\nWith two categorical variables, we compare the distribution of one variable across subgroups defined by the other variable.\nIn fact, we keep one variable constant and plot the distribution of the other.\n\nTo do this, the most popular charts are extensions of bar graphs:\n\nStacked bar charts\nSide-by-side bar charts"
+  },
+  {
+    "objectID": "T6_PopularGraphs/Popular_Graphs.slides.html#example-1-cont.",
+    "href": "T6_PopularGraphs/Popular_Graphs.slides.html#example-1-cont.",
+    "title": "Popular Graphs",
+    "section": "Example 1 (cont.)",
+    "text": "Example 1 (cont.)\n\nAs an example, let’s consider the data in the file “penguins.xlsx” again.\n\n\n# A tibble: 6 × 8\n  species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g\n  &lt;chr&gt;   &lt;chr&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;dbl&gt;       &lt;dbl&gt;\n1 Adelie  Torgersen           39.1          18.7               181        3750\n2 Adelie  Torgersen           39.5          17.4               186        3800\n3 Adelie  Torgersen           40.3          18                 195        3250\n4 Adelie  Torgersen           NA            NA                  NA          NA\n5 Adelie  Torgersen           36.7          19.3               193        3450\n6 Adelie  Torgersen           39.3          20.6               190        3650\n# ℹ 2 more variables: sex &lt;chr&gt;, year &lt;dbl&gt;"
+  },
+  {
+    "objectID": "T6_PopularGraphs/Popular_Graphs.slides.html#stacked-bar-chart",
+    "href": "T6_PopularGraphs/Popular_Graphs.slides.html#stacked-bar-chart",
+    "title": "Popular Graphs",
+    "section": "Stacked bar chart",
+    "text": "Stacked bar chart\nWe study the distribution of penguin species across the three different islands using an stacked bar chart.\n\nThe chart shows the frequency of each species, separated by island name."
+  },
+  {
+    "objectID": "T6_PopularGraphs/Popular_Graphs.slides.html#side-by-side-bar-chart",
+    "href": "T6_PopularGraphs/Popular_Graphs.slides.html#side-by-side-bar-chart",
+    "title": "Popular Graphs",
+    "section": "Side-by-side bar chart",
+    "text": "Side-by-side bar chart\nAn alternative to the previous chart is to place the bars side by side for the categories of the categorical variable \\(X\\)."
+  },
+  {
+    "objectID": "T6_PopularGraphs/Popular_Graphs.slides.html#stacked-or-side-by-side",
+    "href": "T6_PopularGraphs/Popular_Graphs.slides.html#stacked-or-side-by-side",
+    "title": "Popular Graphs",
+    "section": "Stacked or side-by-side?",
+    "text": "Stacked or side-by-side?\n\nThe main difference between stacked and side-by-side bar charts is that the side-by-side chart shows values in separate bars within a category.\nAdvantages of stacked bars:\n\nEasier to understand what proportions of a whole are divided among segments.\nVisually adds up each proportion."
+  },
+  {
+    "objectID": "T6_PopularGraphs/Popular_Graphs.slides.html#section-9",
+    "href": "T6_PopularGraphs/Popular_Graphs.slides.html#section-9",
+    "title": "Popular Graphs",
+    "section": "",
+    "text": "Advantages of side-by-side bars:\n\nEasier to compare the heights of each individual entity.\nBetter for comparing between groups."
+  },
+  {
+    "objectID": "T6_PopularGraphs/Popular_Graphs.slides.html#charts-for-three-variables",
+    "href": "T6_PopularGraphs/Popular_Graphs.slides.html#charts-for-three-variables",
+    "title": "Popular Graphs",
+    "section": "Charts for three variables",
+    "text": "Charts for three variables\n\n\nWhen examining a distribution or relationship, we often want to compare it across data subgroups.\nThis process of conditioning on additional variables leads to visualizations involving three or more variables.\nHere we explain how to create charts to visualize multiple variables."
+  },
+  {
+    "objectID": "T6_PopularGraphs/Popular_Graphs.slides.html#scatter-plot-by-color",
+    "href": "T6_PopularGraphs/Popular_Graphs.slides.html#scatter-plot-by-color",
+    "title": "Popular Graphs",
+    "section": "Scatter plot by color",
+    "text": "Scatter plot by color\nFor two numerical variables and one categorical variable."
+  },
+  {
+    "objectID": "T6_PopularGraphs/Popular_Graphs.slides.html#faceted-or-lattice-plot",
+    "href": "T6_PopularGraphs/Popular_Graphs.slides.html#faceted-or-lattice-plot",
+    "title": "Popular Graphs",
+    "section": "Faceted or lattice plot",
+    "text": "Faceted or lattice plot\nA faceted plot visualizes the relationship or distribution of one or two variables for each subgroup defined by a third variable \\(Z\\)."
+  },
+  {
+    "objectID": "T6_PopularGraphs/Popular_Graphs.slides.html#multiple-line-charts",
+    "href": "T6_PopularGraphs/Popular_Graphs.slides.html#multiple-line-charts",
+    "title": "Popular Graphs",
+    "section": "Multiple line charts",
+    "text": "Multiple line charts\n\nInstead of visualizing one variable, we can visualize multiple variables simultaneously using a line plot. For example, we can show the evolution of play counts for the 5 songs in the file “spotify.xlsx” over time.\n\nHowever, some data visualization packages necessitate a special format to produce the multiple lines plot."
+  },
+  {
+    "objectID": "T6_PopularGraphs/Popular_Graphs.slides.html#the-required-format",
+    "href": "T6_PopularGraphs/Popular_Graphs.slides.html#the-required-format",
+    "title": "Popular Graphs",
+    "section": "The required format",
+    "text": "The required format\n\nFor a multiple line chart, we need to merge the columns Shape of You, Despacito, Something Just Like This, HUMBLE and Unforgettable into two columns.\nOne column will contain the number of plays, and the other will contain the song title.\nBoth columns will be ordered by the variable Date."
+  },
+  {
+    "objectID": "T6_PopularGraphs/Popular_Graphs.slides.html#section-10",
+    "href": "T6_PopularGraphs/Popular_Graphs.slides.html#section-10",
+    "title": "Popular Graphs",
+    "section": "",
+    "text": "To format the data, we use the function pivot_longer() from the tidyr library.\n\n\n# A tibble: 6 × 4\n  Date                  Day Cancion                  Reproducciones\n  &lt;dttm&gt;              &lt;dbl&gt; &lt;chr&gt;                             &lt;dbl&gt;\n1 2017-01-06 00:00:00     1 Shape of You                   12287078\n2 2017-01-06 00:00:00     1 Despacito                            NA\n3 2017-01-06 00:00:00     1 Something Just Like This             NA\n4 2017-01-06 00:00:00     1 HUMBLE.                              NA\n5 2017-01-06 00:00:00     1 Unforgettable                        NA\n6 2017-01-07 00:00:00     2 Shape of You                   13190270"
+  },
+  {
+    "objectID": "T6_PopularGraphs/Popular_Graphs.slides.html#facet-grid",
+    "href": "T6_PopularGraphs/Popular_Graphs.slides.html#facet-grid",
+    "title": "Popular Graphs",
+    "section": "Facet grid",
+    "text": "Facet grid\n\nSeparate plots for each line."
+  },
+  {
+    "objectID": "T6_PopularGraphs/Popular_Graphs.slides.html#section-11",
+    "href": "T6_PopularGraphs/Popular_Graphs.slides.html#section-11",
+    "title": "Popular Graphs",
+    "section": "",
+    "text": "Or we can plot all lines on a single chart."
+  },
+  {
+    "objectID": "T6_PopularGraphs/Popular_Graphs.slides.html#graphs-for-four-variables",
+    "href": "T6_PopularGraphs/Popular_Graphs.slides.html#graphs-for-four-variables",
+    "title": "Popular Graphs",
+    "section": "Graphs for four variables",
+    "text": "Graphs for four variables\nA common chart for four variables is the scatter plot, where the color and size of the symbols depend on two categorical variables."
+  },
+  {
+    "objectID": "T3_TidyData/TidyData.slides.html#agenda",
+    "href": "T3_TidyData/TidyData.slides.html#agenda",
+    "title": "Tity Data",
+    "section": "Agenda",
+    "text": "Agenda\n\n\nTidy Data\nPivot and Rectangling Operations"
+  },
+  {
+    "objectID": "T3_TidyData/TidyData.slides.html#the-r-for-data-science-workflow",
+    "href": "T3_TidyData/TidyData.slides.html#the-r-for-data-science-workflow",
+    "title": "Tity Data",
+    "section": "The R for Data Science Workflow",
+    "text": "The R for Data Science Workflow\n\n\n\nhttps://r4ds.hadley.nz/"
+  },
+  {
+    "objectID": "T3_TidyData/TidyData.slides.html#the-rationale-for-tidy-data",
+    "href": "T3_TidyData/TidyData.slides.html#the-rationale-for-tidy-data",
+    "title": "Tity Data",
+    "section": "The Rationale for Tidy Data",
+    "text": "The Rationale for Tidy Data\n\n\nThe tidy framework provides a consistent way to organize your data in R.\nGetting your data into this format requires some upfront work, but that work pays off in the long term.\nOnce you have tidy data and the tidy tools provided by packages in the tidyverse, you will spend much less time munging data from one representation to another, allowing you to spend more time on the analytic questions at hand."
+  },
+  {
+    "objectID": "T3_TidyData/TidyData.slides.html#tidy-data-1",
+    "href": "T3_TidyData/TidyData.slides.html#tidy-data-1",
+    "title": "Tity Data",
+    "section": "Tidy Data",
+    "text": "Tidy Data\n\n“Tidy data is a standard way of mapping the meaning of a dataset to its structure.” Hadley Wickham.\n\n\n\nIn tidy data:\n\nEach variable forms a column\nEach observation forms a row\nEach cell is a single measurement."
+  },
+  {
+    "objectID": "T3_TidyData/TidyData.slides.html#section",
+    "href": "T3_TidyData/TidyData.slides.html#section",
+    "title": "Tity Data",
+    "section": "",
+    "text": "https://openscapes.org/blog/2020-10-12-tidy-data/"
+  },
+  {
+    "objectID": "T3_TidyData/TidyData.slides.html#a-new-library-tidyr",
+    "href": "T3_TidyData/TidyData.slides.html#a-new-library-tidyr",
+    "title": "Tity Data",
+    "section": "A new library: tidyr",
+    "text": "A new library: tidyr\n\n\n\n\n\n\n\n\n\ntidyr allows you to reshape and regroup a dataset.\nIt is part of a collection of data science packages called tidyverse.\nhttps://tidyr.tidyverse.org/\n\n\nLoad it to Google Colab with the following code.\n\nlibrary(tidyr)"
+  },
+  {
+    "objectID": "T3_TidyData/TidyData.slides.html#tidyrs-functions",
+    "href": "T3_TidyData/TidyData.slides.html#tidyrs-functions",
+    "title": "Tity Data",
+    "section": "tidyr’s functions",
+    "text": "tidyr’s functions\n\ntidyr provides tools for reshaping, organizing, and completing data.\n\n\n\nPurpose\nFunction 1\nFunction 2\n\n\n\n\nPivoting\npivot_longer()\npivot_wider()\n\n\nSplitting / Combining\nseparate()\nunite()\n\n\nNesting / Unnesting\nnest()\nunnest()\n\n\nHandling Missing Data\ncomplete()\nfill()"
+  },
+  {
+    "objectID": "T3_TidyData/TidyData.slides.html#pivoting",
+    "href": "T3_TidyData/TidyData.slides.html#pivoting",
+    "title": "Tity Data",
+    "section": "Pivoting",
+    "text": "Pivoting\nTBD"
+  },
+  {
+    "objectID": "T3_TidyData/TidyData.slides.html#ejemplo-2",
+    "href": "T3_TidyData/TidyData.slides.html#ejemplo-2",
+    "title": "Tity Data",
+    "section": "Ejemplo 2",
+    "text": "Ejemplo 2\nConsidera los datos en el archivo “spotify.xlsx”. El conjunto de datos de este contiene las reproducciones diarias globales de las cinco canciones más populares en el servicio de transmisión de música Spotify en el 2017."
+  },
+  {
+    "objectID": "T3_TidyData/TidyData.slides.html#splitting-and-combining",
+    "href": "T3_TidyData/TidyData.slides.html#splitting-and-combining",
+    "title": "Tity Data",
+    "section": "Splitting and Combining",
+    "text": "Splitting and Combining\nTBD"
+  },
+  {
+    "objectID": "T3_TidyData/TidyData.slides.html#nesting-and-unnesting",
+    "href": "T3_TidyData/TidyData.slides.html#nesting-and-unnesting",
+    "title": "Tity Data",
+    "section": "Nesting and Unnesting",
+    "text": "Nesting and Unnesting\nTBD"
+  },
+  {
+    "objectID": "T3_TidyData/TidyData.slides.html#handling-missing-data",
+    "href": "T3_TidyData/TidyData.slides.html#handling-missing-data",
+    "title": "Tity Data",
+    "section": "Handling Missing Data",
+    "text": "Handling Missing Data\nTBD"
+  },
+  {
+    "objectID": "T3_TidyData/TidyData.html",
+    "href": "T3_TidyData/TidyData.html",
+    "title": "Tity Data",
+    "section": "",
+    "text": "Tidy Data\nPivot and Rectangling Operations"
+  },
+  {
+    "objectID": "T3_TidyData/TidyData.html#tidy-data",
+    "href": "T3_TidyData/TidyData.html#tidy-data",
+    "title": "Tity Data",
+    "section": "Tidy Data",
+    "text": "Tidy Data\n\nThe R for Data Science Workflow\n\n\n\n\n\n\n\nhttps://r4ds.hadley.nz/\n\n\n\nThe Rationale for Tidy Data\n\n\nThe tidy framework provides a consistent way to organize your data in R.\nGetting your data into this format requires some upfront work, but that work pays off in the long term.\nOnce you have tidy data and the tidy tools provided by packages in the tidyverse, you will spend much less time munging data from one representation to another, allowing you to spend more time on the analytic questions at hand.\n\n\n\nTidy Data\n\n“Tidy data is a standard way of mapping the meaning of a dataset to its structure.” Hadley Wickham.\n\n\n\nIn tidy data:\n\nEach variable forms a column\nEach observation forms a row\nEach cell is a single measurement.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nhttps://openscapes.org/blog/2020-10-12-tidy-data/\n\n\n\nA new library: tidyr\n\n\n\n\n\n\n\n\n\ntidyr allows you to reshape and regroup a dataset.\nIt is part of a collection of data science packages called tidyverse.\nhttps://tidyr.tidyverse.org/\n\n\n\nLoad it to Google Colab with the following code.\n\nlibrary(tidyr)\n\n\n\ntidyr’s functions\n\ntidyr provides tools for reshaping, organizing, and completing data.\n\n\n\nPurpose\nFunction 1\nFunction 2\n\n\n\n\nPivoting\npivot_longer()\npivot_wider()\n\n\nSplitting / Combining\nseparate()\nunite()\n\n\nNesting / Unnesting\nnest()\nunnest()\n\n\nHandling Missing Data\ncomplete()\nfill()\n\n\n\n\n\nPivoting\nTBD\n\n\nEjemplo 2\nConsidera los datos en el archivo “spotify.xlsx”. El conjunto de datos de este contiene las reproducciones diarias globales de las cinco canciones más populares en el servicio de transmisión de música Spotify en el 2017.\n\n\nSplitting and Combining\nTBD\n\n\nNesting and Unnesting\nTBD\n\n\nHandling Missing Data\nTBD"
+  },
+  {
+    "objectID": "T3_TidyData/TidyData.html#wide-vs-long-data",
+    "href": "T3_TidyData/TidyData.html#wide-vs-long-data",
+    "title": "Tity Data",
+    "section": "Wide Vs Long Data",
+    "text": "Wide Vs Long Data"
+  },
+  {
+    "objectID": "T3_TidyData/TidyData.html#advantages-of-tidy-data",
+    "href": "T3_TidyData/TidyData.html#advantages-of-tidy-data",
+    "title": "Tity Data",
+    "section": "Advantages of Tidy Data",
+    "text": "Advantages of Tidy Data\n\none set of consistent tools for different datasets\neasier for automation and iteration\n\n\n\nTo work with messy data, every time you need to switch to different gears\nlearn new tools that just works for that specific dataset\nIt’s much more pleasant to work with tidy data, help you to build a good taste of data analysis\nspent less fighting with different tools, focus more on data analysis bc one set of consistent tools\nthe {tidyverse} philosophy to work with the tidy data structures\nbuild automatic workflow for analysis, feed different data sets."
+  },
+  {
+    "objectID": "T3_TidyData/TidyData.html#return-to-main-page",
+    "href": "T3_TidyData/TidyData.html#return-to-main-page",
+    "title": "Tity Data",
+    "section": "Return to main page",
+    "text": "Return to main page"
+  },
+  {
+    "objectID": "T2_Tools/Tools.html",
+    "href": "T2_Tools/Tools.html",
+    "title": "Tools for Data Manipulation",
+    "section": "",
+    "text": "Introduction to R\nReading data with readxl\nData manipulation with dplyr"
+  },
+  {
+    "objectID": "T2_Tools/Tools.html#introduction-to-r",
+    "href": "T2_Tools/Tools.html#introduction-to-r",
+    "title": "Tools for Data Manipulation",
+    "section": "Introduction to R",
+    "text": "Introduction to R\n\nR\n\n\n\n\nA versatile programming language.\nIt is free!\nIt is widely used for data cleaning, data visualization, and data modelling.\nIt can be extended with packages (libraries) developed by other users.\n\n\n\n\n\n\n\n\n\n\n\nGoogle Colab\nGoogle’s free cloud collaboration platform for creating R documents.\n\nRun R and collaborate on Jupyter notebooks for free.\nHarness the power of GPUs for free to accelerate your data science projects.\nEasily save and upload your notebooks to Google Drive.\n\n\n\n\n\n\n\n\nLet’s try a command in R\n\nWhat do you think will happen if we run this command?\n\nprint(\"Hello world!\")\n\n. . .\n\n\n[1] \"Hello world!\"\n\n\n\n\nLet’s try another command\n\nWhat do you think will happen if we run this command?\n\nsum(1, 5, 10)\n\n. . .\n\n\n[1] 16\n\n\n\n\nUse R as a basic calculator\n\n\n5 + 1\n\n[1] 6\n\n\n\n10 - 3\n\n[1] 7\n\n\n\n2 * 4\n\n[1] 8\n\n\n\n9 / 3\n\n[1] 3\n\n\n\n\nComments\n\nSometimes we write things in the coding window that we want R to ignore. These are called comments and start with #.\n\nR will ignore the comments and just execute the code.\n\n# you can put whatever after #\n# for example... blah blah blah\n\n\nSi desea escribir un comentario que ocupe más de una línea, es una buena idea poner un # al principio de cada línea.\n\n\n\nIntroduction to functions in R\n\nOne of the cool things about R is that there are many built-in commands you can use. These are called functions.\n. . .\nFunctions have two basic parts:\n\n\nThe first part is the name of the function (for example, sum).\nThe second part is the input to the function, which goes inside the parentheses (sum(1, 5, 15)).\n\n\n\n\nR is strict\nR, like all programming languages, is very strict. For example, if you write\n\nsum(1, 100)\n\n[1] 101\n\n\nit will tell you the answer, 101.\n. . .\nBut if you write\n\nSum(1, 100)\n\nError in Sum(1, 100): could not find function \"Sum\"\n\n\nwith the “s” capitalized, he will act like he has no idea what we are talking about!\n\nlo mismo si olvidas incluir un parentesis\n\n\n\nSave your work in R objects\n\nVirtually anything, including the results of any R function, can be saved in an object.\nThis is accomplished by using an assignment operator, which can be an equals symbol (=).\n. . .\nYou can make up any name you want for a R object. However, there are two basic rules for this:\n\n\nIt has to be different from a function name in R.\nIt has to be specific possible yet succinct.\n\n\n\n\nFor example\n\n\n# This code will assign the number 18\n# to the object called my_favorite_number\n\nmy_favorite_number = 18\n\nAfter running this code, nothing happens. But if we run the object on its own, we can see what’s inside it.\n\nmy_favorite_number\n\n[1] 18\n\n\nYou can also use print(my_favorite_number).\n\n\nVectors\n\nSo far we have used R objects to store a single number. But in statistics we are dealing with variation, which by definition needs more than one number.\n. . .\nA R object can also store a complete set of numbers, called a vector.\nYou can think of a list as a vector of numbers (or values).\n. . .\nThe c() command can be used to combine several individual values into a list.\n\npuedes pensar que el c es por combinar\n\n\n\nFor example\n\nThis code creates two lists or vectors:\n\nmy_list = c(1, 2, 3, 4, 5)\nmy_list_2 = c(10, 10, 10, 10, 10)\n\n. . .\nLet’s see their content:\n\nmy_list\n\n[1] 1 2 3 4 5\n\n\n\nmy_list_2\n\n[1] 10 10 10 10 10\n\n\n\n\nOperations\n\nWe can do simple operations with vectors. For example, we can sum all the elements of a list.\n\nmy_list = c(1, 2, 3, 4, 5)\nsum(my_list)\n\n[1] 15\n\n\n\n\nIndexing\n \nWe can index a position in the vector using square brackets with a number like this: [1].\nSo, if we wanted to print the contents of the first position in my_list, we could write\n\nmy_list[1]\n\n[1] 1\n\n\n\n\nA little more about R objects\n\nYou can think of R objects as containers that hold values.\nA R object can hold a single value, or it can hold a group of values (as in a vector).\nSo far, we’ve only put numbers into R objects.\n. . .\n\nR objects can actually contain three types of values: numbers, characters, and booleans.\n\n\nCharacter values\n\nCharacters are made up of text, such as words or sentences. An example of a list with characters as elements is:\n. . .\n\nmany_greetings = c(\"hi\", \"hello\", \"hola\", \"bonjour\", \"ni hao\", \"merhaba\")\nmany_greetings\n\n[1] \"hi\"      \"hello\"   \"hola\"    \"bonjour\" \"ni hao\"  \"merhaba\"\n\n\n. . .\nIt is important to know that numbers can also be treated as characters, depending on the context.\nFor example, when 20 is enclosed in quotes (\"20\") it will be treated as a character value, even though it encloses a number in quotes.\n\n\nBoolean values\n\nBoolean values are True or False.\nWe may have a question like:\n\nIs the first element of the vector many_greetings \"hola\"?\n\n. . .\nWe can ask R to find out and return the answer True or False.\n\nmany_greetings[1] == \"hola\"\n\n[1] FALSE\n\n\n\n\nLogical operators\n\nMost of the questions we ask R to answer with True or False involve comparison operators like &gt;, &lt;, &gt;=, &lt;=, and ==.\nThe double == sign checks whether two values are equal. There is even a comparison operator to check whether values are not equal: !=.\nFor example, 5 != 3 is a True statement.\n\n\nCommon logical operators\n\n\n&gt; (larger than)\n&gt;= (larger than or equal to)\n&lt; (smaller than)\n&lt;= (smaller than or equal to)\n== (equal to)\n!= (not equal to)\n\n\n\nProgramming culture: Trial and error\n\nThe best way to learn programming is to try things out and see what happens. Write some code, run it, and think about why it didn’t work.\nThere are many ways to make small mistakes in programming (for example, typing a capital letter when a lowercase letter is needed).\nWe often have to find these mistakes through trial and error.\n\n\nR libraries\n\nLibraries are the fundamental units of reproducible R code. They include reusable R functions, documentation describing how to use them, and sample data.\nIn this course, we will be working mostly with the following libraries:\n\ntidyverse for data manipulation.\nggplot2 and ggformula for data visualization."
+  },
+  {
+    "objectID": "T2_Tools/Tools.html#reading-data-with-readxl",
+    "href": "T2_Tools/Tools.html#reading-data-with-readxl",
+    "title": "Tools for Data Manipulation",
+    "section": "Reading data with readxl",
+    "text": "Reading data with readxl\n\nLoading data in R\nIn this course, we will assume that data is stored in an Excel file with the above organization. As an example, let’s use the file penguins.xlsx.\n\n\n\n\n\n\n\n\nThe file must be previously uploaded to Google Colab.\n\n\n\n\nThe dataset penguins.xlsx contains data from penguins living in three islands.\n\n\n\n\n\n\n\nAlan Vazquez with a gentoo penguin\n\n\n\n\n\n\n\nreadxl library\n\n\n\nTo load data into R, we’ll use the library called readxl. Fortunately, this library comes pre-installed in Google Colab.\n\n\n\n\n\n\n\n\nHowever, we need to inform Google Colab that we want to use readxl and its functions. We load the library into R using the following command.\n\nlibrary(readxl)\n\n\n\nLoading data using readxl\n\nThe following code shows how to read the data in the file “penguins.xlsx” into R.\n\n# Load the Excel file into R.\npenguins_data = read_excel(\"penguins.xlsx\")\n\n\n\nThe function head()\n\nThe function head() allows you to print the first 6 rows of a data frame.\n\n# Print the first 4 rows of the dataset.\nhead(penguins_data)\n\n# A tibble: 6 × 8\n  species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g\n  &lt;chr&gt;   &lt;chr&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;dbl&gt;       &lt;dbl&gt;\n1 Adelie  Torgersen           39.1          18.7               181        3750\n2 Adelie  Torgersen           39.5          17.4               186        3800\n3 Adelie  Torgersen           40.3          18                 195        3250\n4 Adelie  Torgersen           NA            NA                  NA          NA\n5 Adelie  Torgersen           36.7          19.3               193        3450\n6 Adelie  Torgersen           39.3          20.6               190        3650\n# ℹ 2 more variables: sex &lt;chr&gt;, year &lt;dbl&gt;\n\n\n\n\nMini-activity (solo mode)\n\nOpen the following Google Colab link:\nhttps://colab.research.google.com/drive/1xLoaOMharQmmasNApjm38jZcw-gtcxvm?usp=sharing\nCopy the notebook to your drive.\nAnswer the questions."
+  },
+  {
+    "objectID": "T2_Tools/Tools.html#data-manipulation-with-dplyr",
+    "href": "T2_Tools/Tools.html#data-manipulation-with-dplyr",
+    "title": "Tools for Data Manipulation",
+    "section": "Data manipulation with dplyr",
+    "text": "Data manipulation with dplyr\n\nA New Library: dplyr\n\n\n\n\n\n\n\n\n\ndplyr allows you to manipulate data and generate statistical summaries.\nIt is part of a collection of data science packages called tidyverse.\nhttps://dplyr.tidyverse.org/\n\n\n\nLoad it to Google Colab with the following code.\n\nlibrary(dplyr)\n\n\n\npipe\nOne of the most important commands of dplyr is pipe, which is executed using the operator %&gt;%. This operator sends an object to a calling function or expression.\nThe grammar for using pipe is as follows:\n\n\n\n\n\n\n\ndplyr’s verbs\ndplyr is a data manipulation grammar that provides a set of verbs (functions) to solve the most common data manipulation challenges:\n\n\nfilter() selects observations based on their values.\nselect() selects variables based on their names.\nmutate() adds new variables that are functions of existing variables.\narrange() changes the order of rows.\nsummarise() reduces multiple values to a single numerical summary.\n\n\n\n\n\n\n\n\n\n\nTo practice, we will use the dataset penguins_data.\n\n\nFilter observations with filter()\nWe can filter the data to obtain penguins with a body mass greater than 5000.\n\npenguins_data %&gt;% filter(body_mass_g &gt; 5000) %&gt;% head()\n\n# A tibble: 6 × 8\n  species island bill_length_mm bill_depth_mm flipper_length_mm body_mass_g\n  &lt;chr&gt;   &lt;chr&gt;           &lt;dbl&gt;         &lt;dbl&gt;             &lt;dbl&gt;       &lt;dbl&gt;\n1 Gentoo  Biscoe           50            16.3               230        5700\n2 Gentoo  Biscoe           50            15.2               218        5700\n3 Gentoo  Biscoe           47.6          14.5               215        5400\n4 Gentoo  Biscoe           46.7          15.3               219        5200\n5 Gentoo  Biscoe           46.8          15.4               215        5150\n6 Gentoo  Biscoe           49            16.1               216        5550\n# ℹ 2 more variables: sex &lt;chr&gt;, year &lt;dbl&gt;\n\n\n\nRecall that head() prints the first 5 rows of a dataframe. We must remove it to have the entire new dataframe.\n\n\n\n\n\nWe can also filter the observations for the species “Gentoo.”\n\npenguins_data %&gt;% filter(species == \"Gentoo\") %&gt;% head()\n\n# A tibble: 6 × 8\n  species island bill_length_mm bill_depth_mm flipper_length_mm body_mass_g\n  &lt;chr&gt;   &lt;chr&gt;           &lt;dbl&gt;         &lt;dbl&gt;             &lt;dbl&gt;       &lt;dbl&gt;\n1 Gentoo  Biscoe           46.1          13.2               211        4500\n2 Gentoo  Biscoe           50            16.3               230        5700\n3 Gentoo  Biscoe           48.7          14.1               210        4450\n4 Gentoo  Biscoe           50            15.2               218        5700\n5 Gentoo  Biscoe           47.6          14.5               215        5400\n6 Gentoo  Biscoe           46.5          13.5               210        4550\n# ℹ 2 more variables: sex &lt;chr&gt;, year &lt;dbl&gt;\n\n\n\n\nSelect columns with select()\n\nSelect the columns species, body_mass_g and sex.\n\npenguins_data %&gt;% select(species, body_mass_g, sex) %&gt;% head()\n\n# A tibble: 6 × 3\n  species body_mass_g sex   \n  &lt;chr&gt;         &lt;dbl&gt; &lt;chr&gt; \n1 Adelie         3750 male  \n2 Adelie         3800 female\n3 Adelie         3250 female\n4 Adelie           NA &lt;NA&gt;  \n5 Adelie         3450 female\n6 Adelie         3650 male  \n\n\n\n\nselect() and filter()\n\nSelect the columns species, body_mass_g, and sex. Then, filter the data for the species “Gentoo.”\n\npenguins_data %&gt;% \n  select(species, body_mass_g, sex) %&gt;% \n  filter(species == \"Gentoo\") %&gt;% \n  head()\n\n# A tibble: 6 × 3\n  species body_mass_g sex   \n  &lt;chr&gt;         &lt;dbl&gt; &lt;chr&gt; \n1 Gentoo         4500 female\n2 Gentoo         5700 male  \n3 Gentoo         4450 female\n4 Gentoo         5700 male  \n5 Gentoo         5400 male  \n6 Gentoo         4550 female\n\n\n\n\nCreate new columns with mutate()\nWith mutate(), we can add new columns (variables) that are functions of the columns in the data. For example, we can calculate the division of bill_length_mm and bill_depth_mm.\n\npenguins_data %&gt;% \n  mutate(\"RadioLengthDepth\" = bill_length_mm/bill_depth_mm) %&gt;% \n  select(species, body_mass_g, sex, RadioLengthDepth) %&gt;%\n  head()\n\n# A tibble: 6 × 4\n  species body_mass_g sex    RadioLengthDepth\n  &lt;chr&gt;         &lt;dbl&gt; &lt;chr&gt;             &lt;dbl&gt;\n1 Adelie         3750 male               2.09\n2 Adelie         3800 female             2.27\n3 Adelie         3250 female             2.24\n4 Adelie           NA &lt;NA&gt;              NA   \n5 Adelie         3450 female             1.90\n6 Adelie         3650 male               1.91\n\n\n\n\nSort the observations with arrange()\n\nWe can sort the data based on a column, say bill_length_mm.\n\npenguins_data %&gt;% \n  arrange(bill_length_mm) %&gt;% \n  head()\n\n# A tibble: 6 × 8\n  species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g\n  &lt;chr&gt;   &lt;chr&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;dbl&gt;       &lt;dbl&gt;\n1 Adelie  Dream               32.1          15.5               188        3050\n2 Adelie  Dream               33.1          16.1               178        2900\n3 Adelie  Torgersen           33.5          19                 190        3600\n4 Adelie  Dream               34            17.1               185        3400\n5 Adelie  Torgersen           34.1          18.1               193        3475\n6 Adelie  Torgersen           34.4          18.4               184        3325\n# ℹ 2 more variables: sex &lt;chr&gt;, year &lt;dbl&gt;\n\n\n\n\n\n\nTo sort in descending order we use desc(bill_length_mm) in arrange().\n\npenguins_data %&gt;% \n  arrange(desc(bill_length_mm)) %&gt;% \n  head()\n\n# A tibble: 6 × 8\n  species   island bill_length_mm bill_depth_mm flipper_length_mm body_mass_g\n  &lt;chr&gt;     &lt;chr&gt;           &lt;dbl&gt;         &lt;dbl&gt;             &lt;dbl&gt;       &lt;dbl&gt;\n1 Gentoo    Biscoe           59.6          17                 230        6050\n2 Chinstrap Dream            58            17.8               181        3700\n3 Gentoo    Biscoe           55.9          17                 228        5600\n4 Chinstrap Dream            55.8          19.8               207        4000\n5 Gentoo    Biscoe           55.1          16                 230        5850\n6 Gentoo    Biscoe           54.3          15.7               231        5650\n# ℹ 2 more variables: sex &lt;chr&gt;, year &lt;dbl&gt;\n\n\n\n\nSummarize with summarise()\nWe can calculate the average of the bill_length_mm, bill_depth_mm, and body_mass_g columns.\n\npenguins_data %&gt;% \n  select(bill_length_mm, bill_depth_mm, body_mass_g) %&gt;%\n  summarise(PromLength = mean(bill_length_mm, na.rm = TRUE), \n            PromDepth = mean(bill_depth_mm, na.rm = TRUE),\n            PromMass = mean(body_mass_g, na.rm = TRUE))\n\n# A tibble: 1 × 3\n  PromLength PromDepth PromMass\n       &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;\n1       43.9      17.2    4202.\n\n\n\nThe argument na.rm == TRUE allows us to ignore the missing data.\n\n\n\nSaving results in new objects\nAfter performing operations on our data, we can save the modified dataset as a new object.\n\nsummary_penguins_data = penguins_data %&gt;%\n  select(bill_length_mm, bill_depth_mm, body_mass_g) %&gt;%\n  summarise(PromLength = mean(bill_length_mm, na.rm = TRUE),\n            PromDepth = mean(bill_depth_mm, na.rm = TRUE),\n            PromMass = mean(body_mass_g, na.rm = TRUE))\n\n\nAnd apply the dplyr verbs to the new object.\n\nsummary_penguins_data %&gt;% head()\n\n# A tibble: 1 × 3\n  PromLength PromDepth PromMass\n       &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;\n1       43.9      17.2    4202.\n\n\n\n\nMore on dplyr\n\n\n\n\n\n\nhttps://r4ds.hadley.nz/\n\n\n\nFinal remarks\n\n\ndplyr is a library that allows us to manipulate data in R.\nVariable types help specify the operations and visualizations we can apply to the data.\nThere are appropriate or designed graphs for visualizing numeric or categorical variables.\nIn this course, we will see several graphs for each variable type and their combinations."
+  },
+  {
+    "objectID": "T2_Tools/Tools.html#return-to-main-page",
+    "href": "T2_Tools/Tools.html#return-to-main-page",
+    "title": "Tools for Data Manipulation",
+    "section": "Return to main page",
+    "text": "Return to main page"
+  },
+  {
+    "objectID": "T6_PopularGraphs/Popular_Graphs.html",
+    "href": "T6_PopularGraphs/Popular_Graphs.html",
+    "title": "Popular Graphs",
+    "section": "",
+    "text": "Types of Variables\nOne Categorical Variable\nOne Numerical Variable\nMultiple Variables"
+  },
+  {
+    "objectID": "T6_PopularGraphs/Popular_Graphs.html#one-categorical-variable",
+    "href": "T6_PopularGraphs/Popular_Graphs.html#one-categorical-variable",
+    "title": "Popular Graphs",
+    "section": "One Categorical Variable",
+    "text": "One Categorical Variable\n\nExample 1: Penguins dataset\n\nWe will illustrate the concepts using the penguins.xlsx dataset. We will focus on visualizing the following categorical variables: species, island y sex.\n\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.5\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.5.1     ✔ tibble    3.2.1\n✔ lubridate 1.9.3     ✔ tidyr     1.3.1\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\nLoading required package: scales\n\n\nAttaching package: 'scales'\n\n\nThe following object is masked from 'package:purrr':\n\n    discard\n\n\nThe following object is masked from 'package:readr':\n\n    col_factor\n\n\nLoading required package: ggridges\n\n\nNew to ggformula?  Try the tutorials: \n    learnr::run_tutorial(\"introduction\", package = \"ggformula\")\n    learnr::run_tutorial(\"refining\", package = \"ggformula\")\n\n\n# A tibble: 6 × 3\n  species island    sex   \n  &lt;chr&gt;   &lt;chr&gt;     &lt;chr&gt; \n1 Adelie  Torgersen male  \n2 Adelie  Torgersen female\n3 Adelie  Torgersen female\n4 Adelie  Torgersen &lt;NA&gt;  \n5 Adelie  Torgersen female\n6 Adelie  Torgersen male  \n\n\n\n\nBar chart\nIt visually represents frequencies or percentages of the categories of a categorical variable. The frequency (or percentage) is represented by a bar of proportional height.\n\n\n\n\n\n\n\n\n\n\n\nBar chart for percentages\n\n\n\n\n\n\n\n\n\n\n\n\nExample 2: Boston Housing Dataset\nThis dataset contains information collected by the U.S. Census Bureau on housing in the Boston, Massachusetts area. The dataset is in Boston_dataset.xlsx.\n\n\n\n\n\n\n\n\n\n\n\nWe concentrate on the following variables:\n\nchas : Whether the house is next to the Charles River (1: Yes and 0: No)\nrad : Index of accessibility to radial highways (Low, Medium, High).\n\n\n\n\n\nLet’s create a bar chart for chas.\n\n\n\n\n\n\n\n\n\n\n\n\n\nNow, let’s create a bar chart for rad.\n\n\n\n\n\n\n\n\n\n\n\nCollapsing\n\nSome categorical variables tend to have many categories. For example, states in a country or postal codes. In these cases, it can be difficult to visualize all the categories in a single graph.\nOne strategy for developing an effective visualization is to collapse categories.\nFor example, in the variable rad, we can collapse the categories Medium and High into a single category called Other.\n\n\n\nCollapsing categories simplifies the graph\n\n\n\n\n\n\n\n\n\nIt also allows us to emphasize a category like Low and see how it compares to the other categories (as a whole)."
+  },
+  {
+    "objectID": "T6_PopularGraphs/Popular_Graphs.html#one-numerical-variable",
+    "href": "T6_PopularGraphs/Popular_Graphs.html#one-numerical-variable",
+    "title": "Popular Graphs",
+    "section": "One Numerical Variable",
+    "text": "One Numerical Variable\n\nExample 3\n\n\nA piston is a mechanical device found in most engines.\n\n\n\n\nOne measure of a piston’s performance is the time it takes to complete a cycle, which we call “cycle time” and is measured in seconds.\nThe file “CYLT.xlsx” contains 50 cycle times of a piston operating under fixed conditions.\n\n\nHistogram\nVisualizes the distribution of observations, indicating regions where observations are concentrated or sparse.\n. . .\nIt is built using a frequency table.\n\nDefine a maximum number of intervals or bins (from 5 to 30).\nDefine the ranges of the intervals.\nGroup the observations in the interval to which they belong.\n\n. . .\nR automatically calculates the frequency table for numerical data. The histogram is a visualization of this table.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nThe bars of the histogram touch each other. A gap indicates that there are no observations in that interval.\n\n\n\nIt is not the same as a bar chart\n\nWith categorical data, a bar chart looks similar to a histogram because it displays the frequency of categories.\nHowever, we cannot interpret the shape of a bar chart in the same way as a histogram.\n\nThe frequency of a category is represented by the height of the bar, and the width does not contain any information.\nA bar chart will not highlight outliers.\n\n\nTails and symmetry do not make sense in this setting.\n\n\n\nNumber of bins\n\nThe number of bins is a parameter of the histogram that affects its appearance.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nThe left histogram uses 5 bins, and the right histogram uses 30 bins\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMy recommendation is to use the default number of bins.\n\nA histogram is a familiar type of plot that involves smoothing. A histogram aggregates data values by placing points into bins and plotting one bar for each bin. Smoothing here means that we cannot differentiate the location of individual points within a bin: the points are smoothly distributed across their bins.\n\n\n\nWhat to look for in a histogram?\n\n\nSymmetry and asymmetry of the distribution.\nThe number, location, and size of high-frequency regions (bins).\nGaps where no values are observed.\nUnusually large or anomalous values.\nA bell-shaped form.\n\n\n\nThe obsession with bell curves\n\n\n\nThe normal distribution is a very important probability distribution in statistics.\n\n\n\n\nIt is characterized by a symmetric bell-shaped curve centered around its mean, with the highest probability density at the mean and decreasing symmetrically towards the extremes\n\n\n\nBasically, if your observations follow a normal distribution, you can use statistical methods to draw conclusions based on mathematical theory.\n\n\n\n\n\nWhat many people don’t know is that this condition is only needed if you have few observations (less than 50)."
+  },
+  {
+    "objectID": "T6_PopularGraphs/Popular_Graphs.html#multiple-variables",
+    "href": "T6_PopularGraphs/Popular_Graphs.html#multiple-variables",
+    "title": "Popular Graphs",
+    "section": "Multiple Variables",
+    "text": "Multiple Variables\n\nMultivariate data\n\nMultivariate data consists of datasets that contain observations of two or more variables.\n\n\nVariables can be numerical or categorical.\nVariables may or may not depend on each other.\n\n\n. . .\nIn fact, the goal is to determine whether there is a relationship between the variables and the type of relationship.\n\n\nExample 4\n\nConsider data from 392 cars, including miles per gallon, number of cylinders, horsepower, weight, acceleration, year, origin, among other variables. The data is in the file “auto_dataset.xlsx”.\n\n\n# A tibble: 6 × 9\n    mpg cylinders displacement horsepower weight acceleration  year origin  \n  &lt;dbl&gt;     &lt;dbl&gt;        &lt;dbl&gt; &lt;chr&gt;       &lt;dbl&gt;        &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;   \n1    18         8          307 130          3504         12      70 American\n2    15         8          350 165          3693         11.5    70 American\n3    18         8          318 150          3436         11      70 American\n4    16         8          304 150          3433         12      70 American\n5    17         8          302 140          3449         10.5    70 American\n6    15         8          429 198          4341         10      70 American\n# ℹ 1 more variable: `car name` &lt;chr&gt;\n\n\n\n\nPrinciple 1: Define the question\nIn the context of multiple-variable data, typical questions to study include:\n\n\nHow are variable \\(X\\) and variable \\(Y\\) related?\nIs the distribution of variable \\(X\\) the same across all subgroups defined by variable \\(Z\\)?\nAre there any unusual observations in the combination of values for variables \\(X\\) and \\(Y\\)?\nAre there any unusual observations in \\(X\\) for a subgroup of variable \\(Z\\)?\n\n\n\n\nPrinciple 2: Turn data into information\nThere are various types of graphs that help us explore relationships between two or more variables.\n\n\n\n\n\nType\nGraph Type\n\n\n\n\nNumerical\nScatter plot, line graph\n\n\nCategorical\nSide-by-side bar chart, stacked bar chart\n\n\nMixed\nCleaveland Plot\n\n\n\n\n\nFor two features, the combination of types (both quantitative, both qualitative, or a mix) matters.\n\n\n\nIndependent and dependent variables\nWhen investigating the relationship between two variables (numerical or categorical), we use specific terminology.\n. . .\nOne variable is called the dependent or response variable, denoted by the letter \\(Y\\).\n. . .\nThe other variable is called the independent or predictor variable, denoted by the letter \\(X\\).\n. . .\n\nOur goal is to determine whether changes in \\(X\\) are associated with changes in \\(Y\\), and the nature of this association.\n\n\n\nScatter plot\n\nThe most common graph for examining the relationship between two numerical variables is the scatter plot.\n. . .\nVariables \\(X\\) and \\(Y\\) are placed on the horizontal and vertical axes, respectively. Each point on the graph represents a pair of \\(X\\) and \\(Y\\) values.\n. . .\n\n\nThe goal is to explore linear or non-linear relationships between variables.\n\n\n\nScatter plot\n\n\n\n\n\n\n\n\n\n\n\n\nIndividual graphs\n\nIndividual variable graphs (such as histograms) do not allow us to study the relationship between two variables. They only provide information on the distribution of each variable.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLine graph\nA line graph is a visual representation of data where data points are connected by a line. Axes:\n\n\\(X\\) (horizontal): Represents time or the independent variable.\n\\(Y\\) (vertical): Represents the dependent variable.\n\nEach point represents a value at a given moment.\n. . .\n\n\nThe objective is to explore trends over time or the evolution of a continuous variable.\n\n\n\nExample 2\n\nConsider the data in the file “spotify.xlsx”. This dataset contains the global daily streams of the top five most popular songs on the music streaming service Spotify in 2017.\n\n\n# A tibble: 3 × 7\n  Date                  Day `Shape of You` Despacito `Something Just Like This`\n  &lt;dttm&gt;              &lt;dbl&gt;          &lt;dbl&gt;     &lt;dbl&gt;                      &lt;dbl&gt;\n1 2017-01-06 00:00:00     1       12287078        NA                         NA\n2 2017-01-07 00:00:00     2       13190270        NA                         NA\n3 2017-01-08 00:00:00     3       13099919        NA                         NA\n# ℹ 2 more variables: HUMBLE. &lt;dbl&gt;, Unforgettable &lt;dbl&gt;\n\n\n\n\nLine Plot\n\n\n\nWarning: Removed 7 rows containing missing values or values outside the scale range\n(`geom_line()`).\n\n\n\n\n\n\n\n\n\n\n\nPlotting statistical summaries by groups\nWe can summarize the values of the numerical variable \\(Y\\) for each category of a categorical variable \\(X\\) using the median or the mean.\nFor example, let’s plot the average miles per gallon of cars produced in America, Europe, and Japan. Two common visualization types for plotting a numerical and a discrete variable when there is only one value per category are:\n\nCleveland dot plot\nBar chart\n\n\n\nCleveland dot plot\nThe Cleveland dot plot encodes quantitative data across different categories. It is an alternative to a bar chart.\n\n\n\n\n\n\n\n\n\n\n\n\nWe can use similar commands as the Cleveland dot plot to improve the bar chart.\n\n\n\n\n\n\n\n\n\n\n\nTwo Categorical Variables\n\nWith two categorical variables, we compare the distribution of one variable across subgroups defined by the other variable.\nIn fact, we keep one variable constant and plot the distribution of the other.\n. . .\nTo do this, the most popular charts are extensions of bar graphs:\n\nStacked bar charts\nSide-by-side bar charts\n\n\n\nExample 1 (cont.)\n\nAs an example, let’s consider the data in the file “penguins.xlsx” again.\n\n\n# A tibble: 6 × 8\n  species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g\n  &lt;chr&gt;   &lt;chr&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;dbl&gt;       &lt;dbl&gt;\n1 Adelie  Torgersen           39.1          18.7               181        3750\n2 Adelie  Torgersen           39.5          17.4               186        3800\n3 Adelie  Torgersen           40.3          18                 195        3250\n4 Adelie  Torgersen           NA            NA                  NA          NA\n5 Adelie  Torgersen           36.7          19.3               193        3450\n6 Adelie  Torgersen           39.3          20.6               190        3650\n# ℹ 2 more variables: sex &lt;chr&gt;, year &lt;dbl&gt;\n\n\n\n\nStacked bar chart\nWe study the distribution of penguin species across the three different islands using an stacked bar chart.\n\n\n\n\n\n\n\n\n\nThe chart shows the frequency of each species, separated by island name.\n\n\nSide-by-side bar chart\nAn alternative to the previous chart is to place the bars side by side for the categories of the categorical variable \\(X\\).\n\n\n\n\n\n\n\n\n\n\n\nStacked or side-by-side?\n\nThe main difference between stacked and side-by-side bar charts is that the side-by-side chart shows values in separate bars within a category.\nAdvantages of stacked bars:\n\nEasier to understand what proportions of a whole are divided among segments.\nVisually adds up each proportion.\n\n\n\n\n\nAdvantages of side-by-side bars:\n\nEasier to compare the heights of each individual entity.\nBetter for comparing between groups.\n\n\n\nCharts for three variables\n\n\nWhen examining a distribution or relationship, we often want to compare it across data subgroups.\nThis process of conditioning on additional variables leads to visualizations involving three or more variables.\nHere we explain how to create charts to visualize multiple variables.\n\n\n\nScatter plot by color\nFor two numerical variables and one categorical variable.\n\n\n\n\n\n\n\n\n\n\n\nFaceted or lattice plot\nA faceted plot visualizes the relationship or distribution of one or two variables for each subgroup defined by a third variable \\(Z\\).\n\n\n\n\n\n\n\n\n\n\n\nMultiple line charts\n\nInstead of visualizing one variable, we can visualize multiple variables simultaneously using a line plot. For example, we can show the evolution of play counts for the 5 songs in the file “spotify.xlsx” over time.\n\nHowever, some data visualization packages necessitate a special format to produce the multiple lines plot.\n\n\nThe required format\n\nFor a multiple line chart, we need to merge the columns Shape of You, Despacito, Something Just Like This, HUMBLE and Unforgettable into two columns.\nOne column will contain the number of plays, and the other will contain the song title.\nBoth columns will be ordered by the variable Date.\n\n\n\n\nTo format the data, we use the function pivot_longer() from the tidyr library.\n\n\n# A tibble: 6 × 4\n  Date                  Day Cancion                  Reproducciones\n  &lt;dttm&gt;              &lt;dbl&gt; &lt;chr&gt;                             &lt;dbl&gt;\n1 2017-01-06 00:00:00     1 Shape of You                   12287078\n2 2017-01-06 00:00:00     1 Despacito                            NA\n3 2017-01-06 00:00:00     1 Something Just Like This             NA\n4 2017-01-06 00:00:00     1 HUMBLE.                              NA\n5 2017-01-06 00:00:00     1 Unforgettable                        NA\n6 2017-01-07 00:00:00     2 Shape of You                   13190270\n\n\n\n\nFacet grid\n\nSeparate plots for each line.\n\n\nWarning: Removed 7 rows containing missing values or values outside the scale range\n(`geom_line()`).\n\n\n\n\n\n\n\n\n\n\n\n\n\nOr we can plot all lines on a single chart.\n\n\nWarning: Removed 229 rows containing missing values or values outside the scale range\n(`geom_line()`).\n\n\n\n\n\n\n\n\n\n\n\nGraphs for four variables\nA common chart for four variables is the scatter plot, where the color and size of the symbols depend on two categorical variables.\n\n\nWarning: Using size for a discrete variable is not advised.\n\n\nWarning: Removed 2 rows containing missing values or values outside the scale range\n(`geom_point()`)."
+  },
+  {
+    "objectID": "T6_PopularGraphs/Popular_Graphs.html#return-to-main-page",
+    "href": "T6_PopularGraphs/Popular_Graphs.html#return-to-main-page",
+    "title": "Popular Graphs",
+    "section": "Return to main page",
+    "text": "Return to main page"
+  },
+  {
+    "objectID": "T7_StatisticalGraphs/Statistical_Graphs.html",
+    "href": "T7_StatisticalGraphs/Statistical_Graphs.html",
+    "title": "Statistical Graphs",
+    "section": "",
+    "text": "One Numerical Variable\nMultiple Variables\n\nSide-by-Side Box Plots\nRegression Plots"
+  },
+  {
+    "objectID": "T7_StatisticalGraphs/Statistical_Graphs.html#one-numerical-variable",
+    "href": "T7_StatisticalGraphs/Statistical_Graphs.html#one-numerical-variable",
+    "title": "Statistical Graphs",
+    "section": "One Numerical Variable",
+    "text": "One Numerical Variable\n\nExample 1\n\n\nA piston is a mechanical device found in most engines.\n\n\n\n\nOne measure of a piston’s performance is the time it takes to complete a cycle, which we call “cycle time” and is measured in seconds.\nThe file “CYLT.xlsx” contains 50 cycle times of a piston operating under fixed conditions.\n\n\nSummary statistic\n\n\nHelps us to summarize a list of observations in a simple way.\n\nFor numerical data, the most popular summary statistics are:\n\n\nMean\nVariance and standard deviation\nQuartiles\nMaximum and minimum\n\n\n\n\nMean\n\n\nIndicates the center of the data.\n\n\nLet \\(y_1, y_2, \\ldots, y_n\\) be an observed sample of size \\(n\\).\nThe mean is\n\\[\\bar{y} = \\frac{1}{n}\\sum_{i=1}^{n} y_i = \\frac{y_1 + y_2 + \\cdots + y_n}{n}.\\]\n\n\nVariance\n\nIndicates how spread out the data are around the mean.\n\n\nLet \\(y_1, y_2, \\ldots, y_n\\) be an observed sample of size \\(n\\). The variance is\n\\[\ns^2 = \\frac{1}{n-1} \\sum_{i=1}^{n} (y_i - \\bar{y})^2 = \\frac{(y_1 - \\bar{y})^2  + \\cdots + (y_n - \\bar{y})^2}{n-1}\n\\]\n. . .\nThe variance is like an average of the squared differences between each observation and the mean.\n\n\nStandard deviation\nA drawback of the variance is that it is not on the same scale as the actual observations.\nTo obtain a measure of spread whose units are the same as those of the sample, we simply take the squared root of the variance\n\\[\ns = \\left(\\frac{1}{n-1} \\sum_{i=1}^{n} (y_i - \\bar{y})^2 \\right)^{1/2}\n\\]\nThis quantity is known as the standard deviation. It is in the same units as the observations.\n\n\nFor the piston data\n\n\nThe average of the cycle time of the piston is 0.652 seconds.\n\n\nThe standard deviation of the cycle time of the piston is 0.373 seconds.\nTherefore, on average, a piston takes 0.652 seconds to complete a cycle, with a variation of \\(\\pm\\) 0.373 seconds.\n\n\n\nQuartiles\n\nThe median is the middle number of the ordered data values.\n. . .\nQuartiles divide the data as nearly as possible into quarters:\n\n\nFirst quartile (\\(Q_1\\)) is the median of the lower half of the data.\nSecond quartile (\\(Q_2\\)) is the median of the data.\nThird quartile (\\(Q_3\\)) is the median of the upper half of the data.\n\n\n\n\n\n\n\n\nThe generalization of quartiles are percentiles or quantiles.\n\n\nFor the piston data\n\n\n\\(Q_1 = 0.305\\). So, 25% of cycle times are below 0.305 seconds.\n\\(Q_2 = 0.546\\). So, 50% of cycle times are below 0.546 seconds.\n\\(Q_3 = 1.07\\). So, 75% of cycle times are below 1.07 seconds.\nThe maximum cycle time is 1.14 seconds.\nThe minimum cycle time is 0.175 seconds.\n\n\n\nMean vs. Median\n\nThe mean and median estimate the central value of the data in different ways.\n\nThe mean is the sum of the values divided by the total.\nThe median is the central value of an ordered set of data.\n\n\n\nWhen do we use the mean?\n\nThe mean is used when the data is symmetrically or evenly distributed and there are no significant outliers.\n\nFor example, the height of a large sample of people in a homogeneous population.\n\n\nWhen do we use the median?\n\nThe median is used when there are outliers that could skew the mean.\nFor example:\n\nAnnual household income in a country (where there are a few billionaires who distort the mean).\nHouse prices in a city (where a few very expensive properties can inflate the mean).\n\n\n\nActivity (solo mode) Part 1\nA company that manufactures capacitor retaining bolts for automobile engines implemented a quality control system. As part of this quality control system, a team of engineers decided to record the number of nonconforming bolts produced each shift.\nThe file bolts.xlsx contains the number of non-conforming bolts during the last 45 shifts.\n\nCalculate and interpret the mean, variance, standard deviation, quartiles, minimum and maximum.\n\n\n\nBoxplot\n\nA boxplot helps us visualize the distribution of observations using quartiles.\n. . .\n\nIt is very effective for detecting “outliers.”\n\n. . .\nAn important component of the boxplot is the interquartile range (IQR), which is the difference between the third quartile and the first quartile (\\(Q_3 - Q_1\\)).\n. . .\nThe interquartile range is the distance needed to encompass the middle half of the data.\n\n\nAnatomy of a Box Plot\n\n\n\n\n\nLearn more here https://builtin.com/articles/1-5-iqr-rule\n\n\nOutliers\n\n\nOutliers are points that are much larger or smaller than the rest of the sample points.\nOutliers may be data entry errors or they may be points that really are different from the rest.\nOutliers should not be deleted without considerable thought—sometimes calculations and analyses will be done with and without outliers and then compared.\n\n\n\nBoxplot for the piston data\nUsually, the box plot is shown vertically.\n\n\n\n\n\n\n\n\n\n\n\n\n\nBut in some cases, we may want to display the the box plot horizontally."
+  },
+  {
+    "objectID": "T7_StatisticalGraphs/Statistical_Graphs.html#multiple-variables",
+    "href": "T7_StatisticalGraphs/Statistical_Graphs.html#multiple-variables",
+    "title": "Statistical Graphs",
+    "section": "Multiple Variables",
+    "text": "Multiple Variables\n\nMultivariate data\n\nMultivariate data consists of datasets that contain observations of two or more variables.\n\n\nVariables can be numerical or categorical.\nVariables may or may not depend on each other.\n\n\n. . .\nIn fact, the goal is to determine whether there is a relationship between the variables and the type of relationship.\n\n\nExample 2\n\nConsider data from 392 cars, including miles per gallon, number of cylinders, horsepower, weight, acceleration, year, origin, among other variables. The data is in the file “auto_dataset.xlsx”.\n\n\n# A tibble: 6 × 9\n    mpg cylinders displacement horsepower weight acceleration  year origin  \n  &lt;dbl&gt;     &lt;dbl&gt;        &lt;dbl&gt; &lt;chr&gt;       &lt;dbl&gt;        &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;   \n1    18         8          307 130          3504         12      70 American\n2    15         8          350 165          3693         11.5    70 American\n3    18         8          318 150          3436         11      70 American\n4    16         8          304 150          3433         12      70 American\n5    17         8          302 140          3449         10.5    70 American\n6    15         8          429 198          4341         10      70 American\n# ℹ 1 more variable: `car name` &lt;chr&gt;\n\n\n\n\nPrinciple 1: Define the question\nIn the context of multiple-variable data, typical questions to study include:\n\n\nHow are variable \\(X\\) and variable \\(Y\\) related?\nIs the distribution of variable \\(X\\) the same across all subgroups defined by variable \\(Z\\)?\nAre there any unusual observations in the combination of values for variables \\(X\\) and \\(Y\\)?\nAre there any unusual observations in \\(X\\) for a subgroup of variable \\(Z\\)?\n\n\n\n\nPrinciple 2: Turn data into information\nThere are various types of graphs that help us explore relationships between two or more variables.\n\n\n\n\n\nType\nGraph Type\n\n\n\n\nNumerical\nRegression plot\n\n\nMixed\nSide-by-side box plot\n\n\n\n\n\nFor two features, the combination of types (both quantitative, both qualitative, or a mix) matters.\n\n\n\nIndependent and dependent variables\nWhen investigating the relationship between two variables (numerical or categorical), we use specific terminology.\n. . .\nOne variable is called the dependent or response variable, denoted by the letter \\(Y\\).\n. . .\nThe other variable is called the independent or predictor variable, denoted by the letter \\(X\\).\n. . .\n\nOur goal is to determine whether changes in \\(X\\) are associated with changes in \\(Y\\), and the nature of this association.\n\n\n\nCategorical and Numerical Variables\nTo examine the relationship between a numerical and a categorical variable, we use the categorical variable to divide the data into groups. This way, we compare the distribution of the numerical variable among these groups.\n. . .\nIn this context:\n\n\\(X\\) is the categorical variable.\n\\(Y\\) is the numerical variable.\n\n. . .\nThe side-by-side boxplot is the most effective way to study the relationship between a categorical and a numerical variable.\n\n\nBoxplot by groups\nThe side-by-side boxplot compares the distribution of a variable across different groups.\nFor example, if we want to compare the distributions of miles per gallon of cars built in America, Europe, or Japan, we use the following command:\n\n\n\n\n\n\n\n\n\n\n\nRegression Plots\n\nQuestions we can answer with simple linear regression:\n\n\nIs there a relationship between a response variable and predictors?\nHow strong is the relationship?\nWhat is the uncertainty?\nHow precisely can we predict a future outcome?\n\n\n\n\n\nIs there a relationship between a car’s weight and its miles per gallon?\n\n\n\n\n\n\n\n\n\n\n\nRegression problem\n\nObjetive: Find the best function \\(f(X)\\) of the predictor \\(X\\) that describes the response \\(Y\\).\n. . .\nMathematically, we want to establish the following relationship:\n\\[\nY = f(X) + \\epsilon,\n\\]\nwhere \\(\\epsilon\\) is a natural (random) error.\n\n\n\n\n\nIn practice, it is very difficult to know the true structure of the function \\(f(X)\\).\n\n\n\nThe best we can do is construct an approximation (function) \\(\\hat{f}(X)\\).\nThere are several strategies to build \\(\\hat{f}(X)\\), one of the most common is:\n\nDefine a simple “structure” or “formula.”\nEstimate the elements of the “formula” using the data.\n\n\n\n\n\nLinear regression model\nA very common function \\(f(X)\\) to predict a response \\(Y\\) is the linear regression model.\nIts mathematical form is:\n\\[\n\\hat{Y}_i = \\hat{\\beta}_0 + \\hat{\\beta}_1 X_i,\n\\]\n\n\nWhere \\(i\\) is the index of the \\(n\\) observations, and\n\\(\\hat{Y}_i\\) is the predicted value of the actual response \\(Y_i\\) associated with a predictor value \\(X_i\\).\nThe values \\(\\hat{\\beta}_0\\) and \\(\\hat{\\beta}_1\\) are called coefficients of the model.\n\n\n\n\nPrinciple 2: Turn data into information\nThe values of \\(\\hat{\\beta}_0\\) and \\(\\hat{\\beta}_1\\) are obtained using the data. Specifically, the formulas for the coefficients are:\n\\[\\hat{\\beta}_1 = \\frac{ \\sum_{i=1}^{n} (Y_i - \\bar{Y}) (X_i - \\bar{X}) }{\\sum_{i=1}^{n} (X_i - \\bar{X})^2} \\text{  y  } \\hat{\\beta}_0 = \\bar{Y} - \\hat{\\beta}_1 \\bar{X},\\]\nwhere \\(\\bar{X} = \\sum_{i=1}^n X_i/n\\) and \\(\\bar{Y} = \\sum_{i=1}^n Y_i/n\\).\nThese formulas are derived from the method of least squares.\n\n\nFor our example\n\\(\\hat{Y}_i = 46.32 -0.0076 X_i\\)\n\n\n\n\n\n\n\n\n\n\n\nThe formula\n\\(\\text{mpg}_i = 46.32 - 0.0076 \\times \\text{weight}_i\\)\n\n\n\n\n\n\n\n\n\n\n\nInterpretation of the coefficients\nWhat does \\(\\hat{\\beta}_0 = 46.32\\) mean?\n. . .\n\\(\\hat{\\beta}_0\\) is the average response value when \\(X_i = 0\\).\n\n\n\n\n\n\n\n\n\n\n\n\nDoes \\(\\hat{\\beta}_0 = 46.32\\) make sense?\n\n\n\n\n\n\n\n\n\n. . .\nNo! Because there are no cars with a weight of 0.\n\n\n\nWhat does \\(\\hat{\\beta}_1 = - 0.0076\\) mean?\n. . .\n\\(\\hat{\\beta}_1\\) is the average change in the response when \\(X_i\\) increases by one unit.\n\n\n\n\n\n\n\n\n\n\n\nInterpretation of \\(\\hat{\\beta}_1\\)\n\n\nFor every extra pound in a car’s weight, the car has an average reduction of 0.0076 miles per gallon.\n\n\nDo all points fall exactly on the line?\n\n. . .\nNo! The model has errors.\n. . .\n\nTechnically, the error of the i-th observation is given by: \\(\\hat{e}_i = Y_i - \\hat{Y}_i = Y_i - \\hat{\\beta}_0 - \\hat{\\beta}_1 X_i\\).\nThe behavior of the errors (\\(e_i\\)’s) indicates whether the model is correct or not, which can be validated using a residual analysis (see IN1002B for example).\n\n\nLocal regression\n\nThis is a modern alternative to the simple linear regression model for capturing complex relationships between two variables.\nBasic Idea: It fits linear regression models to small subsets of the data. These subsets consist of observations that are close to each other.\nThe most common method for fitting a local regression model is LOESS. We will omit the details of this method here since they require advanced statistical concepts.\n\n\nFor our example\n\n\n\n\n\n\n\n\n\n\n\n\nAnother example\nLet’s consider the relationship between car acceleration and the total volume of all engine cylinders.\n\n\n\n\n\n\n\n\n\n\n\nLinear regression\n\n\n\n\n\n\n\n\n\n\n\n\nDiscussion\n\n\nThe simple linear regression model is easy to interpret due to its structure: \\(\\hat{Y}_i = \\hat{\\beta}_0 + \\hat{\\beta}_1 X_i.\\)\nHowever, it may be too rigid to capture complex relationships between two variables.\nLocal regression is flexible and allows capturing complex relationships between two variables, but it has a low level of interpretability because it does not provide an explicit equation."
+  },
+  {
+    "objectID": "T7_StatisticalGraphs/Statistical_Graphs.html#return-to-main-page",
+    "href": "T7_StatisticalGraphs/Statistical_Graphs.html#return-to-main-page",
+    "title": "Statistical Graphs",
+    "section": "Return to main page",
+    "text": "Return to main page"
   }
 ]

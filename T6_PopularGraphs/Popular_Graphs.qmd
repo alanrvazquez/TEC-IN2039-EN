@@ -100,7 +100,7 @@ These take values that fall into *categories*.
 . . .
 
 |  |  |
-|------------------------------------|------------------------------------|
+|----|----|
 | **Variable** | **Categories** |
 | Amazon review | 1$\bigstar$, 2$\bigstar$, 3$\bigstar$, 4$\bigstar$, 5$\bigstar$ |
 | Country of origin | México, Canadá, EUA |
@@ -187,14 +187,12 @@ In practice, boolean values (`TRUE` and `FALSE`) often represent nominal categor
 
 -   Categorical variables (nominal or ordinal) are those where addition or subtraction does **NOT** make sense.
 
-
 ```{r}
 #| output: true
 #| echo: false
 
 
 ```
-
 
 ## Activity (*solo* mode)
 
@@ -252,10 +250,9 @@ gf_bar( ~ species, data = penguins_data)
 gf_percents( ~ species, data = penguins_data)
 ```
 
-
 ## Example 2: Boston Housing Dataset
 
-This dataset contains information collected by the U.S. Census Bureau on housing in the Boston, Massachusetts area. The dataset is in `Boston_dataset.xlsx`. 
+This dataset contains information collected by the U.S. Census Bureau on housing in the Boston, Massachusetts area. The dataset is in `Boston_dataset.xlsx`.
 
 ::::: columns
 ::: {.column width="60%"}
@@ -266,7 +263,6 @@ This dataset contains information collected by the U.S. Census Bureau on housing
 ![](images/clipboard-3653087831.png)
 :::
 :::::
-
 
 ```{r}
 #| fig-pos: center
@@ -371,7 +367,6 @@ The file "CYLT.xlsx" contains 50 cycle times of a piston operating under fixed c
 
 piston_data = read_excel("CYCLT.xlsx") 
 ```
-
 
 ## Histogram
 
@@ -625,7 +620,6 @@ mi_diagrama = mi_diagrama + theme(axis.text=element_text(size=20), axis.title=el
 mi_diagrama
 ```
 
-
 ## Individual graphs
 
 </br></br>
@@ -717,8 +711,7 @@ For example, let's plot the average miles per gallon of cars produced in America
 
 ## Cleveland dot plot
 
-
-The Cleveland dot plot encodes quantitative data across different categories. It is an alternative to a bar chart. 
+The Cleveland dot plot encodes quantitative data across different categories. It is an alternative to a bar chart.
 
 ```{r}
 #| fig-align: center
@@ -876,7 +869,7 @@ Instead of visualizing one variable, we can visualize multiple variables simulta
 
 </br>
 
-However, some data visualization packages necessitate a special format to produce the multiple lines plot. 
+However, some data visualization packages necessitate a special format to produce the multiple lines plot.
 
 ## The required format
 
@@ -911,7 +904,6 @@ data_lines %>% head()
 </br>
 
 Separate plots for each line.
-
 
 ```{r}
 #| fig-align: center

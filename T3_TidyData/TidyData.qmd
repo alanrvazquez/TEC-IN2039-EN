@@ -8,6 +8,7 @@ author:
 format: 
   revealjs:
     chalkboard: false
+    multiplex: false
     footer: "Tecnologico de Monterrey"
     logo: IN2039_logo.png
     css: style.css
@@ -39,11 +40,11 @@ editor: visual
 
 </br></br>
 
-- The *tidy* framework provides a consistent way to organize your data in R.
+-   The *tidy* framework provides a consistent way to organize your data in R.
 
-- Getting your data into this format requires some upfront work, but that work pays off in the long term.
+-   Getting your data into this format requires some upfront work, but that work pays off in the long term.
 
-- Once you have tidy data and the tidy tools provided by packages in the **tidyverse**, you will spend much less time munging data from one representation to another, allowing you to spend more time on the analytic questions at hand. 
+-   Once you have tidy data and the tidy tools provided by packages in the **tidyverse**, you will spend much less time munging data from one representation to another, allowing you to spend more time on the analytic questions at hand.
 
 ## Tidy Data
 
@@ -53,16 +54,17 @@ editor: visual
 ::: {.column width="70%"}
 In tidy data:
 
-- Each variable forms a column
-- Each observation forms a row
-- Each cell is a single measurement. 
+-   Each variable forms a column
+-   Each observation forms a row
+-   Each cell is a single measurement.
 :::
+
 ::: {.column width="70%"}
 ![](images/example_tidy_data.png){fig-align="center"}
 :::
-:::
+:::::
 
-##
+## 
 
 ![](images/tidydata_2.jpg){fig-align="center"}
 
@@ -78,9 +80,9 @@ In tidy data:
 :::
 
 ::: {.column width="50%"}
-- **tidyr** allows you to reshape and regroup a dataset.
+-   **tidyr** allows you to reshape and regroup a dataset.
 
-- It is part of a collection of data science packages called **tidyverse**.
+-   It is part of a collection of data science packages called **tidyverse**.
 
 -   <https://tidyr.tidyverse.org/>
 :::
@@ -99,16 +101,14 @@ library(tidyr)
 
 </br></br>
 
-**tidyr** provides tools for reshaping, organizing, and completing data. 
+**tidyr** provides tools for reshaping, organizing, and completing data.
 
-
-| Purpose              | Function 1         | Function 2         |
-|:---------------------|:------------------|:------------------|
-| **Pivoting**         | `pivot_longer()`  | `pivot_wider()`   |
-| **Splitting / Combining** | `separate()`      | `unite()`         |
-| **Nesting / Unnesting**   | `nest()`          | `unnest()`        |
-| **Handling Missing Data** | `complete()`      | `fill()`          |
-
+| Purpose                   | Function 1       | Function 2      |
+|:--------------------------|:-----------------|:----------------|
+| **Pivoting**              | `pivot_longer()` | `pivot_wider()` |
+| **Splitting / Combining** | `separate()`     | `unite()`       |
+| **Nesting / Unnesting**   | `nest()`         | `unnest()`      |
+| **Handling Missing Data** | `complete()`     | `fill()`        |
 
 ## Pivoting
 
@@ -118,12 +118,6 @@ TBD
 
 Considera los datos en el archivo "spotify.xlsx". El conjunto de datos de este contiene las reproducciones diarias globales de las cinco canciones más populares en el servicio de transmisión de música Spotify en el 2017.
 
-```{r}
-#| echo: true
-
-spotify_data = read_excel("spotify.xlsx") 
-spotify_data %>% head(3)
-``
 
 ## Splitting and Combining
 
@@ -137,26 +131,20 @@ TBD
 
 TBD
 
-
 # Wide Vs Long Data
-
-
 
 # Advantages of Tidy Data
 
-- one set of consistent tools for different datasets
-- easier for automation and iteration
-
+-   one set of consistent tools for different datasets
+-   easier for automation and iteration
 
 ::: notes
-* To work with messy data, every time you need to switch to different gears
-* learn new tools that just works for that specific dataset
-* It's much more pleasant to work with tidy data, help you to build a good taste of data analysis
-* spent less fighting with different tools, focus more on data analysis bc one set of consistent tools
-* the {tidyverse} philosophy to work with the tidy data structures
-* build automatic workflow for analysis, feed different data sets.
+-   To work with messy data, every time you need to switch to different gears
+-   learn new tools that just works for that specific dataset
+-   It's much more pleasant to work with tidy data, help you to build a good taste of data analysis
+-   spent less fighting with different tools, focus more on data analysis bc one set of consistent tools
+-   the {tidyverse} philosophy to work with the tidy data structures
+-   build automatic workflow for analysis, feed different data sets.
 :::
-
-
 
 # [Return to main page](https://alanrvazquez.github.io/TEC-IN2039-EN/)

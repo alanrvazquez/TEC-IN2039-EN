@@ -8,7 +8,7 @@ author:
 format: 
   revealjs:
     chalkboard: false
-    multiplex: true
+    multiplex: false
     footer: "Tecnologico de Monterrey"
     logo: IN2039_logo.png
     css: style.css
@@ -418,7 +418,6 @@ For example, a simple bar chart can be enhanced by context and narrative to expl
 :::
 :::::
 
-
 ## The Three Components of a Data Story
 
 1.  Data (What?)
@@ -492,25 +491,25 @@ For example: A study on food pricing inequality might start with disparities in 
 ## Advice for Effective Presentations
 
 ::: incremental
-1. **Avoid jargon overload.** Speak in plain, everyday language your audience understands.
+1.  **Avoid jargon overload.** Speak in plain, everyday language your audience understands.
 
-2. **Develop the main objective** Start your speech with "By [insert what you want to accomplish] you will [insert what your listener wants]."
+2.  **Develop the main objective** Start your speech with "By \[insert what you want to accomplish\] you will \[insert what your listener wants\]."
 
-3. **Present the “so what.”** Don’t dive straight into details — explain *why it matters* first.
+3.  **Present the “so what.”** Don’t dive straight into details — explain *why it matters* first.
 
-4. **Limit your slides.**  One main idea per slide keeps your message clear and focused.
+4.  **Limit your slides.** One main idea per slide keeps your message clear and focused.
 :::
 
 ## 
 
-5. **Use the 3-points structure.** Come up with no more than three points in support of your main objective. Support each of the points with facts or examples.
+5.  **Use the 3-points structure.** Come up with no more than three points in support of your main objective. Support each of the points with facts or examples.
 
 ::: incremental
-6. **Practice for clarity, not memorization.**  Rehearse enough to sound natural and confident.
+6.  **Practice for clarity, not memorization.** Rehearse enough to sound natural and confident.
 
-7. **You are the presentation.**  Visuals in PowerPoint reinforce a speaker's message and help the audience key points. However, the presenter should always be the focus of the presentation, not the visuals.
+7.  **You are the presentation.** Visuals in PowerPoint reinforce a speaker's message and help the audience key points. However, the presenter should always be the focus of the presentation, not the visuals.
 
-8. **End with a call to action.**  Tell your audience *what you want them to do next.*
+8.  **End with a call to action.** Tell your audience *what you want them to do next.*
 :::
 
 ## Take-Home Activity
@@ -519,9 +518,9 @@ Prepare a short presentation (up to 5 minutes) about any topic you’re passiona
 
 **Guidelines**:
 
-- Use slides (PowerPoint or Google Slides — your choice).  
-- Upload your slides to **CANVAS** before next class.  
-- A few students will be randomly selected to present live.
+-   Use slides (PowerPoint or Google Slides — your choice).\
+-   Upload your slides to **CANVAS** before next class.\
+-   A few students will be randomly selected to present live.
 
 We won't judge your topic. We’re looking for **clarity, connection, and passion**.
 
