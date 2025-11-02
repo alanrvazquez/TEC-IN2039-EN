@@ -49,20 +49,6 @@
     "text": "Numerical data\n\nData science methodology is based on numerical data given in tables.\n\n\nIn fact, texts, images, videos or audios are transformed into this format to process them.\n\n\nIn this course, we will assume that the data is in a table."
   },
   {
-    "objectID": "T1_Introduction/Introduction.slides.html#problem-situation",
-    "href": "T1_Introduction/Introduction.slides.html#problem-situation",
-    "title": "Introduction to Data Visualization",
-    "section": "Problem situation",
-    "text": "Problem situation\n\nFood pricing inequality is a crucial issue affecting access to affordable and nutritious food, particularly in New York City.\nPrevious work has suggested that the price of food sold at supermarkets may vary according to the socioeconomic characteristics of a neighborhood.\nGiven the importance of food prices in securing access to food, understanding how food prices vary across neighborhoods is crucial to assessing affordability."
-  },
-  {
-    "objectID": "T1_Introduction/Introduction.slides.html#goal-of-the-problem-situation",
-    "href": "T1_Introduction/Introduction.slides.html#goal-of-the-problem-situation",
-    "title": "Introduction to Data Visualization",
-    "section": "Goal of the problem situation",
-    "text": "Goal of the problem situation\n\n\nThis problem situation concerns the creation of a poster that studies the disparities in the prices of food products across the neighborhoods in New York City.\n\n\n\nTo this end, you will have two datasets with data about food prices of a sample of supermarkets and statistics of the neighborhoods where they are located."
-  },
-  {
     "objectID": "T1_Introduction/Introduction.slides.html#what-is-data-visualization",
     "href": "T1_Introduction/Introduction.slides.html#what-is-data-visualization",
     "title": "Introduction to Data Visualization",
@@ -147,11 +133,11 @@
     "text": "“The greatest value of a picture is when it forces us to notice what we never expected to see.” John W. Tukey.\n\n\n\n\n\nhttps://www.storytellingwithdata.com/ is an excellent guide on data visualization."
   },
   {
-    "objectID": "T1_Introduction/Introduction.slides.html#activity-cooperative-mode",
-    "href": "T1_Introduction/Introduction.slides.html#activity-cooperative-mode",
+    "objectID": "T1_Introduction/Introduction.slides.html#activity-1.1-cooperative-mode",
+    "href": "T1_Introduction/Introduction.slides.html#activity-1.1-cooperative-mode",
     "title": "Introduction to Data Visualization",
-    "section": "Activity (cooperative mode)",
-    "text": "Activity (cooperative mode)\n\nGet together with a classmate\nAanalyze the five data visualizations in this Google Slides file\nFor each graph, write a short critique (3-4 sentences) using the three principles of data visualization.\nUpload your document in PDF with your critiques to Canvas."
+    "section": "Activity 1.1 (cooperative mode)",
+    "text": "Activity 1.1 (cooperative mode)\n\n\nGet together with a classmate\nAanalyze the five data visualizations in this Google Slides file\nFor each graph, write a short critique (3-4 sentences) using the three principles of data visualization.\nUpload your document in PDF with your critiques to Canvas."
   },
   {
     "objectID": "T1_Introduction/Introduction.slides.html#why-storytelling-matters-in-data-visualization",
@@ -168,11 +154,11 @@
     "text": "“The most powerful person in the world is the storyteller.” – Steve Jobs"
   },
   {
-    "objectID": "T1_Introduction/Introduction.slides.html#the-three-components-of-a-data-story",
-    "href": "T1_Introduction/Introduction.slides.html#the-three-components-of-a-data-story",
+    "objectID": "T1_Introduction/Introduction.slides.html#three-components-of-a-data-story",
+    "href": "T1_Introduction/Introduction.slides.html#three-components-of-a-data-story",
     "title": "Introduction to Data Visualization",
-    "section": "The Three Components of a Data Story",
-    "text": "The Three Components of a Data Story\n\nData (What?)\n\n\nThe foundation—collected, cleaned, and analyzed.\nProvides objective evidence to support claims.\n\n\nVisuals (How?)\n\n\nGraphs, charts, and maps help translate numbers into meaningful insights.\nGood design guides the audience to the key message."
+    "section": "Three Components of a Data Story",
+    "text": "Three Components of a Data Story\n\nData (What?)\n\n\nThe foundation—collected, cleaned, and analyzed.\nProvides objective evidence to support claims.\n\n\nVisuals (How?)\n\n\nGraphs, charts, and maps help translate numbers into meaningful insights.\nGood design guides the audience to the key message."
   },
   {
     "objectID": "T1_Introduction/Introduction.slides.html#section-8",
@@ -203,6 +189,34 @@
     "text": "Best practices for storytelling\n\nKnow Your Audience – Tailor the message to decision-makers, engineers, or the public.\nKeep it Simple – Avoid unnecessary complexity; clarity is key.\nUse the Right Visuals – Choose the best chart type for your message.\nEmphasize Key Takeaways – Bold the most important insights.\nCreate a Narrative Flow – Guide the audience through the story step by step."
   },
   {
+    "objectID": "T1_Introduction/Introduction.slides.html#the-advice-is-based-on",
+    "href": "T1_Introduction/Introduction.slides.html#the-advice-is-based-on",
+    "title": "Introduction to Data Visualization",
+    "section": "The advice is based on",
+    "text": "The advice is based on\n\n\nhttps://www.amazon.com/Even-Geek-Speak-Joey-Asher/dp/0978577604"
+  },
+  {
+    "objectID": "T1_Introduction/Introduction.slides.html#avoid-jargon-overload",
+    "href": "T1_Introduction/Introduction.slides.html#avoid-jargon-overload",
+    "title": "Introduction to Data Visualization",
+    "section": "1. Avoid jargon overload",
+    "text": "1. Avoid jargon overload\nSpeak in plain, everyday language your audience understands.\n\n\nFor example:\n\n\n\n\n\n\n\n\nClear and Engaging\n\n\n\nWhat Is Lean Manufacturing?\nLean Manufacturing is about finding smarter ways to work. The goal is to make products using less time, less waste, and fewer resources, while keeping customers happy.\n\n\n\n\n\n\n\n\n\n\n\nJargon Overload\n\n\n\nWhat Is Lean Manufacturing?\nLean Manufacturing is a systematic approach to process optimization that utilizes value stream mapping to identify and eliminate non–value-added activities."
+  },
+  {
+    "objectID": "T1_Introduction/Introduction.slides.html#develop-the-main-objective",
+    "href": "T1_Introduction/Introduction.slides.html#develop-the-main-objective",
+    "title": "Introduction to Data Visualization",
+    "section": "2. Develop the main objective",
+    "text": "2. Develop the main objective\nStart your speech with “By [insert what you want to accomplish] you will [insert what your listener wants].”\n\n\nFor example, start with\n\n“In this presentation, I’ll show you how sensors and data can help you detect problems before they cause failures, keeping your production line running smoothly.”\n\nInstead of\n\n“In this presentation, I will explain how I used a random forest algorithm to predict when a machine will fail. I’ll describe my model, the data preprocessing steps, and my evaluation metrics.”"
+  },
+  {
+    "objectID": "T1_Introduction/Introduction.slides.html#present-the-so-what.",
+    "href": "T1_Introduction/Introduction.slides.html#present-the-so-what.",
+    "title": "Introduction to Data Visualization",
+    "section": "3. Present the “so what.”",
+    "text": "3. Present the “so what.”\nDon’t dive straight into details — explain why it matters first.\n\n\nFor example, is better to start with\n\n“When a natural disaster disrupts production, companies lose millions of dollars and fail to deliver on time. Supply chain resilience is about designing systems that can recover quickly from these disruptions, keeping customers satisfied.”\n\nthan\n\n“In this project, I analyzed supplier diversification, lead time variability, and network centrality. We used simulation models to measure disruption propagation in the supply chain network.”"
+  },
+  {
     "objectID": "T1_Introduction/Introduction.slides.html#section-10",
     "href": "T1_Introduction/Introduction.slides.html#section-10",
     "title": "Introduction to Data Visualization",
@@ -210,25 +224,18 @@
     "text": "Limit your slides. One main idea per slide keeps your message clear and focused.\n\n\nUse the 3-points structure. Come up with no more than three points in support of your main objective. Support each of the points with facts or examples.\nPractice for clarity, not memorization. Rehearse enough to sound natural and confident.\nYou are the presentation. Visuals in PowerPoint reinforce a speaker’s message and help the audience key points. However, the presenter should always be the focus of the presentation, not the visuals."
   },
   {
-    "objectID": "T1_Introduction/Introduction.slides.html#advice-for-effective-presentations",
-    "href": "T1_Introduction/Introduction.slides.html#advice-for-effective-presentations",
+    "objectID": "T1_Introduction/Introduction.slides.html#end-with-a-call-to-action",
+    "href": "T1_Introduction/Introduction.slides.html#end-with-a-call-to-action",
     "title": "Introduction to Data Visualization",
-    "section": "Advice for effective presentations",
-    "text": "Advice for effective presentations\n\nAvoid jargon overload. Speak in plain, everyday language your audience understands.\nDevelop the main objective Start your speech with “By [insert what you want to accomplish] you will [insert what your listener wants].”\nPresent the “so what.” Don’t dive straight into details — explain why it matters first.\nLimit your slides. One main idea per slide keeps your message clear and focused."
+    "section": "8 End with a call to action",
+    "text": "8 End with a call to action\nTell your audience what you want them to do next.\n\n\n\n\n\n\n\n\nExample\n\n\n\nLet’s Make Our Plant More Efficient\nWe’ve seen that improving energy efficiency saves costs, reduces emissions, and strengthens competitiveness.\nNow it’s your turn:\n\nIdentify one process in your area that wastes energy.\nPropose one small improvement this week.\nShare your idea in next Monday’s team meeting."
   },
   {
-    "objectID": "T1_Introduction/Introduction.slides.html#section-11",
-    "href": "T1_Introduction/Introduction.slides.html#section-11",
+    "objectID": "T1_Introduction/Introduction.slides.html#activity-1.2-solo-mode-and-take-home",
+    "href": "T1_Introduction/Introduction.slides.html#activity-1.2-solo-mode-and-take-home",
     "title": "Introduction to Data Visualization",
-    "section": "",
-    "text": "Use the 3-points structure. Come up with no more than three points in support of your main objective. Support each of the points with facts or examples.\n\n\nPractice for clarity, not memorization. Rehearse enough to sound natural and confident.\nYou are the presentation. Visuals in PowerPoint reinforce a speaker’s message and help the audience key points. However, the presenter should always be the focus of the presentation, not the visuals.\nEnd with a call to action. Tell your audience what you want them to do next."
-  },
-  {
-    "objectID": "T1_Introduction/Introduction.slides.html#take-home-activity",
-    "href": "T1_Introduction/Introduction.slides.html#take-home-activity",
-    "title": "Introduction to Data Visualization",
-    "section": "Take-Home Activity",
-    "text": "Take-Home Activity\nPrepare a short presentation (up to 5 minutes) about any topic you’re passionate about.\nGuidelines:\n\nUse slides (PowerPoint or Google Slides — your choice).\n\nUpload your slides to CANVAS before next class.\n\nA few students will be randomly selected to present live.\n\nWe won’t judge your topic. We’re looking for clarity, connection, and passion."
+    "section": "Activity 1.2 (Solo mode and take-home)",
+    "text": "Activity 1.2 (Solo mode and take-home)\nPrepare a short presentation (up to 3 minutes) about any topic you’re passionate about.\nGuidelines:\n\nUse slides (PowerPoint or Google Slides — your choice).\n\nUpload your slides to CANVAS before next class.\n\nA few students will be randomly selected to present live.\n\nWe won’t judge your topic. We’re looking for clarity, connection, and passion."
   },
   {
     "objectID": "T3_TidyData/TidyData.slides.html#agenda",
@@ -1384,61 +1391,5 @@
     "title": "Statistical Graphs",
     "section": "Discussion",
     "text": "Discussion\n\n\nThe simple linear regression model is easy to interpret due to its structure: \\(\\hat{Y}_i = \\hat{\\beta}_0 + \\hat{\\beta}_1 X_i.\\)\nHowever, it may be too rigid to capture complex relationships between two variables.\nLocal regression is flexible and allows capturing complex relationships between two variables, but it has a low level of interpretability because it does not provide an explicit equation."
-  },
-  {
-    "objectID": "T1_Introduction/Introduction.slides.html#activity-1.1-cooperative-mode",
-    "href": "T1_Introduction/Introduction.slides.html#activity-1.1-cooperative-mode",
-    "title": "Introduction to Data Visualization",
-    "section": "Activity 1.1 (cooperative mode)",
-    "text": "Activity 1.1 (cooperative mode)\n\n\nGet together with a classmate\nAanalyze the five data visualizations in this Google Slides file\nFor each graph, write a short critique (3-4 sentences) using the three principles of data visualization.\nUpload your document in PDF with your critiques to Canvas."
-  },
-  {
-    "objectID": "T1_Introduction/Introduction.slides.html#three-components-of-a-data-story",
-    "href": "T1_Introduction/Introduction.slides.html#three-components-of-a-data-story",
-    "title": "Introduction to Data Visualization",
-    "section": "Three Components of a Data Story",
-    "text": "Three Components of a Data Story\n\nData (What?)\n\n\nThe foundation—collected, cleaned, and analyzed.\nProvides objective evidence to support claims.\n\n\nVisuals (How?)\n\n\nGraphs, charts, and maps help translate numbers into meaningful insights.\nGood design guides the audience to the key message."
-  },
-  {
-    "objectID": "T1_Introduction/Introduction.slides.html#the-advice-is-based-on",
-    "href": "T1_Introduction/Introduction.slides.html#the-advice-is-based-on",
-    "title": "Introduction to Data Visualization",
-    "section": "The advice is based on",
-    "text": "The advice is based on\n\n\nhttps://www.amazon.com/Even-Geek-Speak-Joey-Asher/dp/0978577604"
-  },
-  {
-    "objectID": "T1_Introduction/Introduction.slides.html#avoid-jargon-overload",
-    "href": "T1_Introduction/Introduction.slides.html#avoid-jargon-overload",
-    "title": "Introduction to Data Visualization",
-    "section": "1. Avoid jargon overload",
-    "text": "1. Avoid jargon overload\nSpeak in plain, everyday language your audience understands.\n\n\nFor example:\n\n\n\n\n\n\n\n\nClear and Engaging\n\n\n\nWhat Is Lean Manufacturing?\nLean Manufacturing is about finding smarter ways to work. The goal is to make products using less time, less waste, and fewer resources, while keeping customers happy.\n\n\n\n\n\n\n\n\n\n\n\nJargon Overload\n\n\n\nWhat Is Lean Manufacturing?\nLean Manufacturing is a systematic approach to process optimization that utilizes value stream mapping to identify and eliminate non–value-added activities."
-  },
-  {
-    "objectID": "T1_Introduction/Introduction.slides.html#activity-1.2-solo-mode-and-take-home",
-    "href": "T1_Introduction/Introduction.slides.html#activity-1.2-solo-mode-and-take-home",
-    "title": "Introduction to Data Visualization",
-    "section": "Activity 1.2 (Solo mode and take-home)",
-    "text": "Activity 1.2 (Solo mode and take-home)\nPrepare a short presentation (up to 3 minutes) about any topic you’re passionate about.\nGuidelines:\n\nUse slides (PowerPoint or Google Slides — your choice).\n\nUpload your slides to CANVAS before next class.\n\nA few students will be randomly selected to present live.\n\nWe won’t judge your topic. We’re looking for clarity, connection, and passion."
-  },
-  {
-    "objectID": "T1_Introduction/Introduction.slides.html#develop-the-main-objective",
-    "href": "T1_Introduction/Introduction.slides.html#develop-the-main-objective",
-    "title": "Introduction to Data Visualization",
-    "section": "2. Develop the main objective",
-    "text": "2. Develop the main objective\nStart your speech with “By [insert what you want to accomplish] you will [insert what your listener wants].”\n\n\nFor example, start with\n\n“In this presentation, I’ll show you how sensors and data can help you detect problems before they cause failures, keeping your production line running smoothly.”\n\nInstead of\n\n“In this presentation, I will explain how I used a random forest algorithm to predict when a machine will fail. I’ll describe my model, the data preprocessing steps, and my evaluation metrics.”"
-  },
-  {
-    "objectID": "T1_Introduction/Introduction.slides.html#present-the-so-what.",
-    "href": "T1_Introduction/Introduction.slides.html#present-the-so-what.",
-    "title": "Introduction to Data Visualization",
-    "section": "3. Present the “so what.”",
-    "text": "3. Present the “so what.”\nDon’t dive straight into details — explain why it matters first.\n\n\nFor example, is better to start with\n\n“When a natural disaster disrupts production, companies lose millions of dollars and fail to deliver on time. Supply chain resilience is about designing systems that can recover quickly from these disruptions, keeping customers satisfied.”\n\nthan\n\n“In this project, I analyzed supplier diversification, lead time variability, and network centrality. We used simulation models to measure disruption propagation in the supply chain network.”"
-  },
-  {
-    "objectID": "T1_Introduction/Introduction.slides.html#end-with-a-call-to-action",
-    "href": "T1_Introduction/Introduction.slides.html#end-with-a-call-to-action",
-    "title": "Introduction to Data Visualization",
-    "section": "8 End with a call to action",
-    "text": "8 End with a call to action\nTell your audience what you want them to do next.\n\n\n\n\n\n\n\n\nExample\n\n\n\nLet’s Make Our Plant More Efficient\nWe’ve seen that improving energy efficiency saves costs, reduces emissions, and strengthens competitiveness.\nNow it’s your turn:\n\nIdentify one process in your area that wastes energy.\nPropose one small improvement this week.\nShare your idea in next Monday’s team meeting."
   }
 ]
