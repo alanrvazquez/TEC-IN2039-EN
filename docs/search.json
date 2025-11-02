@@ -410,21 +410,21 @@
     "href": "T2_Tools/Tools.slides.html#for-example-1",
     "title": "Tools for Data Manipulation",
     "section": "For example",
-    "text": "For example\n\nThis code creates two lists or vectors:\n\nmy_list = c(1, 2, 3, 4, 5)\nmy_list_2 = c(10, 10, 10, 10, 10)\n\n\nLet’s see their content:\n\nmy_list\n\n[1] 1 2 3 4 5\n\n\n\nmy_list_2\n\n[1] 10 10 10 10 10"
+    "text": "For example\n\nThis code creates two vectors:\n\nmy_vector = c(1, 2, 3, 4, 5)\nmy_vector_2 = c(10, 10, 10, 10, 10)\n\n\nLet’s see their content:\n\nmy_vector\n\n[1] 1 2 3 4 5\n\n\n\nmy_vector_2\n\n[1] 10 10 10 10 10"
   },
   {
     "objectID": "T2_Tools/Tools.slides.html#operations",
     "href": "T2_Tools/Tools.slides.html#operations",
     "title": "Tools for Data Manipulation",
     "section": "Operations",
-    "text": "Operations\n\nWe can do simple operations with vectors. For example, we can sum all the elements of a list.\n\nmy_list = c(1, 2, 3, 4, 5)\nsum(my_list)\n\n[1] 15"
+    "text": "Operations\n\nWe can do simple operations with vectors. For example, we can sum all the elements of a list.\n\nmy_vector = c(1, 2, 3, 4, 5)\nsum(my_vector)\n\n[1] 15"
   },
   {
     "objectID": "T2_Tools/Tools.slides.html#indexing",
     "href": "T2_Tools/Tools.slides.html#indexing",
     "title": "Tools for Data Manipulation",
     "section": "Indexing",
-    "text": "Indexing\n \nWe can index a position in the vector using square brackets with a number like this: [1].\nSo, if we wanted to print the contents of the first position in my_list, we could write\n\nmy_list[1]\n\n[1] 1"
+    "text": "Indexing\n \nWe can index a position in the vector using square brackets with a number like this: [1].\nSo, if we wanted to print the contents of the first position in my_vector, we could write\n\nmy_vector[1]\n\n[1] 1"
   },
   {
     "objectID": "T2_Tools/Tools.slides.html#a-little-more-about-r-objects",
@@ -522,7 +522,7 @@
     "href": "T2_Tools/Tools.slides.html#mini-activity-solo-mode",
     "title": "Tools for Data Manipulation",
     "section": "Mini-activity (solo mode)",
-    "text": "Mini-activity (solo mode)\n\nOpen the following Google Colab link:\nhttps://colab.research.google.com/drive/1xLoaOMharQmmasNApjm38jZcw-gtcxvm?usp=sharing\nCopy the notebook to your drive.\nAnswer the questions."
+    "text": "Mini-activity (solo mode)\n\nOpen the following Google Colab link: https://drive.google.com/file/d/1kS1_M-wLRc9BDRAadV_K6yosNK0XF9qi/view?usp=sharing\nCopy the notebook to your drive.\nAnswer the questions."
   },
   {
     "objectID": "T2_Tools/Tools.slides.html#a-new-library-dplyr",

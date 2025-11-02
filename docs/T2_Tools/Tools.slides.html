@@ -439,21 +439,21 @@ Alan R. Vazquez
 <section id="for-example-1" class="slide level2">
 <h2>For example</h2>
 <p><br></p>
-<p>This code creates two lists or vectors:</p>
+<p>This code creates two vectors:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a></a>my_list <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>)</span>
-<span id="cb21-2"><a></a>my_list_2 <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a></a>my_vector <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>)</span>
+<span id="cb21-2"><a></a>my_vector_2 <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="fragment">
 <p>Let’s see their content:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a></a>my_list</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a></a>my_vector</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 1 2 3 4 5</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a></a>my_list_2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a></a>my_vector_2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 10 10 10 10 10</code></pre>
 </div>
@@ -465,8 +465,8 @@ Alan R. Vazquez
 <p><br></p>
 <p>We can do simple operations with vectors. For example, we can sum all the elements of a list.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a></a>my_list <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>)</span>
-<span id="cb26-2"><a></a><span class="fu">sum</span>(my_list)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a></a>my_vector <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>)</span>
+<span id="cb26-2"><a></a><span class="fu">sum</span>(my_vector)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 15</code></pre>
 </div>
@@ -476,9 +476,9 @@ Alan R. Vazquez
 <h2>Indexing</h2>
 <p><br> <br></p>
 <p>We can index a position in the vector using square brackets with a number like this: <code>[1]</code>.</p>
-<p>So, if we wanted to print the contents of the first position in <code>my_list</code>, we could write</p>
+<p>So, if we wanted to print the contents of the first position in <code>my_vector</code>, we could write</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a></a>my_list[<span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a></a>my_vector[<span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 1</code></pre>
 </div>
@@ -645,8 +645,7 @@ Alan R. Vazquez
 <section id="mini-activity-solo-mode" class="slide level2">
 <h2>Mini-activity (<em>solo</em> mode)</h2>
 <ol type="1">
-<li><p>Open the following Google Colab link:</p>
-<p><a href="https://colab.research.google.com/drive/1xLoaOMharQmmasNApjm38jZcw-gtcxvm?usp=sharing" class="uri">https://colab.research.google.com/drive/1xLoaOMharQmmasNApjm38jZcw-gtcxvm?usp=sharing</a></p></li>
+<li><p>Open the following <a href="https://drive.google.com/file/d/1kS1_M-wLRc9BDRAadV_K6yosNK0XF9qi/view?usp=sharing" target="_blank">Google Colab</a> link: <a href="https://drive.google.com/file/d/1kS1_M-wLRc9BDRAadV_K6yosNK0XF9qi/view?usp=sharing" class="uri">https://drive.google.com/file/d/1kS1_M-wLRc9BDRAadV_K6yosNK0XF9qi/view?usp=sharing</a></p></li>
 <li><p>Copy the notebook to your drive.</p></li>
 <li><p>Answer the questions.</p></li>
 </ol>

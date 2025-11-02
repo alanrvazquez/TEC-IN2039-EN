@@ -264,13 +264,13 @@ puedes pensar que el c es por combinar
 
 </br>
 
-This code creates two lists or vectors:
+This code creates two vectors:
 
 ```{r}
 #| echo: true
 
-my_list = c(1, 2, 3, 4, 5)
-my_list_2 = c(10, 10, 10, 10, 10)
+my_vector = c(1, 2, 3, 4, 5)
+my_vector_2 = c(10, 10, 10, 10, 10)
 ```
 
 . . .
@@ -279,12 +279,12 @@ Let's see their content:
 
 ```{r}
 #| echo: true
-my_list
+my_vector
 ```
 
 ```{r}
 #| echo: true
-my_list_2
+my_vector_2
 ```
 
 ## Operations
@@ -296,8 +296,8 @@ We can do simple operations with vectors. For example, we can sum all the elemen
 ```{r}
 #| echo: true
 
-my_list = c(1, 2, 3, 4, 5)
-sum(my_list)
+my_vector = c(1, 2, 3, 4, 5)
+sum(my_vector)
 ```
 
 ## Indexing
@@ -306,12 +306,12 @@ sum(my_list)
 
 We can index a position in the vector using square brackets with a number like this: `[1]`.
 
-So, if we wanted to print the contents of the first position in `my_list`, we could write
+So, if we wanted to print the contents of the first position in `my_vector`, we could write
 
 ```{r}
 #| echo: true
 
-my_list[1]
+my_vector[1]
 ```
 
 ## A little more about R objects
@@ -497,9 +497,7 @@ head(penguins_data)
 
 ## Mini-activity (*solo* mode)
 
-1.  Open the following Google Colab link:
-
-    <https://colab.research.google.com/drive/1xLoaOMharQmmasNApjm38jZcw-gtcxvm?usp=sharing>
+1.  Open the following <a href="https://drive.google.com/file/d/1kS1_M-wLRc9BDRAadV_K6yosNK0XF9qi/view?usp=sharing" target="_blank">Google Colab</a> link: <https://drive.google.com/file/d/1kS1_M-wLRc9BDRAadV_K6yosNK0XF9qi/view?usp=sharing>
 
 2.  Copy the notebook to your drive.
 
