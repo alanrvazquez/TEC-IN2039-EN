@@ -4,7 +4,7 @@
     "href": "T1_Introduction/Introduction.slides.html#agenda",
     "title": "Introduction to Data Visualization",
     "section": "Agenda",
-    "text": "Agenda\n\n\nIntroduction to Data Science\nThree Principles of Data Visualization\nStorytelling for Data Visualization"
+    "text": "Agenda\n\n\nIntroduction to Data Science\nThree Principles of Data Visualization\nStorytelling for Data Visualization\nGeneral Advice for Effective Presentations"
   },
   {
     "objectID": "T1_Introduction/Introduction.slides.html#data-science-is",
@@ -207,14 +207,14 @@
     "href": "T1_Introduction/Introduction.slides.html#section-10",
     "title": "Introduction to Data Visualization",
     "section": "",
-    "text": "https://www.amazon.com/Even-Geek-Speak-Joey-Asher/dp/0978577604"
+    "text": "Limit your slides. One main idea per slide keeps your message clear and focused.\n\n\nUse the 3-points structure. Come up with no more than three points in support of your main objective. Support each of the points with facts or examples.\nPractice for clarity, not memorization. Rehearse enough to sound natural and confident.\nYou are the presentation. Visuals in PowerPoint reinforce a speaker’s message and help the audience key points. However, the presenter should always be the focus of the presentation, not the visuals."
   },
   {
     "objectID": "T1_Introduction/Introduction.slides.html#advice-for-effective-presentations",
     "href": "T1_Introduction/Introduction.slides.html#advice-for-effective-presentations",
     "title": "Introduction to Data Visualization",
-    "section": "Advice for Effective Presentations",
-    "text": "Advice for Effective Presentations\n\nAvoid jargon overload. Speak in plain, everyday language your audience understands.\nDevelop the main objective Start your speech with “By [insert what you want to accomplish] you will [insert what your listener wants].”\nPresent the “so what.” Don’t dive straight into details — explain why it matters first.\nLimit your slides. One main idea per slide keeps your message clear and focused."
+    "section": "Advice for effective presentations",
+    "text": "Advice for effective presentations\n\nAvoid jargon overload. Speak in plain, everyday language your audience understands.\nDevelop the main objective Start your speech with “By [insert what you want to accomplish] you will [insert what your listener wants].”\nPresent the “so what.” Don’t dive straight into details — explain why it matters first.\nLimit your slides. One main idea per slide keeps your message clear and focused."
   },
   {
     "objectID": "T1_Introduction/Introduction.slides.html#section-11",
@@ -1398,5 +1398,47 @@
     "title": "Introduction to Data Visualization",
     "section": "Three Components of a Data Story",
     "text": "Three Components of a Data Story\n\nData (What?)\n\n\nThe foundation—collected, cleaned, and analyzed.\nProvides objective evidence to support claims.\n\n\nVisuals (How?)\n\n\nGraphs, charts, and maps help translate numbers into meaningful insights.\nGood design guides the audience to the key message."
+  },
+  {
+    "objectID": "T1_Introduction/Introduction.slides.html#the-advice-is-based-on",
+    "href": "T1_Introduction/Introduction.slides.html#the-advice-is-based-on",
+    "title": "Introduction to Data Visualization",
+    "section": "The advice is based on",
+    "text": "The advice is based on\n\n\nhttps://www.amazon.com/Even-Geek-Speak-Joey-Asher/dp/0978577604"
+  },
+  {
+    "objectID": "T1_Introduction/Introduction.slides.html#avoid-jargon-overload",
+    "href": "T1_Introduction/Introduction.slides.html#avoid-jargon-overload",
+    "title": "Introduction to Data Visualization",
+    "section": "1. Avoid jargon overload",
+    "text": "1. Avoid jargon overload\nSpeak in plain, everyday language your audience understands.\n\n\nFor example:\n\n\n\n\n\n\n\n\nClear and Engaging\n\n\n\nWhat Is Lean Manufacturing?\nLean Manufacturing is about finding smarter ways to work. The goal is to make products using less time, less waste, and fewer resources, while keeping customers happy.\n\n\n\n\n\n\n\n\n\n\n\nJargon Overload\n\n\n\nWhat Is Lean Manufacturing?\nLean Manufacturing is a systematic approach to process optimization that utilizes value stream mapping to identify and eliminate non–value-added activities."
+  },
+  {
+    "objectID": "T1_Introduction/Introduction.slides.html#activity-1.2-solo-mode-and-take-home",
+    "href": "T1_Introduction/Introduction.slides.html#activity-1.2-solo-mode-and-take-home",
+    "title": "Introduction to Data Visualization",
+    "section": "Activity 1.2 (Solo mode and take-home)",
+    "text": "Activity 1.2 (Solo mode and take-home)\nPrepare a short presentation (up to 3 minutes) about any topic you’re passionate about.\nGuidelines:\n\nUse slides (PowerPoint or Google Slides — your choice).\n\nUpload your slides to CANVAS before next class.\n\nA few students will be randomly selected to present live.\n\nWe won’t judge your topic. We’re looking for clarity, connection, and passion."
+  },
+  {
+    "objectID": "T1_Introduction/Introduction.slides.html#develop-the-main-objective",
+    "href": "T1_Introduction/Introduction.slides.html#develop-the-main-objective",
+    "title": "Introduction to Data Visualization",
+    "section": "2. Develop the main objective",
+    "text": "2. Develop the main objective\nStart your speech with “By [insert what you want to accomplish] you will [insert what your listener wants].”\n\n\nFor example, start with\n\n“In this presentation, I’ll show you how sensors and data can help you detect problems before they cause failures, keeping your production line running smoothly.”\n\nInstead of\n\n“In this presentation, I will explain how I used a random forest algorithm to predict when a machine will fail. I’ll describe my model, the data preprocessing steps, and my evaluation metrics.”"
+  },
+  {
+    "objectID": "T1_Introduction/Introduction.slides.html#present-the-so-what.",
+    "href": "T1_Introduction/Introduction.slides.html#present-the-so-what.",
+    "title": "Introduction to Data Visualization",
+    "section": "3. Present the “so what.”",
+    "text": "3. Present the “so what.”\nDon’t dive straight into details — explain why it matters first.\n\n\nFor example, is better to start with\n\n“When a natural disaster disrupts production, companies lose millions of dollars and fail to deliver on time. Supply chain resilience is about designing systems that can recover quickly from these disruptions, keeping customers satisfied.”\n\nthan\n\n“In this project, I analyzed supplier diversification, lead time variability, and network centrality. We used simulation models to measure disruption propagation in the supply chain network.”"
+  },
+  {
+    "objectID": "T1_Introduction/Introduction.slides.html#end-with-a-call-to-action",
+    "href": "T1_Introduction/Introduction.slides.html#end-with-a-call-to-action",
+    "title": "Introduction to Data Visualization",
+    "section": "8 End with a call to action",
+    "text": "8 End with a call to action\nTell your audience what you want them to do next.\n\n\n\n\n\n\n\n\nExample\n\n\n\nLet’s Make Our Plant More Efficient\nWe’ve seen that improving energy efficiency saves costs, reduces emissions, and strengthens competitiveness.\nNow it’s your turn:\n\nIdentify one process in your area that wastes energy.\nPropose one small improvement this week.\nShare your idea in next Monday’s team meeting."
   }
 ]

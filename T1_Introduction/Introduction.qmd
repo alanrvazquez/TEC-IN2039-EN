@@ -24,6 +24,7 @@ editor: visual
 1.  Introduction to Data Science
 2.  Three Principles of Data Visualization
 3.  Storytelling for Data Visualization
+4.  General Advice for Effective Presentations
 
 # Introduction to Data Science
 
@@ -455,7 +456,10 @@ For example: A study on food pricing inequality might start with disparities in 
 -   **Create a Narrative Flow** – Guide the audience through the story step by step.
 :::
 
-## 
+
+# General Advice for Effective Presentations
+
+## The advice is based on
 
 ![](images/geek.jpg){fig-align="center"}
 
@@ -463,33 +467,119 @@ For example: A study on food pricing inequality might start with disparities in 
 <https://www.amazon.com/Even-Geek-Speak-Joey-Asher/dp/0978577604>
 :::
 
-## Advice for Effective Presentations
+## 1. Avoid jargon overload
 
-::: incremental
-1.  **Avoid jargon overload.** Speak in plain, everyday language your audience understands.
+Speak in plain, everyday language your audience understands.
 
-2.  **Develop the main objective** Start your speech with "By \[insert what you want to accomplish\] you will \[insert what your listener wants\]."
+</br>
 
-3.  **Present the “so what.”** Don’t dive straight into details — explain *why it matters* first.
+. . . 
 
-4.  **Limit your slides.** One main idea per slide keeps your message clear and focused.
+For example: 
+
+::::: columns
+::: {.column width="50%"}
+
+::: callout-tip
+## Clear and Engaging
+
+::: {style="font-size: 90%;"}
+
+[**What Is Lean Manufacturing?**]{style="color:darkblue;"}
+
+Lean Manufacturing is about finding smarter ways to work. The goal is to make products using **less time, less waste, and fewer resources**, while keeping customers happy.  
+:::
+:::
+:::
+::: {.column width="50%"}
+
+::: callout-warning
+## Jargon Overload
+
+::: {style="font-size: 90%;"}
+
+[**What Is Lean Manufacturing?**]{style="color:darkblue;"}
+
+Lean Manufacturing is a **systematic approach to process optimization**   that utilizes **value stream mapping** to identify and eliminate **non–value-added activities**.  
+:::
+:::
+:::
+:::::
+
+## 2. Develop the main objective
+
+Start your speech with "By \[insert what you want to accomplish\] you will \[insert what your listener wants\]."
+
+. . . 
+
+::: {style="font-size: 95%;"}
+For example, start with 
+
+- *"In this presentation, I’ll show you how sensors and data can help you detect problems before they cause failures, keeping your production line running smoothly."*
+
+Instead of 
+
+- *"In this presentation, I will explain how I used a random forest algorithm to predict when a machine will fail. I’ll describe my model, the data preprocessing steps, and my evaluation metrics."*
+:::
+
+## 3. Present the “so what.” 
+
+Don’t dive straight into details — explain *why it matters* first.
+
+. . . 
+
+::: {style="font-size: 95%;"}
+For example, is better to start with
+
+- *"When a natural disaster disrupts production, companies lose millions of dollars and fail to deliver on time. Supply chain resilience is about designing systems that can recover quickly from these disruptions, keeping customers satisfied."*
+
+than
+
+- *"In this project, I analyzed supplier diversification, lead time variability, and network centrality. We used simulation models to measure disruption propagation in the supply chain network."*
 :::
 
 ## 
+4.  **Limit your slides.** One main idea per slide keeps your message clear and focused.
+
+::: incremental
 
 5.  **Use the 3-points structure.** Come up with no more than three points in support of your main objective. Support each of the points with facts or examples.
 
-::: incremental
 6.  **Practice for clarity, not memorization.** Rehearse enough to sound natural and confident.
 
 7.  **You are the presentation.** Visuals in PowerPoint reinforce a speaker's message and help the audience key points. However, the presenter should always be the focus of the presentation, not the visuals.
 
-8.  **End with a call to action.** Tell your audience *what you want them to do next.*
 :::
 
-## Take-Home Activity
+## 8 End with a call to action
 
-Prepare a short presentation (up to 5 minutes) about any topic you’re passionate about.
+Tell your audience *what you want them to do next.*
+
+</br>
+
+. . . 
+
+::: callout-tip
+## Example
+::: {style="font-size: 95%;"}
+
+[**Let’s Make Our Plant More Efficient**]{style="color:darkblue;"}
+
+We’ve seen that improving energy efficiency saves costs, reduces emissions, and strengthens competitiveness.
+
+**Now it’s your turn:**
+
+1. Identify one process in your area that wastes energy.  
+
+2. Propose one small improvement this week.  
+
+3. Share your idea in next Monday’s team meeting.
+:::
+:::
+
+## Activity 1.2 (*Solo* mode and take-home)
+
+Prepare a short presentation (up to 3 minutes) about any topic you’re passionate about.
 
 **Guidelines**:
 
