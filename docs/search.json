@@ -697,7 +697,7 @@
     "href": "T2_Tools/Tools.slides.html#r-libraries",
     "title": "Tools for Data Manipulation",
     "section": "R libraries",
-    "text": "R libraries\n\nLibraries are the fundamental units of reproducible R code. They include reusable R functions, documentation describing how to use them, and sample data.\nIn this course, we will be working mostly with the following libraries:\n\ntidyverse for data manipulation.\nggplot2 and ggformula for data visualization."
+    "text": "R libraries\n\nLibraries are the fundamental units of reproducible R code. They include reusable R functions, documentation describing how to use them, and sample data.\nIn this course, we will be working mostly with the following libraries:\n\nreadxl, dplyr, and tidyr for data manipulation.\nggplot2 and ggformula for data visualization."
   },
   {
     "objectID": "T2_Tools/Tools.slides.html#loading-data-in-r",
@@ -746,7 +746,7 @@
     "href": "T2_Tools/Tools.slides.html#mini-activity-solo-mode",
     "title": "Tools for Data Manipulation",
     "section": "Mini-activity (solo mode)",
-    "text": "Mini-activity (solo mode)\n\nOpen the following Google Colab link: https://drive.google.com/file/d/1kS1_M-wLRc9BDRAadV_K6yosNK0XF9qi/view?usp=sharing\nCopy the notebook to your drive.\nAnswer the questions."
+    "text": "Mini-activity (solo mode)\n\n\nOpen the following Google Colab link: https://drive.google.com/file/d/1kS1_M-wLRc9BDRAadV_K6yosNK0XF9qi/view?usp=sharing\nCopy the notebook to your drive.\nAnswer the questions."
   },
   {
     "objectID": "T2_Tools/Tools.slides.html#a-new-library-dplyr",

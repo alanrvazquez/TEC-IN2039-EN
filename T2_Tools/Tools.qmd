@@ -415,7 +415,7 @@ Libraries are the fundamental units of reproducible R code. They include reusabl
 
 In this course, we will be working mostly with the following libraries:
 
--   `tidyverse` for data manipulation.
+-   `readxl`, `dplyr`, and `tidyr` for data manipulation.
 -   `ggplot2` and `ggformula` for data visualization.
 
 # Reading data with **readxl**
@@ -496,6 +496,8 @@ head(penguins_data)
 ```
 
 ## Mini-activity (*solo* mode)
+
+</br></br>
 
 1.  Open the following <a href="https://drive.google.com/file/d/1kS1_M-wLRc9BDRAadV_K6yosNK0XF9qi/view?usp=sharing" target="_blank">Google Colab</a> link: <https://drive.google.com/file/d/1kS1_M-wLRc9BDRAadV_K6yosNK0XF9qi/view?usp=sharing>
 
