@@ -258,7 +258,7 @@ Additionally, include a legend in the graph that describes key features and summ
 
 ::::: columns
 ::: {.column width="70%"}
-| City            | Uber | Auto |
+| City            | Uber | Car |
 |-----------------|------|------|
 | New York City   | 142  | 218  |
 | Washington D.C. | 96   | 130  |
@@ -295,7 +295,7 @@ library(ggformula)
 # Sample data
 uber <- data.frame(
   City = rep(c("New York City", "Washington D.C.", "Chicago", "Los Angeles", "Dallas"), each = 2),
-  Type = rep(c("Uber", "Auto"), times = 5),
+  Type = rep(c("Uber", "Car"), times = 5),
   Cost = c(142, 218, 96, 130, 77, 116, 62, 89, 181, 65)
 )
 
@@ -323,14 +323,14 @@ library(ggformula)
 # Sample data
 uber <- data.frame(
   City = rep(c("New York City", "Washington D.C.", "Chicago", "Los Angeles", "Dallas"), each = 2),
-  Type = rep(c("Uber", "Auto"), times = 5),
+  Type = rep(c("Uber", "Car"), times = 5),
   Cost = c(142, 218, 96, 130, 77, 116, 62, 89, 181, 65)
 )
 
 slp_plot = ggplot(data = uber, aes(x = Type, y = Cost, group = City, color = factor(City))) 
 slp_plot = slp_plot + geom_line(size = 2, alpha = 0.5) 
 slp_plot = slp_plot + geom_point(size = 3)
-slp_plot = slp_plot + labs(title = "It is cheaper to take Uber than own a car in four of the five largest U.S. cities.", x = "", y = "Costo (USD)", color = "City")
+slp_plot = slp_plot + labs(title = "It is cheaper to take Uber than own a car in four of the five largest U.S. cities.", x = "", y = "Cost (USD)", color = "City")
 slp_plot = slp_plot + scale_color_manual(values = c("Chicago" = "#619CFF", "Dallas" = "red", "Los Angeles" = "#619CFF", "New York City" = "#619CFF", "Washington D.C." = "#619CFF"))
 slp_plot + theme_minimal() + theme(text = element_text(size = 15),
         axis.text.x = element_text(size = 20), axis.text.y = element_text(size = 15))
@@ -342,7 +342,7 @@ slp_plot + theme_minimal() + theme(text = element_text(size = 15),
 
 ::::: columns
 ::: {.column width="70%"}
-> "*The greatest value of a picture is when it forces us to notice what we never expected to see.*" John W. Tukey.
+> "*The greatest value of a picture is when it forces us to notice what we never expected to see.*" – John W. Tukey.
 :::
 
 ::: {.column width="30%"}
@@ -394,53 +394,37 @@ For example, a simple bar chart can be enhanced by context and narrative to expl
 :::
 :::::
 
-## Three Components of a Data Story
-
-1.  Data (What?)
-
--   The foundation—collected, cleaned, and analyzed.
--   Provides objective evidence to support claims.
-
-2.  Visuals (How?)
-
--   Graphs, charts, and maps help translate numbers into meaningful insights.
--   Good design guides the audience to the key message.
-
-## 
+## Four Components of a Data Story
 
 </br>
 
-3.  Narrative (Why?)
-
--   Puts data into context—explains the significance of findings.
--   Answers: Why does this matter? Who is affected? What should be done?
-
-## Structuring a data story
-
-1.  Introduction (Set the Stage) 📌
+1.  Introduction (What's the problem?) 
 
 -   Define the problem or question you’re addressing.
 -   Provide relevant background or context.
 
-. . .
+. . . 
 
-2.  Main Findings (Show the Data) 📊
+2.  Data (How will you solve it?)
 
--   Use effective visuals (histograms, box plots, line charts, scatter plots, etc.).
--   Highlight key trends, comparisons, and relationships.
+-   Collected, cleaned, and arranged analyzed data.
+-   Provides objective evidence to support claims.
 
 ## 
 
-</br>
+3.  Visuals (What's your solution?)
 
-3.  Insights & Implications (So What?) 💡
+-   Graphs, charts, and maps help translate numbers into meaningful insights (histograms, box plots, line charts, scatter plots, etc.).
+-   Highlight key trends, comparisons, and relationships.
+-   Good design guides the audience to the key message.
 
--   Explain why the findings matter.
--   Suggest potential actions or decisions based on the insights.
+. . . 
 
-. . .
+4.  Narrative (Why does it matter?)
 
-For example: A study on food pricing inequality might start with disparities in NYC, show visualizations comparing food prices across neighborhoods, and conclude with recommendations for policymakers.
+-   Puts data into context—explains the significance of findings.
+-   Answers: Why does this matter? Who is affected? What should be done?
+
 
 ## Best practices for storytelling
 
@@ -455,7 +439,6 @@ For example: A study on food pricing inequality might start with disparities in 
 
 -   **Create a Narrative Flow** – Guide the audience through the story step by step.
 :::
-
 
 # General Advice for Effective Presentations
 
@@ -473,82 +456,78 @@ Speak in plain, everyday language your audience understands.
 
 </br>
 
-. . . 
+. . .
 
-For example: 
+For example:
 
-::::: columns
-::: {.column width="50%"}
-
-::: callout-tip
+::::::::: columns
+::::: {.column width="50%"}
+:::: callout-tip
 ## Clear and Engaging
 
 ::: {style="font-size: 90%;"}
-
 [**What Is Lean Manufacturing?**]{style="color:darkblue;"}
 
-Lean Manufacturing is about finding smarter ways to work. The goal is to make products using **less time, less waste, and fewer resources**, while keeping customers happy.  
+Lean Manufacturing is about finding smarter ways to work. The goal is to make products using **less time, less waste, and fewer resources**, while keeping customers happy.
 :::
-:::
-:::
-::: {.column width="50%"}
+::::
+:::::
 
-::: callout-warning
+::::: {.column width="50%"}
+:::: callout-warning
 ## Jargon Overload
 
 ::: {style="font-size: 90%;"}
-
 [**What Is Lean Manufacturing?**]{style="color:darkblue;"}
 
-Lean Manufacturing is a **systematic approach to process optimization**   that utilizes **value stream mapping** to identify and eliminate **non–value-added activities**.  
+Lean Manufacturing is a **systematic approach to process optimization** that utilizes **value stream mapping** to identify and eliminate **non–value-added activities**.
 :::
-:::
-:::
+::::
 :::::
+:::::::::
 
-## 2. Develop the main objective
+## 2. State the main objective
 
 Start your speech with "By \[insert what you want to accomplish\] you will \[insert what your listener wants\]."
 
-. . . 
+. . .
 
 ::: {style="font-size: 95%;"}
-For example, start with 
+For example, start with
 
-- *"In this presentation, I’ll show you how sensors and data can help you detect problems before they cause failures, keeping your production line running smoothly."*
+-   *"In this presentation, I’ll show you how sensors and data can help you detect problems before they cause failures, keeping your production line running smoothly."*
 
-Instead of 
+Instead of
 
-- *"In this presentation, I will explain how I used a random forest algorithm to predict when a machine will fail. I’ll describe my model, the data preprocessing steps, and my evaluation metrics."*
+-   *"In this presentation, I will explain how I used a random forest algorithm to predict when a machine will fail. I’ll describe my model, the data preprocessing steps, and my evaluation metrics."*
 :::
 
-## 3. Present the “so what.” 
+## 3. Present the “so what.”
 
 Don’t dive straight into details — explain *why it matters* first.
 
-. . . 
+. . .
 
 ::: {style="font-size: 95%;"}
 For example, is better to start with
 
-- *"When a natural disaster disrupts production, companies lose millions of dollars and fail to deliver on time. Supply chain resilience is about designing systems that can recover quickly from these disruptions, keeping customers satisfied."*
+-   *"When a natural disaster disrupts production, companies lose millions of dollars and fail to deliver on time. Supply chain resilience is about designing systems that can recover quickly from these disruptions, keeping customers satisfied."*
 
 than
 
-- *"In this project, I analyzed supplier diversification, lead time variability, and network centrality. We used simulation models to measure disruption propagation in the supply chain network."*
+-   *"In this project, I analyzed supplier diversification, lead time variability, and network centrality. We used simulation models to measure disruption propagation in the supply chain network."*
 :::
 
 ## 
+
 4.  **Limit your slides.** One main idea per slide keeps your message clear and focused.
 
 ::: incremental
-
 5.  **Use the 3-points structure.** Come up with no more than three points in support of your main objective. Support each of the points with facts or examples.
 
 6.  **Practice for clarity, not memorization.** Rehearse enough to sound natural and confident.
 
 7.  **You are the presentation.** Visuals in PowerPoint reinforce a speaker's message and help the audience key points. However, the presenter should always be the focus of the presentation, not the visuals.
-
 :::
 
 ## 8 End with a call to action
@@ -557,25 +536,25 @@ Tell your audience *what you want them to do next.*
 
 </br>
 
-. . . 
+. . .
 
-::: callout-tip
+:::: callout-tip
 ## Example
-::: {style="font-size: 95%;"}
 
+::: {style="font-size: 95%;"}
 [**Let’s Make Our Plant More Efficient**]{style="color:darkblue;"}
 
 We’ve seen that improving energy efficiency saves costs, reduces emissions, and strengthens competitiveness.
 
 **Now it’s your turn:**
 
-1. Identify one process in your area that wastes energy.  
+1.  Identify one process in your area that wastes energy.
 
-2. Propose one small improvement this week.  
+2.  Propose one small improvement this week.
 
-3. Share your idea in next Monday’s team meeting.
+3.  Share your idea in next Monday’s team meeting.
 :::
-:::
+::::
 
 ## Activity 1.2 (*Solo* mode and take-home)
 
@@ -583,7 +562,7 @@ Prepare a short presentation (up to 3 minutes) about any topic you’re passiona
 
 **Guidelines**:
 
--   Use slides (PowerPoint or Google Slides — your choice).\
+-   Use slides (PowerPoint, Google Slides, or Canva).\
 -   Upload your slides to **CANVAS** before next class.\
 -   A few students will be randomly selected to present live.
 
