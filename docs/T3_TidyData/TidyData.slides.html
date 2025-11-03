@@ -217,12 +217,141 @@ Alan R. Vazquez
 <li>Pivot and Rectangling Operations</li>
 </ol>
 </section>
+<section id="the-r-for-data-science-workflow" class="slide level2">
+<h2>The R for Data Science Workflow</h2>
+<p><strong>Goal:</strong> Understand where <em>data tidying</em> fits in the broader data science process.</p>
+</section>
+<section id="data-science-workflow" class="slide level2">
+<h2>Data Science Workflow</h2>
+
+<img data-src="images/r4ds_workflow.png" width="700" class="r-stretch"><ul>
+<li class="fragment">Every data science project involves <strong>importing</strong>, <strong>tidying</strong>, <strong>transforming</strong>, <strong>visualizing</strong>, and <strong>modeling</strong> data.</li>
+<li class="fragment"><strong>tidyr</strong> focuses on the <em>tidy</em> part — making your data easy to work with.</li>
+</ul>
+</section>
+<section id="why-focus-on-tidy-data" class="slide level2">
+<h2>Why Focus on Tidy Data?</h2>
+<blockquote>
+<p>“Tidy datasets are easy to manipulate, model, and visualize.” — <em>Hadley Wickham</em></p>
+</blockquote>
+<ul>
+<li class="fragment">Tidy data principles make R tools work together smoothly.</li>
+<li class="fragment">Each tidy dataset is like a well-organized spreadsheet.</li>
+<li class="fragment">Most errors in analysis happen before modeling — during <strong>data wrangling</strong>.</li>
+</ul>
+</section>
+<section id="the-tidyverse" class="slide level2">
+<h2>The Tidyverse</h2>
+<p><strong>The tidyverse</strong> is a collection of R packages designed for data science.</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Package</th>
+<th style="text-align: left;">Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><code>readr</code></td>
+<td style="text-align: left;">Import rectangular data (CSV, TSV, etc.)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>dplyr</code></td>
+<td style="text-align: left;">Manipulate and summarize data</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>tidyr</code></td>
+<td style="text-align: left;">Reshape and tidy data</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>ggplot2</code></td>
+<td style="text-align: left;">Create visualizations</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>purrr</code></td>
+<td style="text-align: left;">Work with functions and lists</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>stringr</code></td>
+<td style="text-align: left;">Handle text data</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>forcats</code></td>
+<td style="text-align: left;">Manage categorical variables</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="a-realistic-workflow" class="slide level2">
+<h2>A Realistic Workflow</h2>
+<ol type="1">
+<li><strong>Import:</strong> Bring raw data into R.<br>
+</li>
+<li><strong>Tidy:</strong> Reshape into a consistent format.<br>
+</li>
+<li><strong>Transform:</strong> Create new variables and summaries.<br>
+</li>
+<li><strong>Visualize:</strong> Explore patterns.<br>
+</li>
+<li><strong>Model:</strong> Fit statistical or machine learning models.<br>
+</li>
+<li><strong>Communicate:</strong> Share insights clearly.</li>
+</ol>
+</section>
+<section id="where-does-tidyr-fit" class="slide level2">
+<h2>Where Does tidyr Fit?</h2>
+
+<img data-src="images/workflow_tidyr_focus.png" width="650" class="r-stretch"><ul>
+<li><strong>tidyr</strong> connects <em>raw data</em> to <em>analysis-ready data</em>.</li>
+<li>Often used <strong>before</strong> <code>dplyr</code> or <code>ggplot2</code>.</li>
+</ul>
+</section>
+<section id="data-messiness-example" class="slide level2">
+<h2>Data Messiness Example</h2>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 3
+  store jan_sales feb_sales
+  &lt;chr&gt;     &lt;dbl&gt;     &lt;dbl&gt;
+1 A           100       110
+2 B            80        95
+3 C           120       130</code></pre>
+</div>
+</div>
+</section>
+<section id="problem-not-tidy" class="slide level2">
+<h2>Problem: Not Tidy!</h2>
+<ul>
+<li class="fragment">Variable names (<code>jan_sales</code>, <code>feb_sales</code>) store values (<code>months</code>).</li>
+<li class="fragment">Each column should represent a variable, not a combination of variables.</li>
+<li class="fragment">Each row should represent a single observation.</li>
+</ul>
+</section>
+<section id="the-goal-of-tidyr" class="slide level2">
+<h2>The goal of tidyr</h2>
+<blockquote>
+<p>Make messy data tidy: one observation per row, one variable per column.</p>
+</blockquote>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 3
+  store month     sales
+  &lt;chr&gt; &lt;chr&gt;     &lt;dbl&gt;
+1 A     jan_sales   100
+2 A     feb_sales   110
+3 B     jan_sales    80
+4 B     feb_sales    95
+5 C     jan_sales   120
+6 C     feb_sales   130</code></pre>
+</div>
+</div>
+</section>
 <section>
 <section id="tidy-data" class="title-slide slide level1 center">
 <h1>Tidy Data</h1>
 
 </section>
-<section id="the-r-for-data-science-workflow" class="slide level2">
+<section id="the-r-for-data-science-workflow-1" class="slide level2">
 <h2>The R for Data Science Workflow</h2>
 <p><br><br></p>
 
@@ -285,7 +414,107 @@ Alan R. Vazquez
 </div></div>
 <p>Load it to Google Colab with the following code.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">library</span>(tidyr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="fu">library</span>(tidyr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="part-2-introduction-to-tidy-data" class="slide level2">
+<h2>Part 2: Introduction to Tidy Data</h2>
+<p><strong>Goal:</strong> Learn what “tidy data” means and why it’s crucial for analysis and visualization.</p>
+</section>
+<section id="what-is-tidy-data" class="slide level2">
+<h2>What Is Tidy Data?</h2>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Note</strong></p>
+</div>
+<div class="callout-content">
+<p>In a tidy dataset: 1. Each <strong>variable</strong> forms a column.<br>
+2. Each <strong>observation</strong> forms a row.<br>
+3. Each <strong>value</strong> forms a cell.</p>
+</div>
+</div>
+</div>
+<p>This simple structure makes it easier to analyze, visualize, and model your data using R.</p>
+</section>
+<section id="example-untidy-data" class="slide level2">
+<h2>Example: Untidy Data</h2>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 3
+  name    math english
+  &lt;chr&gt;  &lt;dbl&gt;   &lt;dbl&gt;
+1 Ana       90      88
+2 Luis      80      95
+3 Carmen    85      92</code></pre>
+</div>
+</div>
+</section>
+<section id="why-is-this-untidy" class="slide level2">
+<h2>Why is this Untidy?</h2>
+<ul>
+<li class="fragment"><p>Each column (<code>math</code>, <code>english</code>) represents both a variable and a category.</p></li>
+<li class="fragment"><p>The structure hides the relationship between subject and score.</p></li>
+<li class="fragment"><p>Harder to summarize or visualize.</p></li>
+</ul>
+</section>
+<section id="the-tidy-version" class="slide level2">
+<h2>The tidy version</h2>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 3
+  name   subject score
+  &lt;chr&gt;  &lt;chr&gt;   &lt;dbl&gt;
+1 Ana    math       90
+2 Ana    english    88
+3 Luis   math       80
+4 Luis   english    95
+5 Carmen math       85
+6 Carmen english    92</code></pre>
+</div>
+</div>
+</section>
+<section id="why-tidy-data-matters" class="slide level2">
+<h2>Why tidy data matters</h2>
+<ul>
+<li><p>Every observation is self-contained in a single row.</p></li>
+<li><p>Makes it easy to:</p>
+<ul>
+<li><p>Group and summarize with <strong>dplyr</strong></p></li>
+<li><p>Plot with <strong>ggplot2</strong></p></li>
+</ul></li>
+</ul>
+</section>
+<section id="another-example-messy-survey-data" class="slide level2">
+<h2>Another Example: Messy Survey Data</h2>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 3
+     id q1_morning q1_evening
+  &lt;int&gt;      &lt;dbl&gt;      &lt;dbl&gt;
+1     1          5          4
+2     2          3          2
+3     3          4          3</code></pre>
+</div>
+</div>
+</section>
+<section id="tidy-version" class="slide level2">
+<h2>tidy version</h2>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 4
+     id question time    response
+  &lt;int&gt; &lt;chr&gt;    &lt;chr&gt;      &lt;dbl&gt;
+1     1 q1       morning        5
+2     1 q1       evening        4
+3     2 q1       morning        3
+4     2 q1       evening        2
+5     3 q1       morning        4
+6     3 q1       evening        3</code></pre>
+</div>
 </div>
 </section>
 <section id="tidyrs-functions" class="slide level2">
@@ -344,17 +573,271 @@ Alan R. Vazquez
 <h2>Handling Missing Data</h2>
 <p>TBD</p>
 </section></section>
+<section>
 <section id="wide-vs-long-data" class="title-slide slide level1 center">
 <h1>Wide Vs Long Data</h1>
 
 </section>
+<section id="why-tidyr" class="slide level2">
+<h2>Why <code>tidyr</code>?</h2>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Note</strong></p>
+</div>
+<div class="callout-content">
+<p><code>tidyr</code> helps you <strong>reshape</strong>, <strong>separate</strong>, <strong>combine</strong>, and <strong>complete</strong> data so that: - Each variable is a column - Each observation is a row - Each value is a cell</p>
+</div>
+</div>
+</div>
+<p>In short: <code>tidyr</code> helps you <em>tidy up messy data structures.</em></p>
+</section>
+<section id="tidyr-and-the-tidyverse" class="slide level2">
+<h2><code>tidyr</code> and the Tidyverse</h2>
+<ul>
+<li class="fragment"><code>tidyr</code> works seamlessly with <strong>dplyr</strong>.<br>
+</li>
+<li class="fragment">While <code>dplyr</code> focuses on <strong>data manipulation</strong>, <code>tidyr</code> focuses on <strong>data structure</strong>.<br>
+</li>
+<li class="fragment">Together, they make your data <strong>clean</strong> and <strong>consistent</strong> before visualization or modeling.</li>
+</ul>
+</section>
+<section id="example-dataset-production_data" class="slide level2">
+<h2>Example Dataset: <code>production_data</code></h2>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 3
+  factory jan_output feb_output
+  &lt;chr&gt;        &lt;dbl&gt;      &lt;dbl&gt;
+1 A              120        130
+2 B              150        160
+3 C              100         90</code></pre>
+</div>
+</div>
+</section>
+<section id="pivot_longer" class="slide level2">
+<h2><code>pivot_longer()</code></h2>
+<p>Transform columns into rows (convert from wide to long format).</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 3
+  factory month      output
+  &lt;chr&gt;   &lt;chr&gt;       &lt;dbl&gt;
+1 A       jan_output    120
+2 A       feb_output    130
+3 B       jan_output    150
+4 B       feb_output    160
+5 C       jan_output    100
+6 C       feb_output     90</code></pre>
+</div>
+</div>
+</section>
+<section id="pivot_wider" class="slide level2">
+<h2><code>pivot_wider()</code></h2>
+<p>Transform rows into columns (convert from long to wide format).</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 3
+  factory jan_output feb_output
+  &lt;chr&gt;        &lt;dbl&gt;      &lt;dbl&gt;
+1 A              120        130
+2 B              150        160
+3 C              100         90</code></pre>
+</div>
+</div>
+</section>
+<section id="separate" class="slide level2">
+<h2><code>separate()</code></h2>
+<p>Split one column into multiple columns.</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 4
+  factory month variable output
+  &lt;chr&gt;   &lt;chr&gt; &lt;chr&gt;     &lt;dbl&gt;
+1 A       jan   output      120
+2 A       feb   output      130
+3 B       jan   output      150
+4 B       feb   output      160
+5 C       jan   output      100
+6 C       feb   output       90</code></pre>
+</div>
+</div>
+</section>
+<section id="unite" class="slide level2">
+<h2><code>unite()</code></h2>
+<p>Combine multiple columns into a single column.</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 3
+  factory month_variable output
+  &lt;chr&gt;   &lt;chr&gt;           &lt;dbl&gt;
+1 A       jan_output        120
+2 A       feb_output        130
+3 B       jan_output        150
+4 B       feb_output        160
+5 C       jan_output        100
+6 C       feb_output         90</code></pre>
+</div>
+</div>
+</section>
+<section id="nest" class="slide level2">
+<h2><code>nest()</code></h2>
+<p>Create nested data frames for grouped data — useful for modeling or list-columns.</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 2
+# Groups:   factory [3]
+  factory data            
+  &lt;chr&gt;   &lt;list&gt;          
+1 A       &lt;tibble [2 × 2]&gt;
+2 B       &lt;tibble [2 × 2]&gt;
+3 C       &lt;tibble [2 × 2]&gt;</code></pre>
+</div>
+</div>
+</section>
+<section id="unnest" class="slide level2">
+<h2><code>unnest()</code></h2>
+<p>Expand a nested data frame back into regular rows.</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 3
+# Groups:   factory [3]
+  factory month      output
+  &lt;chr&gt;   &lt;chr&gt;       &lt;dbl&gt;
+1 A       jan_output    120
+2 A       feb_output    130
+3 B       jan_output    150
+4 B       feb_output    160
+5 C       jan_output    100
+6 C       feb_output     90</code></pre>
+</div>
+</div>
+</section>
+<section id="complete" class="slide level2">
+<h2><code>complete()</code></h2>
+<p>Ensure all combinations of variables exist, filling in missing observations.</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 4 × 3
+  factory month output
+  &lt;chr&gt;   &lt;chr&gt;  &lt;dbl&gt;
+1 A       feb      130
+2 A       jan      120
+3 B       feb       NA
+4 B       jan      150</code></pre>
+</div>
+</div>
+</section>
+<section id="fill" class="slide level2">
+<h2><code>fill()</code></h2>
+<p>Fill missing values with the most recent non-missing value.</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 4 × 3
+  factory month output
+  &lt;chr&gt;   &lt;chr&gt;  &lt;dbl&gt;
+1 A       feb      130
+2 A       jan      120
+3 B       feb      120
+4 B       jan      150</code></pre>
+</div>
+</div>
+<h3 id="goal">Goal</h3>
+<p>In this section, we’ll connect tidy data ideas to: - Real-world messy datasets<br>
+- Data visualization workflows<br>
+- Missing data handling<br>
+- Best practices for reproducibility</p>
+</section>
+<section id="why-tidy-data-matters-in-decision-making" class="slide level2">
+<h2>Why Tidy Data Matters in Decision Making</h2>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Note</strong></p>
+</div>
+<div class="callout-content">
+<p>Tidy data ensures: - Easier <strong>manipulation</strong> using <code>dplyr</code> - Seamless <strong>visualization</strong> with <code>ggplot2</code> - Smooth <strong>modeling</strong> and <strong>reporting</strong> in R</p>
+</div>
+</div>
+</div>
+<p><strong>Bottom line:</strong><br>
+Tidy data is not just a rule — it’s a way to think about data clearly and communicate insights effectively.</p>
+</section>
+<section id="the-messy-data-reality" class="slide level2">
+<h2>The “Messy Data” Reality</h2>
+<p>Many industrial datasets are <em>not tidy</em>.<br>
+Examples:</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Dataset</th>
+<th style="text-align: left;">Problem</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Production reports in Excel</td>
+<td style="text-align: left;">Values stored in column names</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Maintenance logs</td>
+<td style="text-align: left;">Multiple variables combined in one column</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Quality inspections</td>
+<td style="text-align: left;">Missing or inconsistent codes</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Our task:</strong> Use <code>tidyr</code> to fix these structures before analysis.</p>
+</section>
+<section id="from-messy-to-tidy-a-typical-workflow" class="slide level2">
+<h2>From Messy to Tidy: A Typical Workflow</h2>
+<ol type="1">
+<li><strong>Import raw data</strong> (e.g., CSV, Excel, SQL)</li>
+<li><strong>Identify problems</strong> in structure</li>
+<li><strong>Reshape or clean</strong> with <code>tidyr</code></li>
+<li><strong>Manipulate</strong> with <code>dplyr</code></li>
+<li><strong>Visualize</strong> with <code>ggplot2</code></li>
+<li><strong>Communicate insights</strong> with Quarto</li>
+</ol>
 
-<section id="advantages-of-tidy-data" class="title-slide slide level1 center">
-<h1>Advantages of Tidy Data</h1>
+<img data-src="images/tidy-workflow.png" class="quarto-figure quarto-figure-center r-stretch" style="width:70.0%"></section>
+<section id="why-visualization-loves-tidy-data" class="slide level2">
+<h2>Why Visualization Loves Tidy Data</h2>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Note</strong></p>
+</div>
+<div class="callout-content">
+<p>Every ggplot requires data in long format:</p>
+<p><strong>x-axis</strong>: variable (e.g., month)</p>
+<p><strong>y-axis</strong>: measurement (e.g., output)</p>
+<p><strong>color/fill</strong>: grouping variable (e.g., factory)</p>
+</div>
+</div>
+</div>
+<p>That’s why pivot_longer() is your best friend before plotting.</p>
+</section>
+<section id="advantages-of-tidy-data" class="slide level2">
+<h2>Advantages of Tidy Data</h2>
 <ul>
 <li>one set of consistent tools for different datasets</li>
 <li>easier for automation and iteration</li>
 </ul>
+<blockquote>
+<p>“Tidy data is the bridge between raw numbers and clear insight.” — Hadley Wickham</p>
+</blockquote>
 <aside class="notes">
 <ul>
 <li>To work with messy data, every time you need to switch to different gears</li>
@@ -375,8 +858,7 @@ Alan R. Vazquez
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
-</section>
-
+</section></section>
 <section id="return-to-main-page" class="title-slide slide level1 center">
 <h1><a href="https://alanrvazquez.github.io/TEC-IN2039-EN/">Return to main page</a></h1>
 

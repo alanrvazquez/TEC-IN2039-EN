@@ -24,6 +24,111 @@ editor: visual
 1.  Tidy Data
 2.  Pivot and Rectangling Operations
 
+
+## The R for Data Science Workflow
+
+**Goal:** Understand where *data tidying* fits in the broader data science process.
+
+---
+
+## Data Science Workflow
+
+![](images/r4ds_workflow.png){width="700"}
+
+::: incremental
+- Every data science project involves **importing**, **tidying**, **transforming**, **visualizing**, and **modeling** data.
+- **tidyr** focuses on the *tidy* part — making your data easy to work with.
+:::
+
+---
+
+## Why Focus on Tidy Data?
+
+> “Tidy datasets are easy to manipulate, model, and visualize.” — *Hadley Wickham*
+
+::: incremental
+- Tidy data principles make R tools work together smoothly.
+- Each tidy dataset is like a well-organized spreadsheet.
+- Most errors in analysis happen before modeling — during **data wrangling**.
+:::
+
+---
+
+## The Tidyverse
+
+**The tidyverse** is a collection of R packages designed for data science.
+
+| Package | Purpose |
+|:---|:---|
+| `readr` | Import rectangular data (CSV, TSV, etc.) |
+| `dplyr` | Manipulate and summarize data |
+| `tidyr` | Reshape and tidy data |
+| `ggplot2` | Create visualizations |
+| `purrr` | Work with functions and lists |
+| `stringr` | Handle text data |
+| `forcats` | Manage categorical variables |
+
+---
+
+## A Realistic Workflow
+
+1. **Import:** Bring raw data into R.  
+2. **Tidy:** Reshape into a consistent format.  
+3. **Transform:** Create new variables and summaries.  
+4. **Visualize:** Explore patterns.  
+5. **Model:** Fit statistical or machine learning models.  
+6. **Communicate:** Share insights clearly.
+
+---
+
+## Where Does tidyr Fit?
+
+![](images/workflow_tidyr_focus.png){width="650"}
+
+- **tidyr** connects *raw data* to *analysis-ready data*.
+- Often used **before** `dplyr` or `ggplot2`.
+
+---
+
+## Data Messiness Example
+
+```{r}
+# Example of messy data
+library(tibble)
+library(dplyr)
+
+sales <- tibble(
+  store = c("A", "B", "C"),
+  jan_sales = c(100, 80, 120),
+  feb_sales = c(110, 95, 130)
+)
+sales
+```
+
+## Problem: Not Tidy!
+
+::: incremental
+- Variable names (`jan_sales`, `feb_sales`) store values (`months`).
+- Each column should represent a variable, not a combination of variables.
+- Each row should represent a single observation.
+:::
+
+## The goal of tidyr
+
+> Make messy data tidy: one observation per row, one variable per column. 
+
+```{r}
+# Tidy version of the data
+library(tidyr)
+
+sales_tidy <- sales %>%
+  pivot_longer(cols = ends_with("sales"),
+               names_to = "month",
+               values_to = "sales")
+sales_tidy
+
+```
+
 # Tidy Data
 
 ## The R for Data Science Workflow
@@ -97,6 +202,92 @@ Load it to Google Colab with the following code.
 library(tidyr)
 ```
 
+
+## Part 2: Introduction to Tidy Data
+
+**Goal:** Learn what “tidy data” means and why it’s crucial for analysis and visualization.
+
+## What Is Tidy Data?
+
+::: callout-note
+In a tidy dataset:
+1. Each **variable** forms a column.  
+2. Each **observation** forms a row.  
+3. Each **value** forms a cell.
+:::
+
+This simple structure makes it easier to analyze, visualize, and model your data using R.
+
+
+## Example: Untidy Data
+
+```{r}
+# Example: Students' scores by subject in wide format
+students <- tibble(
+  name = c("Ana", "Luis", "Carmen"),
+  math = c(90, 80, 85),
+  english = c(88, 95, 92)
+)
+students
+```
+
+## Why is this Untidy?
+
+::: incremental
+- Each column (`math`, `english`) represents both a variable and a category.
+
+- The structure hides the relationship between subject and score.
+
+- Harder to summarize or visualize.
+:::
+
+## The tidy version
+
+```{r}
+students_tidy <- students %>%
+  pivot_longer(cols = c(math, english),
+               names_to = "subject",
+               values_to = "score")
+students_tidy
+
+```
+
+## Why tidy data matters
+
+- Every observation is self-contained in a single row.
+
+- Makes it easy to:
+
+    - Group and summarize with **dplyr**
+    
+    - Plot with **ggplot2**
+
+## Another Example: Messy Survey Data
+
+```{r}
+survey <- tibble(
+  id = 1:3,
+  q1_morning = c(5, 3, 4),
+  q1_evening = c(4, 2, 3)
+)
+survey
+
+```
+
+## tidy version
+
+```{r}
+survey_tidy <- survey %>%
+  pivot_longer(
+    cols = starts_with("q1"),
+    names_to = c("question", "time"),
+    names_sep = "_",
+    values_to = "response"
+  )
+survey_tidy
+
+```
+
 ## tidyr's functions
 
 </br></br>
@@ -118,7 +309,6 @@ TBD
 
 Considera los datos en el archivo "spotify.xlsx". El conjunto de datos de este contiene las reproducciones diarias globales de las cinco canciones más populares en el servicio de transmisión de música Spotify en el 2017.
 
-
 ## Splitting and Combining
 
 TBD
@@ -133,10 +323,220 @@ TBD
 
 # Wide Vs Long Data
 
-# Advantages of Tidy Data
+
+## Why `tidyr`?
+
+::: callout-note
+`tidyr` helps you **reshape**, **separate**, **combine**, and **complete** data so that:
+- Each variable is a column
+- Each observation is a row
+- Each value is a cell
+:::
+
+In short: `tidyr` helps you *tidy up messy data structures.*
+
+
+
+## `tidyr` and the Tidyverse
+
+::: incremental
+- `tidyr` works seamlessly with **dplyr**.  
+- While `dplyr` focuses on **data manipulation**, `tidyr` focuses on **data structure**.  
+- Together, they make your data **clean** and **consistent** before visualization or modeling.
+:::
+
+
+## Example Dataset: `production_data`
+
+```{r}
+production_data <- tibble(
+  factory = c("A", "B", "C"),
+  jan_output = c(120, 150, 100),
+  feb_output = c(130, 160, 90)
+)
+
+production_data
+```
+
+## `pivot_longer()`
+
+Transform columns into rows (convert from wide to long format).
+
+```{r}
+production_long <- production_data %>%
+  pivot_longer(
+    cols = ends_with("output"),
+    names_to = "month",
+    values_to = "output"
+  )
+
+production_long
+
+```
+
+
+## `pivot_wider()`
+
+Transform rows into columns (convert from long to wide format).
+
+```{r}
+production_wide <- production_long %>%
+  pivot_wider(
+    names_from = month,
+    values_from = output
+  )
+
+production_wide
+```
+
+## `separate()`
+
+Split one column into multiple columns.
+
+```{r}
+production_sep <- production_long %>%
+  separate(month, into = c("month", "variable"), sep = "_")
+
+production_sep
+```
+
+## `unite()`
+
+Combine multiple columns into a single column.
+
+```{r}
+production_united <- production_sep %>%
+  unite("month_variable", month, variable, sep = "_")
+
+production_united
+```
+
+
+## `nest()`
+
+Create nested data frames for grouped data — useful for modeling or list-columns.
+
+```{r}
+nested <- production_long %>%
+  group_by(factory) %>%
+  nest()
+
+nested
+
+```
+
+## `unnest()`
+
+Expand a nested data frame back into regular rows.
+
+```{r}
+unnested <- nested %>%
+  unnest(data)
+
+unnested
+```
+
+## `complete()`
+
+Ensure all combinations of variables exist, filling in missing observations.
+
+```{r}
+production_incomplete <- tibble(
+  factory = c("A", "A", "B"),
+  month = c("jan", "feb", "jan"),
+  output = c(120, 130, 150)
+)
+
+production_complete <- production_incomplete %>%
+  complete(factory, month)
+
+production_complete
+
+```
+
+## `fill()`
+
+Fill missing values with the most recent non-missing value.
+
+```{r}
+production_filled <- production_complete %>%
+  fill(output, .direction = "down")
+
+production_filled
+
+
+```
+
+### Goal
+
+In this section, we’ll connect tidy data ideas to:
+- Real-world messy datasets  
+- Data visualization workflows  
+- Missing data handling  
+- Best practices for reproducibility
+
+---
+
+## Why Tidy Data Matters in Decision Making
+
+::: callout-note
+Tidy data ensures:
+- Easier **manipulation** using `dplyr`
+- Seamless **visualization** with `ggplot2`
+- Smooth **modeling** and **reporting** in R
+:::
+
+**Bottom line:**  
+Tidy data is not just a rule — it’s a way to think about data clearly and communicate insights effectively.
+
+---
+
+## The "Messy Data" Reality
+
+Many industrial datasets are *not tidy*.  
+Examples:
+
+| Dataset | Problem |
+|:--|:--|
+| Production reports in Excel | Values stored in column names |
+| Maintenance logs | Multiple variables combined in one column |
+| Quality inspections | Missing or inconsistent codes |
+
+**Our task:** Use `tidyr` to fix these structures before analysis.
+
+---
+
+## From Messy to Tidy: A Typical Workflow
+
+1. **Import raw data** (e.g., CSV, Excel, SQL)
+2. **Identify problems** in structure
+3. **Reshape or clean** with `tidyr`
+4. **Manipulate** with `dplyr`
+5. **Visualize** with `ggplot2`
+6. **Communicate insights** with Quarto
+
+![](images/tidy-workflow.png){fig-align="center" width="70%"}
+
+## Why Visualization Loves Tidy Data
+
+::: callout-note
+Every ggplot requires data in long format:
+
+**x-axis**: variable (e.g., month)
+
+**y-axis**: measurement (e.g., output)
+
+**color/fill**: grouping variable (e.g., factory)
+:::
+
+That’s why pivot_longer() is your best friend before plotting.
+
+## Advantages of Tidy Data
 
 -   one set of consistent tools for different datasets
 -   easier for automation and iteration
+
+> “Tidy data is the bridge between raw numbers and clear insight.” — Hadley Wickham
 
 ::: notes
 -   To work with messy data, every time you need to switch to different gears
