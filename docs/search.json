@@ -226,315 +226,315 @@
   {
     "objectID": "T3_TidyData/TidyData.slides.html#agenda",
     "href": "T3_TidyData/TidyData.slides.html#agenda",
-    "title": "Tity Data",
+    "title": "Tidy Data",
     "section": "Agenda",
     "text": "Agenda\n\n\nTidy Data\nPivot and Rectangling Operations"
   },
   {
     "objectID": "T3_TidyData/TidyData.slides.html#the-r-for-data-science-workflow",
     "href": "T3_TidyData/TidyData.slides.html#the-r-for-data-science-workflow",
-    "title": "Tity Data",
+    "title": "Tidy Data",
     "section": "The R for Data Science Workflow",
     "text": "The R for Data Science Workflow\nGoal: Understand where data tidying fits in the broader data science process."
   },
   {
     "objectID": "T3_TidyData/TidyData.slides.html#data-science-workflow",
     "href": "T3_TidyData/TidyData.slides.html#data-science-workflow",
-    "title": "Tity Data",
+    "title": "Tidy Data",
     "section": "Data Science Workflow",
     "text": "Data Science Workflow\n\n\nEvery data science project involves importing, tidying, transforming, visualizing, and modeling data.\ntidyr focuses on the tidy part — making your data easy to work with."
   },
   {
     "objectID": "T3_TidyData/TidyData.slides.html#why-focus-on-tidy-data",
     "href": "T3_TidyData/TidyData.slides.html#why-focus-on-tidy-data",
-    "title": "Tity Data",
+    "title": "Tidy Data",
     "section": "Why Focus on Tidy Data?",
     "text": "Why Focus on Tidy Data?\n\n“Tidy datasets are easy to manipulate, model, and visualize.” — Hadley Wickham\n\n\nTidy data principles make R tools work together smoothly.\nEach tidy dataset is like a well-organized spreadsheet.\nMost errors in analysis happen before modeling — during data wrangling."
   },
   {
     "objectID": "T3_TidyData/TidyData.slides.html#the-tidyverse",
     "href": "T3_TidyData/TidyData.slides.html#the-tidyverse",
-    "title": "Tity Data",
+    "title": "Tidy Data",
     "section": "The Tidyverse",
     "text": "The Tidyverse\nThe tidyverse is a collection of R packages designed for data science.\n\n\n\nPackage\nPurpose\n\n\n\n\nreadr\nImport rectangular data (CSV, TSV, etc.)\n\n\ndplyr\nManipulate and summarize data\n\n\ntidyr\nReshape and tidy data\n\n\nggplot2\nCreate visualizations\n\n\npurrr\nWork with functions and lists\n\n\nstringr\nHandle text data\n\n\nforcats\nManage categorical variables"
   },
   {
     "objectID": "T3_TidyData/TidyData.slides.html#a-realistic-workflow",
     "href": "T3_TidyData/TidyData.slides.html#a-realistic-workflow",
-    "title": "Tity Data",
+    "title": "Tidy Data",
     "section": "A Realistic Workflow",
     "text": "A Realistic Workflow\n\nImport: Bring raw data into R.\n\nTidy: Reshape into a consistent format.\n\nTransform: Create new variables and summaries.\n\nVisualize: Explore patterns.\n\nModel: Fit statistical or machine learning models.\n\nCommunicate: Share insights clearly."
   },
   {
     "objectID": "T3_TidyData/TidyData.slides.html#where-does-tidyr-fit",
     "href": "T3_TidyData/TidyData.slides.html#where-does-tidyr-fit",
-    "title": "Tity Data",
+    "title": "Tidy Data",
     "section": "Where Does tidyr Fit?",
     "text": "Where Does tidyr Fit?\n\n\ntidyr connects raw data to analysis-ready data.\nOften used before dplyr or ggplot2."
   },
   {
     "objectID": "T3_TidyData/TidyData.slides.html#data-messiness-example",
     "href": "T3_TidyData/TidyData.slides.html#data-messiness-example",
-    "title": "Tity Data",
+    "title": "Tidy Data",
     "section": "Data Messiness Example",
     "text": "Data Messiness Example\n\n\n# A tibble: 3 × 3\n  store jan_sales feb_sales\n  &lt;chr&gt;     &lt;dbl&gt;     &lt;dbl&gt;\n1 A           100       110\n2 B            80        95\n3 C           120       130"
   },
   {
     "objectID": "T3_TidyData/TidyData.slides.html#problem-not-tidy",
     "href": "T3_TidyData/TidyData.slides.html#problem-not-tidy",
-    "title": "Tity Data",
+    "title": "Tidy Data",
     "section": "Problem: Not Tidy!",
     "text": "Problem: Not Tidy!\n\nVariable names (jan_sales, feb_sales) store values (months).\nEach column should represent a variable, not a combination of variables.\nEach row should represent a single observation."
   },
   {
     "objectID": "T3_TidyData/TidyData.slides.html#the-goal-of-tidyr",
     "href": "T3_TidyData/TidyData.slides.html#the-goal-of-tidyr",
-    "title": "Tity Data",
+    "title": "Tidy Data",
     "section": "The goal of tidyr",
     "text": "The goal of tidyr\n\nMake messy data tidy: one observation per row, one variable per column.\n\n\n\n# A tibble: 6 × 3\n  store month     sales\n  &lt;chr&gt; &lt;chr&gt;     &lt;dbl&gt;\n1 A     jan_sales   100\n2 A     feb_sales   110\n3 B     jan_sales    80\n4 B     feb_sales    95\n5 C     jan_sales   120\n6 C     feb_sales   130"
   },
   {
     "objectID": "T3_TidyData/TidyData.slides.html#the-r-for-data-science-workflow-1",
     "href": "T3_TidyData/TidyData.slides.html#the-r-for-data-science-workflow-1",
-    "title": "Tity Data",
+    "title": "Tidy Data",
     "section": "The R for Data Science Workflow",
     "text": "The R for Data Science Workflow\n\n\n\nhttps://r4ds.hadley.nz/"
   },
   {
     "objectID": "T3_TidyData/TidyData.slides.html#the-rationale-for-tidy-data",
     "href": "T3_TidyData/TidyData.slides.html#the-rationale-for-tidy-data",
-    "title": "Tity Data",
+    "title": "Tidy Data",
     "section": "The Rationale for Tidy Data",
     "text": "The Rationale for Tidy Data\n\n\nThe tidy framework provides a consistent way to organize your data in R.\nGetting your data into this format requires some upfront work, but that work pays off in the long term.\nOnce you have tidy data and the tidy tools provided by packages in the tidyverse, you will spend much less time munging data from one representation to another, allowing you to spend more time on the analytic questions at hand."
   },
   {
     "objectID": "T3_TidyData/TidyData.slides.html#tidy-data-1",
     "href": "T3_TidyData/TidyData.slides.html#tidy-data-1",
-    "title": "Tity Data",
+    "title": "Tidy Data",
     "section": "Tidy Data",
     "text": "Tidy Data\n\n“Tidy data is a standard way of mapping the meaning of a dataset to its structure.” Hadley Wickham.\n\n\n\nIn tidy data:\n\nEach variable forms a column\nEach observation forms a row\nEach cell is a single measurement."
   },
   {
     "objectID": "T3_TidyData/TidyData.slides.html#section",
     "href": "T3_TidyData/TidyData.slides.html#section",
-    "title": "Tity Data",
+    "title": "Tidy Data",
     "section": "",
     "text": "https://openscapes.org/blog/2020-10-12-tidy-data/"
   },
   {
     "objectID": "T3_TidyData/TidyData.slides.html#a-new-library-tidyr",
     "href": "T3_TidyData/TidyData.slides.html#a-new-library-tidyr",
-    "title": "Tity Data",
+    "title": "Tidy Data",
     "section": "A new library: tidyr",
     "text": "A new library: tidyr\n\n\n\n\n\n\n\n\n\ntidyr allows you to reshape and regroup a dataset.\nIt is part of a collection of data science packages called tidyverse.\nhttps://tidyr.tidyverse.org/\n\n\nLoad it to Google Colab with the following code.\n\nlibrary(tidyr)"
   },
   {
     "objectID": "T3_TidyData/TidyData.slides.html#part-2-introduction-to-tidy-data",
     "href": "T3_TidyData/TidyData.slides.html#part-2-introduction-to-tidy-data",
-    "title": "Tity Data",
+    "title": "Tidy Data",
     "section": "Part 2: Introduction to Tidy Data",
     "text": "Part 2: Introduction to Tidy Data\nGoal: Learn what “tidy data” means and why it’s crucial for analysis and visualization."
   },
   {
     "objectID": "T3_TidyData/TidyData.slides.html#what-is-tidy-data",
     "href": "T3_TidyData/TidyData.slides.html#what-is-tidy-data",
-    "title": "Tity Data",
+    "title": "Tidy Data",
     "section": "What Is Tidy Data?",
     "text": "What Is Tidy Data?\n\n\n\n\n\n\nNote\n\n\nIn a tidy dataset: 1. Each variable forms a column.\n2. Each observation forms a row.\n3. Each value forms a cell.\n\n\n\nThis simple structure makes it easier to analyze, visualize, and model your data using R."
   },
   {
     "objectID": "T3_TidyData/TidyData.slides.html#example-untidy-data",
     "href": "T3_TidyData/TidyData.slides.html#example-untidy-data",
-    "title": "Tity Data",
+    "title": "Tidy Data",
     "section": "Example: Untidy Data",
     "text": "Example: Untidy Data\n\n\n# A tibble: 3 × 3\n  name    math english\n  &lt;chr&gt;  &lt;dbl&gt;   &lt;dbl&gt;\n1 Ana       90      88\n2 Luis      80      95\n3 Carmen    85      92"
   },
   {
     "objectID": "T3_TidyData/TidyData.slides.html#why-is-this-untidy",
     "href": "T3_TidyData/TidyData.slides.html#why-is-this-untidy",
-    "title": "Tity Data",
+    "title": "Tidy Data",
     "section": "Why is this Untidy?",
     "text": "Why is this Untidy?\n\nEach column (math, english) represents both a variable and a category.\nThe structure hides the relationship between subject and score.\nHarder to summarize or visualize."
   },
   {
     "objectID": "T3_TidyData/TidyData.slides.html#the-tidy-version",
     "href": "T3_TidyData/TidyData.slides.html#the-tidy-version",
-    "title": "Tity Data",
+    "title": "Tidy Data",
     "section": "The tidy version",
     "text": "The tidy version\n\n\n# A tibble: 6 × 3\n  name   subject score\n  &lt;chr&gt;  &lt;chr&gt;   &lt;dbl&gt;\n1 Ana    math       90\n2 Ana    english    88\n3 Luis   math       80\n4 Luis   english    95\n5 Carmen math       85\n6 Carmen english    92"
   },
   {
     "objectID": "T3_TidyData/TidyData.slides.html#why-tidy-data-matters",
     "href": "T3_TidyData/TidyData.slides.html#why-tidy-data-matters",
-    "title": "Tity Data",
+    "title": "Tidy Data",
     "section": "Why tidy data matters",
     "text": "Why tidy data matters\n\nEvery observation is self-contained in a single row.\nMakes it easy to:\n\nGroup and summarize with dplyr\nPlot with ggplot2"
   },
   {
     "objectID": "T3_TidyData/TidyData.slides.html#another-example-messy-survey-data",
     "href": "T3_TidyData/TidyData.slides.html#another-example-messy-survey-data",
-    "title": "Tity Data",
+    "title": "Tidy Data",
     "section": "Another Example: Messy Survey Data",
     "text": "Another Example: Messy Survey Data\n\n\n# A tibble: 3 × 3\n     id q1_morning q1_evening\n  &lt;int&gt;      &lt;dbl&gt;      &lt;dbl&gt;\n1     1          5          4\n2     2          3          2\n3     3          4          3"
   },
   {
     "objectID": "T3_TidyData/TidyData.slides.html#tidy-version",
     "href": "T3_TidyData/TidyData.slides.html#tidy-version",
-    "title": "Tity Data",
+    "title": "Tidy Data",
     "section": "tidy version",
     "text": "tidy version\n\n\n# A tibble: 6 × 4\n     id question time    response\n  &lt;int&gt; &lt;chr&gt;    &lt;chr&gt;      &lt;dbl&gt;\n1     1 q1       morning        5\n2     1 q1       evening        4\n3     2 q1       morning        3\n4     2 q1       evening        2\n5     3 q1       morning        4\n6     3 q1       evening        3"
   },
   {
     "objectID": "T3_TidyData/TidyData.slides.html#tidyrs-functions",
     "href": "T3_TidyData/TidyData.slides.html#tidyrs-functions",
-    "title": "Tity Data",
+    "title": "Tidy Data",
     "section": "tidyr’s functions",
     "text": "tidyr’s functions\n\ntidyr provides tools for reshaping, organizing, and completing data.\n\n\n\nPurpose\nFunction 1\nFunction 2\n\n\n\n\nPivoting\npivot_longer()\npivot_wider()\n\n\nSplitting / Combining\nseparate()\nunite()\n\n\nNesting / Unnesting\nnest()\nunnest()\n\n\nHandling Missing Data\ncomplete()\nfill()"
   },
   {
     "objectID": "T3_TidyData/TidyData.slides.html#pivoting",
     "href": "T3_TidyData/TidyData.slides.html#pivoting",
-    "title": "Tity Data",
+    "title": "Tidy Data",
     "section": "Pivoting",
     "text": "Pivoting\nTBD"
   },
   {
     "objectID": "T3_TidyData/TidyData.slides.html#ejemplo-2",
     "href": "T3_TidyData/TidyData.slides.html#ejemplo-2",
-    "title": "Tity Data",
+    "title": "Tidy Data",
     "section": "Ejemplo 2",
     "text": "Ejemplo 2\nConsidera los datos en el archivo “spotify.xlsx”. El conjunto de datos de este contiene las reproducciones diarias globales de las cinco canciones más populares en el servicio de transmisión de música Spotify en el 2017."
   },
   {
     "objectID": "T3_TidyData/TidyData.slides.html#splitting-and-combining",
     "href": "T3_TidyData/TidyData.slides.html#splitting-and-combining",
-    "title": "Tity Data",
+    "title": "Tidy Data",
     "section": "Splitting and Combining",
     "text": "Splitting and Combining\nTBD"
   },
   {
     "objectID": "T3_TidyData/TidyData.slides.html#nesting-and-unnesting",
     "href": "T3_TidyData/TidyData.slides.html#nesting-and-unnesting",
-    "title": "Tity Data",
+    "title": "Tidy Data",
     "section": "Nesting and Unnesting",
     "text": "Nesting and Unnesting\nTBD"
   },
   {
     "objectID": "T3_TidyData/TidyData.slides.html#handling-missing-data",
     "href": "T3_TidyData/TidyData.slides.html#handling-missing-data",
-    "title": "Tity Data",
+    "title": "Tidy Data",
     "section": "Handling Missing Data",
     "text": "Handling Missing Data\nTBD"
   },
   {
     "objectID": "T3_TidyData/TidyData.slides.html#why-tidyr",
     "href": "T3_TidyData/TidyData.slides.html#why-tidyr",
-    "title": "Tity Data",
+    "title": "Tidy Data",
     "section": "Why tidyr?",
     "text": "Why tidyr?\n\n\n\n\n\n\nNote\n\n\ntidyr helps you reshape, separate, combine, and complete data so that: - Each variable is a column - Each observation is a row - Each value is a cell\n\n\n\nIn short: tidyr helps you tidy up messy data structures."
   },
   {
     "objectID": "T3_TidyData/TidyData.slides.html#tidyr-and-the-tidyverse",
     "href": "T3_TidyData/TidyData.slides.html#tidyr-and-the-tidyverse",
-    "title": "Tity Data",
+    "title": "Tidy Data",
     "section": "tidyr and the Tidyverse",
     "text": "tidyr and the Tidyverse\n\ntidyr works seamlessly with dplyr.\n\nWhile dplyr focuses on data manipulation, tidyr focuses on data structure.\n\nTogether, they make your data clean and consistent before visualization or modeling."
   },
   {
     "objectID": "T3_TidyData/TidyData.slides.html#example-dataset-production_data",
     "href": "T3_TidyData/TidyData.slides.html#example-dataset-production_data",
-    "title": "Tity Data",
+    "title": "Tidy Data",
     "section": "Example Dataset: production_data",
     "text": "Example Dataset: production_data\n\n\n# A tibble: 3 × 3\n  factory jan_output feb_output\n  &lt;chr&gt;        &lt;dbl&gt;      &lt;dbl&gt;\n1 A              120        130\n2 B              150        160\n3 C              100         90"
   },
   {
     "objectID": "T3_TidyData/TidyData.slides.html#pivot_longer",
     "href": "T3_TidyData/TidyData.slides.html#pivot_longer",
-    "title": "Tity Data",
+    "title": "Tidy Data",
     "section": "pivot_longer()",
     "text": "pivot_longer()\nTransform columns into rows (convert from wide to long format).\n\n\n# A tibble: 6 × 3\n  factory month      output\n  &lt;chr&gt;   &lt;chr&gt;       &lt;dbl&gt;\n1 A       jan_output    120\n2 A       feb_output    130\n3 B       jan_output    150\n4 B       feb_output    160\n5 C       jan_output    100\n6 C       feb_output     90"
   },
   {
     "objectID": "T3_TidyData/TidyData.slides.html#pivot_wider",
     "href": "T3_TidyData/TidyData.slides.html#pivot_wider",
-    "title": "Tity Data",
+    "title": "Tidy Data",
     "section": "pivot_wider()",
     "text": "pivot_wider()\nTransform rows into columns (convert from long to wide format).\n\n\n# A tibble: 3 × 3\n  factory jan_output feb_output\n  &lt;chr&gt;        &lt;dbl&gt;      &lt;dbl&gt;\n1 A              120        130\n2 B              150        160\n3 C              100         90"
   },
   {
     "objectID": "T3_TidyData/TidyData.slides.html#separate",
     "href": "T3_TidyData/TidyData.slides.html#separate",
-    "title": "Tity Data",
+    "title": "Tidy Data",
     "section": "separate()",
     "text": "separate()\nSplit one column into multiple columns.\n\n\n# A tibble: 6 × 4\n  factory month variable output\n  &lt;chr&gt;   &lt;chr&gt; &lt;chr&gt;     &lt;dbl&gt;\n1 A       jan   output      120\n2 A       feb   output      130\n3 B       jan   output      150\n4 B       feb   output      160\n5 C       jan   output      100\n6 C       feb   output       90"
   },
   {
     "objectID": "T3_TidyData/TidyData.slides.html#unite",
     "href": "T3_TidyData/TidyData.slides.html#unite",
-    "title": "Tity Data",
+    "title": "Tidy Data",
     "section": "unite()",
     "text": "unite()\nCombine multiple columns into a single column.\n\n\n# A tibble: 6 × 3\n  factory month_variable output\n  &lt;chr&gt;   &lt;chr&gt;           &lt;dbl&gt;\n1 A       jan_output        120\n2 A       feb_output        130\n3 B       jan_output        150\n4 B       feb_output        160\n5 C       jan_output        100\n6 C       feb_output         90"
   },
   {
     "objectID": "T3_TidyData/TidyData.slides.html#nest",
     "href": "T3_TidyData/TidyData.slides.html#nest",
-    "title": "Tity Data",
+    "title": "Tidy Data",
     "section": "nest()",
     "text": "nest()\nCreate nested data frames for grouped data — useful for modeling or list-columns.\n\n\n# A tibble: 3 × 2\n# Groups:   factory [3]\n  factory data            \n  &lt;chr&gt;   &lt;list&gt;          \n1 A       &lt;tibble [2 × 2]&gt;\n2 B       &lt;tibble [2 × 2]&gt;\n3 C       &lt;tibble [2 × 2]&gt;"
   },
   {
     "objectID": "T3_TidyData/TidyData.slides.html#unnest",
     "href": "T3_TidyData/TidyData.slides.html#unnest",
-    "title": "Tity Data",
+    "title": "Tidy Data",
     "section": "unnest()",
     "text": "unnest()\nExpand a nested data frame back into regular rows.\n\n\n# A tibble: 6 × 3\n# Groups:   factory [3]\n  factory month      output\n  &lt;chr&gt;   &lt;chr&gt;       &lt;dbl&gt;\n1 A       jan_output    120\n2 A       feb_output    130\n3 B       jan_output    150\n4 B       feb_output    160\n5 C       jan_output    100\n6 C       feb_output     90"
   },
   {
     "objectID": "T3_TidyData/TidyData.slides.html#complete",
     "href": "T3_TidyData/TidyData.slides.html#complete",
-    "title": "Tity Data",
+    "title": "Tidy Data",
     "section": "complete()",
     "text": "complete()\nEnsure all combinations of variables exist, filling in missing observations.\n\n\n# A tibble: 4 × 3\n  factory month output\n  &lt;chr&gt;   &lt;chr&gt;  &lt;dbl&gt;\n1 A       feb      130\n2 A       jan      120\n3 B       feb       NA\n4 B       jan      150"
   },
   {
     "objectID": "T3_TidyData/TidyData.slides.html#fill",
     "href": "T3_TidyData/TidyData.slides.html#fill",
-    "title": "Tity Data",
+    "title": "Tidy Data",
     "section": "fill()",
     "text": "fill()\nFill missing values with the most recent non-missing value.\n\n\n# A tibble: 4 × 3\n  factory month output\n  &lt;chr&gt;   &lt;chr&gt;  &lt;dbl&gt;\n1 A       feb      130\n2 A       jan      120\n3 B       feb      120\n4 B       jan      150\n\n\nGoal\nIn this section, we’ll connect tidy data ideas to: - Real-world messy datasets\n- Data visualization workflows\n- Missing data handling\n- Best practices for reproducibility"
   },
   {
     "objectID": "T3_TidyData/TidyData.slides.html#why-tidy-data-matters-in-decision-making",
     "href": "T3_TidyData/TidyData.slides.html#why-tidy-data-matters-in-decision-making",
-    "title": "Tity Data",
+    "title": "Tidy Data",
     "section": "Why Tidy Data Matters in Decision Making",
     "text": "Why Tidy Data Matters in Decision Making\n\n\n\n\n\n\nNote\n\n\nTidy data ensures: - Easier manipulation using dplyr - Seamless visualization with ggplot2 - Smooth modeling and reporting in R\n\n\n\nBottom line:\nTidy data is not just a rule — it’s a way to think about data clearly and communicate insights effectively."
   },
   {
     "objectID": "T3_TidyData/TidyData.slides.html#the-messy-data-reality",
     "href": "T3_TidyData/TidyData.slides.html#the-messy-data-reality",
-    "title": "Tity Data",
+    "title": "Tidy Data",
     "section": "The “Messy Data” Reality",
     "text": "The “Messy Data” Reality\nMany industrial datasets are not tidy.\nExamples:\n\n\n\nDataset\nProblem\n\n\n\n\nProduction reports in Excel\nValues stored in column names\n\n\nMaintenance logs\nMultiple variables combined in one column\n\n\nQuality inspections\nMissing or inconsistent codes\n\n\n\nOur task: Use tidyr to fix these structures before analysis."
   },
   {
     "objectID": "T3_TidyData/TidyData.slides.html#from-messy-to-tidy-a-typical-workflow",
     "href": "T3_TidyData/TidyData.slides.html#from-messy-to-tidy-a-typical-workflow",
-    "title": "Tity Data",
+    "title": "Tidy Data",
     "section": "From Messy to Tidy: A Typical Workflow",
     "text": "From Messy to Tidy: A Typical Workflow\n\nImport raw data (e.g., CSV, Excel, SQL)\nIdentify problems in structure\nReshape or clean with tidyr\nManipulate with dplyr\nVisualize with ggplot2\nCommunicate insights with Quarto"
   },
   {
     "objectID": "T3_TidyData/TidyData.slides.html#why-visualization-loves-tidy-data",
     "href": "T3_TidyData/TidyData.slides.html#why-visualization-loves-tidy-data",
-    "title": "Tity Data",
+    "title": "Tidy Data",
     "section": "Why Visualization Loves Tidy Data",
     "text": "Why Visualization Loves Tidy Data\n\n\n\n\n\n\nNote\n\n\nEvery ggplot requires data in long format:\nx-axis: variable (e.g., month)\ny-axis: measurement (e.g., output)\ncolor/fill: grouping variable (e.g., factory)\n\n\n\nThat’s why pivot_longer() is your best friend before plotting."
   },
   {
     "objectID": "T3_TidyData/TidyData.slides.html#advantages-of-tidy-data",
     "href": "T3_TidyData/TidyData.slides.html#advantages-of-tidy-data",
-    "title": "Tity Data",
+    "title": "Tidy Data",
     "section": "Advantages of Tidy Data",
     "text": "Advantages of Tidy Data\n\none set of consistent tools for different datasets\neasier for automation and iteration\n\n\n“Tidy data is the bridge between raw numbers and clear insight.” — Hadley Wickham\n\n\n\nTo work with messy data, every time you need to switch to different gears\nlearn new tools that just works for that specific dataset\nIt’s much more pleasant to work with tidy data, help you to build a good taste of data analysis\nspent less fighting with different tools, focus more on data analysis bc one set of consistent tools\nthe {tidyverse} philosophy to work with the tidy data structures\nbuild automatic workflow for analysis, feed different data sets."
   },

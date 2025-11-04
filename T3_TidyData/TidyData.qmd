@@ -1,5 +1,5 @@
 ---
-title: "Tity Data"
+title: "Tidy Data"
 subtitle: "IN2039: Data Visualization for Decision Making"
 author: 
   - name: Alan R. Vazquez
