@@ -364,7 +364,7 @@ Alan R. Vazquez
 <pre><code>Error in Sum(1, 100): could not find function "Sum"</code></pre>
 </div>
 </div>
-<p>with the “s” capitalized, he will act like he has no idea what we are talking about!</p>
+<p>with the “s” capitalized, R will act like it has no idea what we are talking about!</p>
 <aside class="notes">
 <p>lo mismo si olvidas incluir un parentesis</p>
 <style type="text/css">
@@ -384,7 +384,7 @@ Alan R. Vazquez
 <h2>Save your work in R objects</h2>
 <p><br></p>
 <p>Virtually anything, including the results of any R function, can be saved in an <em>object</em>.</p>
-<p>This is accomplished by using an assignment operator, which can be an equals symbol (<code>=</code>).</p>
+<p>This is accomplished by using an assignment operator, which can be an equal symbol (<code>=</code>) or a leftward symbol (<code>&lt;-</code>).</p>
 <div class="fragment">
 <p>You can make up any name you want for a R object. However, there are two basic rules for this:</p>
 <ol type="1">
@@ -414,7 +414,7 @@ Alan R. Vazquez
 <section id="vectors" class="slide level2">
 <h2>Vectors</h2>
 <p><br></p>
-<p>So far we have used R objects to store a single number. But in statistics we are dealing with variation, which by definition needs more than one number.</p>
+<p>So far we have used R objects to store a single number. But in data visualization we are dealing with multiple numbers or observations.</p>
 <div class="fragment">
 <p>A R object can also store a complete set of numbers, called a <strong><em>vector</em></strong>.</p>
 <p>You can think of a list as a vector of numbers (or values).</p>
@@ -474,7 +474,7 @@ Alan R. Vazquez
 </section>
 <section id="indexing" class="slide level2">
 <h2>Indexing</h2>
-<p><br> <br></p>
+<p><br></p>
 <p>We can index a position in the vector using square brackets with a number like this: <code>[1]</code>.</p>
 <p>So, if we wanted to print the contents of the first position in <code>my_vector</code>, we could write</p>
 <div class="cell">
@@ -482,6 +482,10 @@ Alan R. Vazquez
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 1</code></pre>
 </div>
+</div>
+<div class="fragment">
+<p><br></p>
+<p><span style="color:darkblue;">In contrast with Python, the first element of an R vector is indexed using 1.</span></p>
 </div>
 </section>
 <section id="a-little-more-about-r-objects" class="slide level2">

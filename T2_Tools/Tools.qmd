@@ -194,7 +194,7 @@ But if you write
 Sum(1, 100)
 ```
 
-with the “s” capitalized, he will act like he has no idea what we are talking about!
+with the “s” capitalized, R will act like it has no idea what we are talking about!
 
 ::: notes
 lo mismo si olvidas incluir un parentesis
@@ -206,7 +206,7 @@ lo mismo si olvidas incluir un parentesis
 
 Virtually anything, including the results of any R function, can be saved in an *object*.
 
-This is accomplished by using an assignment operator, which can be an equals symbol (`=`).
+This is accomplished by using an assignment operator, which can be an equal symbol (`=`) or a leftward symbol (`<-`).
 
 . . .
 
@@ -244,7 +244,7 @@ You can also use `print(my_favorite_number)`.
 
 </br>
 
-So far we have used R objects to store a single number. But in statistics we are dealing with variation, which by definition needs more than one number.
+So far we have used R objects to store a single number. But in data visualization we are dealing with multiple numbers or observations.
 
 . . .
 
@@ -302,7 +302,7 @@ sum(my_vector)
 
 ## Indexing
 
-</br> </br>
+</br>
 
 We can index a position in the vector using square brackets with a number like this: `[1]`.
 
@@ -313,6 +313,12 @@ So, if we wanted to print the contents of the first position in `my_vector`, we 
 
 my_vector[1]
 ```
+
+. . . 
+
+</br> 
+
+[In contrast with Python, the first element of an R vector is indexed using 1.]{style="color:darkblue;"}
 
 ## A little more about R objects
 

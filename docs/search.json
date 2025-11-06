@@ -606,14 +606,14 @@
     "href": "T2_Tools/Tools.slides.html#r-is-strict",
     "title": "Tools for Data Manipulation",
     "section": "R is strict",
-    "text": "R is strict\nR, like all programming languages, is very strict. For example, if you write\n\nsum(1, 100)\n\n[1] 101\n\n\nit will tell you the answer, 101.\n\nBut if you write\n\nSum(1, 100)\n\nError in Sum(1, 100): could not find function \"Sum\"\n\n\nwith the “s” capitalized, he will act like he has no idea what we are talking about!\n\nlo mismo si olvidas incluir un parentesis"
+    "text": "R is strict\nR, like all programming languages, is very strict. For example, if you write\n\nsum(1, 100)\n\n[1] 101\n\n\nit will tell you the answer, 101.\n\nBut if you write\n\nSum(1, 100)\n\nError in Sum(1, 100): could not find function \"Sum\"\n\n\nwith the “s” capitalized, R will act like it has no idea what we are talking about!\n\nlo mismo si olvidas incluir un parentesis"
   },
   {
     "objectID": "T2_Tools/Tools.slides.html#save-your-work-in-r-objects",
     "href": "T2_Tools/Tools.slides.html#save-your-work-in-r-objects",
     "title": "Tools for Data Manipulation",
     "section": "Save your work in R objects",
-    "text": "Save your work in R objects\n\nVirtually anything, including the results of any R function, can be saved in an object.\nThis is accomplished by using an assignment operator, which can be an equals symbol (=).\n\nYou can make up any name you want for a R object. However, there are two basic rules for this:\n\nIt has to be different from a function name in R.\nIt has to be specific possible yet succinct."
+    "text": "Save your work in R objects\n\nVirtually anything, including the results of any R function, can be saved in an object.\nThis is accomplished by using an assignment operator, which can be an equal symbol (=) or a leftward symbol (&lt;-).\n\nYou can make up any name you want for a R object. However, there are two basic rules for this:\n\nIt has to be different from a function name in R.\nIt has to be specific possible yet succinct."
   },
   {
     "objectID": "T2_Tools/Tools.slides.html#for-example",
@@ -627,7 +627,7 @@
     "href": "T2_Tools/Tools.slides.html#vectors",
     "title": "Tools for Data Manipulation",
     "section": "Vectors",
-    "text": "Vectors\n\nSo far we have used R objects to store a single number. But in statistics we are dealing with variation, which by definition needs more than one number.\n\nA R object can also store a complete set of numbers, called a vector.\nYou can think of a list as a vector of numbers (or values).\n\n\nThe c() command can be used to combine several individual values into a list.\n\npuedes pensar que el c es por combinar"
+    "text": "Vectors\n\nSo far we have used R objects to store a single number. But in data visualization we are dealing with multiple numbers or observations.\n\nA R object can also store a complete set of numbers, called a vector.\nYou can think of a list as a vector of numbers (or values).\n\n\nThe c() command can be used to combine several individual values into a list.\n\npuedes pensar que el c es por combinar"
   },
   {
     "objectID": "T2_Tools/Tools.slides.html#for-example-1",
@@ -648,7 +648,7 @@
     "href": "T2_Tools/Tools.slides.html#indexing",
     "title": "Tools for Data Manipulation",
     "section": "Indexing",
-    "text": "Indexing\n \nWe can index a position in the vector using square brackets with a number like this: [1].\nSo, if we wanted to print the contents of the first position in my_vector, we could write\n\nmy_vector[1]\n\n[1] 1"
+    "text": "Indexing\n\nWe can index a position in the vector using square brackets with a number like this: [1].\nSo, if we wanted to print the contents of the first position in my_vector, we could write\n\nmy_vector[1]\n\n[1] 1\n\n\n\n\nIn contrast with Python, the first element of an R vector is indexed using 1."
   },
   {
     "objectID": "T2_Tools/Tools.slides.html#a-little-more-about-r-objects",
