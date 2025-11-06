@@ -22,8 +22,10 @@ editor: visual
 </br>
 
 1.  Tidy Data
-2.  Pivot and Rectangling Operations
+2.  **tidyr** within the Tidyverse
+3.  Data Wrangling
 
+# Tidy Data
 
 ## A new library: tidyr
 
@@ -70,7 +72,7 @@ library(tidyr)
 6. **Communicate:** Share insights clearly.
 
 
-## Why do we need Tidy Data?
+## Why do we need tidy data?
 
 > “Tidy datasets are easy to manipulate, model, and visualize.” — *Hadley Wickham*
 
@@ -84,46 +86,7 @@ library(tidyr)
 :::
 
 
-## Example
 
-```{r}
-# Example of messy data
-library(tibble)
-library(dplyr)
-
-sales <- tibble(
-  store = c("A", "B", "C"),
-  jan_sales = c(100, 80, 120),
-  feb_sales = c(110, 95, 130)
-)
-sales
-```
-
-## Problem: Not Tidy!
-
-</br>
-
-::: incremental
-- Variable names (`jan_sales`, `feb_sales`) store values (`months`).
-- Each column should represent a variable, not a combination of variables.
-- Each row should represent a single observation.
-:::
-
-## The goal of tidyr
-
-> Make messy data tidy: one observation per row, one variable per column. 
-
-```{r}
-# Tidy version of the data
-library(tidyr)
-
-sales_tidy <- sales %>%
-  pivot_longer(cols = ends_with("sales"),
-               names_to = "month",
-               values_to = "sales")
-sales_tidy
-
-```
 
 ## Tidy Data
 
@@ -151,11 +114,13 @@ In tidy data:
 <https://openscapes.org/blog/2020-10-12-tidy-data/>
 :::
 
-## The "Messy Data" Reality
+## 
 
-Many industrial datasets are *not tidy*.  
+</br></br>
 
-Examples:
+Indeed, many industrial datasets are *not tidy*. For instance:
+
+</br>
 
 | Dataset | Problem |
 |:--|:--|
@@ -163,8 +128,31 @@ Examples:
 | Maintenance logs | Multiple variables combined in one column |
 | Quality inspections | Missing or inconsistent codes |
 
-**Our task:** Use `tidyr` to fix these structures before analysis.
 
+## Example
+
+```{r}
+# Example of messy data
+library(tibble)
+library(dplyr)
+
+sales <- tibble(
+  store = c("A", "B", "C"),
+  jan_sales = c(100, 80, 120),
+  feb_sales = c(110, 95, 130)
+)
+sales
+```
+
+## Problem: Not Tidy!
+
+</br>
+
+::: incremental
+- Variable names (`jan_sales`, `feb_sales`) store values (`months`).
+- Each column should represent a variable, not a combination of variables.
+- Each row should represent a single observation.
+:::
 
 
 ## REMOVE
@@ -201,18 +189,20 @@ survey_tidy
 
 ```
 
-## `tidyr` and the Tidyverse
+# tidyr within the Tidyverse
+
+## The role of the tidyr package
 
 </br>
 
 ::: incremental
-- `tidyr` works seamlessly with **dplyr**.  
-- While `dplyr` focuses on **data manipulation**, `tidyr` focuses on **data structure**.  
-- Together, they make your data **clean** and **consistent** before visualization or modeling.
+- **tidyr** works seamlessly with **dplyr**.  
+- While **dplyr** focuses on data manipulation, **tidyr** focuses on data structure.  
+- Together, they make your data clean and consistent before visualization or modeling.
 :::
 
 
-## `tidyr`'s functions
+## tidyr's functions
 
 The **tidyr** provides functions for reshaping, organizing, and completing data.
 
@@ -368,6 +358,8 @@ That’s why `pivot_longer()` is your best friend before plotting.
 -   build automatic workflow for analysis, feed different data sets.
 :::
 
+# Data Wrangling
+
 ## Data Wrangling
 
 <br>
@@ -376,24 +368,13 @@ That’s why `pivot_longer()` is your best friend before plotting.
 - It involves merging, reshaping, filtering, and organizing data for analysis.
 - Here, we illustrate some special functions of the **tidyverse** for cleaning common issues with a dataset.
 
----
 
-## Example
-
-Consider an industrial engineer who receives a messy Excel file from a manufacturing client.  
-The data file is called **"industrial_dataset.xlsx"**, and includes data about machine maintenance logs, production output, and operator comments.
-
-The **goal** is to clean and prepare this dataset using **tidyverse** functions so it can be analyzed.
-
----
 
 ## Read the dataset
 
 ```{r}
 library(tidyverse)
 library(readxl)
-
-
 ```
 
 ## Example 2
@@ -402,7 +383,7 @@ Consider an industrial engineer who receives a messy Excel file from a manufactu
 
 The **goal** is to clean and prepare this dataset using pandas so it can be analyzed.
 
-Let's read the data set into Python.
+Let's read the data set into R
 
 ```{r}
 #| echo: true
@@ -413,6 +394,8 @@ client_data = read_excel("industrial_dataset.xlsx")
 
 ## 
 
+</br></br>
+
 ```{r}
 #| echo: true
 
@@ -422,7 +405,6 @@ client_data %>% head()
 
 ## Remove duplicate rows
 
-</br></br>
 
 Duplicate or identical rows are rows that have the same entries in every column in the dataset.
 
@@ -432,17 +414,9 @@ If only one row is needed for the analysis, we can remove the duplicates using t
 #| echo: true
 
 client_data_single = client_data  %>% distinct()
-```
-
-## 
-
-The `client_data_single` dataframe does not have duplicate rows.
-
-```{r}
-#| echo: true
-
 client_data_single %>% head()
 ```
+
 
 ## Add an index column
 
@@ -500,6 +474,8 @@ complete_data = client_data_single %>%
 
 ## 
 
+</br></br>
+
 ```{r}
 #| echo: true
 
@@ -507,8 +483,6 @@ complete_data %>%  head()
 ```
 
 ## Replace values
-
-</br>
 
 There are some cases in which columns have some undesired or unwatned values. Consider the `Output (units)` as an example.
 
@@ -522,8 +496,6 @@ The column has the numbers of units but also text such as "error".
 
 ## 
 
-</br>
-
 We can replace the "error" in this column by a user-specified value, say, 0. To this end, we use the functions `mutate()`, `na_if()` or `if_else()`. 
 
 ```{r}
@@ -531,12 +503,7 @@ We can replace the "error" in this column by a user-specified value, say, 0. To 
 
 complete_data = complete_data %>% 
 mutate(`Output (units)` = na_if(`Output (units)`, "error"))
-
 ```
-
-## 
-
-</br>
 
 Let's check the new column.
 
@@ -546,8 +513,23 @@ Let's check the new column.
 complete_data %>%  select(`Output (units)`) %>%  head()
 ```
 
-Note that the new column is now numeric.
+However, the new column is character `chr`.
 
+##
+
+</br></br>
+
+We turn the column numeric using the functions `mutate()` and `as.numeric`
+
+```{r}
+
+complete_data = complete_data %>% 
+mutate(`Output (units)` = as.numeric(`Output (units)`))
+
+complete_data %>%  select(`Output (units)`) %>%  head()
+```
+
+Now, the column is numeric or `dbl`.
 
 ## A new library: stringr
 
@@ -558,8 +540,6 @@ Note that the new column is now numeric.
 
 ::: {.column width="50%"}
 -   **stringr** provides a consistent set of functions for working with strings.
-
--   It helps you clean, manipulate, and transform text data easily.
 
 -   It is also part of the **tidyverse** collection of packages.
 
@@ -599,8 +579,6 @@ complete_data %>% select(Comment)
 
 ## 
 
-</br>
-
 We can split the values in the column according to the colon ":".
 
 That is, everything before the colon will be in a column. Everything after the colon will be in another column. To achieve this, we use the function `separate()` from the **tidyr** package.
@@ -617,13 +595,15 @@ separate(Comment, into = c("First_comment", "Second_comment"), sep = ":", fill =
 
 ## 
 
+</br></br>
+
 The result is two columns.
 
 ```{r}
 #| echo: true
 #| output: true
 
-augmented_data %>%  head()
+augmented_data %>% select(`First_comment`, `Second_comment`) %>%  head()
 ```
 
 
@@ -654,13 +634,6 @@ Let's see the cleaned column.
 augmented_data %>%  select(First_comment) %>%  head()
 ```
 
-## 
-
-</br>
-
-We can also remove other characters.
-
-
 ## Transform text case
 
 When working with text columns such as those containing names, it might be possible to have different ways of writing. A common case is when having lower case or upper case names or a combination thereof.
@@ -676,8 +649,6 @@ complete_data %>% select(Operator) %>%  head()
 
 ## Remove extra spaces
 
-</br>
-
 To deal with names, we first use the `str_trim()` to remove leading and trailing characters from strings.
 
 ```{r}
@@ -686,7 +657,7 @@ To deal with names, we first use the `str_trim()` to remove leading and trailing
 complete_data =  complete_data %>% 
 mutate(Operator = str_trim(Operator))
 
-complete_data %>%  head()
+complete_data %>% select(Operator) %>%  head()
 ```
 
 ## Change to lowercase letters
@@ -735,3 +706,4 @@ head()
 ```
 
 
+# [Return to main page](https://alanrvazquez.github.io/TEC-IN2039-EN/)

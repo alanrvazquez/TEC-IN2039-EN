@@ -214,8 +214,14 @@ Alan R. Vazquez
 <p><br></p>
 <ol type="1">
 <li>Tidy Data</li>
-<li>Pivot and Rectangling Operations</li>
+<li><strong>tidyr</strong> within the Tidyverse</li>
+<li>Data Wrangling</li>
 </ol>
+</section>
+<section>
+<section id="tidy-data" class="title-slide slide level1 center">
+<h1>Tidy Data</h1>
+
 </section>
 <section id="a-new-library-tidyr" class="slide level2">
 <h2>A new library: tidyr</h2>
@@ -263,7 +269,7 @@ Alan R. Vazquez
 </ol>
 </section>
 <section id="why-do-we-need-tidy-data" class="slide level2">
-<h2>Why do we need Tidy Data?</h2>
+<h2>Why do we need tidy data?</h2>
 <blockquote>
 <p>“Tidy datasets are easy to manipulate, model, and visualize.” — <em>Hadley Wickham</em></p>
 </blockquote>
@@ -275,48 +281,7 @@ Alan R. Vazquez
 <li class="fragment">The <strong>tidyr</strong> package has functions to make your data <em>tidy</em>.</li>
 </ul>
 </section>
-<section id="example" class="slide level2">
-<h2>Example</h2>
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 3 × 3
-  store jan_sales feb_sales
-  &lt;chr&gt;     &lt;dbl&gt;     &lt;dbl&gt;
-1 A           100       110
-2 B            80        95
-3 C           120       130</code></pre>
-</div>
-</div>
-</section>
-<section id="problem-not-tidy" class="slide level2">
-<h2>Problem: Not Tidy!</h2>
-<p><br></p>
-<ul>
-<li class="fragment">Variable names (<code>jan_sales</code>, <code>feb_sales</code>) store values (<code>months</code>).</li>
-<li class="fragment">Each column should represent a variable, not a combination of variables.</li>
-<li class="fragment">Each row should represent a single observation.</li>
-</ul>
-</section>
-<section id="the-goal-of-tidyr" class="slide level2">
-<h2>The goal of tidyr</h2>
-<blockquote>
-<p>Make messy data tidy: one observation per row, one variable per column.</p>
-</blockquote>
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 6 × 3
-  store month     sales
-  &lt;chr&gt; &lt;chr&gt;     &lt;dbl&gt;
-1 A     jan_sales   100
-2 A     feb_sales   110
-3 B     jan_sales    80
-4 B     feb_sales    95
-5 C     jan_sales   120
-6 C     feb_sales   130</code></pre>
-</div>
-</div>
-</section>
-<section id="tidy-data" class="slide level2">
+<section id="tidy-data-1" class="slide level2">
 <h2>Tidy Data</h2>
 <p><br></p>
 <div class="columns">
@@ -342,10 +307,11 @@ Alan R. Vazquez
 <p><a href="https://openscapes.org/blog/2020-10-12-tidy-data/" class="uri">https://openscapes.org/blog/2020-10-12-tidy-data/</a></p>
 </div>
 </section>
-<section id="the-messy-data-reality" class="slide level2">
-<h2>The “Messy Data” Reality</h2>
-<p>Many industrial datasets are <em>not tidy</em>.</p>
-<p>Examples:</p>
+<section id="section-2" class="slide level2">
+<h2></h2>
+<p><br><br></p>
+<p>Indeed, many industrial datasets are <em>not tidy</em>. For instance:</p>
+<p><br></p>
 <table class="caption-top">
 <thead>
 <tr class="header">
@@ -368,7 +334,28 @@ Alan R. Vazquez
 </tr>
 </tbody>
 </table>
-<p><strong>Our task:</strong> Use <code>tidyr</code> to fix these structures before analysis.</p>
+</section>
+<section id="example" class="slide level2">
+<h2>Example</h2>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 3
+  store jan_sales feb_sales
+  &lt;chr&gt;     &lt;dbl&gt;     &lt;dbl&gt;
+1 A           100       110
+2 B            80        95
+3 C           120       130</code></pre>
+</div>
+</div>
+</section>
+<section id="problem-not-tidy" class="slide level2">
+<h2>Problem: Not Tidy!</h2>
+<p><br></p>
+<ul>
+<li class="fragment">Variable names (<code>jan_sales</code>, <code>feb_sales</code>) store values (<code>months</code>).</li>
+<li class="fragment">Each column should represent a variable, not a combination of variables.</li>
+<li class="fragment">Each row should represent a single observation.</li>
+</ul>
 </section>
 <section id="remove" class="slide level2">
 <h2>REMOVE</h2>
@@ -404,20 +391,25 @@ Alan R. Vazquez
 6     3 q1       evening        3</code></pre>
 </div>
 </div>
+</section></section>
+<section>
+<section id="tidyr-within-the-tidyverse" class="title-slide slide level1 center">
+<h1>tidyr within the Tidyverse</h1>
+
 </section>
-<section id="tidyr-and-the-tidyverse" class="slide level2">
-<h2><code>tidyr</code> and the Tidyverse</h2>
+<section id="the-role-of-the-tidyr-package" class="slide level2">
+<h2>The role of the tidyr package</h2>
 <p><br></p>
 <ul>
-<li class="fragment"><code>tidyr</code> works seamlessly with <strong>dplyr</strong>.<br>
+<li class="fragment"><strong>tidyr</strong> works seamlessly with <strong>dplyr</strong>.<br>
 </li>
-<li class="fragment">While <code>dplyr</code> focuses on <strong>data manipulation</strong>, <code>tidyr</code> focuses on <strong>data structure</strong>.<br>
+<li class="fragment">While <strong>dplyr</strong> focuses on data manipulation, <strong>tidyr</strong> focuses on data structure.<br>
 </li>
-<li class="fragment">Together, they make your data <strong>clean</strong> and <strong>consistent</strong> before visualization or modeling.</li>
+<li class="fragment">Together, they make your data clean and consistent before visualization or modeling.</li>
 </ul>
 </section>
 <section id="tidyrs-functions" class="slide level2">
-<h2><code>tidyr</code>’s functions</h2>
+<h2>tidyr’s functions</h2>
 <p>The <strong>tidyr</strong> provides functions for reshaping, organizing, and completing data.</p>
 <table class="caption-top">
 <thead>
@@ -626,8 +618,13 @@ Alan R. Vazquez
           display:block!important;
       }</style></aside>
 </div>
+</section></section>
+<section>
+<section id="data-wrangling" class="title-slide slide level1 center">
+<h1>Data Wrangling</h1>
+
 </section>
-<section id="data-wrangling" class="slide level2">
+<section id="data-wrangling-1" class="slide level2">
 <h2>Data Wrangling</h2>
 <p><br></p>
 <ul>
@@ -636,12 +633,6 @@ Alan R. Vazquez
 <li>Here, we illustrate some special functions of the <strong>tidyverse</strong> for cleaning common issues with a dataset.</li>
 </ul>
 </section>
-<section id="example-1" class="slide level2">
-<h2>Example</h2>
-<p>Consider an industrial engineer who receives a messy Excel file from a manufacturing client.<br>
-The data file is called <strong>“industrial_dataset.xlsx”</strong>, and includes data about machine maintenance logs, production output, and operator comments.</p>
-<p>The <strong>goal</strong> is to clean and prepare this dataset using <strong>tidyverse</strong> functions so it can be analyzed.</p>
-</section>
 <section id="read-the-dataset" class="slide level2">
 <h2>Read the dataset</h2>
 </section>
@@ -649,17 +640,18 @@ The data file is called <strong>“industrial_dataset.xlsx”</strong>, and incl
 <h2>Example 2</h2>
 <p>Consider an industrial engineer who receives a messy Excel file from a manufacturing client. The data file is called “industrial_dataset.xlsx”, which file includes data about machine maintenance logs, production output, and operator comments.</p>
 <p>The <strong>goal</strong> is to clean and prepare this dataset using pandas so it can be analyzed.</p>
-<p>Let’s read the data set into Python.</p>
+<p>Let’s read the data set into R</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a><span class="co"># Load the Excel file into a tibble</span></span>
-<span id="cb16-2"><a></a>client_data <span class="ot">=</span> <span class="fu">read_excel</span>(<span class="st">"industrial_dataset.xlsx"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a><span class="co"># Load the Excel file into a tibble</span></span>
+<span id="cb15-2"><a></a>client_data <span class="ot">=</span> <span class="fu">read_excel</span>(<span class="st">"industrial_dataset.xlsx"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="section-2" class="slide level2">
+<section id="section-3" class="slide level2">
 <h2></h2>
+<p><br><br></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a><span class="co"># Preview the dataset.</span></span>
-<span id="cb17-2"><a></a>client_data <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a><span class="co"># Preview the dataset.</span></span>
+<span id="cb16-2"><a></a>client_data <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 5
   `Machine ID` `Output (units)` `Maintenance Date`  Operator Comment            
@@ -675,18 +667,11 @@ The data file is called <strong>“industrial_dataset.xlsx”</strong>, and incl
 </section>
 <section id="remove-duplicate-rows" class="slide level2">
 <h2>Remove duplicate rows</h2>
-<p><br><br></p>
 <p>Duplicate or identical rows are rows that have the same entries in every column in the dataset.</p>
 <p>If only one row is needed for the analysis, we can remove the duplicates using the <code>distinct()</code> function.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a></a>client_data_single <span class="ot">=</span> client_data  <span class="sc">%&gt;%</span> <span class="fu">distinct</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="section-3" class="slide level2">
-<h2></h2>
-<p>The <code>client_data_single</code> dataframe does not have duplicate rows.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a></a>client_data_single <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a></a>client_data_single <span class="ot">=</span> client_data  <span class="sc">%&gt;%</span> <span class="fu">distinct</span>()</span>
+<span id="cb18-2"><a></a>client_data_single <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 5
   `Machine ID` `Output (units)` `Maintenance Date`  Operator Comment            
@@ -705,14 +690,14 @@ The data file is called <strong>“industrial_dataset.xlsx”</strong>, and incl
 <p><br></p>
 <p>In some cases, it is useful to have a unique identifier for each row in the dataset. We can create an identifier using the functions <code>mutate()</code> and `row_number()`` with some extra syntaxis.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a></a>client_data_single <span class="ot">=</span> client_data_single <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">ID =</span> <span class="fu">row_number</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a></a>client_data_single <span class="ot">=</span> client_data_single <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">ID =</span> <span class="fu">row_number</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="section-4" class="slide level2">
 <h2></h2>
 <p>The new column is appended to the end of the dataframe.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a></a>client_data_single <span class="sc">%&gt;%</span>  <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a></a>client_data_single <span class="sc">%&gt;%</span>  <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 6
   `Machine ID` `Output (units)` `Maintenance Date`  Operator Comment          ID
@@ -730,10 +715,10 @@ The data file is called <strong>“industrial_dataset.xlsx”</strong>, and incl
 <h2></h2>
 <p>To bring it to the beginning of the array, we can use the <code>select()</code> and <code>everything()</code> functions.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a></a>client_data_single <span class="ot">=</span> client_data_single <span class="sc">%&gt;%</span> </span>
-<span id="cb25-2"><a></a><span class="fu">select</span>(ID, <span class="fu">everything</span>())</span>
-<span id="cb25-3"><a></a></span>
-<span id="cb25-4"><a></a>client_data_single <span class="sc">%&gt;%</span>  <span class="fu">head</span>(<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a></a>client_data_single <span class="ot">=</span> client_data_single <span class="sc">%&gt;%</span> </span>
+<span id="cb23-2"><a></a><span class="fu">select</span>(ID, <span class="fu">everything</span>())</span>
+<span id="cb23-3"><a></a></span>
+<span id="cb23-4"><a></a>client_data_single <span class="sc">%&gt;%</span>  <span class="fu">head</span>(<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 3 × 6
      ID `Machine ID` `Output (units)` `Maintenance Date`  Operator Comment      
@@ -749,18 +734,19 @@ The data file is called <strong>“industrial_dataset.xlsx”</strong>, and incl
 <p>In the dataset, there are columns with missing values. If we would like to fill them with specific values or text, we use the <code>replace_na()</code> function. In this function, we use the syntaxis <code>'Variable' = 'Replace'</code>, where the <code>Variable</code> is the column in the dataset and <code>Replace</code> is the text or number to fill the entry in.</p>
 <p>Let’s fill in the missing entries of the columns <code>Operator</code>, <code>Maintenance Date</code>, and <code>Comment</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a></a>complete_data <span class="ot">=</span> client_data_single <span class="sc">%&gt;%</span> </span>
-<span id="cb27-2"><a></a>                  <span class="fu">replace_na</span>( <span class="fu">list</span>(</span>
-<span id="cb27-3"><a></a>                  <span class="at">Operator =</span> <span class="st">"Unknown"</span>,</span>
-<span id="cb27-4"><a></a>                  <span class="st">`</span><span class="at">Maintenance Date</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">as.Date</span>(<span class="st">"2023-01-01"</span>),</span>
-<span id="cb27-5"><a></a>                  <span class="at">Comment =</span> <span class="st">"None"</span></span>
-<span id="cb27-6"><a></a>                  ) )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a></a>complete_data <span class="ot">=</span> client_data_single <span class="sc">%&gt;%</span> </span>
+<span id="cb25-2"><a></a>                  <span class="fu">replace_na</span>( <span class="fu">list</span>(</span>
+<span id="cb25-3"><a></a>                  <span class="at">Operator =</span> <span class="st">"Unknown"</span>,</span>
+<span id="cb25-4"><a></a>                  <span class="st">`</span><span class="at">Maintenance Date</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">as.Date</span>(<span class="st">"2023-01-01"</span>),</span>
+<span id="cb25-5"><a></a>                  <span class="at">Comment =</span> <span class="st">"None"</span></span>
+<span id="cb25-6"><a></a>                  ) )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="section-6" class="slide level2">
 <h2></h2>
+<p><br><br></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a></a>complete_data <span class="sc">%&gt;%</span>  <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a></a>complete_data <span class="sc">%&gt;%</span>  <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 6
      ID `Machine ID` `Output (units)` `Maintenance Date`  Operator Comment      
@@ -776,10 +762,9 @@ The data file is called <strong>“industrial_dataset.xlsx”</strong>, and incl
 </section>
 <section id="replace-values" class="slide level2">
 <h2>Replace values</h2>
-<p><br></p>
 <p>There are some cases in which columns have some undesired or unwatned values. Consider the <code>Output (units)</code> as an example.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a></a>complete_data <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="st">`</span><span class="at">Output (units)</span><span class="st">`</span>) <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a></a>complete_data <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="st">`</span><span class="at">Output (units)</span><span class="st">`</span>) <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 1
   `Output (units)`
@@ -796,19 +781,14 @@ The data file is called <strong>“industrial_dataset.xlsx”</strong>, and incl
 </section>
 <section id="section-7" class="slide level2">
 <h2></h2>
-<p><br></p>
 <p>We can replace the “error” in this column by a user-specified value, say, 0. To this end, we use the functions <code>mutate()</code>, <code>na_if()</code> or <code>if_else()</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a></a>complete_data <span class="ot">=</span> complete_data <span class="sc">%&gt;%</span> </span>
-<span id="cb32-2"><a></a><span class="fu">mutate</span>(<span class="st">`</span><span class="at">Output (units)</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">na_if</span>(<span class="st">`</span><span class="at">Output (units)</span><span class="st">`</span>, <span class="st">"error"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a></a>complete_data <span class="ot">=</span> complete_data <span class="sc">%&gt;%</span> </span>
+<span id="cb30-2"><a></a><span class="fu">mutate</span>(<span class="st">`</span><span class="at">Output (units)</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">na_if</span>(<span class="st">`</span><span class="at">Output (units)</span><span class="st">`</span>, <span class="st">"error"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section>
-<section id="section-8" class="slide level2">
-<h2></h2>
-<p><br></p>
 <p>Let’s check the new column.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a></a>complete_data <span class="sc">%&gt;%</span>  <span class="fu">select</span>(<span class="st">`</span><span class="at">Output (units)</span><span class="st">`</span>) <span class="sc">%&gt;%</span>  <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a></a>complete_data <span class="sc">%&gt;%</span>  <span class="fu">select</span>(<span class="st">`</span><span class="at">Output (units)</span><span class="st">`</span>) <span class="sc">%&gt;%</span>  <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 1
   `Output (units)`
@@ -821,7 +801,26 @@ The data file is called <strong>“industrial_dataset.xlsx”</strong>, and incl
 6 870             </code></pre>
 </div>
 </div>
-<p>Note that the new column is now numeric.</p>
+<p>However, the new column is character <code>chr</code>.</p>
+</section>
+<section id="section-8" class="slide level2">
+<h2></h2>
+<p><br><br></p>
+<p>We turn the column numeric using the functions <code>mutate()</code> and <code>as.numeric</code></p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 1
+  `Output (units)`
+             &lt;dbl&gt;
+1             1200
+2             1050
+3               NA
+4              950
+5              900
+6              870</code></pre>
+</div>
+</div>
+<p>Now, the column is numeric or <code>dbl</code>.</p>
 </section>
 <section id="a-new-library-stringr" class="slide level2">
 <h2>A new library: stringr</h2>
@@ -835,21 +834,20 @@ The data file is called <strong>“industrial_dataset.xlsx”</strong>, and incl
 </div><div class="column" style="width:50%;">
 <ul>
 <li><p><strong>stringr</strong> provides a consistent set of functions for working with strings.</p></li>
-<li><p>It helps you clean, manipulate, and transform text data easily.</p></li>
 <li><p>It is also part of the <strong>tidyverse</strong> collection of packages.</p></li>
 <li><p><a href="https://stringr.tidyverse.org/" class="uri">https://stringr.tidyverse.org/</a></p></li>
 </ul>
 </div></div>
 <p>Load it to Google Colab with the following code.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a></a><span class="fu">library</span>(stringr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a></a><span class="fu">library</span>(stringr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="split-column-into-multiple-ones" class="slide level2">
 <h2>Split column into multiple ones</h2>
 <p>There are some cases in which we want to split a column according to a character. For example, consider the column <code>Comment</code> from the dataset.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a></a>complete_data <span class="sc">%&gt;%</span> <span class="fu">select</span>(Comment)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a></a>complete_data <span class="sc">%&gt;%</span> <span class="fu">select</span>(Comment)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 99 × 1
    Comment                 
@@ -892,31 +890,30 @@ The data file is called <strong>“industrial_dataset.xlsx”</strong>, and incl
 </section>
 <section id="section-10" class="slide level2">
 <h2></h2>
-<p><br></p>
 <p>We can split the values in the column according to the colon “:”.</p>
 <p>That is, everything before the colon will be in a column. Everything after the colon will be in another column. To achieve this, we use the function <code>separate()</code> from the <strong>tidyr</strong> package.</p>
 <p>One input of the function is the symbol or character for which we cant to make a split. The other input, <code>expand = True</code> tells Python that we want to create new columns.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a></a>augmented_data <span class="ot">=</span> complete_data  <span class="sc">%&gt;%</span> </span>
-<span id="cb39-2"><a></a><span class="fu">separate</span>(Comment, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">"First_comment"</span>, <span class="st">"Second_comment"</span>), <span class="at">sep =</span> <span class="st">":"</span>, <span class="at">fill =</span> <span class="st">"right"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a></a>augmented_data <span class="ot">=</span> complete_data  <span class="sc">%&gt;%</span> </span>
+<span id="cb38-2"><a></a><span class="fu">separate</span>(Comment, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">"First_comment"</span>, <span class="st">"Second_comment"</span>), <span class="at">sep =</span> <span class="st">":"</span>, <span class="at">fill =</span> <span class="st">"right"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="section-11" class="slide level2">
 <h2></h2>
+<p><br><br></p>
 <p>The result is two columns.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a></a>augmented_data <span class="sc">%&gt;%</span>  <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a></a>augmented_data <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="st">`</span><span class="at">First_comment</span><span class="st">`</span>, <span class="st">`</span><span class="at">Second_comment</span><span class="st">`</span>) <span class="sc">%&gt;%</span>  <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 6 × 7
-     ID `Machine ID` `Output (units)` `Maintenance Date`  Operator First_comment
-  &lt;int&gt;        &lt;dbl&gt; &lt;chr&gt;            &lt;dttm&gt;              &lt;chr&gt;    &lt;chr&gt;        
-1     1          101 1200             2023-01-10 00:00:00 Ana      "ok"         
-2     2          102 1050             2023-01-12 00:00:00 Bob      "Needs oil!" 
-3     3          103 &lt;NA&gt;             2023-01-13 00:00:00 Charlie  "All good\r\…
-4     4          103 950              2023-01-13 00:00:00 Charlie  "All good\r\…
-5     5          104 900              2023-01-14 00:00:00 Unknown  "Delay"      
-6     6          105 870              2023-01-01 00:00:00 DAVE     "completed"  
-# ℹ 1 more variable: Second_comment &lt;chr&gt;</code></pre>
+<pre><code># A tibble: 6 × 2
+  First_comment  Second_comment
+  &lt;chr&gt;          &lt;chr&gt;         
+1 "ok"            &lt;NA&gt;         
+2 "Needs oil!"    &lt;NA&gt;         
+3 "All good\r\n"  &lt;NA&gt;         
+4 "All good\r\n"  &lt;NA&gt;         
+5 "Delay"        " power issue"
+6 "completed"     &lt;NA&gt;         </code></pre>
 </div>
 </div>
 </section>
@@ -926,8 +923,8 @@ The data file is called <strong>“industrial_dataset.xlsx”</strong>, and incl
 <p>Something that we notice is that the column <code>First_Comment</code> has some extra characters like “” that may be useless when working with the data.</p>
 <p>We can remove them using the function <code>str_replace_all()</code> or <code>str_trim()</code> from the <strong>stringr</strong> package. The input of the function is the character to remove.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a></a>augmented_data <span class="ot">=</span> augmented_data  <span class="sc">%&gt;%</span> </span>
-<span id="cb42-2"><a></a><span class="fu">mutate</span>(<span class="at">First_comment =</span> <span class="fu">str_trim</span>(First_comment, <span class="at">side =</span> <span class="st">"both"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a></a>augmented_data <span class="ot">=</span> augmented_data  <span class="sc">%&gt;%</span> </span>
+<span id="cb41-2"><a></a><span class="fu">mutate</span>(<span class="at">First_comment =</span> <span class="fu">str_trim</span>(First_comment, <span class="at">side =</span> <span class="st">"both"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="section-12" class="slide level2">
@@ -935,7 +932,7 @@ The data file is called <strong>“industrial_dataset.xlsx”</strong>, and incl
 <p><br></p>
 <p>Let’s see the cleaned column.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a></a>augmented_data <span class="sc">%&gt;%</span>  <span class="fu">select</span>(First_comment) <span class="sc">%&gt;%</span>  <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a></a>augmented_data <span class="sc">%&gt;%</span>  <span class="fu">select</span>(First_comment) <span class="sc">%&gt;%</span>  <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 1
   First_comment
@@ -949,17 +946,12 @@ The data file is called <strong>“industrial_dataset.xlsx”</strong>, and incl
 </div>
 </div>
 </section>
-<section id="section-13" class="slide level2">
-<h2></h2>
-<p><br></p>
-<p>We can also remove other characters.</p>
-</section>
 <section id="transform-text-case" class="slide level2">
 <h2>Transform text case</h2>
 <p>When working with text columns such as those containing names, it might be possible to have different ways of writing. A common case is when having lower case or upper case names or a combination thereof.</p>
 <p>For example, consider the column <code>Operator</code> containing the names of the operators.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a></a>complete_data <span class="sc">%&gt;%</span> <span class="fu">select</span>(Operator) <span class="sc">%&gt;%</span>  <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a></a>complete_data <span class="sc">%&gt;%</span> <span class="fu">select</span>(Operator) <span class="sc">%&gt;%</span>  <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 1
   Operator
@@ -975,23 +967,22 @@ The data file is called <strong>“industrial_dataset.xlsx”</strong>, and incl
 </section>
 <section id="remove-extra-spaces" class="slide level2">
 <h2>Remove extra spaces</h2>
-<p><br></p>
 <p>To deal with names, we first use the <code>str_trim()</code> to remove leading and trailing characters from strings.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a></a>complete_data <span class="ot">=</span>  complete_data <span class="sc">%&gt;%</span> </span>
-<span id="cb47-2"><a></a><span class="fu">mutate</span>(<span class="at">Operator =</span> <span class="fu">str_trim</span>(Operator))</span>
-<span id="cb47-3"><a></a></span>
-<span id="cb47-4"><a></a>complete_data <span class="sc">%&gt;%</span>  <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a></a>complete_data <span class="ot">=</span>  complete_data <span class="sc">%&gt;%</span> </span>
+<span id="cb46-2"><a></a><span class="fu">mutate</span>(<span class="at">Operator =</span> <span class="fu">str_trim</span>(Operator))</span>
+<span id="cb46-3"><a></a></span>
+<span id="cb46-4"><a></a>complete_data <span class="sc">%&gt;%</span> <span class="fu">select</span>(Operator) <span class="sc">%&gt;%</span>  <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 6 × 6
-     ID `Machine ID` `Output (units)` `Maintenance Date`  Operator Comment      
-  &lt;int&gt;        &lt;dbl&gt; &lt;chr&gt;            &lt;dttm&gt;              &lt;chr&gt;    &lt;chr&gt;        
-1     1          101 1200             2023-01-10 00:00:00 Ana      "ok"         
-2     2          102 1050             2023-01-12 00:00:00 Bob      "Needs oil!" 
-3     3          103 &lt;NA&gt;             2023-01-13 00:00:00 Charlie  "All good\r\…
-4     4          103 950              2023-01-13 00:00:00 Charlie  "All good\r\…
-5     5          104 900              2023-01-14 00:00:00 Unknown  "Delay: powe…
-6     6          105 870              2023-01-01 00:00:00 DAVE     "completed"  </code></pre>
+<pre><code># A tibble: 6 × 1
+  Operator
+  &lt;chr&gt;   
+1 Ana     
+2 Bob     
+3 Charlie 
+4 Charlie 
+5 Unknown 
+6 DAVE    </code></pre>
 </div>
 </div>
 </section>
@@ -1000,10 +991,10 @@ The data file is called <strong>“industrial_dataset.xlsx”</strong>, and incl
 <p><br></p>
 <p>We can turn all names to lowercase using the function <code>str_to_lower()</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a></a>complete_data <span class="sc">%&gt;%</span> </span>
-<span id="cb49-2"><a></a><span class="fu">mutate</span>(<span class="at">Operator =</span> <span class="fu">str_to_lower</span>(Operator)) <span class="sc">%&gt;%</span> </span>
-<span id="cb49-3"><a></a><span class="fu">select</span>(Operator) <span class="sc">%&gt;%</span> </span>
-<span id="cb49-4"><a></a><span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a></a>complete_data <span class="sc">%&gt;%</span> </span>
+<span id="cb48-2"><a></a><span class="fu">mutate</span>(<span class="at">Operator =</span> <span class="fu">str_to_lower</span>(Operator)) <span class="sc">%&gt;%</span> </span>
+<span id="cb48-3"><a></a><span class="fu">select</span>(Operator) <span class="sc">%&gt;%</span> </span>
+<span id="cb48-4"><a></a><span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 1
   Operator
@@ -1022,10 +1013,10 @@ The data file is called <strong>“industrial_dataset.xlsx”</strong>, and incl
 <p><br></p>
 <p>We can turn all names to lowercase using the function <code>str_to_upper()</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a></a>complete_data <span class="sc">%&gt;%</span> </span>
-<span id="cb51-2"><a></a><span class="fu">mutate</span>(<span class="at">Operator =</span> <span class="fu">str_to_upper</span>(Operator)) <span class="sc">%&gt;%</span> </span>
-<span id="cb51-3"><a></a><span class="fu">select</span>(Operator) <span class="sc">%&gt;%</span> </span>
-<span id="cb51-4"><a></a><span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a></a>complete_data <span class="sc">%&gt;%</span> </span>
+<span id="cb50-2"><a></a><span class="fu">mutate</span>(<span class="at">Operator =</span> <span class="fu">str_to_upper</span>(Operator)) <span class="sc">%&gt;%</span> </span>
+<span id="cb50-3"><a></a><span class="fu">select</span>(Operator) <span class="sc">%&gt;%</span> </span>
+<span id="cb50-4"><a></a><span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 1
   Operator
@@ -1044,10 +1035,10 @@ The data file is called <strong>“industrial_dataset.xlsx”</strong>, and incl
 <p><br></p>
 <p>We can convert all names to title case using the function <code>str_to_title()</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a></a>complete_data <span class="sc">%&gt;%</span> </span>
-<span id="cb53-2"><a></a><span class="fu">mutate</span>(<span class="at">Operator =</span> <span class="fu">str_to_title</span>(Operator)) <span class="sc">%&gt;%</span> </span>
-<span id="cb53-3"><a></a><span class="fu">select</span>(Operator) <span class="sc">%&gt;%</span> </span>
-<span id="cb53-4"><a></a><span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a></a>complete_data <span class="sc">%&gt;%</span> </span>
+<span id="cb52-2"><a></a><span class="fu">mutate</span>(<span class="at">Operator =</span> <span class="fu">str_to_title</span>(Operator)) <span class="sc">%&gt;%</span> </span>
+<span id="cb52-3"><a></a><span class="fu">select</span>(Operator) <span class="sc">%&gt;%</span> </span>
+<span id="cb52-4"><a></a><span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 1
   Operator
@@ -1060,6 +1051,9 @@ The data file is called <strong>“industrial_dataset.xlsx”</strong>, and incl
 6 Dave    </code></pre>
 </div>
 </div>
+</section></section>
+<section id="return-to-main-page" class="title-slide slide level1 center">
+<h1><a href="https://alanrvazquez.github.io/TEC-IN2039-EN/">Return to main page</a></h1>
 
 
 </section>
