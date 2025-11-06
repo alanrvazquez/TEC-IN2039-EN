@@ -314,9 +314,9 @@ So, if we wanted to print the contents of the first position in `my_vector`, we 
 my_vector[1]
 ```
 
-. . . 
+. . .
 
-</br> 
+</br>
 
 [In contrast with Python, the first element of an R vector is indexed using 1.]{style="color:darkblue;"}
 
