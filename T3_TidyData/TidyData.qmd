@@ -25,158 +25,6 @@ editor: visual
 2.  Pivot and Rectangling Operations
 
 
-## The R for Data Science Workflow
-
-**Goal:** Understand where *data tidying* fits in the broader data science process.
-
----
-
-## Data Science Workflow
-
-![](images/r4ds_workflow.png){width="700"}
-
-::: incremental
-- Every data science project involves **importing**, **tidying**, **transforming**, **visualizing**, and **modeling** data.
-- **tidyr** focuses on the *tidy* part — making your data easy to work with.
-:::
-
----
-
-## Why Focus on Tidy Data?
-
-> “Tidy datasets are easy to manipulate, model, and visualize.” — *Hadley Wickham*
-
-::: incremental
-- Tidy data principles make R tools work together smoothly.
-- Each tidy dataset is like a well-organized spreadsheet.
-- Most errors in analysis happen before modeling — during **data wrangling**.
-:::
-
----
-
-## The Tidyverse
-
-**The tidyverse** is a collection of R packages designed for data science.
-
-| Package | Purpose |
-|:---|:---|
-| `readr` | Import rectangular data (CSV, TSV, etc.) |
-| `dplyr` | Manipulate and summarize data |
-| `tidyr` | Reshape and tidy data |
-| `ggplot2` | Create visualizations |
-| `purrr` | Work with functions and lists |
-| `stringr` | Handle text data |
-| `forcats` | Manage categorical variables |
-
----
-
-## A Realistic Workflow
-
-1. **Import:** Bring raw data into R.  
-2. **Tidy:** Reshape into a consistent format.  
-3. **Transform:** Create new variables and summaries.  
-4. **Visualize:** Explore patterns.  
-5. **Model:** Fit statistical or machine learning models.  
-6. **Communicate:** Share insights clearly.
-
----
-
-## Where Does tidyr Fit?
-
-![](images/workflow_tidyr_focus.png){width="650"}
-
-- **tidyr** connects *raw data* to *analysis-ready data*.
-- Often used **before** `dplyr` or `ggplot2`.
-
----
-
-## Data Messiness Example
-
-```{r}
-# Example of messy data
-library(tibble)
-library(dplyr)
-
-sales <- tibble(
-  store = c("A", "B", "C"),
-  jan_sales = c(100, 80, 120),
-  feb_sales = c(110, 95, 130)
-)
-sales
-```
-
-## Problem: Not Tidy!
-
-::: incremental
-- Variable names (`jan_sales`, `feb_sales`) store values (`months`).
-- Each column should represent a variable, not a combination of variables.
-- Each row should represent a single observation.
-:::
-
-## The goal of tidyr
-
-> Make messy data tidy: one observation per row, one variable per column. 
-
-```{r}
-# Tidy version of the data
-library(tidyr)
-
-sales_tidy <- sales %>%
-  pivot_longer(cols = ends_with("sales"),
-               names_to = "month",
-               values_to = "sales")
-sales_tidy
-
-```
-
-# Tidy Data
-
-## The R for Data Science Workflow
-
-</br></br>
-
-![](images/data-science-workflow.png){fig-align="center"}
-
-::: {style="font-size: 50%;"}
-<https://r4ds.hadley.nz/>
-:::
-
-## The Rationale for Tidy Data
-
-</br></br>
-
--   The *tidy* framework provides a consistent way to organize your data in R.
-
--   Getting your data into this format requires some upfront work, but that work pays off in the long term.
-
--   Once you have tidy data and the tidy tools provided by packages in the **tidyverse**, you will spend much less time munging data from one representation to another, allowing you to spend more time on the analytic questions at hand.
-
-## Tidy Data
-
-> "Tidy data is a standard way of mapping the meaning of a dataset to its structure." Hadley Wickham.
-
-::::: columns
-::: {.column width="70%"}
-In tidy data:
-
--   Each variable forms a column
--   Each observation forms a row
--   Each cell is a single measurement.
-:::
-
-::: {.column width="70%"}
-![](images/example_tidy_data.png){fig-align="center"}
-:::
-:::::
-
-## 
-
-![](images/tidydata_2.jpg){fig-align="center"}
-
-::: {style="font-size: 50%;"}
-<https://openscapes.org/blog/2020-10-12-tidy-data/>
-:::
-
 ## A new library: tidyr
 
 ::::: columns
@@ -202,24 +50,124 @@ Load it to Google Colab with the following code.
 library(tidyr)
 ```
 
+## Data Science Workflow
 
-## Part 2: Introduction to Tidy Data
+![](images/data-science-workflow.png){fig-align="center"}
 
-**Goal:** Learn what “tidy data” means and why it’s crucial for analysis and visualization.
 
-## What Is Tidy Data?
+- Every data science project involves importing, tidying, transforming, visualizing, modeling, and communicating data.
 
-::: callout-note
-In a tidy dataset:
-1. Each **variable** forms a column.  
-2. Each **observation** forms a row.  
-3. Each **value** forms a cell.
+
+## 
+
+</br>
+
+1. **Import:** Bring raw data into R.  
+2. **Tidy:** Reshape into a consistent format.  
+3. **Transform:** Create new variables and summaries.  
+4. **Visualize:** Explore patterns visually.  
+5. **Model:** Fit statistical or machine learning models.  
+6. **Communicate:** Share insights clearly.
+
+
+## Why do we need Tidy Data?
+
+> “Tidy datasets are easy to manipulate, model, and visualize.” — *Hadley Wickham*
+
+</br>
+
+::: incremental
+- Tidy data make R tools work together smoothly.
+- Each tidy dataset is like a well-organized spreadsheet.
+- Making your data tidy allows you to avoid common errors that occurred in the data analysis.
+- The **tidyr** package has functions to make your data *tidy*.
 :::
 
-This simple structure makes it easier to analyze, visualize, and model your data using R.
+
+## Example
+
+```{r}
+# Example of messy data
+library(tibble)
+library(dplyr)
+
+sales <- tibble(
+  store = c("A", "B", "C"),
+  jan_sales = c(100, 80, 120),
+  feb_sales = c(110, 95, 130)
+)
+sales
+```
+
+## Problem: Not Tidy!
+
+</br>
+
+::: incremental
+- Variable names (`jan_sales`, `feb_sales`) store values (`months`).
+- Each column should represent a variable, not a combination of variables.
+- Each row should represent a single observation.
+:::
+
+## The goal of tidyr
+
+> Make messy data tidy: one observation per row, one variable per column. 
+
+```{r}
+# Tidy version of the data
+library(tidyr)
+
+sales_tidy <- sales %>%
+  pivot_longer(cols = ends_with("sales"),
+               names_to = "month",
+               values_to = "sales")
+sales_tidy
+
+```
+
+## Tidy Data
+
+</br>
+
+::::: columns
+::: {.column width="50%"}
+In tidy data:
+
+-   Each variable is in a column
+-   Each observation is in a row
+-   Each cell is a single measurement.
+:::
+
+::: {.column width="50%"}
+![](images/example_tidy_data.png){fig-align="center"}
+:::
+:::::
+
+## 
+
+![](images/tidydata_2.jpg){fig-align="center"}
+
+::: {style="font-size: 50%;"}
+<https://openscapes.org/blog/2020-10-12-tidy-data/>
+:::
+
+## The "Messy Data" Reality
+
+Many industrial datasets are *not tidy*.  
+
+Examples:
+
+| Dataset | Problem |
+|:--|:--|
+| Production reports in Excel | Values stored in column names |
+| Maintenance logs | Multiple variables combined in one column |
+| Quality inspections | Missing or inconsistent codes |
+
+**Our task:** Use `tidyr` to fix these structures before analysis.
 
 
-## Example: Untidy Data
+
+## REMOVE
 
 ```{r}
 # Example: Students' scores by subject in wide format
@@ -228,43 +176,13 @@ students <- tibble(
   math = c(90, 80, 85),
   english = c(88, 95, 92)
 )
-students
-```
 
-## Why is this Untidy?
-
-::: incremental
-- Each column (`math`, `english`) represents both a variable and a category.
-
-- The structure hides the relationship between subject and score.
-
-- Harder to summarize or visualize.
-:::
-
-## The tidy version
-
-```{r}
 students_tidy <- students %>%
   pivot_longer(cols = c(math, english),
                names_to = "subject",
                values_to = "score")
 students_tidy
 
-```
-
-## Why tidy data matters
-
-- Every observation is self-contained in a single row.
-
-- Makes it easy to:
-
-    - Group and summarize with **dplyr**
-    
-    - Plot with **ggplot2**
-
-## Another Example: Messy Survey Data
-
-```{r}
 survey <- tibble(
   id = 1:3,
   q1_morning = c(5, 3, 4),
@@ -272,11 +190,6 @@ survey <- tibble(
 )
 survey
 
-```
-
-## tidy version
-
-```{r}
 survey_tidy <- survey %>%
   pivot_longer(
     cols = starts_with("q1"),
@@ -288,56 +201,9 @@ survey_tidy
 
 ```
 
-## tidyr's functions
-
-</br></br>
-
-**tidyr** provides tools for reshaping, organizing, and completing data.
-
-| Purpose                   | Function 1       | Function 2      |
-|:--------------------------|:-----------------|:----------------|
-| **Pivoting**              | `pivot_longer()` | `pivot_wider()` |
-| **Splitting / Combining** | `separate()`     | `unite()`       |
-| **Nesting / Unnesting**   | `nest()`         | `unnest()`      |
-| **Handling Missing Data** | `complete()`     | `fill()`        |
-
-## Pivoting
-
-TBD
-
-## Ejemplo 2
-
-Considera los datos en el archivo "spotify.xlsx". El conjunto de datos de este contiene las reproducciones diarias globales de las cinco canciones más populares en el servicio de transmisión de música Spotify en el 2017.
-
-## Splitting and Combining
-
-TBD
-
-## Nesting and Unnesting
-
-TBD
-
-## Handling Missing Data
-
-TBD
-
-# Wide Vs Long Data
-
-
-## Why `tidyr`?
-
-::: callout-note
-`tidyr` helps you **reshape**, **separate**, **combine**, and **complete** data so that:
-- Each variable is a column
-- Each observation is a row
-- Each value is a cell
-:::
-
-In short: `tidyr` helps you *tidy up messy data structures.*
-
-
-
 ## `tidyr` and the Tidyverse
+
+</br>
 
 ::: incremental
 - `tidyr` works seamlessly with **dplyr**.  
@@ -345,6 +211,17 @@ In short: `tidyr` helps you *tidy up messy data structures.*
 - Together, they make your data **clean** and **consistent** before visualization or modeling.
 :::
 
+
+## `tidyr`'s functions
+
+The **tidyr** provides functions for reshaping, organizing, and completing data.
+
+| Purpose                   | Function 1       | Function 2      |
+|:--------------------------|:-----------------|:----------------|
+| **Pivoting**              | `pivot_longer()` | `pivot_wider()` |
+| **Splitting / Combining** | `separate()`     | `unite()`       |
+| **Nesting / Unnesting**   | `nest()`         | `unnest()`      |
+| **Handling Missing Data** | `complete()`     | `fill()`        |
 
 ## Example Dataset: `production_data`
 
@@ -463,78 +340,22 @@ production_filled <- production_complete %>%
   fill(output, .direction = "down")
 
 production_filled
-
-
 ```
 
-### Goal
-
-In this section, we’ll connect tidy data ideas to:
-- Real-world messy datasets  
-- Data visualization workflows  
-- Missing data handling  
-- Best practices for reproducibility
-
----
-
-## Why Tidy Data Matters in Decision Making
-
-::: callout-note
-Tidy data ensures:
-- Easier **manipulation** using `dplyr`
-- Seamless **visualization** with `ggplot2`
-- Smooth **modeling** and **reporting** in R
-:::
-
-**Bottom line:**  
-Tidy data is not just a rule — it’s a way to think about data clearly and communicate insights effectively.
-
----
-
-## The "Messy Data" Reality
-
-Many industrial datasets are *not tidy*.  
-Examples:
-
-| Dataset | Problem |
-|:--|:--|
-| Production reports in Excel | Values stored in column names |
-| Maintenance logs | Multiple variables combined in one column |
-| Quality inspections | Missing or inconsistent codes |
-
-**Our task:** Use `tidyr` to fix these structures before analysis.
-
----
-
-## From Messy to Tidy: A Typical Workflow
-
-1. **Import raw data** (e.g., CSV, Excel, SQL)
-2. **Identify problems** in structure
-3. **Reshape or clean** with `tidyr`
-4. **Manipulate** with `dplyr`
-5. **Visualize** with `ggplot2`
-6. **Communicate insights** with Quarto
-
-![](images/tidy-workflow.png){fig-align="center" width="70%"}
 
 ## Why Visualization Loves Tidy Data
 
-::: callout-note
-Every ggplot requires data in long format:
+Every plot requires data in long format:
 
-**x-axis**: variable (e.g., month)
+- **x-axis**: variable (e.g., month)
 
-**y-axis**: measurement (e.g., output)
+- **y-axis**: measurement (e.g., output)
 
-**color/fill**: grouping variable (e.g., factory)
-:::
+- **color/fill**: grouping variable (e.g., factory)
 
-That’s why pivot_longer() is your best friend before plotting.
+That’s why `pivot_longer()` is your best friend before plotting.
 
-## Advantages of Tidy Data
-
--   one set of consistent tools for different datasets
--   easier for automation and iteration
+. . . 
 
 > “Tidy data is the bridge between raw numbers and clear insight.” — Hadley Wickham
 
@@ -547,4 +368,370 @@ That’s why pivot_longer() is your best friend before plotting.
 -   build automatic workflow for analysis, feed different data sets.
 :::
 
-# [Return to main page](https://alanrvazquez.github.io/TEC-IN2039-EN/)
+## Data Wrangling
+
+<br>
+
+- Data wrangling is the process of transforming raw data into a clean and structured format.
+- It involves merging, reshaping, filtering, and organizing data for analysis.
+- Here, we illustrate some special functions of the **tidyverse** for cleaning common issues with a dataset.
+
+---
+
+## Example
+
+Consider an industrial engineer who receives a messy Excel file from a manufacturing client.  
+The data file is called **"industrial_dataset.xlsx"**, and includes data about machine maintenance logs, production output, and operator comments.
+
+The **goal** is to clean and prepare this dataset using **tidyverse** functions so it can be analyzed.
+
+---
+
+## Read the dataset
+
+```{r}
+library(tidyverse)
+library(readxl)
+
+
+```
+
+## Example 2
+
+Consider an industrial engineer who receives a messy Excel file from a manufacturing client. The data file is called "industrial_dataset.xlsx", which file includes data about machine maintenance logs, production output, and operator comments.
+
+The **goal** is to clean and prepare this dataset using pandas so it can be analyzed.
+
+Let's read the data set into Python.
+
+```{r}
+#| echo: true
+
+# Load the Excel file into a tibble
+client_data = read_excel("industrial_dataset.xlsx")
+```
+
+## 
+
+```{r}
+#| echo: true
+
+# Preview the dataset.
+client_data %>% head()
+```
+
+## Remove duplicate rows
+
+</br></br>
+
+Duplicate or identical rows are rows that have the same entries in every column in the dataset.
+
+If only one row is needed for the analysis, we can remove the duplicates using the `distinct()` function.
+
+```{r}
+#| echo: true
+
+client_data_single = client_data  %>% distinct()
+```
+
+## 
+
+The `client_data_single` dataframe does not have duplicate rows.
+
+```{r}
+#| echo: true
+
+client_data_single %>% head()
+```
+
+## Add an index column
+
+</br>
+
+In some cases, it is useful to have a unique identifier for each row in the dataset. We can create an identifier using the functions `mutate()` and `row_number()`` with some extra syntaxis.
+
+```{r}
+#| echo: true
+
+client_data_single = client_data_single %>% mutate(ID = row_number())
+```
+
+## 
+
+The new column is appended to the end of the dataframe.
+
+```{r}
+#| echo: true
+
+client_data_single %>%  head()
+```
+
+## 
+
+To bring it to the beginning of the array, we can use the `select()` and `everything()` functions.
+
+```{r}
+#| echo: true
+
+client_data_single = client_data_single %>% 
+select(ID, everything())
+
+client_data_single %>%  head(3)
+
+```
+
+## Fill blank cells
+
+In the dataset, there are columns with missing values. If we would like to fill them with specific values or text, we use the `replace_na()` function. In this function, we use the syntaxis `'Variable' = 'Replace'`, where the `Variable` is the column in the dataset and `Replace` is the text or number to fill the entry in.
+
+Let's fill in the missing entries of the columns `Operator`, `Maintenance Date`, and `Comment`.
+
+```{r}
+#| echo: true
+
+complete_data = client_data_single %>% 
+                  replace_na( list(
+                  Operator = "Unknown",
+                  `Maintenance Date` = as.Date("2023-01-01"),
+                  Comment = "None"
+                  ) )
+
+```
+
+## 
+
+```{r}
+#| echo: true
+
+complete_data %>%  head()
+```
+
+## Replace values
+
+</br>
+
+There are some cases in which columns have some undesired or unwatned values. Consider the `Output (units)` as an example.
+
+```{r}
+#| echo: true
+
+complete_data %>% select(`Output (units)`) %>% head()
+```
+
+The column has the numbers of units but also text such as "error".
+
+## 
+
+</br>
+
+We can replace the "error" in this column by a user-specified value, say, 0. To this end, we use the functions `mutate()`, `na_if()` or `if_else()`. 
+
+```{r}
+#| echo: true
+
+complete_data = complete_data %>% 
+mutate(`Output (units)` = na_if(`Output (units)`, "error"))
+
+```
+
+## 
+
+</br>
+
+Let's check the new column.
+
+```{r}
+#| echo: true
+
+complete_data %>%  select(`Output (units)`) %>%  head()
+```
+
+Note that the new column is now numeric.
+
+
+## A new library: stringr
+
+::::: columns
+::: {.column width="50%"}
+![](images/tidyverse.jpeg){fig-align="center" width="491" height="374"}
+:::
+
+::: {.column width="50%"}
+-   **stringr** provides a consistent set of functions for working with strings.
+
+-   It helps you clean, manipulate, and transform text data easily.
+
+-   It is also part of the **tidyverse** collection of packages.
+
+-   <https://stringr.tidyverse.org/>
+:::
+:::::
+
+Load it to Google Colab with the following code.
+
+```{r}
+#| echo: true
+#| output: false
+
+library(stringr)
+```
+
+## Split column into multiple ones
+
+There are some cases in which we want to split a column according to a character. For example, consider the column `Comment` from the dataset.
+
+```{r}
+#| echo: true
+
+complete_data %>% select(Comment)
+```
+
+## 
+
+The column has some values such as "Requires part: valve" and "Delay: maintenance\n" that we may want to split into columns.
+
+```{r}
+#| echo: false
+#| output: true
+
+complete_data %>% select(Comment)
+```
+
+## 
+
+</br>
+
+We can split the values in the column according to the colon ":".
+
+That is, everything before the colon will be in a column. Everything after the colon will be in another column. To achieve this, we use the function `separate()` from the **tidyr** package.
+
+One input of the function is the symbol or character for which we cant to make a split. The other input, `expand = True` tells Python that we want to create new columns.
+
+```{r}
+#| echo: true
+#| output: false
+
+augmented_data = complete_data  %>% 
+separate(Comment, into = c("First_comment", "Second_comment"), sep = ":", fill = "right")
+```
+
+## 
+
+The result is two columns.
+
+```{r}
+#| echo: true
+#| output: true
+
+augmented_data %>%  head()
+```
+
+
+## Remove characters
+
+</br>
+
+Something that we notice is that the column `First_Comment` has some extra characters like "\n" that may be useless when working with the data.
+
+We can remove them using the function `str_replace_all()` or `str_trim()` from the **stringr** package. The input of the function is the character to remove.
+
+```{r}
+#| echo: true
+
+augmented_data = augmented_data  %>% 
+mutate(First_comment = str_trim(First_comment, side = "both"))
+```
+
+## 
+
+</br>
+
+Let's see the cleaned column.
+
+```{r}
+#| echo: true
+
+augmented_data %>%  select(First_comment) %>%  head()
+```
+
+## 
+
+</br>
+
+We can also remove other characters.
+
+
+## Transform text case
+
+When working with text columns such as those containing names, it might be possible to have different ways of writing. A common case is when having lower case or upper case names or a combination thereof.
+
+For example, consider the column `Operator` containing the names of the operators.
+
+```{r}
+#| echo: true
+
+complete_data %>% select(Operator) %>%  head()
+```
+
+
+## Remove extra spaces
+
+</br>
+
+To deal with names, we first use the `str_trim()` to remove leading and trailing characters from strings.
+
+```{r}
+#| echo: true
+
+complete_data =  complete_data %>% 
+mutate(Operator = str_trim(Operator))
+
+complete_data %>%  head()
+```
+
+## Change to lowercase letters
+
+</br>
+
+We can turn all names to lowercase using the function `str_to_lower()`.
+
+```{r}
+#| echo: true
+
+complete_data %>% 
+mutate(Operator = str_to_lower(Operator)) %>% 
+select(Operator) %>% 
+head()
+```
+
+## Change to uppercase letters
+
+</br>
+
+We can turn all names to lowercase using the function `str_to_upper()`.
+
+```{r}
+#| echo: true
+
+complete_data %>% 
+mutate(Operator = str_to_upper(Operator)) %>% 
+select(Operator) %>% 
+head()
+```
+
+## Capitalize the first letter
+
+</br>
+
+We can convert all names to title case using the function `str_to_title()`.
+
+```{r}
+#| echo: true
+
+complete_data %>% 
+mutate(Operator = str_to_title(Operator)) %>% 
+select(Operator) %>% 
+head()
+```
+
+

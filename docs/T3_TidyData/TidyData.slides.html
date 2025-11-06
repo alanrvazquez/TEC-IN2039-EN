@@ -217,73 +217,37 @@ Alan R. Vazquez
 <li>Pivot and Rectangling Operations</li>
 </ol>
 </section>
-<section id="the-r-for-data-science-workflow" class="slide level2">
-<h2>The R for Data Science Workflow</h2>
-<p><strong>Goal:</strong> Understand where <em>data tidying</em> fits in the broader data science process.</p>
+<section id="a-new-library-tidyr" class="slide level2">
+<h2>A new library: tidyr</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/tidyverse.jpeg" class="quarto-figure quarto-figure-center" width="491" height="374"></p>
+</figure>
+</div>
+</div><div class="column" style="width:50%;">
+<ul>
+<li><p><strong>tidyr</strong> allows you to reshape and regroup a dataset.</p></li>
+<li><p>It is part of a collection of data science packages called <strong>tidyverse</strong>.</p></li>
+<li><p><a href="https://tidyr.tidyverse.org/" class="uri">https://tidyr.tidyverse.org/</a></p></li>
+</ul>
+</div></div>
+<p>Load it to Google Colab with the following code.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">library</span>(tidyr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
 <section id="data-science-workflow" class="slide level2">
 <h2>Data Science Workflow</h2>
 
-<img data-src="images/r4ds_workflow.png" width="700" class="r-stretch"><ul>
-<li class="fragment">Every data science project involves <strong>importing</strong>, <strong>tidying</strong>, <strong>transforming</strong>, <strong>visualizing</strong>, and <strong>modeling</strong> data.</li>
-<li class="fragment"><strong>tidyr</strong> focuses on the <em>tidy</em> part — making your data easy to work with.</li>
+<img data-src="images/data-science-workflow.png" class="quarto-figure quarto-figure-center r-stretch"><ul>
+<li>Every data science project involves importing, tidying, transforming, visualizing, modeling, and communicating data.</li>
 </ul>
 </section>
-<section id="why-focus-on-tidy-data" class="slide level2">
-<h2>Why Focus on Tidy Data?</h2>
-<blockquote>
-<p>“Tidy datasets are easy to manipulate, model, and visualize.” — <em>Hadley Wickham</em></p>
-</blockquote>
-<ul>
-<li class="fragment">Tidy data principles make R tools work together smoothly.</li>
-<li class="fragment">Each tidy dataset is like a well-organized spreadsheet.</li>
-<li class="fragment">Most errors in analysis happen before modeling — during <strong>data wrangling</strong>.</li>
-</ul>
-</section>
-<section id="the-tidyverse" class="slide level2">
-<h2>The Tidyverse</h2>
-<p><strong>The tidyverse</strong> is a collection of R packages designed for data science.</p>
-<table class="caption-top">
-<thead>
-<tr class="header">
-<th style="text-align: left;">Package</th>
-<th style="text-align: left;">Purpose</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><code>readr</code></td>
-<td style="text-align: left;">Import rectangular data (CSV, TSV, etc.)</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><code>dplyr</code></td>
-<td style="text-align: left;">Manipulate and summarize data</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><code>tidyr</code></td>
-<td style="text-align: left;">Reshape and tidy data</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><code>ggplot2</code></td>
-<td style="text-align: left;">Create visualizations</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><code>purrr</code></td>
-<td style="text-align: left;">Work with functions and lists</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><code>stringr</code></td>
-<td style="text-align: left;">Handle text data</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><code>forcats</code></td>
-<td style="text-align: left;">Manage categorical variables</td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="a-realistic-workflow" class="slide level2">
-<h2>A Realistic Workflow</h2>
+<section id="section" class="slide level2">
+<h2></h2>
+<p><br></p>
 <ol type="1">
 <li><strong>Import:</strong> Bring raw data into R.<br>
 </li>
@@ -291,23 +255,28 @@ Alan R. Vazquez
 </li>
 <li><strong>Transform:</strong> Create new variables and summaries.<br>
 </li>
-<li><strong>Visualize:</strong> Explore patterns.<br>
+<li><strong>Visualize:</strong> Explore patterns visually.<br>
 </li>
 <li><strong>Model:</strong> Fit statistical or machine learning models.<br>
 </li>
 <li><strong>Communicate:</strong> Share insights clearly.</li>
 </ol>
 </section>
-<section id="where-does-tidyr-fit" class="slide level2">
-<h2>Where Does tidyr Fit?</h2>
-
-<img data-src="images/workflow_tidyr_focus.png" width="650" class="r-stretch"><ul>
-<li><strong>tidyr</strong> connects <em>raw data</em> to <em>analysis-ready data</em>.</li>
-<li>Often used <strong>before</strong> <code>dplyr</code> or <code>ggplot2</code>.</li>
+<section id="why-do-we-need-tidy-data" class="slide level2">
+<h2>Why do we need Tidy Data?</h2>
+<blockquote>
+<p>“Tidy datasets are easy to manipulate, model, and visualize.” — <em>Hadley Wickham</em></p>
+</blockquote>
+<p><br></p>
+<ul>
+<li class="fragment">Tidy data make R tools work together smoothly.</li>
+<li class="fragment">Each tidy dataset is like a well-organized spreadsheet.</li>
+<li class="fragment">Making your data tidy allows you to avoid common errors that occurred in the data analysis.</li>
+<li class="fragment">The <strong>tidyr</strong> package has functions to make your data <em>tidy</em>.</li>
 </ul>
 </section>
-<section id="data-messiness-example" class="slide level2">
-<h2>Data Messiness Example</h2>
+<section id="example" class="slide level2">
+<h2>Example</h2>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 3 × 3
@@ -321,6 +290,7 @@ Alan R. Vazquez
 </section>
 <section id="problem-not-tidy" class="slide level2">
 <h2>Problem: Not Tidy!</h2>
+<p><br></p>
 <ul>
 <li class="fragment">Variable names (<code>jan_sales</code>, <code>feb_sales</code>) store values (<code>months</code>).</li>
 <li class="fragment">Each column should represent a variable, not a combination of variables.</li>
@@ -346,42 +316,18 @@ Alan R. Vazquez
 </div>
 </div>
 </section>
-<section>
-<section id="tidy-data" class="title-slide slide level1 center">
-<h1>Tidy Data</h1>
-
-</section>
-<section id="the-r-for-data-science-workflow-1" class="slide level2">
-<h2>The R for Data Science Workflow</h2>
-<p><br><br></p>
-
-<img data-src="images/data-science-workflow.png" class="quarto-figure quarto-figure-center r-stretch"><div style="font-size: 50%;">
-<p><a href="https://r4ds.hadley.nz/" class="uri">https://r4ds.hadley.nz/</a></p>
-</div>
-</section>
-<section id="the-rationale-for-tidy-data" class="slide level2">
-<h2>The Rationale for Tidy Data</h2>
-<p><br><br></p>
-<ul>
-<li><p>The <em>tidy</em> framework provides a consistent way to organize your data in R.</p></li>
-<li><p>Getting your data into this format requires some upfront work, but that work pays off in the long term.</p></li>
-<li><p>Once you have tidy data and the tidy tools provided by packages in the <strong>tidyverse</strong>, you will spend much less time munging data from one representation to another, allowing you to spend more time on the analytic questions at hand.</p></li>
-</ul>
-</section>
-<section id="tidy-data-1" class="slide level2">
+<section id="tidy-data" class="slide level2">
 <h2>Tidy Data</h2>
-<blockquote>
-<p>“Tidy data is a standard way of mapping the meaning of a dataset to its structure.” Hadley Wickham.</p>
-</blockquote>
+<p><br></p>
 <div class="columns">
-<div class="column" style="width:70%;">
+<div class="column" style="width:50%;">
 <p>In tidy data:</p>
 <ul>
-<li>Each variable forms a column</li>
-<li>Each observation forms a row</li>
+<li>Each variable is in a column</li>
+<li>Each observation is in a row</li>
 <li>Each cell is a single measurement.</li>
 </ul>
-</div><div class="column" style="width:70%;">
+</div><div class="column" style="width:50%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
 <p><img data-src="images/example_tidy_data.png" class="quarto-figure quarto-figure-center"></p>
@@ -389,80 +335,43 @@ Alan R. Vazquez
 </div>
 </div></div>
 </section>
-<section id="section" class="slide level2">
+<section id="section-1" class="slide level2">
 <h2></h2>
 
 <img data-src="images/tidydata_2.jpg" class="quarto-figure quarto-figure-center r-stretch"><div style="font-size: 50%;">
 <p><a href="https://openscapes.org/blog/2020-10-12-tidy-data/" class="uri">https://openscapes.org/blog/2020-10-12-tidy-data/</a></p>
 </div>
 </section>
-<section id="a-new-library-tidyr" class="slide level2">
-<h2>A new library: tidyr</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="images/tidyverse.jpeg" class="quarto-figure quarto-figure-center" width="491" height="374"></p>
-</figure>
-</div>
-</div><div class="column" style="width:50%;">
-<ul>
-<li><p><strong>tidyr</strong> allows you to reshape and regroup a dataset.</p></li>
-<li><p>It is part of a collection of data science packages called <strong>tidyverse</strong>.</p></li>
-<li><p><a href="https://tidyr.tidyverse.org/" class="uri">https://tidyr.tidyverse.org/</a></p></li>
-</ul>
-</div></div>
-<p>Load it to Google Colab with the following code.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="fu">library</span>(tidyr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
+<section id="the-messy-data-reality" class="slide level2">
+<h2>The “Messy Data” Reality</h2>
+<p>Many industrial datasets are <em>not tidy</em>.</p>
+<p>Examples:</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Dataset</th>
+<th style="text-align: left;">Problem</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Production reports in Excel</td>
+<td style="text-align: left;">Values stored in column names</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Maintenance logs</td>
+<td style="text-align: left;">Multiple variables combined in one column</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Quality inspections</td>
+<td style="text-align: left;">Missing or inconsistent codes</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Our task:</strong> Use <code>tidyr</code> to fix these structures before analysis.</p>
 </section>
-<section id="part-2-introduction-to-tidy-data" class="slide level2">
-<h2>Part 2: Introduction to Tidy Data</h2>
-<p><strong>Goal:</strong> Learn what “tidy data” means and why it’s crucial for analysis and visualization.</p>
-</section>
-<section id="what-is-tidy-data" class="slide level2">
-<h2>What Is Tidy Data?</h2>
-<div class="callout callout-note callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Note</strong></p>
-</div>
-<div class="callout-content">
-<p>In a tidy dataset: 1. Each <strong>variable</strong> forms a column.<br>
-2. Each <strong>observation</strong> forms a row.<br>
-3. Each <strong>value</strong> forms a cell.</p>
-</div>
-</div>
-</div>
-<p>This simple structure makes it easier to analyze, visualize, and model your data using R.</p>
-</section>
-<section id="example-untidy-data" class="slide level2">
-<h2>Example: Untidy Data</h2>
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 3 × 3
-  name    math english
-  &lt;chr&gt;  &lt;dbl&gt;   &lt;dbl&gt;
-1 Ana       90      88
-2 Luis      80      95
-3 Carmen    85      92</code></pre>
-</div>
-</div>
-</section>
-<section id="why-is-this-untidy" class="slide level2">
-<h2>Why is this Untidy?</h2>
-<ul>
-<li class="fragment"><p>Each column (<code>math</code>, <code>english</code>) represents both a variable and a category.</p></li>
-<li class="fragment"><p>The structure hides the relationship between subject and score.</p></li>
-<li class="fragment"><p>Harder to summarize or visualize.</p></li>
-</ul>
-</section>
-<section id="the-tidy-version" class="slide level2">
-<h2>The tidy version</h2>
+<section id="remove" class="slide level2">
+<h2>REMOVE</h2>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 3
@@ -475,22 +384,6 @@ Alan R. Vazquez
 5 Carmen math       85
 6 Carmen english    92</code></pre>
 </div>
-</div>
-</section>
-<section id="why-tidy-data-matters" class="slide level2">
-<h2>Why tidy data matters</h2>
-<ul>
-<li><p>Every observation is self-contained in a single row.</p></li>
-<li><p>Makes it easy to:</p>
-<ul>
-<li><p>Group and summarize with <strong>dplyr</strong></p></li>
-<li><p>Plot with <strong>ggplot2</strong></p></li>
-</ul></li>
-</ul>
-</section>
-<section id="another-example-messy-survey-data" class="slide level2">
-<h2>Another Example: Messy Survey Data</h2>
-<div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 3 × 3
      id q1_morning q1_evening
@@ -499,11 +392,6 @@ Alan R. Vazquez
 2     2          3          2
 3     3          4          3</code></pre>
 </div>
-</div>
-</section>
-<section id="tidy-version" class="slide level2">
-<h2>tidy version</h2>
-<div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 4
      id question time    response
@@ -517,10 +405,20 @@ Alan R. Vazquez
 </div>
 </div>
 </section>
+<section id="tidyr-and-the-tidyverse" class="slide level2">
+<h2><code>tidyr</code> and the Tidyverse</h2>
+<p><br></p>
+<ul>
+<li class="fragment"><code>tidyr</code> works seamlessly with <strong>dplyr</strong>.<br>
+</li>
+<li class="fragment">While <code>dplyr</code> focuses on <strong>data manipulation</strong>, <code>tidyr</code> focuses on <strong>data structure</strong>.<br>
+</li>
+<li class="fragment">Together, they make your data <strong>clean</strong> and <strong>consistent</strong> before visualization or modeling.</li>
+</ul>
+</section>
 <section id="tidyrs-functions" class="slide level2">
-<h2>tidyr’s functions</h2>
-<p><br><br></p>
-<p><strong>tidyr</strong> provides tools for reshaping, organizing, and completing data.</p>
+<h2><code>tidyr</code>’s functions</h2>
+<p>The <strong>tidyr</strong> provides functions for reshaping, organizing, and completing data.</p>
 <table class="caption-top">
 <thead>
 <tr class="header">
@@ -552,58 +450,6 @@ Alan R. Vazquez
 </tr>
 </tbody>
 </table>
-</section>
-<section id="pivoting" class="slide level2">
-<h2>Pivoting</h2>
-<p>TBD</p>
-</section>
-<section id="ejemplo-2" class="slide level2">
-<h2>Ejemplo 2</h2>
-<p>Considera los datos en el archivo “spotify.xlsx”. El conjunto de datos de este contiene las reproducciones diarias globales de las cinco canciones más populares en el servicio de transmisión de música Spotify en el 2017.</p>
-</section>
-<section id="splitting-and-combining" class="slide level2">
-<h2>Splitting and Combining</h2>
-<p>TBD</p>
-</section>
-<section id="nesting-and-unnesting" class="slide level2">
-<h2>Nesting and Unnesting</h2>
-<p>TBD</p>
-</section>
-<section id="handling-missing-data" class="slide level2">
-<h2>Handling Missing Data</h2>
-<p>TBD</p>
-</section></section>
-<section>
-<section id="wide-vs-long-data" class="title-slide slide level1 center">
-<h1>Wide Vs Long Data</h1>
-
-</section>
-<section id="why-tidyr" class="slide level2">
-<h2>Why <code>tidyr</code>?</h2>
-<div class="callout callout-note callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Note</strong></p>
-</div>
-<div class="callout-content">
-<p><code>tidyr</code> helps you <strong>reshape</strong>, <strong>separate</strong>, <strong>combine</strong>, and <strong>complete</strong> data so that: - Each variable is a column - Each observation is a row - Each value is a cell</p>
-</div>
-</div>
-</div>
-<p>In short: <code>tidyr</code> helps you <em>tidy up messy data structures.</em></p>
-</section>
-<section id="tidyr-and-the-tidyverse" class="slide level2">
-<h2><code>tidyr</code> and the Tidyverse</h2>
-<ul>
-<li class="fragment"><code>tidyr</code> works seamlessly with <strong>dplyr</strong>.<br>
-</li>
-<li class="fragment">While <code>dplyr</code> focuses on <strong>data manipulation</strong>, <code>tidyr</code> focuses on <strong>data structure</strong>.<br>
-</li>
-<li class="fragment">Together, they make your data <strong>clean</strong> and <strong>consistent</strong> before visualization or modeling.</li>
-</ul>
 </section>
 <section id="example-dataset-production_data" class="slide level2">
 <h2>Example Dataset: <code>production_data</code></h2>
@@ -745,96 +591,17 @@ Alan R. Vazquez
 4 B       jan      150</code></pre>
 </div>
 </div>
-<h3 id="goal">Goal</h3>
-<p>In this section, we’ll connect tidy data ideas to: - Real-world messy datasets<br>
-- Data visualization workflows<br>
-- Missing data handling<br>
-- Best practices for reproducibility</p>
 </section>
-<section id="why-tidy-data-matters-in-decision-making" class="slide level2">
-<h2>Why Tidy Data Matters in Decision Making</h2>
-<div class="callout callout-note callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Note</strong></p>
-</div>
-<div class="callout-content">
-<p>Tidy data ensures: - Easier <strong>manipulation</strong> using <code>dplyr</code> - Seamless <strong>visualization</strong> with <code>ggplot2</code> - Smooth <strong>modeling</strong> and <strong>reporting</strong> in R</p>
-</div>
-</div>
-</div>
-<p><strong>Bottom line:</strong><br>
-Tidy data is not just a rule — it’s a way to think about data clearly and communicate insights effectively.</p>
-</section>
-<section id="the-messy-data-reality" class="slide level2">
-<h2>The “Messy Data” Reality</h2>
-<p>Many industrial datasets are <em>not tidy</em>.<br>
-Examples:</p>
-<table class="caption-top">
-<thead>
-<tr class="header">
-<th style="text-align: left;">Dataset</th>
-<th style="text-align: left;">Problem</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">Production reports in Excel</td>
-<td style="text-align: left;">Values stored in column names</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Maintenance logs</td>
-<td style="text-align: left;">Multiple variables combined in one column</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Quality inspections</td>
-<td style="text-align: left;">Missing or inconsistent codes</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Our task:</strong> Use <code>tidyr</code> to fix these structures before analysis.</p>
-</section>
-<section id="from-messy-to-tidy-a-typical-workflow" class="slide level2">
-<h2>From Messy to Tidy: A Typical Workflow</h2>
-<ol type="1">
-<li><strong>Import raw data</strong> (e.g., CSV, Excel, SQL)</li>
-<li><strong>Identify problems</strong> in structure</li>
-<li><strong>Reshape or clean</strong> with <code>tidyr</code></li>
-<li><strong>Manipulate</strong> with <code>dplyr</code></li>
-<li><strong>Visualize</strong> with <code>ggplot2</code></li>
-<li><strong>Communicate insights</strong> with Quarto</li>
-</ol>
-
-<img data-src="images/tidy-workflow.png" class="quarto-figure quarto-figure-center r-stretch" style="width:70.0%"></section>
 <section id="why-visualization-loves-tidy-data" class="slide level2">
 <h2>Why Visualization Loves Tidy Data</h2>
-<div class="callout callout-note callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Note</strong></p>
-</div>
-<div class="callout-content">
-<p>Every ggplot requires data in long format:</p>
-<p><strong>x-axis</strong>: variable (e.g., month)</p>
-<p><strong>y-axis</strong>: measurement (e.g., output)</p>
-<p><strong>color/fill</strong>: grouping variable (e.g., factory)</p>
-</div>
-</div>
-</div>
-<p>That’s why pivot_longer() is your best friend before plotting.</p>
-</section>
-<section id="advantages-of-tidy-data" class="slide level2">
-<h2>Advantages of Tidy Data</h2>
+<p>Every plot requires data in long format:</p>
 <ul>
-<li>one set of consistent tools for different datasets</li>
-<li>easier for automation and iteration</li>
+<li><p><strong>x-axis</strong>: variable (e.g., month)</p></li>
+<li><p><strong>y-axis</strong>: measurement (e.g., output)</p></li>
+<li><p><strong>color/fill</strong>: grouping variable (e.g., factory)</p></li>
 </ul>
+<p>That’s why <code>pivot_longer()</code> is your best friend before plotting.</p>
+<div class="fragment">
 <blockquote>
 <p>“Tidy data is the bridge between raw numbers and clear insight.” — Hadley Wickham</p>
 </blockquote>
@@ -858,9 +625,441 @@ Examples:</p>
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
-</section></section>
-<section id="return-to-main-page" class="title-slide slide level1 center">
-<h1><a href="https://alanrvazquez.github.io/TEC-IN2039-EN/">Return to main page</a></h1>
+</div>
+</section>
+<section id="data-wrangling" class="slide level2">
+<h2>Data Wrangling</h2>
+<p><br></p>
+<ul>
+<li>Data wrangling is the process of transforming raw data into a clean and structured format.</li>
+<li>It involves merging, reshaping, filtering, and organizing data for analysis.</li>
+<li>Here, we illustrate some special functions of the <strong>tidyverse</strong> for cleaning common issues with a dataset.</li>
+</ul>
+</section>
+<section id="example-1" class="slide level2">
+<h2>Example</h2>
+<p>Consider an industrial engineer who receives a messy Excel file from a manufacturing client.<br>
+The data file is called <strong>“industrial_dataset.xlsx”</strong>, and includes data about machine maintenance logs, production output, and operator comments.</p>
+<p>The <strong>goal</strong> is to clean and prepare this dataset using <strong>tidyverse</strong> functions so it can be analyzed.</p>
+</section>
+<section id="read-the-dataset" class="slide level2">
+<h2>Read the dataset</h2>
+</section>
+<section id="example-2" class="slide level2">
+<h2>Example 2</h2>
+<p>Consider an industrial engineer who receives a messy Excel file from a manufacturing client. The data file is called “industrial_dataset.xlsx”, which file includes data about machine maintenance logs, production output, and operator comments.</p>
+<p>The <strong>goal</strong> is to clean and prepare this dataset using pandas so it can be analyzed.</p>
+<p>Let’s read the data set into Python.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a><span class="co"># Load the Excel file into a tibble</span></span>
+<span id="cb16-2"><a></a>client_data <span class="ot">=</span> <span class="fu">read_excel</span>(<span class="st">"industrial_dataset.xlsx"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="section-2" class="slide level2">
+<h2></h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a><span class="co"># Preview the dataset.</span></span>
+<span id="cb17-2"><a></a>client_data <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 5
+  `Machine ID` `Output (units)` `Maintenance Date`  Operator Comment            
+         &lt;dbl&gt; &lt;chr&gt;            &lt;dttm&gt;              &lt;chr&gt;    &lt;chr&gt;              
+1          101 1200             2023-01-10 00:00:00 Ana      "ok"               
+2          101 1200             2023-01-10 00:00:00 Ana      "ok"               
+3          102 1050             2023-01-12 00:00:00 Bob      "Needs oil!"       
+4          103 error            2023-01-13 00:00:00 Charlie  "All good\r\n"     
+5          103 950              2023-01-13 00:00:00 Charlie  "All good\r\n"     
+6          104 900              2023-01-14 00:00:00 &lt;NA&gt;     "Delay: power issu…</code></pre>
+</div>
+</div>
+</section>
+<section id="remove-duplicate-rows" class="slide level2">
+<h2>Remove duplicate rows</h2>
+<p><br><br></p>
+<p>Duplicate or identical rows are rows that have the same entries in every column in the dataset.</p>
+<p>If only one row is needed for the analysis, we can remove the duplicates using the <code>distinct()</code> function.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a></a>client_data_single <span class="ot">=</span> client_data  <span class="sc">%&gt;%</span> <span class="fu">distinct</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="section-3" class="slide level2">
+<h2></h2>
+<p>The <code>client_data_single</code> dataframe does not have duplicate rows.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a></a>client_data_single <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 5
+  `Machine ID` `Output (units)` `Maintenance Date`  Operator Comment            
+         &lt;dbl&gt; &lt;chr&gt;            &lt;dttm&gt;              &lt;chr&gt;    &lt;chr&gt;              
+1          101 1200             2023-01-10 00:00:00 Ana      "ok"               
+2          102 1050             2023-01-12 00:00:00 Bob      "Needs oil!"       
+3          103 error            2023-01-13 00:00:00 Charlie  "All good\r\n"     
+4          103 950              2023-01-13 00:00:00 Charlie  "All good\r\n"     
+5          104 900              2023-01-14 00:00:00 &lt;NA&gt;     "Delay: power issu…
+6          105 870              NA                  DAVE     "completed"        </code></pre>
+</div>
+</div>
+</section>
+<section id="add-an-index-column" class="slide level2">
+<h2>Add an index column</h2>
+<p><br></p>
+<p>In some cases, it is useful to have a unique identifier for each row in the dataset. We can create an identifier using the functions <code>mutate()</code> and `row_number()`` with some extra syntaxis.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a></a>client_data_single <span class="ot">=</span> client_data_single <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">ID =</span> <span class="fu">row_number</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="section-4" class="slide level2">
+<h2></h2>
+<p>The new column is appended to the end of the dataframe.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a></a>client_data_single <span class="sc">%&gt;%</span>  <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 6
+  `Machine ID` `Output (units)` `Maintenance Date`  Operator Comment          ID
+         &lt;dbl&gt; &lt;chr&gt;            &lt;dttm&gt;              &lt;chr&gt;    &lt;chr&gt;         &lt;int&gt;
+1          101 1200             2023-01-10 00:00:00 Ana      "ok"              1
+2          102 1050             2023-01-12 00:00:00 Bob      "Needs oil!"      2
+3          103 error            2023-01-13 00:00:00 Charlie  "All good\r\…     3
+4          103 950              2023-01-13 00:00:00 Charlie  "All good\r\…     4
+5          104 900              2023-01-14 00:00:00 &lt;NA&gt;     "Delay: powe…     5
+6          105 870              NA                  DAVE     "completed"       6</code></pre>
+</div>
+</div>
+</section>
+<section id="section-5" class="slide level2">
+<h2></h2>
+<p>To bring it to the beginning of the array, we can use the <code>select()</code> and <code>everything()</code> functions.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a></a>client_data_single <span class="ot">=</span> client_data_single <span class="sc">%&gt;%</span> </span>
+<span id="cb25-2"><a></a><span class="fu">select</span>(ID, <span class="fu">everything</span>())</span>
+<span id="cb25-3"><a></a></span>
+<span id="cb25-4"><a></a>client_data_single <span class="sc">%&gt;%</span>  <span class="fu">head</span>(<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 6
+     ID `Machine ID` `Output (units)` `Maintenance Date`  Operator Comment      
+  &lt;int&gt;        &lt;dbl&gt; &lt;chr&gt;            &lt;dttm&gt;              &lt;chr&gt;    &lt;chr&gt;        
+1     1          101 1200             2023-01-10 00:00:00 Ana      "ok"         
+2     2          102 1050             2023-01-12 00:00:00 Bob      "Needs oil!" 
+3     3          103 error            2023-01-13 00:00:00 Charlie  "All good\r\…</code></pre>
+</div>
+</div>
+</section>
+<section id="fill-blank-cells" class="slide level2">
+<h2>Fill blank cells</h2>
+<p>In the dataset, there are columns with missing values. If we would like to fill them with specific values or text, we use the <code>replace_na()</code> function. In this function, we use the syntaxis <code>'Variable' = 'Replace'</code>, where the <code>Variable</code> is the column in the dataset and <code>Replace</code> is the text or number to fill the entry in.</p>
+<p>Let’s fill in the missing entries of the columns <code>Operator</code>, <code>Maintenance Date</code>, and <code>Comment</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a></a>complete_data <span class="ot">=</span> client_data_single <span class="sc">%&gt;%</span> </span>
+<span id="cb27-2"><a></a>                  <span class="fu">replace_na</span>( <span class="fu">list</span>(</span>
+<span id="cb27-3"><a></a>                  <span class="at">Operator =</span> <span class="st">"Unknown"</span>,</span>
+<span id="cb27-4"><a></a>                  <span class="st">`</span><span class="at">Maintenance Date</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">as.Date</span>(<span class="st">"2023-01-01"</span>),</span>
+<span id="cb27-5"><a></a>                  <span class="at">Comment =</span> <span class="st">"None"</span></span>
+<span id="cb27-6"><a></a>                  ) )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="section-6" class="slide level2">
+<h2></h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a></a>complete_data <span class="sc">%&gt;%</span>  <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 6
+     ID `Machine ID` `Output (units)` `Maintenance Date`  Operator Comment      
+  &lt;int&gt;        &lt;dbl&gt; &lt;chr&gt;            &lt;dttm&gt;              &lt;chr&gt;    &lt;chr&gt;        
+1     1          101 1200             2023-01-10 00:00:00 Ana      "ok"         
+2     2          102 1050             2023-01-12 00:00:00 Bob      "Needs oil!" 
+3     3          103 error            2023-01-13 00:00:00 Charlie  "All good\r\…
+4     4          103 950              2023-01-13 00:00:00 Charlie  "All good\r\…
+5     5          104 900              2023-01-14 00:00:00 Unknown  "Delay: powe…
+6     6          105 870              2023-01-01 00:00:00 DAVE     "completed"  </code></pre>
+</div>
+</div>
+</section>
+<section id="replace-values" class="slide level2">
+<h2>Replace values</h2>
+<p><br></p>
+<p>There are some cases in which columns have some undesired or unwatned values. Consider the <code>Output (units)</code> as an example.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a></a>complete_data <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="st">`</span><span class="at">Output (units)</span><span class="st">`</span>) <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 1
+  `Output (units)`
+  &lt;chr&gt;           
+1 1200            
+2 1050            
+3 error           
+4 950             
+5 900             
+6 870             </code></pre>
+</div>
+</div>
+<p>The column has the numbers of units but also text such as “error”.</p>
+</section>
+<section id="section-7" class="slide level2">
+<h2></h2>
+<p><br></p>
+<p>We can replace the “error” in this column by a user-specified value, say, 0. To this end, we use the functions <code>mutate()</code>, <code>na_if()</code> or <code>if_else()</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a></a>complete_data <span class="ot">=</span> complete_data <span class="sc">%&gt;%</span> </span>
+<span id="cb32-2"><a></a><span class="fu">mutate</span>(<span class="st">`</span><span class="at">Output (units)</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">na_if</span>(<span class="st">`</span><span class="at">Output (units)</span><span class="st">`</span>, <span class="st">"error"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="section-8" class="slide level2">
+<h2></h2>
+<p><br></p>
+<p>Let’s check the new column.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a></a>complete_data <span class="sc">%&gt;%</span>  <span class="fu">select</span>(<span class="st">`</span><span class="at">Output (units)</span><span class="st">`</span>) <span class="sc">%&gt;%</span>  <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 1
+  `Output (units)`
+  &lt;chr&gt;           
+1 1200            
+2 1050            
+3 &lt;NA&gt;            
+4 950             
+5 900             
+6 870             </code></pre>
+</div>
+</div>
+<p>Note that the new column is now numeric.</p>
+</section>
+<section id="a-new-library-stringr" class="slide level2">
+<h2>A new library: stringr</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/tidyverse.jpeg" class="quarto-figure quarto-figure-center" width="491" height="374"></p>
+</figure>
+</div>
+</div><div class="column" style="width:50%;">
+<ul>
+<li><p><strong>stringr</strong> provides a consistent set of functions for working with strings.</p></li>
+<li><p>It helps you clean, manipulate, and transform text data easily.</p></li>
+<li><p>It is also part of the <strong>tidyverse</strong> collection of packages.</p></li>
+<li><p><a href="https://stringr.tidyverse.org/" class="uri">https://stringr.tidyverse.org/</a></p></li>
+</ul>
+</div></div>
+<p>Load it to Google Colab with the following code.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a></a><span class="fu">library</span>(stringr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="split-column-into-multiple-ones" class="slide level2">
+<h2>Split column into multiple ones</h2>
+<p>There are some cases in which we want to split a column according to a character. For example, consider the column <code>Comment</code> from the dataset.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a></a>complete_data <span class="sc">%&gt;%</span> <span class="fu">select</span>(Comment)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 99 × 1
+   Comment                 
+   &lt;chr&gt;                   
+ 1 "ok"                    
+ 2 "Needs oil!"            
+ 3 "All good\r\n"          
+ 4 "All good\r\n"          
+ 5 "Delay: power issue"    
+ 6 "completed"             
+ 7 "completed"             
+ 8 "All good\r\n"          
+ 9 "Requires part: valve"  
+10 "Delay: maintenance\r\n"
+# ℹ 89 more rows</code></pre>
+</div>
+</div>
+</section>
+<section id="section-9" class="slide level2">
+<h2></h2>
+<p>The column has some values such as “Requires part: valve” and “Delay: maintenance” that we may want to split into columns.</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 99 × 1
+   Comment                 
+   &lt;chr&gt;                   
+ 1 "ok"                    
+ 2 "Needs oil!"            
+ 3 "All good\r\n"          
+ 4 "All good\r\n"          
+ 5 "Delay: power issue"    
+ 6 "completed"             
+ 7 "completed"             
+ 8 "All good\r\n"          
+ 9 "Requires part: valve"  
+10 "Delay: maintenance\r\n"
+# ℹ 89 more rows</code></pre>
+</div>
+</div>
+</section>
+<section id="section-10" class="slide level2">
+<h2></h2>
+<p><br></p>
+<p>We can split the values in the column according to the colon “:”.</p>
+<p>That is, everything before the colon will be in a column. Everything after the colon will be in another column. To achieve this, we use the function <code>separate()</code> from the <strong>tidyr</strong> package.</p>
+<p>One input of the function is the symbol or character for which we cant to make a split. The other input, <code>expand = True</code> tells Python that we want to create new columns.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a></a>augmented_data <span class="ot">=</span> complete_data  <span class="sc">%&gt;%</span> </span>
+<span id="cb39-2"><a></a><span class="fu">separate</span>(Comment, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">"First_comment"</span>, <span class="st">"Second_comment"</span>), <span class="at">sep =</span> <span class="st">":"</span>, <span class="at">fill =</span> <span class="st">"right"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="section-11" class="slide level2">
+<h2></h2>
+<p>The result is two columns.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a></a>augmented_data <span class="sc">%&gt;%</span>  <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 7
+     ID `Machine ID` `Output (units)` `Maintenance Date`  Operator First_comment
+  &lt;int&gt;        &lt;dbl&gt; &lt;chr&gt;            &lt;dttm&gt;              &lt;chr&gt;    &lt;chr&gt;        
+1     1          101 1200             2023-01-10 00:00:00 Ana      "ok"         
+2     2          102 1050             2023-01-12 00:00:00 Bob      "Needs oil!" 
+3     3          103 &lt;NA&gt;             2023-01-13 00:00:00 Charlie  "All good\r\…
+4     4          103 950              2023-01-13 00:00:00 Charlie  "All good\r\…
+5     5          104 900              2023-01-14 00:00:00 Unknown  "Delay"      
+6     6          105 870              2023-01-01 00:00:00 DAVE     "completed"  
+# ℹ 1 more variable: Second_comment &lt;chr&gt;</code></pre>
+</div>
+</div>
+</section>
+<section id="remove-characters" class="slide level2">
+<h2>Remove characters</h2>
+<p><br></p>
+<p>Something that we notice is that the column <code>First_Comment</code> has some extra characters like “” that may be useless when working with the data.</p>
+<p>We can remove them using the function <code>str_replace_all()</code> or <code>str_trim()</code> from the <strong>stringr</strong> package. The input of the function is the character to remove.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a></a>augmented_data <span class="ot">=</span> augmented_data  <span class="sc">%&gt;%</span> </span>
+<span id="cb42-2"><a></a><span class="fu">mutate</span>(<span class="at">First_comment =</span> <span class="fu">str_trim</span>(First_comment, <span class="at">side =</span> <span class="st">"both"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="section-12" class="slide level2">
+<h2></h2>
+<p><br></p>
+<p>Let’s see the cleaned column.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a></a>augmented_data <span class="sc">%&gt;%</span>  <span class="fu">select</span>(First_comment) <span class="sc">%&gt;%</span>  <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 1
+  First_comment
+  &lt;chr&gt;        
+1 ok           
+2 Needs oil!   
+3 All good     
+4 All good     
+5 Delay        
+6 completed    </code></pre>
+</div>
+</div>
+</section>
+<section id="section-13" class="slide level2">
+<h2></h2>
+<p><br></p>
+<p>We can also remove other characters.</p>
+</section>
+<section id="transform-text-case" class="slide level2">
+<h2>Transform text case</h2>
+<p>When working with text columns such as those containing names, it might be possible to have different ways of writing. A common case is when having lower case or upper case names or a combination thereof.</p>
+<p>For example, consider the column <code>Operator</code> containing the names of the operators.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a></a>complete_data <span class="sc">%&gt;%</span> <span class="fu">select</span>(Operator) <span class="sc">%&gt;%</span>  <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 1
+  Operator
+  &lt;chr&gt;   
+1 Ana     
+2 Bob     
+3 Charlie 
+4 Charlie 
+5 Unknown 
+6 DAVE    </code></pre>
+</div>
+</div>
+</section>
+<section id="remove-extra-spaces" class="slide level2">
+<h2>Remove extra spaces</h2>
+<p><br></p>
+<p>To deal with names, we first use the <code>str_trim()</code> to remove leading and trailing characters from strings.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a></a>complete_data <span class="ot">=</span>  complete_data <span class="sc">%&gt;%</span> </span>
+<span id="cb47-2"><a></a><span class="fu">mutate</span>(<span class="at">Operator =</span> <span class="fu">str_trim</span>(Operator))</span>
+<span id="cb47-3"><a></a></span>
+<span id="cb47-4"><a></a>complete_data <span class="sc">%&gt;%</span>  <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 6
+     ID `Machine ID` `Output (units)` `Maintenance Date`  Operator Comment      
+  &lt;int&gt;        &lt;dbl&gt; &lt;chr&gt;            &lt;dttm&gt;              &lt;chr&gt;    &lt;chr&gt;        
+1     1          101 1200             2023-01-10 00:00:00 Ana      "ok"         
+2     2          102 1050             2023-01-12 00:00:00 Bob      "Needs oil!" 
+3     3          103 &lt;NA&gt;             2023-01-13 00:00:00 Charlie  "All good\r\…
+4     4          103 950              2023-01-13 00:00:00 Charlie  "All good\r\…
+5     5          104 900              2023-01-14 00:00:00 Unknown  "Delay: powe…
+6     6          105 870              2023-01-01 00:00:00 DAVE     "completed"  </code></pre>
+</div>
+</div>
+</section>
+<section id="change-to-lowercase-letters" class="slide level2">
+<h2>Change to lowercase letters</h2>
+<p><br></p>
+<p>We can turn all names to lowercase using the function <code>str_to_lower()</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a></a>complete_data <span class="sc">%&gt;%</span> </span>
+<span id="cb49-2"><a></a><span class="fu">mutate</span>(<span class="at">Operator =</span> <span class="fu">str_to_lower</span>(Operator)) <span class="sc">%&gt;%</span> </span>
+<span id="cb49-3"><a></a><span class="fu">select</span>(Operator) <span class="sc">%&gt;%</span> </span>
+<span id="cb49-4"><a></a><span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 1
+  Operator
+  &lt;chr&gt;   
+1 ana     
+2 bob     
+3 charlie 
+4 charlie 
+5 unknown 
+6 dave    </code></pre>
+</div>
+</div>
+</section>
+<section id="change-to-uppercase-letters" class="slide level2">
+<h2>Change to uppercase letters</h2>
+<p><br></p>
+<p>We can turn all names to lowercase using the function <code>str_to_upper()</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a></a>complete_data <span class="sc">%&gt;%</span> </span>
+<span id="cb51-2"><a></a><span class="fu">mutate</span>(<span class="at">Operator =</span> <span class="fu">str_to_upper</span>(Operator)) <span class="sc">%&gt;%</span> </span>
+<span id="cb51-3"><a></a><span class="fu">select</span>(Operator) <span class="sc">%&gt;%</span> </span>
+<span id="cb51-4"><a></a><span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 1
+  Operator
+  &lt;chr&gt;   
+1 ANA     
+2 BOB     
+3 CHARLIE 
+4 CHARLIE 
+5 UNKNOWN 
+6 DAVE    </code></pre>
+</div>
+</div>
+</section>
+<section id="capitalize-the-first-letter" class="slide level2">
+<h2>Capitalize the first letter</h2>
+<p><br></p>
+<p>We can convert all names to title case using the function <code>str_to_title()</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a></a>complete_data <span class="sc">%&gt;%</span> </span>
+<span id="cb53-2"><a></a><span class="fu">mutate</span>(<span class="at">Operator =</span> <span class="fu">str_to_title</span>(Operator)) <span class="sc">%&gt;%</span> </span>
+<span id="cb53-3"><a></a><span class="fu">select</span>(Operator) <span class="sc">%&gt;%</span> </span>
+<span id="cb53-4"><a></a><span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 1
+  Operator
+  &lt;chr&gt;   
+1 Ana     
+2 Bob     
+3 Charlie 
+4 Charlie 
+5 Unknown 
+6 Dave    </code></pre>
+</div>
+</div>
 
 
 </section>

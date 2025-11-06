@@ -235,21 +235,21 @@
     "href": "T3_TidyData/TidyData.slides.html#the-r-for-data-science-workflow",
     "title": "Tidy Data",
     "section": "The R for Data Science Workflow",
-    "text": "The R for Data Science Workflow\nGoal: Understand where data tidying fits in the broader data science process."
+    "text": "The R for Data Science Workflow\n\n\n\nhttps://r4ds.hadley.nz/"
   },
   {
     "objectID": "T3_TidyData/TidyData.slides.html#data-science-workflow",
     "href": "T3_TidyData/TidyData.slides.html#data-science-workflow",
     "title": "Tidy Data",
     "section": "Data Science Workflow",
-    "text": "Data Science Workflow\n\n\nEvery data science project involves importing, tidying, transforming, visualizing, and modeling data.\ntidyr focuses on the tidy part — making your data easy to work with."
+    "text": "Data Science Workflow\n\n\nEvery data science project involves importing, tidying, transforming, visualizing, modeling, and communicating data."
   },
   {
     "objectID": "T3_TidyData/TidyData.slides.html#why-focus-on-tidy-data",
     "href": "T3_TidyData/TidyData.slides.html#why-focus-on-tidy-data",
     "title": "Tidy Data",
     "section": "Why Focus on Tidy Data?",
-    "text": "Why Focus on Tidy Data?\n\n“Tidy datasets are easy to manipulate, model, and visualize.” — Hadley Wickham\n\n\nTidy data principles make R tools work together smoothly.\nEach tidy dataset is like a well-organized spreadsheet.\nMost errors in analysis happen before modeling — during data wrangling."
+    "text": "Why Focus on Tidy Data?\n\n“Tidy datasets are easy to manipulate, model, and visualize.” — Hadley Wickham\n\n\n\nTidy data principles make R tools work together smoothly.\nEach tidy dataset is like a well-organized spreadsheet.\nMost errors in analysis happen before modeling — during data wrangling.\nThe tidyr package focuses on making your data tidy or easy to work with."
   },
   {
     "objectID": "T3_TidyData/TidyData.slides.html#the-tidyverse",
@@ -284,7 +284,7 @@
     "href": "T3_TidyData/TidyData.slides.html#problem-not-tidy",
     "title": "Tidy Data",
     "section": "Problem: Not Tidy!",
-    "text": "Problem: Not Tidy!\n\nVariable names (jan_sales, feb_sales) store values (months).\nEach column should represent a variable, not a combination of variables.\nEach row should represent a single observation."
+    "text": "Problem: Not Tidy!\n\n\nVariable names (jan_sales, feb_sales) store values (months).\nEach column should represent a variable, not a combination of variables.\nEach row should represent a single observation."
   },
   {
     "objectID": "T3_TidyData/TidyData.slides.html#the-goal-of-tidyr",
@@ -312,14 +312,14 @@
     "href": "T3_TidyData/TidyData.slides.html#tidy-data-1",
     "title": "Tidy Data",
     "section": "Tidy Data",
-    "text": "Tidy Data\n\n“Tidy data is a standard way of mapping the meaning of a dataset to its structure.” Hadley Wickham.\n\n\n\nIn tidy data:\n\nEach variable forms a column\nEach observation forms a row\nEach cell is a single measurement."
+    "text": "Tidy Data\n\n\nIn tidy data:\n\nEach variable is in a column\nEach observation is in a row\nEach cell is a single measurement."
   },
   {
     "objectID": "T3_TidyData/TidyData.slides.html#section",
     "href": "T3_TidyData/TidyData.slides.html#section",
     "title": "Tidy Data",
     "section": "",
-    "text": "https://openscapes.org/blog/2020-10-12-tidy-data/"
+    "text": "Import: Bring raw data into R.\n\nTidy: Reshape into a consistent format.\n\nTransform: Create new variables and summaries.\n\nVisualize: Explore patterns visually.\n\nModel: Fit statistical or machine learning models.\n\nCommunicate: Share insights clearly."
   },
   {
     "objectID": "T3_TidyData/TidyData.slides.html#a-new-library-tidyr",
@@ -389,7 +389,7 @@
     "href": "T3_TidyData/TidyData.slides.html#tidyrs-functions",
     "title": "Tidy Data",
     "section": "tidyr’s functions",
-    "text": "tidyr’s functions\n\ntidyr provides tools for reshaping, organizing, and completing data.\n\n\n\nPurpose\nFunction 1\nFunction 2\n\n\n\n\nPivoting\npivot_longer()\npivot_wider()\n\n\nSplitting / Combining\nseparate()\nunite()\n\n\nNesting / Unnesting\nnest()\nunnest()\n\n\nHandling Missing Data\ncomplete()\nfill()"
+    "text": "tidyr’s functions\nThe tidyr provides functions for reshaping, organizing, and completing data.\n\n\n\nPurpose\nFunction 1\nFunction 2\n\n\n\n\nPivoting\npivot_longer()\npivot_wider()\n\n\nSplitting / Combining\nseparate()\nunite()\n\n\nNesting / Unnesting\nnest()\nunnest()\n\n\nHandling Missing Data\ncomplete()\nfill()"
   },
   {
     "objectID": "T3_TidyData/TidyData.slides.html#pivoting",
@@ -438,7 +438,7 @@
     "href": "T3_TidyData/TidyData.slides.html#tidyr-and-the-tidyverse",
     "title": "Tidy Data",
     "section": "tidyr and the Tidyverse",
-    "text": "tidyr and the Tidyverse\n\ntidyr works seamlessly with dplyr.\n\nWhile dplyr focuses on data manipulation, tidyr focuses on data structure.\n\nTogether, they make your data clean and consistent before visualization or modeling."
+    "text": "tidyr and the Tidyverse\n\n\ntidyr works seamlessly with dplyr.\n\nWhile dplyr focuses on data manipulation, tidyr focuses on data structure.\n\nTogether, they make your data clean and consistent before visualization or modeling."
   },
   {
     "objectID": "T3_TidyData/TidyData.slides.html#example-dataset-production_data",
@@ -501,7 +501,7 @@
     "href": "T3_TidyData/TidyData.slides.html#fill",
     "title": "Tidy Data",
     "section": "fill()",
-    "text": "fill()\nFill missing values with the most recent non-missing value.\n\n\n# A tibble: 4 × 3\n  factory month output\n  &lt;chr&gt;   &lt;chr&gt;  &lt;dbl&gt;\n1 A       feb      130\n2 A       jan      120\n3 B       feb      120\n4 B       jan      150\n\n\nGoal\nIn this section, we’ll connect tidy data ideas to: - Real-world messy datasets\n- Data visualization workflows\n- Missing data handling\n- Best practices for reproducibility"
+    "text": "fill()\nFill missing values with the most recent non-missing value.\n\n\n# A tibble: 4 × 3\n  factory month output\n  &lt;chr&gt;   &lt;chr&gt;  &lt;dbl&gt;\n1 A       feb      130\n2 A       jan      120\n3 B       feb      120\n4 B       jan      150"
   },
   {
     "objectID": "T3_TidyData/TidyData.slides.html#why-tidy-data-matters-in-decision-making",
@@ -529,7 +529,7 @@
     "href": "T3_TidyData/TidyData.slides.html#why-visualization-loves-tidy-data",
     "title": "Tidy Data",
     "section": "Why Visualization Loves Tidy Data",
-    "text": "Why Visualization Loves Tidy Data\n\n\n\n\n\n\nNote\n\n\nEvery ggplot requires data in long format:\nx-axis: variable (e.g., month)\ny-axis: measurement (e.g., output)\ncolor/fill: grouping variable (e.g., factory)\n\n\n\nThat’s why pivot_longer() is your best friend before plotting."
+    "text": "Why Visualization Loves Tidy Data\nEvery plot requires data in long format:\n\nx-axis: variable (e.g., month)\ny-axis: measurement (e.g., output)\ncolor/fill: grouping variable (e.g., factory)\n\nThat’s why pivot_longer() is your best friend before plotting.\n\n\n“Tidy data is the bridge between raw numbers and clear insight.” — Hadley Wickham\n\n\n\nTo work with messy data, every time you need to switch to different gears\nlearn new tools that just works for that specific dataset\nIt’s much more pleasant to work with tidy data, help you to build a good taste of data analysis\nspent less fighting with different tools, focus more on data analysis bc one set of consistent tools\nthe {tidyverse} philosophy to work with the tidy data structures\nbuild automatic workflow for analysis, feed different data sets."
   },
   {
     "objectID": "T3_TidyData/TidyData.slides.html#advantages-of-tidy-data",
@@ -1608,5 +1608,243 @@
     "title": "Statistical Graphs",
     "section": "Discussion",
     "text": "Discussion\n\n\nThe simple linear regression model is easy to interpret due to its structure: \\(\\hat{Y}_i = \\hat{\\beta}_0 + \\hat{\\beta}_1 X_i.\\)\nHowever, it may be too rigid to capture complex relationships between two variables.\nLocal regression is flexible and allows capturing complex relationships between two variables, but it has a low level of interpretability because it does not provide an explicit equation."
+  },
+  {
+    "objectID": "T3_TidyData/TidyData.slides.html#section-1",
+    "href": "T3_TidyData/TidyData.slides.html#section-1",
+    "title": "Tidy Data",
+    "section": "",
+    "text": "https://openscapes.org/blog/2020-10-12-tidy-data/"
+  },
+  {
+    "objectID": "T3_TidyData/TidyData.slides.html#tidy-data",
+    "href": "T3_TidyData/TidyData.slides.html#tidy-data",
+    "title": "Tidy Data",
+    "section": "Tidy Data",
+    "text": "Tidy Data\n\n\n\nIn tidy data:\n\nEach variable is in a column\nEach observation is in a row\nEach cell is a single measurement."
+  },
+  {
+    "objectID": "T3_TidyData/TidyData.slides.html#tidy-data-2",
+    "href": "T3_TidyData/TidyData.slides.html#tidy-data-2",
+    "title": "Tidy Data",
+    "section": "Tidy Data",
+    "text": "Tidy Data\n\n“Tidy data is a standard way of mapping the meaning of a dataset to its structure.” Hadley Wickham.\n\n\n\nIn tidy data:\n\nEach variable forms a column\nEach observation forms a row\nEach cell is a single measurement."
+  },
+  {
+    "objectID": "T3_TidyData/TidyData.slides.html#example",
+    "href": "T3_TidyData/TidyData.slides.html#example",
+    "title": "Tidy Data",
+    "section": "Example",
+    "text": "Example\n\n\n# A tibble: 3 × 3\n  store jan_sales feb_sales\n  &lt;chr&gt;     &lt;dbl&gt;     &lt;dbl&gt;\n1 A           100       110\n2 B            80        95\n3 C           120       130"
+  },
+  {
+    "objectID": "T3_TidyData/TidyData.slides.html#why-do-we-need-tidy-data",
+    "href": "T3_TidyData/TidyData.slides.html#why-do-we-need-tidy-data",
+    "title": "Tidy Data",
+    "section": "Why do we need Tidy Data?",
+    "text": "Why do we need Tidy Data?\n\n“Tidy datasets are easy to manipulate, model, and visualize.” — Hadley Wickham\n\n\n\nTidy data make R tools work together smoothly.\nEach tidy dataset is like a well-organized spreadsheet.\nMaking your data tidy allows you to avoid common errors that occurred in the data analysis.\nThe tidyr package has functions to make your data tidy."
+  },
+  {
+    "objectID": "T3_TidyData/TidyData.slides.html#remove",
+    "href": "T3_TidyData/TidyData.slides.html#remove",
+    "title": "Tidy Data",
+    "section": "REMOVE",
+    "text": "REMOVE\n\n\n# A tibble: 6 × 3\n  name   subject score\n  &lt;chr&gt;  &lt;chr&gt;   &lt;dbl&gt;\n1 Ana    math       90\n2 Ana    english    88\n3 Luis   math       80\n4 Luis   english    95\n5 Carmen math       85\n6 Carmen english    92\n\n\n# A tibble: 3 × 3\n     id q1_morning q1_evening\n  &lt;int&gt;      &lt;dbl&gt;      &lt;dbl&gt;\n1     1          5          4\n2     2          3          2\n3     3          4          3\n\n\n# A tibble: 6 × 4\n     id question time    response\n  &lt;int&gt; &lt;chr&gt;    &lt;chr&gt;      &lt;dbl&gt;\n1     1 q1       morning        5\n2     1 q1       evening        4\n3     2 q1       morning        3\n4     2 q1       evening        2\n5     3 q1       morning        4\n6     3 q1       evening        3"
+  },
+  {
+    "objectID": "T3_TidyData/TidyData.slides.html#data-wrangling",
+    "href": "T3_TidyData/TidyData.slides.html#data-wrangling",
+    "title": "Tidy Data",
+    "section": "Data Wrangling",
+    "text": "Data Wrangling\n\n\nData wrangling is the process of transforming raw data into a clean and structured format.\nIt involves merging, reshaping, filtering, and organizing data for analysis.\nHere, we illustrate some special functions of the tidyverse for cleaning common issues with a dataset."
+  },
+  {
+    "objectID": "T3_TidyData/TidyData.slides.html#example-1",
+    "href": "T3_TidyData/TidyData.slides.html#example-1",
+    "title": "Tidy Data",
+    "section": "Example",
+    "text": "Example\nConsider an industrial engineer who receives a messy Excel file from a manufacturing client.\nThe data file is called “industrial_dataset.xlsx”, and includes data about machine maintenance logs, production output, and operator comments.\nThe goal is to clean and prepare this dataset using tidyverse functions so it can be analyzed."
+  },
+  {
+    "objectID": "T3_TidyData/TidyData.slides.html#read-the-dataset",
+    "href": "T3_TidyData/TidyData.slides.html#read-the-dataset",
+    "title": "Tidy Data",
+    "section": "Read the dataset",
+    "text": "Read the dataset"
+  },
+  {
+    "objectID": "T3_TidyData/TidyData.slides.html#example-2",
+    "href": "T3_TidyData/TidyData.slides.html#example-2",
+    "title": "Tidy Data",
+    "section": "Example 2",
+    "text": "Example 2\nConsider an industrial engineer who receives a messy Excel file from a manufacturing client. The data file is called “industrial_dataset.xlsx”, which file includes data about machine maintenance logs, production output, and operator comments.\nThe goal is to clean and prepare this dataset using pandas so it can be analyzed.\nLet’s read the data set into Python.\n\n# Load the Excel file into a tibble\nclient_data = read_excel(\"industrial_dataset.xlsx\")"
+  },
+  {
+    "objectID": "T3_TidyData/TidyData.slides.html#section-2",
+    "href": "T3_TidyData/TidyData.slides.html#section-2",
+    "title": "Tidy Data",
+    "section": "",
+    "text": "# Preview the dataset.\nclient_data %&gt;% head()\n\n# A tibble: 6 × 5\n  `Machine ID` `Output (units)` `Maintenance Date`  Operator Comment            \n         &lt;dbl&gt; &lt;chr&gt;            &lt;dttm&gt;              &lt;chr&gt;    &lt;chr&gt;              \n1          101 1200             2023-01-10 00:00:00 Ana      \"ok\"               \n2          101 1200             2023-01-10 00:00:00 Ana      \"ok\"               \n3          102 1050             2023-01-12 00:00:00 Bob      \"Needs oil!\"       \n4          103 error            2023-01-13 00:00:00 Charlie  \"All good\\r\\n\"     \n5          103 950              2023-01-13 00:00:00 Charlie  \"All good\\r\\n\"     \n6          104 900              2023-01-14 00:00:00 &lt;NA&gt;     \"Delay: power issu…"
+  },
+  {
+    "objectID": "T3_TidyData/TidyData.slides.html#remove-duplicate-rows",
+    "href": "T3_TidyData/TidyData.slides.html#remove-duplicate-rows",
+    "title": "Tidy Data",
+    "section": "Remove duplicate rows",
+    "text": "Remove duplicate rows\n\nDuplicate or identical rows are rows that have the same entries in every column in the dataset.\nIf only one row is needed for the analysis, we can remove the duplicates using the distinct() function.\n\nclient_data_single = client_data  %&gt;% distinct()"
+  },
+  {
+    "objectID": "T3_TidyData/TidyData.slides.html#section-3",
+    "href": "T3_TidyData/TidyData.slides.html#section-3",
+    "title": "Tidy Data",
+    "section": "",
+    "text": "The client_data_single dataframe does not have duplicate rows.\n\nclient_data_single %&gt;% head()\n\n# A tibble: 6 × 5\n  `Machine ID` `Output (units)` `Maintenance Date`  Operator Comment            \n         &lt;dbl&gt; &lt;chr&gt;            &lt;dttm&gt;              &lt;chr&gt;    &lt;chr&gt;              \n1          101 1200             2023-01-10 00:00:00 Ana      \"ok\"               \n2          102 1050             2023-01-12 00:00:00 Bob      \"Needs oil!\"       \n3          103 error            2023-01-13 00:00:00 Charlie  \"All good\\r\\n\"     \n4          103 950              2023-01-13 00:00:00 Charlie  \"All good\\r\\n\"     \n5          104 900              2023-01-14 00:00:00 &lt;NA&gt;     \"Delay: power issu…\n6          105 870              NA                  DAVE     \"completed\""
+  },
+  {
+    "objectID": "T3_TidyData/TidyData.slides.html#add-an-index-column",
+    "href": "T3_TidyData/TidyData.slides.html#add-an-index-column",
+    "title": "Tidy Data",
+    "section": "Add an index column",
+    "text": "Add an index column\n\nIn some cases, it is useful to have a unique identifier for each row in the dataset. We can create an identifier using the functions mutate() and `row_number()`` with some extra syntaxis.\n\nclient_data_single = client_data_single %&gt;% mutate(ID = row_number())"
+  },
+  {
+    "objectID": "T3_TidyData/TidyData.slides.html#section-4",
+    "href": "T3_TidyData/TidyData.slides.html#section-4",
+    "title": "Tidy Data",
+    "section": "",
+    "text": "The new column is appended to the end of the dataframe.\n\nclient_data_single %&gt;%  head()\n\n# A tibble: 6 × 6\n  `Machine ID` `Output (units)` `Maintenance Date`  Operator Comment          ID\n         &lt;dbl&gt; &lt;chr&gt;            &lt;dttm&gt;              &lt;chr&gt;    &lt;chr&gt;         &lt;int&gt;\n1          101 1200             2023-01-10 00:00:00 Ana      \"ok\"              1\n2          102 1050             2023-01-12 00:00:00 Bob      \"Needs oil!\"      2\n3          103 error            2023-01-13 00:00:00 Charlie  \"All good\\r\\…     3\n4          103 950              2023-01-13 00:00:00 Charlie  \"All good\\r\\…     4\n5          104 900              2023-01-14 00:00:00 &lt;NA&gt;     \"Delay: powe…     5\n6          105 870              NA                  DAVE     \"completed\"       6"
+  },
+  {
+    "objectID": "T3_TidyData/TidyData.slides.html#section-5",
+    "href": "T3_TidyData/TidyData.slides.html#section-5",
+    "title": "Tidy Data",
+    "section": "",
+    "text": "To bring it to the beginning of the array, we can use the select() and everything() functions.\n\nclient_data_single = client_data_single %&gt;% \nselect(ID, everything())\n\nclient_data_single %&gt;%  head(3)\n\n# A tibble: 3 × 6\n     ID `Machine ID` `Output (units)` `Maintenance Date`  Operator Comment      \n  &lt;int&gt;        &lt;dbl&gt; &lt;chr&gt;            &lt;dttm&gt;              &lt;chr&gt;    &lt;chr&gt;        \n1     1          101 1200             2023-01-10 00:00:00 Ana      \"ok\"         \n2     2          102 1050             2023-01-12 00:00:00 Bob      \"Needs oil!\" \n3     3          103 error            2023-01-13 00:00:00 Charlie  \"All good\\r\\…"
+  },
+  {
+    "objectID": "T3_TidyData/TidyData.slides.html#fill-blank-cells",
+    "href": "T3_TidyData/TidyData.slides.html#fill-blank-cells",
+    "title": "Tidy Data",
+    "section": "Fill blank cells",
+    "text": "Fill blank cells\nIn the dataset, there are columns with missing values. If we would like to fill them with specific values or text, we use the replace_na() function. In this function, we use the syntaxis 'Variable' = 'Replace', where the Variable is the column in the dataset and Replace is the text or number to fill the entry in.\nLet’s fill in the missing entries of the columns Operator, Maintenance Date, and Comment.\n\ncomplete_data = client_data_single %&gt;% \n                  replace_na( list(\n                  Operator = \"Unknown\",\n                  `Maintenance Date` = as.Date(\"2023-01-01\"),\n                  Comment = \"None\"\n                  ) )"
+  },
+  {
+    "objectID": "T3_TidyData/TidyData.slides.html#section-6",
+    "href": "T3_TidyData/TidyData.slides.html#section-6",
+    "title": "Tidy Data",
+    "section": "",
+    "text": "complete_data %&gt;%  head()\n\n# A tibble: 6 × 6\n     ID `Machine ID` `Output (units)` `Maintenance Date`  Operator Comment      \n  &lt;int&gt;        &lt;dbl&gt; &lt;chr&gt;            &lt;dttm&gt;              &lt;chr&gt;    &lt;chr&gt;        \n1     1          101 1200             2023-01-10 00:00:00 Ana      \"ok\"         \n2     2          102 1050             2023-01-12 00:00:00 Bob      \"Needs oil!\" \n3     3          103 error            2023-01-13 00:00:00 Charlie  \"All good\\r\\…\n4     4          103 950              2023-01-13 00:00:00 Charlie  \"All good\\r\\…\n5     5          104 900              2023-01-14 00:00:00 Unknown  \"Delay: powe…\n6     6          105 870              2023-01-01 00:00:00 DAVE     \"completed\""
+  },
+  {
+    "objectID": "T3_TidyData/TidyData.slides.html#replace-values",
+    "href": "T3_TidyData/TidyData.slides.html#replace-values",
+    "title": "Tidy Data",
+    "section": "Replace values",
+    "text": "Replace values\n\nThere are some cases in which columns have some undesired or unwatned values. Consider the Output (units) as an example.\n\ncomplete_data %&gt;% select(`Output (units)`) %&gt;% head()\n\n# A tibble: 6 × 1\n  `Output (units)`\n  &lt;chr&gt;           \n1 1200            \n2 1050            \n3 error           \n4 950             \n5 900             \n6 870             \n\n\nThe column has the numbers of units but also text such as “error”."
+  },
+  {
+    "objectID": "T3_TidyData/TidyData.slides.html#section-7",
+    "href": "T3_TidyData/TidyData.slides.html#section-7",
+    "title": "Tidy Data",
+    "section": "",
+    "text": "We can replace the “error” in this column by a user-specified value, say, 0. To this end, we use the functions mutate(), na_if() or if_else().\n\ncomplete_data = complete_data %&gt;% \nmutate(`Output (units)` = na_if(`Output (units)`, \"error\"))"
+  },
+  {
+    "objectID": "T3_TidyData/TidyData.slides.html#section-8",
+    "href": "T3_TidyData/TidyData.slides.html#section-8",
+    "title": "Tidy Data",
+    "section": "",
+    "text": "Let’s check the new column.\n\ncomplete_data %&gt;%  select(`Output (units)`) %&gt;%  head()\n\n# A tibble: 6 × 1\n  `Output (units)`\n  &lt;chr&gt;           \n1 1200            \n2 1050            \n3 &lt;NA&gt;            \n4 950             \n5 900             \n6 870             \n\n\nNote that the new column is now numeric."
+  },
+  {
+    "objectID": "T3_TidyData/TidyData.slides.html#a-new-library-stringr",
+    "href": "T3_TidyData/TidyData.slides.html#a-new-library-stringr",
+    "title": "Tidy Data",
+    "section": "A new library: stringr",
+    "text": "A new library: stringr\n\n\n\n\n\n\n\n\n\nstringr provides a consistent set of functions for working with strings.\nIt helps you clean, manipulate, and transform text data easily.\nIt is also part of the tidyverse collection of packages.\nhttps://stringr.tidyverse.org/\n\n\nLoad it to Google Colab with the following code.\n\nlibrary(stringr)"
+  },
+  {
+    "objectID": "T3_TidyData/TidyData.slides.html#split-column-into-multiple-ones",
+    "href": "T3_TidyData/TidyData.slides.html#split-column-into-multiple-ones",
+    "title": "Tidy Data",
+    "section": "Split column into multiple ones",
+    "text": "Split column into multiple ones\nThere are some cases in which we want to split a column according to a character. For example, consider the column Comment from the dataset.\n\ncomplete_data %&gt;% select(Comment)\n\n# A tibble: 99 × 1\n   Comment                 \n   &lt;chr&gt;                   \n 1 \"ok\"                    \n 2 \"Needs oil!\"            \n 3 \"All good\\r\\n\"          \n 4 \"All good\\r\\n\"          \n 5 \"Delay: power issue\"    \n 6 \"completed\"             \n 7 \"completed\"             \n 8 \"All good\\r\\n\"          \n 9 \"Requires part: valve\"  \n10 \"Delay: maintenance\\r\\n\"\n# ℹ 89 more rows"
+  },
+  {
+    "objectID": "T3_TidyData/TidyData.slides.html#section-9",
+    "href": "T3_TidyData/TidyData.slides.html#section-9",
+    "title": "Tidy Data",
+    "section": "",
+    "text": "The column has some values such as “Requires part: valve” and “Delay: maintenance” that we may want to split into columns.\n\n\n# A tibble: 99 × 1\n   Comment                 \n   &lt;chr&gt;                   \n 1 \"ok\"                    \n 2 \"Needs oil!\"            \n 3 \"All good\\r\\n\"          \n 4 \"All good\\r\\n\"          \n 5 \"Delay: power issue\"    \n 6 \"completed\"             \n 7 \"completed\"             \n 8 \"All good\\r\\n\"          \n 9 \"Requires part: valve\"  \n10 \"Delay: maintenance\\r\\n\"\n# ℹ 89 more rows"
+  },
+  {
+    "objectID": "T3_TidyData/TidyData.slides.html#section-10",
+    "href": "T3_TidyData/TidyData.slides.html#section-10",
+    "title": "Tidy Data",
+    "section": "",
+    "text": "We can split the values in the column according to the colon “:”.\nThat is, everything before the colon will be in a column. Everything after the colon will be in another column. To achieve this, we use the function separate() from the tidyr package.\nOne input of the function is the symbol or character for which we cant to make a split. The other input, expand = True tells Python that we want to create new columns.\n\naugmented_data = complete_data  %&gt;% \nseparate(Comment, into = c(\"First_comment\", \"Second_comment\"), sep = \":\", fill = \"right\")"
+  },
+  {
+    "objectID": "T3_TidyData/TidyData.slides.html#section-11",
+    "href": "T3_TidyData/TidyData.slides.html#section-11",
+    "title": "Tidy Data",
+    "section": "",
+    "text": "The result is two columns.\n\naugmented_data %&gt;%  head()\n\n# A tibble: 6 × 7\n     ID `Machine ID` `Output (units)` `Maintenance Date`  Operator First_comment\n  &lt;int&gt;        &lt;dbl&gt; &lt;chr&gt;            &lt;dttm&gt;              &lt;chr&gt;    &lt;chr&gt;        \n1     1          101 1200             2023-01-10 00:00:00 Ana      \"ok\"         \n2     2          102 1050             2023-01-12 00:00:00 Bob      \"Needs oil!\" \n3     3          103 &lt;NA&gt;             2023-01-13 00:00:00 Charlie  \"All good\\r\\…\n4     4          103 950              2023-01-13 00:00:00 Charlie  \"All good\\r\\…\n5     5          104 900              2023-01-14 00:00:00 Unknown  \"Delay\"      \n6     6          105 870              2023-01-01 00:00:00 DAVE     \"completed\"  \n# ℹ 1 more variable: Second_comment &lt;chr&gt;"
+  },
+  {
+    "objectID": "T3_TidyData/TidyData.slides.html#remove-characters",
+    "href": "T3_TidyData/TidyData.slides.html#remove-characters",
+    "title": "Tidy Data",
+    "section": "Remove characters",
+    "text": "Remove characters\n\nSomething that we notice is that the column First_Comment has some extra characters like “” that may be useless when working with the data.\nWe can remove them using the function str_replace_all() or str_trim() from the stringr package. The input of the function is the character to remove.\n\naugmented_data = augmented_data  %&gt;% \nmutate(First_comment = str_trim(First_comment, side = \"both\"))"
+  },
+  {
+    "objectID": "T3_TidyData/TidyData.slides.html#section-12",
+    "href": "T3_TidyData/TidyData.slides.html#section-12",
+    "title": "Tidy Data",
+    "section": "",
+    "text": "Let’s see the cleaned column.\n\naugmented_data %&gt;%  select(First_comment) %&gt;%  head()\n\n# A tibble: 6 × 1\n  First_comment\n  &lt;chr&gt;        \n1 ok           \n2 Needs oil!   \n3 All good     \n4 All good     \n5 Delay        \n6 completed"
+  },
+  {
+    "objectID": "T3_TidyData/TidyData.slides.html#section-13",
+    "href": "T3_TidyData/TidyData.slides.html#section-13",
+    "title": "Tidy Data",
+    "section": "",
+    "text": "We can also remove other characters."
+  },
+  {
+    "objectID": "T3_TidyData/TidyData.slides.html#transform-text-case",
+    "href": "T3_TidyData/TidyData.slides.html#transform-text-case",
+    "title": "Tidy Data",
+    "section": "Transform text case",
+    "text": "Transform text case\nWhen working with text columns such as those containing names, it might be possible to have different ways of writing. A common case is when having lower case or upper case names or a combination thereof.\nFor example, consider the column Operator containing the names of the operators.\n\ncomplete_data %&gt;% select(Operator) %&gt;%  head()\n\n# A tibble: 6 × 1\n  Operator\n  &lt;chr&gt;   \n1 Ana     \n2 Bob     \n3 Charlie \n4 Charlie \n5 Unknown \n6 DAVE"
+  },
+  {
+    "objectID": "T3_TidyData/TidyData.slides.html#remove-extra-spaces",
+    "href": "T3_TidyData/TidyData.slides.html#remove-extra-spaces",
+    "title": "Tidy Data",
+    "section": "Remove extra spaces",
+    "text": "Remove extra spaces\n\nTo deal with names, we first use the str_trim() to remove leading and trailing characters from strings.\n\ncomplete_data =  complete_data %&gt;% \nmutate(Operator = str_trim(Operator))\n\ncomplete_data %&gt;%  head()\n\n# A tibble: 6 × 6\n     ID `Machine ID` `Output (units)` `Maintenance Date`  Operator Comment      \n  &lt;int&gt;        &lt;dbl&gt; &lt;chr&gt;            &lt;dttm&gt;              &lt;chr&gt;    &lt;chr&gt;        \n1     1          101 1200             2023-01-10 00:00:00 Ana      \"ok\"         \n2     2          102 1050             2023-01-12 00:00:00 Bob      \"Needs oil!\" \n3     3          103 &lt;NA&gt;             2023-01-13 00:00:00 Charlie  \"All good\\r\\…\n4     4          103 950              2023-01-13 00:00:00 Charlie  \"All good\\r\\…\n5     5          104 900              2023-01-14 00:00:00 Unknown  \"Delay: powe…\n6     6          105 870              2023-01-01 00:00:00 DAVE     \"completed\""
+  },
+  {
+    "objectID": "T3_TidyData/TidyData.slides.html#change-to-lowercase-letters",
+    "href": "T3_TidyData/TidyData.slides.html#change-to-lowercase-letters",
+    "title": "Tidy Data",
+    "section": "Change to lowercase letters",
+    "text": "Change to lowercase letters\n\nWe can turn all names to lowercase using the function str_to_lower().\n\ncomplete_data %&gt;% \nmutate(Operator = str_to_lower(Operator)) %&gt;% \nselect(Operator) %&gt;% \nhead()\n\n# A tibble: 6 × 1\n  Operator\n  &lt;chr&gt;   \n1 ana     \n2 bob     \n3 charlie \n4 charlie \n5 unknown \n6 dave"
+  },
+  {
+    "objectID": "T3_TidyData/TidyData.slides.html#change-to-uppercase-letters",
+    "href": "T3_TidyData/TidyData.slides.html#change-to-uppercase-letters",
+    "title": "Tidy Data",
+    "section": "Change to uppercase letters",
+    "text": "Change to uppercase letters\n\nWe can turn all names to lowercase using the function str_to_upper().\n\ncomplete_data %&gt;% \nmutate(Operator = str_to_upper(Operator)) %&gt;% \nselect(Operator) %&gt;% \nhead()\n\n# A tibble: 6 × 1\n  Operator\n  &lt;chr&gt;   \n1 ANA     \n2 BOB     \n3 CHARLIE \n4 CHARLIE \n5 UNKNOWN \n6 DAVE"
+  },
+  {
+    "objectID": "T3_TidyData/TidyData.slides.html#capitalize-the-first-letter",
+    "href": "T3_TidyData/TidyData.slides.html#capitalize-the-first-letter",
+    "title": "Tidy Data",
+    "section": "Capitalize the first letter",
+    "text": "Capitalize the first letter\n\nWe can convert all names to title case using the function str_to_title().\n\ncomplete_data %&gt;% \nmutate(Operator = str_to_title(Operator)) %&gt;% \nselect(Operator) %&gt;% \nhead()\n\n# A tibble: 6 × 1\n  Operator\n  &lt;chr&gt;   \n1 Ana     \n2 Bob     \n3 Charlie \n4 Charlie \n5 Unknown \n6 Dave"
   }
 ]
