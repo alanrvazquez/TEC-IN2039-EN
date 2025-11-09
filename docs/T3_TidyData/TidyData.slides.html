@@ -442,8 +442,8 @@ Alan R. Vazquez
 </tbody>
 </table>
 </section>
-<section id="example-3" class="slide level2">
-<h2>Example 3</h2>
+<section id="example-2" class="slide level2">
+<h2>Example 2</h2>
 <p><br></p>
 <p>Consider the data in the file “spotify.xlsx”. This dataset contains the global daily plays of the five most popular songs on the Spotify music streaming service in 2017.</p>
 <p>Let’s read the dataset using the function <code>read_excel()</code> from the <strong>readxl</strong> library.</p>
@@ -484,11 +484,11 @@ Alan R. Vazquez
 <span id="cb11-5"><a></a>               <span class="at">values_to =</span> <span class="st">"Plays"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="the-wide-version-of-the-data" class="slide level2">
-<h2>The wide version of the data</h2>
+<section id="the-long-version-of-the-data" class="slide level2">
+<h2>The long version of the data</h2>
 <p><br></p>
 <ul>
-<li>A <code>Song</code> column with the name of the songs in the dataset.</li>
+<li>A <code>Song</code> column with the names of the songs in the dataset.</li>
 <li>A <code>Plays</code> column with the number of plays of each song for each date.</li>
 </ul>
 <div class="cell">
@@ -571,8 +571,8 @@ Alan R. Vazquez
 </div>
 </div>
 </section>
-<section id="example-4" class="slide level2">
-<h2>Example 4</h2>
+<section id="example-3" class="slide level2">
+<h2>Example 3</h2>
 <p><br></p>
 <p>Consider an industrial engineer who receives a messy Excel file from a manufacturing client. The data file is called “industrial_dataset.xlsx”, which file includes data about machine maintenance logs, production output, and operator comments.</p>
 <div class="cell">
@@ -893,8 +893,8 @@ Alan R. Vazquez
 <div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a></a><span class="fu">library</span>(stringr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="example-4-cont." class="slide level2">
-<h2>Example 4 (cont.)</h2>
+<section id="example-3-cont." class="slide level2">
+<h2>Example 3 (cont.)</h2>
 <p>Let’s reconsider the Example 4 after splitting the column <code>Comment</code> into two columns <code>First_Comment</code> and <code>Second_comment</code>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a></a>augmented_data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1017,7 +1017,7 @@ Alan R. Vazquez
 <section id="change-to-uppercase-letters" class="slide level2">
 <h2>Change to uppercase letters</h2>
 <p><br></p>
-<p>We can turn all names to lowercase using the function <code>str_to_upper()</code>.</p>
+<p>We can turn all names to uppercase using the function <code>str_to_upper()</code>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb59"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a></a>complete_data <span class="sc">%&gt;%</span> </span>
 <span id="cb59-2"><a></a><span class="fu">mutate</span>(<span class="at">Operator =</span> <span class="fu">str_to_upper</span>(Operator)) <span class="sc">%&gt;%</span> </span>

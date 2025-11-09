@@ -417,7 +417,7 @@
     "href": "T3_TidyData/TidyData.slides.html#example-2",
     "title": "Tidy Data",
     "section": "Example 2",
-    "text": "Example 2\nConsider an industrial engineer who receives a messy Excel file from a manufacturing client. The data file is called “industrial_dataset.xlsx”, which file includes data about machine maintenance logs, production output, and operator comments.\nThe goal is to clean and prepare this dataset using pandas so it can be analyzed.\nLet’s read the data set into R\n\n# Load the Excel file into a tibble\nclient_data = read_excel(\"industrial_dataset.xlsx\")"
+    "text": "Example 2\n\nConsider the data in the file “spotify.xlsx”. This dataset contains the global daily plays of the five most popular songs on the Spotify music streaming service in 2017.\nLet’s read the dataset using the function read_excel() from the readxl library.\n\nspotify_data = read_excel(\"spotify.xlsx\")"
   },
   {
     "objectID": "T3_TidyData/TidyData.slides.html#section-2",
@@ -578,7 +578,7 @@
     "href": "T3_TidyData/TidyData.slides.html#change-to-uppercase-letters",
     "title": "Tidy Data",
     "section": "Change to uppercase letters",
-    "text": "Change to uppercase letters\n\nWe can turn all names to lowercase using the function str_to_upper().\n\ncomplete_data %&gt;% \nmutate(Operator = str_to_upper(Operator)) %&gt;% \nselect(Operator) %&gt;% \nhead()\n\n# A tibble: 6 × 1\n  Operator\n  &lt;chr&gt;   \n1 ANA     \n2 BOB     \n3 CHARLIE \n4 CHARLIE \n5 UNKNOWN \n6 DAVE"
+    "text": "Change to uppercase letters\n\nWe can turn all names to uppercase using the function str_to_upper().\n\ncomplete_data %&gt;% \nmutate(Operator = str_to_upper(Operator)) %&gt;% \nselect(Operator) %&gt;% \nhead()\n\n# A tibble: 6 × 1\n  Operator\n  &lt;chr&gt;   \n1 ANA     \n2 BOB     \n3 CHARLIE \n4 CHARLIE \n5 UNKNOWN \n6 DAVE"
   },
   {
     "objectID": "T3_TidyData/TidyData.slides.html#capitalize-the-first-letter",
@@ -1719,7 +1719,7 @@
     "href": "T3_TidyData/TidyData.slides.html#example-3",
     "title": "Tidy Data",
     "section": "Example 3",
-    "text": "Example 3\n\nConsider the data in the file “spotify.xlsx”. This dataset contains the global daily plays of the five most popular songs on the Spotify music streaming service in 2017.\nLet’s read the dataset using the function read_excel() from the readxl library.\n\nspotify_data = read_excel(\"spotify.xlsx\")"
+    "text": "Example 3\n\nConsider an industrial engineer who receives a messy Excel file from a manufacturing client. The data file is called “industrial_dataset.xlsx”, which file includes data about machine maintenance logs, production output, and operator comments.\n\nclient_data = read_excel(\"industrial_dataset.xlsx\")\n\nWe use this dataset to illustrate the functions separate() and unite()."
   },
   {
     "objectID": "T3_TidyData/TidyData.slides.html#example-4",
@@ -1776,5 +1776,19 @@
     "title": "Tidy Data",
     "section": "More on tidyr and stringr",
     "text": "More on tidyr and stringr\n\n\nhttps://r4ds.hadley.nz/"
+  },
+  {
+    "objectID": "T3_TidyData/TidyData.slides.html#the-long-version-of-the-data",
+    "href": "T3_TidyData/TidyData.slides.html#the-long-version-of-the-data",
+    "title": "Tidy Data",
+    "section": "The long version of the data",
+    "text": "The long version of the data\n\n\nA Song column with the names of the songs in the dataset.\nA Plays column with the number of plays of each song for each date.\n\n\nspotify_long %&gt;% head()\n\n# A tibble: 6 × 4\n  Date                  Day Song                        Plays\n  &lt;dttm&gt;              &lt;dbl&gt; &lt;chr&gt;                       &lt;dbl&gt;\n1 2017-01-06 00:00:00     1 Shape of You             12287078\n2 2017-01-06 00:00:00     1 Despacito                      NA\n3 2017-01-06 00:00:00     1 Something Just Like This       NA\n4 2017-01-06 00:00:00     1 HUMBLE.                        NA\n5 2017-01-06 00:00:00     1 Unforgettable                  NA\n6 2017-01-07 00:00:00     2 Shape of You             13190270"
+  },
+  {
+    "objectID": "T3_TidyData/TidyData.slides.html#example-3-cont.",
+    "href": "T3_TidyData/TidyData.slides.html#example-3-cont.",
+    "title": "Tidy Data",
+    "section": "Example 3 (cont.)",
+    "text": "Example 3 (cont.)\nLet’s reconsider the Example 4 after splitting the column Comment into two columns First_Comment and Second_comment.\n\naugmented_data\n\n# A tibble: 100 × 6\n   `Machine ID` `Output (units)` `Maintenance Date`  Operator First_comment  \n          &lt;dbl&gt; &lt;chr&gt;            &lt;dttm&gt;              &lt;chr&gt;    &lt;chr&gt;          \n 1          101 1200             2023-01-10 00:00:00 Ana      \"ok\"           \n 2          101 1200             2023-01-10 00:00:00 Ana      \"ok\"           \n 3          102 1050             2023-01-12 00:00:00 Bob      \"Needs oil!\"   \n 4          103 error            2023-01-13 00:00:00 Charlie  \"All good\\r\\n\" \n 5          103 950              2023-01-13 00:00:00 Charlie  \"All good\\r\\n\" \n 6          104 900              2023-01-14 00:00:00 &lt;NA&gt;     \"Delay\"        \n 7          105 870              NA                  DAVE     \"completed\"    \n 8          105 800              2023-01-21 00:00:00 dave     \"completed\"    \n 9          102 870              2023-01-25 00:00:00 Charlie  \"All good\\r\\n\" \n10          102 800              2023-01-20 00:00:00 Charlie  \"Requires part\"\n# ℹ 90 more rows\n# ℹ 1 more variable: Second_comment &lt;chr&gt;"
   }
 ]
