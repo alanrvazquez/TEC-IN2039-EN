@@ -209,7 +209,7 @@ The **tidyr** provides functions for reshaping, organizing, and completing data.
 | **Pivoting**              | `pivot_longer()` | `pivot_wider()` |
 | **Splitting / Combining** | `separate()`     | `unite()`       |
 
-## Example 3
+## Example 2
 
 </br>
 
@@ -254,11 +254,11 @@ spotify_long = spotify_data %>%
                values_to = "Plays")
 ```
 
-## The wide version of the data
+## The long version of the data
 
 </br>
 
-- A `Song` column with the name of the songs in the dataset.
+- A `Song` column with the names of the songs in the dataset.
 - A `Plays` column with the number of plays of each song for each date.
 
 ```{r}
@@ -305,7 +305,7 @@ table2 %>%
 ```
 
 
-## Example 4
+## Example 3
 
 </br>
 
@@ -566,7 +566,7 @@ Load it to Google Colab with the following code.
 library(stringr)
 ```
 
-## Example 4 (cont.)
+## Example 3 (cont.)
 
 Let's reconsider the Example 4 after splitting the column `Comment` into two columns `First_Comment` and `Second_comment`.
 
@@ -650,7 +650,7 @@ head()
 
 </br>
 
-We can turn all names to lowercase using the function `str_to_upper()`.
+We can turn all names to uppercase using the function `str_to_upper()`.
 
 ```{r}
 #| echo: true
