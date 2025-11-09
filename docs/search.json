@@ -231,6 +231,13 @@
     "text": "Agenda\n\n\nTidy Data\ntidyr within the Tidyverse\nData Wrangling"
   },
   {
+    "objectID": "T3_TidyData/TidyData.slides.html#load-the-libraries",
+    "href": "T3_TidyData/TidyData.slides.html#load-the-libraries",
+    "title": "Tidy Data",
+    "section": "Load the libraries",
+    "text": "Load the libraries\n\nRemember to load the R libraries into Google Colab before we start:\n\nlibrary(readxl)\nlibrary(dplyr)"
+  },
+  {
     "objectID": "T3_TidyData/TidyData.slides.html#a-new-library-tidyr",
     "href": "T3_TidyData/TidyData.slides.html#a-new-library-tidyr",
     "title": "Tidy Data",
@@ -259,29 +266,8 @@
     "text": "Why do we need tidy data?\n\n“Tidy datasets are easy to manipulate, model, and visualize.” — Hadley Wickham\n\n\n\nTidy data make R tools work together smoothly.\nEach tidy dataset is like a well-organized spreadsheet.\nMaking your data tidy allows you to avoid common errors that occurred in the data analysis.\nThe tidyr package has functions to make your data tidy."
   },
   {
-    "objectID": "T3_TidyData/TidyData.slides.html#example",
-    "href": "T3_TidyData/TidyData.slides.html#example",
-    "title": "Tidy Data",
-    "section": "Example",
-    "text": "Example\n\n\n# A tibble: 3 × 3\n  store jan_sales feb_sales\n  &lt;chr&gt;     &lt;dbl&gt;     &lt;dbl&gt;\n1 A           100       110\n2 B            80        95\n3 C           120       130"
-  },
-  {
-    "objectID": "T3_TidyData/TidyData.slides.html#problem-not-tidy",
-    "href": "T3_TidyData/TidyData.slides.html#problem-not-tidy",
-    "title": "Tidy Data",
-    "section": "Problem: Not Tidy!",
-    "text": "Problem: Not Tidy!\n\n\nVariable names (jan_sales, feb_sales) store values (months).\nEach column should represent a variable, not a combination of variables.\nEach row should represent a single observation."
-  },
-  {
-    "objectID": "T3_TidyData/TidyData.slides.html#the-goal-of-tidyr",
-    "href": "T3_TidyData/TidyData.slides.html#the-goal-of-tidyr",
-    "title": "Tidy Data",
-    "section": "The goal of tidyr",
-    "text": "The goal of tidyr\n\nMake messy data tidy: one observation per row, one variable per column.\n\n\n\n# A tibble: 6 × 3\n  store month     sales\n  &lt;chr&gt; &lt;chr&gt;     &lt;dbl&gt;\n1 A     jan_sales   100\n2 A     feb_sales   110\n3 B     jan_sales    80\n4 B     feb_sales    95\n5 C     jan_sales   120\n6 C     feb_sales   130"
-  },
-  {
-    "objectID": "T3_TidyData/TidyData.slides.html#tidy-data",
-    "href": "T3_TidyData/TidyData.slides.html#tidy-data",
+    "objectID": "T3_TidyData/TidyData.slides.html#tidy-data-1",
+    "href": "T3_TidyData/TidyData.slides.html#tidy-data-1",
     "title": "Tidy Data",
     "section": "Tidy Data",
     "text": "Tidy Data\n\n\n\nIn tidy data:\n\nEach variable is in a column\nEach observation is in a row\nEach cell is a single measurement."
@@ -294,130 +280,11 @@
     "text": "https://openscapes.org/blog/2020-10-12-tidy-data/"
   },
   {
-    "objectID": "T3_TidyData/TidyData.slides.html#the-messy-data-reality",
-    "href": "T3_TidyData/TidyData.slides.html#the-messy-data-reality",
-    "title": "Tidy Data",
-    "section": "The “Messy Data” Reality",
-    "text": "The “Messy Data” Reality\nMany industrial datasets are not tidy.\nExamples:\n\n\n\nDataset\nProblem\n\n\n\n\nProduction reports in Excel\nValues stored in column names\n\n\nMaintenance logs\nMultiple variables combined in one column\n\n\nQuality inspections\nMissing or inconsistent codes\n\n\n\nOur task: Use tidyr to fix these structures before analysis."
-  },
-  {
-    "objectID": "T3_TidyData/TidyData.slides.html#remove",
-    "href": "T3_TidyData/TidyData.slides.html#remove",
-    "title": "Tidy Data",
-    "section": "REMOVE",
-    "text": "REMOVE\n\n\n# A tibble: 6 × 3\n  name   subject score\n  &lt;chr&gt;  &lt;chr&gt;   &lt;dbl&gt;\n1 Ana    math       90\n2 Ana    english    88\n3 Luis   math       80\n4 Luis   english    95\n5 Carmen math       85\n6 Carmen english    92\n\n\n# A tibble: 3 × 3\n     id q1_morning q1_evening\n  &lt;int&gt;      &lt;dbl&gt;      &lt;dbl&gt;\n1     1          5          4\n2     2          3          2\n3     3          4          3\n\n\n# A tibble: 6 × 4\n     id question time    response\n  &lt;int&gt; &lt;chr&gt;    &lt;chr&gt;      &lt;dbl&gt;\n1     1 q1       morning        5\n2     1 q1       evening        4\n3     2 q1       morning        3\n4     2 q1       evening        2\n5     3 q1       morning        4\n6     3 q1       evening        3"
-  },
-  {
-    "objectID": "T3_TidyData/TidyData.slides.html#tidyr-and-the-tidyverse",
-    "href": "T3_TidyData/TidyData.slides.html#tidyr-and-the-tidyverse",
-    "title": "Tidy Data",
-    "section": "tidyr and the Tidyverse",
-    "text": "tidyr and the Tidyverse\n\n\ntidyr works seamlessly with dplyr.\n\nWhile dplyr focuses on data manipulation, tidyr focuses on data structure.\n\nTogether, they make your data clean and consistent before visualization or modeling."
-  },
-  {
-    "objectID": "T3_TidyData/TidyData.slides.html#tidyrs-functions",
-    "href": "T3_TidyData/TidyData.slides.html#tidyrs-functions",
-    "title": "Tidy Data",
-    "section": "tidyr’s functions",
-    "text": "tidyr’s functions\nThe tidyr provides functions for reshaping, organizing, and completing data.\n\n\n\nPurpose\nFunction 1\nFunction 2\n\n\n\n\nPivoting\npivot_longer()\npivot_wider()\n\n\nSplitting / Combining\nseparate()\nunite()\n\n\nNesting / Unnesting\nnest()\nunnest()\n\n\nHandling Missing Data\ncomplete()\nfill()"
-  },
-  {
-    "objectID": "T3_TidyData/TidyData.slides.html#example-dataset-production_data",
-    "href": "T3_TidyData/TidyData.slides.html#example-dataset-production_data",
-    "title": "Tidy Data",
-    "section": "Example Dataset: production_data",
-    "text": "Example Dataset: production_data\n\n\n# A tibble: 3 × 3\n  factory jan_output feb_output\n  &lt;chr&gt;        &lt;dbl&gt;      &lt;dbl&gt;\n1 A              120        130\n2 B              150        160\n3 C              100         90"
-  },
-  {
-    "objectID": "T3_TidyData/TidyData.slides.html#pivot_longer",
-    "href": "T3_TidyData/TidyData.slides.html#pivot_longer",
-    "title": "Tidy Data",
-    "section": "pivot_longer()",
-    "text": "pivot_longer()\n\nA common problem is a dataset where some of the column names are not names of variables, but values of a variable.\npivot_longer() transforms columns into rows (convert from wide to long format).\nLet’s apply it to the spotify_data.\n\nspotify_long = spotify_data %&gt;% \n  pivot_longer(c(\"Shape of You\", \"Despacito\", \"Something Just Like This\", \n                 \"HUMBLE.\", \"Unforgettable\"), \n               names_to = \"Song\", \n               values_to = \"Plays\")"
-  },
-  {
-    "objectID": "T3_TidyData/TidyData.slides.html#pivot_wider",
-    "href": "T3_TidyData/TidyData.slides.html#pivot_wider",
-    "title": "Tidy Data",
-    "section": "pivot_wider()",
-    "text": "pivot_wider()\npivot_wider() is the opposite of pivot_longer(). We use it when an observation is scattered across multiple rows.\n\nspotify_wide = spotify_long %&gt;% \n  pivot_wider(names_from = \"Song\", values_from = \"Plays\")\nspotify_wide %&gt;% head()\n\n# A tibble: 6 × 7\n  Date                  Day `Shape of You` Despacito `Something Just Like This`\n  &lt;dttm&gt;              &lt;dbl&gt;          &lt;dbl&gt;     &lt;dbl&gt;                      &lt;dbl&gt;\n1 2017-01-06 00:00:00     1       12287078        NA                         NA\n2 2017-01-07 00:00:00     2       13190270        NA                         NA\n3 2017-01-08 00:00:00     3       13099919        NA                         NA\n4 2017-01-09 00:00:00     4       14506351        NA                         NA\n5 2017-01-10 00:00:00     5       14275628        NA                         NA\n6 2017-01-11 00:00:00     6       14372699        NA                         NA\n# ℹ 2 more variables: HUMBLE. &lt;dbl&gt;, Unforgettable &lt;dbl&gt;"
-  },
-  {
-    "objectID": "T3_TidyData/TidyData.slides.html#separate",
-    "href": "T3_TidyData/TidyData.slides.html#separate",
-    "title": "Tidy Data",
-    "section": "separate()",
-    "text": "separate()\nseparate() pulls apart one column into multiple columns, by splitting wherever a separator character appears.\nConsider the column Comment from client_data.\n\nclient_data %&gt;% select(Comment)\n\n# A tibble: 100 × 1\n   Comment               \n   &lt;chr&gt;                 \n 1 \"ok\"                  \n 2 \"ok\"                  \n 3 \"Needs oil!\"          \n 4 \"All good\\r\\n\"        \n 5 \"All good\\r\\n\"        \n 6 \"Delay: power issue\"  \n 7 \"completed\"           \n 8 \"completed\"           \n 9 \"All good\\r\\n\"        \n10 \"Requires part: valve\"\n# ℹ 90 more rows"
-  },
-  {
-    "objectID": "T3_TidyData/TidyData.slides.html#unite",
-    "href": "T3_TidyData/TidyData.slides.html#unite",
-    "title": "Tidy Data",
-    "section": "unite()",
-    "text": "unite()\n\nunite() is the inverse of separate(). It combines multiple columns into a single column.\n\naugmented_data  %&gt;% \n  unite(Comment, First_comment, Second_comment, sep = \": \") %&gt;% \n    select(Comment)\n\nIn the unite() function, the first input is the name of the new column, the other inputs are the columns to be united."
-  },
-  {
-    "objectID": "T3_TidyData/TidyData.slides.html#nest",
-    "href": "T3_TidyData/TidyData.slides.html#nest",
-    "title": "Tidy Data",
-    "section": "nest()",
-    "text": "nest()\nCreate nested data frames for grouped data — useful for modeling or list-columns.\n\n\n# A tibble: 3 × 2\n# Groups:   factory [3]\n  factory data            \n  &lt;chr&gt;   &lt;list&gt;          \n1 A       &lt;tibble [2 × 2]&gt;\n2 B       &lt;tibble [2 × 2]&gt;\n3 C       &lt;tibble [2 × 2]&gt;"
-  },
-  {
-    "objectID": "T3_TidyData/TidyData.slides.html#unnest",
-    "href": "T3_TidyData/TidyData.slides.html#unnest",
-    "title": "Tidy Data",
-    "section": "unnest()",
-    "text": "unnest()\nExpand a nested data frame back into regular rows.\n\n\n# A tibble: 6 × 3\n# Groups:   factory [3]\n  factory month      output\n  &lt;chr&gt;   &lt;chr&gt;       &lt;dbl&gt;\n1 A       jan_output    120\n2 A       feb_output    130\n3 B       jan_output    150\n4 B       feb_output    160\n5 C       jan_output    100\n6 C       feb_output     90"
-  },
-  {
-    "objectID": "T3_TidyData/TidyData.slides.html#complete",
-    "href": "T3_TidyData/TidyData.slides.html#complete",
-    "title": "Tidy Data",
-    "section": "complete()",
-    "text": "complete()\nEnsure all combinations of variables exist, filling in missing observations.\n\n\n# A tibble: 4 × 3\n  factory month output\n  &lt;chr&gt;   &lt;chr&gt;  &lt;dbl&gt;\n1 A       feb      130\n2 A       jan      120\n3 B       feb       NA\n4 B       jan      150"
-  },
-  {
-    "objectID": "T3_TidyData/TidyData.slides.html#fill",
-    "href": "T3_TidyData/TidyData.slides.html#fill",
-    "title": "Tidy Data",
-    "section": "fill()",
-    "text": "fill()\nFill missing values with the most recent non-missing value.\n\n\n# A tibble: 4 × 3\n  factory month output\n  &lt;chr&gt;   &lt;chr&gt;  &lt;dbl&gt;\n1 A       feb      130\n2 A       jan      120\n3 B       feb      120\n4 B       jan      150"
-  },
-  {
-    "objectID": "T3_TidyData/TidyData.slides.html#why-visualization-loves-tidy-data",
-    "href": "T3_TidyData/TidyData.slides.html#why-visualization-loves-tidy-data",
-    "title": "Tidy Data",
-    "section": "Why Visualization Loves Tidy Data",
-    "text": "Why Visualization Loves Tidy Data\nEvery plot requires data in long format:\n\nx-axis: variable (e.g., month)\ny-axis: measurement (e.g., output)\ncolor/fill: grouping variable (e.g., factory)\n\nThat’s why pivot_longer() is your best friend before plotting.\n\n\n“Tidy data is the bridge between raw numbers and clear insight.” — Hadley Wickham\n\n\n\nTo work with messy data, every time you need to switch to different gears\nlearn new tools that just works for that specific dataset\nIt’s much more pleasant to work with tidy data, help you to build a good taste of data analysis\nspent less fighting with different tools, focus more on data analysis bc one set of consistent tools\nthe {tidyverse} philosophy to work with the tidy data structures\nbuild automatic workflow for analysis, feed different data sets."
-  },
-  {
-    "objectID": "T3_TidyData/TidyData.slides.html#data-wrangling",
-    "href": "T3_TidyData/TidyData.slides.html#data-wrangling",
-    "title": "Tidy Data",
-    "section": "Data Wrangling",
-    "text": "Data Wrangling\n\n\nData wrangling is the process of transforming raw data into a clean and structured format.\nIt involves merging, reshaping, filtering, and organizing data for analysis.\nHere, we illustrate some special functions of the tidyverse for cleaning common issues with a dataset."
-  },
-  {
     "objectID": "T3_TidyData/TidyData.slides.html#example-1",
     "href": "T3_TidyData/TidyData.slides.html#example-1",
     "title": "Tidy Data",
     "section": "Example 1",
     "text": "Example 1\nConsider four datasets with the same values of four variables country, year, population, and cases.\nFirst, we have the tidy dataset version.\n\n\n# A tibble: 6 × 4\n  country      year  cases population\n  &lt;chr&gt;       &lt;dbl&gt;  &lt;dbl&gt;      &lt;dbl&gt;\n1 Afghanistan  1999    745   19987071\n2 Afghanistan  2000   2666   20595360\n3 Brazil       1999  37737  172006362\n4 Brazil       2000  80488  174504898\n5 China        1999 212258 1272915272\n6 China        2000 213766 1280428583\n\n\ntidy data because each variable is in a column , each observation is in a row, and each cell is a single measurement."
-  },
-  {
-    "objectID": "T3_TidyData/TidyData.slides.html#read-the-dataset",
-    "href": "T3_TidyData/TidyData.slides.html#read-the-dataset",
-    "title": "Tidy Data",
-    "section": "Read the dataset",
-    "text": "Read the dataset"
-  },
-  {
-    "objectID": "T3_TidyData/TidyData.slides.html#example-2",
-    "href": "T3_TidyData/TidyData.slides.html#example-2",
-    "title": "Tidy Data",
-    "section": "Example 2",
-    "text": "Example 2\n\nConsider the data in the file “spotify.xlsx”. This dataset contains the global daily plays of the five most popular songs on the Spotify music streaming service in 2017.\nLet’s read the dataset using the function read_excel() from the readxl library.\n\nspotify_data = read_excel(\"spotify.xlsx\")"
   },
   {
     "objectID": "T3_TidyData/TidyData.slides.html#section-2",
@@ -427,25 +294,11 @@
     "text": "Consider another version:\n\n\n# A tibble: 12 × 4\n   country      year type            count\n   &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;           &lt;dbl&gt;\n 1 Afghanistan  1999 cases             745\n 2 Afghanistan  1999 population   19987071\n 3 Afghanistan  2000 cases            2666\n 4 Afghanistan  2000 population   20595360\n 5 Brazil       1999 cases           37737\n 6 Brazil       1999 population  172006362\n 7 Brazil       2000 cases           80488\n 8 Brazil       2000 population  174504898\n 9 China        1999 cases          212258\n10 China        1999 population 1272915272\n11 China        2000 cases          213766\n12 China        2000 population 1280428583\n\n\nNot tidy because the last column is a summary statistic (count) of two variables."
   },
   {
-    "objectID": "T3_TidyData/TidyData.slides.html#remove-duplicate-rows",
-    "href": "T3_TidyData/TidyData.slides.html#remove-duplicate-rows",
-    "title": "Tidy Data",
-    "section": "Remove duplicate rows",
-    "text": "Remove duplicate rows\n\nDuplicate or identical rows are rows that have the same entries in every column in the dataset.\nIf only one row is needed for the analysis, we can remove the duplicates using the distinct() function. Let’s illustrate this using the client_data dataset.\n\nclient_data_single = client_data  %&gt;% distinct()"
-  },
-  {
     "objectID": "T3_TidyData/TidyData.slides.html#section-3",
     "href": "T3_TidyData/TidyData.slides.html#section-3",
     "title": "Tidy Data",
     "section": "",
     "text": "Consider another version:\n\n\n# A tibble: 6 × 3\n  country      year rate             \n  &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;            \n1 Afghanistan  1999 745/19987071     \n2 Afghanistan  2000 2666/20595360    \n3 Brazil       1999 37737/172006362  \n4 Brazil       2000 80488/174504898  \n5 China        1999 212258/1272915272\n6 China        2000 213766/1280428583\n\n\nNot tidy because the last column is a summary statistic (rate) of two variables, or there are two measurements involved in this column."
-  },
-  {
-    "objectID": "T3_TidyData/TidyData.slides.html#add-an-index-column",
-    "href": "T3_TidyData/TidyData.slides.html#add-an-index-column",
-    "title": "Tidy Data",
-    "section": "Add an index column",
-    "text": "Add an index column\n\nIn some cases, it is useful to have a unique identifier for each row in the dataset. We can create an identifier using the functions mutate() and row_number() with some extra syntaxis.\n\nclient_data_single = client_data_single %&gt;% mutate(ID = row_number())"
   },
   {
     "objectID": "T3_TidyData/TidyData.slides.html#section-4",
@@ -455,6 +308,27 @@
     "text": "Consider one last version involving two datasets.\n\n\n# A tibble: 3 × 3\n  country     `1999` `2000`\n  &lt;chr&gt;        &lt;dbl&gt;  &lt;dbl&gt;\n1 Afghanistan    745   2666\n2 Brazil       37737  80488\n3 China       212258 213766\n\n\n\n\n# A tibble: 3 × 3\n  country         `1999`     `2000`\n  &lt;chr&gt;            &lt;dbl&gt;      &lt;dbl&gt;\n1 Afghanistan   19987071   20595360\n2 Brazil       172006362  174504898\n3 China       1272915272 1280428583\n\n\nNot tidy data!"
   },
   {
+    "objectID": "T3_TidyData/TidyData.slides.html#the-role-of-the-tidyr-package",
+    "href": "T3_TidyData/TidyData.slides.html#the-role-of-the-tidyr-package",
+    "title": "Tidy Data",
+    "section": "The role of the tidyr package",
+    "text": "The role of the tidyr package\n\n\ntidyr works seamlessly with dplyr.\n\nWhile dplyr focuses on data manipulation, tidyr focuses on data structure.\n\nTogether, they make your data clean and consistent before visualization or modeling."
+  },
+  {
+    "objectID": "T3_TidyData/TidyData.slides.html#tidyrs-comon-functions",
+    "href": "T3_TidyData/TidyData.slides.html#tidyrs-comon-functions",
+    "title": "Tidy Data",
+    "section": "tidyr’s comon functions",
+    "text": "tidyr’s comon functions\n\nThe tidyr provides functions for reshaping, organizing, and completing data.\n\n\n\nPurpose\nFunction 1\nFunction 2\n\n\n\n\nPivoting\npivot_longer()\npivot_wider()\n\n\nSplitting / Combining\nseparate()\nunite()"
+  },
+  {
+    "objectID": "T3_TidyData/TidyData.slides.html#example-2",
+    "href": "T3_TidyData/TidyData.slides.html#example-2",
+    "title": "Tidy Data",
+    "section": "Example 2",
+    "text": "Example 2\n\nConsider the data in the file “spotify.xlsx”. This dataset contains the global daily plays of the five most popular songs on the Spotify music streaming service in 2017.\nLet’s read the dataset using the function read_excel() from the readxl library.\n\nspotify_data = read_excel(\"spotify.xlsx\")"
+  },
+  {
     "objectID": "T3_TidyData/TidyData.slides.html#section-5",
     "href": "T3_TidyData/TidyData.slides.html#section-5",
     "title": "Tidy Data",
@@ -462,11 +336,25 @@
     "text": "Let’s preview the dataset.\n\nspotify_data %&gt;% head()\n\n# A tibble: 6 × 7\n  Date                  Day `Shape of You` Despacito `Something Just Like This`\n  &lt;dttm&gt;              &lt;dbl&gt;          &lt;dbl&gt;     &lt;dbl&gt;                      &lt;dbl&gt;\n1 2017-01-06 00:00:00     1       12287078        NA                         NA\n2 2017-01-07 00:00:00     2       13190270        NA                         NA\n3 2017-01-08 00:00:00     3       13099919        NA                         NA\n4 2017-01-09 00:00:00     4       14506351        NA                         NA\n5 2017-01-10 00:00:00     5       14275628        NA                         NA\n6 2017-01-11 00:00:00     6       14372699        NA                         NA\n# ℹ 2 more variables: HUMBLE. &lt;dbl&gt;, Unforgettable &lt;dbl&gt;"
   },
   {
-    "objectID": "T3_TidyData/TidyData.slides.html#fill-blank-cells",
-    "href": "T3_TidyData/TidyData.slides.html#fill-blank-cells",
+    "objectID": "T3_TidyData/TidyData.slides.html#pivot_longer",
+    "href": "T3_TidyData/TidyData.slides.html#pivot_longer",
     "title": "Tidy Data",
-    "section": "Fill blank cells",
-    "text": "Fill blank cells\nIn the client_data_single, there are columns with missing values. We can fill them with specific values or text using replace_na() function. In this function, we use the syntaxis 'Variable' = 'Replace', where the Variable is the column in the dataset and Replace is the text or number to fill the entry in.\nLet’s fill in the missing entries of the columns Operator, Maintenance Date, and Comment.\n\ncomplete_data = client_data_single %&gt;% \n                  replace_na( list(\n                  Operator = \"Unknown\",\n                  `Maintenance Date` = as.Date(\"2023-01-01\"),\n                  Comment = \"None\") \n                  )"
+    "section": "pivot_longer()",
+    "text": "pivot_longer()\n\nA common problem is a dataset where some of the column names are not names of variables, but values of a variable.\npivot_longer() transforms columns into rows (convert from wide to long format).\nLet’s apply it to the spotify_data.\n\nspotify_long = spotify_data %&gt;% \n  pivot_longer(c(\"Shape of You\", \"Despacito\", \"Something Just Like This\", \n                 \"HUMBLE.\", \"Unforgettable\"), \n               names_to = \"Song\", \n               values_to = \"Plays\")"
+  },
+  {
+    "objectID": "T3_TidyData/TidyData.slides.html#the-long-version-of-the-data",
+    "href": "T3_TidyData/TidyData.slides.html#the-long-version-of-the-data",
+    "title": "Tidy Data",
+    "section": "The long version of the data",
+    "text": "The long version of the data\n\n\nA Song column with the names of the songs in the dataset.\nA Plays column with the number of plays of each song for each date.\n\n\nspotify_long %&gt;% head()\n\n# A tibble: 6 × 4\n  Date                  Day Song                        Plays\n  &lt;dttm&gt;              &lt;dbl&gt; &lt;chr&gt;                       &lt;dbl&gt;\n1 2017-01-06 00:00:00     1 Shape of You             12287078\n2 2017-01-06 00:00:00     1 Despacito                      NA\n3 2017-01-06 00:00:00     1 Something Just Like This       NA\n4 2017-01-06 00:00:00     1 HUMBLE.                        NA\n5 2017-01-06 00:00:00     1 Unforgettable                  NA\n6 2017-01-07 00:00:00     2 Shape of You             13190270"
+  },
+  {
+    "objectID": "T3_TidyData/TidyData.slides.html#pivot_wider",
+    "href": "T3_TidyData/TidyData.slides.html#pivot_wider",
+    "title": "Tidy Data",
+    "section": "pivot_wider()",
+    "text": "pivot_wider()\npivot_wider() is the opposite of pivot_longer(). We use it when an observation is scattered across multiple rows.\n\nspotify_wide = spotify_long %&gt;% \n  pivot_wider(names_from = \"Song\", values_from = \"Plays\")\nspotify_wide %&gt;% head()\n\n# A tibble: 6 × 7\n  Date                  Day `Shape of You` Despacito `Something Just Like This`\n  &lt;dttm&gt;              &lt;dbl&gt;          &lt;dbl&gt;     &lt;dbl&gt;                      &lt;dbl&gt;\n1 2017-01-06 00:00:00     1       12287078        NA                         NA\n2 2017-01-07 00:00:00     2       13190270        NA                         NA\n3 2017-01-08 00:00:00     3       13099919        NA                         NA\n4 2017-01-09 00:00:00     4       14506351        NA                         NA\n5 2017-01-10 00:00:00     5       14275628        NA                         NA\n6 2017-01-11 00:00:00     6       14372699        NA                         NA\n# ℹ 2 more variables: HUMBLE. &lt;dbl&gt;, Unforgettable &lt;dbl&gt;"
   },
   {
     "objectID": "T3_TidyData/TidyData.slides.html#section-6",
@@ -476,18 +364,32 @@
     "text": "We can also apply it to the table2 dataset in the previous section.\n\ntable2 \n\n# A tibble: 12 × 4\n   country      year type            count\n   &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;           &lt;dbl&gt;\n 1 Afghanistan  1999 cases             745\n 2 Afghanistan  1999 population   19987071\n 3 Afghanistan  2000 cases            2666\n 4 Afghanistan  2000 population   20595360\n 5 Brazil       1999 cases           37737\n 6 Brazil       1999 population  172006362\n 7 Brazil       2000 cases           80488\n 8 Brazil       2000 population  174504898\n 9 China        1999 cases          212258\n10 China        1999 population 1272915272\n11 China        2000 cases          213766\n12 China        2000 population 1280428583"
   },
   {
-    "objectID": "T3_TidyData/TidyData.slides.html#replace-values",
-    "href": "T3_TidyData/TidyData.slides.html#replace-values",
-    "title": "Tidy Data",
-    "section": "Replace values",
-    "text": "Replace values\nThere are some cases in which columns have some undesired or unwatned values. Consider the Output (units) as an example.\n\ncomplete_data %&gt;% select(`Output (units)`) %&gt;% head()\n\n# A tibble: 6 × 1\n  `Output (units)`\n  &lt;chr&gt;           \n1 1200            \n2 1050            \n3 error           \n4 950             \n5 900             \n6 870             \n\n\nThe column has the numbers of units but also text such as “error”."
-  },
-  {
     "objectID": "T3_TidyData/TidyData.slides.html#section-7",
     "href": "T3_TidyData/TidyData.slides.html#section-7",
     "title": "Tidy Data",
     "section": "",
     "text": "The wider version of table2 is:\n\ntable2 %&gt;%\n    pivot_wider(names_from = type, values_from = count)\n\n# A tibble: 6 × 4\n  country      year  cases population\n  &lt;chr&gt;       &lt;dbl&gt;  &lt;dbl&gt;      &lt;dbl&gt;\n1 Afghanistan  1999    745   19987071\n2 Afghanistan  2000   2666   20595360\n3 Brazil       1999  37737  172006362\n4 Brazil       2000  80488  174504898\n5 China        1999 212258 1272915272\n6 China        2000 213766 1280428583"
+  },
+  {
+    "objectID": "T3_TidyData/TidyData.slides.html#example-3",
+    "href": "T3_TidyData/TidyData.slides.html#example-3",
+    "title": "Tidy Data",
+    "section": "Example 3",
+    "text": "Example 3\n\nConsider an industrial engineer who receives a messy Excel file from a manufacturing client. The data file is called “industrial_dataset.xlsx”, which file includes data about machine maintenance logs, production output, and operator comments.\n\nclient_data = read_excel(\"industrial_dataset.xlsx\")\n\nWe use this dataset to illustrate the functions separate() and unite()."
+  },
+  {
+    "objectID": "T3_TidyData/TidyData.slides.html#lets-preview-the-data.",
+    "href": "T3_TidyData/TidyData.slides.html#lets-preview-the-data.",
+    "title": "Tidy Data",
+    "section": "Let’s preview the data.",
+    "text": "Let’s preview the data.\n\n\nclient_data %&gt;% head()\n\n# A tibble: 6 × 5\n  `Machine ID` `Output (units)` `Maintenance Date`  Operator Comment            \n         &lt;dbl&gt; &lt;chr&gt;            &lt;dttm&gt;              &lt;chr&gt;    &lt;chr&gt;              \n1          101 1200             2023-01-10 00:00:00 Ana      \"ok\"               \n2          101 1200             2023-01-10 00:00:00 Ana      \"ok\"               \n3          102 1050             2023-01-12 00:00:00 Bob      \"Needs oil!\"       \n4          103 error            2023-01-13 00:00:00 Charlie  \"All good\\r\\n\"     \n5          103 950              2023-01-13 00:00:00 Charlie  \"All good\\r\\n\"     \n6          104 900              2023-01-14 00:00:00 &lt;NA&gt;     \"Delay: power issu…"
+  },
+  {
+    "objectID": "T3_TidyData/TidyData.slides.html#separate",
+    "href": "T3_TidyData/TidyData.slides.html#separate",
+    "title": "Tidy Data",
+    "section": "separate()",
+    "text": "separate()\nseparate() pulls apart one column into multiple columns, by splitting wherever a separator character appears.\nConsider the column Comment from client_data.\n\nclient_data %&gt;% select(Comment)\n\n# A tibble: 100 × 1\n   Comment               \n   &lt;chr&gt;                 \n 1 \"ok\"                  \n 2 \"ok\"                  \n 3 \"Needs oil!\"          \n 4 \"All good\\r\\n\"        \n 5 \"All good\\r\\n\"        \n 6 \"Delay: power issue\"  \n 7 \"completed\"           \n 8 \"completed\"           \n 9 \"All good\\r\\n\"        \n10 \"Requires part: valve\"\n# ℹ 90 more rows"
   },
   {
     "objectID": "T3_TidyData/TidyData.slides.html#section-8",
@@ -497,25 +399,18 @@
     "text": "The column has some values such as “Requires part: valve” and “Delay: maintenance” that we may want to split into columns.\n\n\n# A tibble: 100 × 1\n   Comment               \n   &lt;chr&gt;                 \n 1 \"ok\"                  \n 2 \"ok\"                  \n 3 \"Needs oil!\"          \n 4 \"All good\\r\\n\"        \n 5 \"All good\\r\\n\"        \n 6 \"Delay: power issue\"  \n 7 \"completed\"           \n 8 \"completed\"           \n 9 \"All good\\r\\n\"        \n10 \"Requires part: valve\"\n# ℹ 90 more rows"
   },
   {
-    "objectID": "T3_TidyData/TidyData.slides.html#a-new-library-stringr",
-    "href": "T3_TidyData/TidyData.slides.html#a-new-library-stringr",
-    "title": "Tidy Data",
-    "section": "A new library: stringr",
-    "text": "A new library: stringr\n\n\n\n\n\n\n\n\n\nstringr provides a consistent set of functions for working with strings.\nIt is also part of the tidyverse collection.\nhttps://stringr.tidyverse.org/\n\n\nLoad it to Google Colab with the following code.\n\nlibrary(stringr)"
-  },
-  {
-    "objectID": "T3_TidyData/TidyData.slides.html#split-column-into-multiple-ones",
-    "href": "T3_TidyData/TidyData.slides.html#split-column-into-multiple-ones",
-    "title": "Tidy Data",
-    "section": "Split column into multiple ones",
-    "text": "Split column into multiple ones\nThere are some cases in which we want to split a column according to a character. For example, consider the column Comment from the dataset.\n\ncomplete_data %&gt;% select(Comment)\n\n# A tibble: 99 × 1\n   Comment                 \n   &lt;chr&gt;                   \n 1 \"ok\"                    \n 2 \"Needs oil!\"            \n 3 \"All good\\r\\n\"          \n 4 \"All good\\r\\n\"          \n 5 \"Delay: power issue\"    \n 6 \"completed\"             \n 7 \"completed\"             \n 8 \"All good\\r\\n\"          \n 9 \"Requires part: valve\"  \n10 \"Delay: maintenance\\r\\n\"\n# ℹ 89 more rows"
-  },
-  {
     "objectID": "T3_TidyData/TidyData.slides.html#section-9",
     "href": "T3_TidyData/TidyData.slides.html#section-9",
     "title": "Tidy Data",
     "section": "",
     "text": "Using separate(), we split the values in the column according to the colon “:”.\n\naugmented_data = client_data  %&gt;% \nseparate(Comment, into = c(\"First_comment\", \"Second_comment\"), \n         sep = \":\")\n\nThe result is two columns.\n\naugmented_data %&gt;% select(`First_comment`, `Second_comment`) %&gt;%  head()\n\n# A tibble: 6 × 2\n  First_comment  Second_comment\n  &lt;chr&gt;          &lt;chr&gt;         \n1 \"ok\"            &lt;NA&gt;         \n2 \"ok\"            &lt;NA&gt;         \n3 \"Needs oil!\"    &lt;NA&gt;         \n4 \"All good\\r\\n\"  &lt;NA&gt;         \n5 \"All good\\r\\n\"  &lt;NA&gt;         \n6 \"Delay\"        \" power issue\""
+  },
+  {
+    "objectID": "T3_TidyData/TidyData.slides.html#unite",
+    "href": "T3_TidyData/TidyData.slides.html#unite",
+    "title": "Tidy Data",
+    "section": "unite()",
+    "text": "unite()\n\nunite() is the inverse of separate(). It combines multiple columns into a single column.\n\naugmented_data  %&gt;% \n  unite(Comment, First_comment, Second_comment, sep = \": \") %&gt;% \n    select(Comment)\n\nIn the unite() function, the first input is the name of the new column, the other inputs are the columns to be united."
   },
   {
     "objectID": "T3_TidyData/TidyData.slides.html#section-10",
@@ -525,18 +420,32 @@
     "text": "The result.\n\naugmented_data  %&gt;% \n  unite(Comment, First_comment, Second_comment, sep = \": \") %&gt;% \n    select(Comment)\n\n# A tibble: 100 × 1\n   Comment                \n   &lt;chr&gt;                  \n 1 \"ok: NA\"               \n 2 \"ok: NA\"               \n 3 \"Needs oil!: NA\"       \n 4 \"All good\\r\\n: NA\"     \n 5 \"All good\\r\\n: NA\"     \n 6 \"Delay:  power issue\"  \n 7 \"completed: NA\"        \n 8 \"completed: NA\"        \n 9 \"All good\\r\\n: NA\"     \n10 \"Requires part:  valve\"\n# ℹ 90 more rows"
   },
   {
+    "objectID": "T3_TidyData/TidyData.slides.html#data-wrangling-1",
+    "href": "T3_TidyData/TidyData.slides.html#data-wrangling-1",
+    "title": "Tidy Data",
+    "section": "Data Wrangling",
+    "text": "Data Wrangling\n\n\nData wrangling is the process of transforming raw data into a clean and structured format.\nIt involves merging, reshaping, filtering, and organizing data for analysis.\nHere, we illustrate some special functions of the tidyverse for cleaning common issues with a dataset."
+  },
+  {
+    "objectID": "T3_TidyData/TidyData.slides.html#remove-duplicate-rows",
+    "href": "T3_TidyData/TidyData.slides.html#remove-duplicate-rows",
+    "title": "Tidy Data",
+    "section": "Remove duplicate rows",
+    "text": "Remove duplicate rows\n\nDuplicate or identical rows are rows that have the same entries in every column in the dataset.\nIf only one row is needed for the analysis, we can remove the duplicates using the distinct() function. Let’s illustrate this using the client_data dataset.\n\nclient_data_single = client_data  %&gt;% distinct()"
+  },
+  {
+    "objectID": "T3_TidyData/TidyData.slides.html#add-an-index-column",
+    "href": "T3_TidyData/TidyData.slides.html#add-an-index-column",
+    "title": "Tidy Data",
+    "section": "Add an index column",
+    "text": "Add an index column\n\nIn some cases, it is useful to have a unique identifier for each row in the dataset. We can create an identifier using the functions mutate() and row_number() with some extra syntaxis.\n\nclient_data_single = client_data_single %&gt;% mutate(ID = row_number())"
+  },
+  {
     "objectID": "T3_TidyData/TidyData.slides.html#section-11",
     "href": "T3_TidyData/TidyData.slides.html#section-11",
     "title": "Tidy Data",
     "section": "",
     "text": "The new column is appended to the end of the dataframe.\n\nclient_data_single %&gt;%  head()\n\n# A tibble: 6 × 6\n  `Machine ID` `Output (units)` `Maintenance Date`  Operator Comment          ID\n         &lt;dbl&gt; &lt;chr&gt;            &lt;dttm&gt;              &lt;chr&gt;    &lt;chr&gt;         &lt;int&gt;\n1          101 1200             2023-01-10 00:00:00 Ana      \"ok\"              1\n2          102 1050             2023-01-12 00:00:00 Bob      \"Needs oil!\"      2\n3          103 error            2023-01-13 00:00:00 Charlie  \"All good\\r\\…     3\n4          103 950              2023-01-13 00:00:00 Charlie  \"All good\\r\\…     4\n5          104 900              2023-01-14 00:00:00 &lt;NA&gt;     \"Delay: powe…     5\n6          105 870              NA                  DAVE     \"completed\"       6"
-  },
-  {
-    "objectID": "T3_TidyData/TidyData.slides.html#remove-characters",
-    "href": "T3_TidyData/TidyData.slides.html#remove-characters",
-    "title": "Tidy Data",
-    "section": "Remove characters",
-    "text": "Remove characters\n\nSomething that we notice is that the column First_Comment has some extra characters like “\\n” that may be useless when working with the data.\nWe can remove them using the function str_trim() from the stringr package.\n\naugmented_data = augmented_data  %&gt;% \nmutate(First_comment = str_trim(First_comment, side = \"both\"))"
   },
   {
     "objectID": "T3_TidyData/TidyData.slides.html#section-12",
@@ -546,11 +455,67 @@
     "text": "To bring it to the beginning of the array, we can use the select() and everything() functions.\n\nclient_data_single = client_data_single %&gt;% \nselect(ID, everything())\n\nclient_data_single %&gt;%  head()\n\n# A tibble: 6 × 6\n     ID `Machine ID` `Output (units)` `Maintenance Date`  Operator Comment      \n  &lt;int&gt;        &lt;dbl&gt; &lt;chr&gt;            &lt;dttm&gt;              &lt;chr&gt;    &lt;chr&gt;        \n1     1          101 1200             2023-01-10 00:00:00 Ana      \"ok\"         \n2     2          102 1050             2023-01-12 00:00:00 Bob      \"Needs oil!\" \n3     3          103 error            2023-01-13 00:00:00 Charlie  \"All good\\r\\…\n4     4          103 950              2023-01-13 00:00:00 Charlie  \"All good\\r\\…\n5     5          104 900              2023-01-14 00:00:00 &lt;NA&gt;     \"Delay: powe…\n6     6          105 870              NA                  DAVE     \"completed\""
   },
   {
+    "objectID": "T3_TidyData/TidyData.slides.html#fill-blank-cells",
+    "href": "T3_TidyData/TidyData.slides.html#fill-blank-cells",
+    "title": "Tidy Data",
+    "section": "Fill blank cells",
+    "text": "Fill blank cells\nIn the client_data_single, there are columns with missing values. We can fill them with specific values or text using replace_na() function. In this function, we use the syntaxis 'Variable' = 'Replace', where the Variable is the column in the dataset and Replace is the text or number to fill the entry in.\nLet’s fill in the missing entries of the columns Operator, Maintenance Date, and Comment.\n\ncomplete_data = client_data_single %&gt;% \n                  replace_na( list(\n                  Operator = \"Unknown\",\n                  `Maintenance Date` = as.Date(\"2023-01-01\"),\n                  Comment = \"None\") \n                  )"
+  },
+  {
     "objectID": "T3_TidyData/TidyData.slides.html#section-13",
     "href": "T3_TidyData/TidyData.slides.html#section-13",
     "title": "Tidy Data",
     "section": "",
     "text": "complete_data %&gt;%  head()\n\n# A tibble: 6 × 6\n     ID `Machine ID` `Output (units)` `Maintenance Date`  Operator Comment      \n  &lt;int&gt;        &lt;dbl&gt; &lt;chr&gt;            &lt;dttm&gt;              &lt;chr&gt;    &lt;chr&gt;        \n1     1          101 1200             2023-01-10 00:00:00 Ana      \"ok\"         \n2     2          102 1050             2023-01-12 00:00:00 Bob      \"Needs oil!\" \n3     3          103 error            2023-01-13 00:00:00 Charlie  \"All good\\r\\…\n4     4          103 950              2023-01-13 00:00:00 Charlie  \"All good\\r\\…\n5     5          104 900              2023-01-14 00:00:00 Unknown  \"Delay: powe…\n6     6          105 870              2023-01-01 00:00:00 DAVE     \"completed\""
+  },
+  {
+    "objectID": "T3_TidyData/TidyData.slides.html#replace-values",
+    "href": "T3_TidyData/TidyData.slides.html#replace-values",
+    "title": "Tidy Data",
+    "section": "Replace values",
+    "text": "Replace values\nThere are some cases in which columns have some undesired or unwatned values. Consider the Output (units) as an example.\n\ncomplete_data %&gt;% select(`Output (units)`) %&gt;% head()\n\n# A tibble: 6 × 1\n  `Output (units)`\n  &lt;chr&gt;           \n1 1200            \n2 1050            \n3 error           \n4 950             \n5 900             \n6 870             \n\n\nThe column has the numbers of units but also text such as “error”."
+  },
+  {
+    "objectID": "T3_TidyData/TidyData.slides.html#section-14",
+    "href": "T3_TidyData/TidyData.slides.html#section-14",
+    "title": "Tidy Data",
+    "section": "",
+    "text": "We can replace the “error” in this column by a user-specified value, say, 0. To this end, we use the functions mutate() and na_if().\n\ncomplete_data = complete_data %&gt;% \nmutate(`Output (units)` = na_if(`Output (units)`, \"error\"))\n\n# Let's check the column.\ncomplete_data %&gt;%  select(`Output (units)`) %&gt;%  head()\n\n# A tibble: 6 × 1\n  `Output (units)`\n  &lt;chr&gt;           \n1 1200            \n2 1050            \n3 &lt;NA&gt;            \n4 950             \n5 900             \n6 870             \n\n\nHowever, the new column is character (chr)!"
+  },
+  {
+    "objectID": "T3_TidyData/TidyData.slides.html#section-15",
+    "href": "T3_TidyData/TidyData.slides.html#section-15",
+    "title": "Tidy Data",
+    "section": "",
+    "text": "We turn the column numeric using the functions mutate() and as.numeric().\n\ncomplete_data = complete_data %&gt;% \nmutate(`Output (units)` = as.numeric(`Output (units)`))\n\ncomplete_data %&gt;%  select(`Output (units)`) %&gt;%  head()\n\n# A tibble: 6 × 1\n  `Output (units)`\n             &lt;dbl&gt;\n1             1200\n2             1050\n3               NA\n4              950\n5              900\n6              870\n\n\nNow, the column is numeric or dbl!"
+  },
+  {
+    "objectID": "T3_TidyData/TidyData.slides.html#a-new-library-stringr",
+    "href": "T3_TidyData/TidyData.slides.html#a-new-library-stringr",
+    "title": "Tidy Data",
+    "section": "A new library: stringr",
+    "text": "A new library: stringr\n\n\n\n\n\n\n\n\n\nstringr provides a consistent set of functions for working with strings.\nIt is also part of the tidyverse collection.\nhttps://stringr.tidyverse.org/\n\n\nLoad it to Google Colab with the following code.\n\nlibrary(stringr)"
+  },
+  {
+    "objectID": "T3_TidyData/TidyData.slides.html#example-3-cont.",
+    "href": "T3_TidyData/TidyData.slides.html#example-3-cont.",
+    "title": "Tidy Data",
+    "section": "Example 3 (cont.)",
+    "text": "Example 3 (cont.)\nLet’s reconsider the Example 4 after splitting the column Comment into two columns First_Comment and Second_comment.\n\naugmented_data\n\n# A tibble: 100 × 6\n   `Machine ID` `Output (units)` `Maintenance Date`  Operator First_comment  \n          &lt;dbl&gt; &lt;chr&gt;            &lt;dttm&gt;              &lt;chr&gt;    &lt;chr&gt;          \n 1          101 1200             2023-01-10 00:00:00 Ana      \"ok\"           \n 2          101 1200             2023-01-10 00:00:00 Ana      \"ok\"           \n 3          102 1050             2023-01-12 00:00:00 Bob      \"Needs oil!\"   \n 4          103 error            2023-01-13 00:00:00 Charlie  \"All good\\r\\n\" \n 5          103 950              2023-01-13 00:00:00 Charlie  \"All good\\r\\n\" \n 6          104 900              2023-01-14 00:00:00 &lt;NA&gt;     \"Delay\"        \n 7          105 870              NA                  DAVE     \"completed\"    \n 8          105 800              2023-01-21 00:00:00 dave     \"completed\"    \n 9          102 870              2023-01-25 00:00:00 Charlie  \"All good\\r\\n\" \n10          102 800              2023-01-20 00:00:00 Charlie  \"Requires part\"\n# ℹ 90 more rows\n# ℹ 1 more variable: Second_comment &lt;chr&gt;"
+  },
+  {
+    "objectID": "T3_TidyData/TidyData.slides.html#remove-characters",
+    "href": "T3_TidyData/TidyData.slides.html#remove-characters",
+    "title": "Tidy Data",
+    "section": "Remove characters",
+    "text": "Remove characters\n\nSomething that we notice is that the column First_Comment has some extra characters like “\\n” that may be useless when working with the data.\nWe can remove them using the function str_trim() from the stringr package.\n\naugmented_data = augmented_data  %&gt;% \nmutate(First_comment = str_trim(First_comment, side = \"both\"))"
+  },
+  {
+    "objectID": "T3_TidyData/TidyData.slides.html#section-16",
+    "href": "T3_TidyData/TidyData.slides.html#section-16",
+    "title": "Tidy Data",
+    "section": "",
+    "text": "Let’s see the cleaned column.\n\naugmented_data %&gt;%  select(First_comment)\n\n# A tibble: 100 × 1\n   First_comment\n   &lt;chr&gt;        \n 1 ok           \n 2 ok           \n 3 Needs oil!   \n 4 All good     \n 5 All good     \n 6 Delay        \n 7 completed    \n 8 completed    \n 9 All good     \n10 Requires part\n# ℹ 90 more rows"
   },
   {
     "objectID": "T3_TidyData/TidyData.slides.html#transform-text-case",
@@ -586,6 +551,13 @@
     "title": "Tidy Data",
     "section": "Capitalize the first letter",
     "text": "Capitalize the first letter\n\nWe can convert all names to title case using the function str_to_title().\n\ncomplete_data %&gt;% \nmutate(Operator = str_to_title(Operator)) %&gt;% \nselect(Operator) %&gt;% \nhead()\n\n# A tibble: 6 × 1\n  Operator\n  &lt;chr&gt;   \n1 Ana     \n2 Bob     \n3 Charlie \n4 Charlie \n5 Unknown \n6 Dave"
+  },
+  {
+    "objectID": "T3_TidyData/TidyData.slides.html#more-on-tidyr-and-stringr",
+    "href": "T3_TidyData/TidyData.slides.html#more-on-tidyr-and-stringr",
+    "title": "Tidy Data",
+    "section": "More on tidyr and stringr",
+    "text": "More on tidyr and stringr\n\n\nhttps://r4ds.hadley.nz/"
   },
   {
     "objectID": "about.html",
@@ -1657,313 +1629,5 @@
     "title": "Statistical Graphs",
     "section": "Discussion",
     "text": "Discussion\n\n\nThe simple linear regression model is easy to interpret due to its structure: \\(\\hat{Y}_i = \\hat{\\beta}_0 + \\hat{\\beta}_1 X_i.\\)\nHowever, it may be too rigid to capture complex relationships between two variables.\nLocal regression is flexible and allows capturing complex relationships between two variables, but it has a low level of interpretability because it does not provide an explicit equation."
-  },
-  {
-    "objectID": "T3_TidyData/TidyData.slides.html#section-14",
-    "href": "T3_TidyData/TidyData.slides.html#section-14",
-    "title": "Tidy Data",
-    "section": "",
-    "text": "We can replace the “error” in this column by a user-specified value, say, 0. To this end, we use the functions mutate() and na_if().\n\ncomplete_data = complete_data %&gt;% \nmutate(`Output (units)` = na_if(`Output (units)`, \"error\"))\n\n# Let's check the column.\ncomplete_data %&gt;%  select(`Output (units)`) %&gt;%  head()\n\n# A tibble: 6 × 1\n  `Output (units)`\n  &lt;chr&gt;           \n1 1200            \n2 1050            \n3 &lt;NA&gt;            \n4 950             \n5 900             \n6 870             \n\n\nHowever, the new column is character (chr)!"
-  },
-  {
-    "objectID": "T3_TidyData/TidyData.slides.html#tidy-data-1",
-    "href": "T3_TidyData/TidyData.slides.html#tidy-data-1",
-    "title": "Tidy Data",
-    "section": "Tidy Data",
-    "text": "Tidy Data\n\n\n\nIn tidy data:\n\nEach variable is in a column\nEach observation is in a row\nEach cell is a single measurement."
-  },
-  {
-    "objectID": "T3_TidyData/TidyData.slides.html#tidyr-within-the-tidyverse-1",
-    "href": "T3_TidyData/TidyData.slides.html#tidyr-within-the-tidyverse-1",
-    "title": "Tidy Data",
-    "section": "tidyr within the Tidyverse",
-    "text": "tidyr within the Tidyverse\n\n\ntidyr works seamlessly with dplyr.\n\nWhile dplyr focuses on data manipulation, tidyr focuses on data structure.\n\nTogether, they make your data clean and consistent before visualization or modeling."
-  },
-  {
-    "objectID": "T3_TidyData/TidyData.slides.html#the-role-of-the-tidyr-package",
-    "href": "T3_TidyData/TidyData.slides.html#the-role-of-the-tidyr-package",
-    "title": "Tidy Data",
-    "section": "The role of the tidyr package",
-    "text": "The role of the tidyr package\n\n\ntidyr works seamlessly with dplyr.\n\nWhile dplyr focuses on data manipulation, tidyr focuses on data structure.\n\nTogether, they make your data clean and consistent before visualization or modeling."
-  },
-  {
-    "objectID": "T3_TidyData/TidyData.slides.html#data-wrangling-1",
-    "href": "T3_TidyData/TidyData.slides.html#data-wrangling-1",
-    "title": "Tidy Data",
-    "section": "Data Wrangling",
-    "text": "Data Wrangling\n\n\nData wrangling is the process of transforming raw data into a clean and structured format.\nIt involves merging, reshaping, filtering, and organizing data for analysis.\nHere, we illustrate some special functions of the tidyverse for cleaning common issues with a dataset."
-  },
-  {
-    "objectID": "T3_TidyData/TidyData.slides.html#many-real-datasets-are-not-tidy",
-    "href": "T3_TidyData/TidyData.slides.html#many-real-datasets-are-not-tidy",
-    "title": "Tidy Data",
-    "section": "Many real datasets are not tidy",
-    "text": "Many real datasets are not tidy\n\nFor example:\n\n\n\n\n\n\n\n\nDataset\nProblem\n\n\n\n\nProduction reports in Excel\nValues stored in column names\n\n\nMaintenance logs\nMultiple variables combined in one column\n\n\nQuality inspections\nMissing or inconsistent codes"
-  },
-  {
-    "objectID": "T3_TidyData/TidyData.slides.html#load-the-libraries",
-    "href": "T3_TidyData/TidyData.slides.html#load-the-libraries",
-    "title": "Tidy Data",
-    "section": "Load the libraries",
-    "text": "Load the libraries\n\nRemember to load the R libraries into Google Colab before we start:\n\nlibrary(readxl)\nlibrary(dplyr)"
-  },
-  {
-    "objectID": "T3_TidyData/TidyData.slides.html#tidyrs-comon-functions",
-    "href": "T3_TidyData/TidyData.slides.html#tidyrs-comon-functions",
-    "title": "Tidy Data",
-    "section": "tidyr’s comon functions",
-    "text": "tidyr’s comon functions\n\nThe tidyr provides functions for reshaping, organizing, and completing data.\n\n\n\nPurpose\nFunction 1\nFunction 2\n\n\n\n\nPivoting\npivot_longer()\npivot_wider()\n\n\nSplitting / Combining\nseparate()\nunite()"
-  },
-  {
-    "objectID": "T3_TidyData/TidyData.slides.html#example-3",
-    "href": "T3_TidyData/TidyData.slides.html#example-3",
-    "title": "Tidy Data",
-    "section": "Example 3",
-    "text": "Example 3\n\nConsider an industrial engineer who receives a messy Excel file from a manufacturing client. The data file is called “industrial_dataset.xlsx”, which file includes data about machine maintenance logs, production output, and operator comments.\n\nclient_data = read_excel(\"industrial_dataset.xlsx\")\n\nWe use this dataset to illustrate the functions separate() and unite()."
-  },
-  {
-    "objectID": "T3_TidyData/TidyData.slides.html#example-4",
-    "href": "T3_TidyData/TidyData.slides.html#example-4",
-    "title": "Tidy Data",
-    "section": "Example 4",
-    "text": "Example 4\n\nConsider an industrial engineer who receives a messy Excel file from a manufacturing client. The data file is called “industrial_dataset.xlsx”, which file includes data about machine maintenance logs, production output, and operator comments.\n\nclient_data = read_excel(\"industrial_dataset.xlsx\")\n\nWe use this dataset to illustrate the functions separate() and unite()."
-  },
-  {
-    "objectID": "T3_TidyData/TidyData.slides.html#section-15",
-    "href": "T3_TidyData/TidyData.slides.html#section-15",
-    "title": "Tidy Data",
-    "section": "",
-    "text": "We turn the column numeric using the functions mutate() and as.numeric().\n\ncomplete_data = complete_data %&gt;% \nmutate(`Output (units)` = as.numeric(`Output (units)`))\n\ncomplete_data %&gt;%  select(`Output (units)`) %&gt;%  head()\n\n# A tibble: 6 × 1\n  `Output (units)`\n             &lt;dbl&gt;\n1             1200\n2             1050\n3               NA\n4              950\n5              900\n6              870\n\n\nNow, the column is numeric or dbl!"
-  },
-  {
-    "objectID": "T3_TidyData/TidyData.slides.html#example-4-cont.",
-    "href": "T3_TidyData/TidyData.slides.html#example-4-cont.",
-    "title": "Tidy Data",
-    "section": "Example 4 (cont.)",
-    "text": "Example 4 (cont.)\nLet’s reconsider the Example 4 after splitting the column Comment into two columns First_Comment and Second_comment.\n\naugmented_data\n\n# A tibble: 100 × 6\n   `Machine ID` `Output (units)` `Maintenance Date`  Operator First_comment  \n          &lt;dbl&gt; &lt;chr&gt;            &lt;dttm&gt;              &lt;chr&gt;    &lt;chr&gt;          \n 1          101 1200             2023-01-10 00:00:00 Ana      \"ok\"           \n 2          101 1200             2023-01-10 00:00:00 Ana      \"ok\"           \n 3          102 1050             2023-01-12 00:00:00 Bob      \"Needs oil!\"   \n 4          103 error            2023-01-13 00:00:00 Charlie  \"All good\\r\\n\" \n 5          103 950              2023-01-13 00:00:00 Charlie  \"All good\\r\\n\" \n 6          104 900              2023-01-14 00:00:00 &lt;NA&gt;     \"Delay\"        \n 7          105 870              NA                  DAVE     \"completed\"    \n 8          105 800              2023-01-21 00:00:00 dave     \"completed\"    \n 9          102 870              2023-01-25 00:00:00 Charlie  \"All good\\r\\n\" \n10          102 800              2023-01-20 00:00:00 Charlie  \"Requires part\"\n# ℹ 90 more rows\n# ℹ 1 more variable: Second_comment &lt;chr&gt;"
-  },
-  {
-    "objectID": "T3_TidyData/TidyData.slides.html#section-16",
-    "href": "T3_TidyData/TidyData.slides.html#section-16",
-    "title": "Tidy Data",
-    "section": "",
-    "text": "Let’s see the cleaned column.\n\naugmented_data %&gt;%  select(First_comment)\n\n# A tibble: 100 × 1\n   First_comment\n   &lt;chr&gt;        \n 1 ok           \n 2 ok           \n 3 Needs oil!   \n 4 All good     \n 5 All good     \n 6 Delay        \n 7 completed    \n 8 completed    \n 9 All good     \n10 Requires part\n# ℹ 90 more rows"
-  },
-  {
-    "objectID": "T3_TidyData/TidyData.slides.html#more-on-tidyr",
-    "href": "T3_TidyData/TidyData.slides.html#more-on-tidyr",
-    "title": "Tidy Data",
-    "section": "More on tidyr",
-    "text": "More on tidyr\n\n\nhttps://r4ds.hadley.nz/"
-  },
-  {
-    "objectID": "T3_TidyData/TidyData.slides.html#the-wide-version-of-the-data",
-    "href": "T3_TidyData/TidyData.slides.html#the-wide-version-of-the-data",
-    "title": "Tidy Data",
-    "section": "The wide version of the data",
-    "text": "The wide version of the data\n\n\nA Song column with the name of the songs in the dataset.\nA Plays column with the number of plays of each song for each date.\n\n\nspotify_long %&gt;% head()\n\n# A tibble: 6 × 4\n  Date                  Day Song                        Plays\n  &lt;dttm&gt;              &lt;dbl&gt; &lt;chr&gt;                       &lt;dbl&gt;\n1 2017-01-06 00:00:00     1 Shape of You             12287078\n2 2017-01-06 00:00:00     1 Despacito                      NA\n3 2017-01-06 00:00:00     1 Something Just Like This       NA\n4 2017-01-06 00:00:00     1 HUMBLE.                        NA\n5 2017-01-06 00:00:00     1 Unforgettable                  NA\n6 2017-01-07 00:00:00     2 Shape of You             13190270"
-  },
-  {
-    "objectID": "T3_TidyData/TidyData.slides.html#lets-preview-the-data.",
-    "href": "T3_TidyData/TidyData.slides.html#lets-preview-the-data.",
-    "title": "Tidy Data",
-    "section": "Let’s preview the data.",
-    "text": "Let’s preview the data.\n\n\nclient_data %&gt;% head()\n\n# A tibble: 6 × 5\n  `Machine ID` `Output (units)` `Maintenance Date`  Operator Comment            \n         &lt;dbl&gt; &lt;chr&gt;            &lt;dttm&gt;              &lt;chr&gt;    &lt;chr&gt;              \n1          101 1200             2023-01-10 00:00:00 Ana      \"ok\"               \n2          101 1200             2023-01-10 00:00:00 Ana      \"ok\"               \n3          102 1050             2023-01-12 00:00:00 Bob      \"Needs oil!\"       \n4          103 error            2023-01-13 00:00:00 Charlie  \"All good\\r\\n\"     \n5          103 950              2023-01-13 00:00:00 Charlie  \"All good\\r\\n\"     \n6          104 900              2023-01-14 00:00:00 &lt;NA&gt;     \"Delay: power issu…"
-  },
-  {
-    "objectID": "T3_TidyData/TidyData.slides.html#more-on-tidyr-and-stringr",
-    "href": "T3_TidyData/TidyData.slides.html#more-on-tidyr-and-stringr",
-    "title": "Tidy Data",
-    "section": "More on tidyr and stringr",
-    "text": "More on tidyr and stringr\n\n\nhttps://r4ds.hadley.nz/"
-  },
-  {
-    "objectID": "T3_TidyData/TidyData.slides.html#the-long-version-of-the-data",
-    "href": "T3_TidyData/TidyData.slides.html#the-long-version-of-the-data",
-    "title": "Tidy Data",
-    "section": "The long version of the data",
-    "text": "The long version of the data\n\n\nA Song column with the names of the songs in the dataset.\nA Plays column with the number of plays of each song for each date.\n\n\nspotify_long %&gt;% head()\n\n# A tibble: 6 × 4\n  Date                  Day Song                        Plays\n  &lt;dttm&gt;              &lt;dbl&gt; &lt;chr&gt;                       &lt;dbl&gt;\n1 2017-01-06 00:00:00     1 Shape of You             12287078\n2 2017-01-06 00:00:00     1 Despacito                      NA\n3 2017-01-06 00:00:00     1 Something Just Like This       NA\n4 2017-01-06 00:00:00     1 HUMBLE.                        NA\n5 2017-01-06 00:00:00     1 Unforgettable                  NA\n6 2017-01-07 00:00:00     2 Shape of You             13190270"
-  },
-  {
-    "objectID": "T3_TidyData/TidyData.slides.html#example-3-cont.",
-    "href": "T3_TidyData/TidyData.slides.html#example-3-cont.",
-    "title": "Tidy Data",
-    "section": "Example 3 (cont.)",
-    "text": "Example 3 (cont.)\nLet’s reconsider the Example 4 after splitting the column Comment into two columns First_Comment and Second_comment.\n\naugmented_data\n\n# A tibble: 100 × 6\n   `Machine ID` `Output (units)` `Maintenance Date`  Operator First_comment  \n          &lt;dbl&gt; &lt;chr&gt;            &lt;dttm&gt;              &lt;chr&gt;    &lt;chr&gt;          \n 1          101 1200             2023-01-10 00:00:00 Ana      \"ok\"           \n 2          101 1200             2023-01-10 00:00:00 Ana      \"ok\"           \n 3          102 1050             2023-01-12 00:00:00 Bob      \"Needs oil!\"   \n 4          103 error            2023-01-13 00:00:00 Charlie  \"All good\\r\\n\" \n 5          103 950              2023-01-13 00:00:00 Charlie  \"All good\\r\\n\" \n 6          104 900              2023-01-14 00:00:00 &lt;NA&gt;     \"Delay\"        \n 7          105 870              NA                  DAVE     \"completed\"    \n 8          105 800              2023-01-21 00:00:00 dave     \"completed\"    \n 9          102 870              2023-01-25 00:00:00 Charlie  \"All good\\r\\n\" \n10          102 800              2023-01-20 00:00:00 Charlie  \"Requires part\"\n# ℹ 90 more rows\n# ℹ 1 more variable: Second_comment &lt;chr&gt;"
-  },
-  {
-    "objectID": "T1_Introduction/Introduction.html",
-    "href": "T1_Introduction/Introduction.html",
-    "title": "Introduction to Data Visualization",
-    "section": "",
-    "text": "Introduction to Data Science\nThree Principles of Data Visualization\nStorytelling for Data Visualization\nGeneral Advice for Effective Presentations"
-  },
-  {
-    "objectID": "T1_Introduction/Introduction.html#introduction-to-data-science",
-    "href": "T1_Introduction/Introduction.html#introduction-to-data-science",
-    "title": "Introduction to Data Visualization",
-    "section": "Introduction to Data Science",
-    "text": "Introduction to Data Science\n\nData science is …\na multidisciplinary field that uses scientific methods, processes, algorithms and systems to extract knowledge and insights from vast amounts of structured and unstructured data.\n. . .\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nThe scheme of data science\n\n\n\n\n\n\nProvost, F., & Fawcett, T. (2013). Data Science for Business: What you need to know about data mining and data-analytic thinking. O’Reilly Media, Inc.\n\n\n\nBusiness understanding\n\n\nBusiness understanding refers to defining the business problem to be solved.\nThe goal is to reframe the business problem as a data science problem.\nOften, reframing the problem and designing a solution is an iterative process.\n\n\n\nData understanding\n\n\nIf the goal is to solve a business problem, the data that makes up the raw material available from which the solution will be built.\nThe available data rarely matches the problem.\nFor example, historical data is often collected for purposes unrelated to the current business problem or for no explicit purpose at all.\n\n\n. . .\n\nOur goal is to turn data into information that answers useful questions.\n\n\n\nData types\n\n\n\nText\n\n\nImages\n\nVideo\n\n\nAudio\n\n\n\n\n\n\nNumerical data\n\nData science methodology is based on numerical data given in tables.\n\n\n\n\n\n\nIn fact, texts, images, videos or audios are transformed into this format to process them.\n\n. . .\nIn this course, we will assume that the data is in a table."
-  },
-  {
-    "objectID": "T1_Introduction/Introduction.html#the-three-principles-of-data-visualization",
-    "href": "T1_Introduction/Introduction.html#the-three-principles-of-data-visualization",
-    "title": "Introduction to Data Visualization",
-    "section": "The Three Principles of Data Visualization",
-    "text": "The Three Principles of Data Visualization\n\nWhat is data visualization?\n\n“A visualization [of data] is any visual presentation intended to reveal evidence, making the invisible visible.” Alberto Cairo (2015).\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nhttps://www.nytimes.com/2019/02/28/learning/whats-going-on-in-this-graph-march-6-2019.html\n\n\n\n\n\n\n\n\n\n\n\nhttps://www.nytimes.com/2018/09/18/learning/whats-going-on-in-this-graph-sept-19-2018.html\n\n\n\n\n\n\n\n\n\n\nhttps://www.nytimes.com/2018/10/16/learning/whats-going-on-in-this-graph-oct-17-2018.html\n\n\n\n\n\nAt its core, data visualization allows you to delve into complex datasets to extract meaningful insights using graphical displays.\n\nData visualizations are primarily concerned with providing evidence and enabling the audience to explore and draw their own conclusions about what the visualizations reveal about the data.\n\n. . .\nData visualization has 3 key principles…\n\nAs data scientists, we create data visualizations in order to understand our data and explain our analyses to other people. A plot should have a message, and it’s our job to communicate this message as clearly as possible.\n\n\n\nPrinciple 1: Define the Message or Question\n\nFormulate the question of interest or the message you want to convey.\n\n\n\n\n\n\n\n\n\n\n\n\nEl mensaje puede ser una pregunta\n\nWhat is the key comparison?\nHow do we emphasize it?\nDo you have reason to expect that one group/observation might be different?\nWhy might your finding about shape matter?\nWhat additional comparison might add value to the investigation?\nAre there any potentially important features to compare against?\n\n\n\n\nPrinciple 2: Turn Data into Information\nYour graph should use data to convey the message or answer the question. In other words, it should transform data into information.\n\n\n\n\n\n\nEnhance your graph with color symbols and text to convey additional information.\n\n\n\nPrinciple 3: Apply Graphic Design Principles\n\n\n\n\n\n\n\nObjects are easily identifiable by color.\nUse direct labels instead of a legend.\nElements such as text, lines, and shapes of the same nature should look similar.\nBalance graphics and text.\nBe cautious with default settings in visualization software.\nUse a grid-based layout to organize your visualization.\n\n\n\n\n\n\n\n\n\n\n\n\n\nDon’t limit yourself to simple elements. Enhance your graph with color symbols to convey additional information. If possible, add context with markers and reference labels.\nAdditionally, include a legend in the graph that describes key features and summarizes its conclusions.\n\n\n\nExample\n\nPrinciple 1: It is cheaper to take Uber than to own a car in four of the five largest cities in the USA.\n\n\n\n\nWeekly cost (in USD) of daily commuting\n\n\nCity\nUber\nCar\n\n\n\n\nNew York City\n142\n218\n\n\nWashington D.C.\n96\n130\n\n\nChicago\n77\n116\n\n\nLos Angeles\n62\n89\n\n\nDallas\n181\n65\n\n\n\n\n\n\n\n\nThe estimated costs are based on a twice-daily 10.4 mile one-way commute at peak times over the course of a week using either the UberPool option (where available) or alternatively UberX vs the cost of using a personal vehicle (including any associated costs of ownership). Study conducted in February 2017.\n\n\n\n\n\nPrinciple 2: Turn data into information.\n\n\nLoading required package: scales\n\n\nLoading required package: ggridges\n\n\n\nNew to ggformula?  Try the tutorials: \n    learnr::run_tutorial(\"introduction\", package = \"ggformula\")\n    learnr::run_tutorial(\"refining\", package = \"ggformula\")\n\n\nWarning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.\nℹ Please use `linewidth` instead.\n\n\n\n\n\n\n\n\n\n\n\n\n\nPrinciple 3: Apply Graphic Design Principles.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n“The greatest value of a picture is when it forces us to notice what we never expected to see.” – John W. Tukey.\n\n\n\n\n\n. . .\nhttps://www.storytellingwithdata.com/ is an excellent guide on data visualization.\n\n\nActivity 1.1 (cooperative mode)\n\n\nGet together with a classmate\nAanalyze the five data visualizations in this Google Slides file\nFor each graph, write a short critique (3-4 sentences) using the three principles of data visualization.\nUpload your document in PDF with your critiques to Canvas."
-  },
-  {
-    "objectID": "T1_Introduction/Introduction.html#storytelling-for-data-visualization",
-    "href": "T1_Introduction/Introduction.html#storytelling-for-data-visualization",
-    "title": "Introduction to Data Visualization",
-    "section": "Storytelling for Data Visualization",
-    "text": "Storytelling for Data Visualization\n\nWhy storytelling matters in data visualization?\n\nRaw data alone is not enough—insights must be communicated effectively.\nDecision-makers rely on clear, engaging, and meaningful presentations of data.\nGood storytelling connects data to real-world problems and solutions.\n\n. . .\nFor example, a simple bar chart can be enhanced by context and narrative to explain a business trend or social issue.\n\n\n\n\n\n\n\n“The most powerful person in the world is the storyteller.” – Steve Jobs\n\n\n\n\n\n\n\nFour Components of a Data Story\n\n\nIntroduction (What’s the problem?)\n\n\nDefine the problem or question you’re addressing.\nProvide relevant background or context.\n\n. . .\n\nData (How will you solve it?)\n\n\nCollected, cleaned, and arranged analyzed data.\nProvides objective evidence to support claims.\n\n\n\n\n\nVisuals (What’s your solution?)\n\n\nGraphs, charts, and maps help translate numbers into meaningful insights (histograms, box plots, line charts, scatter plots, etc.).\nHighlight key trends, comparisons, and relationships.\nGood design guides the audience to the key message.\n\n. . .\n\nNarrative (Why does it matter?)\n\n\nPuts data into context—explains the significance of findings.\nAnswers: Why does this matter? Who is affected? What should be done?\n\n\n\nBest practices for storytelling\n\n\nKnow Your Audience – Tailor the message to decision-makers, engineers, or the public.\nKeep it Simple – Avoid unnecessary complexity; clarity is key.\nUse the Right Visuals – Choose the best chart type for your message.\nEmphasize Key Takeaways – Bold the most important insights.\nCreate a Narrative Flow – Guide the audience through the story step by step."
-  },
-  {
-    "objectID": "T1_Introduction/Introduction.html#general-advice-for-effective-presentations",
-    "href": "T1_Introduction/Introduction.html#general-advice-for-effective-presentations",
-    "title": "Introduction to Data Visualization",
-    "section": "General Advice for Effective Presentations",
-    "text": "General Advice for Effective Presentations\n\nThe advice is based on\n\n\n\n\n\n\nhttps://www.amazon.com/Even-Geek-Speak-Joey-Asher/dp/0978577604\n\n\n\n1. Avoid jargon overload\nSpeak in plain, everyday language your audience understands.\n\n. . .\nFor example:\n\n\n\n\n\n\n\n\nClear and Engaging\n\n\n\n\nWhat Is Lean Manufacturing?\nLean Manufacturing is about finding smarter ways to work. The goal is to make products using less time, less waste, and fewer resources, while keeping customers happy.\n\n\n\n\n\n\n\n\n\n\nJargon Overload\n\n\n\n\nWhat Is Lean Manufacturing?\nLean Manufacturing is a systematic approach to process optimization that utilizes value stream mapping to identify and eliminate non–value-added activities.\n\n\n\n\n\n\n\n2. State the main objective\nStart your speech with “By [insert what you want to accomplish] you will [insert what your listener wants].”\n. . .\n\nFor example, start with\n\n“In this presentation, I’ll show you how sensors and data can help you detect problems before they cause failures, keeping your production line running smoothly.”\n\nInstead of\n\n“In this presentation, I will explain how I used a random forest algorithm to predict when a machine will fail. I’ll describe my model, the data preprocessing steps, and my evaluation metrics.”\n\n\n\n\n3. Present the “so what.”\nDon’t dive straight into details — explain why it matters first.\n. . .\n\nFor example, is better to start with\n\n“When a natural disaster disrupts production, companies lose millions of dollars and fail to deliver on time. Supply chain resilience is about designing systems that can recover quickly from these disruptions, keeping customers satisfied.”\n\nthan\n\n“In this project, I analyzed supplier diversification, lead time variability, and network centrality. We used simulation models to measure disruption propagation in the supply chain network.”\n\n\n\n\n\n\nLimit your slides. One main idea per slide keeps your message clear and focused.\n\n\n\nUse the 3-points structure. Come up with no more than three points in support of your main objective. Support each of the points with facts or examples.\nPractice for clarity, not memorization. Rehearse enough to sound natural and confident.\nYou are the presentation. Visuals in PowerPoint reinforce a speaker’s message and help the audience key points. However, the presenter should always be the focus of the presentation, not the visuals.\n\n\n\n\n8 End with a call to action\nTell your audience what you want them to do next.\n\n. . .\n\n\n\n\n\n\nExample\n\n\n\n\nLet’s Make Our Plant More Efficient\nWe’ve seen that improving energy efficiency saves costs, reduces emissions, and strengthens competitiveness.\nNow it’s your turn:\n\nIdentify one process in your area that wastes energy.\nPropose one small improvement this week.\nShare your idea in next Monday’s team meeting.\n\n\n\n\n\n\nActivity 1.2 (Solo mode and take-home)\nPrepare a short presentation (up to 3 minutes) about any topic you’re passionate about.\nGuidelines:\n\nUse slides (PowerPoint, Google Slides, or Canva).\n\nUpload your slides to CANVAS before next class.\n\nA few students will be randomly selected to present live.\n\nWe won’t judge your topic. We’re looking for clarity, connection, and passion."
-  },
-  {
-    "objectID": "T1_Introduction/Introduction.html#return-to-main-page",
-    "href": "T1_Introduction/Introduction.html#return-to-main-page",
-    "title": "Introduction to Data Visualization",
-    "section": "Return to main page",
-    "text": "Return to main page"
-  },
-  {
-    "objectID": "T3_TidyData/TidyData.html",
-    "href": "T3_TidyData/TidyData.html",
-    "title": "Tidy Data",
-    "section": "",
-    "text": "Tidy Data\ntidyr within the Tidyverse\nData Wrangling"
-  },
-  {
-    "objectID": "T3_TidyData/TidyData.html#tidy-data",
-    "href": "T3_TidyData/TidyData.html#tidy-data",
-    "title": "Tidy Data",
-    "section": "Tidy Data",
-    "text": "Tidy Data\n\nA new library: tidyr\n\n\n\n\n\n\n\n\n\ntidyr allows you to reshape and regroup a dataset.\nIt is part of the collection of data science packages called tidyverse.\nhttps://tidyr.tidyverse.org/\n\n\n\nLoad it to Google Colab with the following code.\n\nlibrary(tidyr)\n\n\n\nData Science Workflow\n\n\n\n\n\n\nEvery data science project involves importing, tidying, transforming, visualizing, modeling, and communicating data.\n\n\n\n\n\n\nImport: Bring raw data into R.\nTidy: Reshape into a consistent format.\nTransform: Create new variables and summaries.\nVisualize: Explore patterns visually.\nModel: Fit statistical or machine learning models.\nCommunicate: Share insights clearly.\n\n\n\nWhy do we need tidy data?\n\n“Tidy datasets are easy to manipulate, model, and visualize.” — Hadley Wickham\n\n\n\n\nTidy data make R tools work together smoothly.\nEach tidy dataset is like a well-organized spreadsheet.\nMaking your data tidy allows you to avoid common errors that occurred in the data analysis.\nThe tidyr package has functions to make your data tidy.\n\n\n\n\nTidy Data\n\n\n\nIn tidy data:\n\nEach variable is in a column\nEach observation is in a row\nEach cell is a single measurement.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nhttps://openscapes.org/blog/2020-10-12-tidy-data/\n\n\n\nExample 1\nConsider four datasets with the same values of four variables country, year, population, and cases.\nFirst, we have the tidy dataset version.\n\n\n# A tibble: 6 × 4\n  country      year  cases population\n  &lt;chr&gt;       &lt;dbl&gt;  &lt;dbl&gt;      &lt;dbl&gt;\n1 Afghanistan  1999    745   19987071\n2 Afghanistan  2000   2666   20595360\n3 Brazil       1999  37737  172006362\n4 Brazil       2000  80488  174504898\n5 China        1999 212258 1272915272\n6 China        2000 213766 1280428583\n\n\ntidy data because each variable is in a column , each observation is in a row, and each cell is a single measurement.\n\n\n\n\nConsider another version:\n\n\n# A tibble: 12 × 4\n   country      year type            count\n   &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;           &lt;dbl&gt;\n 1 Afghanistan  1999 cases             745\n 2 Afghanistan  1999 population   19987071\n 3 Afghanistan  2000 cases            2666\n 4 Afghanistan  2000 population   20595360\n 5 Brazil       1999 cases           37737\n 6 Brazil       1999 population  172006362\n 7 Brazil       2000 cases           80488\n 8 Brazil       2000 population  174504898\n 9 China        1999 cases          212258\n10 China        1999 population 1272915272\n11 China        2000 cases          213766\n12 China        2000 population 1280428583\n\n\nNot tidy because the last column is a summary statistic (count) of two variables.\n\n\n\n\nConsider another version:\n\n\n# A tibble: 6 × 3\n  country      year rate             \n  &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;            \n1 Afghanistan  1999 745/19987071     \n2 Afghanistan  2000 2666/20595360    \n3 Brazil       1999 37737/172006362  \n4 Brazil       2000 80488/174504898  \n5 China        1999 212258/1272915272\n6 China        2000 213766/1280428583\n\n\nNot tidy because the last column is a summary statistic (rate) of two variables, or there are two measurements involved in this column.\n\n\n\n\nConsider one last version involving two datasets.\n\n\n# A tibble: 3 × 3\n  country     `1999` `2000`\n  &lt;chr&gt;        &lt;dbl&gt;  &lt;dbl&gt;\n1 Afghanistan    745   2666\n2 Brazil       37737  80488\n3 China       212258 213766\n\n\n\n\n# A tibble: 3 × 3\n  country         `1999`     `2000`\n  &lt;chr&gt;            &lt;dbl&gt;      &lt;dbl&gt;\n1 Afghanistan   19987071   20595360\n2 Brazil       172006362  174504898\n3 China       1272915272 1280428583\n\n\nNot tidy data!"
-  },
-  {
-    "objectID": "T3_TidyData/TidyData.html#tidyr-within-the-tidyverse",
-    "href": "T3_TidyData/TidyData.html#tidyr-within-the-tidyverse",
-    "title": "Tidy Data",
-    "section": "tidyr within the Tidyverse",
-    "text": "tidyr within the Tidyverse\n\nThe role of the tidyr package\n\n\n\ntidyr works seamlessly with dplyr.\n\nWhile dplyr focuses on data manipulation, tidyr focuses on data structure.\n\nTogether, they make your data clean and consistent before visualization or modeling.\n\n\n\n\ntidyr’s comon functions\n\nThe tidyr provides functions for reshaping, organizing, and completing data.\n\n\n\nPurpose\nFunction 1\nFunction 2\n\n\n\n\nPivoting\npivot_longer()\npivot_wider()\n\n\nSplitting / Combining\nseparate()\nunite()\n\n\n\n\n\nExample 2\n\nConsider the data in the file “spotify.xlsx”. This dataset contains the global daily plays of the five most popular songs on the Spotify music streaming service in 2017.\nLet’s read the dataset using the function read_excel() from the readxl library.\n\nspotify_data = read_excel(\"spotify.xlsx\") \n\n\n\n\nLet’s preview the dataset.\n\nspotify_data %&gt;% head()\n\n# A tibble: 6 × 7\n  Date                  Day `Shape of You` Despacito `Something Just Like This`\n  &lt;dttm&gt;              &lt;dbl&gt;          &lt;dbl&gt;     &lt;dbl&gt;                      &lt;dbl&gt;\n1 2017-01-06 00:00:00     1       12287078        NA                         NA\n2 2017-01-07 00:00:00     2       13190270        NA                         NA\n3 2017-01-08 00:00:00     3       13099919        NA                         NA\n4 2017-01-09 00:00:00     4       14506351        NA                         NA\n5 2017-01-10 00:00:00     5       14275628        NA                         NA\n6 2017-01-11 00:00:00     6       14372699        NA                         NA\n# ℹ 2 more variables: HUMBLE. &lt;dbl&gt;, Unforgettable &lt;dbl&gt;\n\n\n\n\npivot_longer()\n\nA common problem is a dataset where some of the column names are not names of variables, but values of a variable.\npivot_longer() transforms columns into rows (convert from wide to long format).\nLet’s apply it to the spotify_data.\n\nspotify_long = spotify_data %&gt;% \n  pivot_longer(c(\"Shape of You\", \"Despacito\", \"Something Just Like This\", \n                 \"HUMBLE.\", \"Unforgettable\"), \n               names_to = \"Song\", \n               values_to = \"Plays\")\n\n\n\nThe long version of the data\n\n\nA Song column with the names of the songs in the dataset.\nA Plays column with the number of plays of each song for each date.\n\n\nspotify_long %&gt;% head()\n\n# A tibble: 6 × 4\n  Date                  Day Song                        Plays\n  &lt;dttm&gt;              &lt;dbl&gt; &lt;chr&gt;                       &lt;dbl&gt;\n1 2017-01-06 00:00:00     1 Shape of You             12287078\n2 2017-01-06 00:00:00     1 Despacito                      NA\n3 2017-01-06 00:00:00     1 Something Just Like This       NA\n4 2017-01-06 00:00:00     1 HUMBLE.                        NA\n5 2017-01-06 00:00:00     1 Unforgettable                  NA\n6 2017-01-07 00:00:00     2 Shape of You             13190270\n\n\n\n\npivot_wider()\npivot_wider() is the opposite of pivot_longer(). We use it when an observation is scattered across multiple rows.\n\nspotify_wide = spotify_long %&gt;% \n  pivot_wider(names_from = \"Song\", values_from = \"Plays\")\nspotify_wide %&gt;% head()\n\n# A tibble: 6 × 7\n  Date                  Day `Shape of You` Despacito `Something Just Like This`\n  &lt;dttm&gt;              &lt;dbl&gt;          &lt;dbl&gt;     &lt;dbl&gt;                      &lt;dbl&gt;\n1 2017-01-06 00:00:00     1       12287078        NA                         NA\n2 2017-01-07 00:00:00     2       13190270        NA                         NA\n3 2017-01-08 00:00:00     3       13099919        NA                         NA\n4 2017-01-09 00:00:00     4       14506351        NA                         NA\n5 2017-01-10 00:00:00     5       14275628        NA                         NA\n6 2017-01-11 00:00:00     6       14372699        NA                         NA\n# ℹ 2 more variables: HUMBLE. &lt;dbl&gt;, Unforgettable &lt;dbl&gt;\n\n\n\n\n\nWe can also apply it to the table2 dataset in the previous section.\n\ntable2 \n\n# A tibble: 12 × 4\n   country      year type            count\n   &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;           &lt;dbl&gt;\n 1 Afghanistan  1999 cases             745\n 2 Afghanistan  1999 population   19987071\n 3 Afghanistan  2000 cases            2666\n 4 Afghanistan  2000 population   20595360\n 5 Brazil       1999 cases           37737\n 6 Brazil       1999 population  172006362\n 7 Brazil       2000 cases           80488\n 8 Brazil       2000 population  174504898\n 9 China        1999 cases          212258\n10 China        1999 population 1272915272\n11 China        2000 cases          213766\n12 China        2000 population 1280428583\n\n\n\n\n\n\nThe wider version of table2 is:\n\ntable2 %&gt;%\n    pivot_wider(names_from = type, values_from = count)\n\n# A tibble: 6 × 4\n  country      year  cases population\n  &lt;chr&gt;       &lt;dbl&gt;  &lt;dbl&gt;      &lt;dbl&gt;\n1 Afghanistan  1999    745   19987071\n2 Afghanistan  2000   2666   20595360\n3 Brazil       1999  37737  172006362\n4 Brazil       2000  80488  174504898\n5 China        1999 212258 1272915272\n6 China        2000 213766 1280428583\n\n\n\n\nExample 3\n\nConsider an industrial engineer who receives a messy Excel file from a manufacturing client. The data file is called “industrial_dataset.xlsx”, which file includes data about machine maintenance logs, production output, and operator comments.\n\nclient_data = read_excel(\"industrial_dataset.xlsx\")\n\nWe use this dataset to illustrate the functions separate() and unite().\n\n\nLet’s preview the data.\n\n\nclient_data %&gt;% head()\n\n# A tibble: 6 × 5\n  `Machine ID` `Output (units)` `Maintenance Date`  Operator Comment            \n         &lt;dbl&gt; &lt;chr&gt;            &lt;dttm&gt;              &lt;chr&gt;    &lt;chr&gt;              \n1          101 1200             2023-01-10 00:00:00 Ana      \"ok\"               \n2          101 1200             2023-01-10 00:00:00 Ana      \"ok\"               \n3          102 1050             2023-01-12 00:00:00 Bob      \"Needs oil!\"       \n4          103 error            2023-01-13 00:00:00 Charlie  \"All good\\r\\n\"     \n5          103 950              2023-01-13 00:00:00 Charlie  \"All good\\r\\n\"     \n6          104 900              2023-01-14 00:00:00 &lt;NA&gt;     \"Delay: power issu…\n\n\n\n\nseparate()\nseparate() pulls apart one column into multiple columns, by splitting wherever a separator character appears.\nConsider the column Comment from client_data.\n\nclient_data %&gt;% select(Comment)\n\n# A tibble: 100 × 1\n   Comment               \n   &lt;chr&gt;                 \n 1 \"ok\"                  \n 2 \"ok\"                  \n 3 \"Needs oil!\"          \n 4 \"All good\\r\\n\"        \n 5 \"All good\\r\\n\"        \n 6 \"Delay: power issue\"  \n 7 \"completed\"           \n 8 \"completed\"           \n 9 \"All good\\r\\n\"        \n10 \"Requires part: valve\"\n# ℹ 90 more rows\n\n\n\n\n\n\nThe column has some values such as “Requires part: valve” and “Delay: maintenance” that we may want to split into columns.\n\n\n# A tibble: 100 × 1\n   Comment               \n   &lt;chr&gt;                 \n 1 \"ok\"                  \n 2 \"ok\"                  \n 3 \"Needs oil!\"          \n 4 \"All good\\r\\n\"        \n 5 \"All good\\r\\n\"        \n 6 \"Delay: power issue\"  \n 7 \"completed\"           \n 8 \"completed\"           \n 9 \"All good\\r\\n\"        \n10 \"Requires part: valve\"\n# ℹ 90 more rows\n\n\n\n\n\nUsing separate(), we split the values in the column according to the colon “:”.\n\naugmented_data = client_data  %&gt;% \nseparate(Comment, into = c(\"First_comment\", \"Second_comment\"), \n         sep = \":\")\n\nThe result is two columns.\n\naugmented_data %&gt;% select(`First_comment`, `Second_comment`) %&gt;%  head()\n\n# A tibble: 6 × 2\n  First_comment  Second_comment\n  &lt;chr&gt;          &lt;chr&gt;         \n1 \"ok\"            &lt;NA&gt;         \n2 \"ok\"            &lt;NA&gt;         \n3 \"Needs oil!\"    &lt;NA&gt;         \n4 \"All good\\r\\n\"  &lt;NA&gt;         \n5 \"All good\\r\\n\"  &lt;NA&gt;         \n6 \"Delay\"        \" power issue\"\n\n\n\n\nunite()\n\nunite() is the inverse of separate(). It combines multiple columns into a single column.\n\naugmented_data  %&gt;% \n  unite(Comment, First_comment, Second_comment, sep = \": \") %&gt;% \n    select(Comment)\n\nIn the unite() function, the first input is the name of the new column, the other inputs are the columns to be united.\n\n\n\n\nThe result.\n\naugmented_data  %&gt;% \n  unite(Comment, First_comment, Second_comment, sep = \": \") %&gt;% \n    select(Comment)\n\n# A tibble: 100 × 1\n   Comment                \n   &lt;chr&gt;                  \n 1 \"ok: NA\"               \n 2 \"ok: NA\"               \n 3 \"Needs oil!: NA\"       \n 4 \"All good\\r\\n: NA\"     \n 5 \"All good\\r\\n: NA\"     \n 6 \"Delay:  power issue\"  \n 7 \"completed: NA\"        \n 8 \"completed: NA\"        \n 9 \"All good\\r\\n: NA\"     \n10 \"Requires part:  valve\"\n# ℹ 90 more rows"
-  },
-  {
-    "objectID": "T3_TidyData/TidyData.html#data-wrangling",
-    "href": "T3_TidyData/TidyData.html#data-wrangling",
-    "title": "Tidy Data",
-    "section": "Data Wrangling",
-    "text": "Data Wrangling\n\nData Wrangling\n\n\nData wrangling is the process of transforming raw data into a clean and structured format.\nIt involves merging, reshaping, filtering, and organizing data for analysis.\nHere, we illustrate some special functions of the tidyverse for cleaning common issues with a dataset.\n\n\n\nRemove duplicate rows\n\nDuplicate or identical rows are rows that have the same entries in every column in the dataset.\nIf only one row is needed for the analysis, we can remove the duplicates using the distinct() function. Let’s illustrate this using the client_data dataset.\n\nclient_data_single = client_data  %&gt;% distinct()\n\n\n\nAdd an index column\n\nIn some cases, it is useful to have a unique identifier for each row in the dataset. We can create an identifier using the functions mutate() and row_number() with some extra syntaxis.\n\nclient_data_single = client_data_single %&gt;% mutate(ID = row_number())\n\n\n\n\nThe new column is appended to the end of the dataframe.\n\nclient_data_single %&gt;%  head()\n\n# A tibble: 6 × 6\n  `Machine ID` `Output (units)` `Maintenance Date`  Operator Comment          ID\n         &lt;dbl&gt; &lt;chr&gt;            &lt;dttm&gt;              &lt;chr&gt;    &lt;chr&gt;         &lt;int&gt;\n1          101 1200             2023-01-10 00:00:00 Ana      \"ok\"              1\n2          102 1050             2023-01-12 00:00:00 Bob      \"Needs oil!\"      2\n3          103 error            2023-01-13 00:00:00 Charlie  \"All good\\r\\…     3\n4          103 950              2023-01-13 00:00:00 Charlie  \"All good\\r\\…     4\n5          104 900              2023-01-14 00:00:00 &lt;NA&gt;     \"Delay: powe…     5\n6          105 870              NA                  DAVE     \"completed\"       6\n\n\n\n\n\nTo bring it to the beginning of the array, we can use the select() and everything() functions.\n\nclient_data_single = client_data_single %&gt;% \nselect(ID, everything())\n\nclient_data_single %&gt;%  head()\n\n# A tibble: 6 × 6\n     ID `Machine ID` `Output (units)` `Maintenance Date`  Operator Comment      \n  &lt;int&gt;        &lt;dbl&gt; &lt;chr&gt;            &lt;dttm&gt;              &lt;chr&gt;    &lt;chr&gt;        \n1     1          101 1200             2023-01-10 00:00:00 Ana      \"ok\"         \n2     2          102 1050             2023-01-12 00:00:00 Bob      \"Needs oil!\" \n3     3          103 error            2023-01-13 00:00:00 Charlie  \"All good\\r\\…\n4     4          103 950              2023-01-13 00:00:00 Charlie  \"All good\\r\\…\n5     5          104 900              2023-01-14 00:00:00 &lt;NA&gt;     \"Delay: powe…\n6     6          105 870              NA                  DAVE     \"completed\"  \n\n\n\n\nFill blank cells\nIn the client_data_single, there are columns with missing values. We can fill them with specific values or text using replace_na() function. In this function, we use the syntaxis 'Variable' = 'Replace', where the Variable is the column in the dataset and Replace is the text or number to fill the entry in.\nLet’s fill in the missing entries of the columns Operator, Maintenance Date, and Comment.\n\ncomplete_data = client_data_single %&gt;% \n                  replace_na( list(\n                  Operator = \"Unknown\",\n                  `Maintenance Date` = as.Date(\"2023-01-01\"),\n                  Comment = \"None\") \n                  )\n\n\n\n\n\n\ncomplete_data %&gt;%  head()\n\n# A tibble: 6 × 6\n     ID `Machine ID` `Output (units)` `Maintenance Date`  Operator Comment      \n  &lt;int&gt;        &lt;dbl&gt; &lt;chr&gt;            &lt;dttm&gt;              &lt;chr&gt;    &lt;chr&gt;        \n1     1          101 1200             2023-01-10 00:00:00 Ana      \"ok\"         \n2     2          102 1050             2023-01-12 00:00:00 Bob      \"Needs oil!\" \n3     3          103 error            2023-01-13 00:00:00 Charlie  \"All good\\r\\…\n4     4          103 950              2023-01-13 00:00:00 Charlie  \"All good\\r\\…\n5     5          104 900              2023-01-14 00:00:00 Unknown  \"Delay: powe…\n6     6          105 870              2023-01-01 00:00:00 DAVE     \"completed\"  \n\n\n\n\nReplace values\nThere are some cases in which columns have some undesired or unwatned values. Consider the Output (units) as an example.\n\ncomplete_data %&gt;% select(`Output (units)`) %&gt;% head()\n\n# A tibble: 6 × 1\n  `Output (units)`\n  &lt;chr&gt;           \n1 1200            \n2 1050            \n3 error           \n4 950             \n5 900             \n6 870             \n\n\nThe column has the numbers of units but also text such as “error”.\n\n\n\nWe can replace the “error” in this column by a user-specified value, say, 0. To this end, we use the functions mutate() and na_if().\n\ncomplete_data = complete_data %&gt;% \nmutate(`Output (units)` = na_if(`Output (units)`, \"error\"))\n\n# Let's check the column.\ncomplete_data %&gt;%  select(`Output (units)`) %&gt;%  head()\n\n# A tibble: 6 × 1\n  `Output (units)`\n  &lt;chr&gt;           \n1 1200            \n2 1050            \n3 &lt;NA&gt;            \n4 950             \n5 900             \n6 870             \n\n\nHowever, the new column is character (chr)!\n\n\n\n\nWe turn the column numeric using the functions mutate() and as.numeric().\n\ncomplete_data = complete_data %&gt;% \nmutate(`Output (units)` = as.numeric(`Output (units)`))\n\ncomplete_data %&gt;%  select(`Output (units)`) %&gt;%  head()\n\n# A tibble: 6 × 1\n  `Output (units)`\n             &lt;dbl&gt;\n1             1200\n2             1050\n3               NA\n4              950\n5              900\n6              870\n\n\nNow, the column is numeric or dbl!\n\n\nA new library: stringr\n\n\n\n\n\n\n\n\n\nstringr provides a consistent set of functions for working with strings.\nIt is also part of the tidyverse collection.\nhttps://stringr.tidyverse.org/\n\n\n\nLoad it to Google Colab with the following code.\n\nlibrary(stringr)\n\n\n\nExample 3 (cont.)\nLet’s reconsider the Example 4 after splitting the column Comment into two columns First_Comment and Second_comment.\n\naugmented_data\n\n# A tibble: 100 × 6\n   `Machine ID` `Output (units)` `Maintenance Date`  Operator First_comment  \n          &lt;dbl&gt; &lt;chr&gt;            &lt;dttm&gt;              &lt;chr&gt;    &lt;chr&gt;          \n 1          101 1200             2023-01-10 00:00:00 Ana      \"ok\"           \n 2          101 1200             2023-01-10 00:00:00 Ana      \"ok\"           \n 3          102 1050             2023-01-12 00:00:00 Bob      \"Needs oil!\"   \n 4          103 error            2023-01-13 00:00:00 Charlie  \"All good\\r\\n\" \n 5          103 950              2023-01-13 00:00:00 Charlie  \"All good\\r\\n\" \n 6          104 900              2023-01-14 00:00:00 &lt;NA&gt;     \"Delay\"        \n 7          105 870              NA                  DAVE     \"completed\"    \n 8          105 800              2023-01-21 00:00:00 dave     \"completed\"    \n 9          102 870              2023-01-25 00:00:00 Charlie  \"All good\\r\\n\" \n10          102 800              2023-01-20 00:00:00 Charlie  \"Requires part\"\n# ℹ 90 more rows\n# ℹ 1 more variable: Second_comment &lt;chr&gt;\n\n\n\n\nRemove characters\n\nSomething that we notice is that the column First_Comment has some extra characters like “\\n” that may be useless when working with the data.\nWe can remove them using the function str_trim() from the stringr package.\n\naugmented_data = augmented_data  %&gt;% \nmutate(First_comment = str_trim(First_comment, side = \"both\"))\n\n\n\n\n\nLet’s see the cleaned column.\n\naugmented_data %&gt;%  select(First_comment)\n\n# A tibble: 100 × 1\n   First_comment\n   &lt;chr&gt;        \n 1 ok           \n 2 ok           \n 3 Needs oil!   \n 4 All good     \n 5 All good     \n 6 Delay        \n 7 completed    \n 8 completed    \n 9 All good     \n10 Requires part\n# ℹ 90 more rows\n\n\n\n\nTransform text case\nWhen working with text columns containing names, we may have different ways of writing. A common case is when having lower case or upper case names or a combination thereof.\nFor example, consider the column Operator containing the names of the operators.\n\ncomplete_data %&gt;% select(Operator) %&gt;%  head()\n\n# A tibble: 6 × 1\n  Operator\n  &lt;chr&gt;   \n1 Ana     \n2 Bob     \n3 Charlie \n4 Charlie \n5 Unknown \n6 DAVE    \n\n\n\n\nRemove extra spaces\n\nTo deal with names, we first use the str_trim() to remove leading and trailing characters from strings.\n\ncomplete_data =  complete_data %&gt;% \nmutate(Operator = str_trim(Operator))\n\ncomplete_data %&gt;% select(Operator) %&gt;%  head()\n\n# A tibble: 6 × 1\n  Operator\n  &lt;chr&gt;   \n1 Ana     \n2 Bob     \n3 Charlie \n4 Charlie \n5 Unknown \n6 DAVE    \n\n\n\n\nChange to lowercase letters\n\nWe can turn all names to lowercase using the function str_to_lower().\n\ncomplete_data %&gt;% \nmutate(Operator = str_to_lower(Operator)) %&gt;% \nselect(Operator) %&gt;% \nhead()\n\n# A tibble: 6 × 1\n  Operator\n  &lt;chr&gt;   \n1 ana     \n2 bob     \n3 charlie \n4 charlie \n5 unknown \n6 dave    \n\n\n\n\nChange to uppercase letters\n\nWe can turn all names to uppercase using the function str_to_upper().\n\ncomplete_data %&gt;% \nmutate(Operator = str_to_upper(Operator)) %&gt;% \nselect(Operator) %&gt;% \nhead()\n\n# A tibble: 6 × 1\n  Operator\n  &lt;chr&gt;   \n1 ANA     \n2 BOB     \n3 CHARLIE \n4 CHARLIE \n5 UNKNOWN \n6 DAVE    \n\n\n\n\nCapitalize the first letter\n\nWe can convert all names to title case using the function str_to_title().\n\ncomplete_data %&gt;% \nmutate(Operator = str_to_title(Operator)) %&gt;% \nselect(Operator) %&gt;% \nhead()\n\n# A tibble: 6 × 1\n  Operator\n  &lt;chr&gt;   \n1 Ana     \n2 Bob     \n3 Charlie \n4 Charlie \n5 Unknown \n6 Dave    \n\n\n\n\nMore on tidyr and stringr\n\n\n\n\n\n\nhttps://r4ds.hadley.nz/"
-  },
-  {
-    "objectID": "T3_TidyData/TidyData.html#return-to-main-page",
-    "href": "T3_TidyData/TidyData.html#return-to-main-page",
-    "title": "Tidy Data",
-    "section": "Return to main page",
-    "text": "Return to main page"
-  },
-  {
-    "objectID": "T2_Tools/Tools.html",
-    "href": "T2_Tools/Tools.html",
-    "title": "Tools for Data Manipulation",
-    "section": "",
-    "text": "Introduction to R\nReading data with readxl\nData manipulation with dplyr"
-  },
-  {
-    "objectID": "T2_Tools/Tools.html#introduction-to-r",
-    "href": "T2_Tools/Tools.html#introduction-to-r",
-    "title": "Tools for Data Manipulation",
-    "section": "Introduction to R",
-    "text": "Introduction to R\n\nR\n\n\n\n\nA versatile programming language.\nIt is free!\nIt is widely used for data cleaning, data visualization, and data modelling.\nIt can be extended with packages (libraries) developed by other users.\n\n\n\n\n\n\n\n\n\n\n\nGoogle Colab\nGoogle’s free cloud collaboration platform for creating R documents.\n\nRun R and collaborate on Jupyter notebooks for free.\nHarness the power of GPUs for free to accelerate your data science projects.\nEasily save and upload your notebooks to Google Drive.\n\n\n\n\n\n\n\n\nLet’s try a command in R\n\nWhat do you think will happen if we run this command?\n\nprint(\"Hello world!\")\n\n. . .\n\n\n[1] \"Hello world!\"\n\n\n\n\nLet’s try another command\n\nWhat do you think will happen if we run this command?\n\nsum(1, 5, 10)\n\n. . .\n\n\n[1] 16\n\n\n\n\nUse R as a basic calculator\n\n\n5 + 1\n\n[1] 6\n\n\n\n10 - 3\n\n[1] 7\n\n\n\n2 * 4\n\n[1] 8\n\n\n\n9 / 3\n\n[1] 3\n\n\n\n\nComments\n\nSometimes we write things in the coding window that we want R to ignore. These are called comments and start with #.\n\nR will ignore the comments and just execute the code.\n\n# you can put whatever after #\n# for example... blah blah blah\n\n\nSi desea escribir un comentario que ocupe más de una línea, es una buena idea poner un # al principio de cada línea.\n\n\n\nIntroduction to functions in R\n\nOne of the cool things about R is that there are many built-in commands you can use. These are called functions.\n. . .\nFunctions have two basic parts:\n\n\nThe first part is the name of the function (for example, sum).\nThe second part is the input to the function, which goes inside the parentheses (sum(1, 5, 15)).\n\n\n\n\nR is strict\nR, like all programming languages, is very strict. For example, if you write\n\nsum(1, 100)\n\n[1] 101\n\n\nit will tell you the answer, 101.\n. . .\nBut if you write\n\nSum(1, 100)\n\nError in Sum(1, 100): could not find function \"Sum\"\n\n\nwith the “s” capitalized, R will act like it has no idea what we are talking about!\n\nlo mismo si olvidas incluir un parentesis\n\n\n\nSave your work in R objects\n\nVirtually anything, including the results of any R function, can be saved in an object.\nThis is accomplished by using an assignment operator, which can be an equal symbol (=) or a leftward symbol (&lt;-).\n. . .\nYou can make up any name you want for a R object. However, there are two basic rules for this:\n\n\nIt has to be different from a function name in R.\nIt has to be specific possible yet succinct.\n\n\n\n\nFor example\n\n\n# This code will assign the number 18\n# to the object called my_favorite_number\n\nmy_favorite_number = 18\n\nAfter running this code, nothing happens. But if we run the object on its own, we can see what’s inside it.\n\nmy_favorite_number\n\n[1] 18\n\n\nYou can also use print(my_favorite_number).\n\n\nVectors\n\nSo far we have used R objects to store a single number. But in data visualization we are dealing with multiple numbers or observations.\n. . .\nA R object can also store a complete set of numbers, called a vector.\nYou can think of a list as a vector of numbers (or values).\n. . .\nThe c() command can be used to combine several individual values into a list.\n\npuedes pensar que el c es por combinar\n\n\n\nFor example\n\nThis code creates two vectors:\n\nmy_vector = c(1, 2, 3, 4, 5)\nmy_vector_2 = c(10, 10, 10, 10, 10)\n\n. . .\nLet’s see their content:\n\nmy_vector\n\n[1] 1 2 3 4 5\n\n\n\nmy_vector_2\n\n[1] 10 10 10 10 10\n\n\n\n\nOperations\n\nWe can do simple operations with vectors. For example, we can sum all the elements of a list.\n\nmy_vector = c(1, 2, 3, 4, 5)\nsum(my_vector)\n\n[1] 15\n\n\n\n\nIndexing\n\nWe can index a position in the vector using square brackets with a number like this: [1].\nSo, if we wanted to print the contents of the first position in my_vector, we could write\n\nmy_vector[1]\n\n[1] 1\n\n\n. . .\n\nIn contrast with Python, the first element of an R vector is indexed using 1.\n\n\nA little more about R objects\n\nYou can think of R objects as containers that hold values.\nA R object can hold a single value, or it can hold a group of values (as in a vector).\nSo far, we’ve only put numbers into R objects.\n. . .\n\nR objects can actually contain three types of values: numbers, characters, and booleans.\n\n\nCharacter values\n\nCharacters are made up of text, such as words or sentences. An example of a list with characters as elements is:\n. . .\n\nmany_greetings = c(\"hi\", \"hello\", \"hola\", \"bonjour\", \"ni hao\", \"merhaba\")\nmany_greetings\n\n[1] \"hi\"      \"hello\"   \"hola\"    \"bonjour\" \"ni hao\"  \"merhaba\"\n\n\n. . .\nIt is important to know that numbers can also be treated as characters, depending on the context.\nFor example, when 20 is enclosed in quotes (\"20\") it will be treated as a character value, even though it encloses a number in quotes.\n\n\nBoolean values\n\nBoolean values are True or False.\nWe may have a question like:\n\nIs the first element of the vector many_greetings \"hola\"?\n\n. . .\nWe can ask R to find out and return the answer True or False.\n\nmany_greetings[1] == \"hola\"\n\n[1] FALSE\n\n\n\n\nLogical operators\n\nMost of the questions we ask R to answer with True or False involve comparison operators like &gt;, &lt;, &gt;=, &lt;=, and ==.\nThe double == sign checks whether two values are equal. There is even a comparison operator to check whether values are not equal: !=.\nFor example, 5 != 3 is a True statement.\n\n\nCommon logical operators\n\n\n&gt; (larger than)\n&gt;= (larger than or equal to)\n&lt; (smaller than)\n&lt;= (smaller than or equal to)\n== (equal to)\n!= (not equal to)\n\n\n\nProgramming culture: Trial and error\n\nThe best way to learn programming is to try things out and see what happens. Write some code, run it, and think about why it didn’t work.\nThere are many ways to make small mistakes in programming (for example, typing a capital letter when a lowercase letter is needed).\nWe often have to find these mistakes through trial and error.\n\n\nR libraries\n\nLibraries are the fundamental units of reproducible R code. They include reusable R functions, documentation describing how to use them, and sample data.\nIn this course, we will be working mostly with the following libraries:\n\nreadxl, dplyr, and tidyr for data manipulation.\nggplot2 and ggformula for data visualization."
-  },
-  {
-    "objectID": "T2_Tools/Tools.html#reading-data-with-readxl",
-    "href": "T2_Tools/Tools.html#reading-data-with-readxl",
-    "title": "Tools for Data Manipulation",
-    "section": "Reading data with readxl",
-    "text": "Reading data with readxl\n\nLoading data in R\nIn this course, we will assume that data is stored in an Excel file with the above organization. As an example, let’s use the file penguins.xlsx.\n\n\n\n\n\n\n\n\nThe file must be previously uploaded to Google Colab.\n\n\n\n\nThe dataset penguins.xlsx contains data from penguins living in three islands.\n\n\n\n\n\n\n\nAlan Vazquez with a gentoo penguin\n\n\n\n\n\n\n\nreadxl library\n\n\n\nTo load data into R, we’ll use the library called readxl. Fortunately, this library comes pre-installed in Google Colab.\n\n\n\n\n\n\n\n\nHowever, we need to inform Google Colab that we want to use readxl and its functions. We load the library into R using the following command.\n\nlibrary(readxl)\n\n\n\nLoading data using readxl\n\nThe following code shows how to read the data in the file “penguins.xlsx” into R.\n\n# Load the Excel file into R.\npenguins_data = read_excel(\"penguins.xlsx\")\n\n\n\nThe function head()\n\nThe function head() allows you to print the first 6 rows of a data frame.\n\n# Print the first 4 rows of the dataset.\nhead(penguins_data)\n\n# A tibble: 6 × 8\n  species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g\n  &lt;chr&gt;   &lt;chr&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;dbl&gt;       &lt;dbl&gt;\n1 Adelie  Torgersen           39.1          18.7               181        3750\n2 Adelie  Torgersen           39.5          17.4               186        3800\n3 Adelie  Torgersen           40.3          18                 195        3250\n4 Adelie  Torgersen           NA            NA                  NA          NA\n5 Adelie  Torgersen           36.7          19.3               193        3450\n6 Adelie  Torgersen           39.3          20.6               190        3650\n# ℹ 2 more variables: sex &lt;chr&gt;, year &lt;dbl&gt;\n\n\n\n\nMini-activity (solo mode)\n\n\nOpen the following Google Colab link: https://drive.google.com/file/d/1kS1_M-wLRc9BDRAadV_K6yosNK0XF9qi/view?usp=sharing\nCopy the notebook to your drive.\nAnswer the questions."
-  },
-  {
-    "objectID": "T2_Tools/Tools.html#data-manipulation-with-dplyr",
-    "href": "T2_Tools/Tools.html#data-manipulation-with-dplyr",
-    "title": "Tools for Data Manipulation",
-    "section": "Data manipulation with dplyr",
-    "text": "Data manipulation with dplyr\n\nA New Library: dplyr\n\n\n\n\n\n\n\n\n\ndplyr allows you to manipulate data and generate statistical summaries.\nIt is part of a collection of data science packages called tidyverse.\nhttps://dplyr.tidyverse.org/\n\n\n\nLoad it to Google Colab with the following code.\n\nlibrary(dplyr)\n\n\n\npipe\nOne of the most important commands of dplyr is pipe, which is executed using the operator %&gt;%. This operator sends an object to a calling function or expression.\nThe grammar for using pipe is as follows:\n\n\n\n\n\n\n\ndplyr’s verbs\ndplyr is a data manipulation grammar that provides a set of verbs (functions) to solve the most common data manipulation challenges:\n\n\nfilter() selects observations based on their values.\nselect() selects variables based on their names.\nmutate() adds new variables that are functions of existing variables.\narrange() changes the order of rows.\nsummarise() reduces multiple values to a single numerical summary.\n\n\n\n\n\n\n\n\n\n\nTo practice, we will use the dataset penguins_data.\n\n\nFilter observations with filter()\nWe can filter the data to obtain penguins with a body mass greater than 5000.\n\npenguins_data %&gt;% filter(body_mass_g &gt; 5000) %&gt;% head()\n\n# A tibble: 6 × 8\n  species island bill_length_mm bill_depth_mm flipper_length_mm body_mass_g\n  &lt;chr&gt;   &lt;chr&gt;           &lt;dbl&gt;         &lt;dbl&gt;             &lt;dbl&gt;       &lt;dbl&gt;\n1 Gentoo  Biscoe           50            16.3               230        5700\n2 Gentoo  Biscoe           50            15.2               218        5700\n3 Gentoo  Biscoe           47.6          14.5               215        5400\n4 Gentoo  Biscoe           46.7          15.3               219        5200\n5 Gentoo  Biscoe           46.8          15.4               215        5150\n6 Gentoo  Biscoe           49            16.1               216        5550\n# ℹ 2 more variables: sex &lt;chr&gt;, year &lt;dbl&gt;\n\n\n\nRecall that head() prints the first 5 rows of a dataframe. We must remove it to have the entire new dataframe.\n\n\n\n\n\nWe can also filter the observations for the species “Gentoo.”\n\npenguins_data %&gt;% filter(species == \"Gentoo\") %&gt;% head()\n\n# A tibble: 6 × 8\n  species island bill_length_mm bill_depth_mm flipper_length_mm body_mass_g\n  &lt;chr&gt;   &lt;chr&gt;           &lt;dbl&gt;         &lt;dbl&gt;             &lt;dbl&gt;       &lt;dbl&gt;\n1 Gentoo  Biscoe           46.1          13.2               211        4500\n2 Gentoo  Biscoe           50            16.3               230        5700\n3 Gentoo  Biscoe           48.7          14.1               210        4450\n4 Gentoo  Biscoe           50            15.2               218        5700\n5 Gentoo  Biscoe           47.6          14.5               215        5400\n6 Gentoo  Biscoe           46.5          13.5               210        4550\n# ℹ 2 more variables: sex &lt;chr&gt;, year &lt;dbl&gt;\n\n\n\n\nSelect columns with select()\n\nSelect the columns species, body_mass_g and sex.\n\npenguins_data %&gt;% select(species, body_mass_g, sex) %&gt;% head()\n\n# A tibble: 6 × 3\n  species body_mass_g sex   \n  &lt;chr&gt;         &lt;dbl&gt; &lt;chr&gt; \n1 Adelie         3750 male  \n2 Adelie         3800 female\n3 Adelie         3250 female\n4 Adelie           NA &lt;NA&gt;  \n5 Adelie         3450 female\n6 Adelie         3650 male  \n\n\n\n\nselect() and filter()\n\nSelect the columns species, body_mass_g, and sex. Then, filter the data for the species “Gentoo.”\n\npenguins_data %&gt;% \n  select(species, body_mass_g, sex) %&gt;% \n  filter(species == \"Gentoo\") %&gt;% \n  head()\n\n# A tibble: 6 × 3\n  species body_mass_g sex   \n  &lt;chr&gt;         &lt;dbl&gt; &lt;chr&gt; \n1 Gentoo         4500 female\n2 Gentoo         5700 male  \n3 Gentoo         4450 female\n4 Gentoo         5700 male  \n5 Gentoo         5400 male  \n6 Gentoo         4550 female\n\n\n\n\nCreate new columns with mutate()\nWith mutate(), we can add new columns (variables) that are functions of the columns in the data. For example, we can calculate the division of bill_length_mm and bill_depth_mm.\n\npenguins_data %&gt;% \n  mutate(\"RadioLengthDepth\" = bill_length_mm/bill_depth_mm) %&gt;% \n  select(species, body_mass_g, sex, RadioLengthDepth) %&gt;%\n  head()\n\n# A tibble: 6 × 4\n  species body_mass_g sex    RadioLengthDepth\n  &lt;chr&gt;         &lt;dbl&gt; &lt;chr&gt;             &lt;dbl&gt;\n1 Adelie         3750 male               2.09\n2 Adelie         3800 female             2.27\n3 Adelie         3250 female             2.24\n4 Adelie           NA &lt;NA&gt;              NA   \n5 Adelie         3450 female             1.90\n6 Adelie         3650 male               1.91\n\n\n\n\nSort the observations with arrange()\n\nWe can sort the data based on a column, say bill_length_mm.\n\npenguins_data %&gt;% \n  arrange(bill_length_mm) %&gt;% \n  head()\n\n# A tibble: 6 × 8\n  species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g\n  &lt;chr&gt;   &lt;chr&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;dbl&gt;       &lt;dbl&gt;\n1 Adelie  Dream               32.1          15.5               188        3050\n2 Adelie  Dream               33.1          16.1               178        2900\n3 Adelie  Torgersen           33.5          19                 190        3600\n4 Adelie  Dream               34            17.1               185        3400\n5 Adelie  Torgersen           34.1          18.1               193        3475\n6 Adelie  Torgersen           34.4          18.4               184        3325\n# ℹ 2 more variables: sex &lt;chr&gt;, year &lt;dbl&gt;\n\n\n\n\n\n\nTo sort in descending order we use desc(bill_length_mm) in arrange().\n\npenguins_data %&gt;% \n  arrange(desc(bill_length_mm)) %&gt;% \n  head()\n\n# A tibble: 6 × 8\n  species   island bill_length_mm bill_depth_mm flipper_length_mm body_mass_g\n  &lt;chr&gt;     &lt;chr&gt;           &lt;dbl&gt;         &lt;dbl&gt;             &lt;dbl&gt;       &lt;dbl&gt;\n1 Gentoo    Biscoe           59.6          17                 230        6050\n2 Chinstrap Dream            58            17.8               181        3700\n3 Gentoo    Biscoe           55.9          17                 228        5600\n4 Chinstrap Dream            55.8          19.8               207        4000\n5 Gentoo    Biscoe           55.1          16                 230        5850\n6 Gentoo    Biscoe           54.3          15.7               231        5650\n# ℹ 2 more variables: sex &lt;chr&gt;, year &lt;dbl&gt;\n\n\n\n\nSummarize with summarise()\nWe can calculate the average of the bill_length_mm, bill_depth_mm, and body_mass_g columns.\n\npenguins_data %&gt;% \n  select(bill_length_mm, bill_depth_mm, body_mass_g) %&gt;%\n  summarise(PromLength = mean(bill_length_mm, na.rm = TRUE), \n            PromDepth = mean(bill_depth_mm, na.rm = TRUE),\n            PromMass = mean(body_mass_g, na.rm = TRUE))\n\n# A tibble: 1 × 3\n  PromLength PromDepth PromMass\n       &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;\n1       43.9      17.2    4202.\n\n\n\nThe argument na.rm == TRUE allows us to ignore the missing data.\n\n\n\nSaving results in new objects\nAfter performing operations on our data, we can save the modified dataset as a new object.\n\nsummary_penguins_data = penguins_data %&gt;%\n  select(bill_length_mm, bill_depth_mm, body_mass_g) %&gt;%\n  summarise(PromLength = mean(bill_length_mm, na.rm = TRUE),\n            PromDepth = mean(bill_depth_mm, na.rm = TRUE),\n            PromMass = mean(body_mass_g, na.rm = TRUE))\n\n\nAnd apply the dplyr verbs to the new object.\n\nsummary_penguins_data %&gt;% head()\n\n# A tibble: 1 × 3\n  PromLength PromDepth PromMass\n       &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;\n1       43.9      17.2    4202.\n\n\n\n\nMore on dplyr\n\n\n\n\n\n\nhttps://r4ds.hadley.nz/\n\n\n\nFinal remarks\n\n\ndplyr is a library that allows us to manipulate data in R.\nVariable types help specify the operations and visualizations we can apply to the data.\nThere are appropriate or designed graphs for visualizing numeric or categorical variables.\nIn this course, we will see several graphs for each variable type and their combinations."
-  },
-  {
-    "objectID": "T2_Tools/Tools.html#return-to-main-page",
-    "href": "T2_Tools/Tools.html#return-to-main-page",
-    "title": "Tools for Data Manipulation",
-    "section": "Return to main page",
-    "text": "Return to main page"
-  },
-  {
-    "objectID": "T6_PopularGraphs/Popular_Graphs.html",
-    "href": "T6_PopularGraphs/Popular_Graphs.html",
-    "title": "Popular Graphs",
-    "section": "",
-    "text": "Types of Variables\nOne Categorical Variable\nOne Numerical Variable\nMultiple Variables"
-  },
-  {
-    "objectID": "T6_PopularGraphs/Popular_Graphs.html#one-categorical-variable",
-    "href": "T6_PopularGraphs/Popular_Graphs.html#one-categorical-variable",
-    "title": "Popular Graphs",
-    "section": "One Categorical Variable",
-    "text": "One Categorical Variable\n\nExample 1: Penguins dataset\n\nWe will illustrate the concepts using the penguins.xlsx dataset. We will focus on visualizing the following categorical variables: species, island y sex.\n\n\n# A tibble: 6 × 3\n  species island    sex   \n  &lt;chr&gt;   &lt;chr&gt;     &lt;chr&gt; \n1 Adelie  Torgersen male  \n2 Adelie  Torgersen female\n3 Adelie  Torgersen female\n4 Adelie  Torgersen &lt;NA&gt;  \n5 Adelie  Torgersen female\n6 Adelie  Torgersen male  \n\n\n\n\nBar chart\nIt visually represents frequencies or percentages of the categories of a categorical variable. The frequency (or percentage) is represented by a bar of proportional height.\n\n\n\n\n\n\n\n\n\n\n\nBar chart for percentages\n\n\n\n\n\n\n\n\n\n\n\n\nExample 2: Boston Housing Dataset\nThis dataset contains information collected by the U.S. Census Bureau on housing in the Boston, Massachusetts area. The dataset is in Boston_dataset.xlsx.\n\n\n\n\n\n\n\n\n\n\n\nWe concentrate on the following variables:\n\nchas : Whether the house is next to the Charles River (1: Yes and 0: No)\nrad : Index of accessibility to radial highways (Low, Medium, High).\n\n\n\n\n\nLet’s create a bar chart for chas.\n\n\n\n\n\n\n\n\n\n\n\n\n\nNow, let’s create a bar chart for rad.\n\n\n\n\n\n\n\n\n\n\n\nCollapsing\n\nSome categorical variables tend to have many categories. For example, states in a country or postal codes. In these cases, it can be difficult to visualize all the categories in a single graph.\nOne strategy for developing an effective visualization is to collapse categories.\nFor example, in the variable rad, we can collapse the categories Medium and High into a single category called Other.\n\n\n\nCollapsing categories simplifies the graph\n\n\n\n\n\n\n\n\n\nIt also allows us to emphasize a category like Low and see how it compares to the other categories (as a whole)."
-  },
-  {
-    "objectID": "T6_PopularGraphs/Popular_Graphs.html#one-numerical-variable",
-    "href": "T6_PopularGraphs/Popular_Graphs.html#one-numerical-variable",
-    "title": "Popular Graphs",
-    "section": "One Numerical Variable",
-    "text": "One Numerical Variable\n\nExample 3\n\n\nA piston is a mechanical device found in most engines.\n\n\n\n\nOne measure of a piston’s performance is the time it takes to complete a cycle, which we call “cycle time” and is measured in seconds.\nThe file “CYLT.xlsx” contains 50 cycle times of a piston operating under fixed conditions.\n\n\nHistogram\nVisualizes the distribution of observations, indicating regions where observations are concentrated or sparse.\n. . .\nIt is built using a frequency table.\n\nDefine a maximum number of intervals or bins (from 5 to 30).\nDefine the ranges of the intervals.\nGroup the observations in the interval to which they belong.\n\n. . .\nR automatically calculates the frequency table for numerical data. The histogram is a visualization of this table.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nThe bars of the histogram touch each other. A gap indicates that there are no observations in that interval.\n\n\n\nIt is not the same as a bar chart\n\nWith categorical data, a bar chart looks similar to a histogram because it displays the frequency of categories.\nHowever, we cannot interpret the shape of a bar chart in the same way as a histogram.\n\nThe frequency of a category is represented by the height of the bar, and the width does not contain any information.\nA bar chart will not highlight outliers.\n\n\nTails and symmetry do not make sense in this setting.\n\n\n\nNumber of bins\n\nThe number of bins is a parameter of the histogram that affects its appearance.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nThe left histogram uses 5 bins, and the right histogram uses 30 bins\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMy recommendation is to use the default number of bins.\n\nA histogram is a familiar type of plot that involves smoothing. A histogram aggregates data values by placing points into bins and plotting one bar for each bin. Smoothing here means that we cannot differentiate the location of individual points within a bin: the points are smoothly distributed across their bins.\n\n\n\nWhat to look for in a histogram?\n\n\nSymmetry and asymmetry of the distribution.\nThe number, location, and size of high-frequency regions (bins).\nGaps where no values are observed.\nUnusually large or anomalous values.\nA bell-shaped form.\n\n\n\nThe obsession with bell curves\n\n\n\nThe normal distribution is a very important probability distribution in statistics.\n\n\n\n\nIt is characterized by a symmetric bell-shaped curve centered around its mean, with the highest probability density at the mean and decreasing symmetrically towards the extremes\n\n\n\nBasically, if your observations follow a normal distribution, you can use statistical methods to draw conclusions based on mathematical theory.\n\n\n\n\n\nWhat many people don’t know is that this condition is only needed if you have few observations (less than 50)."
-  },
-  {
-    "objectID": "T6_PopularGraphs/Popular_Graphs.html#multiple-variables",
-    "href": "T6_PopularGraphs/Popular_Graphs.html#multiple-variables",
-    "title": "Popular Graphs",
-    "section": "Multiple Variables",
-    "text": "Multiple Variables\n\nMultivariate data\n\nMultivariate data consists of datasets that contain observations of two or more variables.\n\n\nVariables can be numerical or categorical.\nVariables may or may not depend on each other.\n\n\n. . .\nIn fact, the goal is to determine whether there is a relationship between the variables and the type of relationship.\n\n\nExample 4\n\nConsider data from 392 cars, including miles per gallon, number of cylinders, horsepower, weight, acceleration, year, origin, among other variables. The data is in the file “auto_dataset.xlsx”.\n\n\n# A tibble: 6 × 9\n    mpg cylinders displacement horsepower weight acceleration  year origin  \n  &lt;dbl&gt;     &lt;dbl&gt;        &lt;dbl&gt; &lt;chr&gt;       &lt;dbl&gt;        &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;   \n1    18         8          307 130          3504         12      70 American\n2    15         8          350 165          3693         11.5    70 American\n3    18         8          318 150          3436         11      70 American\n4    16         8          304 150          3433         12      70 American\n5    17         8          302 140          3449         10.5    70 American\n6    15         8          429 198          4341         10      70 American\n# ℹ 1 more variable: `car name` &lt;chr&gt;\n\n\n\n\nPrinciple 1: Define the question\nIn the context of multiple-variable data, typical questions to study include:\n\n\nHow are variable \\(X\\) and variable \\(Y\\) related?\nIs the distribution of variable \\(X\\) the same across all subgroups defined by variable \\(Z\\)?\nAre there any unusual observations in the combination of values for variables \\(X\\) and \\(Y\\)?\nAre there any unusual observations in \\(X\\) for a subgroup of variable \\(Z\\)?\n\n\n\n\nPrinciple 2: Turn data into information\nThere are various types of graphs that help us explore relationships between two or more variables.\n\n\n\n\n\nType\nGraph Type\n\n\n\n\nNumerical\nScatter plot, line graph\n\n\nCategorical\nSide-by-side bar chart, stacked bar chart\n\n\nMixed\nCleaveland Plot\n\n\n\n\n\nFor two features, the combination of types (both quantitative, both qualitative, or a mix) matters.\n\n\n\nIndependent and dependent variables\nWhen investigating the relationship between two variables (numerical or categorical), we use specific terminology.\n. . .\nOne variable is called the dependent or response variable, denoted by the letter \\(Y\\).\n. . .\nThe other variable is called the independent or predictor variable, denoted by the letter \\(X\\).\n. . .\n\nOur goal is to determine whether changes in \\(X\\) are associated with changes in \\(Y\\), and the nature of this association.\n\n\n\nScatter plot\n\nThe most common graph for examining the relationship between two numerical variables is the scatter plot.\n. . .\nVariables \\(X\\) and \\(Y\\) are placed on the horizontal and vertical axes, respectively. Each point on the graph represents a pair of \\(X\\) and \\(Y\\) values.\n. . .\n\n\nThe goal is to explore linear or non-linear relationships between variables.\n\n\n\nScatter plot\n\n\n\n\n\n\n\n\n\n\n\n\nIndividual graphs\n\nIndividual variable graphs (such as histograms) do not allow us to study the relationship between two variables. They only provide information on the distribution of each variable.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLine graph\nA line graph is a visual representation of data where data points are connected by a line. Axes:\n\n\\(X\\) (horizontal): Represents time or the independent variable.\n\\(Y\\) (vertical): Represents the dependent variable.\n\nEach point represents a value at a given moment.\n. . .\n\n\nThe objective is to explore trends over time or the evolution of a continuous variable.\n\n\n\nExample 2\n\nConsider the data in the file “spotify.xlsx”. This dataset contains the global daily streams of the top five most popular songs on the music streaming service Spotify in 2017.\n\n\n# A tibble: 3 × 7\n  Date                  Day `Shape of You` Despacito `Something Just Like This`\n  &lt;dttm&gt;              &lt;dbl&gt;          &lt;dbl&gt;     &lt;dbl&gt;                      &lt;dbl&gt;\n1 2017-01-06 00:00:00     1       12287078        NA                         NA\n2 2017-01-07 00:00:00     2       13190270        NA                         NA\n3 2017-01-08 00:00:00     3       13099919        NA                         NA\n# ℹ 2 more variables: HUMBLE. &lt;dbl&gt;, Unforgettable &lt;dbl&gt;\n\n\n\n\nLine Plot\n\n\n\n\n\n\n\n\n\n\n\n\nPlotting statistical summaries by groups\nWe can summarize the values of the numerical variable \\(Y\\) for each category of a categorical variable \\(X\\) using the median or the mean.\nFor example, let’s plot the average miles per gallon of cars produced in America, Europe, and Japan. Two common visualization types for plotting a numerical and a discrete variable when there is only one value per category are:\n\nCleveland dot plot\nBar chart\n\n\n\nCleveland dot plot\nThe Cleveland dot plot encodes quantitative data across different categories. It is an alternative to a bar chart.\n\n\n\n\n\n\n\n\n\n\n\n\nWe can use similar commands as the Cleveland dot plot to improve the bar chart.\n\n\n\n\n\n\n\n\n\n\n\nTwo Categorical Variables\n\nWith two categorical variables, we compare the distribution of one variable across subgroups defined by the other variable.\nIn fact, we keep one variable constant and plot the distribution of the other.\n. . .\nTo do this, the most popular charts are extensions of bar graphs:\n\nStacked bar charts\nSide-by-side bar charts\n\n\n\nExample 1 (cont.)\n\nAs an example, let’s consider the data in the file “penguins.xlsx” again.\n\n\n# A tibble: 6 × 8\n  species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g\n  &lt;chr&gt;   &lt;chr&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;dbl&gt;       &lt;dbl&gt;\n1 Adelie  Torgersen           39.1          18.7               181        3750\n2 Adelie  Torgersen           39.5          17.4               186        3800\n3 Adelie  Torgersen           40.3          18                 195        3250\n4 Adelie  Torgersen           NA            NA                  NA          NA\n5 Adelie  Torgersen           36.7          19.3               193        3450\n6 Adelie  Torgersen           39.3          20.6               190        3650\n# ℹ 2 more variables: sex &lt;chr&gt;, year &lt;dbl&gt;\n\n\n\n\nStacked bar chart\nWe study the distribution of penguin species across the three different islands using an stacked bar chart.\n\n\n\n\n\n\n\n\n\nThe chart shows the frequency of each species, separated by island name.\n\n\nSide-by-side bar chart\nAn alternative to the previous chart is to place the bars side by side for the categories of the categorical variable \\(X\\).\n\n\n\n\n\n\n\n\n\n\n\nStacked or side-by-side?\n\nThe main difference between stacked and side-by-side bar charts is that the side-by-side chart shows values in separate bars within a category.\nAdvantages of stacked bars:\n\nEasier to understand what proportions of a whole are divided among segments.\nVisually adds up each proportion.\n\n\n\n\n\nAdvantages of side-by-side bars:\n\nEasier to compare the heights of each individual entity.\nBetter for comparing between groups.\n\n\n\nCharts for three variables\n\n\nWhen examining a distribution or relationship, we often want to compare it across data subgroups.\nThis process of conditioning on additional variables leads to visualizations involving three or more variables.\nHere we explain how to create charts to visualize multiple variables.\n\n\n\nScatter plot by color\nFor two numerical variables and one categorical variable.\n\n\n\n\n\n\n\n\n\n\n\nFaceted or lattice plot\nA faceted plot visualizes the relationship or distribution of one or two variables for each subgroup defined by a third variable \\(Z\\).\n\n\n\n\n\n\n\n\n\n\n\nMultiple line charts\n\nInstead of visualizing one variable, we can visualize multiple variables simultaneously using a line plot. For example, we can show the evolution of play counts for the 5 songs in the file “spotify.xlsx” over time.\n\nHowever, some data visualization packages necessitate a special format to produce the multiple lines plot.\n\n\nThe required format\n\nFor a multiple line chart, we need to merge the columns Shape of You, Despacito, Something Just Like This, HUMBLE and Unforgettable into two columns.\nOne column will contain the number of plays, and the other will contain the song title.\nBoth columns will be ordered by the variable Date.\n\n\n\n\nTo format the data, we use the function pivot_longer() from the tidyr library.\n\n\n# A tibble: 6 × 4\n  Date                  Day Cancion                  Reproducciones\n  &lt;dttm&gt;              &lt;dbl&gt; &lt;chr&gt;                             &lt;dbl&gt;\n1 2017-01-06 00:00:00     1 Shape of You                   12287078\n2 2017-01-06 00:00:00     1 Despacito                            NA\n3 2017-01-06 00:00:00     1 Something Just Like This             NA\n4 2017-01-06 00:00:00     1 HUMBLE.                              NA\n5 2017-01-06 00:00:00     1 Unforgettable                        NA\n6 2017-01-07 00:00:00     2 Shape of You                   13190270\n\n\n\n\nFacet grid\n\nSeparate plots for each line.\n\n\n\n\n\n\n\n\n\n\n\n\n\nOr we can plot all lines on a single chart.\n\n\n\n\n\n\n\n\n\n\n\nGraphs for four variables\nA common chart for four variables is the scatter plot, where the color and size of the symbols depend on two categorical variables."
-  },
-  {
-    "objectID": "T6_PopularGraphs/Popular_Graphs.html#return-to-main-page",
-    "href": "T6_PopularGraphs/Popular_Graphs.html#return-to-main-page",
-    "title": "Popular Graphs",
-    "section": "Return to main page",
-    "text": "Return to main page"
-  },
-  {
-    "objectID": "T7_StatisticalGraphs/Statistical_Graphs.html",
-    "href": "T7_StatisticalGraphs/Statistical_Graphs.html",
-    "title": "Statistical Graphs",
-    "section": "",
-    "text": "One Numerical Variable\nMultiple Variables\n\nSide-by-Side Box Plots\nRegression Plots"
-  },
-  {
-    "objectID": "T7_StatisticalGraphs/Statistical_Graphs.html#one-numerical-variable",
-    "href": "T7_StatisticalGraphs/Statistical_Graphs.html#one-numerical-variable",
-    "title": "Statistical Graphs",
-    "section": "One Numerical Variable",
-    "text": "One Numerical Variable\n\nExample 1\n\n\nA piston is a mechanical device found in most engines.\n\n\n\n\nOne measure of a piston’s performance is the time it takes to complete a cycle, which we call “cycle time” and is measured in seconds.\nThe file “CYLT.xlsx” contains 50 cycle times of a piston operating under fixed conditions.\n\n\nSummary statistic\n\n\nHelps us to summarize a list of observations in a simple way.\n\nFor numerical data, the most popular summary statistics are:\n\n\nMean\nVariance and standard deviation\nQuartiles\nMaximum and minimum\n\n\n\n\nMean\n\n\nIndicates the center of the data.\n\n\nLet \\(y_1, y_2, \\ldots, y_n\\) be an observed sample of size \\(n\\).\nThe mean is\n\\[\\bar{y} = \\frac{1}{n}\\sum_{i=1}^{n} y_i = \\frac{y_1 + y_2 + \\cdots + y_n}{n}.\\]\n\n\nVariance\n\nIndicates how spread out the data are around the mean.\n\n\nLet \\(y_1, y_2, \\ldots, y_n\\) be an observed sample of size \\(n\\). The variance is\n\\[\ns^2 = \\frac{1}{n-1} \\sum_{i=1}^{n} (y_i - \\bar{y})^2 = \\frac{(y_1 - \\bar{y})^2  + \\cdots + (y_n - \\bar{y})^2}{n-1}\n\\]\n. . .\nThe variance is like an average of the squared differences between each observation and the mean.\n\n\nStandard deviation\nA drawback of the variance is that it is not on the same scale as the actual observations.\nTo obtain a measure of spread whose units are the same as those of the sample, we simply take the squared root of the variance\n\\[\ns = \\left(\\frac{1}{n-1} \\sum_{i=1}^{n} (y_i - \\bar{y})^2 \\right)^{1/2}\n\\]\nThis quantity is known as the standard deviation. It is in the same units as the observations.\n\n\nFor the piston data\n\n\nThe average of the cycle time of the piston is 0.652 seconds.\n\n\nThe standard deviation of the cycle time of the piston is 0.373 seconds.\nTherefore, on average, a piston takes 0.652 seconds to complete a cycle, with a variation of \\(\\pm\\) 0.373 seconds.\n\n\n\nQuartiles\n\nThe median is the middle number of the ordered data values.\n. . .\nQuartiles divide the data as nearly as possible into quarters:\n\n\nFirst quartile (\\(Q_1\\)) is the median of the lower half of the data.\nSecond quartile (\\(Q_2\\)) is the median of the data.\nThird quartile (\\(Q_3\\)) is the median of the upper half of the data.\n\n\n\n\n\n\n\n\nThe generalization of quartiles are percentiles or quantiles.\n\n\nFor the piston data\n\n\n\\(Q_1 = 0.305\\). So, 25% of cycle times are below 0.305 seconds.\n\\(Q_2 = 0.546\\). So, 50% of cycle times are below 0.546 seconds.\n\\(Q_3 = 1.07\\). So, 75% of cycle times are below 1.07 seconds.\nThe maximum cycle time is 1.14 seconds.\nThe minimum cycle time is 0.175 seconds.\n\n\n\nMean vs. Median\n\nThe mean and median estimate the central value of the data in different ways.\n\nThe mean is the sum of the values divided by the total.\nThe median is the central value of an ordered set of data.\n\n\n\nWhen do we use the mean?\n\nThe mean is used when the data is symmetrically or evenly distributed and there are no significant outliers.\n\nFor example, the height of a large sample of people in a homogeneous population.\n\n\nWhen do we use the median?\n\nThe median is used when there are outliers that could skew the mean.\nFor example:\n\nAnnual household income in a country (where there are a few billionaires who distort the mean).\nHouse prices in a city (where a few very expensive properties can inflate the mean).\n\n\n\nActivity (solo mode) Part 1\nA company that manufactures capacitor retaining bolts for automobile engines implemented a quality control system. As part of this quality control system, a team of engineers decided to record the number of nonconforming bolts produced each shift.\nThe file bolts.xlsx contains the number of non-conforming bolts during the last 45 shifts.\n\nCalculate and interpret the mean, variance, standard deviation, quartiles, minimum and maximum.\n\n\n\nBoxplot\n\nA boxplot helps us visualize the distribution of observations using quartiles.\n. . .\n\nIt is very effective for detecting “outliers.”\n\n. . .\nAn important component of the boxplot is the interquartile range (IQR), which is the difference between the third quartile and the first quartile (\\(Q_3 - Q_1\\)).\n. . .\nThe interquartile range is the distance needed to encompass the middle half of the data.\n\n\nAnatomy of a Box Plot\n\n\n\n\n\nLearn more here https://builtin.com/articles/1-5-iqr-rule\n\n\nOutliers\n\n\nOutliers are points that are much larger or smaller than the rest of the sample points.\nOutliers may be data entry errors or they may be points that really are different from the rest.\nOutliers should not be deleted without considerable thought—sometimes calculations and analyses will be done with and without outliers and then compared.\n\n\n\nBoxplot for the piston data\nUsually, the box plot is shown vertically.\n\n\n\n\n\n\n\n\n\n\n\n\n\nBut in some cases, we may want to display the the box plot horizontally."
-  },
-  {
-    "objectID": "T7_StatisticalGraphs/Statistical_Graphs.html#multiple-variables",
-    "href": "T7_StatisticalGraphs/Statistical_Graphs.html#multiple-variables",
-    "title": "Statistical Graphs",
-    "section": "Multiple Variables",
-    "text": "Multiple Variables\n\nMultivariate data\n\nMultivariate data consists of datasets that contain observations of two or more variables.\n\n\nVariables can be numerical or categorical.\nVariables may or may not depend on each other.\n\n\n. . .\nIn fact, the goal is to determine whether there is a relationship between the variables and the type of relationship.\n\n\nExample 2\n\nConsider data from 392 cars, including miles per gallon, number of cylinders, horsepower, weight, acceleration, year, origin, among other variables. The data is in the file “auto_dataset.xlsx”.\n\n\n# A tibble: 6 × 9\n    mpg cylinders displacement horsepower weight acceleration  year origin  \n  &lt;dbl&gt;     &lt;dbl&gt;        &lt;dbl&gt; &lt;chr&gt;       &lt;dbl&gt;        &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;   \n1    18         8          307 130          3504         12      70 American\n2    15         8          350 165          3693         11.5    70 American\n3    18         8          318 150          3436         11      70 American\n4    16         8          304 150          3433         12      70 American\n5    17         8          302 140          3449         10.5    70 American\n6    15         8          429 198          4341         10      70 American\n# ℹ 1 more variable: `car name` &lt;chr&gt;\n\n\n\n\nPrinciple 1: Define the question\nIn the context of multiple-variable data, typical questions to study include:\n\n\nHow are variable \\(X\\) and variable \\(Y\\) related?\nIs the distribution of variable \\(X\\) the same across all subgroups defined by variable \\(Z\\)?\nAre there any unusual observations in the combination of values for variables \\(X\\) and \\(Y\\)?\nAre there any unusual observations in \\(X\\) for a subgroup of variable \\(Z\\)?\n\n\n\n\nPrinciple 2: Turn data into information\nThere are various types of graphs that help us explore relationships between two or more variables.\n\n\n\n\n\nType\nGraph Type\n\n\n\n\nNumerical\nRegression plot\n\n\nMixed\nSide-by-side box plot\n\n\n\n\n\nFor two features, the combination of types (both quantitative, both qualitative, or a mix) matters.\n\n\n\nIndependent and dependent variables\nWhen investigating the relationship between two variables (numerical or categorical), we use specific terminology.\n. . .\nOne variable is called the dependent or response variable, denoted by the letter \\(Y\\).\n. . .\nThe other variable is called the independent or predictor variable, denoted by the letter \\(X\\).\n. . .\n\nOur goal is to determine whether changes in \\(X\\) are associated with changes in \\(Y\\), and the nature of this association.\n\n\n\nCategorical and Numerical Variables\nTo examine the relationship between a numerical and a categorical variable, we use the categorical variable to divide the data into groups. This way, we compare the distribution of the numerical variable among these groups.\n. . .\nIn this context:\n\n\\(X\\) is the categorical variable.\n\\(Y\\) is the numerical variable.\n\n. . .\nThe side-by-side boxplot is the most effective way to study the relationship between a categorical and a numerical variable.\n\n\nBoxplot by groups\nThe side-by-side boxplot compares the distribution of a variable across different groups.\nFor example, if we want to compare the distributions of miles per gallon of cars built in America, Europe, or Japan, we use the following command:\n\n\n\n\n\n\n\n\n\n\n\nRegression Plots\n\nQuestions we can answer with simple linear regression:\n\n\nIs there a relationship between a response variable and predictors?\nHow strong is the relationship?\nWhat is the uncertainty?\nHow precisely can we predict a future outcome?\n\n\n\n\n\nIs there a relationship between a car’s weight and its miles per gallon?\n\n\n\n\n\n\n\n\n\n\n\nRegression problem\n\nObjetive: Find the best function \\(f(X)\\) of the predictor \\(X\\) that describes the response \\(Y\\).\n. . .\nMathematically, we want to establish the following relationship:\n\\[\nY = f(X) + \\epsilon,\n\\]\nwhere \\(\\epsilon\\) is a natural (random) error.\n\n\n\n\n\nIn practice, it is very difficult to know the true structure of the function \\(f(X)\\).\n\n\n\nThe best we can do is construct an approximation (function) \\(\\hat{f}(X)\\).\nThere are several strategies to build \\(\\hat{f}(X)\\), one of the most common is:\n\nDefine a simple “structure” or “formula.”\nEstimate the elements of the “formula” using the data.\n\n\n\n\n\nLinear regression model\nA very common function \\(f(X)\\) to predict a response \\(Y\\) is the linear regression model.\nIts mathematical form is:\n\\[\n\\hat{Y}_i = \\hat{\\beta}_0 + \\hat{\\beta}_1 X_i,\n\\]\n\n\nWhere \\(i\\) is the index of the \\(n\\) observations, and\n\\(\\hat{Y}_i\\) is the predicted value of the actual response \\(Y_i\\) associated with a predictor value \\(X_i\\).\nThe values \\(\\hat{\\beta}_0\\) and \\(\\hat{\\beta}_1\\) are called coefficients of the model.\n\n\n\n\nPrinciple 2: Turn data into information\nThe values of \\(\\hat{\\beta}_0\\) and \\(\\hat{\\beta}_1\\) are obtained using the data. Specifically, the formulas for the coefficients are:\n\\[\\hat{\\beta}_1 = \\frac{ \\sum_{i=1}^{n} (Y_i - \\bar{Y}) (X_i - \\bar{X}) }{\\sum_{i=1}^{n} (X_i - \\bar{X})^2} \\text{  y  } \\hat{\\beta}_0 = \\bar{Y} - \\hat{\\beta}_1 \\bar{X},\\]\nwhere \\(\\bar{X} = \\sum_{i=1}^n X_i/n\\) and \\(\\bar{Y} = \\sum_{i=1}^n Y_i/n\\).\nThese formulas are derived from the method of least squares.\n\n\nFor our example\n\\(\\hat{Y}_i = 46.32 -0.0076 X_i\\)\n\n\n\n\n\n\n\n\n\n\n\nThe formula\n\\(\\text{mpg}_i = 46.32 - 0.0076 \\times \\text{weight}_i\\)\n\n\n\n\n\n\n\n\n\n\n\nInterpretation of the coefficients\nWhat does \\(\\hat{\\beta}_0 = 46.32\\) mean?\n. . .\n\\(\\hat{\\beta}_0\\) is the average response value when \\(X_i = 0\\).\n\n\n\n\n\n\n\n\n\n\n\n\nDoes \\(\\hat{\\beta}_0 = 46.32\\) make sense?\n\n\n\n\n\n\n\n\n\n. . .\nNo! Because there are no cars with a weight of 0.\n\n\n\nWhat does \\(\\hat{\\beta}_1 = - 0.0076\\) mean?\n. . .\n\\(\\hat{\\beta}_1\\) is the average change in the response when \\(X_i\\) increases by one unit.\n\n\n\n\n\n\n\n\n\n\n\nInterpretation of \\(\\hat{\\beta}_1\\)\n\n\nFor every extra pound in a car’s weight, the car has an average reduction of 0.0076 miles per gallon.\n\n\nDo all points fall exactly on the line?\n\n. . .\nNo! The model has errors.\n. . .\n\nTechnically, the error of the i-th observation is given by: \\(\\hat{e}_i = Y_i - \\hat{Y}_i = Y_i - \\hat{\\beta}_0 - \\hat{\\beta}_1 X_i\\).\nThe behavior of the errors (\\(e_i\\)’s) indicates whether the model is correct or not, which can be validated using a residual analysis (see IN1002B for example).\n\n\nLocal regression\n\nThis is a modern alternative to the simple linear regression model for capturing complex relationships between two variables.\nBasic Idea: It fits linear regression models to small subsets of the data. These subsets consist of observations that are close to each other.\nThe most common method for fitting a local regression model is LOESS. We will omit the details of this method here since they require advanced statistical concepts.\n\n\nFor our example\n\n\n\n\n\n\n\n\n\n\n\n\nAnother example\nLet’s consider the relationship between car acceleration and the total volume of all engine cylinders.\n\n\n\n\n\n\n\n\n\n\n\nLinear regression\n\n\n\n\n\n\n\n\n\n\n\n\nDiscussion\n\n\nThe simple linear regression model is easy to interpret due to its structure: \\(\\hat{Y}_i = \\hat{\\beta}_0 + \\hat{\\beta}_1 X_i.\\)\nHowever, it may be too rigid to capture complex relationships between two variables.\nLocal regression is flexible and allows capturing complex relationships between two variables, but it has a low level of interpretability because it does not provide an explicit equation."
-  },
-  {
-    "objectID": "T7_StatisticalGraphs/Statistical_Graphs.html#return-to-main-page",
-    "href": "T7_StatisticalGraphs/Statistical_Graphs.html#return-to-main-page",
-    "title": "Statistical Graphs",
-    "section": "Return to main page",
-    "text": "Return to main page"
   }
 ]
