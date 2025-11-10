@@ -254,7 +254,7 @@ Alan R. Vazquez
 </div>
 </section>
 <section id="data-science-workflow" class="slide level2">
-<h2>Data Science Workflow</h2>
+<h2>Data science workflow</h2>
 
 <img data-src="images/data-science-workflow.png" class="quarto-figure quarto-figure-center r-stretch"><ul>
 <li>Every data science project involves <span style="color:darkblue;"><strong>importing</strong></span>, <span style="color:darkblue;"><strong>tidying</strong></span>, <span style="color:darkblue;"><strong>transforming</strong></span>, <span style="color:darkblue;"><strong>visualizing</strong></span>, <span style="color:darkblue;"><strong>modeling</strong></span>, and <span style="color:darkblue;"><strong>communicating</strong></span> data.</li>
@@ -267,6 +267,18 @@ Alan R. Vazquez
 <li><span style="color:darkblue;"><strong>Import:</strong></span> Bring raw data into R.</li>
 <li><span style="color:darkblue;"><strong>Tidy:</strong></span> Reshape into a consistent format.</li>
 <li><span style="color:darkblue;"><strong>Transform:</strong></span> Create new variables and summaries.</li>
+<li><span style="color:darkblue;"><strong>Visualize:</strong></span> Explore patterns visually.</li>
+<li><span style="color:darkblue;"><strong>Model:</strong></span> Fit statistical or machine learning models.</li>
+<li><span style="color:darkblue;"><strong>Communicate:</strong></span> Share insights clearly.</li>
+</ol>
+</section>
+<section id="section-1" class="slide level2">
+<h2></h2>
+<p><br></p>
+<ol type="1">
+<li><span style="color:darkblue;"><strong>Import:</strong></span> Bring raw data into R. (<strong>readxl</strong>)</li>
+<li><span style="color:darkblue;"><strong>Tidy:</strong></span> Reshape into a consistent format. (<strong>tidyr</strong>)</li>
+<li><span style="color:darkblue;"><strong>Transform:</strong></span> Create new variables and summaries. (<strong>dplyr</strong>)</li>
 <li><span style="color:darkblue;"><strong>Visualize:</strong></span> Explore patterns visually.</li>
 <li><span style="color:darkblue;"><strong>Model:</strong></span> Fit statistical or machine learning models.</li>
 <li><span style="color:darkblue;"><strong>Communicate:</strong></span> Share insights clearly.</li>
@@ -304,7 +316,7 @@ Alan R. Vazquez
 </div>
 </div></div>
 </section>
-<section id="section-1" class="slide level2">
+<section id="section-2" class="slide level2">
 <h2></h2>
 
 <img data-src="images/tidydata_2.jpg" class="quarto-figure quarto-figure-center r-stretch"><div style="font-size: 50%;">
@@ -330,7 +342,7 @@ Alan R. Vazquez
 </div>
 <p><em>tidy</em> data because each variable is in a column , each observation is in a row, and each cell is a single measurement.</p>
 </section>
-<section id="section-2" class="slide level2">
+<section id="section-3" class="slide level2">
 <h2></h2>
 <p><br></p>
 <p>Consider another version:</p>
@@ -353,9 +365,9 @@ Alan R. Vazquez
 12 China        2000 population 1280428583</code></pre>
 </div>
 </div>
-<p><span style="color:purple;">Not <em>tidy</em> because the last column is a summary statistic (count) of two variables.</span></p>
+<p><span style="color:purple;">Not <em>tidy</em> because the last column is a summary statistic (<code>count</code>) of two variables.</span></p>
 </section>
-<section id="section-3" class="slide level2">
+<section id="section-4" class="slide level2">
 <h2></h2>
 <p><br></p>
 <p>Consider another version:</p>
@@ -372,9 +384,9 @@ Alan R. Vazquez
 6 China        2000 213766/1280428583</code></pre>
 </div>
 </div>
-<p><span style="color:purple;">Not <em>tidy</em> because the last column is a summary statistic (rate) of two variables, or there are two measurements involved in this column.</span></p>
+<p><span style="color:purple;">Not <em>tidy</em> because the last column is a summary statistic (<code>rate</code>) of two variables, or there are two measurements involved in this column.</span></p>
 </section>
-<section id="section-4" class="slide level2">
+<section id="section-5" class="slide level2">
 <h2></h2>
 <p><br></p>
 <p>Consider one last version involving two datasets.</p>
@@ -418,8 +430,10 @@ Alan R. Vazquez
 </section>
 <section id="tidyrs-comon-functions" class="slide level2">
 <h2>tidyr’s comon functions</h2>
-<p><br><br></p>
+<p><br></p>
 <p>The <strong>tidyr</strong> provides functions for reshaping, organizing, and completing data.</p>
+<p><br></p>
+<p>Here, we will discuss the more common ones:</p>
 <table class="caption-top">
 <thead>
 <tr class="header">
@@ -446,12 +460,13 @@ Alan R. Vazquez
 <h2>Example 2</h2>
 <p><br></p>
 <p>Consider the data in the file “spotify.xlsx”. This dataset contains the global daily plays of the five most popular songs on the Spotify music streaming service in 2017.</p>
+<p><br></p>
 <p>Let’s read the dataset using the function <code>read_excel()</code> from the <strong>readxl</strong> library.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a>spotify_data <span class="ot">=</span> <span class="fu">read_excel</span>(<span class="st">"spotify.xlsx"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="section-5" class="slide level2">
+<section id="section-6" class="slide level2">
 <h2></h2>
 <p>Let’s preview the dataset.</p>
 <div class="cell">
@@ -478,11 +493,23 @@ Alan R. Vazquez
 <p>Let’s apply it to the <code>spotify_data</code>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a>spotify_long <span class="ot">=</span> spotify_data <span class="sc">%&gt;%</span> </span>
-<span id="cb11-2"><a></a>  <span class="fu">pivot_longer</span>(<span class="fu">c</span>(<span class="st">"Shape of You"</span>, <span class="st">"Despacito"</span>, <span class="st">"Something Just Like This"</span>, </span>
-<span id="cb11-3"><a></a>                 <span class="st">"HUMBLE."</span>, <span class="st">"Unforgettable"</span>), </span>
+<span id="cb11-2"><a></a>  <span class="fu">pivot_longer</span>(<span class="fu">c</span>(<span class="st">`</span><span class="at">Shape of You</span><span class="st">`</span>, <span class="st">`</span><span class="at">Despacito</span><span class="st">`</span>, <span class="st">`</span><span class="at">Something Just Like This</span><span class="st">`</span>, </span>
+<span id="cb11-3"><a></a>                 <span class="st">`</span><span class="at">HUMBLE.</span><span class="st">`</span>, <span class="st">`</span><span class="at">Unforgettable</span><span class="st">`</span>), </span>
 <span id="cb11-4"><a></a>               <span class="at">names_to =</span> <span class="st">"Song"</span>, </span>
 <span id="cb11-5"><a></a>               <span class="at">values_to =</span> <span class="st">"Plays"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+</section>
+<section id="remark-on-variable-names" class="slide level2">
+<h2>Remark on variable names</h2>
+<p>In R, variable names (column names) typically:</p>
+<ul>
+<li><p>Cannot contain spaces or special symbols like “-”, “/”, or “%”.</p></li>
+<li><p>Cannot start with a number.</p></li>
+</ul>
+<p>So, when a dataset has column names like “Shape of You” or “Something Just Like This”, R cannot recognize them directly unless you enclose them in <strong>backticks</strong> (“`”).</p>
+<blockquote>
+<p>There are some exceptions though, like when you first define the name of the variable like “Song”.</p>
+</blockquote>
 </section>
 <section id="the-long-version-of-the-data" class="slide level2">
 <h2>The long version of the data</h2>
@@ -527,8 +554,9 @@ Alan R. Vazquez
 </div>
 </div>
 </section>
-<section id="section-6" class="slide level2">
+<section id="section-7" class="slide level2">
 <h2></h2>
+<p><br></p>
 <p>We can also apply it to the <code>table2</code> dataset in the previous section.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a>table2 </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -551,7 +579,7 @@ Alan R. Vazquez
 </div>
 </div>
 </section>
-<section id="section-7" class="slide level2">
+<section id="section-8" class="slide level2">
 <h2></h2>
 <p><br><br></p>
 <p>The wider version of <code>table2</code> is:</p>
@@ -576,7 +604,7 @@ Alan R. Vazquez
 <p><br></p>
 <p>Consider an industrial engineer who receives a messy Excel file from a manufacturing client. The data file is called “industrial_dataset.xlsx”, which file includes data about machine maintenance logs, production output, and operator comments.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a></a>client_data <span class="ot">=</span> <span class="fu">read_excel</span>(<span class="st">"industrial_dataset.xlsx"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a></a>industrial_data <span class="ot">=</span> <span class="fu">read_excel</span>(<span class="st">"industrial_dataset.xlsx"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>We use this dataset to illustrate the functions <code>separate()</code> and <code>unite()</code>.</p>
 </section>
@@ -584,7 +612,7 @@ Alan R. Vazquez
 <h2>Let’s preview the data.</h2>
 <p><br><br></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a></a>client_data <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a></a>industrial_data <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 5
   `Machine ID` `Output (units)` `Maintenance Date`  Operator Comment            
@@ -601,9 +629,9 @@ Alan R. Vazquez
 <section id="separate" class="slide level2">
 <h2><code>separate()</code></h2>
 <p><code>separate()</code> pulls apart one column into multiple columns, by splitting wherever a separator character appears.</p>
-<p>Consider the column <code>Comment</code> from <code>client_data</code>.</p>
+<p>Consider the column <code>Comment</code> from <code>industrial_data</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a></a>client_data <span class="sc">%&gt;%</span> <span class="fu">select</span>(Comment)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a></a>industrial_data <span class="sc">%&gt;%</span> <span class="fu">select</span>(Comment)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 100 × 1
    Comment               
@@ -622,7 +650,7 @@ Alan R. Vazquez
 </div>
 </div>
 </section>
-<section id="section-8" class="slide level2">
+<section id="section-9" class="slide level2">
 <h2></h2>
 <p><br></p>
 <p>The column has some values such as “Requires part: valve” and “Delay: maintenance” that we may want to split into columns.</p>
@@ -645,11 +673,11 @@ Alan R. Vazquez
 </div>
 </div>
 </section>
-<section id="section-9" class="slide level2">
+<section id="section-10" class="slide level2">
 <h2></h2>
 <p>Using <code>separate()</code>, we split the values in the column according to the colon “:”.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a></a>augmented_data <span class="ot">=</span> client_data  <span class="sc">%&gt;%</span> </span>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a></a>augmented_data <span class="ot">=</span> industrial_data  <span class="sc">%&gt;%</span> </span>
 <span id="cb26-2"><a></a><span class="fu">separate</span>(Comment, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">"First_comment"</span>, <span class="st">"Second_comment"</span>), </span>
 <span id="cb26-3"><a></a>         <span class="at">sep =</span> <span class="st">":"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -680,7 +708,7 @@ Alan R. Vazquez
 </div>
 <p>In the <code>unite()</code> function, the first input is the name of the new column, the other inputs are the columns to be united.</p>
 </section>
-<section id="section-10" class="slide level2">
+<section id="section-11" class="slide level2">
 <h2></h2>
 <p><br></p>
 <p>The result.</p>
@@ -724,9 +752,10 @@ Alan R. Vazquez
 <h2>Remove duplicate rows</h2>
 <p><br></p>
 <p>Duplicate or identical rows are rows that have the same entries in every column in the dataset.</p>
-<p>If only one row is needed for the analysis, we can remove the duplicates using the <code>distinct()</code> function. Let’s illustrate this using the <code>client_data</code> dataset.</p>
+<p><br></p>
+<p>If only one row is needed for the analysis, we can remove the duplicates using the <code>distinct()</code> function. Let’s illustrate this using the <code>industrial_data</code> dataset.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a></a>client_data_single <span class="ot">=</span> client_data  <span class="sc">%&gt;%</span> <span class="fu">distinct</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a></a>industrial_data_single <span class="ot">=</span> industrial_data  <span class="sc">%&gt;%</span> <span class="fu">distinct</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="add-an-index-column" class="slide level2">
@@ -734,14 +763,15 @@ Alan R. Vazquez
 <p><br></p>
 <p>In some cases, it is useful to have a unique identifier for each row in the dataset. We can create an identifier using the functions <code>mutate()</code> and <code>row_number()</code> with some extra syntaxis.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a></a>client_data_single <span class="ot">=</span> client_data_single <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">ID =</span> <span class="fu">row_number</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a></a>industrial_data_single <span class="ot">=</span> industrial_data_single <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">ID =</span> <span class="fu">row_number</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="section-11" class="slide level2">
+<section id="section-12" class="slide level2">
 <h2></h2>
+<p><br></p>
 <p>The new column is appended to the end of the dataframe.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a></a>client_data_single <span class="sc">%&gt;%</span>  <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a></a>industrial_data_single <span class="sc">%&gt;%</span>  <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 6
   `Machine ID` `Output (units)` `Maintenance Date`  Operator Comment          ID
@@ -755,14 +785,14 @@ Alan R. Vazquez
 </div>
 </div>
 </section>
-<section id="section-12" class="slide level2">
+<section id="section-13" class="slide level2">
 <h2></h2>
 <p>To bring it to the beginning of the array, we can use the <code>select()</code> and <code>everything()</code> functions.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a></a>client_data_single <span class="ot">=</span> client_data_single <span class="sc">%&gt;%</span> </span>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a></a>industrial_data_single <span class="ot">=</span> industrial_data_single <span class="sc">%&gt;%</span> </span>
 <span id="cb36-2"><a></a><span class="fu">select</span>(ID, <span class="fu">everything</span>())</span>
 <span id="cb36-3"><a></a></span>
-<span id="cb36-4"><a></a>client_data_single <span class="sc">%&gt;%</span>  <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb36-4"><a></a>industrial_data_single <span class="sc">%&gt;%</span>  <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 6
      ID `Machine ID` `Output (units)` `Maintenance Date`  Operator Comment      
@@ -778,10 +808,10 @@ Alan R. Vazquez
 </section>
 <section id="fill-blank-cells" class="slide level2">
 <h2>Fill blank cells</h2>
-<p>In the <code>client_data_single</code>, there are columns with missing values. We can fill them with specific values or text using <code>replace_na()</code> function. In this function, we use the syntaxis <code>'Variable' = 'Replace'</code>, where the <code>Variable</code> is the column in the dataset and <code>Replace</code> is the text or number to fill the entry in.</p>
+<p>In the <code>industrial_data_single</code>, there are columns with missing values. We can fill them with specific values or text using <code>replace_na()</code> function. In this function, we use the syntaxis <code>'Variable' = 'Replace'</code>, where the <code>Variable</code> is the column in the dataset and <code>Replace</code> is the text or number to fill the entry in.</p>
 <p>Let’s fill in the missing entries of the columns <code>Operator</code>, <code>Maintenance Date</code>, and <code>Comment</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a></a>complete_data <span class="ot">=</span> client_data_single <span class="sc">%&gt;%</span> </span>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a></a>complete_data <span class="ot">=</span> industrial_data_single <span class="sc">%&gt;%</span> </span>
 <span id="cb38-2"><a></a>                  <span class="fu">replace_na</span>( <span class="fu">list</span>(</span>
 <span id="cb38-3"><a></a>                  <span class="at">Operator =</span> <span class="st">"Unknown"</span>,</span>
 <span id="cb38-4"><a></a>                  <span class="st">`</span><span class="at">Maintenance Date</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">as.Date</span>(<span class="st">"2023-01-01"</span>),</span>
@@ -789,7 +819,7 @@ Alan R. Vazquez
 <span id="cb38-6"><a></a>                  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="section-13" class="slide level2">
+<section id="section-14" class="slide level2">
 <h2></h2>
 <p><br><br></p>
 <div class="cell">
@@ -826,7 +856,7 @@ Alan R. Vazquez
 </div>
 <p>The column has the numbers of units but also text such as “error”.</p>
 </section>
-<section id="section-14" class="slide level2">
+<section id="section-15" class="slide level2">
 <h2></h2>
 <p>We can replace the “error” in this column by a user-specified value, say, 0. To this end, we use the functions <code>mutate()</code> and <code>na_if()</code>.</p>
 <div class="cell">
@@ -849,7 +879,7 @@ Alan R. Vazquez
 </div>
 <p><span style="color:darkred;"><strong>However, the new column is character (<code>chr</code>)!</strong></span></p>
 </section>
-<section id="section-15" class="slide level2">
+<section id="section-16" class="slide level2">
 <h2></h2>
 <p><br></p>
 <p>We turn the column numeric using the functions <code>mutate()</code> and <code>as.numeric()</code>.</p>
@@ -927,7 +957,7 @@ Alan R. Vazquez
 <span id="cb50-2"><a></a><span class="fu">mutate</span>(<span class="at">First_comment =</span> <span class="fu">str_trim</span>(First_comment, <span class="at">side =</span> <span class="st">"both"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="section-16" class="slide level2">
+<section id="section-17" class="slide level2">
 <h2></h2>
 <p><br></p>
 <p>Let’s see the cleaned column.</p>

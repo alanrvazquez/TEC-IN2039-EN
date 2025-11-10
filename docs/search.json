@@ -248,8 +248,8 @@
     "objectID": "T3_TidyData/TidyData.slides.html#data-science-workflow",
     "href": "T3_TidyData/TidyData.slides.html#data-science-workflow",
     "title": "Tidy Data",
-    "section": "Data Science Workflow",
-    "text": "Data Science Workflow\n\n\nEvery data science project involves importing, tidying, transforming, visualizing, modeling, and communicating data."
+    "section": "Data science workflow",
+    "text": "Data science workflow\n\n\nEvery data science project involves importing, tidying, transforming, visualizing, modeling, and communicating data."
   },
   {
     "objectID": "T3_TidyData/TidyData.slides.html#section",
@@ -277,7 +277,7 @@
     "href": "T3_TidyData/TidyData.slides.html#section-1",
     "title": "Tidy Data",
     "section": "",
-    "text": "https://openscapes.org/blog/2020-10-12-tidy-data/"
+    "text": "Import: Bring raw data into R. (readxl)\nTidy: Reshape into a consistent format. (tidyr)\nTransform: Create new variables and summaries. (dplyr)\nVisualize: Explore patterns visually.\nModel: Fit statistical or machine learning models.\nCommunicate: Share insights clearly."
   },
   {
     "objectID": "T3_TidyData/TidyData.slides.html#example-1",
@@ -291,21 +291,21 @@
     "href": "T3_TidyData/TidyData.slides.html#section-2",
     "title": "Tidy Data",
     "section": "",
-    "text": "Consider another version:\n\n\n# A tibble: 12 × 4\n   country      year type            count\n   &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;           &lt;dbl&gt;\n 1 Afghanistan  1999 cases             745\n 2 Afghanistan  1999 population   19987071\n 3 Afghanistan  2000 cases            2666\n 4 Afghanistan  2000 population   20595360\n 5 Brazil       1999 cases           37737\n 6 Brazil       1999 population  172006362\n 7 Brazil       2000 cases           80488\n 8 Brazil       2000 population  174504898\n 9 China        1999 cases          212258\n10 China        1999 population 1272915272\n11 China        2000 cases          213766\n12 China        2000 population 1280428583\n\n\nNot tidy because the last column is a summary statistic (count) of two variables."
+    "text": "https://openscapes.org/blog/2020-10-12-tidy-data/"
   },
   {
     "objectID": "T3_TidyData/TidyData.slides.html#section-3",
     "href": "T3_TidyData/TidyData.slides.html#section-3",
     "title": "Tidy Data",
     "section": "",
-    "text": "Consider another version:\n\n\n# A tibble: 6 × 3\n  country      year rate             \n  &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;            \n1 Afghanistan  1999 745/19987071     \n2 Afghanistan  2000 2666/20595360    \n3 Brazil       1999 37737/172006362  \n4 Brazil       2000 80488/174504898  \n5 China        1999 212258/1272915272\n6 China        2000 213766/1280428583\n\n\nNot tidy because the last column is a summary statistic (rate) of two variables, or there are two measurements involved in this column."
+    "text": "Consider another version:\n\n\n# A tibble: 12 × 4\n   country      year type            count\n   &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;           &lt;dbl&gt;\n 1 Afghanistan  1999 cases             745\n 2 Afghanistan  1999 population   19987071\n 3 Afghanistan  2000 cases            2666\n 4 Afghanistan  2000 population   20595360\n 5 Brazil       1999 cases           37737\n 6 Brazil       1999 population  172006362\n 7 Brazil       2000 cases           80488\n 8 Brazil       2000 population  174504898\n 9 China        1999 cases          212258\n10 China        1999 population 1272915272\n11 China        2000 cases          213766\n12 China        2000 population 1280428583\n\n\nNot tidy because the last column is a summary statistic (count) of two variables."
   },
   {
     "objectID": "T3_TidyData/TidyData.slides.html#section-4",
     "href": "T3_TidyData/TidyData.slides.html#section-4",
     "title": "Tidy Data",
     "section": "",
-    "text": "Consider one last version involving two datasets.\n\n\n# A tibble: 3 × 3\n  country     `1999` `2000`\n  &lt;chr&gt;        &lt;dbl&gt;  &lt;dbl&gt;\n1 Afghanistan    745   2666\n2 Brazil       37737  80488\n3 China       212258 213766\n\n\n\n\n# A tibble: 3 × 3\n  country         `1999`     `2000`\n  &lt;chr&gt;            &lt;dbl&gt;      &lt;dbl&gt;\n1 Afghanistan   19987071   20595360\n2 Brazil       172006362  174504898\n3 China       1272915272 1280428583\n\n\nNot tidy data!"
+    "text": "Consider another version:\n\n\n# A tibble: 6 × 3\n  country      year rate             \n  &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;            \n1 Afghanistan  1999 745/19987071     \n2 Afghanistan  2000 2666/20595360    \n3 Brazil       1999 37737/172006362  \n4 Brazil       2000 80488/174504898  \n5 China        1999 212258/1272915272\n6 China        2000 213766/1280428583\n\n\nNot tidy because the last column is a summary statistic (rate) of two variables, or there are two measurements involved in this column."
   },
   {
     "objectID": "T3_TidyData/TidyData.slides.html#the-role-of-the-tidyr-package",
@@ -319,28 +319,28 @@
     "href": "T3_TidyData/TidyData.slides.html#tidyrs-comon-functions",
     "title": "Tidy Data",
     "section": "tidyr’s comon functions",
-    "text": "tidyr’s comon functions\n\nThe tidyr provides functions for reshaping, organizing, and completing data.\n\n\n\nPurpose\nFunction 1\nFunction 2\n\n\n\n\nPivoting\npivot_longer()\npivot_wider()\n\n\nSplitting / Combining\nseparate()\nunite()"
+    "text": "tidyr’s comon functions\n\nThe tidyr provides functions for reshaping, organizing, and completing data.\n\nHere, we will discuss the more common ones:\n\n\n\nPurpose\nFunction 1\nFunction 2\n\n\n\n\nPivoting\npivot_longer()\npivot_wider()\n\n\nSplitting / Combining\nseparate()\nunite()"
   },
   {
     "objectID": "T3_TidyData/TidyData.slides.html#example-2",
     "href": "T3_TidyData/TidyData.slides.html#example-2",
     "title": "Tidy Data",
     "section": "Example 2",
-    "text": "Example 2\n\nConsider the data in the file “spotify.xlsx”. This dataset contains the global daily plays of the five most popular songs on the Spotify music streaming service in 2017.\nLet’s read the dataset using the function read_excel() from the readxl library.\n\nspotify_data = read_excel(\"spotify.xlsx\")"
+    "text": "Example 2\n\nConsider the data in the file “spotify.xlsx”. This dataset contains the global daily plays of the five most popular songs on the Spotify music streaming service in 2017.\n\nLet’s read the dataset using the function read_excel() from the readxl library.\n\nspotify_data = read_excel(\"spotify.xlsx\")"
   },
   {
     "objectID": "T3_TidyData/TidyData.slides.html#section-5",
     "href": "T3_TidyData/TidyData.slides.html#section-5",
     "title": "Tidy Data",
     "section": "",
-    "text": "Let’s preview the dataset.\n\nspotify_data %&gt;% head()\n\n# A tibble: 6 × 7\n  Date                  Day `Shape of You` Despacito `Something Just Like This`\n  &lt;dttm&gt;              &lt;dbl&gt;          &lt;dbl&gt;     &lt;dbl&gt;                      &lt;dbl&gt;\n1 2017-01-06 00:00:00     1       12287078        NA                         NA\n2 2017-01-07 00:00:00     2       13190270        NA                         NA\n3 2017-01-08 00:00:00     3       13099919        NA                         NA\n4 2017-01-09 00:00:00     4       14506351        NA                         NA\n5 2017-01-10 00:00:00     5       14275628        NA                         NA\n6 2017-01-11 00:00:00     6       14372699        NA                         NA\n# ℹ 2 more variables: HUMBLE. &lt;dbl&gt;, Unforgettable &lt;dbl&gt;"
+    "text": "Consider one last version involving two datasets.\n\n\n# A tibble: 3 × 3\n  country     `1999` `2000`\n  &lt;chr&gt;        &lt;dbl&gt;  &lt;dbl&gt;\n1 Afghanistan    745   2666\n2 Brazil       37737  80488\n3 China       212258 213766\n\n\n\n\n# A tibble: 3 × 3\n  country         `1999`     `2000`\n  &lt;chr&gt;            &lt;dbl&gt;      &lt;dbl&gt;\n1 Afghanistan   19987071   20595360\n2 Brazil       172006362  174504898\n3 China       1272915272 1280428583\n\n\nNot tidy data!"
   },
   {
     "objectID": "T3_TidyData/TidyData.slides.html#pivot_longer",
     "href": "T3_TidyData/TidyData.slides.html#pivot_longer",
     "title": "Tidy Data",
     "section": "pivot_longer()",
-    "text": "pivot_longer()\n\nA common problem is a dataset where some of the column names are not names of variables, but values of a variable.\npivot_longer() transforms columns into rows (convert from wide to long format).\nLet’s apply it to the spotify_data.\n\nspotify_long = spotify_data %&gt;% \n  pivot_longer(c(\"Shape of You\", \"Despacito\", \"Something Just Like This\", \n                 \"HUMBLE.\", \"Unforgettable\"), \n               names_to = \"Song\", \n               values_to = \"Plays\")"
+    "text": "pivot_longer()\n\nA common problem is a dataset where some of the column names are not names of variables, but values of a variable.\npivot_longer() transforms columns into rows (convert from wide to long format).\nLet’s apply it to the spotify_data.\n\nspotify_long = spotify_data %&gt;% \n  pivot_longer(c(`Shape of You`, `Despacito`, `Something Just Like This`, \n                 `HUMBLE.`, `Unforgettable`), \n               names_to = \"Song\", \n               values_to = \"Plays\")"
   },
   {
     "objectID": "T3_TidyData/TidyData.slides.html#the-long-version-of-the-data",
@@ -361,49 +361,49 @@
     "href": "T3_TidyData/TidyData.slides.html#section-6",
     "title": "Tidy Data",
     "section": "",
-    "text": "We can also apply it to the table2 dataset in the previous section.\n\ntable2 \n\n# A tibble: 12 × 4\n   country      year type            count\n   &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;           &lt;dbl&gt;\n 1 Afghanistan  1999 cases             745\n 2 Afghanistan  1999 population   19987071\n 3 Afghanistan  2000 cases            2666\n 4 Afghanistan  2000 population   20595360\n 5 Brazil       1999 cases           37737\n 6 Brazil       1999 population  172006362\n 7 Brazil       2000 cases           80488\n 8 Brazil       2000 population  174504898\n 9 China        1999 cases          212258\n10 China        1999 population 1272915272\n11 China        2000 cases          213766\n12 China        2000 population 1280428583"
+    "text": "Let’s preview the dataset.\n\nspotify_data %&gt;% head()\n\n# A tibble: 6 × 7\n  Date                  Day `Shape of You` Despacito `Something Just Like This`\n  &lt;dttm&gt;              &lt;dbl&gt;          &lt;dbl&gt;     &lt;dbl&gt;                      &lt;dbl&gt;\n1 2017-01-06 00:00:00     1       12287078        NA                         NA\n2 2017-01-07 00:00:00     2       13190270        NA                         NA\n3 2017-01-08 00:00:00     3       13099919        NA                         NA\n4 2017-01-09 00:00:00     4       14506351        NA                         NA\n5 2017-01-10 00:00:00     5       14275628        NA                         NA\n6 2017-01-11 00:00:00     6       14372699        NA                         NA\n# ℹ 2 more variables: HUMBLE. &lt;dbl&gt;, Unforgettable &lt;dbl&gt;"
   },
   {
     "objectID": "T3_TidyData/TidyData.slides.html#section-7",
     "href": "T3_TidyData/TidyData.slides.html#section-7",
     "title": "Tidy Data",
     "section": "",
-    "text": "The wider version of table2 is:\n\ntable2 %&gt;%\n    pivot_wider(names_from = type, values_from = count)\n\n# A tibble: 6 × 4\n  country      year  cases population\n  &lt;chr&gt;       &lt;dbl&gt;  &lt;dbl&gt;      &lt;dbl&gt;\n1 Afghanistan  1999    745   19987071\n2 Afghanistan  2000   2666   20595360\n3 Brazil       1999  37737  172006362\n4 Brazil       2000  80488  174504898\n5 China        1999 212258 1272915272\n6 China        2000 213766 1280428583"
+    "text": "We can also apply it to the table2 dataset in the previous section.\n\ntable2 \n\n# A tibble: 12 × 4\n   country      year type            count\n   &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;           &lt;dbl&gt;\n 1 Afghanistan  1999 cases             745\n 2 Afghanistan  1999 population   19987071\n 3 Afghanistan  2000 cases            2666\n 4 Afghanistan  2000 population   20595360\n 5 Brazil       1999 cases           37737\n 6 Brazil       1999 population  172006362\n 7 Brazil       2000 cases           80488\n 8 Brazil       2000 population  174504898\n 9 China        1999 cases          212258\n10 China        1999 population 1272915272\n11 China        2000 cases          213766\n12 China        2000 population 1280428583"
   },
   {
     "objectID": "T3_TidyData/TidyData.slides.html#example-3",
     "href": "T3_TidyData/TidyData.slides.html#example-3",
     "title": "Tidy Data",
     "section": "Example 3",
-    "text": "Example 3\n\nConsider an industrial engineer who receives a messy Excel file from a manufacturing client. The data file is called “industrial_dataset.xlsx”, which file includes data about machine maintenance logs, production output, and operator comments.\n\nclient_data = read_excel(\"industrial_dataset.xlsx\")\n\nWe use this dataset to illustrate the functions separate() and unite()."
+    "text": "Example 3\n\nConsider an industrial engineer who receives a messy Excel file from a manufacturing client. The data file is called “industrial_dataset.xlsx”, which file includes data about machine maintenance logs, production output, and operator comments.\n\nindustrial_data = read_excel(\"industrial_dataset.xlsx\")\n\nWe use this dataset to illustrate the functions separate() and unite()."
   },
   {
     "objectID": "T3_TidyData/TidyData.slides.html#lets-preview-the-data.",
     "href": "T3_TidyData/TidyData.slides.html#lets-preview-the-data.",
     "title": "Tidy Data",
     "section": "Let’s preview the data.",
-    "text": "Let’s preview the data.\n\n\nclient_data %&gt;% head()\n\n# A tibble: 6 × 5\n  `Machine ID` `Output (units)` `Maintenance Date`  Operator Comment            \n         &lt;dbl&gt; &lt;chr&gt;            &lt;dttm&gt;              &lt;chr&gt;    &lt;chr&gt;              \n1          101 1200             2023-01-10 00:00:00 Ana      \"ok\"               \n2          101 1200             2023-01-10 00:00:00 Ana      \"ok\"               \n3          102 1050             2023-01-12 00:00:00 Bob      \"Needs oil!\"       \n4          103 error            2023-01-13 00:00:00 Charlie  \"All good\\r\\n\"     \n5          103 950              2023-01-13 00:00:00 Charlie  \"All good\\r\\n\"     \n6          104 900              2023-01-14 00:00:00 &lt;NA&gt;     \"Delay: power issu…"
+    "text": "Let’s preview the data.\n\n\nindustrial_data %&gt;% head()\n\n# A tibble: 6 × 5\n  `Machine ID` `Output (units)` `Maintenance Date`  Operator Comment            \n         &lt;dbl&gt; &lt;chr&gt;            &lt;dttm&gt;              &lt;chr&gt;    &lt;chr&gt;              \n1          101 1200             2023-01-10 00:00:00 Ana      \"ok\"               \n2          101 1200             2023-01-10 00:00:00 Ana      \"ok\"               \n3          102 1050             2023-01-12 00:00:00 Bob      \"Needs oil!\"       \n4          103 error            2023-01-13 00:00:00 Charlie  \"All good\\r\\n\"     \n5          103 950              2023-01-13 00:00:00 Charlie  \"All good\\r\\n\"     \n6          104 900              2023-01-14 00:00:00 &lt;NA&gt;     \"Delay: power issu…"
   },
   {
     "objectID": "T3_TidyData/TidyData.slides.html#separate",
     "href": "T3_TidyData/TidyData.slides.html#separate",
     "title": "Tidy Data",
     "section": "separate()",
-    "text": "separate()\nseparate() pulls apart one column into multiple columns, by splitting wherever a separator character appears.\nConsider the column Comment from client_data.\n\nclient_data %&gt;% select(Comment)\n\n# A tibble: 100 × 1\n   Comment               \n   &lt;chr&gt;                 \n 1 \"ok\"                  \n 2 \"ok\"                  \n 3 \"Needs oil!\"          \n 4 \"All good\\r\\n\"        \n 5 \"All good\\r\\n\"        \n 6 \"Delay: power issue\"  \n 7 \"completed\"           \n 8 \"completed\"           \n 9 \"All good\\r\\n\"        \n10 \"Requires part: valve\"\n# ℹ 90 more rows"
+    "text": "separate()\nseparate() pulls apart one column into multiple columns, by splitting wherever a separator character appears.\nConsider the column Comment from industrial_data.\n\nindustrial_data %&gt;% select(Comment)\n\n# A tibble: 100 × 1\n   Comment               \n   &lt;chr&gt;                 \n 1 \"ok\"                  \n 2 \"ok\"                  \n 3 \"Needs oil!\"          \n 4 \"All good\\r\\n\"        \n 5 \"All good\\r\\n\"        \n 6 \"Delay: power issue\"  \n 7 \"completed\"           \n 8 \"completed\"           \n 9 \"All good\\r\\n\"        \n10 \"Requires part: valve\"\n# ℹ 90 more rows"
   },
   {
     "objectID": "T3_TidyData/TidyData.slides.html#section-8",
     "href": "T3_TidyData/TidyData.slides.html#section-8",
     "title": "Tidy Data",
     "section": "",
-    "text": "The column has some values such as “Requires part: valve” and “Delay: maintenance” that we may want to split into columns.\n\n\n# A tibble: 100 × 1\n   Comment               \n   &lt;chr&gt;                 \n 1 \"ok\"                  \n 2 \"ok\"                  \n 3 \"Needs oil!\"          \n 4 \"All good\\r\\n\"        \n 5 \"All good\\r\\n\"        \n 6 \"Delay: power issue\"  \n 7 \"completed\"           \n 8 \"completed\"           \n 9 \"All good\\r\\n\"        \n10 \"Requires part: valve\"\n# ℹ 90 more rows"
+    "text": "The wider version of table2 is:\n\ntable2 %&gt;%\n    pivot_wider(names_from = type, values_from = count)\n\n# A tibble: 6 × 4\n  country      year  cases population\n  &lt;chr&gt;       &lt;dbl&gt;  &lt;dbl&gt;      &lt;dbl&gt;\n1 Afghanistan  1999    745   19987071\n2 Afghanistan  2000   2666   20595360\n3 Brazil       1999  37737  172006362\n4 Brazil       2000  80488  174504898\n5 China        1999 212258 1272915272\n6 China        2000 213766 1280428583"
   },
   {
     "objectID": "T3_TidyData/TidyData.slides.html#section-9",
     "href": "T3_TidyData/TidyData.slides.html#section-9",
     "title": "Tidy Data",
     "section": "",
-    "text": "Using separate(), we split the values in the column according to the colon “:”.\n\naugmented_data = client_data  %&gt;% \nseparate(Comment, into = c(\"First_comment\", \"Second_comment\"), \n         sep = \":\")\n\nThe result is two columns.\n\naugmented_data %&gt;% select(`First_comment`, `Second_comment`) %&gt;%  head()\n\n# A tibble: 6 × 2\n  First_comment  Second_comment\n  &lt;chr&gt;          &lt;chr&gt;         \n1 \"ok\"            &lt;NA&gt;         \n2 \"ok\"            &lt;NA&gt;         \n3 \"Needs oil!\"    &lt;NA&gt;         \n4 \"All good\\r\\n\"  &lt;NA&gt;         \n5 \"All good\\r\\n\"  &lt;NA&gt;         \n6 \"Delay\"        \" power issue\""
+    "text": "The column has some values such as “Requires part: valve” and “Delay: maintenance” that we may want to split into columns.\n\n\n# A tibble: 100 × 1\n   Comment               \n   &lt;chr&gt;                 \n 1 \"ok\"                  \n 2 \"ok\"                  \n 3 \"Needs oil!\"          \n 4 \"All good\\r\\n\"        \n 5 \"All good\\r\\n\"        \n 6 \"Delay: power issue\"  \n 7 \"completed\"           \n 8 \"completed\"           \n 9 \"All good\\r\\n\"        \n10 \"Requires part: valve\"\n# ℹ 90 more rows"
   },
   {
     "objectID": "T3_TidyData/TidyData.slides.html#unite",
@@ -417,7 +417,7 @@
     "href": "T3_TidyData/TidyData.slides.html#section-10",
     "title": "Tidy Data",
     "section": "",
-    "text": "The result.\n\naugmented_data  %&gt;% \n  unite(Comment, First_comment, Second_comment, sep = \": \") %&gt;% \n    select(Comment)\n\n# A tibble: 100 × 1\n   Comment                \n   &lt;chr&gt;                  \n 1 \"ok: NA\"               \n 2 \"ok: NA\"               \n 3 \"Needs oil!: NA\"       \n 4 \"All good\\r\\n: NA\"     \n 5 \"All good\\r\\n: NA\"     \n 6 \"Delay:  power issue\"  \n 7 \"completed: NA\"        \n 8 \"completed: NA\"        \n 9 \"All good\\r\\n: NA\"     \n10 \"Requires part:  valve\"\n# ℹ 90 more rows"
+    "text": "Using separate(), we split the values in the column according to the colon “:”.\n\naugmented_data = industrial_data  %&gt;% \nseparate(Comment, into = c(\"First_comment\", \"Second_comment\"), \n         sep = \":\")\n\nThe result is two columns.\n\naugmented_data %&gt;% select(`First_comment`, `Second_comment`) %&gt;%  head()\n\n# A tibble: 6 × 2\n  First_comment  Second_comment\n  &lt;chr&gt;          &lt;chr&gt;         \n1 \"ok\"            &lt;NA&gt;         \n2 \"ok\"            &lt;NA&gt;         \n3 \"Needs oil!\"    &lt;NA&gt;         \n4 \"All good\\r\\n\"  &lt;NA&gt;         \n5 \"All good\\r\\n\"  &lt;NA&gt;         \n6 \"Delay\"        \" power issue\""
   },
   {
     "objectID": "T3_TidyData/TidyData.slides.html#data-wrangling-1",
@@ -431,42 +431,42 @@
     "href": "T3_TidyData/TidyData.slides.html#remove-duplicate-rows",
     "title": "Tidy Data",
     "section": "Remove duplicate rows",
-    "text": "Remove duplicate rows\n\nDuplicate or identical rows are rows that have the same entries in every column in the dataset.\nIf only one row is needed for the analysis, we can remove the duplicates using the distinct() function. Let’s illustrate this using the client_data dataset.\n\nclient_data_single = client_data  %&gt;% distinct()"
+    "text": "Remove duplicate rows\n\nDuplicate or identical rows are rows that have the same entries in every column in the dataset.\n\nIf only one row is needed for the analysis, we can remove the duplicates using the distinct() function. Let’s illustrate this using the industrial_data dataset.\n\nindustrial_data_single = industrial_data  %&gt;% distinct()"
   },
   {
     "objectID": "T3_TidyData/TidyData.slides.html#add-an-index-column",
     "href": "T3_TidyData/TidyData.slides.html#add-an-index-column",
     "title": "Tidy Data",
     "section": "Add an index column",
-    "text": "Add an index column\n\nIn some cases, it is useful to have a unique identifier for each row in the dataset. We can create an identifier using the functions mutate() and row_number() with some extra syntaxis.\n\nclient_data_single = client_data_single %&gt;% mutate(ID = row_number())"
+    "text": "Add an index column\n\nIn some cases, it is useful to have a unique identifier for each row in the dataset. We can create an identifier using the functions mutate() and row_number() with some extra syntaxis.\n\nindustrial_data_single = industrial_data_single %&gt;% mutate(ID = row_number())"
   },
   {
     "objectID": "T3_TidyData/TidyData.slides.html#section-11",
     "href": "T3_TidyData/TidyData.slides.html#section-11",
     "title": "Tidy Data",
     "section": "",
-    "text": "The new column is appended to the end of the dataframe.\n\nclient_data_single %&gt;%  head()\n\n# A tibble: 6 × 6\n  `Machine ID` `Output (units)` `Maintenance Date`  Operator Comment          ID\n         &lt;dbl&gt; &lt;chr&gt;            &lt;dttm&gt;              &lt;chr&gt;    &lt;chr&gt;         &lt;int&gt;\n1          101 1200             2023-01-10 00:00:00 Ana      \"ok\"              1\n2          102 1050             2023-01-12 00:00:00 Bob      \"Needs oil!\"      2\n3          103 error            2023-01-13 00:00:00 Charlie  \"All good\\r\\…     3\n4          103 950              2023-01-13 00:00:00 Charlie  \"All good\\r\\…     4\n5          104 900              2023-01-14 00:00:00 &lt;NA&gt;     \"Delay: powe…     5\n6          105 870              NA                  DAVE     \"completed\"       6"
+    "text": "The result.\n\naugmented_data  %&gt;% \n  unite(Comment, First_comment, Second_comment, sep = \": \") %&gt;% \n    select(Comment)\n\n# A tibble: 100 × 1\n   Comment                \n   &lt;chr&gt;                  \n 1 \"ok: NA\"               \n 2 \"ok: NA\"               \n 3 \"Needs oil!: NA\"       \n 4 \"All good\\r\\n: NA\"     \n 5 \"All good\\r\\n: NA\"     \n 6 \"Delay:  power issue\"  \n 7 \"completed: NA\"        \n 8 \"completed: NA\"        \n 9 \"All good\\r\\n: NA\"     \n10 \"Requires part:  valve\"\n# ℹ 90 more rows"
   },
   {
     "objectID": "T3_TidyData/TidyData.slides.html#section-12",
     "href": "T3_TidyData/TidyData.slides.html#section-12",
     "title": "Tidy Data",
     "section": "",
-    "text": "To bring it to the beginning of the array, we can use the select() and everything() functions.\n\nclient_data_single = client_data_single %&gt;% \nselect(ID, everything())\n\nclient_data_single %&gt;%  head()\n\n# A tibble: 6 × 6\n     ID `Machine ID` `Output (units)` `Maintenance Date`  Operator Comment      \n  &lt;int&gt;        &lt;dbl&gt; &lt;chr&gt;            &lt;dttm&gt;              &lt;chr&gt;    &lt;chr&gt;        \n1     1          101 1200             2023-01-10 00:00:00 Ana      \"ok\"         \n2     2          102 1050             2023-01-12 00:00:00 Bob      \"Needs oil!\" \n3     3          103 error            2023-01-13 00:00:00 Charlie  \"All good\\r\\…\n4     4          103 950              2023-01-13 00:00:00 Charlie  \"All good\\r\\…\n5     5          104 900              2023-01-14 00:00:00 &lt;NA&gt;     \"Delay: powe…\n6     6          105 870              NA                  DAVE     \"completed\""
+    "text": "The new column is appended to the end of the dataframe.\n\nindustrial_data_single %&gt;%  head()\n\n# A tibble: 6 × 6\n  `Machine ID` `Output (units)` `Maintenance Date`  Operator Comment          ID\n         &lt;dbl&gt; &lt;chr&gt;            &lt;dttm&gt;              &lt;chr&gt;    &lt;chr&gt;         &lt;int&gt;\n1          101 1200             2023-01-10 00:00:00 Ana      \"ok\"              1\n2          102 1050             2023-01-12 00:00:00 Bob      \"Needs oil!\"      2\n3          103 error            2023-01-13 00:00:00 Charlie  \"All good\\r\\…     3\n4          103 950              2023-01-13 00:00:00 Charlie  \"All good\\r\\…     4\n5          104 900              2023-01-14 00:00:00 &lt;NA&gt;     \"Delay: powe…     5\n6          105 870              NA                  DAVE     \"completed\"       6"
   },
   {
     "objectID": "T3_TidyData/TidyData.slides.html#fill-blank-cells",
     "href": "T3_TidyData/TidyData.slides.html#fill-blank-cells",
     "title": "Tidy Data",
     "section": "Fill blank cells",
-    "text": "Fill blank cells\nIn the client_data_single, there are columns with missing values. We can fill them with specific values or text using replace_na() function. In this function, we use the syntaxis 'Variable' = 'Replace', where the Variable is the column in the dataset and Replace is the text or number to fill the entry in.\nLet’s fill in the missing entries of the columns Operator, Maintenance Date, and Comment.\n\ncomplete_data = client_data_single %&gt;% \n                  replace_na( list(\n                  Operator = \"Unknown\",\n                  `Maintenance Date` = as.Date(\"2023-01-01\"),\n                  Comment = \"None\") \n                  )"
+    "text": "Fill blank cells\nIn the industrial_data_single, there are columns with missing values. We can fill them with specific values or text using replace_na() function. In this function, we use the syntaxis 'Variable' = 'Replace', where the Variable is the column in the dataset and Replace is the text or number to fill the entry in.\nLet’s fill in the missing entries of the columns Operator, Maintenance Date, and Comment.\n\ncomplete_data = industrial_data_single %&gt;% \n                  replace_na( list(\n                  Operator = \"Unknown\",\n                  `Maintenance Date` = as.Date(\"2023-01-01\"),\n                  Comment = \"None\") \n                  )"
   },
   {
     "objectID": "T3_TidyData/TidyData.slides.html#section-13",
     "href": "T3_TidyData/TidyData.slides.html#section-13",
     "title": "Tidy Data",
     "section": "",
-    "text": "complete_data %&gt;%  head()\n\n# A tibble: 6 × 6\n     ID `Machine ID` `Output (units)` `Maintenance Date`  Operator Comment      \n  &lt;int&gt;        &lt;dbl&gt; &lt;chr&gt;            &lt;dttm&gt;              &lt;chr&gt;    &lt;chr&gt;        \n1     1          101 1200             2023-01-10 00:00:00 Ana      \"ok\"         \n2     2          102 1050             2023-01-12 00:00:00 Bob      \"Needs oil!\" \n3     3          103 error            2023-01-13 00:00:00 Charlie  \"All good\\r\\…\n4     4          103 950              2023-01-13 00:00:00 Charlie  \"All good\\r\\…\n5     5          104 900              2023-01-14 00:00:00 Unknown  \"Delay: powe…\n6     6          105 870              2023-01-01 00:00:00 DAVE     \"completed\""
+    "text": "To bring it to the beginning of the array, we can use the select() and everything() functions.\n\nindustrial_data_single = industrial_data_single %&gt;% \nselect(ID, everything())\n\nindustrial_data_single %&gt;%  head()\n\n# A tibble: 6 × 6\n     ID `Machine ID` `Output (units)` `Maintenance Date`  Operator Comment      \n  &lt;int&gt;        &lt;dbl&gt; &lt;chr&gt;            &lt;dttm&gt;              &lt;chr&gt;    &lt;chr&gt;        \n1     1          101 1200             2023-01-10 00:00:00 Ana      \"ok\"         \n2     2          102 1050             2023-01-12 00:00:00 Bob      \"Needs oil!\" \n3     3          103 error            2023-01-13 00:00:00 Charlie  \"All good\\r\\…\n4     4          103 950              2023-01-13 00:00:00 Charlie  \"All good\\r\\…\n5     5          104 900              2023-01-14 00:00:00 &lt;NA&gt;     \"Delay: powe…\n6     6          105 870              NA                  DAVE     \"completed\""
   },
   {
     "objectID": "T3_TidyData/TidyData.slides.html#replace-values",
@@ -480,14 +480,14 @@
     "href": "T3_TidyData/TidyData.slides.html#section-14",
     "title": "Tidy Data",
     "section": "",
-    "text": "We can replace the “error” in this column by a user-specified value, say, 0. To this end, we use the functions mutate() and na_if().\n\ncomplete_data = complete_data %&gt;% \nmutate(`Output (units)` = na_if(`Output (units)`, \"error\"))\n\n# Let's check the column.\ncomplete_data %&gt;%  select(`Output (units)`) %&gt;%  head()\n\n# A tibble: 6 × 1\n  `Output (units)`\n  &lt;chr&gt;           \n1 1200            \n2 1050            \n3 &lt;NA&gt;            \n4 950             \n5 900             \n6 870             \n\n\nHowever, the new column is character (chr)!"
+    "text": "complete_data %&gt;%  head()\n\n# A tibble: 6 × 6\n     ID `Machine ID` `Output (units)` `Maintenance Date`  Operator Comment      \n  &lt;int&gt;        &lt;dbl&gt; &lt;chr&gt;            &lt;dttm&gt;              &lt;chr&gt;    &lt;chr&gt;        \n1     1          101 1200             2023-01-10 00:00:00 Ana      \"ok\"         \n2     2          102 1050             2023-01-12 00:00:00 Bob      \"Needs oil!\" \n3     3          103 error            2023-01-13 00:00:00 Charlie  \"All good\\r\\…\n4     4          103 950              2023-01-13 00:00:00 Charlie  \"All good\\r\\…\n5     5          104 900              2023-01-14 00:00:00 Unknown  \"Delay: powe…\n6     6          105 870              2023-01-01 00:00:00 DAVE     \"completed\""
   },
   {
     "objectID": "T3_TidyData/TidyData.slides.html#section-15",
     "href": "T3_TidyData/TidyData.slides.html#section-15",
     "title": "Tidy Data",
     "section": "",
-    "text": "We turn the column numeric using the functions mutate() and as.numeric().\n\ncomplete_data = complete_data %&gt;% \nmutate(`Output (units)` = as.numeric(`Output (units)`))\n\ncomplete_data %&gt;%  select(`Output (units)`) %&gt;%  head()\n\n# A tibble: 6 × 1\n  `Output (units)`\n             &lt;dbl&gt;\n1             1200\n2             1050\n3               NA\n4              950\n5              900\n6              870\n\n\nNow, the column is numeric or dbl!"
+    "text": "We can replace the “error” in this column by a user-specified value, say, 0. To this end, we use the functions mutate() and na_if().\n\ncomplete_data = complete_data %&gt;% \nmutate(`Output (units)` = na_if(`Output (units)`, \"error\"))\n\n# Let's check the column.\ncomplete_data %&gt;%  select(`Output (units)`) %&gt;%  head()\n\n# A tibble: 6 × 1\n  `Output (units)`\n  &lt;chr&gt;           \n1 1200            \n2 1050            \n3 &lt;NA&gt;            \n4 950             \n5 900             \n6 870             \n\n\nHowever, the new column is character (chr)!"
   },
   {
     "objectID": "T3_TidyData/TidyData.slides.html#a-new-library-stringr",
@@ -515,7 +515,7 @@
     "href": "T3_TidyData/TidyData.slides.html#section-16",
     "title": "Tidy Data",
     "section": "",
-    "text": "Let’s see the cleaned column.\n\naugmented_data %&gt;%  select(First_comment)\n\n# A tibble: 100 × 1\n   First_comment\n   &lt;chr&gt;        \n 1 ok           \n 2 ok           \n 3 Needs oil!   \n 4 All good     \n 5 All good     \n 6 Delay        \n 7 completed    \n 8 completed    \n 9 All good     \n10 Requires part\n# ℹ 90 more rows"
+    "text": "We turn the column numeric using the functions mutate() and as.numeric().\n\ncomplete_data = complete_data %&gt;% \nmutate(`Output (units)` = as.numeric(`Output (units)`))\n\ncomplete_data %&gt;%  select(`Output (units)`) %&gt;%  head()\n\n# A tibble: 6 × 1\n  `Output (units)`\n             &lt;dbl&gt;\n1             1200\n2             1050\n3               NA\n4              950\n5              900\n6              870\n\n\nNow, the column is numeric or dbl!"
   },
   {
     "objectID": "T3_TidyData/TidyData.slides.html#transform-text-case",
@@ -718,14 +718,14 @@
     "href": "T2_Tools/Tools.slides.html#r-libraries",
     "title": "Tools for Data Manipulation",
     "section": "R libraries",
-    "text": "R libraries\n\nLibraries are the fundamental units of reproducible R code. They include reusable R functions, documentation describing how to use them, and sample data.\nIn this course, we will be working mostly with the following libraries:\n\nreadxl, dplyr, and tidyr for data manipulation.\nggplot2 and ggformula for data visualization."
+    "text": "R libraries\n\nLibraries are the fundamental units of reproducible R code. They include reusable R functions, documentation describing how to use them, and sample data.\nIn this course, we will be working mostly with the following libraries for data manipulation:\n\nreadxl for reading data.\ndplyr for data manipulation and wrangling\ntidyr for structuring data."
   },
   {
     "objectID": "T2_Tools/Tools.slides.html#loading-data-in-r",
     "href": "T2_Tools/Tools.slides.html#loading-data-in-r",
     "title": "Tools for Data Manipulation",
     "section": "Loading data in R",
-    "text": "Loading data in R\nIn this course, we will assume that data is stored in an Excel file with the above organization. As an example, let’s use the file penguins.xlsx.\n\n\n\n\n\n\n\nThe file must be previously uploaded to Google Colab."
+    "text": "Loading data in R\nIn this course, we will assume that data is stored in an Excel file. As an example, let’s use the file penguins.xlsx.\n\n\n\n\n\n\n\nThe file must be previously uploaded to Google Colab."
   },
   {
     "objectID": "T2_Tools/Tools.slides.html#section",
@@ -1629,5 +1629,26 @@
     "title": "Statistical Graphs",
     "section": "Discussion",
     "text": "Discussion\n\n\nThe simple linear regression model is easy to interpret due to its structure: \\(\\hat{Y}_i = \\hat{\\beta}_0 + \\hat{\\beta}_1 X_i.\\)\nHowever, it may be too rigid to capture complex relationships between two variables.\nLocal regression is flexible and allows capturing complex relationships between two variables, but it has a low level of interpretability because it does not provide an explicit equation."
+  },
+  {
+    "objectID": "T3_TidyData/TidyData.slides.html#section-17",
+    "href": "T3_TidyData/TidyData.slides.html#section-17",
+    "title": "Tidy Data",
+    "section": "",
+    "text": "Let’s see the cleaned column.\n\naugmented_data %&gt;%  select(First_comment)\n\n# A tibble: 100 × 1\n   First_comment\n   &lt;chr&gt;        \n 1 ok           \n 2 ok           \n 3 Needs oil!   \n 4 All good     \n 5 All good     \n 6 Delay        \n 7 completed    \n 8 completed    \n 9 All good     \n10 Requires part\n# ℹ 90 more rows"
+  },
+  {
+    "objectID": "T3_TidyData/TidyData.slides.html#remark",
+    "href": "T3_TidyData/TidyData.slides.html#remark",
+    "title": "Tidy Data",
+    "section": "Remark",
+    "text": "Remark\nIn R, variable names (column names) typically:\n\nCannot contain spaces or special symbols like “-”, “/”, or “%”.\nCannot start with a number.\n\nSo, when a dataset has column names like “Product Name” or “2024_Sales”, R cannot recognize them directly unless you enclose them in backticks (“`”).\nThat is why, in the previous slide, we wrote “‘Shape of You’” to select the column “Shape of You”."
+  },
+  {
+    "objectID": "T3_TidyData/TidyData.slides.html#remark-on-variable-names",
+    "href": "T3_TidyData/TidyData.slides.html#remark-on-variable-names",
+    "title": "Tidy Data",
+    "section": "Remark on variable names",
+    "text": "Remark on variable names\nIn R, variable names (column names) typically:\n\nCannot contain spaces or special symbols like “-”, “/”, or “%”.\nCannot start with a number.\n\nSo, when a dataset has column names like “Shape of You” or “Something Just Like This”, R cannot recognize them directly unless you enclose them in backticks (“`”).\n\nThere are some exceptions though, like when you first define the name of the variable like “Song”."
   }
 ]

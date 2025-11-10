@@ -67,7 +67,7 @@ Load it to Google Colab with the following code.
 library(tidyr)
 ```
 
-## Data Science Workflow
+## Data science workflow
 
 ![](images/data-science-workflow.png){fig-align="center"}
 
@@ -83,6 +83,18 @@ library(tidyr)
 4.  [**Visualize:**]{style="color:darkblue;"} Explore patterns visually.
 5.  [**Model:**]{style="color:darkblue;"} Fit statistical or machine learning models.
 6.  [**Communicate:**]{style="color:darkblue;"} Share insights clearly.
+
+## 
+
+</br>
+
+1.  [**Import:**]{style="color:darkblue;"} Bring raw data into R. (**readxl**)
+2.  [**Tidy:**]{style="color:darkblue;"} Reshape into a consistent format. (**tidyr**)
+3.  [**Transform:**]{style="color:darkblue;"} Create new variables and summaries. (**dplyr**)
+4.  [**Visualize:**]{style="color:darkblue;"} Explore patterns visually.
+5.  [**Model:**]{style="color:darkblue;"} Fit statistical or machine learning models.
+6.  [**Communicate:**]{style="color:darkblue;"} Share insights clearly.
+
 
 ## Why do we need tidy data?
 
@@ -148,7 +160,7 @@ Consider another version:
 
 table2
 ```
-[Not *tidy* because the last column is a summary statistic (count) of two variables.]{style="color:purple;"}
+[Not *tidy* because the last column is a summary statistic (`count`) of two variables.]{style="color:purple;"}
 
 ##
 
@@ -162,7 +174,7 @@ Consider another version:
 table3
 ```
 
-[Not *tidy* because the last column is a summary statistic (rate) of two variables, or there are two measurements involved in this column.]{style="color:purple;"}
+[Not *tidy* because the last column is a summary statistic (`rate`) of two variables, or there are two measurements involved in this column.]{style="color:purple;"}
 
 ##
 
@@ -200,9 +212,13 @@ table4b
 
 ## tidyr's comon functions
 
-</br></br>
+</br>
 
 The **tidyr** provides functions for reshaping, organizing, and completing data.
+
+</br>
+
+Here, we will discuss the more common ones:
 
 | Purpose                   | Function 1       | Function 2      |
 |:--------------------------|:-----------------|:----------------|
@@ -214,6 +230,8 @@ The **tidyr** provides functions for reshaping, organizing, and completing data.
 </br>
 
 Consider the data in the file "spotify.xlsx". This dataset contains the global daily plays of the five most popular songs on the Spotify music streaming service in 2017.
+
+</br>
 
 Let's read the dataset using the function `read_excel()` from the **readxl** library.
 
@@ -248,11 +266,24 @@ Let's apply it to the `spotify_data`.
 #| output: false
 
 spotify_long = spotify_data %>% 
-  pivot_longer(c("Shape of You", "Despacito", "Something Just Like This", 
-                 "HUMBLE.", "Unforgettable"), 
+  pivot_longer(c(`Shape of You`, `Despacito`, `Something Just Like This`, 
+                 `HUMBLE.`, `Unforgettable`), 
                names_to = "Song", 
                values_to = "Plays")
 ```
+
+## Remark on variable names
+
+In R, variable names (column names) typically:
+
+- Cannot contain spaces or special symbols like "-", "/", or "%".
+
+- Cannot start with a number.
+
+So, when a dataset has column names like "Shape of You" or "Something Just Like This", R cannot recognize them directly unless you enclose them in **backticks** ("`"). 
+
+> There are some exceptions though, like when you first define the name of the variable like "Song".
+
 
 ## The long version of the data
 
@@ -282,6 +313,8 @@ spotify_wide %>% head()
 ```
 
 ##
+
+</br>
 
 We can also apply it to the `table2` dataset in the previous section.
 
@@ -314,7 +347,7 @@ Consider an industrial engineer who receives a messy Excel file from a manufactu
 ```{r}
 #| echo: true
 
-client_data = read_excel("industrial_dataset.xlsx")
+industrial_data = read_excel("industrial_dataset.xlsx")
 ```
 
 We use this dataset to illustrate the functions `separate()` and `unite()`.
@@ -326,19 +359,19 @@ We use this dataset to illustrate the functions `separate()` and `unite()`.
 ```{r}
 #| echo: true
 
-client_data %>% head()
+industrial_data %>% head()
 ```
 
 ## `separate()`
 
 `separate()` pulls apart one column into multiple columns, by splitting wherever a separator character appears. 
 
-Consider the column `Comment` from `client_data`.
+Consider the column `Comment` from `industrial_data`.
 
 ```{r}
 #| echo: true
 
-client_data %>% select(Comment)
+industrial_data %>% select(Comment)
 ```
 
 ## 
@@ -351,7 +384,7 @@ The column has some values such as "Requires part: valve" and "Delay: maintenanc
 #| echo: false
 #| output: true
 
-client_data %>% select(Comment)
+industrial_data %>% select(Comment)
 ```
 
 ## 
@@ -362,7 +395,7 @@ Using `separate()`, we split the values in the column according to the colon ":"
 #| echo: true
 #| output: false
 
-augmented_data = client_data  %>% 
+augmented_data = industrial_data  %>% 
 separate(Comment, into = c("First_comment", "Second_comment"), 
          sep = ":")
 ```
@@ -424,12 +457,14 @@ augmented_data  %>%
 
 Duplicate or identical rows are rows that have the same entries in every column in the dataset.
 
-If only one row is needed for the analysis, we can remove the duplicates using the `distinct()` function. Let's illustrate this using the `client_data` dataset.
+</br>
+
+If only one row is needed for the analysis, we can remove the duplicates using the `distinct()` function. Let's illustrate this using the `industrial_data` dataset.
 
 ```{r}
 #| echo: true
 
-client_data_single = client_data  %>% distinct()
+industrial_data_single = industrial_data  %>% distinct()
 ```
 
 ## Add an index column
@@ -441,17 +476,19 @@ In some cases, it is useful to have a unique identifier for each row in the data
 ```{r}
 #| echo: true
 
-client_data_single = client_data_single %>% mutate(ID = row_number())
+industrial_data_single = industrial_data_single %>% mutate(ID = row_number())
 ```
 
 ## 
+
+</br>
 
 The new column is appended to the end of the dataframe.
 
 ```{r}
 #| echo: true
 
-client_data_single %>%  head()
+industrial_data_single %>%  head()
 ```
 
 ## 
@@ -461,15 +498,15 @@ To bring it to the beginning of the array, we can use the `select()` and `everyt
 ```{r}
 #| echo: true
 
-client_data_single = client_data_single %>% 
+industrial_data_single = industrial_data_single %>% 
 select(ID, everything())
 
-client_data_single %>%  head()
+industrial_data_single %>%  head()
 ```
 
 ## Fill blank cells
 
-In the `client_data_single`, there are columns with missing values. We can fill them with specific values or text using `replace_na()` function. In this function, we use the syntaxis `'Variable' = 'Replace'`, where the `Variable` is the column in the dataset and `Replace` is the text or number to fill the entry in.
+In the `industrial_data_single`, there are columns with missing values. We can fill them with specific values or text using `replace_na()` function. In this function, we use the syntaxis `'Variable' = 'Replace'`, where the `Variable` is the column in the dataset and `Replace` is the text or number to fill the entry in.
 
 Let's fill in the missing entries of the columns `Operator`, `Maintenance Date`, and `Comment`.
 
@@ -477,7 +514,7 @@ Let's fill in the missing entries of the columns `Operator`, `Maintenance Date`,
 #| echo: true
 #| output: false
 
-complete_data = client_data_single %>% 
+complete_data = industrial_data_single %>% 
                   replace_na( list(
                   Operator = "Unknown",
                   `Maintenance Date` = as.Date("2023-01-01"),

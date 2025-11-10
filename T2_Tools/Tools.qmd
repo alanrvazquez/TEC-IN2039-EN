@@ -419,16 +419,17 @@ We often have to find these mistakes through trial and error.
 
 Libraries are the fundamental units of reproducible R code. They include reusable R functions, documentation describing how to use them, and sample data.
 
-In this course, we will be working mostly with the following libraries:
+In this course, we will be working mostly with the following libraries for data manipulation:
 
--   `readxl`, `dplyr`, and `tidyr` for data manipulation.
--   `ggplot2` and `ggformula` for data visualization.
+-   `readxl` for reading data.
+-   `dplyr` for data manipulation and wrangling
+-   `tidyr` for structuring data.
 
 # Reading data with **readxl**
 
 ## Loading data in R
 
-In this course, we will assume that data is stored in an Excel file with the above organization. As an example, let's use the file `penguins.xlsx`.
+In this course, we will assume that data is stored in an Excel file. As an example, let's use the file `penguins.xlsx`.
 
 ::::: columns
 ::: {.column width="50%"}
