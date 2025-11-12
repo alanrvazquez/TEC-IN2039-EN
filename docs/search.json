@@ -1656,14 +1656,14 @@
     "href": "T4_WebScraping/WebScraping.slides.html#load-the-libraries",
     "title": "Web Scraping",
     "section": "Load the libraries",
-    "text": "Load the libraries\n\nRemember to load the R libraries into Google Colab before we start:\n\nlibrary(readxl)\nlibrary(dplyr)"
+    "text": "Load the libraries\n\nRemember to load the R libraries into Google Colab before we start:\n\nlibrary(readxl)\nlibrary(dplyr)\nlibrary(tidyr)"
   },
   {
     "objectID": "T4_WebScraping/WebScraping.slides.html#world-wide-web",
     "href": "T4_WebScraping/WebScraping.slides.html#world-wide-web",
     "title": "Web Scraping",
     "section": "World Wide Web",
-    "text": "World Wide Web\nWWW (or the Web) is the information system where documents (web pages) are identified by Uniform Resource Locators (URLs)\nA web page consists of:\n\nHTML provides the basic structure of the web page\nCSS controls the look of the web page (optional)\nJS is a programming language that can modify the behavior of elements of the web page (optional)"
+    "text": "World Wide Web\n\nWWW (or the Web) is the information system where documents (web pages) are identified by Uniform Resource Locators (URLs)\nA web page consists of:\n\nHTML provides the basic structure of the web page\nCSS controls the look of the web page (optional)\nJS is a programming language that can modify the behavior of elements of the web page (optional)"
   },
   {
     "objectID": "T4_WebScraping/WebScraping.slides.html#hypertext-markup-language-html",
@@ -1719,28 +1719,28 @@
     "href": "T4_WebScraping/WebScraping.slides.html#section",
     "title": "Web Scraping",
     "section": "",
-    "text": "Block tags form the overall structure of the page:\n\nHeader 1: &lt;h1&gt;content&lt;/h1&gt;\nParagraph: &lt;p&gt;content&lt;/p&gt;\nOrdered list: &lt;ol&gt;content&lt;/ol&gt;\n\nInline tags that format text inside block tags:\n\nBold: &lt;b&gt;content&lt;/b&gt;\nItalics: &lt;i&gt;content&lt;/i&gt;\nLinks: &lt;a&gt;content&lt;/a&gt;"
+    "text": "Block tags form the overall structure of the page:\n\nHeader 1: &lt;h1&gt;content&lt;/h1&gt;\nParagraph: &lt;p&gt;content&lt;/p&gt;\nOrdered list: &lt;ol&gt;content&lt;/ol&gt;\n\n\n\n\nInline tags that format text inside block tags:\n\nBold: &lt;b&gt;content&lt;/b&gt;\nItalics: &lt;i&gt;content&lt;/i&gt;\nLinks: &lt;a&gt;content&lt;/a&gt;"
   },
   {
     "objectID": "T4_WebScraping/WebScraping.slides.html#getting-html-text",
     "href": "T4_WebScraping/WebScraping.slides.html#getting-html-text",
     "title": "Web Scraping",
     "section": "Getting HTML text",
-    "text": "Getting HTML text\n\nisa_course_titles_en = isa_course_titles %&gt;%\n  html_text2()\nisa_course_titles_en %&gt;% head()\n\n[1] \"ISA 125. Introduction to Business Statistics. (3)\"                               \n[2] \"ISA 177. Independent Studies. (0-6; maximum 10)\"                                 \n[3] \"ISA 211. Information Technology and Data Driven Decision Making in Business. (3)\"\n[4] \"ISA 225. Principles of Business Analytics. (3)\"                                  \n[5] \"ISA 235. Information Technology and the Intelligent Enterprise. (3)\"             \n[6] \"ISA 241. Database for Analytics. (1.5)\""
+    "text": "Getting HTML text\n\ncrashes_table %&gt;% html_table(header = TRUE)\n\n[[1]]\n# A tibble: 12 × 4\n   Date        `Location / Operator`           Aircraft Type / Regi…¹ Fatalities\n   &lt;chr&gt;       &lt;chr&gt;                           &lt;chr&gt;                  &lt;chr&gt;     \n 1 07 Jan 2025 Off Rottnest Island, WA, Austr… Cessna 208 Caravan 67… 3/7(0)    \n 2 29 Jan 2025 Washington DCAmerican Eagle / … Canadair CRJ-701ER /U… 67/67(0)  \n 3 29 Jan 2025 GPOC Unity Airstrip, South Sud… Beechcraft 1900D5X-RHB 20/21(0)  \n 4 31 Jan 2025 Philadelphia, PennsylvaniaMed … Learjet 55XA-UCI       6/6(1)    \n 5 06 Feb 2025 Norton SoundBering Air          Cessna 208B Grand Car… 10/10(0)  \n 6 17 Feb 2025 Toronto, CanadaDelta Connectio… Bombardier CRJ-900LRN… 0/80(0)   \n 7 25 Feb 2025 Omdurman, SudanMilitary - Suda… Antonov An-26?         17/17(29) \n 8 17 Mar 2025 Off Roatan, HondurasLANHSA      British Aerospace BAe… 12/17(0)  \n 9 12 Jun 2025 Ahmedabad, IndiaAir India       Boeing 787-8 Dreamlin… 241/242(3…\n10 24 Jul 2025 Tynda, RussiaAngara Airlines    Antonov An-24VRA-47315 48/48(0)  \n11 20 Oct 2025 Hong Kong, ChinaACT Airlines, … Boeing 747-481TC-ACF   0/4(2)    \n12 04 Nov 2025 Louisville, KentuckyUnited Par… McDonnell Douglas MD1… 3/3(11)   \n# ℹ abbreviated name: ¹​`Aircraft Type / Registration`"
   },
   {
     "objectID": "T4_WebScraping/WebScraping.slides.html#example-2",
     "href": "T4_WebScraping/WebScraping.slides.html#example-2",
     "title": "Web Scraping",
     "section": "Example 2",
-    "text": "Example 2\nConsider the plan crashes database.\n\nplane_crashes = read_html(\"https://www.planecrashinfo.com/2025/2025.htm\")\nplane_crashes %&gt;%  head()\n\n$node\n&lt;pointer: 0x11307c5d0&gt;\n\n$doc\n&lt;pointer: 0x11307ca00&gt;\n\n\nWe use the function html_elements() from rvest.\n\ncrashes_table = plane_crashes %&gt;% \n  html_elements(css = \"table\")"
+    "text": "Example 2\nLet’s scrape data on the super bowl results and winners. To this end, we will use the website: https://www.foxsports.com/nfl-super-bowl-winners-and-results"
   },
   {
     "objectID": "T4_WebScraping/WebScraping.slides.html#getting-html-text-1",
     "href": "T4_WebScraping/WebScraping.slides.html#getting-html-text-1",
     "title": "Web Scraping",
     "section": "Getting HTML text",
-    "text": "Getting HTML text\n\ncrashes_table %&gt;% html_table(header = TRUE)\n\n[[1]]\n# A tibble: 12 × 4\n   Date        `Location / Operator`           Aircraft Type / Regi…¹ Fatalities\n   &lt;chr&gt;       &lt;chr&gt;                           &lt;chr&gt;                  &lt;chr&gt;     \n 1 07 Jan 2025 Off Rottnest Island, WA, Austr… Cessna 208 Caravan 67… 3/7(0)    \n 2 29 Jan 2025 Washington DCAmerican Eagle / … Canadair CRJ-701ER /U… 67/67(0)  \n 3 29 Jan 2025 GPOC Unity Airstrip, South Sud… Beechcraft 1900D5X-RHB 20/21(0)  \n 4 31 Jan 2025 Philadelphia, PennsylvaniaMed … Learjet 55XA-UCI       6/6(1)    \n 5 06 Feb 2025 Norton SoundBering Air          Cessna 208B Grand Car… 10/10(0)  \n 6 17 Feb 2025 Toronto, CanadaDelta Connectio… Bombardier CRJ-900LRN… 0/80(0)   \n 7 25 Feb 2025 Omdurman, SudanMilitary - Suda… Antonov An-26?         17/17(29) \n 8 17 Mar 2025 Off Roatan, HondurasLANHSA      British Aerospace BAe… 12/17(0)  \n 9 12 Jun 2025 Ahmedabad, IndiaAir India       Boeing 787-8 Dreamlin… 241/242(3…\n10 24 Jul 2025 Tynda, RussiaAngara Airlines    Antonov An-24VRA-47315 48/48(0)  \n11 20 Oct 2025 Hong Kong, ChinaACT Airlines, … Boeing 747-481TC-ACF   0/4(2)    \n12 04 Nov 2025 Louisville, KentuckyUnited Par… McDonnell Douglas MD1… 3/3(11)   \n# ℹ abbreviated name: ¹​`Aircraft Type / Registration`"
+    "text": "Getting HTML text\n\nisa_course_titles_en = isa_course_titles %&gt;%\n  html_text2()\nisa_course_titles_en %&gt;% head()\n\n[1] \"ISA 125. Introduction to Business Statistics. (3)\"                               \n[2] \"ISA 177. Independent Studies. (0-6; maximum 10)\"                                 \n[3] \"ISA 211. Information Technology and Data Driven Decision Making in Business. (3)\"\n[4] \"ISA 225. Principles of Business Analytics. (3)\"                                  \n[5] \"ISA 235. Information Technology and the Intelligent Enterprise. (3)\"             \n[6] \"ISA 241. Database for Analytics. (1.5)\""
   },
   {
     "objectID": "T4_WebScraping/WebScraping.slides.html#html-basics",
@@ -1754,7 +1754,7 @@
     "href": "T4_WebScraping/WebScraping.slides.html#section-1",
     "title": "Web Scraping",
     "section": "",
-    "text": "On the Google Chrome webbrowser, you see the HTML used for generating the website by right clicking on any blank part of it and select “Inspector”."
+    "text": "On the Google Chrome webrowser, you see the HTML used for generating the website by right clicking on any blank part of it and select “Inspector”."
   },
   {
     "objectID": "T4_WebScraping/WebScraping.slides.html#html-basics-1",
@@ -1852,7 +1852,7 @@
     "href": "T4_WebScraping/WebScraping.slides.html#section-7",
     "title": "Web Scraping",
     "section": "",
-    "text": "We use the function html_elements() from rvest.\n\nisa_course_titles = isa_courses %&gt;% \n  html_elements(css = \"p.courseblocktitle\")\nisa_course_titles %&gt;% head()\n\n{xml_nodeset (6)}\n[1] &lt;p class=\"courseblocktitle\"&gt;&lt;strong&gt;ISA 125.  Introduction to Business St ...\n[2] &lt;p class=\"courseblocktitle\"&gt;&lt;strong&gt;ISA 177.  Independent Studies.  (0-6; ...\n[3] &lt;p class=\"courseblocktitle\"&gt;&lt;strong&gt;ISA 211.  Information Technology and  ...\n[4] &lt;p class=\"courseblocktitle\"&gt;&lt;strong&gt;ISA 225.  Principles of Business Anal ...\n[5] &lt;p class=\"courseblocktitle\"&gt;&lt;strong&gt;ISA 235.  Information Technology and  ...\n[6] &lt;p class=\"courseblocktitle\"&gt;&lt;strong&gt;ISA 241.  Database for Analytics.  (1 ..."
+    "text": "Using rvest, we load the HTML code of the website using the function read_html().\n\nsuperbowl_website = read_html(\"https://www.foxsports.com/nfl-super-bowl-winners-and-results\")\nsuperbowl_website \n\n{html_document}\n&lt;html lang=\"en-US\" prefix=\"og: \"http://ogp.me/ns# fb: http://ogp.me/ns/fb#\"\"&gt;\n[1] &lt;head&gt;\\n&lt;meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8 ...\n[2] &lt;body class=\"default\"&gt;\\n&lt;div id=\"__nuxt\"&gt;&lt;div class=\"fscom-container layo ..."
   },
   {
     "objectID": "T4_WebScraping/WebScraping.slides.html#example-1-1",
@@ -1866,6 +1866,125 @@
     "href": "T4_WebScraping/WebScraping.slides.html#section-8",
     "title": "Web Scraping",
     "section": "",
+    "text": "We scrape elements of a website stored in superbowl_website using the function html_elements().\nFor example, we can retrieve all paragraph elements (&lt;p&gt;content&lt;\\p&gt;). To this end, we set the CSS selector to “p”.\n\nsb_web_p = superbowl_website %&gt;% \n  html_elements(css = \"p\")\nsb_web_p\n\n{xml_nodeset (4)}\n[1] &lt;p class=\"subnav-title ff-ffc bold fs-23 lh-25 uc pd-b-10\"&gt;\\n             ...\n[2] &lt;p class=\"subnav-title ff-ffc bold fs-23 lh-25 uc pd-b-10\"&gt;\\n             ...\n[3] &lt;p style=\"margin-top:10px;\"&gt;Super Bowl History of each of the Super Bowl  ...\n[4] &lt;p style=\"margin-bottom:15px;margin-top:40px;\"&gt;&lt;span class=\"fs-18\"&gt;&lt;&l ..."
+  },
+  {
+    "objectID": "T4_WebScraping/WebScraping.slides.html#what-is-web-scraping",
+    "href": "T4_WebScraping/WebScraping.slides.html#what-is-web-scraping",
+    "title": "Web Scraping",
+    "section": "What is web scraping?",
+    "text": "What is web scraping?\nIt is the process of automatically extracting information from websites. It allows you to collect data that is displayed on web pages but not directly available for download.\n\n\n\n\n\n\n\nCommon uses include:\n\nCollecting product or price information\n\nGathering research or statistical data\n\nMonitoring online content changes"
+  },
+  {
+    "objectID": "T4_WebScraping/WebScraping.slides.html#now-lets-inspect-the-elements-using-selectorgadget",
+    "href": "T4_WebScraping/WebScraping.slides.html#now-lets-inspect-the-elements-using-selectorgadget",
+    "title": "Web Scraping",
+    "section": "Now, let’s inspect the elements using SelectorGadget",
+    "text": "Now, let’s inspect the elements using SelectorGadget"
+  },
+  {
+    "objectID": "T4_WebScraping/WebScraping.slides.html#section-9",
+    "href": "T4_WebScraping/WebScraping.slides.html#section-9",
+    "title": "Web Scraping",
+    "section": "",
+    "text": "However, the scraped elements are in HTML code.\nTo turn them into actual text for R, we use the html_text2() function.\n\nsuperbowl_web_paragraph = sb_web_p %&gt;%\n  html_text2()\nsuperbowl_web_paragraph\n\n[1] \"POPULAR SEARCHES\"                                                                                                                                                                                   \n[2] \"BROWSE BY\"                                                                                                                                                                                          \n[3] \"Super Bowl History of each of the Super Bowl winning and losing teams throughout NFL professional football history. The Super Bowl locations, dates and final scores are also included (1967-2024).\"\n[4] \"&lt;&lt; SUPER BOWL PAGE\""
+  },
+  {
+    "objectID": "T4_WebScraping/WebScraping.slides.html#example-2-1",
+    "href": "T4_WebScraping/WebScraping.slides.html#example-2-1",
+    "title": "Web Scraping",
+    "section": "Example 2",
+    "text": "Example 2\nConsider the plan crashes database.\n\nplane_crashes = read_html(\"https://www.planecrashinfo.com/2025/2025.htm\")\nplane_crashes %&gt;%  head()\n\n$node\n&lt;pointer: 0x104e71800&gt;\n\n$doc\n&lt;pointer: 0x104e72510&gt;\n\n\nWe use the function html_elements() from rvest.\n\ncrashes_table = plane_crashes %&gt;% \n  html_elements(css = \"table\")"
+  },
+  {
+    "objectID": "T4_WebScraping/WebScraping.slides.html#section-10",
+    "href": "T4_WebScraping/WebScraping.slides.html#section-10",
+    "title": "Web Scraping",
+    "section": "",
     "text": "We use the function html_elements() from rvest.\n\nisa_course_titles = isa_courses %&gt;% \n  html_elements(css = \"p.courseblocktitle\")\nisa_course_titles %&gt;% head()\n\n{xml_nodeset (6)}\n[1] &lt;p class=\"courseblocktitle\"&gt;&lt;strong&gt;ISA 125.  Introduction to Business St ...\n[2] &lt;p class=\"courseblocktitle\"&gt;&lt;strong&gt;ISA 177.  Independent Studies.  (0-6; ...\n[3] &lt;p class=\"courseblocktitle\"&gt;&lt;strong&gt;ISA 211.  Information Technology and  ...\n[4] &lt;p class=\"courseblocktitle\"&gt;&lt;strong&gt;ISA 225.  Principles of Business Anal ...\n[5] &lt;p class=\"courseblocktitle\"&gt;&lt;strong&gt;ISA 235.  Information Technology and  ...\n[6] &lt;p class=\"courseblocktitle\"&gt;&lt;strong&gt;ISA 241.  Database for Analytics.  (1 ..."
+  },
+  {
+    "objectID": "T4_WebScraping/WebScraping.slides.html#example-2-2",
+    "href": "T4_WebScraping/WebScraping.slides.html#example-2-2",
+    "title": "Web Scraping",
+    "section": "Example 2",
+    "text": "Example 2\nConsider the plan crashes database.\n\nplane_crashes = read_html(\"https://www.planecrashinfo.com/2025/2025.htm\")\nplane_crashes %&gt;%  head()\n\n$node\n&lt;pointer: 0x11785de40&gt;\n\n$doc\n&lt;pointer: 0x11785dd90&gt;\n\n\nWe use the function html_elements() from rvest.\n\ncrashes_table = plane_crashes %&gt;% \n  html_elements(css = \"table\")"
+  },
+  {
+    "objectID": "T4_WebScraping/WebScraping.slides.html#getting-html-text-2",
+    "href": "T4_WebScraping/WebScraping.slides.html#getting-html-text-2",
+    "title": "Web Scraping",
+    "section": "Getting HTML text",
+    "text": "Getting HTML text\n\ncrashes_table %&gt;% html_table(header = TRUE)\n\n[[1]]\n# A tibble: 12 × 4\n   Date        `Location / Operator`           Aircraft Type / Regi…¹ Fatalities\n   &lt;chr&gt;       &lt;chr&gt;                           &lt;chr&gt;                  &lt;chr&gt;     \n 1 07 Jan 2025 Off Rottnest Island, WA, Austr… Cessna 208 Caravan 67… 3/7(0)    \n 2 29 Jan 2025 Washington DCAmerican Eagle / … Canadair CRJ-701ER /U… 67/67(0)  \n 3 29 Jan 2025 GPOC Unity Airstrip, South Sud… Beechcraft 1900D5X-RHB 20/21(0)  \n 4 31 Jan 2025 Philadelphia, PennsylvaniaMed … Learjet 55XA-UCI       6/6(1)    \n 5 06 Feb 2025 Norton SoundBering Air          Cessna 208B Grand Car… 10/10(0)  \n 6 17 Feb 2025 Toronto, CanadaDelta Connectio… Bombardier CRJ-900LRN… 0/80(0)   \n 7 25 Feb 2025 Omdurman, SudanMilitary - Suda… Antonov An-26?         17/17(29) \n 8 17 Mar 2025 Off Roatan, HondurasLANHSA      British Aerospace BAe… 12/17(0)  \n 9 12 Jun 2025 Ahmedabad, IndiaAir India       Boeing 787-8 Dreamlin… 241/242(3…\n10 24 Jul 2025 Tynda, RussiaAngara Airlines    Antonov An-24VRA-47315 48/48(0)  \n11 20 Oct 2025 Hong Kong, ChinaACT Airlines, … Boeing 747-481TC-ACF   0/4(2)    \n12 04 Nov 2025 Louisville, KentuckyUnited Par… McDonnell Douglas MD1… 3/3(11)   \n# ℹ abbreviated name: ¹​`Aircraft Type / Registration`"
+  },
+  {
+    "objectID": "T4_WebScraping/WebScraping.slides.html#section-11",
+    "href": "T4_WebScraping/WebScraping.slides.html#section-11",
+    "title": "Web Scraping",
+    "section": "",
+    "text": "We retrieve the data in the table by setting css = data-table in the html_elements() function.\n\nsb_table_data = superbowl_website %&gt;% \n  html_elements(css = \".data-table\")\nsb_table_data\n\n{xml_nodeset (2)}\n[1] &lt;table class=\"data-table\"&gt;\\n&lt;thead class=\"data-header fs-11 ls-pt25\"&gt;&lt;tr  ...\n[2] &lt;table class=\"data-table\"&gt;\\n&lt;thead class=\"data-header fs-11 ls-pt25\"&gt;&lt;tr  ...\n\n\nNote that we have loaded two tables simultaneously."
+  },
+  {
+    "objectID": "T4_WebScraping/WebScraping.slides.html#section-12",
+    "href": "T4_WebScraping/WebScraping.slides.html#section-12",
+    "title": "Web Scraping",
+    "section": "",
+    "text": "Again, the tables are in HTML format. We can turn them into standard R tables using the function html_table().\n\nsuperbowl_tables = sb_table_data %&gt;% html_table()\nsuperbowl_tables\n\n[[1]]\n# A tibble: 59 × 4\n   NO.   LOCATION                      DATE          `TEAMS & RESULT`           \n   &lt;chr&gt; &lt;chr&gt;                         &lt;chr&gt;         &lt;chr&gt;                      \n 1 I     Los Angeles Memorial Coliseum Jan. 15, 1967 Green Bay 35, Kansas City …\n 2 II    Miami Orange Bowl             Jan. 14, 1968 Green Bay 33, Oakland 14   \n 3 III   Miami Orange Bowl             Jan. 12, 1969 New York Jets 16, Baltimor…\n 4 IV    Tulane Stadium                Jan. 11, 1970 Kansas City 23, Minnesota 7\n 5 V     Miami Orange Bowl             Jan. 17, 1971 Baltimore 16, Dallas 13    \n 6 VI    Tulane Stadium                Jan. 16, 1972 Dallas 24, Miami 3         \n 7 VII   Los Angeles Memorial Coliseum Jan. 14, 1973 Miami 14, Washington 7     \n 8 VIII  Rice Stadium                  Jan. 13, 1974 Miami 24, Minnesota 7      \n 9 IX    Tulane Stadium                Jan. 12, 1975 Pittsburgh 16, Minnesota 6 \n10 X     Miami Orange Bowl             Jan. 18, 1976 Pittsburgh 21, Dallas 17   \n# ℹ 49 more rows\n\n[[2]]\n# A tibble: 20 × 2\n   TEAM                   WINS\n   &lt;chr&gt;                 &lt;int&gt;\n 1 New England Patriots      6\n 2 Pittsburgh Steelers       6\n 3 Dallas Cowboys            5\n 4 San Francisco 49ers       5\n 5 Green Bay Packers         4\n 6 New York Giants           4\n 7 Kansas City Chiefs        4\n 8 Denver Broncos            3\n 9 Washington Commanders     3\n10 Las Vegas Raiders         3\n11 Miami Dolphins            2\n12 Los Angeles Rams          2\n13 Indianapolis Colts        2\n14 Baltimore Ravens          2\n15 Tampa Bay Buccaneers      2\n16 Philadelphia Eagles       2\n17 Seattle Seahawks          1\n18 Chicago Bears             1\n19 New York Jets             1\n20 New Orleans Saints        1"
+  },
+  {
+    "objectID": "T4_WebScraping/WebScraping.slides.html#section-13",
+    "href": "T4_WebScraping/WebScraping.slides.html#section-13",
+    "title": "Web Scraping",
+    "section": "",
+    "text": "However, the output superbowl_tables is not a single table, but several objects included in an R list().\nA list() in R is a data structure that can store elements of different types, such as numbers, strings, vectors, or even other lists.\nIt’s the most flexible container in R — unlike vectors or data frames, a list can mix various kinds of data in one object."
+  },
+  {
+    "objectID": "T4_WebScraping/WebScraping.slides.html#section-14",
+    "href": "T4_WebScraping/WebScraping.slides.html#section-14",
+    "title": "Web Scraping",
+    "section": "",
+    "text": "To retrieve one table, we select the elements of the resulting list superbowl_tables. For instance, to display the first table we use…\n\nsuperbowl_tables[[1]] %&gt;%  head()\n\n# A tibble: 6 × 4\n  NO.   LOCATION                      DATE          `TEAMS & RESULT`            \n  &lt;chr&gt; &lt;chr&gt;                         &lt;chr&gt;         &lt;chr&gt;                       \n1 I     Los Angeles Memorial Coliseum Jan. 15, 1967 Green Bay 35, Kansas City 10\n2 II    Miami Orange Bowl             Jan. 14, 1968 Green Bay 33, Oakland 14    \n3 III   Miami Orange Bowl             Jan. 12, 1969 New York Jets 16, Baltimore…\n4 IV    Tulane Stadium                Jan. 11, 1970 Kansas City 23, Minnesota 7 \n5 V     Miami Orange Bowl             Jan. 17, 1971 Baltimore 16, Dallas 13     \n6 VI    Tulane Stadium                Jan. 16, 1972 Dallas 24, Miami 3"
+  },
+  {
+    "objectID": "T4_WebScraping/WebScraping.slides.html#section-15",
+    "href": "T4_WebScraping/WebScraping.slides.html#section-15",
+    "title": "Web Scraping",
+    "section": "",
+    "text": "To retrieve the second table, we use…\n\nsuperbowl_tables[[1]] %&gt;%  head()\n\n# A tibble: 6 × 4\n  NO.   LOCATION                      DATE          `TEAMS & RESULT`            \n  &lt;chr&gt; &lt;chr&gt;                         &lt;chr&gt;         &lt;chr&gt;                       \n1 I     Los Angeles Memorial Coliseum Jan. 15, 1967 Green Bay 35, Kansas City 10\n2 II    Miami Orange Bowl             Jan. 14, 1968 Green Bay 33, Oakland 14    \n3 III   Miami Orange Bowl             Jan. 12, 1969 New York Jets 16, Baltimore…\n4 IV    Tulane Stadium                Jan. 11, 1970 Kansas City 23, Minnesota 7 \n5 V     Miami Orange Bowl             Jan. 17, 1971 Baltimore 16, Dallas 13     \n6 VI    Tulane Stadium                Jan. 16, 1972 Dallas 24, Miami 3"
+  },
+  {
+    "objectID": "T4_WebScraping/WebScraping.slides.html#data-wrangling",
+    "href": "T4_WebScraping/WebScraping.slides.html#data-wrangling",
+    "title": "Web Scraping",
+    "section": "Data wrangling",
+    "text": "Data wrangling\nTo make the data easier to work, we will create a separate column for year. To this end, we use separate() from tidyr.\n\nsuperbowl_data_wr = superbowl_data %&gt;% \n  separate(DATE, into = c(\"Day\", \"Year\"), sep = \",\")\nsuperbowl_data_wr %&gt;% head()\n\n# A tibble: 6 × 5\n  NO.   LOCATION                      Day     Year    `TEAMS & RESULT`          \n  &lt;chr&gt; &lt;chr&gt;                         &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;                     \n1 I     Los Angeles Memorial Coliseum Jan. 15 \" 1967\" Green Bay 35, Kansas City…\n2 II    Miami Orange Bowl             Jan. 14 \" 1968\" Green Bay 33, Oakland 14  \n3 III   Miami Orange Bowl             Jan. 12 \" 1969\" New York Jets 16, Baltimo…\n4 IV    Tulane Stadium                Jan. 11 \" 1970\" Kansas City 23, Minnesota…\n5 V     Miami Orange Bowl             Jan. 17 \" 1971\" Baltimore 16, Dallas 13   \n6 VI    Tulane Stadium                Jan. 16 \" 1972\" Dallas 24, Miami 3"
+  },
+  {
+    "objectID": "T4_WebScraping/WebScraping.slides.html#be-careful",
+    "href": "T4_WebScraping/WebScraping.slides.html#be-careful",
+    "title": "Web Scraping",
+    "section": "Be careful…",
+    "text": "Be careful…\nThe new column Year is character, so we turn it into numeric using the code below.\n\nsuperbowl_data_wr = superbowl_data_wr %&gt;% \n  mutate(`Year` = as.numeric(`Year`))\nsuperbowl_data_wr %&gt;% head()\n\n# A tibble: 6 × 5\n  NO.   LOCATION                      Day      Year `TEAMS & RESULT`            \n  &lt;chr&gt; &lt;chr&gt;                         &lt;chr&gt;   &lt;dbl&gt; &lt;chr&gt;                       \n1 I     Los Angeles Memorial Coliseum Jan. 15  1967 Green Bay 35, Kansas City 10\n2 II    Miami Orange Bowl             Jan. 14  1968 Green Bay 33, Oakland 14    \n3 III   Miami Orange Bowl             Jan. 12  1969 New York Jets 16, Baltimore…\n4 IV    Tulane Stadium                Jan. 11  1970 Kansas City 23, Minnesota 7 \n5 V     Miami Orange Bowl             Jan. 17  1971 Baltimore 16, Dallas 13     \n6 VI    Tulane Stadium                Jan. 16  1972 Dallas 24, Miami 3"
+  },
+  {
+    "objectID": "T4_WebScraping/WebScraping.slides.html#section-17",
+    "href": "T4_WebScraping/WebScraping.slides.html#section-17",
+    "title": "Web Scraping",
+    "section": "",
+    "text": "Further, let’s separate the column TEAMS & RESULT into two columns W Team and L Team.\n\nsuperbowl_data_wr = superbowl_data_wr %&gt;% \n  separate(`TEAMS & RESULT`, into = c(\"W Team\", \"L Team\"), sep = \",\")\nsuperbowl_data_wr %&gt;% head()\n\n# A tibble: 6 × 6\n  NO.   LOCATION                      Day      Year `W Team`         `L Team`   \n  &lt;chr&gt; &lt;chr&gt;                         &lt;chr&gt;   &lt;dbl&gt; &lt;chr&gt;            &lt;chr&gt;      \n1 I     Los Angeles Memorial Coliseum Jan. 15  1967 Green Bay 35     \" Kansas C…\n2 II    Miami Orange Bowl             Jan. 14  1968 Green Bay 33     \" Oakland …\n3 III   Miami Orange Bowl             Jan. 12  1969 New York Jets 16 \" Baltimor…\n4 IV    Tulane Stadium                Jan. 11  1970 Kansas City 23   \" Minnesot…\n5 V     Miami Orange Bowl             Jan. 17  1971 Baltimore 16     \" Dallas 1…\n6 VI    Tulane Stadium                Jan. 16  1972 Dallas 24        \" Miami 3\""
+  },
+  {
+    "objectID": "T4_WebScraping/WebScraping.slides.html#section-18",
+    "href": "T4_WebScraping/WebScraping.slides.html#section-18",
+    "title": "Web Scraping",
+    "section": "",
+    "text": "After that, we can separate the score of each team into corresponding columns. Note that we must also ensure that the new columns are numeric. All these steps are carried out using the pipeline below.\n\nsuperbowl_data_final = superbowl_data_wr %&gt;% \n  separate(`W Team`, into = c(\"W Team\", \"W Score\"), sep = \"(?&lt;=\\\\D)(?=\\\\d)\") %&gt;% \n  separate(`L Team`, into = c(\"L Team\", \"L Score\"), sep = \"(?&lt;=\\\\D)(?=\\\\d)\") %&gt;% \n  mutate(`W Score` = as.numeric(`W Score`),\n         `L Score` = as.numeric(`L Score`))\n\n\nThe sep = \"(?&lt;=\\\\D)(?=\\\\d)\" tells R that we want to isolate the numbers into a new column."
+  },
+  {
+    "objectID": "T4_WebScraping/WebScraping.slides.html#the-final-dataset",
+    "href": "T4_WebScraping/WebScraping.slides.html#the-final-dataset",
+    "title": "Web Scraping",
+    "section": "The final dataset",
+    "text": "The final dataset\n\nsuperbowl_data_final %&gt;% head(10)\n\n# A tibble: 10 × 8\n   NO.   LOCATION              Day    Year `W Team` `W Score` `L Team` `L Score`\n   &lt;chr&gt; &lt;chr&gt;                 &lt;chr&gt; &lt;dbl&gt; &lt;chr&gt;        &lt;dbl&gt; &lt;chr&gt;        &lt;dbl&gt;\n 1 I     Los Angeles Memorial… Jan.…  1967 \"Green …        35 \" Kansa…        10\n 2 II    Miami Orange Bowl     Jan.…  1968 \"Green …        33 \" Oakla…        14\n 3 III   Miami Orange Bowl     Jan.…  1969 \"New Yo…        16 \" Balti…         7\n 4 IV    Tulane Stadium        Jan.…  1970 \"Kansas…        23 \" Minne…         7\n 5 V     Miami Orange Bowl     Jan.…  1971 \"Baltim…        16 \" Dalla…        13\n 6 VI    Tulane Stadium        Jan.…  1972 \"Dallas…        24 \" Miami…         3\n 7 VII   Los Angeles Memorial… Jan.…  1973 \"Miami \"        14 \" Washi…         7\n 8 VIII  Rice Stadium          Jan.…  1974 \"Miami \"        24 \" Minne…         7\n 9 IX    Tulane Stadium        Jan.…  1975 \"Pittsb…        16 \" Minne…         6\n10 X     Miami Orange Bowl     Jan.…  1976 \"Pittsb…        21 \" Dalla…        17"
   }
 ]
