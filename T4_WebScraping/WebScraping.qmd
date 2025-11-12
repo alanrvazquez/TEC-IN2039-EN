@@ -1,0 +1,47 @@
+---
+title: "Web Scraping"
+subtitle: "IN2039: Data Visualization for Decision Making"
+author: 
+  - name: Alan R. Vazquez
+    affiliations:
+      - name: Department of Industrial Engineering
+format: 
+  revealjs:
+    chalkboard: false
+    multiplex: false
+    footer: "Tecnologico de Monterrey"
+    logo: IN2039_logo.png
+    css: style.css
+    slide-number: True
+    html-math-method: mathjax
+editor: visual
+---
+
+## Agenda
+
+</br>
+
+1.  Tidy Data
+2.  **tidyr** within the Tidyverse
+3.  Data Wrangling
+
+## Load the libraries
+
+</br></br></br>
+
+Remember to load the R libraries into Google Colab before we start:
+
+```{r}
+#| echo: true
+#| output: false
+
+library(readxl)
+library(dplyr)
+```
+
+# Tidy Data
+
+## A new library: tidyr
+
+
+# [Return to main page](https://alanrvazquez.github.io/TEC-IN2039-EN/)
