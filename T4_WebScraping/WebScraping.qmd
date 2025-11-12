@@ -21,27 +21,280 @@ editor: visual
 
 </br>
 
-1.  Tidy Data
-2.  **tidyr** within the Tidyverse
-3.  Data Wrangling
+1.  HTML Basics
+2.  Web Scraping with the **rvest** package
 
-## Load the libraries
+# HTML Basics
 
-</br></br></br>
+## World Wide Web
 
-Remember to load the R libraries into Google Colab before we start:
+WWW (or the Web) is the information system where documents (web pages) are identified by Uniform Resource Locators (URLs)
+
+A web page consists of:
+
+- **HTML** provides the basic structure of the web page
+
+- **CSS** controls the look of the web page (optional)
+
+- **JS** is a programming language that can modify the behavior of elements of the web page (optional) 
+
+##  HTML basics
+
+HTML stands for “HyperText Markup Language” and looks like this
+
+```html
+<html>
+<head>
+  <title>Page title</title>
+</head>
+<body>
+  <h1 id='first'>A heading</h1>
+  <p>Some text &amp; <b>some bold text.</b></p>
+  <img src='myimg.png' width='100' height='100'>
+</body>
+```
+
+HTML has a hierarchical structure formed by elements which consist of a start tag (e.g. `<tag>`), optional attributes (`id='first'`), an end tag1 (like `</tag>`), and contents (everything in between the start and end tag).
+
+## Elements
+
+
+</br></br>
+
+There are over 100 HTML elements. Some of the most important are:
+
+- Every HTML page must be in an `<html>` element, and it must have two children: 
+
+    - `<head>` containing document metadata like the page title
+    - `<body>` containing the content you see in the browser.
+
+
+
+## 
+
+</br>
+
+- Block tags form the overall structure of the page: 
+    - Header 1: `<h1>content</h1>`
+    - Paragraph: `<p>content</p>`
+    - Ordered list: `<ol>content</ol>`
+
+- Inline tags that format text inside block tags:
+    - Bold: `<b>content</b>`
+    - Italics: `<i>content</i>`
+    - Links: `<a>content</a>`
+
+## Other elements
+
+</br></br>
+
+| Element            | HTML syntax                   |
+|:--------------------|:------------------------------|
+| Block               | `<div>content</div>`          |
+| Inline              | `<span>content</span>`        |
+| Header 2            | `<h2>content</h2>`            |
+| Emphasized text     | `<em>content</em>`            |
+| Strong importance   | `<strong>content</strong>`    |
+
+
+## Contents
+
+Most elements can have content (text or more elements) in between their start and end tags. For example, the following HTML contains paragraph of text, with a word in bold.
+
+```html
+<p>Hi! My name is <b>Hadley</b>.</p>
+```
+
+- The `<p>` element is the parent node that contains text and one child element, `<b>`.
+
+- The `<b>` element wraps the word Hadley and gives it bold formatting.
+
+- `<b>` has contents (the text “Hadley”) but no children of its own.
+
+
+
+## Attributes
+
+</br>
+
+Tags can have named **attributes** which look like `name1='value1'` `name2='value2'`. 
+
+</br>
+
+Two of the most important attributes are `id` and `class`, which are used in conjunction with CSS (Cascading Style Sheets) to control the visual appearance of the page. 
+
+</br>
+
+These are often useful when scraping data off a page.
+
+## HTML Syntax
+
+</br>
+
+![](images/HTML_syntax.png){fig-align="center"}
+
+## Example 1
+
+Let's check a Wikipedia page about industrial engineering: <https://en.wikipedia.org/wiki/Industrial_engineering>
+
+![](images/IE_website.png){fig-align="center"}
+
+## 
+
+On the Google Chrome webbrowser, you see the HTML used for generating the website by right clicking on any blank part of it and select "**Inspector**". 
+
+![](images/RightClickInspect.png){fig-align="center"}
+
+## 
+
+A new section of the website appears. 
+
+![](images/Selector.png){fig-align="center"}
+
+## 
+
+The HTML code is located at the first box.
+
+![](images/HTMLHighlight.png){fig-align="center"}
+
+## SelectorGadget
+
+Alternatively, Google Chrome has an extension called **SelectorGadget** to inspect specific elements of a website.
+
+![](images/SelectorGadget.png){fig-align="center"}
+
+## 
+
+</br></br>
+
+After installing it, it should be next to your search bar.
+
+![](images/SGlocation.png){fig-align="center"}
+
+## 
+
+Using the gadget, you can inspect specific elements of the website. For example, we can inspect a the selected paragraph in green.
+
+![](images/Paragraph.png){fig-align="center"}
+
+The bar of **SelectorGadget** identifies that the element is a `p` because it is a paragraph.
+
+##
+
+</br>
+
+**SelectorGadget**  identifies that the selected element is a header by displaying `.mw-heeading2` in its bar.
+
+![](images/Header2.png){fig-align="center"}
+
+The bar of **SelectorGadget** identifies that the element is a `p` because it is a paragraph.
+
+
+## Comments
+
+</br></br>
+
+- HTML files have the extension .html.
+
+- They are rendered using a web browser via an URL.
+
+- More information on HTML elements can be found in [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/HTML), which are produced by Mozilla, the company that makes the Firefox web browser.
+
+
+
+# Web Scraping with the **rvest** package
+
+## A new library: rvest
+
+::::: columns
+::: {.column width="30%"}
+![](images/rvest_logo.png){fig-align="center" width="200" height="200"}
+:::
+
+::: {.column width="70%"}
+-   **rvest** allows you to easily scrape (collect) data from web pages.
+
+-   It helps you extract specific information such as tables, links, and text using simple functions.
+
+-   **rvest** is part of the **tidyverse**.
+
+-   <https://rvest.tidyverse.org/>
+:::
+:::::
+
+Load it to Google Colab with the following code.
 
 ```{r}
 #| echo: true
 #| output: false
 
-library(readxl)
-library(dplyr)
+library(rvest)
 ```
 
-# Tidy Data
+## Example 1
 
-## A new library: tidyr
+```{r}
+#| echo: true
+#| output: true
 
+isa_courses = read_html("http://bulletin.miamioh.edu/courses-instruction/isa/")
+isa_courses
+```
+
+##
+
+We use the function `html_elements()` from **rvest**.
+
+```{r}
+#| echo: true
+#| output: true
+
+isa_course_titles = isa_courses %>% 
+  html_elements(css = "p.courseblocktitle")
+isa_course_titles %>% head()
+```
+
+## Getting HTML text
+
+```{r}
+#| echo: true
+#| output: true
+
+isa_course_titles_en = isa_course_titles %>%
+  html_text2()
+isa_course_titles_en %>% head()
+```
+
+## Example 2
+
+Consider the plan crashes database.
+
+```{r}
+#| echo: true
+#| output: true
+
+plane_crashes = read_html("https://www.planecrashinfo.com/2025/2025.htm")
+plane_crashes %>%  head()
+```
+
+We use the function `html_elements()` from **rvest**.
+
+```{r}
+#| echo: true
+#| output: true
+
+crashes_table = plane_crashes %>% 
+  html_elements(css = "table")
+
+```
+
+## Getting HTML text
+
+```{r}
+#| echo: true
+#| output: true
+
+crashes_table %>% html_table(header = TRUE)
+```
 
 # [Return to main page](https://alanrvazquez.github.io/TEC-IN2039-EN/)

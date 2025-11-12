@@ -1643,5 +1643,229 @@
     "title": "Statistical Graphs",
     "section": "Discussion",
     "text": "Discussion\n\n\nThe simple linear regression model is easy to interpret due to its structure: \\(\\hat{Y}_i = \\hat{\\beta}_0 + \\hat{\\beta}_1 X_i.\\)\nHowever, it may be too rigid to capture complex relationships between two variables.\nLocal regression is flexible and allows capturing complex relationships between two variables, but it has a low level of interpretability because it does not provide an explicit equation."
+  },
+  {
+    "objectID": "T4_WebScraping/WebScraping.slides.html#agenda",
+    "href": "T4_WebScraping/WebScraping.slides.html#agenda",
+    "title": "Web Scraping",
+    "section": "Agenda",
+    "text": "Agenda\n\n\nHTML Basics\nWeb Scraping with the rvest package"
+  },
+  {
+    "objectID": "T4_WebScraping/WebScraping.slides.html#load-the-libraries",
+    "href": "T4_WebScraping/WebScraping.slides.html#load-the-libraries",
+    "title": "Web Scraping",
+    "section": "Load the libraries",
+    "text": "Load the libraries\n\nRemember to load the R libraries into Google Colab before we start:\n\nlibrary(readxl)\nlibrary(dplyr)"
+  },
+  {
+    "objectID": "T4_WebScraping/WebScraping.slides.html#world-wide-web",
+    "href": "T4_WebScraping/WebScraping.slides.html#world-wide-web",
+    "title": "Web Scraping",
+    "section": "World Wide Web",
+    "text": "World Wide Web\nWWW (or the Web) is the information system where documents (web pages) are identified by Uniform Resource Locators (URLs)\nA web page consists of:\n\nHTML provides the basic structure of the web page\nCSS controls the look of the web page (optional)\nJS is a programming language that can modify the behavior of elements of the web page (optional)"
+  },
+  {
+    "objectID": "T4_WebScraping/WebScraping.slides.html#hypertext-markup-language-html",
+    "href": "T4_WebScraping/WebScraping.slides.html#hypertext-markup-language-html",
+    "title": "Web Scraping",
+    "section": "Hypertext Markup Language (HTML)",
+    "text": "Hypertext Markup Language (HTML)\n\nwith the extension .html.\nrendered using a web browser via an URL.\ntext files that follows a special syntax that alerts web browsers how to render it."
+  },
+  {
+    "objectID": "T4_WebScraping/WebScraping.slides.html#html-structure",
+    "href": "T4_WebScraping/WebScraping.slides.html#html-structure",
+    "title": "Web Scraping",
+    "section": "HTML Structure",
+    "text": "HTML Structure\n&lt;!DOCTYPE html&gt;\n\n&lt;html&gt;\n  &lt;!--This is a comment and ignored by web client.--&gt;\n  &lt;head&gt;\n    &lt;!--This section contains web page metadata.--&gt;\n    &lt;title&gt;ISA 401: Business Intelligence and Data Viz&lt;/title&gt;\n    &lt;meta name=\"author\" content=\"Fadel Megahed\"&gt;\n    &lt;link rel=\"stylesheet\" href=\"css/styles.css\"&gt;\n  &lt;/head&gt;\n\n  &lt;body&gt;\n    &lt;!--This section contains what you want to display on your web page.--&gt;\n    &lt;h1&gt;I'm a first level header&lt;/h1&gt;\n    &lt;p&gt;This is a &lt;b&gt;paragraph&lt;/b&gt;.&lt;/p&gt;\n  &lt;/body&gt;\n&lt;/html&gt;"
+  },
+  {
+    "objectID": "T4_WebScraping/WebScraping.slides.html#html-syntax",
+    "href": "T4_WebScraping/WebScraping.slides.html#html-syntax",
+    "title": "Web Scraping",
+    "section": "HTML Syntax",
+    "text": "HTML Syntax"
+  },
+  {
+    "objectID": "T4_WebScraping/WebScraping.slides.html#html-elements",
+    "href": "T4_WebScraping/WebScraping.slides.html#html-elements",
+    "title": "Web Scraping",
+    "section": "HTML Elements",
+    "text": "HTML Elements\n\n\n\nblock element:\n\n\n&lt;div&gt;content&lt;/div&gt;\n\n\n\n\ninline element:\n\n\n&lt;span&gt;content&lt;/span&gt;\n\n\n\n\nparagraph:\n\n\n&lt;p&gt;content&lt;/p&gt;\n\n\n\n\nheader level 1:\n\n\n&lt;h1&gt;content&lt;/h1&gt;\n\n\n\n\nheader level 2:\n\n\n&lt;h2&gt;content&lt;/h2&gt;\n\n\n\n\n\nitalic:\n\n\n&lt;i&gt;content&lt;/i&gt;\n\n\n\n\nemphasised text:\n\n\n&lt;em&gt;content&lt;/em&gt;\n\n\n\n\nstrong importance:\n\n\n&lt;strong&gt;content&lt;/strong&gt;\n\n\n\n\nlink:\n\n\n&lt;a href=“https://github.com/fmegahed/isa401”&gt;content&lt;/a&gt;\n\n\n\n\nunordered list:\n\n\n&lt;ul&gt;&lt;li&gt;item 1&lt;/li&gt;&lt;li&gt;item 2&lt;/li&gt;&lt;/ul&gt;"
+  },
+  {
+    "objectID": "T4_WebScraping/WebScraping.slides.html#a-new-library-rvest",
+    "href": "T4_WebScraping/WebScraping.slides.html#a-new-library-rvest",
+    "title": "Web Scraping",
+    "section": "A new library: rvest",
+    "text": "A new library: rvest\n\n\n\n\n\n\n\n\n\nrvest allows you to easily scrape (collect) data from web pages.\nIt helps you extract specific information such as tables, links, and text using simple functions.\nrvest is part of the tidyverse.\nhttps://rvest.tidyverse.org/\n\n\nLoad it to Google Colab with the following code.\n\nlibrary(rvest)"
+  },
+  {
+    "objectID": "T4_WebScraping/WebScraping.slides.html#example-1",
+    "href": "T4_WebScraping/WebScraping.slides.html#example-1",
+    "title": "Web Scraping",
+    "section": "Example 1",
+    "text": "Example 1\nLet’s check a Wikipedia page about industrial engineering: https://en.wikipedia.org/wiki/Industrial_engineering"
+  },
+  {
+    "objectID": "T4_WebScraping/WebScraping.slides.html#selecting-html-elements",
+    "href": "T4_WebScraping/WebScraping.slides.html#selecting-html-elements",
+    "title": "Web Scraping",
+    "section": "Selecting HTML elements",
+    "text": "Selecting HTML elements\nThere are two ways to select HTML elements directly on the browser.\n\nInspector\nSelector gadget"
+  },
+  {
+    "objectID": "T4_WebScraping/WebScraping.slides.html#section",
+    "href": "T4_WebScraping/WebScraping.slides.html#section",
+    "title": "Web Scraping",
+    "section": "",
+    "text": "Block tags form the overall structure of the page:\n\nHeader 1: &lt;h1&gt;content&lt;/h1&gt;\nParagraph: &lt;p&gt;content&lt;/p&gt;\nOrdered list: &lt;ol&gt;content&lt;/ol&gt;\n\nInline tags that format text inside block tags:\n\nBold: &lt;b&gt;content&lt;/b&gt;\nItalics: &lt;i&gt;content&lt;/i&gt;\nLinks: &lt;a&gt;content&lt;/a&gt;"
+  },
+  {
+    "objectID": "T4_WebScraping/WebScraping.slides.html#getting-html-text",
+    "href": "T4_WebScraping/WebScraping.slides.html#getting-html-text",
+    "title": "Web Scraping",
+    "section": "Getting HTML text",
+    "text": "Getting HTML text\n\nisa_course_titles_en = isa_course_titles %&gt;%\n  html_text2()\nisa_course_titles_en %&gt;% head()\n\n[1] \"ISA 125. Introduction to Business Statistics. (3)\"                               \n[2] \"ISA 177. Independent Studies. (0-6; maximum 10)\"                                 \n[3] \"ISA 211. Information Technology and Data Driven Decision Making in Business. (3)\"\n[4] \"ISA 225. Principles of Business Analytics. (3)\"                                  \n[5] \"ISA 235. Information Technology and the Intelligent Enterprise. (3)\"             \n[6] \"ISA 241. Database for Analytics. (1.5)\""
+  },
+  {
+    "objectID": "T4_WebScraping/WebScraping.slides.html#example-2",
+    "href": "T4_WebScraping/WebScraping.slides.html#example-2",
+    "title": "Web Scraping",
+    "section": "Example 2",
+    "text": "Example 2\nConsider the plan crashes database.\n\nplane_crashes = read_html(\"https://www.planecrashinfo.com/2025/2025.htm\")\nplane_crashes %&gt;%  head()\n\n$node\n&lt;pointer: 0x11307c5d0&gt;\n\n$doc\n&lt;pointer: 0x11307ca00&gt;\n\n\nWe use the function html_elements() from rvest.\n\ncrashes_table = plane_crashes %&gt;% \n  html_elements(css = \"table\")"
+  },
+  {
+    "objectID": "T4_WebScraping/WebScraping.slides.html#getting-html-text-1",
+    "href": "T4_WebScraping/WebScraping.slides.html#getting-html-text-1",
+    "title": "Web Scraping",
+    "section": "Getting HTML text",
+    "text": "Getting HTML text\n\ncrashes_table %&gt;% html_table(header = TRUE)\n\n[[1]]\n# A tibble: 12 × 4\n   Date        `Location / Operator`           Aircraft Type / Regi…¹ Fatalities\n   &lt;chr&gt;       &lt;chr&gt;                           &lt;chr&gt;                  &lt;chr&gt;     \n 1 07 Jan 2025 Off Rottnest Island, WA, Austr… Cessna 208 Caravan 67… 3/7(0)    \n 2 29 Jan 2025 Washington DCAmerican Eagle / … Canadair CRJ-701ER /U… 67/67(0)  \n 3 29 Jan 2025 GPOC Unity Airstrip, South Sud… Beechcraft 1900D5X-RHB 20/21(0)  \n 4 31 Jan 2025 Philadelphia, PennsylvaniaMed … Learjet 55XA-UCI       6/6(1)    \n 5 06 Feb 2025 Norton SoundBering Air          Cessna 208B Grand Car… 10/10(0)  \n 6 17 Feb 2025 Toronto, CanadaDelta Connectio… Bombardier CRJ-900LRN… 0/80(0)   \n 7 25 Feb 2025 Omdurman, SudanMilitary - Suda… Antonov An-26?         17/17(29) \n 8 17 Mar 2025 Off Roatan, HondurasLANHSA      British Aerospace BAe… 12/17(0)  \n 9 12 Jun 2025 Ahmedabad, IndiaAir India       Boeing 787-8 Dreamlin… 241/242(3…\n10 24 Jul 2025 Tynda, RussiaAngara Airlines    Antonov An-24VRA-47315 48/48(0)  \n11 20 Oct 2025 Hong Kong, ChinaACT Airlines, … Boeing 747-481TC-ACF   0/4(2)    \n12 04 Nov 2025 Louisville, KentuckyUnited Par… McDonnell Douglas MD1… 3/3(11)   \n# ℹ abbreviated name: ¹​`Aircraft Type / Registration`"
+  },
+  {
+    "objectID": "T4_WebScraping/WebScraping.slides.html#html-basics",
+    "href": "T4_WebScraping/WebScraping.slides.html#html-basics",
+    "title": "Web Scraping",
+    "section": "HTML basics",
+    "text": "HTML basics\nHTML stands for “HyperText Markup Language” and looks like this\n&lt;html&gt;\n&lt;head&gt;\n  &lt;title&gt;Page title&lt;/title&gt;\n&lt;/head&gt;\n&lt;body&gt;\n  &lt;h1 id='first'&gt;A heading&lt;/h1&gt;\n  &lt;p&gt;Some text &amp; &lt;b&gt;some bold text.&lt;/b&gt;&lt;/p&gt;\n  &lt;img src='myimg.png' width='100' height='100'&gt;\n&lt;/body&gt;\nHTML has a hierarchical structure formed by elements which consist of a start tag (e.g. &lt;tag&gt;), optional attributes (id='first'), an end tag1 (like &lt;/tag&gt;), and contents (everything in between the start and end tag)."
+  },
+  {
+    "objectID": "T4_WebScraping/WebScraping.slides.html#section-1",
+    "href": "T4_WebScraping/WebScraping.slides.html#section-1",
+    "title": "Web Scraping",
+    "section": "",
+    "text": "On the Google Chrome webbrowser, you see the HTML used for generating the website by right clicking on any blank part of it and select “Inspector”."
+  },
+  {
+    "objectID": "T4_WebScraping/WebScraping.slides.html#html-basics-1",
+    "href": "T4_WebScraping/WebScraping.slides.html#html-basics-1",
+    "title": "Web Scraping",
+    "section": "HTML basics",
+    "text": "HTML basics\nHTML stands for “HyperText Markup Language” and looks like this\n&lt;html&gt;\n&lt;head&gt;\n  &lt;title&gt;Page title&lt;/title&gt;\n&lt;/head&gt;\n&lt;body&gt;\n  &lt;h1 id='first'&gt;A heading&lt;/h1&gt;\n  &lt;p&gt;Some text &amp; &lt;b&gt;some bold text.&lt;/b&gt;&lt;/p&gt;\n  &lt;img src='myimg.png' width='100' height='100'&gt;\n&lt;/body&gt;\nHTML has a hierarchical structure formed by elements which consist of a start tag (e.g. &lt;tag&gt;), optional attributes (id='first'), an end tag1 (like &lt;/tag&gt;), and contents (everything in between the start and end tag)."
+  },
+  {
+    "objectID": "T4_WebScraping/WebScraping.slides.html#elements",
+    "href": "T4_WebScraping/WebScraping.slides.html#elements",
+    "title": "Web Scraping",
+    "section": "Elements",
+    "text": "Elements\n\nThere are over 100 HTML elements. Some of the most important are:\n\nEvery HTML page must be in an &lt;html&gt; element, and it must have two children:\n\n&lt;head&gt; containing document metadata like the page title\n&lt;body&gt; containing the content you see in the browser."
+  },
+  {
+    "objectID": "T4_WebScraping/WebScraping.slides.html#other-elements",
+    "href": "T4_WebScraping/WebScraping.slides.html#other-elements",
+    "title": "Web Scraping",
+    "section": "Other elements",
+    "text": "Other elements\n\n\n\n\nElement\nHTML syntax\n\n\n\n\nBlock\n&lt;div&gt;content&lt;/div&gt;\n\n\nInline\n&lt;span&gt;content&lt;/span&gt;\n\n\nHeader 2\n&lt;h2&gt;content&lt;/h2&gt;\n\n\nEmphasized text\n&lt;em&gt;content&lt;/em&gt;\n\n\nStrong importance\n&lt;strong&gt;content&lt;/strong&gt;"
+  },
+  {
+    "objectID": "T4_WebScraping/WebScraping.slides.html#contents",
+    "href": "T4_WebScraping/WebScraping.slides.html#contents",
+    "title": "Web Scraping",
+    "section": "Contents",
+    "text": "Contents\nMost elements can have content (text or more elements) in between their start and end tags. For example, the following HTML contains paragraph of text, with a word in bold.\n&lt;p&gt;Hi! My name is &lt;b&gt;Hadley&lt;/b&gt;.&lt;/p&gt;\n\nThe &lt;p&gt; element is the parent node that contains text and one child element, &lt;b&gt;.\nThe &lt;b&gt; element wraps the word Hadley and gives it bold formatting.\n&lt;b&gt; has contents (the text “Hadley”) but no children of its own."
+  },
+  {
+    "objectID": "T4_WebScraping/WebScraping.slides.html#attributes",
+    "href": "T4_WebScraping/WebScraping.slides.html#attributes",
+    "title": "Web Scraping",
+    "section": "Attributes",
+    "text": "Attributes\n\nTags can have named attributes which look like name1='value1' name2='value2'.\n\nTwo of the most important attributes are id and class, which are used in conjunction with CSS (Cascading Style Sheets) to control the visual appearance of the page.\n\nThese are often useful when scraping data off a page."
+  },
+  {
+    "objectID": "T4_WebScraping/WebScraping.slides.html#comments",
+    "href": "T4_WebScraping/WebScraping.slides.html#comments",
+    "title": "Web Scraping",
+    "section": "Comments",
+    "text": "Comments\n\n\nHTML files have the extension .html.\nThey are rendered using a web browser via an URL.\nMore information on HTML elements can be found in MDN Web Docs, which are produced by Mozilla, the company that makes the Firefox web browser."
+  },
+  {
+    "objectID": "T4_WebScraping/WebScraping.slides.html#inspecting-html-files",
+    "href": "T4_WebScraping/WebScraping.slides.html#inspecting-html-files",
+    "title": "Web Scraping",
+    "section": "Inspecting HTML files",
+    "text": "Inspecting HTML files"
+  },
+  {
+    "objectID": "T4_WebScraping/WebScraping.slides.html#section-2",
+    "href": "T4_WebScraping/WebScraping.slides.html#section-2",
+    "title": "Web Scraping",
+    "section": "",
+    "text": "A new section of the website appears."
+  },
+  {
+    "objectID": "T4_WebScraping/WebScraping.slides.html#section-3",
+    "href": "T4_WebScraping/WebScraping.slides.html#section-3",
+    "title": "Web Scraping",
+    "section": "",
+    "text": "The HTML code is located at the first box."
+  },
+  {
+    "objectID": "T4_WebScraping/WebScraping.slides.html#selectorgadget",
+    "href": "T4_WebScraping/WebScraping.slides.html#selectorgadget",
+    "title": "Web Scraping",
+    "section": "SelectorGadget",
+    "text": "SelectorGadget\nAlternatively, Google Chrome has an extension called SelectorGadget to inspect specific elements of a website."
+  },
+  {
+    "objectID": "T4_WebScraping/WebScraping.slides.html#section-4",
+    "href": "T4_WebScraping/WebScraping.slides.html#section-4",
+    "title": "Web Scraping",
+    "section": "",
+    "text": "After installing it, it should be next to your search bar."
+  },
+  {
+    "objectID": "T4_WebScraping/WebScraping.slides.html#section-5",
+    "href": "T4_WebScraping/WebScraping.slides.html#section-5",
+    "title": "Web Scraping",
+    "section": "",
+    "text": "Using the gadget, you can inspect specific elements of the website. For example, we can inspect a the selected paragraph in green.\n\nThe bar of SelectorGadget identifies that the element is a p because it is a paragraph."
+  },
+  {
+    "objectID": "T4_WebScraping/WebScraping.slides.html#section-6",
+    "href": "T4_WebScraping/WebScraping.slides.html#section-6",
+    "title": "Web Scraping",
+    "section": "",
+    "text": "SelectorGadget identifies that the selected element is a header by displaying .mw-heeading2 in its bar.\n\nThe bar of SelectorGadget identifies that the element is a p because it is a paragraph."
+  },
+  {
+    "objectID": "T4_WebScraping/WebScraping.slides.html#section-7",
+    "href": "T4_WebScraping/WebScraping.slides.html#section-7",
+    "title": "Web Scraping",
+    "section": "",
+    "text": "We use the function html_elements() from rvest.\n\nisa_course_titles = isa_courses %&gt;% \n  html_elements(css = \"p.courseblocktitle\")\nisa_course_titles %&gt;% head()\n\n{xml_nodeset (6)}\n[1] &lt;p class=\"courseblocktitle\"&gt;&lt;strong&gt;ISA 125.  Introduction to Business St ...\n[2] &lt;p class=\"courseblocktitle\"&gt;&lt;strong&gt;ISA 177.  Independent Studies.  (0-6; ...\n[3] &lt;p class=\"courseblocktitle\"&gt;&lt;strong&gt;ISA 211.  Information Technology and  ...\n[4] &lt;p class=\"courseblocktitle\"&gt;&lt;strong&gt;ISA 225.  Principles of Business Anal ...\n[5] &lt;p class=\"courseblocktitle\"&gt;&lt;strong&gt;ISA 235.  Information Technology and  ...\n[6] &lt;p class=\"courseblocktitle\"&gt;&lt;strong&gt;ISA 241.  Database for Analytics.  (1 ..."
+  },
+  {
+    "objectID": "T4_WebScraping/WebScraping.slides.html#example-1-1",
+    "href": "T4_WebScraping/WebScraping.slides.html#example-1-1",
+    "title": "Web Scraping",
+    "section": "Example 1",
+    "text": "Example 1\n\nisa_courses = read_html(\"http://bulletin.miamioh.edu/courses-instruction/isa/\")\nisa_courses\n\n{html_document}\n&lt;html xml:lang=\"en\" lang=\"en\" dir=\"ltr\"&gt;\n[1] &lt;head&gt;\\n&lt;title&gt;Information Systems &amp; Analytics (ISA) | Miami Universi ...\n[2] &lt;body&gt;\\n\\n\\n\\n\\n\\n&lt;!-- Google Tag Manager (noscript) --&gt;\\n&lt;noscript&gt;&lt;ifra ..."
+  },
+  {
+    "objectID": "T4_WebScraping/WebScraping.slides.html#section-8",
+    "href": "T4_WebScraping/WebScraping.slides.html#section-8",
+    "title": "Web Scraping",
+    "section": "",
+    "text": "We use the function html_elements() from rvest.\n\nisa_course_titles = isa_courses %&gt;% \n  html_elements(css = \"p.courseblocktitle\")\nisa_course_titles %&gt;% head()\n\n{xml_nodeset (6)}\n[1] &lt;p class=\"courseblocktitle\"&gt;&lt;strong&gt;ISA 125.  Introduction to Business St ...\n[2] &lt;p class=\"courseblocktitle\"&gt;&lt;strong&gt;ISA 177.  Independent Studies.  (0-6; ...\n[3] &lt;p class=\"courseblocktitle\"&gt;&lt;strong&gt;ISA 211.  Information Technology and  ...\n[4] &lt;p class=\"courseblocktitle\"&gt;&lt;strong&gt;ISA 225.  Principles of Business Anal ...\n[5] &lt;p class=\"courseblocktitle\"&gt;&lt;strong&gt;ISA 235.  Information Technology and  ...\n[6] &lt;p class=\"courseblocktitle\"&gt;&lt;strong&gt;ISA 241.  Database for Analytics.  (1 ..."
   }
 ]
