@@ -58,7 +58,7 @@ A web page consists of:
 
 ## HTML basics
 
-HTML stands for “HyperText Markup Language” and looks like this
+HTML means “HyperText Markup Language” and looks like this
 
 ``` html
 <html>
@@ -70,9 +70,10 @@ HTML stands for “HyperText Markup Language” and looks like this
   <p>Some text &amp; <b>some bold text.</b></p>
   <img src='myimg.png' width='100' height='100'>
 </body>
+</html>
 ```
 
-HTML has a hierarchical structure formed by elements which consist of a start tag (e.g. `<tag>`), optional attributes (`id='first'`), an end tag1 (like `</tag>`), and contents (everything in between the start and end tag).
+HTML has a hierarchical structure formed by elements which consist of a start tag (`<tag>`), optional attributes (`id='first'`), an end tag1 (like `</tag>`), and contents (everything in between the start and end tag).
 
 ## Elements
 
@@ -177,7 +178,7 @@ The HTML code is located at the first box.
 
 ## SelectorGadget
 
-Alternatively, Google Chrome has an extension called **SelectorGadget** to inspect specific elements of a website.
+Alternatively, Google Chrome has an extension called [**SelectorGadget**](https://chromewebstore.google.com/detail/selectorgadget/mhjhnkcfbdhnjickkkdbjoemdmbfginb) to inspect specific elements of a website.
 
 ![](images/SelectorGadget.png){fig-align="center"}
 
