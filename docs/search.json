@@ -452,21 +452,21 @@
     "href": "T3_TidyData/TidyData.slides.html#add-an-index-column",
     "title": "Tidy Data",
     "section": "Add an index column",
-    "text": "Add an index column\n\nIn some cases, it is useful to have a unique identifier for each row in the dataset. We can create an identifier using the functions mutate() and row_number() with some extra syntaxis.\n\nindustrial_data_single = industrial_data_single %&gt;% mutate(ID = row_number())"
+    "text": "Add an index column\n\nIn some cases, it is useful to have a unique identifier for each row in the dataset. We can create an identifier using the functions mutate() and row_number() with some extra syntaxis.\n\nindustrial_data_single = industrial_data %&gt;% \n                         mutate(ID = row_number())"
   },
   {
     "objectID": "T3_TidyData/TidyData.slides.html#section-12",
     "href": "T3_TidyData/TidyData.slides.html#section-12",
     "title": "Tidy Data",
     "section": "",
-    "text": "The new column is appended to the end of the dataframe.\n\nindustrial_data_single %&gt;%  head()\n\n# A tibble: 6 × 6\n  `Machine ID` `Output (units)` `Maintenance Date`  Operator Comment          ID\n         &lt;dbl&gt; &lt;chr&gt;            &lt;dttm&gt;              &lt;chr&gt;    &lt;chr&gt;         &lt;int&gt;\n1          101 1200             2023-01-10 00:00:00 Ana      \"ok\"              1\n2          102 1050             2023-01-12 00:00:00 Bob      \"Needs oil!\"      2\n3          103 error            2023-01-13 00:00:00 Charlie  \"All good\\r\\…     3\n4          103 950              2023-01-13 00:00:00 Charlie  \"All good\\r\\…     4\n5          104 900              2023-01-14 00:00:00 &lt;NA&gt;     \"Delay: powe…     5\n6          105 870              NA                  DAVE     \"completed\"       6"
+    "text": "The new column is appended to the end of the dataframe.\n\nindustrial_data_single %&gt;%  head()\n\n# A tibble: 6 × 6\n  `Machine ID` `Output (units)` `Maintenance Date`  Operator Comment          ID\n         &lt;dbl&gt; &lt;chr&gt;            &lt;dttm&gt;              &lt;chr&gt;    &lt;chr&gt;         &lt;int&gt;\n1          101 1200             2023-01-10 00:00:00 Ana      \"ok\"              1\n2          101 1200             2023-01-10 00:00:00 Ana      \"ok\"              2\n3          102 1050             2023-01-12 00:00:00 Bob      \"Needs oil!\"      3\n4          103 error            2023-01-13 00:00:00 Charlie  \"All good\\r\\…     4\n5          103 950              2023-01-13 00:00:00 Charlie  \"All good\\r\\…     5\n6          104 900              2023-01-14 00:00:00 &lt;NA&gt;     \"Delay: powe…     6"
   },
   {
     "objectID": "T3_TidyData/TidyData.slides.html#section-13",
     "href": "T3_TidyData/TidyData.slides.html#section-13",
     "title": "Tidy Data",
     "section": "",
-    "text": "To bring it to the beginning of the array, we can use the select() and everything() functions.\n\nindustrial_data_single = industrial_data_single %&gt;% \nselect(ID, everything())\n\nindustrial_data_single %&gt;%  head()\n\n# A tibble: 6 × 6\n     ID `Machine ID` `Output (units)` `Maintenance Date`  Operator Comment      \n  &lt;int&gt;        &lt;dbl&gt; &lt;chr&gt;            &lt;dttm&gt;              &lt;chr&gt;    &lt;chr&gt;        \n1     1          101 1200             2023-01-10 00:00:00 Ana      \"ok\"         \n2     2          102 1050             2023-01-12 00:00:00 Bob      \"Needs oil!\" \n3     3          103 error            2023-01-13 00:00:00 Charlie  \"All good\\r\\…\n4     4          103 950              2023-01-13 00:00:00 Charlie  \"All good\\r\\…\n5     5          104 900              2023-01-14 00:00:00 &lt;NA&gt;     \"Delay: powe…\n6     6          105 870              NA                  DAVE     \"completed\""
+    "text": "To bring it to the beginning of the array, we can use the select() and everything() functions.\n\nindustrial_data_single = industrial_data_single %&gt;% \nselect(ID, everything())\n\nindustrial_data_single %&gt;%  head()\n\n# A tibble: 6 × 6\n     ID `Machine ID` `Output (units)` `Maintenance Date`  Operator Comment      \n  &lt;int&gt;        &lt;dbl&gt; &lt;chr&gt;            &lt;dttm&gt;              &lt;chr&gt;    &lt;chr&gt;        \n1     1          101 1200             2023-01-10 00:00:00 Ana      \"ok\"         \n2     2          101 1200             2023-01-10 00:00:00 Ana      \"ok\"         \n3     3          102 1050             2023-01-12 00:00:00 Bob      \"Needs oil!\" \n4     4          103 error            2023-01-13 00:00:00 Charlie  \"All good\\r\\…\n5     5          103 950              2023-01-13 00:00:00 Charlie  \"All good\\r\\…\n6     6          104 900              2023-01-14 00:00:00 &lt;NA&gt;     \"Delay: powe…"
   },
   {
     "objectID": "T3_TidyData/TidyData.slides.html#fill-blank-cells",
@@ -480,28 +480,28 @@
     "href": "T3_TidyData/TidyData.slides.html#section-14",
     "title": "Tidy Data",
     "section": "",
-    "text": "complete_data %&gt;%  head()\n\n# A tibble: 6 × 6\n     ID `Machine ID` `Output (units)` `Maintenance Date`  Operator Comment      \n  &lt;int&gt;        &lt;dbl&gt; &lt;chr&gt;            &lt;dttm&gt;              &lt;chr&gt;    &lt;chr&gt;        \n1     1          101 1200             2023-01-10 00:00:00 Ana      \"ok\"         \n2     2          102 1050             2023-01-12 00:00:00 Bob      \"Needs oil!\" \n3     3          103 error            2023-01-13 00:00:00 Charlie  \"All good\\r\\…\n4     4          103 950              2023-01-13 00:00:00 Charlie  \"All good\\r\\…\n5     5          104 900              2023-01-14 00:00:00 Unknown  \"Delay: powe…\n6     6          105 870              2023-01-01 00:00:00 DAVE     \"completed\""
+    "text": "complete_data %&gt;%  head()\n\n# A tibble: 6 × 6\n     ID `Machine ID` `Output (units)` `Maintenance Date`  Operator Comment      \n  &lt;int&gt;        &lt;dbl&gt; &lt;chr&gt;            &lt;dttm&gt;              &lt;chr&gt;    &lt;chr&gt;        \n1     1          101 1200             2023-01-10 00:00:00 Ana      \"ok\"         \n2     2          101 1200             2023-01-10 00:00:00 Ana      \"ok\"         \n3     3          102 1050             2023-01-12 00:00:00 Bob      \"Needs oil!\" \n4     4          103 error            2023-01-13 00:00:00 Charlie  \"All good\\r\\…\n5     5          103 950              2023-01-13 00:00:00 Charlie  \"All good\\r\\…\n6     6          104 900              2023-01-14 00:00:00 Unknown  \"Delay: powe…"
   },
   {
     "objectID": "T3_TidyData/TidyData.slides.html#replace-values",
     "href": "T3_TidyData/TidyData.slides.html#replace-values",
     "title": "Tidy Data",
     "section": "Replace values",
-    "text": "Replace values\nThere are some cases in which columns have some undesired or unwatned values. Consider the Output (units) as an example.\n\ncomplete_data %&gt;% select(`Output (units)`) %&gt;% head()\n\n# A tibble: 6 × 1\n  `Output (units)`\n  &lt;chr&gt;           \n1 1200            \n2 1050            \n3 error           \n4 950             \n5 900             \n6 870             \n\n\nThe column has the numbers of units but also text such as “error”."
+    "text": "Replace values\nThere are some cases in which columns have some undesired or unwatned values. Consider the Output (units) as an example.\n\ncomplete_data %&gt;% select(`Output (units)`) %&gt;% head()\n\n# A tibble: 6 × 1\n  `Output (units)`\n  &lt;chr&gt;           \n1 1200            \n2 1200            \n3 1050            \n4 error           \n5 950             \n6 900             \n\n\nThe column has the numbers of units but also text such as “error”."
   },
   {
     "objectID": "T3_TidyData/TidyData.slides.html#section-15",
     "href": "T3_TidyData/TidyData.slides.html#section-15",
     "title": "Tidy Data",
     "section": "",
-    "text": "We can replace the “error” in this column by a user-specified value, say, 0. To this end, we use the functions mutate() and na_if().\n\ncomplete_data = complete_data %&gt;% \nmutate(`Output (units)` = na_if(`Output (units)`, \"error\"))\n\n# Let's check the column.\ncomplete_data %&gt;%  select(`Output (units)`) %&gt;%  head()\n\n# A tibble: 6 × 1\n  `Output (units)`\n  &lt;chr&gt;           \n1 1200            \n2 1050            \n3 &lt;NA&gt;            \n4 950             \n5 900             \n6 870             \n\n\nHowever, the new column is character (chr)!"
+    "text": "We can replace the “error” in this column by a user-specified value, say, 0. To this end, we use the functions mutate() and na_if().\n\ncomplete_data = complete_data %&gt;% \nmutate(`Output (units)` = na_if(`Output (units)`, \"error\"))\n\n# Let's check the column.\ncomplete_data %&gt;%  select(`Output (units)`) %&gt;%  head()\n\n# A tibble: 6 × 1\n  `Output (units)`\n  &lt;chr&gt;           \n1 1200            \n2 1200            \n3 1050            \n4 &lt;NA&gt;            \n5 950             \n6 900             \n\n\nHowever, the new column is character (chr)!"
   },
   {
     "objectID": "T3_TidyData/TidyData.slides.html#section-16",
     "href": "T3_TidyData/TidyData.slides.html#section-16",
     "title": "Tidy Data",
     "section": "",
-    "text": "We turn the column numeric using the functions mutate() and as.numeric().\n\ncomplete_data = complete_data %&gt;% \nmutate(`Output (units)` = as.numeric(`Output (units)`))\n\ncomplete_data %&gt;%  select(`Output (units)`) %&gt;%  head()\n\n# A tibble: 6 × 1\n  `Output (units)`\n             &lt;dbl&gt;\n1             1200\n2             1050\n3               NA\n4              950\n5              900\n6              870\n\n\nNow, the column is numeric or dbl!"
+    "text": "We turn the column numeric using the functions mutate() and as.numeric().\n\ncomplete_data = complete_data %&gt;% \nmutate(`Output (units)` = as.numeric(`Output (units)`))\n\ncomplete_data %&gt;%  select(`Output (units)`) %&gt;%  head()\n\n# A tibble: 6 × 1\n  `Output (units)`\n             &lt;dbl&gt;\n1             1200\n2             1200\n3             1050\n4               NA\n5              950\n6              900\n\n\nNow, the column is numeric or dbl!"
   },
   {
     "objectID": "T3_TidyData/TidyData.slides.html#a-new-library-stringr",
@@ -529,42 +529,42 @@
     "href": "T3_TidyData/TidyData.slides.html#section-17",
     "title": "Tidy Data",
     "section": "",
-    "text": "Let’s see the cleaned column.\n\naugmented_data %&gt;%  select(First_comment)\n\n# A tibble: 100 × 1\n   First_comment\n   &lt;chr&gt;        \n 1 ok           \n 2 ok           \n 3 Needs oil!   \n 4 All good     \n 5 All good     \n 6 Delay        \n 7 completed    \n 8 completed    \n 9 All good     \n10 Requires part\n# ℹ 90 more rows"
+    "text": "Let’s see the cleaned column.\n\naugmented_data %&gt;%  select(`First_comment`)\n\n# A tibble: 100 × 1\n   First_comment\n   &lt;chr&gt;        \n 1 ok           \n 2 ok           \n 3 Needs oil!   \n 4 All good     \n 5 All good     \n 6 Delay        \n 7 completed    \n 8 completed    \n 9 All good     \n10 Requires part\n# ℹ 90 more rows"
   },
   {
     "objectID": "T3_TidyData/TidyData.slides.html#transform-text-case",
     "href": "T3_TidyData/TidyData.slides.html#transform-text-case",
     "title": "Tidy Data",
     "section": "Transform text case",
-    "text": "Transform text case\nWhen working with text columns containing names, we may have different ways of writing. A common case is when having lower case or upper case names or a combination thereof.\nFor example, consider the column Operator containing the names of the operators.\n\ncomplete_data %&gt;% select(Operator) %&gt;%  head()\n\n# A tibble: 6 × 1\n  Operator\n  &lt;chr&gt;   \n1 Ana     \n2 Bob     \n3 Charlie \n4 Charlie \n5 Unknown \n6 DAVE"
+    "text": "Transform text case\nWhen working with text columns containing names, we may have different ways of writing. A common case is when having lower case or upper case names or a combination thereof.\nFor example, consider the column Operator containing the names of the operators.\n\ncomplete_data %&gt;% select(Operator) %&gt;%  head()\n\n# A tibble: 6 × 1\n  Operator\n  &lt;chr&gt;   \n1 Ana     \n2 Ana     \n3 Bob     \n4 Charlie \n5 Charlie \n6 Unknown"
   },
   {
     "objectID": "T3_TidyData/TidyData.slides.html#remove-extra-spaces",
     "href": "T3_TidyData/TidyData.slides.html#remove-extra-spaces",
     "title": "Tidy Data",
     "section": "Remove extra spaces",
-    "text": "Remove extra spaces\n\nTo deal with names, we first use the str_trim() to remove leading and trailing characters from strings.\n\ncomplete_data =  complete_data %&gt;% \nmutate(Operator = str_trim(Operator))\n\ncomplete_data %&gt;% select(Operator) %&gt;%  head()\n\n# A tibble: 6 × 1\n  Operator\n  &lt;chr&gt;   \n1 Ana     \n2 Bob     \n3 Charlie \n4 Charlie \n5 Unknown \n6 DAVE"
+    "text": "Remove extra spaces\n\nTo deal with names, we first use the str_trim() to remove leading and trailing characters from strings.\n\ncomplete_data =  complete_data %&gt;% \nmutate(Operator = str_trim(Operator))\n\ncomplete_data %&gt;% select(Operator) %&gt;%  head()\n\n# A tibble: 6 × 1\n  Operator\n  &lt;chr&gt;   \n1 Ana     \n2 Ana     \n3 Bob     \n4 Charlie \n5 Charlie \n6 Unknown"
   },
   {
     "objectID": "T3_TidyData/TidyData.slides.html#change-to-lowercase-letters",
     "href": "T3_TidyData/TidyData.slides.html#change-to-lowercase-letters",
     "title": "Tidy Data",
     "section": "Change to lowercase letters",
-    "text": "Change to lowercase letters\n\nWe can turn all names to lowercase using the function str_to_lower().\n\ncomplete_data %&gt;% \nmutate(Operator = str_to_lower(Operator)) %&gt;% \nselect(Operator) %&gt;% \nhead()\n\n# A tibble: 6 × 1\n  Operator\n  &lt;chr&gt;   \n1 ana     \n2 bob     \n3 charlie \n4 charlie \n5 unknown \n6 dave"
+    "text": "Change to lowercase letters\n\nWe can turn all names to lowercase using the function str_to_lower().\n\ncomplete_data %&gt;% \nmutate(Operator = str_to_lower(Operator)) %&gt;% \nselect(Operator) %&gt;% \nhead()\n\n# A tibble: 6 × 1\n  Operator\n  &lt;chr&gt;   \n1 ana     \n2 ana     \n3 bob     \n4 charlie \n5 charlie \n6 unknown"
   },
   {
     "objectID": "T3_TidyData/TidyData.slides.html#change-to-uppercase-letters",
     "href": "T3_TidyData/TidyData.slides.html#change-to-uppercase-letters",
     "title": "Tidy Data",
     "section": "Change to uppercase letters",
-    "text": "Change to uppercase letters\n\nWe can turn all names to uppercase using the function str_to_upper().\n\ncomplete_data %&gt;% \nmutate(Operator = str_to_upper(Operator)) %&gt;% \nselect(Operator) %&gt;% \nhead()\n\n# A tibble: 6 × 1\n  Operator\n  &lt;chr&gt;   \n1 ANA     \n2 BOB     \n3 CHARLIE \n4 CHARLIE \n5 UNKNOWN \n6 DAVE"
+    "text": "Change to uppercase letters\n\nWe can turn all names to uppercase using the function str_to_upper().\n\ncomplete_data %&gt;% \nmutate(Operator = str_to_upper(Operator)) %&gt;% \nselect(Operator) %&gt;% \nhead()\n\n# A tibble: 6 × 1\n  Operator\n  &lt;chr&gt;   \n1 ANA     \n2 ANA     \n3 BOB     \n4 CHARLIE \n5 CHARLIE \n6 UNKNOWN"
   },
   {
     "objectID": "T3_TidyData/TidyData.slides.html#capitalize-the-first-letter",
     "href": "T3_TidyData/TidyData.slides.html#capitalize-the-first-letter",
     "title": "Tidy Data",
     "section": "Capitalize the first letter",
-    "text": "Capitalize the first letter\n\nWe can convert all names to title case using the function str_to_title().\n\ncomplete_data %&gt;% \nmutate(Operator = str_to_title(Operator)) %&gt;% \nselect(Operator) %&gt;% \nhead()\n\n# A tibble: 6 × 1\n  Operator\n  &lt;chr&gt;   \n1 Ana     \n2 Bob     \n3 Charlie \n4 Charlie \n5 Unknown \n6 Dave"
+    "text": "Capitalize the first letter\n\nWe can convert all names to title case using the function str_to_title().\n\ncomplete_data %&gt;% \nmutate(Operator = str_to_title(Operator)) %&gt;% \nselect(Operator) %&gt;% \nhead()\n\n# A tibble: 6 × 1\n  Operator\n  &lt;chr&gt;   \n1 Ana     \n2 Ana     \n3 Bob     \n4 Charlie \n5 Charlie \n6 Unknown"
   },
   {
     "objectID": "T3_TidyData/TidyData.slides.html#more-on-tidyr-and-stringr",
@@ -1944,5 +1944,12 @@
     "title": "Statistical Graphs",
     "section": "Discussion",
     "text": "Discussion\n\n\nThe simple linear regression model is easy to interpret due to its structure: \\(\\hat{Y}_i = \\hat{\\beta}_0 + \\hat{\\beta}_1 X_i.\\)\nHowever, it may be too rigid to capture complex relationships between two variables.\nLocal regression is flexible and allows capturing complex relationships between two variables, but it has a low level of interpretability because it does not provide an explicit equation."
+  },
+  {
+    "objectID": "T3_TidyData/TidyData.slides.html#section-18",
+    "href": "T3_TidyData/TidyData.slides.html#section-18",
+    "title": "Tidy Data",
+    "section": "",
+    "text": "We can remove special characters such as “!” from all cells in the column.\nTo do this, we use the functions mutate() and str_remove_all() with the character to remove. That is, we create a new cleaned variable without the specific character.\n\naugmented_data %&gt;%  \n  mutate(\"First_comment\" = str_remove_all(`First_comment`, \"!\")) %&gt;% \n  select(`First_comment`) %&gt;% head()\n\n# A tibble: 6 × 1\n  First_comment\n  &lt;chr&gt;        \n1 ok           \n2 ok           \n3 Needs oil    \n4 All good     \n5 All good     \n6 Delay"
   }
 ]

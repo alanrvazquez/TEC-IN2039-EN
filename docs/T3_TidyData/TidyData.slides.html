@@ -748,22 +748,13 @@ Alan R. Vazquez
 <li>Here, we illustrate some special functions of the <strong>tidyverse</strong> for cleaning common issues with a dataset.</li>
 </ul>
 </section>
-<section id="remove-duplicate-rows" class="slide level2">
-<h2>Remove duplicate rows</h2>
-<p><br></p>
-<p>Duplicate or identical rows are rows that have the same entries in every column in the dataset.</p>
-<p><br></p>
-<p>If only one row is needed for the analysis, we can remove the duplicates using the <code>distinct()</code> function. Let’s illustrate this using the <code>industrial_data</code> dataset.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a></a>industrial_data_single <span class="ot">=</span> industrial_data  <span class="sc">%&gt;%</span> <span class="fu">distinct</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
 <section id="add-an-index-column" class="slide level2">
 <h2>Add an index column</h2>
 <p><br></p>
 <p>In some cases, it is useful to have a unique identifier for each row in the dataset. We can create an identifier using the functions <code>mutate()</code> and <code>row_number()</code> with some extra syntaxis.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a></a>industrial_data_single <span class="ot">=</span> industrial_data_single <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">ID =</span> <span class="fu">row_number</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a></a>industrial_data_single <span class="ot">=</span> industrial_data <span class="sc">%&gt;%</span> </span>
+<span id="cb32-2"><a></a>                         <span class="fu">mutate</span>(<span class="at">ID =</span> <span class="fu">row_number</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="section-12" class="slide level2">
@@ -771,17 +762,17 @@ Alan R. Vazquez
 <p><br></p>
 <p>The new column is appended to the end of the dataframe.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a></a>industrial_data_single <span class="sc">%&gt;%</span>  <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a></a>industrial_data_single <span class="sc">%&gt;%</span>  <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 6
   `Machine ID` `Output (units)` `Maintenance Date`  Operator Comment          ID
          &lt;dbl&gt; &lt;chr&gt;            &lt;dttm&gt;              &lt;chr&gt;    &lt;chr&gt;         &lt;int&gt;
 1          101 1200             2023-01-10 00:00:00 Ana      "ok"              1
-2          102 1050             2023-01-12 00:00:00 Bob      "Needs oil!"      2
-3          103 error            2023-01-13 00:00:00 Charlie  "All good\r\…     3
-4          103 950              2023-01-13 00:00:00 Charlie  "All good\r\…     4
-5          104 900              2023-01-14 00:00:00 &lt;NA&gt;     "Delay: powe…     5
-6          105 870              NA                  DAVE     "completed"       6</code></pre>
+2          101 1200             2023-01-10 00:00:00 Ana      "ok"              2
+3          102 1050             2023-01-12 00:00:00 Bob      "Needs oil!"      3
+4          103 error            2023-01-13 00:00:00 Charlie  "All good\r\…     4
+5          103 950              2023-01-13 00:00:00 Charlie  "All good\r\…     5
+6          104 900              2023-01-14 00:00:00 &lt;NA&gt;     "Delay: powe…     6</code></pre>
 </div>
 </div>
 </section>
@@ -789,20 +780,20 @@ Alan R. Vazquez
 <h2></h2>
 <p>To bring it to the beginning of the array, we can use the <code>select()</code> and <code>everything()</code> functions.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a></a>industrial_data_single <span class="ot">=</span> industrial_data_single <span class="sc">%&gt;%</span> </span>
-<span id="cb36-2"><a></a><span class="fu">select</span>(ID, <span class="fu">everything</span>())</span>
-<span id="cb36-3"><a></a></span>
-<span id="cb36-4"><a></a>industrial_data_single <span class="sc">%&gt;%</span>  <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a></a>industrial_data_single <span class="ot">=</span> industrial_data_single <span class="sc">%&gt;%</span> </span>
+<span id="cb35-2"><a></a><span class="fu">select</span>(ID, <span class="fu">everything</span>())</span>
+<span id="cb35-3"><a></a></span>
+<span id="cb35-4"><a></a>industrial_data_single <span class="sc">%&gt;%</span>  <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 6
      ID `Machine ID` `Output (units)` `Maintenance Date`  Operator Comment      
   &lt;int&gt;        &lt;dbl&gt; &lt;chr&gt;            &lt;dttm&gt;              &lt;chr&gt;    &lt;chr&gt;        
 1     1          101 1200             2023-01-10 00:00:00 Ana      "ok"         
-2     2          102 1050             2023-01-12 00:00:00 Bob      "Needs oil!" 
-3     3          103 error            2023-01-13 00:00:00 Charlie  "All good\r\…
-4     4          103 950              2023-01-13 00:00:00 Charlie  "All good\r\…
-5     5          104 900              2023-01-14 00:00:00 &lt;NA&gt;     "Delay: powe…
-6     6          105 870              NA                  DAVE     "completed"  </code></pre>
+2     2          101 1200             2023-01-10 00:00:00 Ana      "ok"         
+3     3          102 1050             2023-01-12 00:00:00 Bob      "Needs oil!" 
+4     4          103 error            2023-01-13 00:00:00 Charlie  "All good\r\…
+5     5          103 950              2023-01-13 00:00:00 Charlie  "All good\r\…
+6     6          104 900              2023-01-14 00:00:00 &lt;NA&gt;     "Delay: powe…</code></pre>
 </div>
 </div>
 </section>
@@ -811,29 +802,29 @@ Alan R. Vazquez
 <p>In the <code>industrial_data_single</code>, there are columns with missing values. We can fill them with specific values or text using <code>replace_na()</code> function. In this function, we use the syntaxis <code>'Variable' = 'Replace'</code>, where the <code>Variable</code> is the column in the dataset and <code>Replace</code> is the text or number to fill the entry in.</p>
 <p>Let’s fill in the missing entries of the columns <code>Operator</code>, <code>Maintenance Date</code>, and <code>Comment</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a></a>complete_data <span class="ot">=</span> industrial_data_single <span class="sc">%&gt;%</span> </span>
-<span id="cb38-2"><a></a>                  <span class="fu">replace_na</span>( <span class="fu">list</span>(</span>
-<span id="cb38-3"><a></a>                  <span class="at">Operator =</span> <span class="st">"Unknown"</span>,</span>
-<span id="cb38-4"><a></a>                  <span class="st">`</span><span class="at">Maintenance Date</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">as.Date</span>(<span class="st">"2023-01-01"</span>),</span>
-<span id="cb38-5"><a></a>                  <span class="at">Comment =</span> <span class="st">"None"</span>) </span>
-<span id="cb38-6"><a></a>                  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a></a>complete_data <span class="ot">=</span> industrial_data_single <span class="sc">%&gt;%</span> </span>
+<span id="cb37-2"><a></a>                  <span class="fu">replace_na</span>( <span class="fu">list</span>(</span>
+<span id="cb37-3"><a></a>                  <span class="at">Operator =</span> <span class="st">"Unknown"</span>,</span>
+<span id="cb37-4"><a></a>                  <span class="st">`</span><span class="at">Maintenance Date</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">as.Date</span>(<span class="st">"2023-01-01"</span>),</span>
+<span id="cb37-5"><a></a>                  <span class="at">Comment =</span> <span class="st">"None"</span>) </span>
+<span id="cb37-6"><a></a>                  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="section-14" class="slide level2">
 <h2></h2>
 <p><br><br></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a></a>complete_data <span class="sc">%&gt;%</span>  <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a></a>complete_data <span class="sc">%&gt;%</span>  <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 6
      ID `Machine ID` `Output (units)` `Maintenance Date`  Operator Comment      
   &lt;int&gt;        &lt;dbl&gt; &lt;chr&gt;            &lt;dttm&gt;              &lt;chr&gt;    &lt;chr&gt;        
 1     1          101 1200             2023-01-10 00:00:00 Ana      "ok"         
-2     2          102 1050             2023-01-12 00:00:00 Bob      "Needs oil!" 
-3     3          103 error            2023-01-13 00:00:00 Charlie  "All good\r\…
-4     4          103 950              2023-01-13 00:00:00 Charlie  "All good\r\…
-5     5          104 900              2023-01-14 00:00:00 Unknown  "Delay: powe…
-6     6          105 870              2023-01-01 00:00:00 DAVE     "completed"  </code></pre>
+2     2          101 1200             2023-01-10 00:00:00 Ana      "ok"         
+3     3          102 1050             2023-01-12 00:00:00 Bob      "Needs oil!" 
+4     4          103 error            2023-01-13 00:00:00 Charlie  "All good\r\…
+5     5          103 950              2023-01-13 00:00:00 Charlie  "All good\r\…
+6     6          104 900              2023-01-14 00:00:00 Unknown  "Delay: powe…</code></pre>
 </div>
 </div>
 </section>
@@ -841,17 +832,17 @@ Alan R. Vazquez
 <h2>Replace values</h2>
 <p>There are some cases in which columns have some undesired or unwatned values. Consider the <code>Output (units)</code> as an example.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a></a>complete_data <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="st">`</span><span class="at">Output (units)</span><span class="st">`</span>) <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a></a>complete_data <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="st">`</span><span class="at">Output (units)</span><span class="st">`</span>) <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 1
   `Output (units)`
   &lt;chr&gt;           
 1 1200            
-2 1050            
-3 error           
-4 950             
-5 900             
-6 870             </code></pre>
+2 1200            
+3 1050            
+4 error           
+5 950             
+6 900             </code></pre>
 </div>
 </div>
 <p>The column has the numbers of units but also text such as “error”.</p>
@@ -860,21 +851,21 @@ Alan R. Vazquez
 <h2></h2>
 <p>We can replace the “error” in this column by a user-specified value, say, 0. To this end, we use the functions <code>mutate()</code> and <code>na_if()</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a></a>complete_data <span class="ot">=</span> complete_data <span class="sc">%&gt;%</span> </span>
-<span id="cb43-2"><a></a><span class="fu">mutate</span>(<span class="st">`</span><span class="at">Output (units)</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">na_if</span>(<span class="st">`</span><span class="at">Output (units)</span><span class="st">`</span>, <span class="st">"error"</span>))</span>
-<span id="cb43-3"><a></a></span>
-<span id="cb43-4"><a></a><span class="co"># Let's check the column.</span></span>
-<span id="cb43-5"><a></a>complete_data <span class="sc">%&gt;%</span>  <span class="fu">select</span>(<span class="st">`</span><span class="at">Output (units)</span><span class="st">`</span>) <span class="sc">%&gt;%</span>  <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a></a>complete_data <span class="ot">=</span> complete_data <span class="sc">%&gt;%</span> </span>
+<span id="cb42-2"><a></a><span class="fu">mutate</span>(<span class="st">`</span><span class="at">Output (units)</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">na_if</span>(<span class="st">`</span><span class="at">Output (units)</span><span class="st">`</span>, <span class="st">"error"</span>))</span>
+<span id="cb42-3"><a></a></span>
+<span id="cb42-4"><a></a><span class="co"># Let's check the column.</span></span>
+<span id="cb42-5"><a></a>complete_data <span class="sc">%&gt;%</span>  <span class="fu">select</span>(<span class="st">`</span><span class="at">Output (units)</span><span class="st">`</span>) <span class="sc">%&gt;%</span>  <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 1
   `Output (units)`
   &lt;chr&gt;           
 1 1200            
-2 1050            
-3 &lt;NA&gt;            
-4 950             
-5 900             
-6 870             </code></pre>
+2 1200            
+3 1050            
+4 &lt;NA&gt;            
+5 950             
+6 900             </code></pre>
 </div>
 </div>
 <p><span style="color:darkred;"><strong>However, the new column is character (<code>chr</code>)!</strong></span></p>
@@ -884,20 +875,20 @@ Alan R. Vazquez
 <p><br></p>
 <p>We turn the column numeric using the functions <code>mutate()</code> and <code>as.numeric()</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a></a>complete_data <span class="ot">=</span> complete_data <span class="sc">%&gt;%</span> </span>
-<span id="cb45-2"><a></a><span class="fu">mutate</span>(<span class="st">`</span><span class="at">Output (units)</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">as.numeric</span>(<span class="st">`</span><span class="at">Output (units)</span><span class="st">`</span>))</span>
-<span id="cb45-3"><a></a></span>
-<span id="cb45-4"><a></a>complete_data <span class="sc">%&gt;%</span>  <span class="fu">select</span>(<span class="st">`</span><span class="at">Output (units)</span><span class="st">`</span>) <span class="sc">%&gt;%</span>  <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a></a>complete_data <span class="ot">=</span> complete_data <span class="sc">%&gt;%</span> </span>
+<span id="cb44-2"><a></a><span class="fu">mutate</span>(<span class="st">`</span><span class="at">Output (units)</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">as.numeric</span>(<span class="st">`</span><span class="at">Output (units)</span><span class="st">`</span>))</span>
+<span id="cb44-3"><a></a></span>
+<span id="cb44-4"><a></a>complete_data <span class="sc">%&gt;%</span>  <span class="fu">select</span>(<span class="st">`</span><span class="at">Output (units)</span><span class="st">`</span>) <span class="sc">%&gt;%</span>  <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 1
   `Output (units)`
              &lt;dbl&gt;
 1             1200
-2             1050
-3               NA
-4              950
-5              900
-6              870</code></pre>
+2             1200
+3             1050
+4               NA
+5              950
+6              900</code></pre>
 </div>
 </div>
 <p><span style="color:darkblue;"><strong>Now, the column is numeric or <code>dbl</code>!</strong></span></p>
@@ -920,14 +911,14 @@ Alan R. Vazquez
 </div></div>
 <p>Load it to Google Colab with the following code.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a></a><span class="fu">library</span>(stringr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a></a><span class="fu">library</span>(stringr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="example-3-cont." class="slide level2">
 <h2>Example 3 (cont.)</h2>
 <p>Let’s reconsider the Example 4 after splitting the column <code>Comment</code> into two columns <code>First_Comment</code> and <code>Second_comment</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a></a>augmented_data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a></a>augmented_data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 100 × 6
    `Machine ID` `Output (units)` `Maintenance Date`  Operator First_comment  
@@ -953,8 +944,8 @@ Alan R. Vazquez
 <p>Something that we notice is that the column <code>First_Comment</code> has some extra characters like “<code>\n</code>” that may be useless when working with the data.</p>
 <p>We can remove them using the function <code>str_trim()</code> from the <strong>stringr</strong> package.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a></a>augmented_data <span class="ot">=</span> augmented_data  <span class="sc">%&gt;%</span> </span>
-<span id="cb50-2"><a></a><span class="fu">mutate</span>(<span class="at">First_comment =</span> <span class="fu">str_trim</span>(First_comment, <span class="at">side =</span> <span class="st">"both"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a></a>augmented_data <span class="ot">=</span> augmented_data  <span class="sc">%&gt;%</span> </span>
+<span id="cb49-2"><a></a><span class="fu">mutate</span>(<span class="at">First_comment =</span> <span class="fu">str_trim</span>(First_comment, <span class="at">side =</span> <span class="st">"both"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="section-17" class="slide level2">
@@ -962,7 +953,7 @@ Alan R. Vazquez
 <p><br></p>
 <p>Let’s see the cleaned column.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a></a>augmented_data <span class="sc">%&gt;%</span>  <span class="fu">select</span>(First_comment)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a></a>augmented_data <span class="sc">%&gt;%</span>  <span class="fu">select</span>(<span class="st">`</span><span class="at">First_comment</span><span class="st">`</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 100 × 1
    First_comment
@@ -981,22 +972,43 @@ Alan R. Vazquez
 </div>
 </div>
 </section>
+<section id="section-18" class="slide level2">
+<h2></h2>
+<p>We can remove special characters such as “!” from all cells in the column.</p>
+<p>To do this, we use the functions <code>mutate()</code> and <code>str_remove_all()</code> with the character to remove. That is, we create a new cleaned variable without the specific character.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a></a>augmented_data <span class="sc">%&gt;%</span>  </span>
+<span id="cb52-2"><a></a>  <span class="fu">mutate</span>(<span class="st">"First_comment"</span> <span class="ot">=</span> <span class="fu">str_remove_all</span>(<span class="st">`</span><span class="at">First_comment</span><span class="st">`</span>, <span class="st">"!"</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb52-3"><a></a>  <span class="fu">select</span>(<span class="st">`</span><span class="at">First_comment</span><span class="st">`</span>) <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 1
+  First_comment
+  &lt;chr&gt;        
+1 ok           
+2 ok           
+3 Needs oil    
+4 All good     
+5 All good     
+6 Delay        </code></pre>
+</div>
+</div>
+</section>
 <section id="transform-text-case" class="slide level2">
 <h2>Transform text case</h2>
 <p>When working with text columns containing names, we may have different ways of writing. A common case is when having lower case or upper case names or a combination thereof.</p>
 <p>For example, consider the column <code>Operator</code> containing the names of the operators.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a></a>complete_data <span class="sc">%&gt;%</span> <span class="fu">select</span>(Operator) <span class="sc">%&gt;%</span>  <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a></a>complete_data <span class="sc">%&gt;%</span> <span class="fu">select</span>(Operator) <span class="sc">%&gt;%</span>  <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 1
   Operator
   &lt;chr&gt;   
 1 Ana     
-2 Bob     
-3 Charlie 
+2 Ana     
+3 Bob     
 4 Charlie 
-5 Unknown 
-6 DAVE    </code></pre>
+5 Charlie 
+6 Unknown </code></pre>
 </div>
 </div>
 </section>
@@ -1005,20 +1017,20 @@ Alan R. Vazquez
 <p><br></p>
 <p>To deal with names, we first use the <code>str_trim()</code> to remove leading and trailing characters from strings.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a></a>complete_data <span class="ot">=</span>  complete_data <span class="sc">%&gt;%</span> </span>
-<span id="cb55-2"><a></a><span class="fu">mutate</span>(<span class="at">Operator =</span> <span class="fu">str_trim</span>(Operator))</span>
-<span id="cb55-3"><a></a></span>
-<span id="cb55-4"><a></a>complete_data <span class="sc">%&gt;%</span> <span class="fu">select</span>(Operator) <span class="sc">%&gt;%</span>  <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a></a>complete_data <span class="ot">=</span>  complete_data <span class="sc">%&gt;%</span> </span>
+<span id="cb56-2"><a></a><span class="fu">mutate</span>(<span class="at">Operator =</span> <span class="fu">str_trim</span>(Operator))</span>
+<span id="cb56-3"><a></a></span>
+<span id="cb56-4"><a></a>complete_data <span class="sc">%&gt;%</span> <span class="fu">select</span>(Operator) <span class="sc">%&gt;%</span>  <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 1
   Operator
   &lt;chr&gt;   
 1 Ana     
-2 Bob     
-3 Charlie 
+2 Ana     
+3 Bob     
 4 Charlie 
-5 Unknown 
-6 DAVE    </code></pre>
+5 Charlie 
+6 Unknown </code></pre>
 </div>
 </div>
 </section>
@@ -1027,20 +1039,20 @@ Alan R. Vazquez
 <p><br></p>
 <p>We can turn all names to lowercase using the function <code>str_to_lower()</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a></a>complete_data <span class="sc">%&gt;%</span> </span>
-<span id="cb57-2"><a></a><span class="fu">mutate</span>(<span class="at">Operator =</span> <span class="fu">str_to_lower</span>(Operator)) <span class="sc">%&gt;%</span> </span>
-<span id="cb57-3"><a></a><span class="fu">select</span>(Operator) <span class="sc">%&gt;%</span> </span>
-<span id="cb57-4"><a></a><span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a></a>complete_data <span class="sc">%&gt;%</span> </span>
+<span id="cb58-2"><a></a><span class="fu">mutate</span>(<span class="at">Operator =</span> <span class="fu">str_to_lower</span>(Operator)) <span class="sc">%&gt;%</span> </span>
+<span id="cb58-3"><a></a><span class="fu">select</span>(Operator) <span class="sc">%&gt;%</span> </span>
+<span id="cb58-4"><a></a><span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 1
   Operator
   &lt;chr&gt;   
 1 ana     
-2 bob     
-3 charlie 
+2 ana     
+3 bob     
 4 charlie 
-5 unknown 
-6 dave    </code></pre>
+5 charlie 
+6 unknown </code></pre>
 </div>
 </div>
 </section>
@@ -1049,20 +1061,20 @@ Alan R. Vazquez
 <p><br></p>
 <p>We can turn all names to uppercase using the function <code>str_to_upper()</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a></a>complete_data <span class="sc">%&gt;%</span> </span>
-<span id="cb59-2"><a></a><span class="fu">mutate</span>(<span class="at">Operator =</span> <span class="fu">str_to_upper</span>(Operator)) <span class="sc">%&gt;%</span> </span>
-<span id="cb59-3"><a></a><span class="fu">select</span>(Operator) <span class="sc">%&gt;%</span> </span>
-<span id="cb59-4"><a></a><span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a></a>complete_data <span class="sc">%&gt;%</span> </span>
+<span id="cb60-2"><a></a><span class="fu">mutate</span>(<span class="at">Operator =</span> <span class="fu">str_to_upper</span>(Operator)) <span class="sc">%&gt;%</span> </span>
+<span id="cb60-3"><a></a><span class="fu">select</span>(Operator) <span class="sc">%&gt;%</span> </span>
+<span id="cb60-4"><a></a><span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 1
   Operator
   &lt;chr&gt;   
 1 ANA     
-2 BOB     
-3 CHARLIE 
+2 ANA     
+3 BOB     
 4 CHARLIE 
-5 UNKNOWN 
-6 DAVE    </code></pre>
+5 CHARLIE 
+6 UNKNOWN </code></pre>
 </div>
 </div>
 </section>
@@ -1071,20 +1083,20 @@ Alan R. Vazquez
 <p><br></p>
 <p>We can convert all names to title case using the function <code>str_to_title()</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a></a>complete_data <span class="sc">%&gt;%</span> </span>
-<span id="cb61-2"><a></a><span class="fu">mutate</span>(<span class="at">Operator =</span> <span class="fu">str_to_title</span>(Operator)) <span class="sc">%&gt;%</span> </span>
-<span id="cb61-3"><a></a><span class="fu">select</span>(Operator) <span class="sc">%&gt;%</span> </span>
-<span id="cb61-4"><a></a><span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a></a>complete_data <span class="sc">%&gt;%</span> </span>
+<span id="cb62-2"><a></a><span class="fu">mutate</span>(<span class="at">Operator =</span> <span class="fu">str_to_title</span>(Operator)) <span class="sc">%&gt;%</span> </span>
+<span id="cb62-3"><a></a><span class="fu">select</span>(Operator) <span class="sc">%&gt;%</span> </span>
+<span id="cb62-4"><a></a><span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 1
   Operator
   &lt;chr&gt;   
 1 Ana     
-2 Bob     
-3 Charlie 
+2 Ana     
+3 Bob     
 4 Charlie 
-5 Unknown 
-6 Dave    </code></pre>
+5 Charlie 
+6 Unknown </code></pre>
 </div>
 </div>
 </section>

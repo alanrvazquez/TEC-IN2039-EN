@@ -451,22 +451,6 @@ augmented_data  %>%
 -   It involves merging, reshaping, filtering, and organizing data for analysis.
 -   Here, we illustrate some special functions of the **tidyverse** for cleaning common issues with a dataset.
 
-## Remove duplicate rows
-
-</br>
-
-Duplicate or identical rows are rows that have the same entries in every column in the dataset.
-
-</br>
-
-If only one row is needed for the analysis, we can remove the duplicates using the `distinct()` function. Let's illustrate this using the `industrial_data` dataset.
-
-```{r}
-#| echo: true
-
-industrial_data_single = industrial_data  %>% distinct()
-```
-
 ## Add an index column
 
 </br>
@@ -476,7 +460,8 @@ In some cases, it is useful to have a unique identifier for each row in the data
 ```{r}
 #| echo: true
 
-industrial_data_single = industrial_data_single %>% mutate(ID = row_number())
+industrial_data_single = industrial_data %>% 
+                         mutate(ID = row_number())
 ```
 
 ## 
@@ -638,7 +623,21 @@ Let's see the cleaned column.
 ```{r}
 #| echo: true
 
-augmented_data %>%  select(First_comment)
+augmented_data %>%  select(`First_comment`)
+```
+
+## 
+
+We can remove special characters such as "!" from all cells in the column. 
+
+To do this, we use the functions `mutate()` and `str_remove_all()` with the character to remove. That is, we create a new cleaned variable without the specific character.
+
+```{r}
+#| echo: true
+
+augmented_data %>%  
+  mutate("First_comment" = str_remove_all(`First_comment`, "!")) %>% 
+  select(`First_comment`) %>% head()
 ```
 
 ## Transform text case
