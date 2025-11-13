@@ -215,6 +215,7 @@ Alan R. Vazquez
 <ol type="1">
 <li>HTML Basics</li>
 <li>Web Scraping with the <strong>rvest</strong> package</li>
+<li>Legal and Ethical Issues with Web Scraping</li>
 </ol>
 </section>
 <section id="load-the-libraries" class="slide level2">
@@ -410,10 +411,11 @@ Alan R. Vazquez
 </section>
 <section id="what-is-web-scraping" class="slide level2">
 <h2>What is web scraping?</h2>
-<p>It is the process of automatically extracting information from websites. It allows you to collect data that is displayed on web pages but not directly available for download.</p>
+<p>It is the process of extracting data from the web and transform it into an structured (<em>tidy</em>) dataset.</p>
+<p>It allows you to collect data that is displayed on web pages but not directly available for download.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="images/web-scraping.png" class="quarto-figure quarto-figure-center" width="700" height="400"></p>
+<p><img data-src="images/web-scraping.png" class="quarto-figure quarto-figure-center" width="600" height="300"></p>
 </figure>
 </div>
 <aside class="notes">
@@ -754,49 +756,86 @@ Alan R. Vazquez
 </div>
 </div>
 </section>
-<section id="example-2-1" class="slide level2">
-<h2>Example 2</h2>
-<p>Consider the plan crashes database.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a></a>plane_crashes <span class="ot">=</span> <span class="fu">read_html</span>(<span class="st">"https://www.planecrashinfo.com/2025/2025.htm"</span>)</span>
-<span id="cb30-2"><a></a>plane_crashes <span class="sc">%&gt;%</span>  <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>$node
-&lt;pointer: 0x104e71800&gt;
+<section id="the-web-scraping-process" class="slide level2">
+<h2>The web scraping process</h2>
+<p><br></p>
+<p>So, the web scraping process consists of the following steps:</p>
+<ol type="1">
+<li>Read the HTML page into R with <code>read_html()</code>.</li>
+<li>Extract nodes corresponding to elements of interest with the help of <strong>SelectorGadget</strong> to identify them and functions like <code>html_elements()</code>, <code>html_table()</code>, <code>html_node()</code>, among others.</li>
+<li>Clean up the extracted fields using functions form <strong>stringr</strong>, <strong>dplyr</strong>, and <strong>tidyr</strong>.</li>
+</ol>
+</section></section>
+<section>
+<section id="legal-and-ethical-issues-with-web-scraping" class="title-slide slide level1 center">
+<h1>Legal and Ethical Issues with Web Scraping</h1>
 
-$doc
-&lt;pointer: 0x104e72510&gt;</code></pre>
-</div>
-</div>
-<p>We use the function <code>html_elements()</code> from <strong>rvest</strong>.</p>
+</section>
+<section id="robots.txt" class="slide level2">
+<h2><code>Robots.txt</code></h2>
+<p>When scraping the web you need to be aware of <code>robots.txt</code>.</p>
+<ul>
+<li><p>The robots exclusion standard, also known as the robots exclusion protocol or simply robots.txt, is a standard used by websites to communicate with web crawlers and other web robots.</p></li>
+<li><p>The standard specifies how to inform the web robot about which areas of the website should not be processed or scanned.</p></li>
+<li><p>See more at <a href="https://en.wikipedia.org/wiki/Robots_exclusion_standard">Wikipedia</a>.</p></li>
+</ul>
+</section>
+<section id="the-robotstxt-package" class="slide level2">
+<h2>The robotstxt package</h2>
+<p>To check if scraping/crawling a specific website is allowed, we use the R package called <strong>robotstxt</strong>. Let’s load it into R.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a></a>crashes_table <span class="ot">=</span> plane_crashes <span class="sc">%&gt;%</span> </span>
-<span id="cb32-2"><a></a>  <span class="fu">html_elements</span>(<span class="at">css =</span> <span class="st">"table"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a></a><span class="fu">library</span>(robotstxt)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="fragment">
+<p>The package has a function called <code>paths_allowed()</code> that tells you whether a website can be scraped or not.</p>
+</div>
+<div class="fragment">
+<p>For instance, let’s confirm that we can scrape the website <a href="https://www.foxsports.com/nfl-super-bowl-winners-and-results" class="uri">https://www.foxsports.com/nfl-super-bowl-winners-and-results</a></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a></a><span class="fu">paths_allowed</span>(<span class="st">"https://www.foxsports.com/nfl-super-bowl-winners-and-results"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] TRUE</code></pre>
+</div>
+</div>
 </div>
 </section>
-<section id="getting-html-text" class="slide level2">
-<h2>Getting HTML text</h2>
+<section id="when-to-scrape-data-form-a-website" class="slide level2">
+<h2>When to scrape data form a website?</h2>
+<p><br><br><br></p>
+<ul>
+<li>If the output of <code>paths_allowed()</code> is <code>TRUE</code>, then we “can” scrape data from this website.</li>
+<li>If the output of <code>paths_allowed()</code> is <code>FALSE</code>, then <span style="color:darkred;"><strong>we cannot scrape data from this website!</strong></span></li>
+</ul>
+</section>
+<section id="what-abut-the-industrial-engineering-wikipedia-site" class="slide level2">
+<h2>What abut the industrial engineering Wikipedia site?</h2>
+<p><br><br></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a></a>crashes_table <span class="sc">%&gt;%</span> <span class="fu">html_table</span>(<span class="at">header =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a></a><span class="fu">paths_allowed</span>(<span class="st">"https://en.wikipedia.org/wiki/Industrial_engineering"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[[1]]
-# A tibble: 12 × 4
-   Date        `Location / Operator`           Aircraft Type / Regi…¹ Fatalities
-   &lt;chr&gt;       &lt;chr&gt;                           &lt;chr&gt;                  &lt;chr&gt;     
- 1 07 Jan 2025 Off Rottnest Island, WA, Austr… Cessna 208 Caravan 67… 3/7(0)    
- 2 29 Jan 2025 Washington DCAmerican Eagle / … Canadair CRJ-701ER /U… 67/67(0)  
- 3 29 Jan 2025 GPOC Unity Airstrip, South Sud… Beechcraft 1900D5X-RHB 20/21(0)  
- 4 31 Jan 2025 Philadelphia, PennsylvaniaMed … Learjet 55XA-UCI       6/6(1)    
- 5 06 Feb 2025 Norton SoundBering Air          Cessna 208B Grand Car… 10/10(0)  
- 6 17 Feb 2025 Toronto, CanadaDelta Connectio… Bombardier CRJ-900LRN… 0/80(0)   
- 7 25 Feb 2025 Omdurman, SudanMilitary - Suda… Antonov An-26?         17/17(29) 
- 8 17 Mar 2025 Off Roatan, HondurasLANHSA      British Aerospace BAe… 12/17(0)  
- 9 12 Jun 2025 Ahmedabad, IndiaAir India       Boeing 787-8 Dreamlin… 241/242(3…
-10 24 Jul 2025 Tynda, RussiaAngara Airlines    Antonov An-24VRA-47315 48/48(0)  
-11 20 Oct 2025 Hong Kong, ChinaACT Airlines, … Boeing 747-481TC-ACF   0/4(2)    
-12 04 Nov 2025 Louisville, KentuckyUnited Par… McDonnell Douglas MD1… 3/3(11)   
-# ℹ abbreviated name: ¹​`Aircraft Type / Registration`</code></pre>
+<pre><code>[1] TRUE</code></pre>
 </div>
+</div>
+<p>The output is <code>TRUE</code>, so we are “good” to scrape it.</p>
+</section>
+<section id="final-comments" class="slide level2">
+<h2>Final comments</h2>
+<p><br><br></p>
+<ul>
+<li class="fragment"><p>A misconception about web data is that if the data is publicly available, it can be scraped.</p></li>
+<li class="fragment"><p>Even if <code>paths_allowed() = TRUE</code>, we must consider the privacy and consent when the data is about human subjects, because it may include sensitive information. For more information, reach the <a href="https://comiteinstitucionaletica.tec.mx/en">Institutional Research Ethics Committee</a>.</p></li>
+</ul>
+</section>
+<section id="section-19" class="slide level2">
+<h2></h2>
+<p><br><br></p>
+<ul>
+<li>Another thing to consider is the legal aspect of web scraping. Always review the website’s terms of service before collecting data. For example, review the <a href="https://foundation.wikimedia.org/wiki/Policy:Terms_of_Use">Wikipedia Terms of Use</a> and the <a href="https://www.foxsports.com/terms-of-use">Fox Sports Terms of Use</a></li>
+</ul>
+<div class="fragment">
+<ul>
+<li>Scraping without permission can violate intellectual property rights or privacy regulations, depending on the jurisdiction</li>
+</ul>
 </div>
 </section></section>
 <section id="return-to-main-page" class="title-slide slide level1 center">

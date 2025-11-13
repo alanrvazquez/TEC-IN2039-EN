@@ -1649,7 +1649,7 @@
     "href": "T4_WebScraping/WebScraping.slides.html#agenda",
     "title": "Web Scraping",
     "section": "Agenda",
-    "text": "Agenda\n\n\nHTML Basics\nWeb Scraping with the rvest package"
+    "text": "Agenda\n\n\nHTML Basics\nWeb Scraping with the rvest package\nLegal and Ethical Issues with Web Scraping"
   },
   {
     "objectID": "T4_WebScraping/WebScraping.slides.html#load-the-libraries",
@@ -1873,7 +1873,7 @@
     "href": "T4_WebScraping/WebScraping.slides.html#what-is-web-scraping",
     "title": "Web Scraping",
     "section": "What is web scraping?",
-    "text": "What is web scraping?\nIt is the process of automatically extracting information from websites. It allows you to collect data that is displayed on web pages but not directly available for download.\n\n\n\n\n\n\n\nCommon uses include:\n\nCollecting product or price information\n\nGathering research or statistical data\n\nMonitoring online content changes"
+    "text": "What is web scraping?\nIt is the process of extracting data from the web and transform it into an structured (tidy) dataset.\nIt allows you to collect data that is displayed on web pages but not directly available for download.\n\n\n\n\n\n\n\nCommon uses include:\n\nCollecting product or price information\n\nGathering research or statistical data\n\nMonitoring online content changes"
   },
   {
     "objectID": "T4_WebScraping/WebScraping.slides.html#now-lets-inspect-the-elements-using-selectorgadget",
@@ -1894,7 +1894,7 @@
     "href": "T4_WebScraping/WebScraping.slides.html#example-2-1",
     "title": "Web Scraping",
     "section": "Example 2",
-    "text": "Example 2\nConsider the plan crashes database.\n\nplane_crashes = read_html(\"https://www.planecrashinfo.com/2025/2025.htm\")\nplane_crashes %&gt;%  head()\n\n$node\n&lt;pointer: 0x104e71800&gt;\n\n$doc\n&lt;pointer: 0x104e72510&gt;\n\n\nWe use the function html_elements() from rvest.\n\ncrashes_table = plane_crashes %&gt;% \n  html_elements(css = \"table\")"
+    "text": "Example 2\nConsider the plan crashes database.\n\nplane_crashes = read_html(\"https://www.planecrashinfo.com/2025/2025.htm\")\nplane_crashes %&gt;%  head()\n\n$node\n&lt;pointer: 0x1497e8660&gt;\n\n$doc\n&lt;pointer: 0x14972f7e0&gt;\n\n\nWe use the function html_elements() from rvest.\n\ncrashes_table = plane_crashes %&gt;% \n  html_elements(css = \"table\")"
   },
   {
     "objectID": "T4_WebScraping/WebScraping.slides.html#section-10",
@@ -1986,5 +1986,61 @@
     "title": "Web Scraping",
     "section": "The final dataset",
     "text": "The final dataset\n\nsuperbowl_data_final %&gt;% head(10)\n\n# A tibble: 10 × 8\n   NO.   LOCATION              Day    Year `W Team` `W Score` `L Team` `L Score`\n   &lt;chr&gt; &lt;chr&gt;                 &lt;chr&gt; &lt;dbl&gt; &lt;chr&gt;        &lt;dbl&gt; &lt;chr&gt;        &lt;dbl&gt;\n 1 I     Los Angeles Memorial… Jan.…  1967 \"Green …        35 \" Kansa…        10\n 2 II    Miami Orange Bowl     Jan.…  1968 \"Green …        33 \" Oakla…        14\n 3 III   Miami Orange Bowl     Jan.…  1969 \"New Yo…        16 \" Balti…         7\n 4 IV    Tulane Stadium        Jan.…  1970 \"Kansas…        23 \" Minne…         7\n 5 V     Miami Orange Bowl     Jan.…  1971 \"Baltim…        16 \" Dalla…        13\n 6 VI    Tulane Stadium        Jan.…  1972 \"Dallas…        24 \" Miami…         3\n 7 VII   Los Angeles Memorial… Jan.…  1973 \"Miami \"        14 \" Washi…         7\n 8 VIII  Rice Stadium          Jan.…  1974 \"Miami \"        24 \" Minne…         7\n 9 IX    Tulane Stadium        Jan.…  1975 \"Pittsb…        16 \" Minne…         6\n10 X     Miami Orange Bowl     Jan.…  1976 \"Pittsb…        21 \" Dalla…        17"
+  },
+  {
+    "objectID": "T4_WebScraping/WebScraping.slides.html#the-web-scraping-process",
+    "href": "T4_WebScraping/WebScraping.slides.html#the-web-scraping-process",
+    "title": "Web Scraping",
+    "section": "The web scraping process",
+    "text": "The web scraping process\n\nSo, the web scraping process consists of the following steps:\n\nRead the HTML page into R with read_html().\nExtract nodes corresponding to elements of interest with the help of SelectorGadget to identify them and functions like html_elements(), html_table(), html_node(), among others.\nClean up the extracted fields using functions form stringr, dplyr, and tidyr."
+  },
+  {
+    "objectID": "T4_WebScraping/WebScraping.slides.html#robots.txt",
+    "href": "T4_WebScraping/WebScraping.slides.html#robots.txt",
+    "title": "Web Scraping",
+    "section": "Robots.txt",
+    "text": "Robots.txt\nWhen scraping the web you need to be aware of robots.txt.\n\nThe robots exclusion standard, also known as the robots exclusion protocol or simply robots.txt, is a standard used by websites to communicate with web crawlers and other web robots.\nThe standard specifies how to inform the web robot about which areas of the website should not be processed or scanned.\nSee more at Wikipedia."
+  },
+  {
+    "objectID": "T4_WebScraping/WebScraping.slides.html#section-19",
+    "href": "T4_WebScraping/WebScraping.slides.html#section-19",
+    "title": "Web Scraping",
+    "section": "",
+    "text": "Another thing to consider is the legal aspect of web scraping. Always review the website’s terms of service before collecting data. For example, review the Wikipedia Terms of Use and the Fox Sports Terms of Use\n\n\n\nScraping without permission can violate intellectual property rights or privacy regulations, depending on the jurisdiction"
+  },
+  {
+    "objectID": "T4_WebScraping/WebScraping.slides.html#the-robotstxt-package",
+    "href": "T4_WebScraping/WebScraping.slides.html#the-robotstxt-package",
+    "title": "Web Scraping",
+    "section": "The robotstxt package",
+    "text": "The robotstxt package\nTo check if scraping/crawling a specific website is allowed, we use the R package called robotstxt. Let’s load it into R.\n\nlibrary(robotstxt)\n\n\nThe package has a function called paths_allowed() that tells you whether a website can be scraped or not.\n\n\nFor instance, let’s confirm that we can scrape the website https://www.foxsports.com/nfl-super-bowl-winners-and-results\n\npaths_allowed(\"https://www.foxsports.com/nfl-super-bowl-winners-and-results\")\n\n[1] TRUE"
+  },
+  {
+    "objectID": "T4_WebScraping/WebScraping.slides.html#when-to-scrape-data-form-a-website",
+    "href": "T4_WebScraping/WebScraping.slides.html#when-to-scrape-data-form-a-website",
+    "title": "Web Scraping",
+    "section": "When to scrape data form a website?",
+    "text": "When to scrape data form a website?\n\n\nIf the output of paths_allowed() is TRUE, then we “can” scrape data from this website.\nIf the output of paths_allowed() is FALSE, then we cannot scrape data from this website!"
+  },
+  {
+    "objectID": "T4_WebScraping/WebScraping.slides.html#what-abut-the-industrial-engineering-wikipedia-site",
+    "href": "T4_WebScraping/WebScraping.slides.html#what-abut-the-industrial-engineering-wikipedia-site",
+    "title": "Web Scraping",
+    "section": "What abut the industrial engineering Wikipedia site?",
+    "text": "What abut the industrial engineering Wikipedia site?\n\n\npaths_allowed(\"https://en.wikipedia.org/wiki/Industrial_engineering\")\n\n[1] TRUE\n\n\nThe output is TRUE, so we are “good” to scrape it."
+  },
+  {
+    "objectID": "T4_WebScraping/WebScraping.slides.html#comments-1",
+    "href": "T4_WebScraping/WebScraping.slides.html#comments-1",
+    "title": "Web Scraping",
+    "section": "Comments",
+    "text": "Comments\nA common misconception surrounding using web data is that if the data is publicly available, it can be scraped."
+  },
+  {
+    "objectID": "T4_WebScraping/WebScraping.slides.html#final-comments",
+    "href": "T4_WebScraping/WebScraping.slides.html#final-comments",
+    "title": "Web Scraping",
+    "section": "Final comments",
+    "text": "Final comments\n\n\nA misconception about web data is that if the data is publicly available, it can be scraped.\nEven if paths_allowed() = TRUE, we must consider the privacy and consent when the data is about human subjects, because it may include sensitive information. For more information, reach the Institutional Research Ethics Committee."
   }
 ]

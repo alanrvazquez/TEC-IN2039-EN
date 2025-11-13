@@ -221,9 +221,11 @@ The bar of **SelectorGadget** identifies that the element is a `p` because it is
 
 ## What is web scraping?
 
-It is the process of automatically extracting information from websites. It allows you to collect data that is displayed on web pages but not directly available for download.  
+It is the process of extracting data from the web and transform it into an structured (*tidy*) dataset. 
 
-![](images/web-scraping.png){fig-align="center" width="700" height="400"}
+It allows you to collect data that is displayed on web pages but not directly available for download.  
+
+![](images/web-scraping.png){fig-align="center" width="600" height="300"}
 
 ::: notes
 - Common uses include:
@@ -472,38 +474,94 @@ superbowl_data_final = superbowl_data_wr %>%
 superbowl_data_final %>% head(10)
 ```
 
-## Example 2
 
-Consider the plan crashes database.
+## The web scraping process
 
-```{r}
-#| echo: true
-#| output: true
+</br>
 
-plane_crashes = read_html("https://www.planecrashinfo.com/2025/2025.htm")
-plane_crashes %>%  head()
-```
+So, the web scraping process consists of the following steps:
 
-We use the function `html_elements()` from **rvest**.
-
-```{r}
-#| echo: true
-#| output: true
-
-crashes_table = plane_crashes %>% 
-  html_elements(css = "table")
-
-```
-
-## Getting HTML text
-
-```{r}
-#| echo: true
-#| output: true
-
-crashes_table %>% html_table(header = TRUE)
-```
+1. Read the HTML page into R with `read_html()`.
+2. Extract nodes corresponding to elements of interest with the help of **SelectorGadget** to identify them and functions like `html_elements()`, `html_table()`, `html_node()`, among others.
+3. Clean up the extracted fields using functions form **stringr**, **dplyr**, and **tidyr**.
 
 # Legal and Ethical Issues with Web Scraping 
+
+## `Robots.txt`
+
+When scraping the web you need to be aware of `robots.txt`. 
+
+- The robots exclusion standard, also known as the robots exclusion protocol or simply robots.txt, is a standard used by websites to communicate with web crawlers and other web robots. 
+
+- The standard specifies how to inform the web robot about which areas of the website should not be processed or scanned.
+
+- See more at [Wikipedia](https://en.wikipedia.org/wiki/Robots_exclusion_standard).
+
+## The robotstxt package
+
+To check if scraping/crawling a specific website is allowed, we use the R package called **robotstxt**. Let's load it into R.
+
+```{r}
+#| echo: true
+#| output: true
+
+library(robotstxt)
+```
+
+
+. . . 
+
+The package has a function called `paths_allowed()` that tells you whether a website can be scraped or not.
+
+. . . 
+
+For instance, let's confirm that we can scrape the website <https://www.foxsports.com/nfl-super-bowl-winners-and-results>
+
+```{r robots}
+#| echo: true
+#| output: true
+
+paths_allowed("https://www.foxsports.com/nfl-super-bowl-winners-and-results")
+```
+## When to scrape data form a website?
+
+</br></br></br>
+
+- If the output of `paths_allowed()` is `TRUE`, then we "can" scrape data from this website.
+- If the output of `paths_allowed()` is `FALSE`, then [**we cannot scrape data from this website!**]{style="color:darkred;"}
+
+
+## What abut the industrial engineering Wikipedia site?
+
+</br></br>
+
+```{r}
+#| echo: true
+#| output: true
+
+paths_allowed("https://en.wikipedia.org/wiki/Industrial_engineering")
+```
+
+The output is `TRUE`, so we are "good" to scrape it.
+
+## Final comments
+
+</br></br>
+
+::: incremental
+- A misconception about web data is that if the data is publicly available, it can be scraped.
+
+- Even if `paths_allowed() = TRUE`, we must consider the privacy and consent when the data is about human subjects, because it may include sensitive information. For more information, reach the [Institutional Research Ethics Committee](https://comiteinstitucionaletica.tec.mx/en).
+:::
+
+## 
+
+</br></br>
+
+- Another thing to consider is the legal aspect of web scraping. Always review the website’s terms of service before collecting data. For example, review the [Wikipedia Terms of Use](https://foundation.wikimedia.org/wiki/Policy:Terms_of_Use) and the [Fox Sports Terms of Use](https://www.foxsports.com/terms-of-use)
+
+. . . 
+
+- Scraping without permission can violate intellectual property rights or privacy regulations, depending on the jurisdiction
 
 # [Return to main page](https://alanrvazquez.github.io/TEC-IN2039-EN/)
