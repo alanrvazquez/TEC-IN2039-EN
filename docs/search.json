@@ -441,13 +441,6 @@
     "text": "Data Wrangling\n\n\nData wrangling is the process of transforming raw data into a clean and structured format.\nIt involves merging, reshaping, filtering, and organizing data for analysis.\nHere, we illustrate some special functions of the tidyverse for cleaning common issues with a dataset."
   },
   {
-    "objectID": "T3_TidyData/TidyData.slides.html#remove-duplicate-rows",
-    "href": "T3_TidyData/TidyData.slides.html#remove-duplicate-rows",
-    "title": "Tidy Data",
-    "section": "Remove duplicate rows",
-    "text": "Remove duplicate rows\n\nDuplicate or identical rows are rows that have the same entries in every column in the dataset.\n\nIf only one row is needed for the analysis, we can remove the duplicates using the distinct() function. Let’s illustrate this using the industrial_data dataset.\n\nindustrial_data_single = industrial_data  %&gt;% distinct()"
-  },
-  {
     "objectID": "T3_TidyData/TidyData.slides.html#add-an-index-column",
     "href": "T3_TidyData/TidyData.slides.html#add-an-index-column",
     "title": "Tidy Data",
@@ -530,6 +523,13 @@
     "title": "Tidy Data",
     "section": "",
     "text": "Let’s see the cleaned column.\n\naugmented_data %&gt;%  select(`First_comment`)\n\n# A tibble: 100 × 1\n   First_comment\n   &lt;chr&gt;        \n 1 ok           \n 2 ok           \n 3 Needs oil!   \n 4 All good     \n 5 All good     \n 6 Delay        \n 7 completed    \n 8 completed    \n 9 All good     \n10 Requires part\n# ℹ 90 more rows"
+  },
+  {
+    "objectID": "T3_TidyData/TidyData.slides.html#section-18",
+    "href": "T3_TidyData/TidyData.slides.html#section-18",
+    "title": "Tidy Data",
+    "section": "",
+    "text": "We can remove special characters such as “!” from all cells in the column.\nTo do this, we use the functions mutate() and str_remove_all() with the character to remove. That is, we create a new cleaned variable without the specific character.\n\naugmented_data %&gt;%  \n  mutate(\"First_comment\" = str_remove_all(`First_comment`, \"!\")) %&gt;% \n  select(`First_comment`) %&gt;% head()\n\n# A tibble: 6 × 1\n  First_comment\n  &lt;chr&gt;        \n1 ok           \n2 ok           \n3 Needs oil    \n4 All good     \n5 All good     \n6 Delay"
   },
   {
     "objectID": "T3_TidyData/TidyData.slides.html#transform-text-case",
@@ -1944,12 +1944,5 @@
     "title": "Statistical Graphs",
     "section": "Discussion",
     "text": "Discussion\n\n\nThe simple linear regression model is easy to interpret due to its structure: \\(\\hat{Y}_i = \\hat{\\beta}_0 + \\hat{\\beta}_1 X_i.\\)\nHowever, it may be too rigid to capture complex relationships between two variables.\nLocal regression is flexible and allows capturing complex relationships between two variables, but it has a low level of interpretability because it does not provide an explicit equation."
-  },
-  {
-    "objectID": "T3_TidyData/TidyData.slides.html#section-18",
-    "href": "T3_TidyData/TidyData.slides.html#section-18",
-    "title": "Tidy Data",
-    "section": "",
-    "text": "We can remove special characters such as “!” from all cells in the column.\nTo do this, we use the functions mutate() and str_remove_all() with the character to remove. That is, we create a new cleaned variable without the specific character.\n\naugmented_data %&gt;%  \n  mutate(\"First_comment\" = str_remove_all(`First_comment`, \"!\")) %&gt;% \n  select(`First_comment`) %&gt;% head()\n\n# A tibble: 6 × 1\n  First_comment\n  &lt;chr&gt;        \n1 ok           \n2 ok           \n3 Needs oil    \n4 All good     \n5 All good     \n6 Delay"
   }
 ]
