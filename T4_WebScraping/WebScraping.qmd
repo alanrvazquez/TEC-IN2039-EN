@@ -367,7 +367,7 @@ However, the output `superbowl_tables` is not a single table, but several object
 
 A `list()` in R is a data structure that can store elements of different types, such as numbers, strings, vectors, or even other lists.
 
-It’s the most flexible container in R — unlike vectors or data frames, a list can mix various kinds of data in one object.
+It's the most flexible container in R — unlike vectors or data frames, a list can mix various kinds of data in one object.
 
 ##
 
@@ -392,7 +392,7 @@ To retrieve the second table, we use...
 #| echo: true
 #| output: true
 
-superbowl_tables[[1]] %>%  head()
+superbowl_tables[[2]] %>%  head()
 ```
 
 #
@@ -435,7 +435,7 @@ superbowl_data_wr %>% head()
 
 ##
 
-Further, let's separate the column **TEAMS & RESULT** into two columns **W Team** and **L Team**.
+Further, let's separate the column `TEAMS & RESULT` into two columns "W Team" and "L Team".
 
 ```{r}
 #| echo: true

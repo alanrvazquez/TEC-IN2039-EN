@@ -1950,7 +1950,7 @@
     "href": "T4_WebScraping/WebScraping.slides.html#section-15",
     "title": "Web Scraping",
     "section": "",
-    "text": "To retrieve the second table, we use…\n\nsuperbowl_tables[[1]] %&gt;%  head()\n\n# A tibble: 6 × 4\n  NO.   LOCATION                      DATE          `TEAMS & RESULT`            \n  &lt;chr&gt; &lt;chr&gt;                         &lt;chr&gt;         &lt;chr&gt;                       \n1 I     Los Angeles Memorial Coliseum Jan. 15, 1967 Green Bay 35, Kansas City 10\n2 II    Miami Orange Bowl             Jan. 14, 1968 Green Bay 33, Oakland 14    \n3 III   Miami Orange Bowl             Jan. 12, 1969 New York Jets 16, Baltimore…\n4 IV    Tulane Stadium                Jan. 11, 1970 Kansas City 23, Minnesota 7 \n5 V     Miami Orange Bowl             Jan. 17, 1971 Baltimore 16, Dallas 13     \n6 VI    Tulane Stadium                Jan. 16, 1972 Dallas 24, Miami 3"
+    "text": "To retrieve the second table, we use…\n\nsuperbowl_tables[[2]] %&gt;%  head()\n\n# A tibble: 6 × 2\n  TEAM                  WINS\n  &lt;chr&gt;                &lt;int&gt;\n1 New England Patriots     6\n2 Pittsburgh Steelers      6\n3 Dallas Cowboys           5\n4 San Francisco 49ers      5\n5 Green Bay Packers        4\n6 New York Giants          4"
   },
   {
     "objectID": "T4_WebScraping/WebScraping.slides.html#data-wrangling",
@@ -1971,7 +1971,7 @@
     "href": "T4_WebScraping/WebScraping.slides.html#section-17",
     "title": "Web Scraping",
     "section": "",
-    "text": "Further, let’s separate the column TEAMS & RESULT into two columns W Team and L Team.\n\nsuperbowl_data_wr = superbowl_data_wr %&gt;% \n  separate(`TEAMS & RESULT`, into = c(\"W Team\", \"L Team\"), sep = \",\")\nsuperbowl_data_wr %&gt;% head()\n\n# A tibble: 6 × 6\n  NO.   LOCATION                      Day      Year `W Team`         `L Team`   \n  &lt;chr&gt; &lt;chr&gt;                         &lt;chr&gt;   &lt;dbl&gt; &lt;chr&gt;            &lt;chr&gt;      \n1 I     Los Angeles Memorial Coliseum Jan. 15  1967 Green Bay 35     \" Kansas C…\n2 II    Miami Orange Bowl             Jan. 14  1968 Green Bay 33     \" Oakland …\n3 III   Miami Orange Bowl             Jan. 12  1969 New York Jets 16 \" Baltimor…\n4 IV    Tulane Stadium                Jan. 11  1970 Kansas City 23   \" Minnesot…\n5 V     Miami Orange Bowl             Jan. 17  1971 Baltimore 16     \" Dallas 1…\n6 VI    Tulane Stadium                Jan. 16  1972 Dallas 24        \" Miami 3\""
+    "text": "Further, let’s separate the column TEAMS & RESULT into two columns “W Team” and “L Team”.\n\nsuperbowl_data_wr = superbowl_data_wr %&gt;% \n  separate(`TEAMS & RESULT`, into = c(\"W Team\", \"L Team\"), sep = \",\")\nsuperbowl_data_wr %&gt;% head()\n\n# A tibble: 6 × 6\n  NO.   LOCATION                      Day      Year `W Team`         `L Team`   \n  &lt;chr&gt; &lt;chr&gt;                         &lt;chr&gt;   &lt;dbl&gt; &lt;chr&gt;            &lt;chr&gt;      \n1 I     Los Angeles Memorial Coliseum Jan. 15  1967 Green Bay 35     \" Kansas C…\n2 II    Miami Orange Bowl             Jan. 14  1968 Green Bay 33     \" Oakland …\n3 III   Miami Orange Bowl             Jan. 12  1969 New York Jets 16 \" Baltimor…\n4 IV    Tulane Stadium                Jan. 11  1970 Kansas City 23   \" Minnesot…\n5 V     Miami Orange Bowl             Jan. 17  1971 Baltimore 16     \" Dallas 1…\n6 VI    Tulane Stadium                Jan. 16  1972 Dallas 24        \" Miami 3\""
   },
   {
     "objectID": "T4_WebScraping/WebScraping.slides.html#section-18",

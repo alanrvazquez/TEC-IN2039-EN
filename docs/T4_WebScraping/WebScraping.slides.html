@@ -626,17 +626,17 @@ Alan R. Vazquez
 <p><br></p>
 <p>To retrieve the second table, we use…</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a>superbowl_tables[[<span class="dv">1</span>]] <span class="sc">%&gt;%</span>  <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a>superbowl_tables[[<span class="dv">2</span>]] <span class="sc">%&gt;%</span>  <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 6 × 4
-  NO.   LOCATION                      DATE          `TEAMS &amp; RESULT`            
-  &lt;chr&gt; &lt;chr&gt;                         &lt;chr&gt;         &lt;chr&gt;                       
-1 I     Los Angeles Memorial Coliseum Jan. 15, 1967 Green Bay 35, Kansas City 10
-2 II    Miami Orange Bowl             Jan. 14, 1968 Green Bay 33, Oakland 14    
-3 III   Miami Orange Bowl             Jan. 12, 1969 New York Jets 16, Baltimore…
-4 IV    Tulane Stadium                Jan. 11, 1970 Kansas City 23, Minnesota 7 
-5 V     Miami Orange Bowl             Jan. 17, 1971 Baltimore 16, Dallas 13     
-6 VI    Tulane Stadium                Jan. 16, 1972 Dallas 24, Miami 3          </code></pre>
+<pre><code># A tibble: 6 × 2
+  TEAM                  WINS
+  &lt;chr&gt;                &lt;int&gt;
+1 New England Patriots     6
+2 Pittsburgh Steelers      6
+3 Dallas Cowboys           5
+4 San Francisco 49ers      5
+5 Green Bay Packers        4
+6 New York Giants          4</code></pre>
 </div>
 </div>
 </section></section>
@@ -702,7 +702,7 @@ Alan R. Vazquez
 </section>
 <section id="section-17" class="slide level2">
 <h2></h2>
-<p>Further, let’s separate the column <strong>TEAMS &amp; RESULT</strong> into two columns <strong>W Team</strong> and <strong>L Team</strong>.</p>
+<p>Further, let’s separate the column <code>TEAMS &amp; RESULT</code> into two columns “W Team” and “L Team”.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a></a>superbowl_data_wr <span class="ot">=</span> superbowl_data_wr <span class="sc">%&gt;%</span> </span>
 <span id="cb25-2"><a></a>  <span class="fu">separate</span>(<span class="st">`</span><span class="at">TEAMS &amp; RESULT</span><span class="st">`</span>, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">"W Team"</span>, <span class="st">"L Team"</span>), <span class="at">sep =</span> <span class="st">","</span>)</span>
