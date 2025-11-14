@@ -441,32 +441,25 @@
     "text": "Data Wrangling\n\n\nData wrangling is the process of transforming raw data into a clean and structured format.\nIt involves merging, reshaping, filtering, and organizing data for analysis.\nHere, we illustrate some special functions of the tidyverse for cleaning common issues with a dataset."
   },
   {
-    "objectID": "T3_TidyData/TidyData.slides.html#remove-duplicate-rows",
-    "href": "T3_TidyData/TidyData.slides.html#remove-duplicate-rows",
-    "title": "Tidy Data",
-    "section": "Remove duplicate rows",
-    "text": "Remove duplicate rows\n\nDuplicate or identical rows are rows that have the same entries in every column in the dataset.\n\nIf only one row is needed for the analysis, we can remove the duplicates using the distinct() function. Let’s illustrate this using the industrial_data dataset.\n\nindustrial_data_single = industrial_data  %&gt;% distinct()"
-  },
-  {
     "objectID": "T3_TidyData/TidyData.slides.html#add-an-index-column",
     "href": "T3_TidyData/TidyData.slides.html#add-an-index-column",
     "title": "Tidy Data",
     "section": "Add an index column",
-    "text": "Add an index column\n\nIn some cases, it is useful to have a unique identifier for each row in the dataset. We can create an identifier using the functions mutate() and row_number() with some extra syntaxis.\n\nindustrial_data_single = industrial_data_single %&gt;% mutate(ID = row_number())"
+    "text": "Add an index column\n\nIn some cases, it is useful to have a unique identifier for each row in the dataset. We can create an identifier using the functions mutate() and row_number() with some extra syntaxis.\n\nindustrial_data_single = industrial_data %&gt;% \n                         mutate(ID = row_number())"
   },
   {
     "objectID": "T3_TidyData/TidyData.slides.html#section-12",
     "href": "T3_TidyData/TidyData.slides.html#section-12",
     "title": "Tidy Data",
     "section": "",
-    "text": "The new column is appended to the end of the dataframe.\n\nindustrial_data_single %&gt;%  head()\n\n# A tibble: 6 × 6\n  `Machine ID` `Output (units)` `Maintenance Date`  Operator Comment          ID\n         &lt;dbl&gt; &lt;chr&gt;            &lt;dttm&gt;              &lt;chr&gt;    &lt;chr&gt;         &lt;int&gt;\n1          101 1200             2023-01-10 00:00:00 Ana      \"ok\"              1\n2          102 1050             2023-01-12 00:00:00 Bob      \"Needs oil!\"      2\n3          103 error            2023-01-13 00:00:00 Charlie  \"All good\\r\\…     3\n4          103 950              2023-01-13 00:00:00 Charlie  \"All good\\r\\…     4\n5          104 900              2023-01-14 00:00:00 &lt;NA&gt;     \"Delay: powe…     5\n6          105 870              NA                  DAVE     \"completed\"       6"
+    "text": "The new column is appended to the end of the dataframe.\n\nindustrial_data_single %&gt;%  head()\n\n# A tibble: 6 × 6\n  `Machine ID` `Output (units)` `Maintenance Date`  Operator Comment          ID\n         &lt;dbl&gt; &lt;chr&gt;            &lt;dttm&gt;              &lt;chr&gt;    &lt;chr&gt;         &lt;int&gt;\n1          101 1200             2023-01-10 00:00:00 Ana      \"ok\"              1\n2          101 1200             2023-01-10 00:00:00 Ana      \"ok\"              2\n3          102 1050             2023-01-12 00:00:00 Bob      \"Needs oil!\"      3\n4          103 error            2023-01-13 00:00:00 Charlie  \"All good\\r\\…     4\n5          103 950              2023-01-13 00:00:00 Charlie  \"All good\\r\\…     5\n6          104 900              2023-01-14 00:00:00 &lt;NA&gt;     \"Delay: powe…     6"
   },
   {
     "objectID": "T3_TidyData/TidyData.slides.html#section-13",
     "href": "T3_TidyData/TidyData.slides.html#section-13",
     "title": "Tidy Data",
     "section": "",
-    "text": "To bring it to the beginning of the array, we can use the select() and everything() functions.\n\nindustrial_data_single = industrial_data_single %&gt;% \nselect(ID, everything())\n\nindustrial_data_single %&gt;%  head()\n\n# A tibble: 6 × 6\n     ID `Machine ID` `Output (units)` `Maintenance Date`  Operator Comment      \n  &lt;int&gt;        &lt;dbl&gt; &lt;chr&gt;            &lt;dttm&gt;              &lt;chr&gt;    &lt;chr&gt;        \n1     1          101 1200             2023-01-10 00:00:00 Ana      \"ok\"         \n2     2          102 1050             2023-01-12 00:00:00 Bob      \"Needs oil!\" \n3     3          103 error            2023-01-13 00:00:00 Charlie  \"All good\\r\\…\n4     4          103 950              2023-01-13 00:00:00 Charlie  \"All good\\r\\…\n5     5          104 900              2023-01-14 00:00:00 &lt;NA&gt;     \"Delay: powe…\n6     6          105 870              NA                  DAVE     \"completed\""
+    "text": "To bring it to the beginning of the array, we can use the select() and everything() functions.\n\nindustrial_data_single = industrial_data_single %&gt;% \nselect(ID, everything())\n\nindustrial_data_single %&gt;%  head()\n\n# A tibble: 6 × 6\n     ID `Machine ID` `Output (units)` `Maintenance Date`  Operator Comment      \n  &lt;int&gt;        &lt;dbl&gt; &lt;chr&gt;            &lt;dttm&gt;              &lt;chr&gt;    &lt;chr&gt;        \n1     1          101 1200             2023-01-10 00:00:00 Ana      \"ok\"         \n2     2          101 1200             2023-01-10 00:00:00 Ana      \"ok\"         \n3     3          102 1050             2023-01-12 00:00:00 Bob      \"Needs oil!\" \n4     4          103 error            2023-01-13 00:00:00 Charlie  \"All good\\r\\…\n5     5          103 950              2023-01-13 00:00:00 Charlie  \"All good\\r\\…\n6     6          104 900              2023-01-14 00:00:00 &lt;NA&gt;     \"Delay: powe…"
   },
   {
     "objectID": "T3_TidyData/TidyData.slides.html#fill-blank-cells",
@@ -480,28 +473,28 @@
     "href": "T3_TidyData/TidyData.slides.html#section-14",
     "title": "Tidy Data",
     "section": "",
-    "text": "complete_data %&gt;%  head()\n\n# A tibble: 6 × 6\n     ID `Machine ID` `Output (units)` `Maintenance Date`  Operator Comment      \n  &lt;int&gt;        &lt;dbl&gt; &lt;chr&gt;            &lt;dttm&gt;              &lt;chr&gt;    &lt;chr&gt;        \n1     1          101 1200             2023-01-10 00:00:00 Ana      \"ok\"         \n2     2          102 1050             2023-01-12 00:00:00 Bob      \"Needs oil!\" \n3     3          103 error            2023-01-13 00:00:00 Charlie  \"All good\\r\\…\n4     4          103 950              2023-01-13 00:00:00 Charlie  \"All good\\r\\…\n5     5          104 900              2023-01-14 00:00:00 Unknown  \"Delay: powe…\n6     6          105 870              2023-01-01 00:00:00 DAVE     \"completed\""
+    "text": "complete_data %&gt;%  head()\n\n# A tibble: 6 × 6\n     ID `Machine ID` `Output (units)` `Maintenance Date`  Operator Comment      \n  &lt;int&gt;        &lt;dbl&gt; &lt;chr&gt;            &lt;dttm&gt;              &lt;chr&gt;    &lt;chr&gt;        \n1     1          101 1200             2023-01-10 00:00:00 Ana      \"ok\"         \n2     2          101 1200             2023-01-10 00:00:00 Ana      \"ok\"         \n3     3          102 1050             2023-01-12 00:00:00 Bob      \"Needs oil!\" \n4     4          103 error            2023-01-13 00:00:00 Charlie  \"All good\\r\\…\n5     5          103 950              2023-01-13 00:00:00 Charlie  \"All good\\r\\…\n6     6          104 900              2023-01-14 00:00:00 Unknown  \"Delay: powe…"
   },
   {
     "objectID": "T3_TidyData/TidyData.slides.html#replace-values",
     "href": "T3_TidyData/TidyData.slides.html#replace-values",
     "title": "Tidy Data",
     "section": "Replace values",
-    "text": "Replace values\nThere are some cases in which columns have some undesired or unwatned values. Consider the Output (units) as an example.\n\ncomplete_data %&gt;% select(`Output (units)`) %&gt;% head()\n\n# A tibble: 6 × 1\n  `Output (units)`\n  &lt;chr&gt;           \n1 1200            \n2 1050            \n3 error           \n4 950             \n5 900             \n6 870             \n\n\nThe column has the numbers of units but also text such as “error”."
+    "text": "Replace values\nThere are some cases in which columns have some undesired or unwatned values. Consider the Output (units) as an example.\n\ncomplete_data %&gt;% select(`Output (units)`) %&gt;% head()\n\n# A tibble: 6 × 1\n  `Output (units)`\n  &lt;chr&gt;           \n1 1200            \n2 1200            \n3 1050            \n4 error           \n5 950             \n6 900             \n\n\nThe column has the numbers of units but also text such as “error”."
   },
   {
     "objectID": "T3_TidyData/TidyData.slides.html#section-15",
     "href": "T3_TidyData/TidyData.slides.html#section-15",
     "title": "Tidy Data",
     "section": "",
-    "text": "We can replace the “error” in this column by a user-specified value, say, 0. To this end, we use the functions mutate() and na_if().\n\ncomplete_data = complete_data %&gt;% \nmutate(`Output (units)` = na_if(`Output (units)`, \"error\"))\n\n# Let's check the column.\ncomplete_data %&gt;%  select(`Output (units)`) %&gt;%  head()\n\n# A tibble: 6 × 1\n  `Output (units)`\n  &lt;chr&gt;           \n1 1200            \n2 1050            \n3 &lt;NA&gt;            \n4 950             \n5 900             \n6 870             \n\n\nHowever, the new column is character (chr)!"
+    "text": "We can replace the “error” in this column by a user-specified value, say, 0. To this end, we use the functions mutate() and na_if().\n\ncomplete_data = complete_data %&gt;% \nmutate(`Output (units)` = na_if(`Output (units)`, \"error\"))\n\n# Let's check the column.\ncomplete_data %&gt;%  select(`Output (units)`) %&gt;%  head()\n\n# A tibble: 6 × 1\n  `Output (units)`\n  &lt;chr&gt;           \n1 1200            \n2 1200            \n3 1050            \n4 &lt;NA&gt;            \n5 950             \n6 900             \n\n\nHowever, the new column is character (chr)!"
   },
   {
     "objectID": "T3_TidyData/TidyData.slides.html#section-16",
     "href": "T3_TidyData/TidyData.slides.html#section-16",
     "title": "Tidy Data",
     "section": "",
-    "text": "We turn the column numeric using the functions mutate() and as.numeric().\n\ncomplete_data = complete_data %&gt;% \nmutate(`Output (units)` = as.numeric(`Output (units)`))\n\ncomplete_data %&gt;%  select(`Output (units)`) %&gt;%  head()\n\n# A tibble: 6 × 1\n  `Output (units)`\n             &lt;dbl&gt;\n1             1200\n2             1050\n3               NA\n4              950\n5              900\n6              870\n\n\nNow, the column is numeric or dbl!"
+    "text": "We turn the column numeric using the functions mutate() and as.numeric().\n\ncomplete_data = complete_data %&gt;% \nmutate(`Output (units)` = as.numeric(`Output (units)`))\n\ncomplete_data %&gt;%  select(`Output (units)`) %&gt;%  head()\n\n# A tibble: 6 × 1\n  `Output (units)`\n             &lt;dbl&gt;\n1             1200\n2             1200\n3             1050\n4               NA\n5              950\n6              900\n\n\nNow, the column is numeric or dbl!"
   },
   {
     "objectID": "T3_TidyData/TidyData.slides.html#a-new-library-stringr",
@@ -529,42 +522,49 @@
     "href": "T3_TidyData/TidyData.slides.html#section-17",
     "title": "Tidy Data",
     "section": "",
-    "text": "Let’s see the cleaned column.\n\naugmented_data %&gt;%  select(First_comment)\n\n# A tibble: 100 × 1\n   First_comment\n   &lt;chr&gt;        \n 1 ok           \n 2 ok           \n 3 Needs oil!   \n 4 All good     \n 5 All good     \n 6 Delay        \n 7 completed    \n 8 completed    \n 9 All good     \n10 Requires part\n# ℹ 90 more rows"
+    "text": "Let’s see the cleaned column.\n\naugmented_data %&gt;%  select(`First_comment`)\n\n# A tibble: 100 × 1\n   First_comment\n   &lt;chr&gt;        \n 1 ok           \n 2 ok           \n 3 Needs oil!   \n 4 All good     \n 5 All good     \n 6 Delay        \n 7 completed    \n 8 completed    \n 9 All good     \n10 Requires part\n# ℹ 90 more rows"
+  },
+  {
+    "objectID": "T3_TidyData/TidyData.slides.html#section-18",
+    "href": "T3_TidyData/TidyData.slides.html#section-18",
+    "title": "Tidy Data",
+    "section": "",
+    "text": "We can remove special characters such as “!” from all cells in the column.\nTo do this, we use the functions mutate() and str_remove_all() with the character to remove. That is, we create a new cleaned variable without the specific character.\n\naugmented_data %&gt;%  \n  mutate(\"First_comment\" = str_remove_all(`First_comment`, \"!\")) %&gt;% \n  select(`First_comment`) %&gt;% head()\n\n# A tibble: 6 × 1\n  First_comment\n  &lt;chr&gt;        \n1 ok           \n2 ok           \n3 Needs oil    \n4 All good     \n5 All good     \n6 Delay"
   },
   {
     "objectID": "T3_TidyData/TidyData.slides.html#transform-text-case",
     "href": "T3_TidyData/TidyData.slides.html#transform-text-case",
     "title": "Tidy Data",
     "section": "Transform text case",
-    "text": "Transform text case\nWhen working with text columns containing names, we may have different ways of writing. A common case is when having lower case or upper case names or a combination thereof.\nFor example, consider the column Operator containing the names of the operators.\n\ncomplete_data %&gt;% select(Operator) %&gt;%  head()\n\n# A tibble: 6 × 1\n  Operator\n  &lt;chr&gt;   \n1 Ana     \n2 Bob     \n3 Charlie \n4 Charlie \n5 Unknown \n6 DAVE"
+    "text": "Transform text case\nWhen working with text columns containing names, we may have different ways of writing. A common case is when having lower case or upper case names or a combination thereof.\nFor example, consider the column Operator containing the names of the operators.\n\ncomplete_data %&gt;% select(Operator) %&gt;%  head()\n\n# A tibble: 6 × 1\n  Operator\n  &lt;chr&gt;   \n1 Ana     \n2 Ana     \n3 Bob     \n4 Charlie \n5 Charlie \n6 Unknown"
   },
   {
     "objectID": "T3_TidyData/TidyData.slides.html#remove-extra-spaces",
     "href": "T3_TidyData/TidyData.slides.html#remove-extra-spaces",
     "title": "Tidy Data",
     "section": "Remove extra spaces",
-    "text": "Remove extra spaces\n\nTo deal with names, we first use the str_trim() to remove leading and trailing characters from strings.\n\ncomplete_data =  complete_data %&gt;% \nmutate(Operator = str_trim(Operator))\n\ncomplete_data %&gt;% select(Operator) %&gt;%  head()\n\n# A tibble: 6 × 1\n  Operator\n  &lt;chr&gt;   \n1 Ana     \n2 Bob     \n3 Charlie \n4 Charlie \n5 Unknown \n6 DAVE"
+    "text": "Remove extra spaces\n\nTo deal with names, we first use the str_trim() to remove leading and trailing characters from strings.\n\ncomplete_data =  complete_data %&gt;% \nmutate(Operator = str_trim(Operator))\n\ncomplete_data %&gt;% select(Operator) %&gt;%  head()\n\n# A tibble: 6 × 1\n  Operator\n  &lt;chr&gt;   \n1 Ana     \n2 Ana     \n3 Bob     \n4 Charlie \n5 Charlie \n6 Unknown"
   },
   {
     "objectID": "T3_TidyData/TidyData.slides.html#change-to-lowercase-letters",
     "href": "T3_TidyData/TidyData.slides.html#change-to-lowercase-letters",
     "title": "Tidy Data",
     "section": "Change to lowercase letters",
-    "text": "Change to lowercase letters\n\nWe can turn all names to lowercase using the function str_to_lower().\n\ncomplete_data %&gt;% \nmutate(Operator = str_to_lower(Operator)) %&gt;% \nselect(Operator) %&gt;% \nhead()\n\n# A tibble: 6 × 1\n  Operator\n  &lt;chr&gt;   \n1 ana     \n2 bob     \n3 charlie \n4 charlie \n5 unknown \n6 dave"
+    "text": "Change to lowercase letters\n\nWe can turn all names to lowercase using the function str_to_lower().\n\ncomplete_data %&gt;% \nmutate(Operator = str_to_lower(Operator)) %&gt;% \nselect(Operator) %&gt;% \nhead()\n\n# A tibble: 6 × 1\n  Operator\n  &lt;chr&gt;   \n1 ana     \n2 ana     \n3 bob     \n4 charlie \n5 charlie \n6 unknown"
   },
   {
     "objectID": "T3_TidyData/TidyData.slides.html#change-to-uppercase-letters",
     "href": "T3_TidyData/TidyData.slides.html#change-to-uppercase-letters",
     "title": "Tidy Data",
     "section": "Change to uppercase letters",
-    "text": "Change to uppercase letters\n\nWe can turn all names to uppercase using the function str_to_upper().\n\ncomplete_data %&gt;% \nmutate(Operator = str_to_upper(Operator)) %&gt;% \nselect(Operator) %&gt;% \nhead()\n\n# A tibble: 6 × 1\n  Operator\n  &lt;chr&gt;   \n1 ANA     \n2 BOB     \n3 CHARLIE \n4 CHARLIE \n5 UNKNOWN \n6 DAVE"
+    "text": "Change to uppercase letters\n\nWe can turn all names to uppercase using the function str_to_upper().\n\ncomplete_data %&gt;% \nmutate(Operator = str_to_upper(Operator)) %&gt;% \nselect(Operator) %&gt;% \nhead()\n\n# A tibble: 6 × 1\n  Operator\n  &lt;chr&gt;   \n1 ANA     \n2 ANA     \n3 BOB     \n4 CHARLIE \n5 CHARLIE \n6 UNKNOWN"
   },
   {
     "objectID": "T3_TidyData/TidyData.slides.html#capitalize-the-first-letter",
     "href": "T3_TidyData/TidyData.slides.html#capitalize-the-first-letter",
     "title": "Tidy Data",
     "section": "Capitalize the first letter",
-    "text": "Capitalize the first letter\n\nWe can convert all names to title case using the function str_to_title().\n\ncomplete_data %&gt;% \nmutate(Operator = str_to_title(Operator)) %&gt;% \nselect(Operator) %&gt;% \nhead()\n\n# A tibble: 6 × 1\n  Operator\n  &lt;chr&gt;   \n1 Ana     \n2 Bob     \n3 Charlie \n4 Charlie \n5 Unknown \n6 Dave"
+    "text": "Capitalize the first letter\n\nWe can convert all names to title case using the function str_to_title().\n\ncomplete_data %&gt;% \nmutate(Operator = str_to_title(Operator)) %&gt;% \nselect(Operator) %&gt;% \nhead()\n\n# A tibble: 6 × 1\n  Operator\n  &lt;chr&gt;   \n1 Ana     \n2 Ana     \n3 Bob     \n4 Charlie \n5 Charlie \n6 Unknown"
   },
   {
     "objectID": "T3_TidyData/TidyData.slides.html#more-on-tidyr-and-stringr",
@@ -572,349 +572,6 @@
     "title": "Tidy Data",
     "section": "More on tidyr and stringr",
     "text": "More on tidyr and stringr\n\n\nhttps://r4ds.hadley.nz/"
-  },
-  {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "About this site\n\n1 + 1\n\n2"
-  },
-  {
-    "objectID": "T2_Tools/Tools.slides.html#agenda",
-    "href": "T2_Tools/Tools.slides.html#agenda",
-    "title": "Tools for Data Manipulation",
-    "section": "Agenda",
-    "text": "Agenda\n\n\nIntroduction to R\nReading data with readxl\nData manipulation with dplyr"
-  },
-  {
-    "objectID": "T2_Tools/Tools.slides.html#r",
-    "href": "T2_Tools/Tools.slides.html#r",
-    "title": "Tools for Data Manipulation",
-    "section": "R",
-    "text": "R\n\n\n\n\nA versatile programming language.\nIt is free!\nIt is widely used for data cleaning, data visualization, and data modelling.\nIt can be extended with packages (libraries) developed by other users."
-  },
-  {
-    "objectID": "T2_Tools/Tools.slides.html#google-colab",
-    "href": "T2_Tools/Tools.slides.html#google-colab",
-    "title": "Tools for Data Manipulation",
-    "section": "Google Colab",
-    "text": "Google Colab\nGoogle’s free cloud collaboration platform for creating R documents.\n\nRun R and collaborate on Jupyter notebooks for free.\nHarness the power of GPUs for free to accelerate your data science projects.\nEasily save and upload your notebooks to Google Drive."
-  },
-  {
-    "objectID": "T2_Tools/Tools.slides.html#lets-try-a-command-in-r",
-    "href": "T2_Tools/Tools.slides.html#lets-try-a-command-in-r",
-    "title": "Tools for Data Manipulation",
-    "section": "Let’s try a command in R",
-    "text": "Let’s try a command in R\n\nWhat do you think will happen if we run this command?\n\nprint(\"Hello world!\")\n\n\n\n\n[1] \"Hello world!\""
-  },
-  {
-    "objectID": "T2_Tools/Tools.slides.html#lets-try-another-command",
-    "href": "T2_Tools/Tools.slides.html#lets-try-another-command",
-    "title": "Tools for Data Manipulation",
-    "section": "Let’s try another command",
-    "text": "Let’s try another command\n\nWhat do you think will happen if we run this command?\n\nsum(1, 5, 10)\n\n\n\n\n[1] 16"
-  },
-  {
-    "objectID": "T2_Tools/Tools.slides.html#use-r-as-a-basic-calculator",
-    "href": "T2_Tools/Tools.slides.html#use-r-as-a-basic-calculator",
-    "title": "Tools for Data Manipulation",
-    "section": "Use R as a basic calculator",
-    "text": "Use R as a basic calculator\n\n\n5 + 1\n\n[1] 6\n\n\n\n10 - 3\n\n[1] 7\n\n\n\n2 * 4\n\n[1] 8\n\n\n\n9 / 3\n\n[1] 3"
-  },
-  {
-    "objectID": "T2_Tools/Tools.slides.html#comments",
-    "href": "T2_Tools/Tools.slides.html#comments",
-    "title": "Tools for Data Manipulation",
-    "section": "Comments",
-    "text": "Comments\n\nSometimes we write things in the coding window that we want R to ignore. These are called comments and start with #.\n\nR will ignore the comments and just execute the code.\n\n# you can put whatever after #\n# for example... blah blah blah\n\n\nSi desea escribir un comentario que ocupe más de una línea, es una buena idea poner un # al principio de cada línea."
-  },
-  {
-    "objectID": "T2_Tools/Tools.slides.html#introduction-to-functions-in-r",
-    "href": "T2_Tools/Tools.slides.html#introduction-to-functions-in-r",
-    "title": "Tools for Data Manipulation",
-    "section": "Introduction to functions in R",
-    "text": "Introduction to functions in R\n\nOne of the cool things about R is that there are many built-in commands you can use. These are called functions.\n\nFunctions have two basic parts:\n\nThe first part is the name of the function (for example, sum).\nThe second part is the input to the function, which goes inside the parentheses (sum(1, 5, 15))."
-  },
-  {
-    "objectID": "T2_Tools/Tools.slides.html#r-is-strict",
-    "href": "T2_Tools/Tools.slides.html#r-is-strict",
-    "title": "Tools for Data Manipulation",
-    "section": "R is strict",
-    "text": "R is strict\nR, like all programming languages, is very strict. For example, if you write\n\nsum(1, 100)\n\n[1] 101\n\n\nit will tell you the answer, 101.\n\nBut if you write\n\nSum(1, 100)\n\nError in Sum(1, 100): could not find function \"Sum\"\n\n\nwith the “s” capitalized, R will act like it has no idea what we are talking about!\n\nlo mismo si olvidas incluir un parentesis"
-  },
-  {
-    "objectID": "T2_Tools/Tools.slides.html#save-your-work-in-r-objects",
-    "href": "T2_Tools/Tools.slides.html#save-your-work-in-r-objects",
-    "title": "Tools for Data Manipulation",
-    "section": "Save your work in R objects",
-    "text": "Save your work in R objects\n\nVirtually anything, including the results of any R function, can be saved in an object.\nThis is accomplished by using an assignment operator, which can be an equal symbol (=) or a leftward symbol (&lt;-).\n\nYou can make up any name you want for a R object. However, there are two basic rules for this:\n\nIt has to be different from a function name in R.\nIt has to be specific possible yet succinct."
-  },
-  {
-    "objectID": "T2_Tools/Tools.slides.html#for-example",
-    "href": "T2_Tools/Tools.slides.html#for-example",
-    "title": "Tools for Data Manipulation",
-    "section": "For example",
-    "text": "For example\n\n\n# This code will assign the number 18\n# to the object called my_favorite_number\n\nmy_favorite_number = 18\n\nAfter running this code, nothing happens. But if we run the object on its own, we can see what’s inside it.\n\nmy_favorite_number\n\n[1] 18\n\n\nYou can also use print(my_favorite_number)."
-  },
-  {
-    "objectID": "T2_Tools/Tools.slides.html#vectors",
-    "href": "T2_Tools/Tools.slides.html#vectors",
-    "title": "Tools for Data Manipulation",
-    "section": "Vectors",
-    "text": "Vectors\n\nSo far we have used R objects to store a single number. But in data visualization we are dealing with multiple numbers or observations.\n\nA R object can also store a complete set of numbers, called a vector.\nYou can think of a list as a vector of numbers (or values).\n\n\nThe c() command can be used to combine several individual values into a list.\n\npuedes pensar que el c es por combinar"
-  },
-  {
-    "objectID": "T2_Tools/Tools.slides.html#for-example-1",
-    "href": "T2_Tools/Tools.slides.html#for-example-1",
-    "title": "Tools for Data Manipulation",
-    "section": "For example",
-    "text": "For example\n\nThis code creates two vectors:\n\nmy_vector = c(1, 2, 3, 4, 5)\nmy_vector_2 = c(10, 10, 10, 10, 10)\n\n\nLet’s see their content:\n\nmy_vector\n\n[1] 1 2 3 4 5\n\n\n\nmy_vector_2\n\n[1] 10 10 10 10 10"
-  },
-  {
-    "objectID": "T2_Tools/Tools.slides.html#operations",
-    "href": "T2_Tools/Tools.slides.html#operations",
-    "title": "Tools for Data Manipulation",
-    "section": "Operations",
-    "text": "Operations\n\nWe can do simple operations with vectors. For example, we can sum all the elements of a list.\n\nmy_vector = c(1, 2, 3, 4, 5)\nsum(my_vector)\n\n[1] 15"
-  },
-  {
-    "objectID": "T2_Tools/Tools.slides.html#indexing",
-    "href": "T2_Tools/Tools.slides.html#indexing",
-    "title": "Tools for Data Manipulation",
-    "section": "Indexing",
-    "text": "Indexing\n\nWe can index a position in the vector using square brackets with a number like this: [1].\nSo, if we wanted to print the contents of the first position in my_vector, we could write\n\nmy_vector[1]\n\n[1] 1\n\n\n\n\nIn contrast with Python, the first element of an R vector is indexed using 1."
-  },
-  {
-    "objectID": "T2_Tools/Tools.slides.html#a-little-more-about-r-objects",
-    "href": "T2_Tools/Tools.slides.html#a-little-more-about-r-objects",
-    "title": "Tools for Data Manipulation",
-    "section": "A little more about R objects",
-    "text": "A little more about R objects\n\nYou can think of R objects as containers that hold values.\nA R object can hold a single value, or it can hold a group of values (as in a vector).\nSo far, we’ve only put numbers into R objects.\n\n\nR objects can actually contain three types of values: numbers, characters, and booleans."
-  },
-  {
-    "objectID": "T2_Tools/Tools.slides.html#character-values",
-    "href": "T2_Tools/Tools.slides.html#character-values",
-    "title": "Tools for Data Manipulation",
-    "section": "Character values",
-    "text": "Character values\n\nCharacters are made up of text, such as words or sentences. An example of a list with characters as elements is:\n\n\nmany_greetings = c(\"hi\", \"hello\", \"hola\", \"bonjour\", \"ni hao\", \"merhaba\")\nmany_greetings\n\n[1] \"hi\"      \"hello\"   \"hola\"    \"bonjour\" \"ni hao\"  \"merhaba\"\n\n\n\n\nIt is important to know that numbers can also be treated as characters, depending on the context.\nFor example, when 20 is enclosed in quotes (\"20\") it will be treated as a character value, even though it encloses a number in quotes."
-  },
-  {
-    "objectID": "T2_Tools/Tools.slides.html#boolean-values",
-    "href": "T2_Tools/Tools.slides.html#boolean-values",
-    "title": "Tools for Data Manipulation",
-    "section": "Boolean values",
-    "text": "Boolean values\n\nBoolean values are True or False.\nWe may have a question like:\n\nIs the first element of the vector many_greetings \"hola\"?\n\n\nWe can ask R to find out and return the answer True or False.\n\nmany_greetings[1] == \"hola\"\n\n[1] FALSE"
-  },
-  {
-    "objectID": "T2_Tools/Tools.slides.html#logical-operators",
-    "href": "T2_Tools/Tools.slides.html#logical-operators",
-    "title": "Tools for Data Manipulation",
-    "section": "Logical operators",
-    "text": "Logical operators\n\nMost of the questions we ask R to answer with True or False involve comparison operators like &gt;, &lt;, &gt;=, &lt;=, and ==.\nThe double == sign checks whether two values are equal. There is even a comparison operator to check whether values are not equal: !=.\nFor example, 5 != 3 is a True statement."
-  },
-  {
-    "objectID": "T2_Tools/Tools.slides.html#common-logical-operators",
-    "href": "T2_Tools/Tools.slides.html#common-logical-operators",
-    "title": "Tools for Data Manipulation",
-    "section": "Common logical operators",
-    "text": "Common logical operators\n\n\n&gt; (larger than)\n&gt;= (larger than or equal to)\n&lt; (smaller than)\n&lt;= (smaller than or equal to)\n== (equal to)\n!= (not equal to)"
-  },
-  {
-    "objectID": "T2_Tools/Tools.slides.html#programming-culture-trial-and-error",
-    "href": "T2_Tools/Tools.slides.html#programming-culture-trial-and-error",
-    "title": "Tools for Data Manipulation",
-    "section": "Programming culture: Trial and error",
-    "text": "Programming culture: Trial and error\n\nThe best way to learn programming is to try things out and see what happens. Write some code, run it, and think about why it didn’t work.\nThere are many ways to make small mistakes in programming (for example, typing a capital letter when a lowercase letter is needed).\nWe often have to find these mistakes through trial and error."
-  },
-  {
-    "objectID": "T2_Tools/Tools.slides.html#r-libraries",
-    "href": "T2_Tools/Tools.slides.html#r-libraries",
-    "title": "Tools for Data Manipulation",
-    "section": "R libraries",
-    "text": "R libraries\n\nLibraries are the fundamental units of reproducible R code. They include reusable R functions, documentation describing how to use them, and sample data.\nIn this course, we will be working mostly with the following libraries for data manipulation:\n\nreadxl for reading data.\ndplyr for data manipulation and wrangling\ntidyr for structuring data."
-  },
-  {
-    "objectID": "T2_Tools/Tools.slides.html#loading-data-in-r",
-    "href": "T2_Tools/Tools.slides.html#loading-data-in-r",
-    "title": "Tools for Data Manipulation",
-    "section": "Loading data in R",
-    "text": "Loading data in R\nIn this course, we will assume that data is stored in an Excel file. As an example, let’s use the file penguins.xlsx.\n\n\n\n\n\n\n\nThe file must be previously uploaded to Google Colab."
-  },
-  {
-    "objectID": "T2_Tools/Tools.slides.html#section",
-    "href": "T2_Tools/Tools.slides.html#section",
-    "title": "Tools for Data Manipulation",
-    "section": "",
-    "text": "The dataset penguins.xlsx contains data from penguins living in three islands."
-  },
-  {
-    "objectID": "T2_Tools/Tools.slides.html#alan-vazquez-with-a-gentoo-penguin",
-    "href": "T2_Tools/Tools.slides.html#alan-vazquez-with-a-gentoo-penguin",
-    "title": "Tools for Data Manipulation",
-    "section": "Alan Vazquez with a gentoo penguin",
-    "text": "Alan Vazquez with a gentoo penguin"
-  },
-  {
-    "objectID": "T2_Tools/Tools.slides.html#readxl-library",
-    "href": "T2_Tools/Tools.slides.html#readxl-library",
-    "title": "Tools for Data Manipulation",
-    "section": "readxl library",
-    "text": "readxl library\n\n\n\nTo load data into R, we’ll use the library called readxl. Fortunately, this library comes pre-installed in Google Colab.\n\n\n\n\n\n\n\nHowever, we need to inform Google Colab that we want to use readxl and its functions. We load the library into R using the following command.\n\nlibrary(readxl)"
-  },
-  {
-    "objectID": "T2_Tools/Tools.slides.html#loading-data-using-readxl",
-    "href": "T2_Tools/Tools.slides.html#loading-data-using-readxl",
-    "title": "Tools for Data Manipulation",
-    "section": "Loading data using readxl",
-    "text": "Loading data using readxl\n\nThe following code shows how to read the data in the file “penguins.xlsx” into R.\n\n# Load the Excel file into R.\npenguins_data = read_excel(\"penguins.xlsx\")"
-  },
-  {
-    "objectID": "T2_Tools/Tools.slides.html#the-function-head",
-    "href": "T2_Tools/Tools.slides.html#the-function-head",
-    "title": "Tools for Data Manipulation",
-    "section": "The function head()",
-    "text": "The function head()\n\nThe function head() allows you to print the first 6 rows of a data frame.\n\n# Print the first 4 rows of the dataset.\nhead(penguins_data)\n\n# A tibble: 6 × 8\n  species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g\n  &lt;chr&gt;   &lt;chr&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;dbl&gt;       &lt;dbl&gt;\n1 Adelie  Torgersen           39.1          18.7               181        3750\n2 Adelie  Torgersen           39.5          17.4               186        3800\n3 Adelie  Torgersen           40.3          18                 195        3250\n4 Adelie  Torgersen           NA            NA                  NA          NA\n5 Adelie  Torgersen           36.7          19.3               193        3450\n6 Adelie  Torgersen           39.3          20.6               190        3650\n# ℹ 2 more variables: sex &lt;chr&gt;, year &lt;dbl&gt;"
-  },
-  {
-    "objectID": "T2_Tools/Tools.slides.html#mini-activity-solo-mode",
-    "href": "T2_Tools/Tools.slides.html#mini-activity-solo-mode",
-    "title": "Tools for Data Manipulation",
-    "section": "Mini-activity (solo mode)",
-    "text": "Mini-activity (solo mode)\n\n\nOpen the following Google Colab link: https://drive.google.com/file/d/1kS1_M-wLRc9BDRAadV_K6yosNK0XF9qi/view?usp=sharing\nCopy the notebook to your drive.\nAnswer the questions."
-  },
-  {
-    "objectID": "T2_Tools/Tools.slides.html#a-new-library-dplyr",
-    "href": "T2_Tools/Tools.slides.html#a-new-library-dplyr",
-    "title": "Tools for Data Manipulation",
-    "section": "A New Library: dplyr",
-    "text": "A New Library: dplyr\n\n\n\n\n\n\n\n\n\ndplyr allows you to manipulate data and generate statistical summaries.\nIt is part of a collection of data science packages called tidyverse.\nhttps://dplyr.tidyverse.org/\n\n\nLoad it to Google Colab with the following code.\n\nlibrary(dplyr)"
-  },
-  {
-    "objectID": "T2_Tools/Tools.slides.html#pipe",
-    "href": "T2_Tools/Tools.slides.html#pipe",
-    "title": "Tools for Data Manipulation",
-    "section": "pipe",
-    "text": "pipe\nOne of the most important commands of dplyr is pipe, which is executed using the operator %&gt;%. This operator sends an object to a calling function or expression.\nThe grammar for using pipe is as follows:"
-  },
-  {
-    "objectID": "T2_Tools/Tools.slides.html#dplyrs-verbs",
-    "href": "T2_Tools/Tools.slides.html#dplyrs-verbs",
-    "title": "Tools for Data Manipulation",
-    "section": "dplyr’s verbs",
-    "text": "dplyr’s verbs\ndplyr is a data manipulation grammar that provides a set of verbs (functions) to solve the most common data manipulation challenges:\n\nfilter() selects observations based on their values.\nselect() selects variables based on their names.\nmutate() adds new variables that are functions of existing variables.\narrange() changes the order of rows.\nsummarise() reduces multiple values to a single numerical summary."
-  },
-  {
-    "objectID": "T2_Tools/Tools.slides.html#section-1",
-    "href": "T2_Tools/Tools.slides.html#section-1",
-    "title": "Tools for Data Manipulation",
-    "section": "",
-    "text": "To practice, we will use the dataset penguins_data."
-  },
-  {
-    "objectID": "T2_Tools/Tools.slides.html#filter-observations-with-filter",
-    "href": "T2_Tools/Tools.slides.html#filter-observations-with-filter",
-    "title": "Tools for Data Manipulation",
-    "section": "Filter observations with filter()",
-    "text": "Filter observations with filter()\nWe can filter the data to obtain penguins with a body mass greater than 5000.\n\npenguins_data %&gt;% filter(body_mass_g &gt; 5000) %&gt;% head()\n\n# A tibble: 6 × 8\n  species island bill_length_mm bill_depth_mm flipper_length_mm body_mass_g\n  &lt;chr&gt;   &lt;chr&gt;           &lt;dbl&gt;         &lt;dbl&gt;             &lt;dbl&gt;       &lt;dbl&gt;\n1 Gentoo  Biscoe           50            16.3               230        5700\n2 Gentoo  Biscoe           50            15.2               218        5700\n3 Gentoo  Biscoe           47.6          14.5               215        5400\n4 Gentoo  Biscoe           46.7          15.3               219        5200\n5 Gentoo  Biscoe           46.8          15.4               215        5150\n6 Gentoo  Biscoe           49            16.1               216        5550\n# ℹ 2 more variables: sex &lt;chr&gt;, year &lt;dbl&gt;\n\n\n\nRecall that head() prints the first 5 rows of a dataframe. We must remove it to have the entire new dataframe."
-  },
-  {
-    "objectID": "T2_Tools/Tools.slides.html#section-2",
-    "href": "T2_Tools/Tools.slides.html#section-2",
-    "title": "Tools for Data Manipulation",
-    "section": "",
-    "text": "We can also filter the observations for the species “Gentoo.”\n\npenguins_data %&gt;% filter(species == \"Gentoo\") %&gt;% head()\n\n# A tibble: 6 × 8\n  species island bill_length_mm bill_depth_mm flipper_length_mm body_mass_g\n  &lt;chr&gt;   &lt;chr&gt;           &lt;dbl&gt;         &lt;dbl&gt;             &lt;dbl&gt;       &lt;dbl&gt;\n1 Gentoo  Biscoe           46.1          13.2               211        4500\n2 Gentoo  Biscoe           50            16.3               230        5700\n3 Gentoo  Biscoe           48.7          14.1               210        4450\n4 Gentoo  Biscoe           50            15.2               218        5700\n5 Gentoo  Biscoe           47.6          14.5               215        5400\n6 Gentoo  Biscoe           46.5          13.5               210        4550\n# ℹ 2 more variables: sex &lt;chr&gt;, year &lt;dbl&gt;"
-  },
-  {
-    "objectID": "T2_Tools/Tools.slides.html#select-columns-with-select",
-    "href": "T2_Tools/Tools.slides.html#select-columns-with-select",
-    "title": "Tools for Data Manipulation",
-    "section": "Select columns with select()",
-    "text": "Select columns with select()\n\nSelect the columns species, body_mass_g and sex.\n\npenguins_data %&gt;% select(species, body_mass_g, sex) %&gt;% head()\n\n# A tibble: 6 × 3\n  species body_mass_g sex   \n  &lt;chr&gt;         &lt;dbl&gt; &lt;chr&gt; \n1 Adelie         3750 male  \n2 Adelie         3800 female\n3 Adelie         3250 female\n4 Adelie           NA &lt;NA&gt;  \n5 Adelie         3450 female\n6 Adelie         3650 male"
-  },
-  {
-    "objectID": "T2_Tools/Tools.slides.html#select-and-filter",
-    "href": "T2_Tools/Tools.slides.html#select-and-filter",
-    "title": "Tools for Data Manipulation",
-    "section": "select() and filter()",
-    "text": "select() and filter()\n\nSelect the columns species, body_mass_g, and sex. Then, filter the data for the species “Gentoo.”\n\npenguins_data %&gt;% \n  select(species, body_mass_g, sex) %&gt;% \n  filter(species == \"Gentoo\") %&gt;% \n  head()\n\n# A tibble: 6 × 3\n  species body_mass_g sex   \n  &lt;chr&gt;         &lt;dbl&gt; &lt;chr&gt; \n1 Gentoo         4500 female\n2 Gentoo         5700 male  \n3 Gentoo         4450 female\n4 Gentoo         5700 male  \n5 Gentoo         5400 male  \n6 Gentoo         4550 female"
-  },
-  {
-    "objectID": "T2_Tools/Tools.slides.html#create-new-columns-with-mutate",
-    "href": "T2_Tools/Tools.slides.html#create-new-columns-with-mutate",
-    "title": "Tools for Data Manipulation",
-    "section": "Create new columns with mutate()",
-    "text": "Create new columns with mutate()\nWith mutate(), we can add new columns (variables) that are functions of the columns in the data. For example, we can calculate the division of bill_length_mm and bill_depth_mm.\n\npenguins_data %&gt;% \n  mutate(\"RadioLengthDepth\" = bill_length_mm/bill_depth_mm) %&gt;% \n  select(species, body_mass_g, sex, RadioLengthDepth) %&gt;%\n  head()\n\n# A tibble: 6 × 4\n  species body_mass_g sex    RadioLengthDepth\n  &lt;chr&gt;         &lt;dbl&gt; &lt;chr&gt;             &lt;dbl&gt;\n1 Adelie         3750 male               2.09\n2 Adelie         3800 female             2.27\n3 Adelie         3250 female             2.24\n4 Adelie           NA &lt;NA&gt;              NA   \n5 Adelie         3450 female             1.90\n6 Adelie         3650 male               1.91"
-  },
-  {
-    "objectID": "T2_Tools/Tools.slides.html#sort-the-observations-with-arrange",
-    "href": "T2_Tools/Tools.slides.html#sort-the-observations-with-arrange",
-    "title": "Tools for Data Manipulation",
-    "section": "Sort the observations with arrange()",
-    "text": "Sort the observations with arrange()\n\nWe can sort the data based on a column, say bill_length_mm.\n\npenguins_data %&gt;% \n  arrange(bill_length_mm) %&gt;% \n  head()\n\n# A tibble: 6 × 8\n  species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g\n  &lt;chr&gt;   &lt;chr&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;dbl&gt;       &lt;dbl&gt;\n1 Adelie  Dream               32.1          15.5               188        3050\n2 Adelie  Dream               33.1          16.1               178        2900\n3 Adelie  Torgersen           33.5          19                 190        3600\n4 Adelie  Dream               34            17.1               185        3400\n5 Adelie  Torgersen           34.1          18.1               193        3475\n6 Adelie  Torgersen           34.4          18.4               184        3325\n# ℹ 2 more variables: sex &lt;chr&gt;, year &lt;dbl&gt;"
-  },
-  {
-    "objectID": "T2_Tools/Tools.slides.html#section-3",
-    "href": "T2_Tools/Tools.slides.html#section-3",
-    "title": "Tools for Data Manipulation",
-    "section": "",
-    "text": "To sort in descending order we use desc(bill_length_mm) in arrange().\n\npenguins_data %&gt;% \n  arrange(desc(bill_length_mm)) %&gt;% \n  head()\n\n# A tibble: 6 × 8\n  species   island bill_length_mm bill_depth_mm flipper_length_mm body_mass_g\n  &lt;chr&gt;     &lt;chr&gt;           &lt;dbl&gt;         &lt;dbl&gt;             &lt;dbl&gt;       &lt;dbl&gt;\n1 Gentoo    Biscoe           59.6          17                 230        6050\n2 Chinstrap Dream            58            17.8               181        3700\n3 Gentoo    Biscoe           55.9          17                 228        5600\n4 Chinstrap Dream            55.8          19.8               207        4000\n5 Gentoo    Biscoe           55.1          16                 230        5850\n6 Gentoo    Biscoe           54.3          15.7               231        5650\n# ℹ 2 more variables: sex &lt;chr&gt;, year &lt;dbl&gt;"
-  },
-  {
-    "objectID": "T2_Tools/Tools.slides.html#summarize-with-summarise",
-    "href": "T2_Tools/Tools.slides.html#summarize-with-summarise",
-    "title": "Tools for Data Manipulation",
-    "section": "Summarize with summarise()",
-    "text": "Summarize with summarise()\nWe can calculate the average of the bill_length_mm, bill_depth_mm, and body_mass_g columns.\n\npenguins_data %&gt;% \n  select(bill_length_mm, bill_depth_mm, body_mass_g) %&gt;%\n  summarise(PromLength = mean(bill_length_mm, na.rm = TRUE), \n            PromDepth = mean(bill_depth_mm, na.rm = TRUE),\n            PromMass = mean(body_mass_g, na.rm = TRUE))\n\n# A tibble: 1 × 3\n  PromLength PromDepth PromMass\n       &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;\n1       43.9      17.2    4202.\n\n\n\nThe argument na.rm == TRUE allows us to ignore the missing data."
-  },
-  {
-    "objectID": "T2_Tools/Tools.slides.html#saving-results-in-new-objects",
-    "href": "T2_Tools/Tools.slides.html#saving-results-in-new-objects",
-    "title": "Tools for Data Manipulation",
-    "section": "Saving results in new objects",
-    "text": "Saving results in new objects\nAfter performing operations on our data, we can save the modified dataset as a new object.\n\nsummary_penguins_data = penguins_data %&gt;%\n  select(bill_length_mm, bill_depth_mm, body_mass_g) %&gt;%\n  summarise(PromLength = mean(bill_length_mm, na.rm = TRUE),\n            PromDepth = mean(bill_depth_mm, na.rm = TRUE),\n            PromMass = mean(body_mass_g, na.rm = TRUE))\n\n\nAnd apply the dplyr verbs to the new object.\n\nsummary_penguins_data %&gt;% head()\n\n# A tibble: 1 × 3\n  PromLength PromDepth PromMass\n       &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;\n1       43.9      17.2    4202."
-  },
-  {
-    "objectID": "T2_Tools/Tools.slides.html#more-on-dplyr",
-    "href": "T2_Tools/Tools.slides.html#more-on-dplyr",
-    "title": "Tools for Data Manipulation",
-    "section": "More on dplyr",
-    "text": "More on dplyr\n\n\nhttps://r4ds.hadley.nz/"
-  },
-  {
-    "objectID": "T2_Tools/Tools.slides.html#final-remarks",
-    "href": "T2_Tools/Tools.slides.html#final-remarks",
-    "title": "Tools for Data Manipulation",
-    "section": "Final remarks",
-    "text": "Final remarks\n\n\ndplyr is a library that allows us to manipulate data in R.\nVariable types help specify the operations and visualizations we can apply to the data.\nThere are appropriate or designed graphs for visualizing numeric or categorical variables.\nIn this course, we will see several graphs for each variable type and their combinations."
-  },
-  {
-    "objectID": "index.slides.html#course-topics",
-    "href": "index.slides.html#course-topics",
-    "title": "IN2039 Data Visualization for Decision Making",
-    "section": "Course topics",
-    "text": "Course topics\n\nIntroduction (slides)\nTools for Data Manipulation (slides) (colab) (dplyr cheat sheet)\nTidy Data (slides) (colab) (tidyr cheat sheet)\nWeb Scraping\nDashboard Technologies\nPopular graphs (slides)\nStatistical graphs (slides)"
-  },
-  {
-    "objectID": "index.slides.html#about-the-author",
-    "href": "index.slides.html#about-the-author",
-    "title": "IN2039 Data Visualization for Decision Making",
-    "section": "About the author",
-    "text": "About the author\nAlan R. Vazquez (website) is a Research Professor at the Department of Industrial Engineering at Tecnologico de Monterrey, Monterrey campus."
-  },
-  {
-    "objectID": "index.slides.html#license",
-    "href": "index.slides.html#license",
-    "title": "IN2039 Data Visualization for Decision Making",
-    "section": "License",
-    "text": "License\n\nIN2039 Data Visualization for Decision Making by Alan R. Vazquez is licensed under CC BY-NC-SA 4.0"
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "IN2039 Data Visualization for Decision Making",
-    "section": "",
-    "text": "Course topics\n\nIntroduction (slides)\nTools for Data Manipulation (slides) (colab) (dplyr cheat sheet)\nTidy Data (slides) (colab) (tidyr cheat sheet)\nWeb Scraping\nDashboard Technologies\nPopular graphs (slides)\nStatistical graphs (slides)\n\n\n\nAbout the author\nAlan R. Vazquez (website) is a Research Professor at the Department of Industrial Engineering at Tecnologico de Monterrey, Monterrey campus.\n\n\nLicense\n\nIN2039 Data Visualization for Decision Making by Alan R. Vazquez is licensed under CC BY-NC-SA 4.0"
   },
   {
     "objectID": "T6_PopularGraphs/Popular_Graphs.slides.html#agenda",
@@ -1337,6 +994,650 @@
     "text": "Graphs for four variables\nA common chart for four variables is the scatter plot, where the color and size of the symbols depend on two categorical variables."
   },
   {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "IN2039 Data Visualization for Decision Making",
+    "section": "",
+    "text": "Course topics\n\nIntroduction (slides)\nTools for Data Manipulation (slides) (colab) (dplyr cheat sheet)\nTidy Data (slides) (colab) (tidyr cheat sheet)\nWeb Scraping (slides) (colab)\nDashboard Technologies\nPopular graphs (slides)\nStatistical graphs (slides)\n\n\n\nAbout the author\nAlan R. Vazquez (website) is a Research Professor at the Department of Industrial Engineering at Tecnologico de Monterrey, Monterrey campus.\n\n\nLicense\n\nIN2039 Data Visualization for Decision Making by Alan R. Vazquez is licensed under CC BY-NC-SA 4.0"
+  },
+  {
+    "objectID": "index.slides.html#course-topics",
+    "href": "index.slides.html#course-topics",
+    "title": "IN2039 Data Visualization for Decision Making",
+    "section": "Course topics",
+    "text": "Course topics\n\nIntroduction (slides)\nTools for Data Manipulation (slides) (colab) (dplyr cheat sheet)\nTidy Data (slides) (colab) (tidyr cheat sheet)\nWeb Scraping (slides) (colab)\nDashboard Technologies\nPopular graphs (slides)\nStatistical graphs (slides)"
+  },
+  {
+    "objectID": "index.slides.html#about-the-author",
+    "href": "index.slides.html#about-the-author",
+    "title": "IN2039 Data Visualization for Decision Making",
+    "section": "About the author",
+    "text": "About the author\nAlan R. Vazquez (website) is a Research Professor at the Department of Industrial Engineering at Tecnologico de Monterrey, Monterrey campus."
+  },
+  {
+    "objectID": "index.slides.html#license",
+    "href": "index.slides.html#license",
+    "title": "IN2039 Data Visualization for Decision Making",
+    "section": "License",
+    "text": "License\n\nIN2039 Data Visualization for Decision Making by Alan R. Vazquez is licensed under CC BY-NC-SA 4.0"
+  },
+  {
+    "objectID": "T2_Tools/Tools.slides.html#agenda",
+    "href": "T2_Tools/Tools.slides.html#agenda",
+    "title": "Tools for Data Manipulation",
+    "section": "Agenda",
+    "text": "Agenda\n\n\nIntroduction to R\nReading data with readxl\nData manipulation with dplyr"
+  },
+  {
+    "objectID": "T2_Tools/Tools.slides.html#r",
+    "href": "T2_Tools/Tools.slides.html#r",
+    "title": "Tools for Data Manipulation",
+    "section": "R",
+    "text": "R\n\n\n\n\nA versatile programming language.\nIt is free!\nIt is widely used for data cleaning, data visualization, and data modelling.\nIt can be extended with packages (libraries) developed by other users."
+  },
+  {
+    "objectID": "T2_Tools/Tools.slides.html#google-colab",
+    "href": "T2_Tools/Tools.slides.html#google-colab",
+    "title": "Tools for Data Manipulation",
+    "section": "Google Colab",
+    "text": "Google Colab\nGoogle’s free cloud collaboration platform for creating R documents.\n\nRun R and collaborate on Jupyter notebooks for free.\nHarness the power of GPUs for free to accelerate your data science projects.\nEasily save and upload your notebooks to Google Drive."
+  },
+  {
+    "objectID": "T2_Tools/Tools.slides.html#lets-try-a-command-in-r",
+    "href": "T2_Tools/Tools.slides.html#lets-try-a-command-in-r",
+    "title": "Tools for Data Manipulation",
+    "section": "Let’s try a command in R",
+    "text": "Let’s try a command in R\n\nWhat do you think will happen if we run this command?\n\nprint(\"Hello world!\")\n\n\n\n\n[1] \"Hello world!\""
+  },
+  {
+    "objectID": "T2_Tools/Tools.slides.html#lets-try-another-command",
+    "href": "T2_Tools/Tools.slides.html#lets-try-another-command",
+    "title": "Tools for Data Manipulation",
+    "section": "Let’s try another command",
+    "text": "Let’s try another command\n\nWhat do you think will happen if we run this command?\n\nsum(1, 5, 10)\n\n\n\n\n[1] 16"
+  },
+  {
+    "objectID": "T2_Tools/Tools.slides.html#use-r-as-a-basic-calculator",
+    "href": "T2_Tools/Tools.slides.html#use-r-as-a-basic-calculator",
+    "title": "Tools for Data Manipulation",
+    "section": "Use R as a basic calculator",
+    "text": "Use R as a basic calculator\n\n\n5 + 1\n\n[1] 6\n\n\n\n10 - 3\n\n[1] 7\n\n\n\n2 * 4\n\n[1] 8\n\n\n\n9 / 3\n\n[1] 3"
+  },
+  {
+    "objectID": "T2_Tools/Tools.slides.html#comments",
+    "href": "T2_Tools/Tools.slides.html#comments",
+    "title": "Tools for Data Manipulation",
+    "section": "Comments",
+    "text": "Comments\n\nSometimes we write things in the coding window that we want R to ignore. These are called comments and start with #.\n\nR will ignore the comments and just execute the code.\n\n# you can put whatever after #\n# for example... blah blah blah\n\n\nSi desea escribir un comentario que ocupe más de una línea, es una buena idea poner un # al principio de cada línea."
+  },
+  {
+    "objectID": "T2_Tools/Tools.slides.html#introduction-to-functions-in-r",
+    "href": "T2_Tools/Tools.slides.html#introduction-to-functions-in-r",
+    "title": "Tools for Data Manipulation",
+    "section": "Introduction to functions in R",
+    "text": "Introduction to functions in R\n\nOne of the cool things about R is that there are many built-in commands you can use. These are called functions.\n\nFunctions have two basic parts:\n\nThe first part is the name of the function (for example, sum).\nThe second part is the input to the function, which goes inside the parentheses (sum(1, 5, 15))."
+  },
+  {
+    "objectID": "T2_Tools/Tools.slides.html#r-is-strict",
+    "href": "T2_Tools/Tools.slides.html#r-is-strict",
+    "title": "Tools for Data Manipulation",
+    "section": "R is strict",
+    "text": "R is strict\nR, like all programming languages, is very strict. For example, if you write\n\nsum(1, 100)\n\n[1] 101\n\n\nit will tell you the answer, 101.\n\nBut if you write\n\nSum(1, 100)\n\nError in Sum(1, 100): could not find function \"Sum\"\n\n\nwith the “s” capitalized, R will act like it has no idea what we are talking about!\n\nlo mismo si olvidas incluir un parentesis"
+  },
+  {
+    "objectID": "T2_Tools/Tools.slides.html#save-your-work-in-r-objects",
+    "href": "T2_Tools/Tools.slides.html#save-your-work-in-r-objects",
+    "title": "Tools for Data Manipulation",
+    "section": "Save your work in R objects",
+    "text": "Save your work in R objects\n\nVirtually anything, including the results of any R function, can be saved in an object.\nThis is accomplished by using an assignment operator, which can be an equal symbol (=) or a leftward symbol (&lt;-).\n\nYou can make up any name you want for a R object. However, there are two basic rules for this:\n\nIt has to be different from a function name in R.\nIt has to be specific possible yet succinct."
+  },
+  {
+    "objectID": "T2_Tools/Tools.slides.html#for-example",
+    "href": "T2_Tools/Tools.slides.html#for-example",
+    "title": "Tools for Data Manipulation",
+    "section": "For example",
+    "text": "For example\n\n\n# This code will assign the number 18\n# to the object called my_favorite_number\n\nmy_favorite_number = 18\n\nAfter running this code, nothing happens. But if we run the object on its own, we can see what’s inside it.\n\nmy_favorite_number\n\n[1] 18\n\n\nYou can also use print(my_favorite_number)."
+  },
+  {
+    "objectID": "T2_Tools/Tools.slides.html#vectors",
+    "href": "T2_Tools/Tools.slides.html#vectors",
+    "title": "Tools for Data Manipulation",
+    "section": "Vectors",
+    "text": "Vectors\n\nSo far we have used R objects to store a single number. But in data visualization we are dealing with multiple numbers or observations.\n\nA R object can also store a complete set of numbers, called a vector.\nYou can think of a list as a vector of numbers (or values).\n\n\nThe c() command can be used to combine several individual values into a list.\n\npuedes pensar que el c es por combinar"
+  },
+  {
+    "objectID": "T2_Tools/Tools.slides.html#for-example-1",
+    "href": "T2_Tools/Tools.slides.html#for-example-1",
+    "title": "Tools for Data Manipulation",
+    "section": "For example",
+    "text": "For example\n\nThis code creates two vectors:\n\nmy_vector = c(1, 2, 3, 4, 5)\nmy_vector_2 = c(10, 10, 10, 10, 10)\n\n\nLet’s see their content:\n\nmy_vector\n\n[1] 1 2 3 4 5\n\n\n\nmy_vector_2\n\n[1] 10 10 10 10 10"
+  },
+  {
+    "objectID": "T2_Tools/Tools.slides.html#operations",
+    "href": "T2_Tools/Tools.slides.html#operations",
+    "title": "Tools for Data Manipulation",
+    "section": "Operations",
+    "text": "Operations\n\nWe can do simple operations with vectors. For example, we can sum all the elements of a list.\n\nmy_vector = c(1, 2, 3, 4, 5)\nsum(my_vector)\n\n[1] 15"
+  },
+  {
+    "objectID": "T2_Tools/Tools.slides.html#indexing",
+    "href": "T2_Tools/Tools.slides.html#indexing",
+    "title": "Tools for Data Manipulation",
+    "section": "Indexing",
+    "text": "Indexing\n\nWe can index a position in the vector using square brackets with a number like this: [1].\nSo, if we wanted to print the contents of the first position in my_vector, we could write\n\nmy_vector[1]\n\n[1] 1\n\n\n\n\nIn contrast with Python, the first element of an R vector is indexed using 1."
+  },
+  {
+    "objectID": "T2_Tools/Tools.slides.html#a-little-more-about-r-objects",
+    "href": "T2_Tools/Tools.slides.html#a-little-more-about-r-objects",
+    "title": "Tools for Data Manipulation",
+    "section": "A little more about R objects",
+    "text": "A little more about R objects\n\nYou can think of R objects as containers that hold values.\nA R object can hold a single value, or it can hold a group of values (as in a vector).\nSo far, we’ve only put numbers into R objects.\n\n\nR objects can actually contain three types of values: numbers, characters, and booleans."
+  },
+  {
+    "objectID": "T2_Tools/Tools.slides.html#character-values",
+    "href": "T2_Tools/Tools.slides.html#character-values",
+    "title": "Tools for Data Manipulation",
+    "section": "Character values",
+    "text": "Character values\n\nCharacters are made up of text, such as words or sentences. An example of a list with characters as elements is:\n\n\nmany_greetings = c(\"hi\", \"hello\", \"hola\", \"bonjour\", \"ni hao\", \"merhaba\")\nmany_greetings\n\n[1] \"hi\"      \"hello\"   \"hola\"    \"bonjour\" \"ni hao\"  \"merhaba\"\n\n\n\n\nIt is important to know that numbers can also be treated as characters, depending on the context.\nFor example, when 20 is enclosed in quotes (\"20\") it will be treated as a character value, even though it encloses a number in quotes."
+  },
+  {
+    "objectID": "T2_Tools/Tools.slides.html#boolean-values",
+    "href": "T2_Tools/Tools.slides.html#boolean-values",
+    "title": "Tools for Data Manipulation",
+    "section": "Boolean values",
+    "text": "Boolean values\n\nBoolean values are True or False.\nWe may have a question like:\n\nIs the first element of the vector many_greetings \"hola\"?\n\n\nWe can ask R to find out and return the answer True or False.\n\nmany_greetings[1] == \"hola\"\n\n[1] FALSE"
+  },
+  {
+    "objectID": "T2_Tools/Tools.slides.html#logical-operators",
+    "href": "T2_Tools/Tools.slides.html#logical-operators",
+    "title": "Tools for Data Manipulation",
+    "section": "Logical operators",
+    "text": "Logical operators\n\nMost of the questions we ask R to answer with True or False involve comparison operators like &gt;, &lt;, &gt;=, &lt;=, and ==.\nThe double == sign checks whether two values are equal. There is even a comparison operator to check whether values are not equal: !=.\nFor example, 5 != 3 is a True statement."
+  },
+  {
+    "objectID": "T2_Tools/Tools.slides.html#common-logical-operators",
+    "href": "T2_Tools/Tools.slides.html#common-logical-operators",
+    "title": "Tools for Data Manipulation",
+    "section": "Common logical operators",
+    "text": "Common logical operators\n\n\n&gt; (larger than)\n&gt;= (larger than or equal to)\n&lt; (smaller than)\n&lt;= (smaller than or equal to)\n== (equal to)\n!= (not equal to)"
+  },
+  {
+    "objectID": "T2_Tools/Tools.slides.html#programming-culture-trial-and-error",
+    "href": "T2_Tools/Tools.slides.html#programming-culture-trial-and-error",
+    "title": "Tools for Data Manipulation",
+    "section": "Programming culture: Trial and error",
+    "text": "Programming culture: Trial and error\n\nThe best way to learn programming is to try things out and see what happens. Write some code, run it, and think about why it didn’t work.\nThere are many ways to make small mistakes in programming (for example, typing a capital letter when a lowercase letter is needed).\nWe often have to find these mistakes through trial and error."
+  },
+  {
+    "objectID": "T2_Tools/Tools.slides.html#r-libraries",
+    "href": "T2_Tools/Tools.slides.html#r-libraries",
+    "title": "Tools for Data Manipulation",
+    "section": "R libraries",
+    "text": "R libraries\n\nLibraries are the fundamental units of reproducible R code. They include reusable R functions, documentation describing how to use them, and sample data.\nIn this course, we will be working mostly with the following libraries for data manipulation:\n\nreadxl for reading data.\ndplyr for data manipulation and wrangling\ntidyr for structuring data."
+  },
+  {
+    "objectID": "T2_Tools/Tools.slides.html#loading-data-in-r",
+    "href": "T2_Tools/Tools.slides.html#loading-data-in-r",
+    "title": "Tools for Data Manipulation",
+    "section": "Loading data in R",
+    "text": "Loading data in R\nIn this course, we will assume that data is stored in an Excel file. As an example, let’s use the file penguins.xlsx.\n\n\n\n\n\n\n\nThe file must be previously uploaded to Google Colab."
+  },
+  {
+    "objectID": "T2_Tools/Tools.slides.html#section",
+    "href": "T2_Tools/Tools.slides.html#section",
+    "title": "Tools for Data Manipulation",
+    "section": "",
+    "text": "The dataset penguins.xlsx contains data from penguins living in three islands."
+  },
+  {
+    "objectID": "T2_Tools/Tools.slides.html#alan-vazquez-with-a-gentoo-penguin",
+    "href": "T2_Tools/Tools.slides.html#alan-vazquez-with-a-gentoo-penguin",
+    "title": "Tools for Data Manipulation",
+    "section": "Alan Vazquez with a gentoo penguin",
+    "text": "Alan Vazquez with a gentoo penguin"
+  },
+  {
+    "objectID": "T2_Tools/Tools.slides.html#readxl-library",
+    "href": "T2_Tools/Tools.slides.html#readxl-library",
+    "title": "Tools for Data Manipulation",
+    "section": "readxl library",
+    "text": "readxl library\n\n\n\nTo load data into R, we’ll use the library called readxl. Fortunately, this library comes pre-installed in Google Colab.\n\n\n\n\n\n\n\nHowever, we need to inform Google Colab that we want to use readxl and its functions. We load the library into R using the following command.\n\nlibrary(readxl)"
+  },
+  {
+    "objectID": "T2_Tools/Tools.slides.html#loading-data-using-readxl",
+    "href": "T2_Tools/Tools.slides.html#loading-data-using-readxl",
+    "title": "Tools for Data Manipulation",
+    "section": "Loading data using readxl",
+    "text": "Loading data using readxl\n\nThe following code shows how to read the data in the file “penguins.xlsx” into R.\n\n# Load the Excel file into R.\npenguins_data = read_excel(\"penguins.xlsx\")"
+  },
+  {
+    "objectID": "T2_Tools/Tools.slides.html#the-function-head",
+    "href": "T2_Tools/Tools.slides.html#the-function-head",
+    "title": "Tools for Data Manipulation",
+    "section": "The function head()",
+    "text": "The function head()\n\nThe function head() allows you to print the first 6 rows of a data frame.\n\n# Print the first 4 rows of the dataset.\nhead(penguins_data)\n\n# A tibble: 6 × 8\n  species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g\n  &lt;chr&gt;   &lt;chr&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;dbl&gt;       &lt;dbl&gt;\n1 Adelie  Torgersen           39.1          18.7               181        3750\n2 Adelie  Torgersen           39.5          17.4               186        3800\n3 Adelie  Torgersen           40.3          18                 195        3250\n4 Adelie  Torgersen           NA            NA                  NA          NA\n5 Adelie  Torgersen           36.7          19.3               193        3450\n6 Adelie  Torgersen           39.3          20.6               190        3650\n# ℹ 2 more variables: sex &lt;chr&gt;, year &lt;dbl&gt;"
+  },
+  {
+    "objectID": "T2_Tools/Tools.slides.html#mini-activity-solo-mode",
+    "href": "T2_Tools/Tools.slides.html#mini-activity-solo-mode",
+    "title": "Tools for Data Manipulation",
+    "section": "Mini-activity (solo mode)",
+    "text": "Mini-activity (solo mode)\n\n\nOpen the following Google Colab link: https://drive.google.com/file/d/1kS1_M-wLRc9BDRAadV_K6yosNK0XF9qi/view?usp=sharing\nCopy the notebook to your drive.\nAnswer the questions."
+  },
+  {
+    "objectID": "T2_Tools/Tools.slides.html#a-new-library-dplyr",
+    "href": "T2_Tools/Tools.slides.html#a-new-library-dplyr",
+    "title": "Tools for Data Manipulation",
+    "section": "A New Library: dplyr",
+    "text": "A New Library: dplyr\n\n\n\n\n\n\n\n\n\ndplyr allows you to manipulate data and generate statistical summaries.\nIt is part of a collection of data science packages called tidyverse.\nhttps://dplyr.tidyverse.org/\n\n\nLoad it to Google Colab with the following code.\n\nlibrary(dplyr)"
+  },
+  {
+    "objectID": "T2_Tools/Tools.slides.html#pipe",
+    "href": "T2_Tools/Tools.slides.html#pipe",
+    "title": "Tools for Data Manipulation",
+    "section": "pipe",
+    "text": "pipe\nOne of the most important commands of dplyr is pipe, which is executed using the operator %&gt;%. This operator sends an object to a calling function or expression.\nThe grammar for using pipe is as follows:"
+  },
+  {
+    "objectID": "T2_Tools/Tools.slides.html#dplyrs-verbs",
+    "href": "T2_Tools/Tools.slides.html#dplyrs-verbs",
+    "title": "Tools for Data Manipulation",
+    "section": "dplyr’s verbs",
+    "text": "dplyr’s verbs\ndplyr is a data manipulation grammar that provides a set of verbs (functions) to solve the most common data manipulation challenges:\n\nfilter() selects observations based on their values.\nselect() selects variables based on their names.\nmutate() adds new variables that are functions of existing variables.\narrange() changes the order of rows.\nsummarise() reduces multiple values to a single numerical summary."
+  },
+  {
+    "objectID": "T2_Tools/Tools.slides.html#section-1",
+    "href": "T2_Tools/Tools.slides.html#section-1",
+    "title": "Tools for Data Manipulation",
+    "section": "",
+    "text": "To practice, we will use the dataset penguins_data."
+  },
+  {
+    "objectID": "T2_Tools/Tools.slides.html#filter-observations-with-filter",
+    "href": "T2_Tools/Tools.slides.html#filter-observations-with-filter",
+    "title": "Tools for Data Manipulation",
+    "section": "Filter observations with filter()",
+    "text": "Filter observations with filter()\nWe can filter the data to obtain penguins with a body mass greater than 5000.\n\npenguins_data %&gt;% filter(body_mass_g &gt; 5000) %&gt;% head()\n\n# A tibble: 6 × 8\n  species island bill_length_mm bill_depth_mm flipper_length_mm body_mass_g\n  &lt;chr&gt;   &lt;chr&gt;           &lt;dbl&gt;         &lt;dbl&gt;             &lt;dbl&gt;       &lt;dbl&gt;\n1 Gentoo  Biscoe           50            16.3               230        5700\n2 Gentoo  Biscoe           50            15.2               218        5700\n3 Gentoo  Biscoe           47.6          14.5               215        5400\n4 Gentoo  Biscoe           46.7          15.3               219        5200\n5 Gentoo  Biscoe           46.8          15.4               215        5150\n6 Gentoo  Biscoe           49            16.1               216        5550\n# ℹ 2 more variables: sex &lt;chr&gt;, year &lt;dbl&gt;\n\n\n\nRecall that head() prints the first 5 rows of a dataframe. We must remove it to have the entire new dataframe."
+  },
+  {
+    "objectID": "T2_Tools/Tools.slides.html#section-2",
+    "href": "T2_Tools/Tools.slides.html#section-2",
+    "title": "Tools for Data Manipulation",
+    "section": "",
+    "text": "We can also filter the observations for the species “Gentoo.”\n\npenguins_data %&gt;% filter(species == \"Gentoo\") %&gt;% head()\n\n# A tibble: 6 × 8\n  species island bill_length_mm bill_depth_mm flipper_length_mm body_mass_g\n  &lt;chr&gt;   &lt;chr&gt;           &lt;dbl&gt;         &lt;dbl&gt;             &lt;dbl&gt;       &lt;dbl&gt;\n1 Gentoo  Biscoe           46.1          13.2               211        4500\n2 Gentoo  Biscoe           50            16.3               230        5700\n3 Gentoo  Biscoe           48.7          14.1               210        4450\n4 Gentoo  Biscoe           50            15.2               218        5700\n5 Gentoo  Biscoe           47.6          14.5               215        5400\n6 Gentoo  Biscoe           46.5          13.5               210        4550\n# ℹ 2 more variables: sex &lt;chr&gt;, year &lt;dbl&gt;"
+  },
+  {
+    "objectID": "T2_Tools/Tools.slides.html#select-columns-with-select",
+    "href": "T2_Tools/Tools.slides.html#select-columns-with-select",
+    "title": "Tools for Data Manipulation",
+    "section": "Select columns with select()",
+    "text": "Select columns with select()\n\nSelect the columns species, body_mass_g and sex.\n\npenguins_data %&gt;% select(species, body_mass_g, sex) %&gt;% head()\n\n# A tibble: 6 × 3\n  species body_mass_g sex   \n  &lt;chr&gt;         &lt;dbl&gt; &lt;chr&gt; \n1 Adelie         3750 male  \n2 Adelie         3800 female\n3 Adelie         3250 female\n4 Adelie           NA &lt;NA&gt;  \n5 Adelie         3450 female\n6 Adelie         3650 male"
+  },
+  {
+    "objectID": "T2_Tools/Tools.slides.html#select-and-filter",
+    "href": "T2_Tools/Tools.slides.html#select-and-filter",
+    "title": "Tools for Data Manipulation",
+    "section": "select() and filter()",
+    "text": "select() and filter()\n\nSelect the columns species, body_mass_g, and sex. Then, filter the data for the species “Gentoo.”\n\npenguins_data %&gt;% \n  select(species, body_mass_g, sex) %&gt;% \n  filter(species == \"Gentoo\") %&gt;% \n  head()\n\n# A tibble: 6 × 3\n  species body_mass_g sex   \n  &lt;chr&gt;         &lt;dbl&gt; &lt;chr&gt; \n1 Gentoo         4500 female\n2 Gentoo         5700 male  \n3 Gentoo         4450 female\n4 Gentoo         5700 male  \n5 Gentoo         5400 male  \n6 Gentoo         4550 female"
+  },
+  {
+    "objectID": "T2_Tools/Tools.slides.html#create-new-columns-with-mutate",
+    "href": "T2_Tools/Tools.slides.html#create-new-columns-with-mutate",
+    "title": "Tools for Data Manipulation",
+    "section": "Create new columns with mutate()",
+    "text": "Create new columns with mutate()\nWith mutate(), we can add new columns (variables) that are functions of the columns in the data. For example, we can calculate the division of bill_length_mm and bill_depth_mm.\n\npenguins_data %&gt;% \n  mutate(\"RadioLengthDepth\" = bill_length_mm/bill_depth_mm) %&gt;% \n  select(species, body_mass_g, sex, RadioLengthDepth) %&gt;%\n  head()\n\n# A tibble: 6 × 4\n  species body_mass_g sex    RadioLengthDepth\n  &lt;chr&gt;         &lt;dbl&gt; &lt;chr&gt;             &lt;dbl&gt;\n1 Adelie         3750 male               2.09\n2 Adelie         3800 female             2.27\n3 Adelie         3250 female             2.24\n4 Adelie           NA &lt;NA&gt;              NA   \n5 Adelie         3450 female             1.90\n6 Adelie         3650 male               1.91"
+  },
+  {
+    "objectID": "T2_Tools/Tools.slides.html#sort-the-observations-with-arrange",
+    "href": "T2_Tools/Tools.slides.html#sort-the-observations-with-arrange",
+    "title": "Tools for Data Manipulation",
+    "section": "Sort the observations with arrange()",
+    "text": "Sort the observations with arrange()\n\nWe can sort the data based on a column, say bill_length_mm.\n\npenguins_data %&gt;% \n  arrange(bill_length_mm) %&gt;% \n  head()\n\n# A tibble: 6 × 8\n  species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g\n  &lt;chr&gt;   &lt;chr&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;dbl&gt;       &lt;dbl&gt;\n1 Adelie  Dream               32.1          15.5               188        3050\n2 Adelie  Dream               33.1          16.1               178        2900\n3 Adelie  Torgersen           33.5          19                 190        3600\n4 Adelie  Dream               34            17.1               185        3400\n5 Adelie  Torgersen           34.1          18.1               193        3475\n6 Adelie  Torgersen           34.4          18.4               184        3325\n# ℹ 2 more variables: sex &lt;chr&gt;, year &lt;dbl&gt;"
+  },
+  {
+    "objectID": "T2_Tools/Tools.slides.html#section-3",
+    "href": "T2_Tools/Tools.slides.html#section-3",
+    "title": "Tools for Data Manipulation",
+    "section": "",
+    "text": "To sort in descending order we use desc(bill_length_mm) in arrange().\n\npenguins_data %&gt;% \n  arrange(desc(bill_length_mm)) %&gt;% \n  head()\n\n# A tibble: 6 × 8\n  species   island bill_length_mm bill_depth_mm flipper_length_mm body_mass_g\n  &lt;chr&gt;     &lt;chr&gt;           &lt;dbl&gt;         &lt;dbl&gt;             &lt;dbl&gt;       &lt;dbl&gt;\n1 Gentoo    Biscoe           59.6          17                 230        6050\n2 Chinstrap Dream            58            17.8               181        3700\n3 Gentoo    Biscoe           55.9          17                 228        5600\n4 Chinstrap Dream            55.8          19.8               207        4000\n5 Gentoo    Biscoe           55.1          16                 230        5850\n6 Gentoo    Biscoe           54.3          15.7               231        5650\n# ℹ 2 more variables: sex &lt;chr&gt;, year &lt;dbl&gt;"
+  },
+  {
+    "objectID": "T2_Tools/Tools.slides.html#summarize-with-summarise",
+    "href": "T2_Tools/Tools.slides.html#summarize-with-summarise",
+    "title": "Tools for Data Manipulation",
+    "section": "Summarize with summarise()",
+    "text": "Summarize with summarise()\nWe can calculate the average of the bill_length_mm, bill_depth_mm, and body_mass_g columns.\n\npenguins_data %&gt;% \n  select(bill_length_mm, bill_depth_mm, body_mass_g) %&gt;%\n  summarise(PromLength = mean(bill_length_mm, na.rm = TRUE), \n            PromDepth = mean(bill_depth_mm, na.rm = TRUE),\n            PromMass = mean(body_mass_g, na.rm = TRUE))\n\n# A tibble: 1 × 3\n  PromLength PromDepth PromMass\n       &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;\n1       43.9      17.2    4202.\n\n\n\nThe argument na.rm == TRUE allows us to ignore the missing data."
+  },
+  {
+    "objectID": "T2_Tools/Tools.slides.html#saving-results-in-new-objects",
+    "href": "T2_Tools/Tools.slides.html#saving-results-in-new-objects",
+    "title": "Tools for Data Manipulation",
+    "section": "Saving results in new objects",
+    "text": "Saving results in new objects\nAfter performing operations on our data, we can save the modified dataset as a new object.\n\nsummary_penguins_data = penguins_data %&gt;%\n  select(bill_length_mm, bill_depth_mm, body_mass_g) %&gt;%\n  summarise(PromLength = mean(bill_length_mm, na.rm = TRUE),\n            PromDepth = mean(bill_depth_mm, na.rm = TRUE),\n            PromMass = mean(body_mass_g, na.rm = TRUE))\n\n\nAnd apply the dplyr verbs to the new object.\n\nsummary_penguins_data %&gt;% head()\n\n# A tibble: 1 × 3\n  PromLength PromDepth PromMass\n       &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;\n1       43.9      17.2    4202."
+  },
+  {
+    "objectID": "T2_Tools/Tools.slides.html#more-on-dplyr",
+    "href": "T2_Tools/Tools.slides.html#more-on-dplyr",
+    "title": "Tools for Data Manipulation",
+    "section": "More on dplyr",
+    "text": "More on dplyr\n\n\nhttps://r4ds.hadley.nz/"
+  },
+  {
+    "objectID": "T2_Tools/Tools.slides.html#final-remarks",
+    "href": "T2_Tools/Tools.slides.html#final-remarks",
+    "title": "Tools for Data Manipulation",
+    "section": "Final remarks",
+    "text": "Final remarks\n\n\ndplyr is a library that allows us to manipulate data in R.\nVariable types help specify the operations and visualizations we can apply to the data.\nThere are appropriate or designed graphs for visualizing numeric or categorical variables.\nIn this course, we will see several graphs for each variable type and their combinations."
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site\n\n1 + 1\n\n2"
+  },
+  {
+    "objectID": "T4_WebScraping/WebScraping.slides.html#agenda",
+    "href": "T4_WebScraping/WebScraping.slides.html#agenda",
+    "title": "Web Scraping",
+    "section": "Agenda",
+    "text": "Agenda\n\n\nHTML Basics\nWeb Scraping with the rvest package\nLegal and Ethical Issues with Web Scraping"
+  },
+  {
+    "objectID": "T4_WebScraping/WebScraping.slides.html#load-the-libraries",
+    "href": "T4_WebScraping/WebScraping.slides.html#load-the-libraries",
+    "title": "Web Scraping",
+    "section": "Load the libraries",
+    "text": "Load the libraries\n\nRemember to load the R libraries into Google Colab before we start:\n\nlibrary(readxl)\nlibrary(dplyr)\nlibrary(tidyr)"
+  },
+  {
+    "objectID": "T4_WebScraping/WebScraping.slides.html#world-wide-web",
+    "href": "T4_WebScraping/WebScraping.slides.html#world-wide-web",
+    "title": "Web Scraping",
+    "section": "World Wide Web",
+    "text": "World Wide Web\n\nWWW (or the Web) is the information system where documents (web pages) are identified by Uniform Resource Locators (URLs)\nA web page consists of:\n\nHTML provides the basic structure of the web page\nCSS controls the look of the web page (optional)\nJS is a programming language that can modify the behavior of elements of the web page (optional)"
+  },
+  {
+    "objectID": "T4_WebScraping/WebScraping.slides.html#html-basics-1",
+    "href": "T4_WebScraping/WebScraping.slides.html#html-basics-1",
+    "title": "Web Scraping",
+    "section": "HTML basics",
+    "text": "HTML basics\nHTML means “HyperText Markup Language” and looks like this\n&lt;html&gt;\n&lt;head&gt;\n  &lt;title&gt;Page title&lt;/title&gt;\n&lt;/head&gt;\n&lt;body&gt;\n  &lt;h1 id='first'&gt;A heading&lt;/h1&gt;\n  &lt;p&gt;Some text &amp; &lt;b&gt;some bold text.&lt;/b&gt;&lt;/p&gt;\n  &lt;img src='myimg.png' width='100' height='100'&gt;\n&lt;/body&gt;\n&lt;/html&gt;\nHTML has a hierarchical structure formed by elements which consist of a start tag (&lt;tag&gt;), optional attributes (id='first'), an end tag1 (like &lt;/tag&gt;), and contents (everything in between the start and end tag)."
+  },
+  {
+    "objectID": "T4_WebScraping/WebScraping.slides.html#elements",
+    "href": "T4_WebScraping/WebScraping.slides.html#elements",
+    "title": "Web Scraping",
+    "section": "Elements",
+    "text": "Elements\n\nThere are over 100 HTML elements. Some of the most important are:\n\nEvery HTML page must be in an &lt;html&gt; element, and it must have two children:\n\n&lt;head&gt; containing document metadata like the page title\n&lt;body&gt; containing the content you see in the browser."
+  },
+  {
+    "objectID": "T4_WebScraping/WebScraping.slides.html#section",
+    "href": "T4_WebScraping/WebScraping.slides.html#section",
+    "title": "Web Scraping",
+    "section": "",
+    "text": "Block tags form the overall structure of the page:\n\nHeader 1: &lt;h1&gt;content&lt;/h1&gt;\nParagraph: &lt;p&gt;content&lt;/p&gt;\nOrdered list: &lt;ol&gt;content&lt;/ol&gt;\n\n\n\n\nInline tags that format text inside block tags:\n\nBold: &lt;b&gt;content&lt;/b&gt;\nItalics: &lt;i&gt;content&lt;/i&gt;\nLinks: &lt;a&gt;content&lt;/a&gt;"
+  },
+  {
+    "objectID": "T4_WebScraping/WebScraping.slides.html#other-elements",
+    "href": "T4_WebScraping/WebScraping.slides.html#other-elements",
+    "title": "Web Scraping",
+    "section": "Other elements",
+    "text": "Other elements\n\n\n\n\nElement\nHTML syntax\n\n\n\n\nBlock\n&lt;div&gt;content&lt;/div&gt;\n\n\nInline\n&lt;span&gt;content&lt;/span&gt;\n\n\nHeader 2\n&lt;h2&gt;content&lt;/h2&gt;\n\n\nEmphasized text\n&lt;em&gt;content&lt;/em&gt;\n\n\nStrong importance\n&lt;strong&gt;content&lt;/strong&gt;"
+  },
+  {
+    "objectID": "T4_WebScraping/WebScraping.slides.html#contents",
+    "href": "T4_WebScraping/WebScraping.slides.html#contents",
+    "title": "Web Scraping",
+    "section": "Contents",
+    "text": "Contents\nMost elements can have content (text or more elements) in between their start and end tags. For example, the following HTML contains paragraph of text, with a word in bold.\n&lt;p&gt;Hi! My name is &lt;b&gt;Hadley&lt;/b&gt;.&lt;/p&gt;\n\nThe &lt;p&gt; element is the parent node that contains text and one child element, &lt;b&gt;.\nThe &lt;b&gt; element wraps the word Hadley and gives it bold formatting.\n&lt;b&gt; has contents (the text “Hadley”) but no children of its own."
+  },
+  {
+    "objectID": "T4_WebScraping/WebScraping.slides.html#attributes",
+    "href": "T4_WebScraping/WebScraping.slides.html#attributes",
+    "title": "Web Scraping",
+    "section": "Attributes",
+    "text": "Attributes\n\nTags can have named attributes which look like name1='value1' name2='value2'.\n\nTwo of the most important attributes are id and class, which are used in conjunction with CSS (Cascading Style Sheets) to control the visual appearance of the page.\n\nThese are often useful when scraping data off a page."
+  },
+  {
+    "objectID": "T4_WebScraping/WebScraping.slides.html#html-syntax",
+    "href": "T4_WebScraping/WebScraping.slides.html#html-syntax",
+    "title": "Web Scraping",
+    "section": "HTML Syntax",
+    "text": "HTML Syntax"
+  },
+  {
+    "objectID": "T4_WebScraping/WebScraping.slides.html#example-1",
+    "href": "T4_WebScraping/WebScraping.slides.html#example-1",
+    "title": "Web Scraping",
+    "section": "Example 1",
+    "text": "Example 1\nLet’s check a Wikipedia page about industrial engineering: https://en.wikipedia.org/wiki/Industrial_engineering"
+  },
+  {
+    "objectID": "T4_WebScraping/WebScraping.slides.html#section-1",
+    "href": "T4_WebScraping/WebScraping.slides.html#section-1",
+    "title": "Web Scraping",
+    "section": "",
+    "text": "On the Google Chrome webrowser, you see the HTML used for generating the website by right clicking on any blank part of it and select “Inspector”."
+  },
+  {
+    "objectID": "T4_WebScraping/WebScraping.slides.html#section-2",
+    "href": "T4_WebScraping/WebScraping.slides.html#section-2",
+    "title": "Web Scraping",
+    "section": "",
+    "text": "A new section of the website appears."
+  },
+  {
+    "objectID": "T4_WebScraping/WebScraping.slides.html#section-3",
+    "href": "T4_WebScraping/WebScraping.slides.html#section-3",
+    "title": "Web Scraping",
+    "section": "",
+    "text": "The HTML code is located at the first box."
+  },
+  {
+    "objectID": "T4_WebScraping/WebScraping.slides.html#selectorgadget",
+    "href": "T4_WebScraping/WebScraping.slides.html#selectorgadget",
+    "title": "Web Scraping",
+    "section": "SelectorGadget",
+    "text": "SelectorGadget\nAlternatively, Google Chrome has an extension called SelectorGadget to inspect specific elements of a website."
+  },
+  {
+    "objectID": "T4_WebScraping/WebScraping.slides.html#section-4",
+    "href": "T4_WebScraping/WebScraping.slides.html#section-4",
+    "title": "Web Scraping",
+    "section": "",
+    "text": "After installing it, it should be next to your search bar."
+  },
+  {
+    "objectID": "T4_WebScraping/WebScraping.slides.html#section-5",
+    "href": "T4_WebScraping/WebScraping.slides.html#section-5",
+    "title": "Web Scraping",
+    "section": "",
+    "text": "Using the gadget, you can inspect specific elements of the website. For example, we can inspect a the selected paragraph in green.\n\nThe bar of SelectorGadget identifies that the element is a p because it is a paragraph."
+  },
+  {
+    "objectID": "T4_WebScraping/WebScraping.slides.html#section-6",
+    "href": "T4_WebScraping/WebScraping.slides.html#section-6",
+    "title": "Web Scraping",
+    "section": "",
+    "text": "SelectorGadget identifies that the selected element is a header by displaying .mw-heeading2 in its bar.\n\nThe bar of SelectorGadget identifies that the element is a p because it is a paragraph."
+  },
+  {
+    "objectID": "T4_WebScraping/WebScraping.slides.html#comments",
+    "href": "T4_WebScraping/WebScraping.slides.html#comments",
+    "title": "Web Scraping",
+    "section": "Comments",
+    "text": "Comments\n\n\nHTML files have the extension .html.\nThey are rendered using a web browser via an URL.\nMore information on HTML elements can be found in MDN Web Docs, which are produced by Mozilla, the company that makes the Firefox web browser."
+  },
+  {
+    "objectID": "T4_WebScraping/WebScraping.slides.html#what-is-web-scraping",
+    "href": "T4_WebScraping/WebScraping.slides.html#what-is-web-scraping",
+    "title": "Web Scraping",
+    "section": "What is web scraping?",
+    "text": "What is web scraping?\nIt is the process of extracting data from the web and transform it into an structured (tidy) dataset.\nIt allows you to collect data that is displayed on web pages but not directly available for download.\n\n\n\n\n\n\n\nCommon uses include:\n\nCollecting product or price information\n\nGathering research or statistical data\n\nMonitoring online content changes"
+  },
+  {
+    "objectID": "T4_WebScraping/WebScraping.slides.html#a-new-library-rvest",
+    "href": "T4_WebScraping/WebScraping.slides.html#a-new-library-rvest",
+    "title": "Web Scraping",
+    "section": "A new library: rvest",
+    "text": "A new library: rvest\n\n\n\n\n\n\n\n\n\nrvest allows you to easily scrape (collect) data from web pages.\nIt helps you extract specific information such as tables, links, and text using simple functions.\nrvest is part of the tidyverse.\nhttps://rvest.tidyverse.org/\n\n\nLoad it to Google Colab with the following code.\n\nlibrary(rvest)"
+  },
+  {
+    "objectID": "T4_WebScraping/WebScraping.slides.html#example-2",
+    "href": "T4_WebScraping/WebScraping.slides.html#example-2",
+    "title": "Web Scraping",
+    "section": "Example 2",
+    "text": "Example 2\nLet’s scrape data on the super bowl results and winners. To this end, we will use the website: https://www.foxsports.com/nfl-super-bowl-winners-and-results"
+  },
+  {
+    "objectID": "T4_WebScraping/WebScraping.slides.html#section-7",
+    "href": "T4_WebScraping/WebScraping.slides.html#section-7",
+    "title": "Web Scraping",
+    "section": "",
+    "text": "Using rvest, we load the HTML code of the website using the function read_html().\n\nsuperbowl_website = read_html(\"https://www.foxsports.com/nfl-super-bowl-winners-and-results\")\nsuperbowl_website \n\n{html_document}\n&lt;html lang=\"en-US\" prefix=\"og: \"http://ogp.me/ns# fb: http://ogp.me/ns/fb#\"\"&gt;\n[1] &lt;head&gt;\\n&lt;meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8 ...\n[2] &lt;body class=\"default\"&gt;\\n&lt;div id=\"__nuxt\"&gt;&lt;div class=\"fscom-container layo ..."
+  },
+  {
+    "objectID": "T4_WebScraping/WebScraping.slides.html#now-lets-inspect-the-elements-using-selectorgadget",
+    "href": "T4_WebScraping/WebScraping.slides.html#now-lets-inspect-the-elements-using-selectorgadget",
+    "title": "Web Scraping",
+    "section": "Now, let’s inspect the elements using SelectorGadget",
+    "text": "Now, let’s inspect the elements using SelectorGadget"
+  },
+  {
+    "objectID": "T4_WebScraping/WebScraping.slides.html#section-8",
+    "href": "T4_WebScraping/WebScraping.slides.html#section-8",
+    "title": "Web Scraping",
+    "section": "",
+    "text": "We scrape elements of a website stored in superbowl_website using the function html_elements().\nFor example, we can retrieve all paragraph elements (&lt;p&gt;content&lt;\\p&gt;). To this end, we set the CSS selector to “p”.\n\nsb_web_p = superbowl_website %&gt;% \n  html_elements(css = \"p\")\nsb_web_p\n\n{xml_nodeset (4)}\n[1] &lt;p class=\"subnav-title ff-ffc bold fs-23 lh-25 uc pd-b-10\"&gt;\\n             ...\n[2] &lt;p class=\"subnav-title ff-ffc bold fs-23 lh-25 uc pd-b-10\"&gt;\\n             ...\n[3] &lt;p style=\"margin-top:10px;\"&gt;Super Bowl History of each of the Super Bowl  ...\n[4] &lt;p style=\"margin-bottom:15px;margin-top:40px;\"&gt;&lt;span class=\"fs-18\"&gt;&lt;&l ..."
+  },
+  {
+    "objectID": "T4_WebScraping/WebScraping.slides.html#section-9",
+    "href": "T4_WebScraping/WebScraping.slides.html#section-9",
+    "title": "Web Scraping",
+    "section": "",
+    "text": "However, the scraped elements are in HTML code.\nTo turn them into actual text for R, we use the html_text2() function.\n\nsuperbowl_web_paragraph = sb_web_p %&gt;%\n  html_text2()\nsuperbowl_web_paragraph\n\n[1] \"POPULAR SEARCHES\"                                                                                                                                                                                   \n[2] \"BROWSE BY\"                                                                                                                                                                                          \n[3] \"Super Bowl History of each of the Super Bowl winning and losing teams throughout NFL professional football history. The Super Bowl locations, dates and final scores are also included (1967-2024).\"\n[4] \"&lt;&lt; SUPER BOWL PAGE\""
+  },
+  {
+    "objectID": "T4_WebScraping/WebScraping.slides.html#section-11",
+    "href": "T4_WebScraping/WebScraping.slides.html#section-11",
+    "title": "Web Scraping",
+    "section": "",
+    "text": "We retrieve the data in the table by setting css = data-table in the html_elements() function.\n\nsb_table_data = superbowl_website %&gt;% \n  html_elements(css = \".data-table\")\nsb_table_data\n\n{xml_nodeset (2)}\n[1] &lt;table class=\"data-table\"&gt;\\n&lt;thead class=\"data-header fs-11 ls-pt25\"&gt;&lt;tr  ...\n[2] &lt;table class=\"data-table\"&gt;\\n&lt;thead class=\"data-header fs-11 ls-pt25\"&gt;&lt;tr  ...\n\n\nNote that we have loaded two tables simultaneously."
+  },
+  {
+    "objectID": "T4_WebScraping/WebScraping.slides.html#section-12",
+    "href": "T4_WebScraping/WebScraping.slides.html#section-12",
+    "title": "Web Scraping",
+    "section": "",
+    "text": "Again, the tables are in HTML format. We can turn them into standard R tables using the function html_table().\n\nsuperbowl_tables = sb_table_data %&gt;% html_table()\nsuperbowl_tables\n\n[[1]]\n# A tibble: 59 × 4\n   NO.   LOCATION                      DATE          `TEAMS & RESULT`           \n   &lt;chr&gt; &lt;chr&gt;                         &lt;chr&gt;         &lt;chr&gt;                      \n 1 I     Los Angeles Memorial Coliseum Jan. 15, 1967 Green Bay 35, Kansas City …\n 2 II    Miami Orange Bowl             Jan. 14, 1968 Green Bay 33, Oakland 14   \n 3 III   Miami Orange Bowl             Jan. 12, 1969 New York Jets 16, Baltimor…\n 4 IV    Tulane Stadium                Jan. 11, 1970 Kansas City 23, Minnesota 7\n 5 V     Miami Orange Bowl             Jan. 17, 1971 Baltimore 16, Dallas 13    \n 6 VI    Tulane Stadium                Jan. 16, 1972 Dallas 24, Miami 3         \n 7 VII   Los Angeles Memorial Coliseum Jan. 14, 1973 Miami 14, Washington 7     \n 8 VIII  Rice Stadium                  Jan. 13, 1974 Miami 24, Minnesota 7      \n 9 IX    Tulane Stadium                Jan. 12, 1975 Pittsburgh 16, Minnesota 6 \n10 X     Miami Orange Bowl             Jan. 18, 1976 Pittsburgh 21, Dallas 17   \n# ℹ 49 more rows\n\n[[2]]\n# A tibble: 20 × 2\n   TEAM                   WINS\n   &lt;chr&gt;                 &lt;int&gt;\n 1 New England Patriots      6\n 2 Pittsburgh Steelers       6\n 3 Dallas Cowboys            5\n 4 San Francisco 49ers       5\n 5 Green Bay Packers         4\n 6 New York Giants           4\n 7 Kansas City Chiefs        4\n 8 Denver Broncos            3\n 9 Washington Commanders     3\n10 Las Vegas Raiders         3\n11 Miami Dolphins            2\n12 Los Angeles Rams          2\n13 Indianapolis Colts        2\n14 Baltimore Ravens          2\n15 Tampa Bay Buccaneers      2\n16 Philadelphia Eagles       2\n17 Seattle Seahawks          1\n18 Chicago Bears             1\n19 New York Jets             1\n20 New Orleans Saints        1"
+  },
+  {
+    "objectID": "T4_WebScraping/WebScraping.slides.html#section-13",
+    "href": "T4_WebScraping/WebScraping.slides.html#section-13",
+    "title": "Web Scraping",
+    "section": "",
+    "text": "However, the output superbowl_tables is not a single table, but several objects included in an R list().\nA list() in R is a data structure that can store elements of different types, such as numbers, strings, vectors, or even other lists.\nIt’s the most flexible container in R — unlike vectors or data frames, a list can mix various kinds of data in one object."
+  },
+  {
+    "objectID": "T4_WebScraping/WebScraping.slides.html#section-14",
+    "href": "T4_WebScraping/WebScraping.slides.html#section-14",
+    "title": "Web Scraping",
+    "section": "",
+    "text": "To retrieve one table, we select the elements of the resulting list superbowl_tables. For instance, to display the first table we use…\n\nsuperbowl_tables[[1]] %&gt;%  head()\n\n# A tibble: 6 × 4\n  NO.   LOCATION                      DATE          `TEAMS & RESULT`            \n  &lt;chr&gt; &lt;chr&gt;                         &lt;chr&gt;         &lt;chr&gt;                       \n1 I     Los Angeles Memorial Coliseum Jan. 15, 1967 Green Bay 35, Kansas City 10\n2 II    Miami Orange Bowl             Jan. 14, 1968 Green Bay 33, Oakland 14    \n3 III   Miami Orange Bowl             Jan. 12, 1969 New York Jets 16, Baltimore…\n4 IV    Tulane Stadium                Jan. 11, 1970 Kansas City 23, Minnesota 7 \n5 V     Miami Orange Bowl             Jan. 17, 1971 Baltimore 16, Dallas 13     \n6 VI    Tulane Stadium                Jan. 16, 1972 Dallas 24, Miami 3"
+  },
+  {
+    "objectID": "T4_WebScraping/WebScraping.slides.html#section-15",
+    "href": "T4_WebScraping/WebScraping.slides.html#section-15",
+    "title": "Web Scraping",
+    "section": "",
+    "text": "To retrieve the second table, we use…\n\nsuperbowl_tables[[2]] %&gt;%  head()\n\n# A tibble: 6 × 2\n  TEAM                  WINS\n  &lt;chr&gt;                &lt;int&gt;\n1 New England Patriots     6\n2 Pittsburgh Steelers      6\n3 Dallas Cowboys           5\n4 San Francisco 49ers      5\n5 Green Bay Packers        4\n6 New York Giants          4"
+  },
+  {
+    "objectID": "T4_WebScraping/WebScraping.slides.html#data-wrangling",
+    "href": "T4_WebScraping/WebScraping.slides.html#data-wrangling",
+    "title": "Web Scraping",
+    "section": "Data wrangling",
+    "text": "Data wrangling\nTo make the data easier to work, we will create a separate column for year. To this end, we use separate() from tidyr.\n\nsuperbowl_data_wr = superbowl_data %&gt;% \n  separate(DATE, into = c(\"Day\", \"Year\"), sep = \",\")\nsuperbowl_data_wr %&gt;% head()\n\n# A tibble: 6 × 5\n  NO.   LOCATION                      Day     Year    `TEAMS & RESULT`          \n  &lt;chr&gt; &lt;chr&gt;                         &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;                     \n1 I     Los Angeles Memorial Coliseum Jan. 15 \" 1967\" Green Bay 35, Kansas City…\n2 II    Miami Orange Bowl             Jan. 14 \" 1968\" Green Bay 33, Oakland 14  \n3 III   Miami Orange Bowl             Jan. 12 \" 1969\" New York Jets 16, Baltimo…\n4 IV    Tulane Stadium                Jan. 11 \" 1970\" Kansas City 23, Minnesota…\n5 V     Miami Orange Bowl             Jan. 17 \" 1971\" Baltimore 16, Dallas 13   \n6 VI    Tulane Stadium                Jan. 16 \" 1972\" Dallas 24, Miami 3"
+  },
+  {
+    "objectID": "T4_WebScraping/WebScraping.slides.html#be-careful",
+    "href": "T4_WebScraping/WebScraping.slides.html#be-careful",
+    "title": "Web Scraping",
+    "section": "Be careful…",
+    "text": "Be careful…\nThe new column Year is character, so we turn it into numeric using the code below.\n\nsuperbowl_data_wr = superbowl_data_wr %&gt;% \n  mutate(`Year` = as.numeric(`Year`))\nsuperbowl_data_wr %&gt;% head()\n\n# A tibble: 6 × 5\n  NO.   LOCATION                      Day      Year `TEAMS & RESULT`            \n  &lt;chr&gt; &lt;chr&gt;                         &lt;chr&gt;   &lt;dbl&gt; &lt;chr&gt;                       \n1 I     Los Angeles Memorial Coliseum Jan. 15  1967 Green Bay 35, Kansas City 10\n2 II    Miami Orange Bowl             Jan. 14  1968 Green Bay 33, Oakland 14    \n3 III   Miami Orange Bowl             Jan. 12  1969 New York Jets 16, Baltimore…\n4 IV    Tulane Stadium                Jan. 11  1970 Kansas City 23, Minnesota 7 \n5 V     Miami Orange Bowl             Jan. 17  1971 Baltimore 16, Dallas 13     \n6 VI    Tulane Stadium                Jan. 16  1972 Dallas 24, Miami 3"
+  },
+  {
+    "objectID": "T4_WebScraping/WebScraping.slides.html#section-17",
+    "href": "T4_WebScraping/WebScraping.slides.html#section-17",
+    "title": "Web Scraping",
+    "section": "",
+    "text": "Further, let’s separate the column TEAMS & RESULT into two columns “W Team” and “L Team”.\n\nsuperbowl_data_wr = superbowl_data_wr %&gt;% \n  separate(`TEAMS & RESULT`, into = c(\"W Team\", \"L Team\"), sep = \",\")\nsuperbowl_data_wr %&gt;% head()\n\n# A tibble: 6 × 6\n  NO.   LOCATION                      Day      Year `W Team`         `L Team`   \n  &lt;chr&gt; &lt;chr&gt;                         &lt;chr&gt;   &lt;dbl&gt; &lt;chr&gt;            &lt;chr&gt;      \n1 I     Los Angeles Memorial Coliseum Jan. 15  1967 Green Bay 35     \" Kansas C…\n2 II    Miami Orange Bowl             Jan. 14  1968 Green Bay 33     \" Oakland …\n3 III   Miami Orange Bowl             Jan. 12  1969 New York Jets 16 \" Baltimor…\n4 IV    Tulane Stadium                Jan. 11  1970 Kansas City 23   \" Minnesot…\n5 V     Miami Orange Bowl             Jan. 17  1971 Baltimore 16     \" Dallas 1…\n6 VI    Tulane Stadium                Jan. 16  1972 Dallas 24        \" Miami 3\""
+  },
+  {
+    "objectID": "T4_WebScraping/WebScraping.slides.html#section-18",
+    "href": "T4_WebScraping/WebScraping.slides.html#section-18",
+    "title": "Web Scraping",
+    "section": "",
+    "text": "After that, we can separate the score of each team into corresponding columns. Note that we must also ensure that the new columns are numeric. All these steps are carried out using the pipeline below.\n\nsuperbowl_data_final = superbowl_data_wr %&gt;% \n  separate(`W Team`, into = c(\"W Team\", \"W Score\"), sep = \"(?&lt;=\\\\D)(?=\\\\d)\") %&gt;% \n  separate(`L Team`, into = c(\"L Team\", \"L Score\"), sep = \"(?&lt;=\\\\D)(?=\\\\d)\") %&gt;% \n  mutate(`W Score` = as.numeric(`W Score`),\n         `L Score` = as.numeric(`L Score`))\n\n\nThe sep = \"(?&lt;=\\\\D)(?=\\\\d)\" tells R that we want to isolate the numbers into a new column."
+  },
+  {
+    "objectID": "T4_WebScraping/WebScraping.slides.html#the-final-dataset",
+    "href": "T4_WebScraping/WebScraping.slides.html#the-final-dataset",
+    "title": "Web Scraping",
+    "section": "The final dataset",
+    "text": "The final dataset\n\nsuperbowl_data_final %&gt;% head(10)\n\n# A tibble: 10 × 8\n   NO.   LOCATION              Day    Year `W Team` `W Score` `L Team` `L Score`\n   &lt;chr&gt; &lt;chr&gt;                 &lt;chr&gt; &lt;dbl&gt; &lt;chr&gt;        &lt;dbl&gt; &lt;chr&gt;        &lt;dbl&gt;\n 1 I     Los Angeles Memorial… Jan.…  1967 \"Green …        35 \" Kansa…        10\n 2 II    Miami Orange Bowl     Jan.…  1968 \"Green …        33 \" Oakla…        14\n 3 III   Miami Orange Bowl     Jan.…  1969 \"New Yo…        16 \" Balti…         7\n 4 IV    Tulane Stadium        Jan.…  1970 \"Kansas…        23 \" Minne…         7\n 5 V     Miami Orange Bowl     Jan.…  1971 \"Baltim…        16 \" Dalla…        13\n 6 VI    Tulane Stadium        Jan.…  1972 \"Dallas…        24 \" Miami…         3\n 7 VII   Los Angeles Memorial… Jan.…  1973 \"Miami \"        14 \" Washi…         7\n 8 VIII  Rice Stadium          Jan.…  1974 \"Miami \"        24 \" Minne…         7\n 9 IX    Tulane Stadium        Jan.…  1975 \"Pittsb…        16 \" Minne…         6\n10 X     Miami Orange Bowl     Jan.…  1976 \"Pittsb…        21 \" Dalla…        17"
+  },
+  {
+    "objectID": "T4_WebScraping/WebScraping.slides.html#the-web-scraping-process",
+    "href": "T4_WebScraping/WebScraping.slides.html#the-web-scraping-process",
+    "title": "Web Scraping",
+    "section": "The web scraping process",
+    "text": "The web scraping process\n\nSo, the web scraping process consists of the following steps:\n\nRead the HTML page into R with read_html().\nExtract nodes corresponding to elements of interest with the help of SelectorGadget to identify them and functions like html_elements(), html_table(), html_node(), among others.\nClean up the extracted fields using functions form stringr, dplyr, and tidyr."
+  },
+  {
+    "objectID": "T4_WebScraping/WebScraping.slides.html#robots.txt",
+    "href": "T4_WebScraping/WebScraping.slides.html#robots.txt",
+    "title": "Web Scraping",
+    "section": "Robots.txt",
+    "text": "Robots.txt\nWhen scraping the web you need to be aware of robots.txt.\n\nThe robots exclusion standard, also known as the robots exclusion protocol or simply robots.txt, is a standard used by websites to communicate with web crawlers and other web robots.\nThe standard specifies how to inform the web robot about which areas of the website should not be processed or scanned.\nSee more at Wikipedia."
+  },
+  {
+    "objectID": "T4_WebScraping/WebScraping.slides.html#the-robotstxt-package",
+    "href": "T4_WebScraping/WebScraping.slides.html#the-robotstxt-package",
+    "title": "Web Scraping",
+    "section": "The robotstxt package",
+    "text": "The robotstxt package\nTo check if scraping/crawling a specific website is allowed, we use the R package called robotstxt. Let’s load it into R.\n\nlibrary(robotstxt)\n\n\nThe package has a function called paths_allowed() that tells you whether a website can be scraped or not.\n\n\nFor instance, let’s confirm that we can scrape the website https://www.foxsports.com/nfl-super-bowl-winners-and-results\n\npaths_allowed(\"https://www.foxsports.com/nfl-super-bowl-winners-and-results\")\n\n[1] TRUE"
+  },
+  {
+    "objectID": "T4_WebScraping/WebScraping.slides.html#when-to-scrape-data-form-a-website",
+    "href": "T4_WebScraping/WebScraping.slides.html#when-to-scrape-data-form-a-website",
+    "title": "Web Scraping",
+    "section": "When to scrape data form a website?",
+    "text": "When to scrape data form a website?\n\n\nIf the output of paths_allowed() is TRUE, then we “can” scrape data from this website.\nIf the output of paths_allowed() is FALSE, then we cannot scrape data from this website!"
+  },
+  {
+    "objectID": "T4_WebScraping/WebScraping.slides.html#what-abut-the-industrial-engineering-wikipedia-site",
+    "href": "T4_WebScraping/WebScraping.slides.html#what-abut-the-industrial-engineering-wikipedia-site",
+    "title": "Web Scraping",
+    "section": "What abut the industrial engineering Wikipedia site?",
+    "text": "What abut the industrial engineering Wikipedia site?\n\n\npaths_allowed(\"https://en.wikipedia.org/wiki/Industrial_engineering\")\n\n[1] TRUE\n\n\nThe output is TRUE, so we are “good” to scrape it."
+  },
+  {
+    "objectID": "T4_WebScraping/WebScraping.slides.html#final-comments",
+    "href": "T4_WebScraping/WebScraping.slides.html#final-comments",
+    "title": "Web Scraping",
+    "section": "Final comments",
+    "text": "Final comments\n\n\nA misconception about web data is that if the data is publicly available, it can be scraped.\nEven if paths_allowed() = TRUE, we must consider the privacy and consent when the data is about human subjects, because it may include sensitive information. For more information, reach the Institutional Research Ethics Committee."
+  },
+  {
+    "objectID": "T4_WebScraping/WebScraping.slides.html#section-19",
+    "href": "T4_WebScraping/WebScraping.slides.html#section-19",
+    "title": "Web Scraping",
+    "section": "",
+    "text": "Another thing to consider is the legal aspect of web scraping. Always review the website’s terms of service before collecting data. For example, review the Wikipedia Terms of Use and the Fox Sports Terms of Use\n\n\n\nScraping without permission can violate intellectual property rights or privacy regulations, depending on the jurisdiction"
+  },
+  {
     "objectID": "T7_StatisticalGraphs/Statistical_Graphs.slides.html#agenda",
     "href": "T7_StatisticalGraphs/Statistical_Graphs.slides.html#agenda",
     "title": "Statistical Graphs",
@@ -1643,229 +1944,5 @@
     "title": "Statistical Graphs",
     "section": "Discussion",
     "text": "Discussion\n\n\nThe simple linear regression model is easy to interpret due to its structure: \\(\\hat{Y}_i = \\hat{\\beta}_0 + \\hat{\\beta}_1 X_i.\\)\nHowever, it may be too rigid to capture complex relationships between two variables.\nLocal regression is flexible and allows capturing complex relationships between two variables, but it has a low level of interpretability because it does not provide an explicit equation."
-  },
-  {
-    "objectID": "T4_WebScraping/WebScraping.slides.html#agenda",
-    "href": "T4_WebScraping/WebScraping.slides.html#agenda",
-    "title": "Web Scraping",
-    "section": "Agenda",
-    "text": "Agenda\n\n\nHTML Basics\nWeb Scraping with the rvest package"
-  },
-  {
-    "objectID": "T4_WebScraping/WebScraping.slides.html#load-the-libraries",
-    "href": "T4_WebScraping/WebScraping.slides.html#load-the-libraries",
-    "title": "Web Scraping",
-    "section": "Load the libraries",
-    "text": "Load the libraries\n\nRemember to load the R libraries into Google Colab before we start:\n\nlibrary(readxl)\nlibrary(dplyr)"
-  },
-  {
-    "objectID": "T4_WebScraping/WebScraping.slides.html#world-wide-web",
-    "href": "T4_WebScraping/WebScraping.slides.html#world-wide-web",
-    "title": "Web Scraping",
-    "section": "World Wide Web",
-    "text": "World Wide Web\nWWW (or the Web) is the information system where documents (web pages) are identified by Uniform Resource Locators (URLs)\nA web page consists of:\n\nHTML provides the basic structure of the web page\nCSS controls the look of the web page (optional)\nJS is a programming language that can modify the behavior of elements of the web page (optional)"
-  },
-  {
-    "objectID": "T4_WebScraping/WebScraping.slides.html#hypertext-markup-language-html",
-    "href": "T4_WebScraping/WebScraping.slides.html#hypertext-markup-language-html",
-    "title": "Web Scraping",
-    "section": "Hypertext Markup Language (HTML)",
-    "text": "Hypertext Markup Language (HTML)\n\nwith the extension .html.\nrendered using a web browser via an URL.\ntext files that follows a special syntax that alerts web browsers how to render it."
-  },
-  {
-    "objectID": "T4_WebScraping/WebScraping.slides.html#html-structure",
-    "href": "T4_WebScraping/WebScraping.slides.html#html-structure",
-    "title": "Web Scraping",
-    "section": "HTML Structure",
-    "text": "HTML Structure\n&lt;!DOCTYPE html&gt;\n\n&lt;html&gt;\n  &lt;!--This is a comment and ignored by web client.--&gt;\n  &lt;head&gt;\n    &lt;!--This section contains web page metadata.--&gt;\n    &lt;title&gt;ISA 401: Business Intelligence and Data Viz&lt;/title&gt;\n    &lt;meta name=\"author\" content=\"Fadel Megahed\"&gt;\n    &lt;link rel=\"stylesheet\" href=\"css/styles.css\"&gt;\n  &lt;/head&gt;\n\n  &lt;body&gt;\n    &lt;!--This section contains what you want to display on your web page.--&gt;\n    &lt;h1&gt;I'm a first level header&lt;/h1&gt;\n    &lt;p&gt;This is a &lt;b&gt;paragraph&lt;/b&gt;.&lt;/p&gt;\n  &lt;/body&gt;\n&lt;/html&gt;"
-  },
-  {
-    "objectID": "T4_WebScraping/WebScraping.slides.html#html-syntax",
-    "href": "T4_WebScraping/WebScraping.slides.html#html-syntax",
-    "title": "Web Scraping",
-    "section": "HTML Syntax",
-    "text": "HTML Syntax"
-  },
-  {
-    "objectID": "T4_WebScraping/WebScraping.slides.html#html-elements",
-    "href": "T4_WebScraping/WebScraping.slides.html#html-elements",
-    "title": "Web Scraping",
-    "section": "HTML Elements",
-    "text": "HTML Elements\n\n\n\nblock element:\n\n\n&lt;div&gt;content&lt;/div&gt;\n\n\n\n\ninline element:\n\n\n&lt;span&gt;content&lt;/span&gt;\n\n\n\n\nparagraph:\n\n\n&lt;p&gt;content&lt;/p&gt;\n\n\n\n\nheader level 1:\n\n\n&lt;h1&gt;content&lt;/h1&gt;\n\n\n\n\nheader level 2:\n\n\n&lt;h2&gt;content&lt;/h2&gt;\n\n\n\n\n\nitalic:\n\n\n&lt;i&gt;content&lt;/i&gt;\n\n\n\n\nemphasised text:\n\n\n&lt;em&gt;content&lt;/em&gt;\n\n\n\n\nstrong importance:\n\n\n&lt;strong&gt;content&lt;/strong&gt;\n\n\n\n\nlink:\n\n\n&lt;a href=“https://github.com/fmegahed/isa401”&gt;content&lt;/a&gt;\n\n\n\n\nunordered list:\n\n\n&lt;ul&gt;&lt;li&gt;item 1&lt;/li&gt;&lt;li&gt;item 2&lt;/li&gt;&lt;/ul&gt;"
-  },
-  {
-    "objectID": "T4_WebScraping/WebScraping.slides.html#a-new-library-rvest",
-    "href": "T4_WebScraping/WebScraping.slides.html#a-new-library-rvest",
-    "title": "Web Scraping",
-    "section": "A new library: rvest",
-    "text": "A new library: rvest\n\n\n\n\n\n\n\n\n\nrvest allows you to easily scrape (collect) data from web pages.\nIt helps you extract specific information such as tables, links, and text using simple functions.\nrvest is part of the tidyverse.\nhttps://rvest.tidyverse.org/\n\n\nLoad it to Google Colab with the following code.\n\nlibrary(rvest)"
-  },
-  {
-    "objectID": "T4_WebScraping/WebScraping.slides.html#example-1",
-    "href": "T4_WebScraping/WebScraping.slides.html#example-1",
-    "title": "Web Scraping",
-    "section": "Example 1",
-    "text": "Example 1\nLet’s check a Wikipedia page about industrial engineering: https://en.wikipedia.org/wiki/Industrial_engineering"
-  },
-  {
-    "objectID": "T4_WebScraping/WebScraping.slides.html#selecting-html-elements",
-    "href": "T4_WebScraping/WebScraping.slides.html#selecting-html-elements",
-    "title": "Web Scraping",
-    "section": "Selecting HTML elements",
-    "text": "Selecting HTML elements\nThere are two ways to select HTML elements directly on the browser.\n\nInspector\nSelector gadget"
-  },
-  {
-    "objectID": "T4_WebScraping/WebScraping.slides.html#section",
-    "href": "T4_WebScraping/WebScraping.slides.html#section",
-    "title": "Web Scraping",
-    "section": "",
-    "text": "Block tags form the overall structure of the page:\n\nHeader 1: &lt;h1&gt;content&lt;/h1&gt;\nParagraph: &lt;p&gt;content&lt;/p&gt;\nOrdered list: &lt;ol&gt;content&lt;/ol&gt;\n\nInline tags that format text inside block tags:\n\nBold: &lt;b&gt;content&lt;/b&gt;\nItalics: &lt;i&gt;content&lt;/i&gt;\nLinks: &lt;a&gt;content&lt;/a&gt;"
-  },
-  {
-    "objectID": "T4_WebScraping/WebScraping.slides.html#getting-html-text",
-    "href": "T4_WebScraping/WebScraping.slides.html#getting-html-text",
-    "title": "Web Scraping",
-    "section": "Getting HTML text",
-    "text": "Getting HTML text\n\nisa_course_titles_en = isa_course_titles %&gt;%\n  html_text2()\nisa_course_titles_en %&gt;% head()\n\n[1] \"ISA 125. Introduction to Business Statistics. (3)\"                               \n[2] \"ISA 177. Independent Studies. (0-6; maximum 10)\"                                 \n[3] \"ISA 211. Information Technology and Data Driven Decision Making in Business. (3)\"\n[4] \"ISA 225. Principles of Business Analytics. (3)\"                                  \n[5] \"ISA 235. Information Technology and the Intelligent Enterprise. (3)\"             \n[6] \"ISA 241. Database for Analytics. (1.5)\""
-  },
-  {
-    "objectID": "T4_WebScraping/WebScraping.slides.html#example-2",
-    "href": "T4_WebScraping/WebScraping.slides.html#example-2",
-    "title": "Web Scraping",
-    "section": "Example 2",
-    "text": "Example 2\nConsider the plan crashes database.\n\nplane_crashes = read_html(\"https://www.planecrashinfo.com/2025/2025.htm\")\nplane_crashes %&gt;%  head()\n\n$node\n&lt;pointer: 0x11307c5d0&gt;\n\n$doc\n&lt;pointer: 0x11307ca00&gt;\n\n\nWe use the function html_elements() from rvest.\n\ncrashes_table = plane_crashes %&gt;% \n  html_elements(css = \"table\")"
-  },
-  {
-    "objectID": "T4_WebScraping/WebScraping.slides.html#getting-html-text-1",
-    "href": "T4_WebScraping/WebScraping.slides.html#getting-html-text-1",
-    "title": "Web Scraping",
-    "section": "Getting HTML text",
-    "text": "Getting HTML text\n\ncrashes_table %&gt;% html_table(header = TRUE)\n\n[[1]]\n# A tibble: 12 × 4\n   Date        `Location / Operator`           Aircraft Type / Regi…¹ Fatalities\n   &lt;chr&gt;       &lt;chr&gt;                           &lt;chr&gt;                  &lt;chr&gt;     \n 1 07 Jan 2025 Off Rottnest Island, WA, Austr… Cessna 208 Caravan 67… 3/7(0)    \n 2 29 Jan 2025 Washington DCAmerican Eagle / … Canadair CRJ-701ER /U… 67/67(0)  \n 3 29 Jan 2025 GPOC Unity Airstrip, South Sud… Beechcraft 1900D5X-RHB 20/21(0)  \n 4 31 Jan 2025 Philadelphia, PennsylvaniaMed … Learjet 55XA-UCI       6/6(1)    \n 5 06 Feb 2025 Norton SoundBering Air          Cessna 208B Grand Car… 10/10(0)  \n 6 17 Feb 2025 Toronto, CanadaDelta Connectio… Bombardier CRJ-900LRN… 0/80(0)   \n 7 25 Feb 2025 Omdurman, SudanMilitary - Suda… Antonov An-26?         17/17(29) \n 8 17 Mar 2025 Off Roatan, HondurasLANHSA      British Aerospace BAe… 12/17(0)  \n 9 12 Jun 2025 Ahmedabad, IndiaAir India       Boeing 787-8 Dreamlin… 241/242(3…\n10 24 Jul 2025 Tynda, RussiaAngara Airlines    Antonov An-24VRA-47315 48/48(0)  \n11 20 Oct 2025 Hong Kong, ChinaACT Airlines, … Boeing 747-481TC-ACF   0/4(2)    \n12 04 Nov 2025 Louisville, KentuckyUnited Par… McDonnell Douglas MD1… 3/3(11)   \n# ℹ abbreviated name: ¹​`Aircraft Type / Registration`"
-  },
-  {
-    "objectID": "T4_WebScraping/WebScraping.slides.html#html-basics",
-    "href": "T4_WebScraping/WebScraping.slides.html#html-basics",
-    "title": "Web Scraping",
-    "section": "HTML basics",
-    "text": "HTML basics\nHTML stands for “HyperText Markup Language” and looks like this\n&lt;html&gt;\n&lt;head&gt;\n  &lt;title&gt;Page title&lt;/title&gt;\n&lt;/head&gt;\n&lt;body&gt;\n  &lt;h1 id='first'&gt;A heading&lt;/h1&gt;\n  &lt;p&gt;Some text &amp; &lt;b&gt;some bold text.&lt;/b&gt;&lt;/p&gt;\n  &lt;img src='myimg.png' width='100' height='100'&gt;\n&lt;/body&gt;\nHTML has a hierarchical structure formed by elements which consist of a start tag (e.g. &lt;tag&gt;), optional attributes (id='first'), an end tag1 (like &lt;/tag&gt;), and contents (everything in between the start and end tag)."
-  },
-  {
-    "objectID": "T4_WebScraping/WebScraping.slides.html#section-1",
-    "href": "T4_WebScraping/WebScraping.slides.html#section-1",
-    "title": "Web Scraping",
-    "section": "",
-    "text": "On the Google Chrome webbrowser, you see the HTML used for generating the website by right clicking on any blank part of it and select “Inspector”."
-  },
-  {
-    "objectID": "T4_WebScraping/WebScraping.slides.html#html-basics-1",
-    "href": "T4_WebScraping/WebScraping.slides.html#html-basics-1",
-    "title": "Web Scraping",
-    "section": "HTML basics",
-    "text": "HTML basics\nHTML stands for “HyperText Markup Language” and looks like this\n&lt;html&gt;\n&lt;head&gt;\n  &lt;title&gt;Page title&lt;/title&gt;\n&lt;/head&gt;\n&lt;body&gt;\n  &lt;h1 id='first'&gt;A heading&lt;/h1&gt;\n  &lt;p&gt;Some text &amp; &lt;b&gt;some bold text.&lt;/b&gt;&lt;/p&gt;\n  &lt;img src='myimg.png' width='100' height='100'&gt;\n&lt;/body&gt;\nHTML has a hierarchical structure formed by elements which consist of a start tag (e.g. &lt;tag&gt;), optional attributes (id='first'), an end tag1 (like &lt;/tag&gt;), and contents (everything in between the start and end tag)."
-  },
-  {
-    "objectID": "T4_WebScraping/WebScraping.slides.html#elements",
-    "href": "T4_WebScraping/WebScraping.slides.html#elements",
-    "title": "Web Scraping",
-    "section": "Elements",
-    "text": "Elements\n\nThere are over 100 HTML elements. Some of the most important are:\n\nEvery HTML page must be in an &lt;html&gt; element, and it must have two children:\n\n&lt;head&gt; containing document metadata like the page title\n&lt;body&gt; containing the content you see in the browser."
-  },
-  {
-    "objectID": "T4_WebScraping/WebScraping.slides.html#other-elements",
-    "href": "T4_WebScraping/WebScraping.slides.html#other-elements",
-    "title": "Web Scraping",
-    "section": "Other elements",
-    "text": "Other elements\n\n\n\n\nElement\nHTML syntax\n\n\n\n\nBlock\n&lt;div&gt;content&lt;/div&gt;\n\n\nInline\n&lt;span&gt;content&lt;/span&gt;\n\n\nHeader 2\n&lt;h2&gt;content&lt;/h2&gt;\n\n\nEmphasized text\n&lt;em&gt;content&lt;/em&gt;\n\n\nStrong importance\n&lt;strong&gt;content&lt;/strong&gt;"
-  },
-  {
-    "objectID": "T4_WebScraping/WebScraping.slides.html#contents",
-    "href": "T4_WebScraping/WebScraping.slides.html#contents",
-    "title": "Web Scraping",
-    "section": "Contents",
-    "text": "Contents\nMost elements can have content (text or more elements) in between their start and end tags. For example, the following HTML contains paragraph of text, with a word in bold.\n&lt;p&gt;Hi! My name is &lt;b&gt;Hadley&lt;/b&gt;.&lt;/p&gt;\n\nThe &lt;p&gt; element is the parent node that contains text and one child element, &lt;b&gt;.\nThe &lt;b&gt; element wraps the word Hadley and gives it bold formatting.\n&lt;b&gt; has contents (the text “Hadley”) but no children of its own."
-  },
-  {
-    "objectID": "T4_WebScraping/WebScraping.slides.html#attributes",
-    "href": "T4_WebScraping/WebScraping.slides.html#attributes",
-    "title": "Web Scraping",
-    "section": "Attributes",
-    "text": "Attributes\n\nTags can have named attributes which look like name1='value1' name2='value2'.\n\nTwo of the most important attributes are id and class, which are used in conjunction with CSS (Cascading Style Sheets) to control the visual appearance of the page.\n\nThese are often useful when scraping data off a page."
-  },
-  {
-    "objectID": "T4_WebScraping/WebScraping.slides.html#comments",
-    "href": "T4_WebScraping/WebScraping.slides.html#comments",
-    "title": "Web Scraping",
-    "section": "Comments",
-    "text": "Comments\n\n\nHTML files have the extension .html.\nThey are rendered using a web browser via an URL.\nMore information on HTML elements can be found in MDN Web Docs, which are produced by Mozilla, the company that makes the Firefox web browser."
-  },
-  {
-    "objectID": "T4_WebScraping/WebScraping.slides.html#inspecting-html-files",
-    "href": "T4_WebScraping/WebScraping.slides.html#inspecting-html-files",
-    "title": "Web Scraping",
-    "section": "Inspecting HTML files",
-    "text": "Inspecting HTML files"
-  },
-  {
-    "objectID": "T4_WebScraping/WebScraping.slides.html#section-2",
-    "href": "T4_WebScraping/WebScraping.slides.html#section-2",
-    "title": "Web Scraping",
-    "section": "",
-    "text": "A new section of the website appears."
-  },
-  {
-    "objectID": "T4_WebScraping/WebScraping.slides.html#section-3",
-    "href": "T4_WebScraping/WebScraping.slides.html#section-3",
-    "title": "Web Scraping",
-    "section": "",
-    "text": "The HTML code is located at the first box."
-  },
-  {
-    "objectID": "T4_WebScraping/WebScraping.slides.html#selectorgadget",
-    "href": "T4_WebScraping/WebScraping.slides.html#selectorgadget",
-    "title": "Web Scraping",
-    "section": "SelectorGadget",
-    "text": "SelectorGadget\nAlternatively, Google Chrome has an extension called SelectorGadget to inspect specific elements of a website."
-  },
-  {
-    "objectID": "T4_WebScraping/WebScraping.slides.html#section-4",
-    "href": "T4_WebScraping/WebScraping.slides.html#section-4",
-    "title": "Web Scraping",
-    "section": "",
-    "text": "After installing it, it should be next to your search bar."
-  },
-  {
-    "objectID": "T4_WebScraping/WebScraping.slides.html#section-5",
-    "href": "T4_WebScraping/WebScraping.slides.html#section-5",
-    "title": "Web Scraping",
-    "section": "",
-    "text": "Using the gadget, you can inspect specific elements of the website. For example, we can inspect a the selected paragraph in green.\n\nThe bar of SelectorGadget identifies that the element is a p because it is a paragraph."
-  },
-  {
-    "objectID": "T4_WebScraping/WebScraping.slides.html#section-6",
-    "href": "T4_WebScraping/WebScraping.slides.html#section-6",
-    "title": "Web Scraping",
-    "section": "",
-    "text": "SelectorGadget identifies that the selected element is a header by displaying .mw-heeading2 in its bar.\n\nThe bar of SelectorGadget identifies that the element is a p because it is a paragraph."
-  },
-  {
-    "objectID": "T4_WebScraping/WebScraping.slides.html#section-7",
-    "href": "T4_WebScraping/WebScraping.slides.html#section-7",
-    "title": "Web Scraping",
-    "section": "",
-    "text": "We use the function html_elements() from rvest.\n\nisa_course_titles = isa_courses %&gt;% \n  html_elements(css = \"p.courseblocktitle\")\nisa_course_titles %&gt;% head()\n\n{xml_nodeset (6)}\n[1] &lt;p class=\"courseblocktitle\"&gt;&lt;strong&gt;ISA 125.  Introduction to Business St ...\n[2] &lt;p class=\"courseblocktitle\"&gt;&lt;strong&gt;ISA 177.  Independent Studies.  (0-6; ...\n[3] &lt;p class=\"courseblocktitle\"&gt;&lt;strong&gt;ISA 211.  Information Technology and  ...\n[4] &lt;p class=\"courseblocktitle\"&gt;&lt;strong&gt;ISA 225.  Principles of Business Anal ...\n[5] &lt;p class=\"courseblocktitle\"&gt;&lt;strong&gt;ISA 235.  Information Technology and  ...\n[6] &lt;p class=\"courseblocktitle\"&gt;&lt;strong&gt;ISA 241.  Database for Analytics.  (1 ..."
-  },
-  {
-    "objectID": "T4_WebScraping/WebScraping.slides.html#example-1-1",
-    "href": "T4_WebScraping/WebScraping.slides.html#example-1-1",
-    "title": "Web Scraping",
-    "section": "Example 1",
-    "text": "Example 1\n\nisa_courses = read_html(\"http://bulletin.miamioh.edu/courses-instruction/isa/\")\nisa_courses\n\n{html_document}\n&lt;html xml:lang=\"en\" lang=\"en\" dir=\"ltr\"&gt;\n[1] &lt;head&gt;\\n&lt;title&gt;Information Systems &amp; Analytics (ISA) | Miami Universi ...\n[2] &lt;body&gt;\\n\\n\\n\\n\\n\\n&lt;!-- Google Tag Manager (noscript) --&gt;\\n&lt;noscript&gt;&lt;ifra ..."
-  },
-  {
-    "objectID": "T4_WebScraping/WebScraping.slides.html#section-8",
-    "href": "T4_WebScraping/WebScraping.slides.html#section-8",
-    "title": "Web Scraping",
-    "section": "",
-    "text": "We use the function html_elements() from rvest.\n\nisa_course_titles = isa_courses %&gt;% \n  html_elements(css = \"p.courseblocktitle\")\nisa_course_titles %&gt;% head()\n\n{xml_nodeset (6)}\n[1] &lt;p class=\"courseblocktitle\"&gt;&lt;strong&gt;ISA 125.  Introduction to Business St ...\n[2] &lt;p class=\"courseblocktitle\"&gt;&lt;strong&gt;ISA 177.  Independent Studies.  (0-6; ...\n[3] &lt;p class=\"courseblocktitle\"&gt;&lt;strong&gt;ISA 211.  Information Technology and  ...\n[4] &lt;p class=\"courseblocktitle\"&gt;&lt;strong&gt;ISA 225.  Principles of Business Anal ...\n[5] &lt;p class=\"courseblocktitle\"&gt;&lt;strong&gt;ISA 235.  Information Technology and  ...\n[6] &lt;p class=\"courseblocktitle\"&gt;&lt;strong&gt;ISA 241.  Database for Analytics.  (1 ..."
   }
 ]
