@@ -176,7 +176,7 @@ Data visualizations are primarily concerned with providing evidence and enabling
 As data scientists, we create data visualizations in order to understand our data and explain our analyses to other people. A plot should have a message, and it’s our job to communicate this message as clearly as possible.
 :::
 
-## ***Principle 1*****:** Define the Message or Question
+## ***Principle 1*****: Define the Message or Question**
 
 </br>
 
@@ -259,12 +259,12 @@ Additionally, include a legend in the graph that describes key features and summ
 ::::: columns
 ::: {.column width="70%"}
 | City            | Uber | Car |
-|-----------------|------|------|
-| New York City   | 142  | 218  |
-| Washington D.C. | 96   | 130  |
-| Chicago         | 77   | 116  |
-| Los Angeles     | 62   | 89   |
-| Dallas          | 181  | 65   |
+|-----------------|------|-----|
+| New York City   | 142  | 218 |
+| Washington D.C. | 96   | 130 |
+| Chicago         | 77   | 116 |
+| Los Angeles     | 62   | 89  |
+| Dallas          | 181  | 65  |
 
 : Weekly cost (in USD) of daily commuting
 :::
@@ -398,12 +398,12 @@ For example, a simple bar chart can be enhanced by context and narrative to expl
 
 </br>
 
-1.  Introduction (What's the problem?) 
+1.  Introduction (What's the problem?)
 
 -   Define the problem or question you’re addressing.
 -   Provide relevant background or context.
 
-. . . 
+. . .
 
 2.  Data (How will you solve it?)
 
@@ -418,13 +418,12 @@ For example, a simple bar chart can be enhanced by context and narrative to expl
 -   Highlight key trends, comparisons, and relationships.
 -   Good design guides the audience to the key message.
 
-. . . 
+. . .
 
 4.  Narrative (Why does it matter?)
 
 -   Puts data into context—explains the significance of findings.
 -   Answers: Why does this matter? Who is affected? What should be done?
-
 
 ## Best practices for storytelling
 
