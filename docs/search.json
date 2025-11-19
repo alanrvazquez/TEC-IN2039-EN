@@ -1944,5 +1944,47 @@
     "title": "Statistical Graphs",
     "section": "Discussion",
     "text": "Discussion\n\n\nThe simple linear regression model is easy to interpret due to its structure: \\(\\hat{Y}_i = \\hat{\\beta}_0 + \\hat{\\beta}_1 X_i.\\)\nHowever, it may be too rigid to capture complex relationships between two variables.\nLocal regression is flexible and allows capturing complex relationships between two variables, but it has a low level of interpretability because it does not provide an explicit equation."
+  },
+  {
+    "objectID": "T5_FlourishStudio/FlourishStudio.slides.html#agenda",
+    "href": "T5_FlourishStudio/FlourishStudio.slides.html#agenda",
+    "title": "Introduction to Flourish Studio",
+    "section": "Agenda",
+    "text": "Agenda\n\n\nGetting Started\nWeb Scraping with the rvest package\nLegal and Ethical Issues with Web Scraping"
+  },
+  {
+    "objectID": "T5_FlourishStudio/FlourishStudio.slides.html#what-is-flourish-studio",
+    "href": "T5_FlourishStudio/FlourishStudio.slides.html#what-is-flourish-studio",
+    "title": "Introduction to Flourish Studio",
+    "section": "What is flourish studio?",
+    "text": "What is flourish studio?\n\nA web-based tool for building interactive charts, maps, and stories.\nDesigned for accessibility: beginner-friendly, but powerful.\nIt is free!\nhttps://flourish.studio/\n\n\n\n\nBeautiful and customizable graphics.\nEasy import from Excel, CSV, or Google Sheets.\nInteractive features that enhance decision-making.\nPerfect for class projects and presentations."
+  },
+  {
+    "objectID": "T5_FlourishStudio/FlourishStudio.slides.html#create-your-account",
+    "href": "T5_FlourishStudio/FlourishStudio.slides.html#create-your-account",
+    "title": "Introduction to Flourish Studio",
+    "section": "Create your Account",
+    "text": "Create your Account\n\nGo to Flourish Studio link: https://flourish.studio/\nSlick Sing up."
+  },
+  {
+    "objectID": "T5_FlourishStudio/FlourishStudio.slides.html#section-1",
+    "href": "T5_FlourishStudio/FlourishStudio.slides.html#section-1",
+    "title": "Introduction to Flourish Studio",
+    "section": "",
+    "text": "I recommend singing up with your Google-Tec account."
+  },
+  {
+    "objectID": "T5_FlourishStudio/FlourishStudio.slides.html#section-2",
+    "href": "T5_FlourishStudio/FlourishStudio.slides.html#section-2",
+    "title": "Introduction to Flourish Studio",
+    "section": "",
+    "text": "If you already have an account, simply log in."
+  },
+  {
+    "objectID": "T5_FlourishStudio/FlourishStudio.slides.html#main-page",
+    "href": "T5_FlourishStudio/FlourishStudio.slides.html#main-page",
+    "title": "Introduction to Flourish Studio",
+    "section": "Main page",
+    "text": "Main page\n\n\nThe main page shows:\n\nProjects (your visualizations)\nTemplates you can choose from\nTeam tools (ignore for now)\nOptions to Create a new visualization\n\nWe’ll focus on simple chart templates first."
   }
 ]
