@@ -1950,7 +1950,7 @@
     "href": "T5_FlourishStudio/FlourishStudio.slides.html#agenda",
     "title": "Introduction to Flourish Studio",
     "section": "Agenda",
-    "text": "Agenda\n\n\nGetting Started\nWeb Scraping with the rvest package\nLegal and Ethical Issues with Web Scraping"
+    "text": "Agenda\n\n\nGetting Started\nLoading Data\nLegal and Ethical Issues with Web Scraping"
   },
   {
     "objectID": "T5_FlourishStudio/FlourishStudio.slides.html#what-is-flourish-studio",
@@ -1986,5 +1986,61 @@
     "title": "Introduction to Flourish Studio",
     "section": "Main page",
     "text": "Main page\n\n\nThe main page shows:\n\nProjects (your visualizations)\nTemplates you can choose from\nTeam tools (ignore for now)\nOptions to Create a new visualization\n\nWe’ll focus on simple chart templates first."
+  },
+  {
+    "objectID": "T5_FlourishStudio/FlourishStudio.slides.html#example",
+    "href": "T5_FlourishStudio/FlourishStudio.slides.html#example",
+    "title": "Introduction to Flourish Studio",
+    "section": "Example",
+    "text": "Example\nConsider the data in the file “spotify.xlsx”. This dataset contains the global daily plays of the five most popular songs on the Spotify music streaming service in 2017. Our goal is to create a line chart on the number of plays per song."
+  },
+  {
+    "objectID": "T5_FlourishStudio/FlourishStudio.slides.html#section-3",
+    "href": "T5_FlourishStudio/FlourishStudio.slides.html#section-3",
+    "title": "Introduction to Flourish Studio",
+    "section": "",
+    "text": "To load a dataset, we select the option Data."
+  },
+  {
+    "objectID": "T5_FlourishStudio/FlourishStudio.slides.html#section-4",
+    "href": "T5_FlourishStudio/FlourishStudio.slides.html#section-4",
+    "title": "Introduction to Flourish Studio",
+    "section": "",
+    "text": "We see a predefined dataset, but we replace it by clicking on Upload data."
+  },
+  {
+    "objectID": "T5_FlourishStudio/FlourishStudio.slides.html#section-5",
+    "href": "T5_FlourishStudio/FlourishStudio.slides.html#section-5",
+    "title": "Introduction to Flourish Studio",
+    "section": "",
+    "text": "Next, we click on Import and see that 367 rows or observations were uploaded successfuly."
+  },
+  {
+    "objectID": "T5_FlourishStudio/FlourishStudio.slides.html#selecting-data",
+    "href": "T5_FlourishStudio/FlourishStudio.slides.html#selecting-data",
+    "title": "Introduction to Flourish Studio",
+    "section": "Selecting data",
+    "text": "Selecting data\n\n\nFlourish studio successfully recognized that there is a column Data containing times, which must go in the horizontal axis. Using the Values section we can set the columns that contain te number of plays of the songs."
+  },
+  {
+    "objectID": "T5_FlourishStudio/FlourishStudio.slides.html#line-plot",
+    "href": "T5_FlourishStudio/FlourishStudio.slides.html#line-plot",
+    "title": "Introduction to Flourish Studio",
+    "section": "Line plot",
+    "text": "Line plot\nIf we go back to the Preview, we see the resulting line plot.\n\nWe will give more details about this and other plots in later lectures."
+  },
+  {
+    "objectID": "T5_FlourishStudio/FlourishStudio.slides.html#saving-the-plot",
+    "href": "T5_FlourishStudio/FlourishStudio.slides.html#saving-the-plot",
+    "title": "Introduction to Flourish Studio",
+    "section": "Saving the plot",
+    "text": "Saving the plot\nTo save the plot we rename it as “My First Line Plot” and go click on the Flourish studio icon next to the neame to go back to the main panel."
+  },
+  {
+    "objectID": "T5_FlourishStudio/FlourishStudio.slides.html#section-6",
+    "href": "T5_FlourishStudio/FlourishStudio.slides.html#section-6",
+    "title": "Introduction to Flourish Studio",
+    "section": "",
+    "text": "You now see that the plot is now in your projects."
   }
 ]

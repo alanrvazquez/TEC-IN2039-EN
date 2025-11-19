@@ -22,7 +22,7 @@ editor: visual
 </br>
 
 1.  Getting Started
-2.  Web Scraping with the **rvest** package
+2.  Loading Data
 3.  Legal and Ethical Issues with Web Scraping
 
 #  Getting Started
@@ -115,5 +115,70 @@ We'll focus on simple chart templates first.
 ![](images/MainPage.png){fig-align="center"}
 :::
 :::
+
+# Loading Data
+
+## Example
+
+Consider the data in the file “spotify.xlsx”. This dataset contains the global daily plays of the five most popular songs on the Spotify music streaming service in 2017. Our goal is to create a line chart on the number of plays per song. 
+
+![](images/spotify.png){fig-align="center"}
+
+## 
+
+To load a dataset, we select the option **Data**.
+
+![](images/LineChartLoadData.png){fig-align="center"}
+
+## 
+
+We see a predefined dataset, but we replace it by clicking on **Upload data**.
+
+![](images/DatasetDefaultUpload.png){fig-align="center"}
+
+## 
+
+Next, we click on **Import** and see that 367 rows or observations were uploaded successfuly.
+
+::::: columns
+::: {.column width="50%"}
+![](images/Import.png){fig-align="center"}
+:::
+::: {.column width="50%"}
+![](images/Loaded.png){fig-align="center"}
+:::
+:::
+
+## Selecting data
+
+::::: columns
+::: {.column width="50%"}
+Flourish studio successfully recognized that there is a column **Data** containing times, which must go in the horizontal axis. Using the **Values** section we can set the columns that contain te number of plays of the songs.
+:::
+::: {.column width="50%"}
+![](images/SelectDataLine.png){fig-align="center"}
+:::
+:::
+
+## Line plot
+
+If we go back to the **Preview**, we see the resulting line plot.
+
+![](images/LinePlot.png){fig-align="center"}
+
+We will give more details about this and other plots in later lectures.
+
+## Saving the plot
+
+To save the plot we rename it as "My First Line Plot" and go click on the Flourish studio icon next to the neame to go back to the main panel.
+
+![](images/SaveSelected.png){fig-align="center"}
+
+##
+
+You now see that the plot is now in your projects.
+
+
+![](images/Projects.png){fig-align="center"}
 
 # [Return to main page](https://alanrvazquez.github.io/TEC-IN2039-EN/)

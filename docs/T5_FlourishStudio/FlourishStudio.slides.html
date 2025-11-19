@@ -148,7 +148,7 @@ Alan R. Vazquez
 <p><br></p>
 <ol type="1">
 <li>Getting Started</li>
-<li>Web Scraping with the <strong>rvest</strong> package</li>
+<li>Loading Data</li>
 <li>Legal and Ethical Issues with Web Scraping</li>
 </ol>
 </section>
@@ -252,6 +252,73 @@ Alan R. Vazquez
 </div>
 </div></div>
 </section></section>
+<section>
+<section id="loading-data" class="title-slide slide level1 center">
+<h1>Loading Data</h1>
+
+</section>
+<section id="example" class="slide level2">
+<h2>Example</h2>
+<p>Consider the data in the file “spotify.xlsx”. This dataset contains the global daily plays of the five most popular songs on the Spotify music streaming service in 2017. Our goal is to create a line chart on the number of plays per song.</p>
+
+<img data-src="images/spotify.png" class="quarto-figure quarto-figure-center r-stretch"></section>
+<section id="section-3" class="slide level2">
+<h2></h2>
+<p>To load a dataset, we select the option <strong>Data</strong>.</p>
+
+<img data-src="images/LineChartLoadData.png" class="quarto-figure quarto-figure-center r-stretch"></section>
+<section id="section-4" class="slide level2">
+<h2></h2>
+<p>We see a predefined dataset, but we replace it by clicking on <strong>Upload data</strong>.</p>
+
+<img data-src="images/DatasetDefaultUpload.png" class="quarto-figure quarto-figure-center r-stretch"></section>
+<section id="section-5" class="slide level2">
+<h2></h2>
+<p>Next, we click on <strong>Import</strong> and see that 367 rows or observations were uploaded successfuly.</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/Import.png" class="quarto-figure quarto-figure-center"></p>
+</figure>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/Loaded.png" class="quarto-figure quarto-figure-center"></p>
+</figure>
+</div>
+</div></div>
+</section>
+<section id="selecting-data" class="slide level2">
+<h2>Selecting data</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>Flourish studio successfully recognized that there is a column <strong>Data</strong> containing times, which must go in the horizontal axis. Using the <strong>Values</strong> section we can set the columns that contain te number of plays of the songs.</p>
+</div><div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/SelectDataLine.png" class="quarto-figure quarto-figure-center"></p>
+</figure>
+</div>
+</div></div>
+</section>
+<section id="line-plot" class="slide level2">
+<h2>Line plot</h2>
+<p>If we go back to the <strong>Preview</strong>, we see the resulting line plot.</p>
+
+<img data-src="images/LinePlot.png" class="quarto-figure quarto-figure-center r-stretch"><p>We will give more details about this and other plots in later lectures.</p>
+</section>
+<section id="saving-the-plot" class="slide level2">
+<h2>Saving the plot</h2>
+<p>To save the plot we rename it as “My First Line Plot” and go click on the Flourish studio icon next to the neame to go back to the main panel.</p>
+
+<img data-src="images/SaveSelected.png" class="quarto-figure quarto-figure-center r-stretch"></section>
+<section id="section-6" class="slide level2">
+<h2></h2>
+<p>You now see that the plot is now in your projects.</p>
+
+<img data-src="images/Projects.png" class="quarto-figure quarto-figure-center r-stretch"></section></section>
 <section id="return-to-main-page" class="title-slide slide level1 center">
 <h1><a href="https://alanrvazquez.github.io/TEC-IN2039-EN/">Return to main page</a></h1>
 
