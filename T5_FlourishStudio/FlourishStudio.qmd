@@ -23,9 +23,9 @@ editor: visual
 
 1.  Getting Started
 2.  Loading Data
-3.  Legal and Ethical Issues with Web Scraping
+3.  Creating Stories
 
-#  Getting Started
+# Getting Started
 
 ## What is flourish studio?
 
@@ -37,31 +37,26 @@ editor: visual
 
 -   <https://flourish.studio/>
 
-
 ![](images/Flourish_Logo_Black_small.png){fig-align="center"}
 
 ::: notes
-- Beautiful and customizable graphics.
+-   Beautiful and customizable graphics.
 
-- Easy import from Excel, CSV, or Google Sheets.
+-   Easy import from Excel, CSV, or Google Sheets.
 
-- Interactive features that enhance decision-making.
+-   Interactive features that enhance decision-making.
 
-- Perfect for class projects and presentations.
+-   Perfect for class projects and presentations.
 :::
 
-
-##
+## 
 
 ![](images/FlourishStudio.png){fig-align="center"}
 
+## Create your Account
 
-
-
-## Create your Account 
-
-1. Go to <a href="https://drive.google.com/file/d/1kS1_M-wLRc9BDRAadV_K6yosNK0XF9qi/view?usp=sharing" target="_blank">Flourish Studio</a> link: <https://flourish.studio/>
-2. Slick **Sing up**.
+1.  Go to <a href="https://drive.google.com/file/d/1kS1_M-wLRc9BDRAadV_K6yosNK0XF9qi/view?usp=sharing" target="_blank">Flourish Studio</a> link: <https://flourish.studio/>
+2.  Slick **Sing up**.
 
 ![](images/FlourishStudio_Singup.png){fig-align="center"}
 
@@ -101,26 +96,27 @@ If you already have an account, simply log in.
 ::: {.column width="55%"}
 The main page shows:
 
-- Projects (your visualizations)
+-   Projects (your visualizations)
 
-- Templates you can choose from
+-   Templates you can choose from
 
-- Team tools (ignore for now)
+-   Team tools (ignore for now)
 
-- Options to Create a new visualization
+-   Options to Create a new visualization
 
 We'll focus on simple chart templates first.
 :::
+
 ::: {.column width="45%"}
 ![](images/MainPage.png){fig-align="center"}
 :::
-:::
+:::::
 
 # Loading Data
 
 ## Example
 
-Consider the data in the file “spotify.xlsx”. This dataset contains the global daily plays of the five most popular songs on the Spotify music streaming service in 2017. Our goal is to create a line chart on the number of plays per song. 
+Consider the data in the file “spotify.xlsx”. This dataset contains the global daily plays of the five most popular songs on the Spotify music streaming service in 2017. Our goal is to create a line chart on the number of plays per song.
 
 ![](images/spotify.png){fig-align="center"}
 
@@ -144,10 +140,11 @@ Next, we click on **Import** and see that 367 rows or observations were uploaded
 ::: {.column width="50%"}
 ![](images/Import.png){fig-align="center"}
 :::
+
 ::: {.column width="50%"}
 ![](images/Loaded.png){fig-align="center"}
 :::
-:::
+:::::
 
 ## Selecting data
 
@@ -155,10 +152,11 @@ Next, we click on **Import** and see that 367 rows or observations were uploaded
 ::: {.column width="50%"}
 Flourish studio successfully recognized that there is a column **Data** containing times, which must go in the horizontal axis. Using the **Values** section we can set the columns that contain te number of plays of the songs.
 :::
+
 ::: {.column width="50%"}
 ![](images/SelectDataLine.png){fig-align="center"}
 :::
-:::
+:::::
 
 ## Line plot
 
@@ -174,11 +172,100 @@ To save the plot we rename it as "My First Line Plot" and go click on the Flouri
 
 ![](images/SaveSelected.png){fig-align="center"}
 
-##
+## 
 
 You now see that the plot is now in your projects.
 
-
 ![](images/Projects.png){fig-align="center"}
+
+
+# Creating Stories
+
+## What is a "Flourish Story"?
+
+::: incremental
+- Flourish allows you to combine multiple visualizations into a **narrative sequence** called a *Story*.
+
+- A Story works like a slideshow where each slide is linked to a chart, a map, or a custom visualization.
+
+- This feature is perfect for telling data-driven stories, step by step, using interactive elements.
+
+- Think of it as creating a visual presentation *directly from your charts*.
+:::
+
+## 
+
+You can create a story by clicking on **New Story** in the main panel.
+
+![](images/NewStorySelected.png){fig-align="center"}
+
+##
+
+::: columns
+::: {.column width="55%"}
+::: {style="font-size: 75%;"}
+1. On the Flourish home page, click **New story**.
+2. A blank story canvas will open.
+3. You can start adding slides by clicking **New slide**.
+4. Each slide can display:
+   - A chart you already created (**Choose a visualization**)
+   - Text-only slides for transitions or explanations (**Basic slide**)
+5. Stories automatically save to your project workspace.
+:::
+:::
+::: {.column width="45%"}
+
+![](images/Stories.png){fig-align="center"}
+::: 
+:::
+
+## Choose visualization
+
+If you click on choose visualization, you can add the previously created line plot to the story.
+
+![](images/ChooseVisualization.png){fig-align="center"}
+
+## 
+
+After selecting the plot, we see a new slide in our story.
+
+![](images/StoryLineChart.png){fig-align="center"}
+
+## Principle 1: Define the message or research question
+
+We can add an informative title to the plot by filling end the section *Add a caption here*.
+
+![](images/StoryLineChartwithTitle.png){fig-align="center"}
+
+## 
+
+After you are done, assign a name to your story.
+
+![](images/LinearPlotwithNameSelected.png){fig-align="center"}
+
+## Present your story
+
+You can present your story by clicking on the icon with two opposite arrows.
+
+![](images/LinearPlotwithNameExpand.png){fig-align="center"}
+
+## Voilà
+
+You are now in presentation mode and can start telling your story.
+
+![](images/PresentationMode.png){fig-align="center"}
+
+## Final comments
+
+</br>
+
+- Flourish Studio is a powerful and beginner-friendly tool for creating interactive data visualizations without writing code.  
+
+- It integrates seamlessly with **CANVA**, making it easy to embed dynamic charts into your design projects.  
+
+- The platform supports a wide variety of visualization templates, which  *we will explore later*.  
+
+- Stories, templates, and data workflows help you communicate insights clearly and professionally.  
+
 
 # [Return to main page](https://alanrvazquez.github.io/TEC-IN2039-EN/)

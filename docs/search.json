@@ -1950,7 +1950,7 @@
     "href": "T5_FlourishStudio/FlourishStudio.slides.html#agenda",
     "title": "Introduction to Flourish Studio",
     "section": "Agenda",
-    "text": "Agenda\n\n\nGetting Started\nLoading Data\nLegal and Ethical Issues with Web Scraping"
+    "text": "Agenda\n\n\nGetting Started\nLoading Data\nCreating Stories"
   },
   {
     "objectID": "T5_FlourishStudio/FlourishStudio.slides.html#what-is-flourish-studio",
@@ -2042,5 +2042,75 @@
     "title": "Introduction to Flourish Studio",
     "section": "",
     "text": "You now see that the plot is now in your projects."
+  },
+  {
+    "objectID": "T5_FlourishStudio/FlourishStudio.slides.html#what-is-a-flourish-story",
+    "href": "T5_FlourishStudio/FlourishStudio.slides.html#what-is-a-flourish-story",
+    "title": "Introduction to Flourish Studio",
+    "section": "What is a “Flourish Story”?",
+    "text": "What is a “Flourish Story”?\n\nFlourish allows you to combine multiple visualizations into a narrative sequence called a Story.\nA Story works like a slideshow where each slide is linked to a chart, a map, or a custom visualization.\nThis feature is perfect for telling data-driven stories, step by step, using interactive elements.\nThink of it as creating a visual presentation directly from your charts."
+  },
+  {
+    "objectID": "T5_FlourishStudio/FlourishStudio.slides.html#section-7",
+    "href": "T5_FlourishStudio/FlourishStudio.slides.html#section-7",
+    "title": "Introduction to Flourish Studio",
+    "section": "",
+    "text": "You can create a story by clicking on New Story in the main panel."
+  },
+  {
+    "objectID": "T5_FlourishStudio/FlourishStudio.slides.html#section-8",
+    "href": "T5_FlourishStudio/FlourishStudio.slides.html#section-8",
+    "title": "Introduction to Flourish Studio",
+    "section": "",
+    "text": "On the Flourish home page, click New story.\nA blank story canvas will open.\nYou can start adding slides by clicking New slide.\nEach slide can display:\n\nA chart you already created (Choose a visualization)\nText-only slides for transitions or explanations (Basic slide)\n\nStories automatically save to your project workspace."
+  },
+  {
+    "objectID": "T5_FlourishStudio/FlourishStudio.slides.html#choose-visualization",
+    "href": "T5_FlourishStudio/FlourishStudio.slides.html#choose-visualization",
+    "title": "Introduction to Flourish Studio",
+    "section": "Choose visualization",
+    "text": "Choose visualization\nIf you click on choose visualization, you can add the previously created line plot to the story."
+  },
+  {
+    "objectID": "T5_FlourishStudio/FlourishStudio.slides.html#section-9",
+    "href": "T5_FlourishStudio/FlourishStudio.slides.html#section-9",
+    "title": "Introduction to Flourish Studio",
+    "section": "",
+    "text": "After selecting the plot, we see a new slide in our story."
+  },
+  {
+    "objectID": "T5_FlourishStudio/FlourishStudio.slides.html#principle-1-define-the-message-or-research-question",
+    "href": "T5_FlourishStudio/FlourishStudio.slides.html#principle-1-define-the-message-or-research-question",
+    "title": "Introduction to Flourish Studio",
+    "section": "Principle 1: Define the message or research question",
+    "text": "Principle 1: Define the message or research question\nWe can add an informative title to the plot by filling end the section Add a caption here."
+  },
+  {
+    "objectID": "T5_FlourishStudio/FlourishStudio.slides.html#section-10",
+    "href": "T5_FlourishStudio/FlourishStudio.slides.html#section-10",
+    "title": "Introduction to Flourish Studio",
+    "section": "",
+    "text": "After you are done, assign a name to your story."
+  },
+  {
+    "objectID": "T5_FlourishStudio/FlourishStudio.slides.html#present-your-story",
+    "href": "T5_FlourishStudio/FlourishStudio.slides.html#present-your-story",
+    "title": "Introduction to Flourish Studio",
+    "section": "Present your story",
+    "text": "Present your story\nYou can present your story by clicking on the icon with two opposite arrows."
+  },
+  {
+    "objectID": "T5_FlourishStudio/FlourishStudio.slides.html#voilà",
+    "href": "T5_FlourishStudio/FlourishStudio.slides.html#voilà",
+    "title": "Introduction to Flourish Studio",
+    "section": "Voilà",
+    "text": "Voilà\nYou are now in presentation mode and can start telling your story."
+  },
+  {
+    "objectID": "T5_FlourishStudio/FlourishStudio.slides.html#final-comments",
+    "href": "T5_FlourishStudio/FlourishStudio.slides.html#final-comments",
+    "title": "Introduction to Flourish Studio",
+    "section": "Final comments",
+    "text": "Final comments\n\n\nFlourish Studio is a powerful and beginner-friendly tool for creating interactive data visualizations without writing code.\nIt integrates seamlessly with CANVA, making it easy to embed dynamic charts into your design projects.\nThe platform supports a wide variety of visualization templates, which we will explore later.\nStories, templates, and data workflows help you communicate insights clearly and professionally."
   }
 ]
