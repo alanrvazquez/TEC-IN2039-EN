@@ -53,10 +53,10 @@ editor: visual
 
 ![](images/FlourishStudio.png){fig-align="center"}
 
-## Create your Account
+## Create your account
 
-1.  Go to <a href="https://drive.google.com/file/d/1kS1_M-wLRc9BDRAadV_K6yosNK0XF9qi/view?usp=sharing" target="_blank">Flourish Studio</a> link: <https://flourish.studio/>
-2.  Slick **Sing up**.
+1.  Go to <a href="https://flourish.studio/" target="_blank">Flourish Studio</a>.
+2.  Click **Sign up**.
 
 ![](images/FlourishStudio_Singup.png){fig-align="center"}
 
@@ -65,16 +65,20 @@ editor: visual
 </br>
 
 ::::: columns
-::: {.column width="70%"}
-![](images/SignUp.png){fig-align="center"}
+::: {.column width="50%"}
+![](images/SignUp.png){fig-align="center" width="336"}
 :::
 
-::: {.column width="30%"}
+::: {.column width="50%"}
+</br></br>
+
 -   I recommend singing up with your Google-Tec account.
 :::
 :::::
 
 ## 
+
+</br>
 
 If you already have an account, simply log in.
 
@@ -92,8 +96,11 @@ If you already have an account, simply log in.
 
 ## Main page
 
-::::: columns
-::: {.column width="55%"}
+:::::: columns
+:::: {.column width="30%"}
+</br>
+
+::: {style="font-size: 80%;"}
 The main page shows:
 
 -   Projects (your visualizations)
@@ -103,14 +110,13 @@ The main page shows:
 -   Team tools (ignore for now)
 
 -   Options to Create a new visualization
-
-We'll focus on simple chart templates first.
 :::
+::::
 
-::: {.column width="45%"}
+::: {.column width="70%"}
 ![](images/MainPage.png){fig-align="center"}
 :::
-:::::
+::::::
 
 # Loading Data
 
@@ -134,6 +140,8 @@ We see a predefined dataset, but we replace it by clicking on **Upload data**.
 
 ## 
 
+</br></br>
+
 Next, we click on **Import** and see that 367 rows or observations were uploaded successfuly.
 
 ::::: columns
@@ -150,7 +158,9 @@ Next, we click on **Import** and see that 367 rows or observations were uploaded
 
 ::::: columns
 ::: {.column width="50%"}
-Flourish studio successfully recognized that there is a column **Data** containing times, which must go in the horizontal axis. Using the **Values** section we can set the columns that contain te number of plays of the songs.
+Flourish studio successfully recognized that there is a column **Data** containing times, which must go in the horizontal axis. 
+
+Using the **Values** section we can set the columns that contain te number of plays of the songs.
 :::
 
 ::: {.column width="50%"}
@@ -178,19 +188,20 @@ You now see that the plot is now in your projects.
 
 ![](images/Projects.png){fig-align="center"}
 
-
 # Creating Stories
 
 ## What is a "Flourish Story"?
 
+</br>
+
 ::: incremental
-- Flourish allows you to combine multiple visualizations into a **narrative sequence** called a *Story*.
+-   Flourish allows you to combine multiple visualizations into a **narrative sequence** called a *Story*.
 
-- A Story works like a slideshow where each slide is linked to a chart, a map, or a custom visualization.
+-   A Story works like a slideshow where each slide is linked to a chart, a map, or a custom visualization.
 
-- This feature is perfect for telling data-driven stories, step by step, using interactive elements.
+-   This feature is perfect for telling data-driven stories, step by step, using interactive elements.
 
-- Think of it as creating a visual presentation *directly from your charts*.
+-   Think of it as creating a visual presentation *directly from your charts*.
 :::
 
 ## 
@@ -199,25 +210,28 @@ You can create a story by clicking on **New Story** in the main panel.
 
 ![](images/NewStorySelected.png){fig-align="center"}
 
-##
+## 
 
-::: columns
-::: {.column width="55%"}
+:::::: columns
+:::: {.column width="40%"}
 ::: {style="font-size: 75%;"}
-1. On the Flourish home page, click **New story**.
-2. A blank story canvas will open.
-3. You can start adding slides by clicking **New slide**.
-4. Each slide can display:
-   - A chart you already created (**Choose a visualization**)
-   - Text-only slides for transitions or explanations (**Basic slide**)
-5. Stories automatically save to your project workspace.
+1.  On the Flourish home page, click **New story**.
+2.  A blank story canvas will open.
+3.  You can start adding slides by clicking **New slide**.
+4.  Each slide can display:
+    -   A chart you already created (**Choose a visualization**)
+    -   Text-only slides for transitions or explanations (**Basic slide**)
+5.  Stories automatically save to your project workspace.
 :::
-:::
-::: {.column width="45%"}
+::::
+
+::: {.column width="60%"}
+
+</br></br>
 
 ![](images/Stories.png){fig-align="center"}
-::: 
 :::
+::::::
 
 ## Choose visualization
 
@@ -259,13 +273,12 @@ You are now in presentation mode and can start telling your story.
 
 </br>
 
-- Flourish Studio is a powerful and beginner-friendly tool for creating interactive data visualizations without writing code.  
+-   Flourish Studio is a powerful and beginner-friendly tool for creating interactive data visualizations without writing code.
 
-- It integrates seamlessly with **CANVA**, making it easy to embed dynamic charts into your design projects.  
+-   It integrates seamlessly with **CANVA**, making it easy to embed dynamic charts into your design projects.
 
-- The platform supports a wide variety of visualization templates, which  *we will explore later*.  
+-   The platform supports a wide variety of visualization templates, which *we will explore later*.
 
-- Stories, templates, and data workflows help you communicate insights clearly and professionally.  
-
+-   Stories, templates, and data workflows help you communicate insights clearly and professionally.
 
 # [Return to main page](https://alanrvazquez.github.io/TEC-IN2039-EN/)

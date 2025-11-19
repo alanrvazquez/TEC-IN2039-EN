@@ -1963,8 +1963,8 @@
     "objectID": "T5_FlourishStudio/FlourishStudio.slides.html#create-your-account",
     "href": "T5_FlourishStudio/FlourishStudio.slides.html#create-your-account",
     "title": "Introduction to Flourish Studio",
-    "section": "Create your Account",
-    "text": "Create your Account\n\nGo to Flourish Studio link: https://flourish.studio/\nSlick Sing up."
+    "section": "Create your account",
+    "text": "Create your account\n\nGo to Flourish Studio.\nClick Sign up."
   },
   {
     "objectID": "T5_FlourishStudio/FlourishStudio.slides.html#section-1",
@@ -1985,7 +1985,7 @@
     "href": "T5_FlourishStudio/FlourishStudio.slides.html#main-page",
     "title": "Introduction to Flourish Studio",
     "section": "Main page",
-    "text": "Main page\n\n\nThe main page shows:\n\nProjects (your visualizations)\nTemplates you can choose from\nTeam tools (ignore for now)\nOptions to Create a new visualization\n\nWe’ll focus on simple chart templates first."
+    "text": "Main page\n\n\n\n\nThe main page shows:\n\nProjects (your visualizations)\nTemplates you can choose from\nTeam tools (ignore for now)\nOptions to Create a new visualization"
   },
   {
     "objectID": "T5_FlourishStudio/FlourishStudio.slides.html#example",
@@ -2020,7 +2020,7 @@
     "href": "T5_FlourishStudio/FlourishStudio.slides.html#selecting-data",
     "title": "Introduction to Flourish Studio",
     "section": "Selecting data",
-    "text": "Selecting data\n\n\nFlourish studio successfully recognized that there is a column Data containing times, which must go in the horizontal axis. Using the Values section we can set the columns that contain te number of plays of the songs."
+    "text": "Selecting data\n\n\nFlourish studio successfully recognized that there is a column Data containing times, which must go in the horizontal axis.\nUsing the Values section we can set the columns that contain te number of plays of the songs."
   },
   {
     "objectID": "T5_FlourishStudio/FlourishStudio.slides.html#line-plot",
@@ -2048,7 +2048,7 @@
     "href": "T5_FlourishStudio/FlourishStudio.slides.html#what-is-a-flourish-story",
     "title": "Introduction to Flourish Studio",
     "section": "What is a “Flourish Story”?",
-    "text": "What is a “Flourish Story”?\n\nFlourish allows you to combine multiple visualizations into a narrative sequence called a Story.\nA Story works like a slideshow where each slide is linked to a chart, a map, or a custom visualization.\nThis feature is perfect for telling data-driven stories, step by step, using interactive elements.\nThink of it as creating a visual presentation directly from your charts."
+    "text": "What is a “Flourish Story”?\n\n\nFlourish allows you to combine multiple visualizations into a narrative sequence called a Story.\nA Story works like a slideshow where each slide is linked to a chart, a map, or a custom visualization.\nThis feature is perfect for telling data-driven stories, step by step, using interactive elements.\nThink of it as creating a visual presentation directly from your charts."
   },
   {
     "objectID": "T5_FlourishStudio/FlourishStudio.slides.html#section-7",
