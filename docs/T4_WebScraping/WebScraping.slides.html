@@ -776,10 +776,34 @@ Alan R. Vazquez
 <h2><code>Robots.txt</code></h2>
 <p>When scraping the web you need to be aware of <code>robots.txt</code>.</p>
 <ul>
-<li><p>The robots exclusion standard, also known as the robots exclusion protocol or simply robots.txt, is a standard used by websites to communicate with web crawlers and other web robots.</p></li>
+<li><p>The robots exclusion standard, also known as the robots exclusion protocol or robots.txt, is a standard used by websites to communicate with web crawlers and other web robots.</p></li>
 <li><p>The standard specifies how to inform the web robot about which areas of the website should not be processed or scanned.</p></li>
 <li><p>See more at <a href="https://en.wikipedia.org/wiki/Robots_exclusion_standard">Wikipedia</a>.</p></li>
 </ul>
+</section>
+<section id="essentially" class="slide level2">
+<h2>Essentially, …</h2>
+<p><br><br></p>
+<p>A website places a plain-text file named robots.txt at the root of its domain (e.g., https://example.com/robots.txt).</p>
+<p>This file contains rules that tell bots which pages or directories they are allowed to crawl (<code>Allow:</code>) and which ones they should not (<code>Disallow:</code>).</p>
+<p>It does not enforce security—well-written bots respect the rules, but malicious bots may ignore them.</p>
+</section>
+<section id="robots.txt-of-wikipedia.com-and-foxsports.com" class="slide level2">
+<h2>robots.txt of wikipedia.com and foxsports.com</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/robots_wiki.png" class="quarto-figure quarto-figure-center"></p>
+</figure>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/robots_fox.png" class="quarto-figure quarto-figure-center"></p>
+</figure>
+</div>
+</div></div>
 </section>
 <section id="the-robotstxt-package" class="slide level2">
 <h2>The robotstxt package</h2>

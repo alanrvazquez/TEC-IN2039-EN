@@ -1768,7 +1768,7 @@
     "href": "T4_WebScraping/WebScraping.slides.html#robots.txt",
     "title": "Web Scraping",
     "section": "Robots.txt",
-    "text": "Robots.txt\nWhen scraping the web you need to be aware of robots.txt.\n\nThe robots exclusion standard, also known as the robots exclusion protocol or simply robots.txt, is a standard used by websites to communicate with web crawlers and other web robots.\nThe standard specifies how to inform the web robot about which areas of the website should not be processed or scanned.\nSee more at Wikipedia."
+    "text": "Robots.txt\nWhen scraping the web you need to be aware of robots.txt.\n\nThe robots exclusion standard, also known as the robots exclusion protocol or robots.txt, is a standard used by websites to communicate with web crawlers and other web robots.\nThe standard specifies how to inform the web robot about which areas of the website should not be processed or scanned.\nSee more at Wikipedia."
   },
   {
     "objectID": "T4_WebScraping/WebScraping.slides.html#the-robotstxt-package",
@@ -2112,5 +2112,19 @@
     "title": "Statistical Graphs",
     "section": "Discussion",
     "text": "Discussion\n\n\nThe simple linear regression model is easy to interpret due to its structure: \\(\\hat{Y}_i = \\hat{\\beta}_0 + \\hat{\\beta}_1 X_i.\\)\nHowever, it may be too rigid to capture complex relationships between two variables.\nLocal regression is flexible and allows capturing complex relationships between two variables, but it has a low level of interpretability because it does not provide an explicit equation."
+  },
+  {
+    "objectID": "T4_WebScraping/WebScraping.slides.html#essentially",
+    "href": "T4_WebScraping/WebScraping.slides.html#essentially",
+    "title": "Web Scraping",
+    "section": "Essentially, …",
+    "text": "Essentially, …\n\nA website places a plain-text file named robots.txt at the root of its domain (e.g., https://example.com/robots.txt).\nThis file contains rules that tell bots which pages or directories they are allowed to crawl (Allow:) and which ones they should not (Disallow:).\nIt does not enforce security—well-written bots respect the rules, but malicious bots may ignore them."
+  },
+  {
+    "objectID": "T4_WebScraping/WebScraping.slides.html#robots.txt-of-wikipedia.com-and-foxsports.com",
+    "href": "T4_WebScraping/WebScraping.slides.html#robots.txt-of-wikipedia.com-and-foxsports.com",
+    "title": "Web Scraping",
+    "section": "robots.txt of wikipedia.com and foxsports.com",
+    "text": "robots.txt of wikipedia.com and foxsports.com"
   }
 ]

@@ -488,11 +488,32 @@ So, the web scraping process consists of the following steps:
 
 When scraping the web you need to be aware of `robots.txt`.
 
--   The robots exclusion standard, also known as the robots exclusion protocol or simply robots.txt, is a standard used by websites to communicate with web crawlers and other web robots.
+-   The robots exclusion standard, also known as the robots exclusion protocol or robots.txt, is a standard used by websites to communicate with web crawlers and other web robots.
 
 -   The standard specifies how to inform the web robot about which areas of the website should not be processed or scanned.
 
 -   See more at [Wikipedia](https://en.wikipedia.org/wiki/Robots_exclusion_standard).
+
+## Essentially, ...
+
+</br></br>
+
+A website places a plain-text file named robots.txt at the root of its domain (e.g., https://example.com/robots.txt).
+
+This file contains rules that tell bots which pages or directories they are allowed to crawl (`Allow:`) and which ones they should not (`Disallow:`).
+
+It does not enforce security—well-written bots respect the rules, but malicious bots may ignore them.
+
+## robots.txt of wikipedia.com and foxsports.com
+
+::::: columns
+::: {.column width="50%"}
+![](images/robots_wiki.png){fig-align="center"}
+:::
+::: {.column width="50%"}
+![](images/robots_fox.png){fig-align="center"}
+:::
+:::
 
 ## The robotstxt package
 
