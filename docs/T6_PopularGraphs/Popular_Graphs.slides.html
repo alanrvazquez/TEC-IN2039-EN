@@ -28,6 +28,72 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-f563837468303362081e247dddd440d0.css">
   <link rel="stylesheet" href="style.css">
@@ -353,14 +419,6 @@ Alan R. Vazquez
 <li><p>Categorical variables (nominal or ordinal) are those where addition or subtraction does <strong>NOT</strong> make sense.</p></li>
 </ul>
 </section>
-<section id="activity-solo-mode" class="slide level2">
-<h2>Activity (<em>solo</em> mode)</h2>
-<p><br></p>
-<ol type="1">
-<li><p>Go to the <strong>Modules</strong> section on our CANVAS website.</p></li>
-<li><p>Complete the <span style="color:darkblue;"><strong>Activity 2.1: Types of Variables</strong></span> individually.</p></li>
-</ol>
-</section>
 <section>
 <section id="one-categorical-variable" class="title-slide slide level1 center">
 <h1>One Categorical Variable</h1>
@@ -388,12 +446,85 @@ Alan R. Vazquez
 <h2>Bar chart</h2>
 <p>It visually represents frequencies or percentages of the categories of a categorical variable. The frequency (or percentage) is represented by a bar of proportional height.</p>
 
-<img data-src="Popular_Graphs_files/figure-revealjs/unnamed-chunk-3-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
-<section id="bar-chart-for-percentages" class="slide level2">
-<h2>Bar chart for percentages</h2>
-<p><br></p>
+<img data-src="images/FinalBarChart.png" class="quarto-figure quarto-figure-center r-stretch"></section>
+<section id="construct-a-bar-chart-in-flourish" class="slide level2">
+<h2>Construct a bar chart in Flourish</h2>
 
-<img data-src="Popular_Graphs_files/figure-revealjs/unnamed-chunk-4-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
+<img data-src="images/FlourishStudio.png" class="quarto-figure quarto-figure-center r-stretch"></section>
+<section id="section-1" class="slide level2">
+<h2></h2>
+<p>In the visualization gallery, choose <strong>Bar Chart</strong>.</p>
+
+<img data-src="images/SelectBarChart.png" class="quarto-figure quarto-figure-center r-stretch"></section>
+<section id="replace-the-data-with-your-own" class="slide level2">
+<h2>Replace the data with your own</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/DefaultBarChart.png" class="quarto-figure quarto-figure-center"></p>
+</figure>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/UploadDataBarChart .png" class="quarto-figure quarto-figure-center"></p>
+</figure>
+</div>
+</div></div>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/UploadedDataBarChart.png" class="quarto-figure quarto-figure-center"></p>
+</figure>
+</div>
+</section>
+<section id="select-the-correct-variables" class="slide level2">
+<h2>Select the correct variables</h2>
+<p>Unfortunately, it is not simple to create a standard bar chart with the counts of each category. To to this, we must select the column with the categories <strong>Species</strong> and an auxiliary column that has complete entries. In this case, we use the <strong>Year</strong>.</p>
+
+<img data-src="images/SelectCorrectVariablesBarChart.png" class="quarto-figure quarto-figure-center r-stretch"></section>
+<section id="section-2" class="slide level2">
+<h2></h2>
+<p>The preview plot has all bars at the same height. To replace the height for the frequencies of the categories, we change the <strong>Agregation mode</strong> to <em>Count</em>.</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/ChangeCountBarChart.png" class="quarto-figure quarto-figure-center"></p>
+</figure>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/ChangeCountBarChart2.png" class="quarto-figure quarto-figure-center"></p>
+</figure>
+</div>
+</div></div>
+<p>We also change the <strong>Height mode</strong> to <em>Standard</em> to enhance the visualization.</p>
+</section>
+<section id="principle-1-define-the-message" class="slide level2">
+<h2>Principle 1: Define the message</h2>
+<p>Following Principle 1 of data visualization, we add a header or title to the plot by going to the section <strong>Header</strong>.</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/AddHeaderBarChart.png" class="quarto-figure quarto-figure-center"></p>
+</figure>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/SetHeaderBarChart.png" class="quarto-figure quarto-figure-center"></p>
+</figure>
+</div>
+</div></div>
+</section>
+<section id="final-bar-chart" class="slide level2">
+<h2>Final bar chart</h2>
+
+<img data-src="images/FinalBarChart.png" class="quarto-figure quarto-figure-center r-stretch"><p>We see that most penguins are Adelie.</p>
+</section>
 <section id="example-2-boston-housing-dataset" class="slide level2">
 <h2>Example 2: Boston Housing Dataset</h2>
 <p>This dataset contains information collected by the U.S. Census Bureau on housing in the Boston, Massachusetts area. The dataset is in <code>Boston_dataset.xlsx</code>.</p>
@@ -404,27 +535,138 @@ Alan R. Vazquez
 <p><img data-src="images/clipboard-3653087831.png"></p>
 </div></div>
 </section>
-<section id="section-1" class="slide level2">
+<section id="section-3" class="slide level2">
 <h2></h2>
 <p><br></p>
 <p>We concentrate on the following variables:</p>
 <ul>
 <li><p><code>chas</code> : Whether the house is next to the Charles River (1: Yes and 0: No)</p></li>
-<li><p><code>rad</code> : Index of accessibility to radial highways (<code>Low</code>, <code>Medium</code>, <code>High</code>).</p></li>
+<li><p><code>rad</code> : Index of accessibility to radial highways (0: Low, 1: Medium, 2: High).</p></li>
 </ul>
 </section>
-<section id="section-2" class="slide level2">
+<section id="data-wrangling-with-r" class="slide level2">
+<h2>Data wrangling with R</h2>
+<p>To create a effective bar plots in Flourish, we must wrangle the variables <code>chas</code> and <code>rad</code> a little bit.</p>
+<p>Specifically, we must ensure that these variables are categorical and their categories have the appropriate names.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a>Boston_dataset <span class="ot">=</span> <span class="fu">read_excel</span>(<span class="st">"Boston_dataset.xlsx"</span>)</span>
+<span id="cb2-2"><a></a>Boston_dataset <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="st">`</span><span class="at">chas</span><span class="st">`</span>, <span class="st">`</span><span class="at">rad</span><span class="st">`</span>) <span class="sc">%&gt;%</span>  <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 2
+   chas   rad
+  &lt;dbl&gt; &lt;dbl&gt;
+1     0     0
+2     0     0
+3     0     0
+4     0     0
+5     0     0
+6     0     0</code></pre>
+</div>
+</div>
+</section>
+<section id="section-4" class="slide level2">
+<h2></h2>
+<p>The variables are numeric because their header shows a <code>dbl</code>.</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 2
+   chas   rad
+  &lt;dbl&gt; &lt;dbl&gt;
+1     0     0
+2     0     0
+3     0     0
+4     0     0
+5     0     0
+6     0     0</code></pre>
+</div>
+</div>
+<p>To set variables as categorical we use the functions <code>mutate()</code> and <code>as.factor()</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a>Boston_dataset_wr <span class="ot">=</span> Boston_dataset <span class="sc">%&gt;%</span> </span>
+<span id="cb5-2"><a></a>                    <span class="fu">mutate</span>(<span class="st">`</span><span class="at">chas</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">as.factor</span>(<span class="st">`</span><span class="at">chas</span><span class="st">`</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb5-3"><a></a>                    <span class="fu">mutate</span>(<span class="st">`</span><span class="at">rad</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">as.factor</span>(<span class="st">`</span><span class="at">rad</span><span class="st">`</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="section-5" class="slide level2">
+<h2></h2>
+<p>Now the header of the variables show a <code>fct</code> indicating that the variables are categorical.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a>Boston_dataset_wr  <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="st">`</span><span class="at">chas</span><span class="st">`</span>, <span class="st">`</span><span class="at">rad</span><span class="st">`</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 506 × 2
+   chas  rad  
+   &lt;fct&gt; &lt;fct&gt;
+ 1 0     0    
+ 2 0     0    
+ 3 0     0    
+ 4 0     0    
+ 5 0     0    
+ 6 0     0    
+ 7 0     1    
+ 8 0     1    
+ 9 0     1    
+10 0     1    
+# ℹ 496 more rows</code></pre>
+</div>
+</div>
+</section>
+<section id="section-6" class="slide level2">
+<h2></h2>
+<p>Next, we replace the 0 and 1 of <code>chas</code> for the label “No” and “Yes”, respectively. To this end, we use the function <code>mutate()</code> and <code>caste_match()</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a>Boston_dataset_wr <span class="ot">=</span> Boston_dataset_wr <span class="sc">%&gt;%</span> </span>
+<span id="cb8-2"><a></a>  <span class="fu">mutate</span>(<span class="st">`</span><span class="at">chas</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">case_match</span>(<span class="st">`</span><span class="at">chas</span><span class="st">`</span>, <span class="st">"0"</span> <span class="sc">~</span> <span class="st">"No"</span>, <span class="st">"1"</span> <span class="sc">~</span> <span class="st">"Yes"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><br></p>
+<p>Using the same functions, we replace the 0, 1, and 2 in the variable <code>rad</code> by “Low”, “Medium”, and “High”, respectively.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a>Boston_dataset_wr <span class="ot">=</span> Boston_dataset_wr <span class="sc">%&gt;%</span> </span>
+<span id="cb9-2"><a></a>  <span class="fu">mutate</span>(<span class="st">`</span><span class="at">rad</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">case_match</span>(<span class="st">`</span><span class="at">rad</span><span class="st">`</span>, <span class="st">"0"</span> <span class="sc">~</span> <span class="st">"Low"</span>, <span class="st">"1"</span> <span class="sc">~</span> <span class="st">"Medium"</span>,</span>
+<span id="cb9-3"><a></a>                            <span class="st">"2"</span> <span class="sc">~</span> <span class="st">"High"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="section-7" class="slide level2">
+<h2></h2>
+<p>Now, the columns show the actual category labels instead of the coded (or number) labels.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a>Boston_dataset_wr  <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="st">`</span><span class="at">chas</span><span class="st">`</span>, <span class="st">`</span><span class="at">rad</span><span class="st">`</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 506 × 2
+   chas  rad   
+   &lt;chr&gt; &lt;chr&gt; 
+ 1 No    Low   
+ 2 No    Low   
+ 3 No    Low   
+ 4 No    Low   
+ 5 No    Low   
+ 6 No    Low   
+ 7 No    Medium
+ 8 No    Medium
+ 9 No    Medium
+10 No    Medium
+# ℹ 496 more rows</code></pre>
+</div>
+</div>
+<p>Finally, we save the new dataset using the function “writexl” from the <strong>writexl</strong> package in R.</p>
+</section>
+<section id="section-8" class="slide level2">
 <h2></h2>
 <p><br></p>
 <p>Let’s create a bar chart for <code>chas</code>.</p>
+<div class="cell" data-fig-algin="center">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a>Boston_dataset <span class="ot">=</span> Boston_dataset <span class="sc">%&gt;%</span> </span>
+<span id="cb12-2"><a></a>  <span class="fu">mutate_at</span>(<span class="fu">c</span>(<span class="st">"chas"</span>, <span class="st">"rad"</span>), as.factor) <span class="sc">%&gt;%</span> </span>
+<span id="cb12-3"><a></a>  <span class="fu">mutate</span>(<span class="at">chas =</span> <span class="fu">case_match</span>(chas, <span class="st">"0"</span> <span class="sc">~</span> <span class="st">"No"</span>, <span class="st">"1"</span> <span class="sc">~</span> <span class="st">"Yes"</span>))</span>
+<span id="cb12-4"><a></a><span class="fu">gf_percents</span>( <span class="sc">~</span> chas, <span class="at">data =</span> Boston_dataset)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
-<img data-src="Popular_Graphs_files/figure-revealjs/unnamed-chunk-6-1.png" width="960" class="r-stretch"></section>
-<section id="section-3" class="slide level2">
+</div>
+<img data-src="Popular_Graphs_files/figure-revealjs/unnamed-chunk-10-1.png" width="960" class="r-stretch"></section>
+<section id="section-9" class="slide level2">
 <h2></h2>
 <p><br></p>
 <p>Now, let’s create a bar chart for <code>rad</code>.</p>
 
-<img data-src="Popular_Graphs_files/figure-revealjs/unnamed-chunk-7-1.png" width="960" class="r-stretch"></section>
+<img data-src="Popular_Graphs_files/figure-revealjs/unnamed-chunk-11-1.png" width="960" class="r-stretch"></section>
 <section id="collapsing" class="slide level2">
 <h2>Collapsing</h2>
 <p><br></p>
@@ -432,11 +674,10 @@ Alan R. Vazquez
 <p>One strategy for developing an effective visualization is to collapse categories.</p>
 <p>For example, in the variable <code>rad</code>, we can collapse the categories <code>Medium</code> and <code>High</code> into a single category called <code>Other</code>.</p>
 </section>
-<section id="section-4" class="slide level2">
+<section id="section-10" class="slide level2">
 <h2></h2>
 <p>Collapsing categories simplifies the graph</p>
-
-<img data-src="Popular_Graphs_files/figure-revealjs/unnamed-chunk-8-1.png" width="960" class="r-stretch"><p>It also allows us to emphasize a category like <code>Low</code> and see how it compares to the other categories (as a whole).</p>
+<p>It also allows us to emphasize a category like <code>Low</code> and see how it compares to the other categories (as a whole).</p>
 </section></section>
 <section>
 <section id="one-numerical-variable" class="title-slide slide level1 center">
@@ -469,11 +710,11 @@ Alan R. Vazquez
 <p>R automatically calculates the frequency table for numerical data. The histogram is a visualization of this table.</p>
 </div>
 </section>
-<section id="section-5" class="slide level2">
+<section id="section-11" class="slide level2">
 <h2></h2>
 <p><br></p>
 
-<img data-src="Popular_Graphs_files/figure-revealjs/unnamed-chunk-10-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"><aside class="notes">
+<img data-src="Popular_Graphs_files/figure-revealjs/unnamed-chunk-14-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"><aside class="notes">
 <p>The bars of the histogram touch each other. A gap indicates that there are no observations in that interval.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
@@ -516,8 +757,8 @@ Alan R. Vazquez
 <li>The number of bins is a parameter of the histogram that affects its appearance.</li>
 </ul>
 
-<img data-src="Popular_Graphs_files/figure-revealjs/unnamed-chunk-11-1.png" width="960" class="r-stretch"></section>
-<section id="section-6" class="slide level2">
+<img data-src="Popular_Graphs_files/figure-revealjs/unnamed-chunk-15-1.png" width="960" class="r-stretch"></section>
+<section id="section-12" class="slide level2">
 <h2></h2>
 <p><br><br></p>
 <p><span style="font-size: 100%;">The left histogram uses 5 bins, and the right histogram uses 30 bins</span></p>
@@ -527,7 +768,7 @@ Alan R. Vazquez
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="Popular_Graphs_files/figure-revealjs/unnamed-chunk-12-1.png" data-fig-pos="center" width="960"></p>
+<p><img data-src="Popular_Graphs_files/figure-revealjs/unnamed-chunk-16-1.png" data-fig-pos="center" width="960"></p>
 </figure>
 </div>
 </div>
@@ -537,7 +778,7 @@ Alan R. Vazquez
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="Popular_Graphs_files/figure-revealjs/unnamed-chunk-13-1.png" data-fig-pos="center" width="960"></p>
+<p><img data-src="Popular_Graphs_files/figure-revealjs/unnamed-chunk-17-1.png" data-fig-pos="center" width="960"></p>
 </figure>
 </div>
 </div>
@@ -580,7 +821,7 @@ Alan R. Vazquez
 </div></div>
 <p>It is characterized by a symmetric bell-shaped curve centered around its mean, with the highest probability density at the mean and decreasing symmetrically towards the extremes</p>
 </section>
-<section id="section-7" class="slide level2">
+<section id="section-13" class="slide level2">
 <h2></h2>
 <p>Basically, if your observations follow a normal distribution, you can use statistical methods to draw conclusions based on mathematical theory.</p>
 <div class="quarto-figure quarto-figure-center">
@@ -711,7 +952,7 @@ Alan R. Vazquez
 <h2>Scatter plot</h2>
 <p><br></p>
 
-<img data-src="Popular_Graphs_files/figure-revealjs/unnamed-chunk-15-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
+<img data-src="Popular_Graphs_files/figure-revealjs/unnamed-chunk-19-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
 <section id="individual-graphs" class="slide level2">
 <h2>Individual graphs</h2>
 <p><br><br></p>
@@ -722,7 +963,7 @@ Alan R. Vazquez
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="Popular_Graphs_files/figure-revealjs/unnamed-chunk-16-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+<p><img data-src="Popular_Graphs_files/figure-revealjs/unnamed-chunk-20-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
 </figure>
 </div>
 </div>
@@ -732,7 +973,7 @@ Alan R. Vazquez
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="Popular_Graphs_files/figure-revealjs/unnamed-chunk-17-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+<p><img data-src="Popular_Graphs_files/figure-revealjs/unnamed-chunk-21-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
 </figure>
 </div>
 </div>
@@ -774,7 +1015,7 @@ Alan R. Vazquez
 <h2>Line Plot</h2>
 <p><br></p>
 
-<img data-src="Popular_Graphs_files/figure-revealjs/unnamed-chunk-19-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
+<img data-src="Popular_Graphs_files/figure-revealjs/unnamed-chunk-23-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
 <section id="plotting-statistical-summaries-by-groups" class="slide level2">
 <h2>Plotting statistical summaries by groups</h2>
 <p>We can summarize the values of the numerical variable <span class="math inline">\(Y\)</span> for each category of a categorical variable <span class="math inline">\(X\)</span> using the median or the mean.</p>
@@ -788,12 +1029,12 @@ Alan R. Vazquez
 <h2>Cleveland dot plot</h2>
 <p>The Cleveland dot plot encodes quantitative data across different categories. It is an alternative to a bar chart.</p>
 
-<img data-src="Popular_Graphs_files/figure-revealjs/unnamed-chunk-20-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
-<section id="section-8" class="slide level2">
+<img data-src="Popular_Graphs_files/figure-revealjs/unnamed-chunk-24-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
+<section id="section-14" class="slide level2">
 <h2></h2>
 <p>We can use similar commands as the Cleveland dot plot to improve the bar chart.</p>
 
-<img data-src="Popular_Graphs_files/figure-revealjs/unnamed-chunk-21-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
+<img data-src="Popular_Graphs_files/figure-revealjs/unnamed-chunk-25-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
 <section id="two-categorical-variables" class="slide level2">
 <h2>Two Categorical Variables</h2>
 <p><br></p>
@@ -830,13 +1071,13 @@ Alan R. Vazquez
 <h2>Stacked bar chart</h2>
 <p>We study the distribution of penguin species across the three different islands using an stacked bar chart.</p>
 
-<img data-src="Popular_Graphs_files/figure-revealjs/unnamed-chunk-23-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"><p>The chart shows the frequency of each species, separated by island name.</p>
+<img data-src="Popular_Graphs_files/figure-revealjs/unnamed-chunk-27-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"><p>The chart shows the frequency of each species, separated by island name.</p>
 </section>
 <section id="side-by-side-bar-chart" class="slide level2">
 <h2>Side-by-side bar chart</h2>
 <p>An alternative to the previous chart is to place the bars side by side for the categories of the categorical variable <span class="math inline">\(X\)</span>.</p>
 
-<img data-src="Popular_Graphs_files/figure-revealjs/unnamed-chunk-24-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
+<img data-src="Popular_Graphs_files/figure-revealjs/unnamed-chunk-28-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
 <section id="stacked-or-side-by-side" class="slide level2">
 <h2>Stacked or side-by-side?</h2>
 <p><br></p>
@@ -847,7 +1088,7 @@ Alan R. Vazquez
 <li><p>Visually adds up each proportion.</p></li>
 </ul>
 </section>
-<section id="section-9" class="slide level2">
+<section id="section-15" class="slide level2">
 <h2></h2>
 <p><br><br><br></p>
 <p>Advantages of <strong>side-by-side</strong> bars:</p>
@@ -869,12 +1110,12 @@ Alan R. Vazquez
 <h2>Scatter plot by color</h2>
 <p>For two numerical variables and one categorical variable.</p>
 
-<img data-src="Popular_Graphs_files/figure-revealjs/unnamed-chunk-25-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
+<img data-src="Popular_Graphs_files/figure-revealjs/unnamed-chunk-29-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
 <section id="faceted-or-lattice-plot" class="slide level2">
 <h2>Faceted or lattice plot</h2>
 <p>A faceted plot visualizes the relationship or distribution of one or two variables for each subgroup defined by a third variable <span class="math inline">\(Z\)</span>.</p>
 
-<img data-src="Popular_Graphs_files/figure-revealjs/unnamed-chunk-26-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
+<img data-src="Popular_Graphs_files/figure-revealjs/unnamed-chunk-30-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
 <section id="multiple-line-charts" class="slide level2">
 <h2>Multiple line charts</h2>
 <p><br><br></p>
@@ -889,7 +1130,7 @@ Alan R. Vazquez
 <p>One column will contain the number of plays, and the other will contain the song title.</p>
 <p>Both columns will be ordered by the variable <code>Date</code>.</p>
 </section>
-<section id="section-10" class="slide level2">
+<section id="section-16" class="slide level2">
 <h2></h2>
 <p><br></p>
 <p>To format the data, we use the function <code>pivot_longer()</code> from the <strong>tidyr</strong> library.</p>
@@ -912,18 +1153,18 @@ Alan R. Vazquez
 <p><br></p>
 <p>Separate plots for each line.</p>
 
-<img data-src="Popular_Graphs_files/figure-revealjs/unnamed-chunk-28-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
-<section id="section-11" class="slide level2">
+<img data-src="Popular_Graphs_files/figure-revealjs/unnamed-chunk-32-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
+<section id="section-17" class="slide level2">
 <h2></h2>
 <p><br></p>
 <p>Or we can plot all lines on a single chart.</p>
 
-<img data-src="Popular_Graphs_files/figure-revealjs/unnamed-chunk-29-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
+<img data-src="Popular_Graphs_files/figure-revealjs/unnamed-chunk-33-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
 <section id="graphs-for-four-variables" class="slide level2">
 <h2>Graphs for four variables</h2>
 <p>A common chart for four variables is the scatter plot, where the color and size of the symbols depend on two <span style="color:#8B8000;"><strong>categorical</strong></span> variables.</p>
 
-<img data-src="Popular_Graphs_files/figure-revealjs/unnamed-chunk-30-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section></section>
+<img data-src="Popular_Graphs_files/figure-revealjs/unnamed-chunk-34-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section></section>
 <section id="return-to-main-page" class="title-slide slide level1 center">
 <h1><a href="https://alanrvazquez.github.io/TEC-IN2039-EN/">Return to main page</a></h1>
 

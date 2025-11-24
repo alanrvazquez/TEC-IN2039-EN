@@ -100,7 +100,7 @@ These take values that fall into *categories*.
 . . .
 
 |  |  |
-|----|----|
+|------------------------------------|------------------------------------|
 | **Variable** | **Categories** |
 | Amazon review | 1$\bigstar$, 2$\bigstar$, 3$\bigstar$, 4$\bigstar$, 5$\bigstar$ |
 | Country of origin | México, Canadá, EUA |
@@ -187,20 +187,6 @@ In practice, boolean values (`TRUE` and `FALSE`) often represent nominal categor
 
 -   Categorical variables (nominal or ordinal) are those where addition or subtraction does **NOT** make sense.
 
-```{r}
-#| output: true
-#| echo: false
-
-
-```
-
-## Activity (*solo* mode)
-
-</br>
-
-1.  Go to the **Modules** section on our CANVAS website.
-
-2.  Complete the [**Activity 2.1: Types of Variables**]{style="color:darkblue;"} individually.
 
 # One Categorical Variable
 
@@ -228,27 +214,73 @@ penguins_data %>%
 
 It visually represents frequencies or percentages of the categories of a categorical variable. The frequency (or percentage) is represented by a bar of proportional height.
 
-```{r}
-#| fig-align: center
-#| echo: false
-#| output: true
+![](images/FinalBarChart.png){fig-align="center"}
 
-# Create plot.
-gf_bar( ~ species, data = penguins_data)
-```
+## Construct a bar chart in Flourish
 
-## Bar chart for percentages
+![](images/FlourishStudio.png){fig-align="center"}
 
-</br>
+## 
 
-```{r}
-#| fig-align: center
-#| echo: false
-#| output: true
+In the visualization gallery, choose **Bar Chart**.
 
-# Create plot.
-gf_percents( ~ species, data = penguins_data)
-```
+
+![](images/SelectBarChart.png){fig-align="center"}
+
+## Replace the data with your own
+
+::: columns
+::: {.column width="50%"}
+![](images/DefaultBarChart.png){fig-align="center"}
+:::
+::: {.column width="50%"}
+![](images/UploadDataBarChart .png){fig-align="center"}
+:::
+:::
+
+![](images/UploadedDataBarChart.png){fig-align="center"}
+
+## Select the correct variables
+
+Unfortunately, it is not simple to create a standard bar chart with the counts of each category. To to this, we must select the column with the categories **Species** and an auxiliary column that has complete entries. In this case, we use the **Year**.
+
+![](images/SelectCorrectVariablesBarChart.png){fig-align="center"}
+
+## 
+
+The preview plot has all bars at the same height. To replace the height for the  frequencies of the categories, we change the **Agregation mode** to *Count*.
+
+::: columns
+::: {.column width="50%"}
+![](images/ChangeCountBarChart.png){fig-align="center"}
+:::
+::: {.column width="50%"}
+![](images/ChangeCountBarChart2.png){fig-align="center"}
+:::
+:::
+
+We also change the **Height mode** to *Standard* to enhance the visualization.
+
+## Principle 1: Define the message
+
+Following Principle 1 of data visualization, we add a header or title to the plot by going to the section **Header**.
+
+::: columns
+::: {.column width="50%"}
+![](images/AddHeaderBarChart.png){fig-align="center"}
+:::
+::: {.column width="50%"}
+![](images/SetHeaderBarChart.png){fig-align="center"}
+:::
+:::
+
+
+## Final bar chart
+
+![](images/FinalBarChart.png){fig-align="center"}
+
+We see that most penguins are Adelie.
+
 
 ## Example 2: Boston Housing Dataset
 
@@ -280,7 +312,99 @@ We concentrate on the following variables:
 
 -   `chas` : Whether the house is next to the Charles River (1: Yes and 0: No)
 
--   `rad` : Index of accessibility to radial highways (`Low`, `Medium`, `High`).
+-   `rad` : Index of accessibility to radial highways (0: Low, 1: Medium, 2: High).
+
+## Data wrangling with R
+
+To create a effective bar plots in Flourish, we must wrangle the variables `chas` and `rad` a little bit. 
+
+Specifically, we must ensure that these variables are categorical and their categories have the appropriate names.
+
+```{r}
+#| fig-pos: center
+#| echo: true
+#| output: true
+
+Boston_dataset = read_excel("Boston_dataset.xlsx")
+Boston_dataset %>% select(`chas`, `rad`) %>%  head()
+```
+
+##
+
+The variables are numeric because their header shows a `dbl`.
+
+```{r}
+#| fig-pos: center
+#| echo: false
+#| output: true
+Boston_dataset %>% select(`chas`, `rad`) %>%  head()
+```
+
+To set variables as categorical we use the functions `mutate()` and `as.factor()`.
+
+```{r}
+#| fig-pos: center
+#| echo: true
+#| output: false
+
+Boston_dataset_wr = Boston_dataset %>% 
+                    mutate(`chas` = as.factor(`chas`)) %>% 
+                    mutate(`rad` = as.factor(`rad`))
+```
+
+##
+
+Now the header of the variables show a `fct` indicating that the variables are categorical.
+
+```{r}
+#| fig-pos: center
+#| echo: true
+#| output: true
+
+Boston_dataset_wr  %>% select(`chas`, `rad`) 
+```
+
+##
+
+Next, we replace the 0 and 1 of `chas` for the label "No" and "Yes", respectively. To this end, we use the function `mutate()` and `caste_match()`.
+
+```{r}
+#| fig-pos: center
+#| echo: true
+#| output: false
+
+Boston_dataset_wr = Boston_dataset_wr %>% 
+  mutate(`chas` = case_match(`chas`, "0" ~ "No", "1" ~ "Yes"))
+```
+
+</br>
+
+Using the same functions, we replace the 0, 1, and 2 in the variable `rad` by "Low", "Medium", and "High", respectively.
+
+```{r}
+#| fig-pos: center
+#| echo: true
+#| output: false
+
+Boston_dataset_wr = Boston_dataset_wr %>% 
+  mutate(`rad` = case_match(`rad`, "0" ~ "Low", "1" ~ "Medium",
+                            "2" ~ "High"))
+```
+
+## 
+
+Now, the columns show the actual category labels instead of the coded (or number) labels.
+
+```{r}
+#| fig-pos: center
+#| echo: true
+#| output: true
+
+Boston_dataset_wr  %>% select(`chas`, `rad`) 
+```
+
+
+Finally, we save the new dataset using the function "writexl" from the **writexl** package in R. 
 
 ## 
 
@@ -290,7 +414,7 @@ Let's create a bar chart for `chas`.
 
 ```{r}
 #| fig-algin: center
-#| echo: false
+#| echo: true
 #| output: true
 
 Boston_dataset = Boston_dataset %>% 
@@ -334,10 +458,9 @@ Collapsing categories simplifies the graph
 #| echo: false
 #| output: true
 
-Boston_dataset_simple = Boston_dataset %>% 
+Boston_dataset_simple = Boston_dataset_wr %>% 
       mutate(rad = case_when(rad != "Low" ~ "Other",
                              rad == "Low" ~ "Low"))
-gf_percents( ~ rad, data = Boston_dataset_simple)
 ```
 
 It also allows us to emphasize a category like `Low` and see how it compares to the other categories (as a whole).
