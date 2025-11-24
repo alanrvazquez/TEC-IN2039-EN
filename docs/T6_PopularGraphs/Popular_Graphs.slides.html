@@ -887,11 +887,11 @@ Alan R. Vazquez
 </tr>
 <tr class="even">
 <td style="text-align: left;">Categorical</td>
-<td style="text-align: left;">Side-by-side bar chart, stacked bar chart</td>
+<td style="text-align: left;">Side-by-side bar plot, stacked bar plot</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Mixed</td>
-<td style="text-align: left;">Cleaveland Plot</td>
+<td style="text-align: left;">Bar Plot</td>
 </tr>
 </tbody>
 </table>
@@ -943,7 +943,22 @@ Alan R. Vazquez
 <h2>Scatter plot</h2>
 <p><br></p>
 
-<img data-src="Popular_Graphs_files/figure-revealjs/unnamed-chunk-15-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
+<img data-src="images/FinalScatterPlot.png" class="quarto-figure quarto-figure-center r-stretch"></section>
+<section id="generate-scatter-plot-in-flourish" class="slide level2">
+<h2>Generate scatter plot in Flourish</h2>
+<p>Select <em>Scatter</em> in the catalog of visualizations.</p>
+
+<img data-src="images/SelectedScatter.png" class="quarto-figure quarto-figure-center r-stretch"></section>
+<section id="section-20" class="slide level2">
+<h2></h2>
+<p>Next, load the “auto_dataset.xlsx” into Flourish. Set the variables under study <code>mpg</code> and <code>weight</code> and assign them to <strong>Y values</strong> and <strong>X values</strong>, respectively.</p>
+
+<img data-src="images/LoadedAutoHighlight.png" class="quarto-figure quarto-figure-center r-stretch"></section>
+<section id="section-21" class="slide level2">
+<h2></h2>
+<p>Go back to the <strong>Preview</strong> tab and add text to the axes and title.</p>
+
+<img data-src="images/FinalScatterPlot.png" class="quarto-figure quarto-figure-center r-stretch"></section>
 <section id="individual-graphs" class="slide level2">
 <h2>Individual graphs</h2>
 <p><br><br></p>
@@ -954,7 +969,7 @@ Alan R. Vazquez
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="Popular_Graphs_files/figure-revealjs/unnamed-chunk-16-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+<p><img data-src="Popular_Graphs_files/figure-revealjs/unnamed-chunk-15-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
 </figure>
 </div>
 </div>
@@ -964,16 +979,16 @@ Alan R. Vazquez
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="Popular_Graphs_files/figure-revealjs/unnamed-chunk-17-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+<p><img data-src="Popular_Graphs_files/figure-revealjs/unnamed-chunk-16-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
 </figure>
 </div>
 </div>
 </div>
 </div></div>
 </section>
-<section id="line-graph" class="slide level2">
-<h2>Line graph</h2>
-<p>A line graph is a visual representation of data where data points are connected by a line. Axes:</p>
+<section id="line-plot" class="slide level2">
+<h2>Line plot</h2>
+<p>A line plot is a visual representation of data where data points are connected by a line. Axes:</p>
 <ul>
 <li><span class="math inline">\(X\)</span> (horizontal): Represents time or the independent variable.</li>
 <li><span class="math inline">\(Y\)</span> (vertical): Represents the dependent variable.</li>
@@ -986,8 +1001,8 @@ Alan R. Vazquez
 </blockquote>
 </div>
 </section>
-<section id="example-2" class="slide level2">
-<h2>Example 2</h2>
+<section id="example-5" class="slide level2">
+<h2>Example 5</h2>
 <p><br></p>
 <p>Consider the data in the file “spotify.xlsx”. This dataset contains the global daily streams of the top five most popular songs on the music streaming service Spotify in 2017.</p>
 <div class="cell" data-layout-align="center">
@@ -1002,30 +1017,64 @@ Alan R. Vazquez
 </div>
 </div>
 </section>
-<section id="line-plot" class="slide level2">
-<h2>Line Plot</h2>
+<section id="line-plot-1" class="slide level2">
+<h2>Line plot</h2>
 <p><br></p>
 
-<img data-src="Popular_Graphs_files/figure-revealjs/unnamed-chunk-19-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
+<img data-src="images/FonsiLine.png" class="quarto-figure quarto-figure-center r-stretch"></section>
+<section id="generate-scatter-line-plot-in-flourish" class="slide level2">
+<h2>Generate scatter line plot in Flourish</h2>
+<p>Select <em>Scatter</em> in the catalog of visualizations.</p>
+
+<img data-src="images/SelectedLine.png" class="quarto-figure quarto-figure-center r-stretch"></section>
+<section id="section-22" class="slide level2">
+<h2></h2>
+<p>Next, load the “auto_dataset.xlsx” into Flourish. Set the variables under study <code>Date</code> and <code>Despacito</code> and assign them to <strong>Labels/time</strong> and <strong>Values</strong>, respectively.</p>
+
+<img data-src="images/LoadedDespacitoHighlight.png" class="quarto-figure quarto-figure-center r-stretch"></section>
+<section id="section-23" class="slide level2">
+<h2></h2>
+<p>Go back to the <strong>Preview</strong> tab and add text to the axes and title.</p>
+
+<img data-src="images/FonsiLine.png" class="quarto-figure quarto-figure-center r-stretch"></section>
+<section id="multiple-line-charts" class="slide level2">
+<h2>Multiple line charts</h2>
+<p>We can visualize multiple variables simultaneously using a line plot. For example, we can show the evolution of play counts for the 5 songs in the file “spotify.xlsx” over time.</p>
+<p>To this end, simply go back to the <strong>Data</strong> tab and set a range of variables in <strong>Values</strong>.</p>
+
+<img data-src="images/RangeLineChart.png" class="quarto-figure quarto-figure-center r-stretch"></section>
+<section id="section-24" class="slide level2">
+<h2></h2>
+
+<img data-src="images/SpotifyLines.png" class="quarto-figure quarto-figure-center r-stretch"></section>
 <section id="plotting-statistical-summaries-by-groups" class="slide level2">
 <h2>Plotting statistical summaries by groups</h2>
-<p>We can summarize the values of the numerical variable <span class="math inline">\(Y\)</span> for each category of a categorical variable <span class="math inline">\(X\)</span> using the median or the mean.</p>
-<p>For example, let’s plot the average miles per gallon of cars produced in America, Europe, and Japan. Two common visualization types for plotting a numerical and a discrete variable when there is only one value per category are:</p>
 <ul>
-<li>Cleveland dot plot</li>
-<li>Bar chart</li>
+<li><p>We can summarize the values of the numerical variable <span class="math inline">\(Y\)</span> for each category of a categorical variable <span class="math inline">\(X\)</span> using the mean.</p></li>
+<li><p>For example, let’s plot the average miles per gallon of cars produced in America, Europe, and Japan.</p></li>
+<li><p>A common visualization for plotting a numerical and a discrete variable when there is only one value per category is the <strong>bar chart</strong>.</p></li>
 </ul>
 </section>
-<section id="cleveland-dot-plot" class="slide level2">
-<h2>Cleveland dot plot</h2>
-<p>The Cleveland dot plot encodes quantitative data across different categories. It is an alternative to a bar chart.</p>
+<section id="bar-plot" class="slide level2">
+<h2>Bar plot</h2>
+<p>In this case, the bar plot encodes quantitative data across different categories.</p>
 
-<img data-src="Popular_Graphs_files/figure-revealjs/unnamed-chunk-20-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
-<section id="section-20" class="slide level2">
+<img data-src="images/CleavelandFinalMPG.png" class="quarto-figure quarto-figure-center r-stretch"></section>
+<section id="generate-bar-plot-in-flourish" class="slide level2">
+<h2>Generate bar plot in Flourish</h2>
+<p>Select <em>Scatter</em> in the catalog of visualizations.</p>
+
+<img data-src="images/SelectBarChart.png" class="quarto-figure quarto-figure-center r-stretch"></section>
+<section id="section-25" class="slide level2">
 <h2></h2>
-<p>We can use similar commands as the Cleveland dot plot to improve the bar chart.</p>
+<p>Load the “auto_dataset.xlsx” into Flourish. Set the variables under study <code>origin</code> and <code>mpg</code> and assign them to <strong>Labels/time</strong> and <strong>Values</strong>, respectively.</p>
 
-<img data-src="Popular_Graphs_files/figure-revealjs/unnamed-chunk-21-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
+<img data-src="images/BarChartMPGSelect.png" class="quarto-figure quarto-figure-center r-stretch"></section>
+<section id="section-26" class="slide level2">
+<h2></h2>
+<p>Go to the <strong>Preview</strong> tab and set <em>Average</em> in <strong>Aggregation mode</strong>.</p>
+
+<img data-src="images/FormatBarChartMPG.png" class="quarto-figure quarto-figure-center r-stretch"></section>
 <section id="two-categorical-variables" class="slide level2">
 <h2>Two Categorical Variables</h2>
 <p><br></p>
@@ -1062,13 +1111,13 @@ Alan R. Vazquez
 <h2>Stacked bar chart</h2>
 <p>We study the distribution of penguin species across the three different islands using an stacked bar chart.</p>
 
-<img data-src="Popular_Graphs_files/figure-revealjs/unnamed-chunk-23-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"><p>The chart shows the frequency of each species, separated by island name.</p>
+<img data-src="Popular_Graphs_files/figure-revealjs/unnamed-chunk-19-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"><p>The chart shows the frequency of each species, separated by island name.</p>
 </section>
 <section id="side-by-side-bar-chart" class="slide level2">
 <h2>Side-by-side bar chart</h2>
 <p>An alternative to the previous chart is to place the bars side by side for the categories of the categorical variable <span class="math inline">\(X\)</span>.</p>
 
-<img data-src="Popular_Graphs_files/figure-revealjs/unnamed-chunk-24-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
+<img data-src="Popular_Graphs_files/figure-revealjs/unnamed-chunk-20-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
 <section id="stacked-or-side-by-side" class="slide level2">
 <h2>Stacked or side-by-side?</h2>
 <p><br></p>
@@ -1079,7 +1128,7 @@ Alan R. Vazquez
 <li><p>Visually adds up each proportion.</p></li>
 </ul>
 </section>
-<section id="section-21" class="slide level2">
+<section id="section-27" class="slide level2">
 <h2></h2>
 <p><br><br><br></p>
 <p>Advantages of <strong>side-by-side</strong> bars:</p>
@@ -1101,61 +1150,12 @@ Alan R. Vazquez
 <h2>Scatter plot by color</h2>
 <p>For two numerical variables and one categorical variable.</p>
 
-<img data-src="Popular_Graphs_files/figure-revealjs/unnamed-chunk-25-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
-<section id="faceted-or-lattice-plot" class="slide level2">
-<h2>Faceted or lattice plot</h2>
-<p>A faceted plot visualizes the relationship or distribution of one or two variables for each subgroup defined by a third variable <span class="math inline">\(Z\)</span>.</p>
-
-<img data-src="Popular_Graphs_files/figure-revealjs/unnamed-chunk-26-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
-<section id="multiple-line-charts" class="slide level2">
-<h2>Multiple line charts</h2>
-<p><br><br></p>
-<p>Instead of visualizing one variable, we can visualize multiple variables simultaneously using a line plot. For example, we can show the evolution of play counts for the 5 songs in the file “spotify.xlsx” over time.</p>
-<p><br></p>
-<p>However, some data visualization packages necessitate a special format to produce the multiple lines plot.</p>
-</section>
-<section id="the-required-format" class="slide level2">
-<h2>The required format</h2>
-<p><br></p>
-<p>For a multiple line chart, we need to merge the columns <code>Shape of You</code>, <code>Despacito</code>, <code>Something Just Like This</code>, <code>HUMBLE</code> and <code>Unforgettable</code> into two columns.</p>
-<p>One column will contain the number of plays, and the other will contain the song title.</p>
-<p>Both columns will be ordered by the variable <code>Date</code>.</p>
-</section>
-<section id="section-22" class="slide level2">
-<h2></h2>
-<p><br></p>
-<p>To format the data, we use the function <code>pivot_longer()</code> from the <strong>tidyr</strong> library.</p>
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 6 × 4
-  Date                  Day Cancion                  Reproducciones
-  &lt;dttm&gt;              &lt;dbl&gt; &lt;chr&gt;                             &lt;dbl&gt;
-1 2017-01-06 00:00:00     1 Shape of You                   12287078
-2 2017-01-06 00:00:00     1 Despacito                            NA
-3 2017-01-06 00:00:00     1 Something Just Like This             NA
-4 2017-01-06 00:00:00     1 HUMBLE.                              NA
-5 2017-01-06 00:00:00     1 Unforgettable                        NA
-6 2017-01-07 00:00:00     2 Shape of You                   13190270</code></pre>
-</div>
-</div>
-</section>
-<section id="facet-grid" class="slide level2">
-<h2>Facet grid</h2>
-<p><br></p>
-<p>Separate plots for each line.</p>
-
-<img data-src="Popular_Graphs_files/figure-revealjs/unnamed-chunk-28-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
-<section id="section-23" class="slide level2">
-<h2></h2>
-<p><br></p>
-<p>Or we can plot all lines on a single chart.</p>
-
-<img data-src="Popular_Graphs_files/figure-revealjs/unnamed-chunk-29-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
+<img data-src="Popular_Graphs_files/figure-revealjs/unnamed-chunk-21-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
 <section id="graphs-for-four-variables" class="slide level2">
 <h2>Graphs for four variables</h2>
 <p>A common chart for four variables is the scatter plot, where the color and size of the symbols depend on two <span style="color:#8B8000;"><strong>categorical</strong></span> variables.</p>
 
-<img data-src="Popular_Graphs_files/figure-revealjs/unnamed-chunk-30-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section></section>
+<img data-src="Popular_Graphs_files/figure-revealjs/unnamed-chunk-22-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section></section>
 <section id="return-to-main-page" class="title-slide slide level1 center">
 <h1><a href="https://alanrvazquez.github.io/TEC-IN2039-EN/">Return to main page</a></h1>
 

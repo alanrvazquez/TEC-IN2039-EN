@@ -674,8 +674,8 @@ There are various types of graphs that help us explore relationships between two
 | Type        | Graph Type                                |
 |:------------|:------------------------------------------|
 | Numerical   | Scatter plot, line graph                  |
-| Categorical | Side-by-side bar chart, stacked bar chart |
-| Mixed       | Cleaveland Plot                           |
+| Categorical | Side-by-side bar plot, stacked bar plot |
+| Mixed       | Bar Plot                           |
 :::
 
 ::: notes
@@ -718,16 +718,25 @@ Variables $X$ and $Y$ are placed on the horizontal and vertical axes, respective
 
 </br>
 
-```{r}
-#| fig-align: center
-#| echo: false
-#| output: true
+![](images/FinalScatterPlot.png){fig-align="center"}
 
-mi_diagrama = gf_point(mpg ~ weight, data = auto_data, color = "darkblue", size = 2, linetype = 1) + labs(title = "Relationship between Weight and MPG", x = "Weight (lb)", y = "Miles Per Gallon (MPG)")
-mi_diagrama = mi_diagrama + theme(axis.text=element_text(size=20), axis.title=element_text(size=20),
-                                   plot.title=element_text(size=25)) 
-mi_diagrama
-```
+## Generate scatter plot in Flourish
+
+Select *Scatter* in the catalog of visualizations.
+
+![](images/SelectedScatter.png){fig-align="center"}
+
+##
+
+Next, load the "auto_dataset.xlsx" into Flourish. Set the variables under study `mpg` and `weight` and assign them to **Y values** and **X values**, respectively.
+
+![](images/LoadedAutoHighlight.png){fig-align="center"}
+
+##
+
+Go back to the **Preview** tab and add text to the axes and title.
+
+![](images/FinalScatterPlot.png){fig-align="center"}
 
 ## Individual graphs
 
@@ -764,9 +773,9 @@ histogram_weight
 :::
 :::::
 
-## Line graph
+## Line plot
 
-A line graph is a visual representation of data where data points are connected by a line. Axes:
+A line plot is a visual representation of data where data points are connected by a line. Axes:
 
 -   $X$ (horizontal): Represents time or the independent variable.
 -   $Y$ (vertical): Represents the dependent variable.
@@ -779,7 +788,7 @@ Each point represents a value at a given moment.
 
 > The objective is to explore trends over time or the evolution of a continuous variable.
 
-## Example 2
+## Example 5
 
 </br>
 
@@ -794,69 +803,78 @@ spotify_data = read_excel("spotify.xlsx")
 spotify_data %>% head(3)
 ```
 
-## Line Plot
+## Line plot
 
 </br>
 
-```{r}
-#| fig-align: center
-#| echo: false
-#| output: true
+![](images/FonsiLine.png){fig-align="center"}
 
-mi_linea = gf_line(Despacito ~ Date, data = spotify_data, color = "darkblue", linewidth = 1.3) + labs(title = "Popularity of 'Despasito' by Luis Fonsi", x = "Date", y = "Number of Plays in Spotify")
-mi_linea = mi_linea + theme(axis.text=element_text(size=20), axis.title=element_text(size=18),
-                                plot.title=element_text(size=25)) 
-mi_linea
-```
+## Generate scatter line plot in Flourish
 
-## Plotting statistical summaries by groups
+Select *Scatter* in the catalog of visualizations.
 
-We can summarize the values of the numerical variable $Y$ for each category of a categorical variable $X$ using the median or the mean.
+![](images/SelectedLine.png){fig-align="center"}
 
-For example, let's plot the average miles per gallon of cars produced in America, Europe, and Japan. Two common visualization types for plotting a numerical and a discrete variable when there is only one value per category are:
+##
 
--   Cleveland dot plot
--   Bar chart
+Next, load the "auto_dataset.xlsx" into Flourish. Set the variables under study `Date` and `Despacito` and assign them to **Labels/time** and **Values**, respectively.
 
-## Cleveland dot plot
+![](images/LoadedDespacitoHighlight.png){fig-align="center"}
 
-The Cleveland dot plot encodes quantitative data across different categories. It is an alternative to a bar chart.
+##
 
-```{r}
-#| fig-align: center
-#| echo: false
-#| output: true
+Go back to the **Preview** tab and add text to the axes and title.
+
+![](images/FonsiLine.png){fig-align="center"}
 
 
-resumen_autos = auto_data %>% 
-  group_by(origin) %>% 
-  summarise("Promedio.mpg" = mean(mpg))
-gf_point(origin ~ Promedio.mpg, size = 10, color = "pink", data = resumen_autos) +
-  labs(y = "Origin", x = "Average MPG", 
-       title = "Comparison Across of Cars Diferent Regions") + 
-  scale_x_continuous(limits = c(0, 35)) + 
-  theme_bw() + 
-  theme(axis.text=element_text(size=20), axis.title=element_text(size=20),
-        plot.title=element_text(size=20))
 
-```
+## Multiple line charts
+
+We can visualize multiple variables simultaneously using a line plot. For example, we can show the evolution of play counts for the 5 songs in the file "spotify.xlsx" over time.
+
+To this end, simply go back to the **Data** tab and set a range of variables in **Values**.
+
+![](images/RangeLineChart.png){fig-align="center"}
 
 ## 
 
-We can use similar commands as the Cleveland dot plot to improve the bar chart.
+![](images/SpotifyLines.png){fig-align="center"}
 
-```{r}
-#| fig-align: center
-#| echo: false
-#| output: true
+## Plotting statistical summaries by groups
 
-gf_col(origin ~ Promedio.mpg, fill = "pink", data = resumen_autos) +
-  labs(y = "Origin", x = "Average MPG", 
-       title = "Comparison Across of Cars Diferent Regions") + 
-  theme_bw() + 
-  theme(axis.text=element_text(size=20), axis.title=element_text(size=20),
-        plot.title=element_text(size=20))
-```
+
+- We can summarize the values of the numerical variable $Y$ for each category of a categorical variable $X$ using the mean.
+
+- For example, let's plot the average miles per gallon of cars produced in America, Europe, and Japan. 
+
+- A common visualization for plotting a numerical and a discrete variable when there is only one value per category is the **bar chart**.
+
+## Bar plot
+
+In this case, the bar plot encodes quantitative data across different categories. 
+
+![](images/CleavelandFinalMPG.png){fig-align="center"}
+
+## Generate bar plot in Flourish
+
+Select *Scatter* in the catalog of visualizations.
+
+![](images/SelectBarChart.png){fig-align="center"}
+
+##
+
+Load the "auto_dataset.xlsx" into Flourish. Set the variables under study `origin` and `mpg` and assign them to **Labels/time** and **Values**, respectively.
+
+![](images/BarChartMPGSelect.png){fig-align="center"}
+
+##
+
+Go to the **Preview** tab and set *Average* in **Aggregation mode**.
+
+![](images/FormatBarChartMPG.png){fig-align="center"}
+
+
 
 ## Two Categorical Variables
 
@@ -957,86 +975,6 @@ For two numerical variables and one categorical variable.
 gf_point(mpg ~ weight, color = ~origin, data = auto_data) 
 ```
 
-## Faceted or lattice plot
-
-A faceted plot visualizes the relationship or distribution of one or two variables for each subgroup defined by a third variable $Z$.
-
-```{r}
-#| fig-align: center
-#| echo: false
-#| output: true
-
-gf_point(mpg ~ weight, data = auto_data) %>% 
-  gf_facet_grid(origin ~ .) 
-```
-
-## Multiple line charts
-
-</br></br>
-
-Instead of visualizing one variable, we can visualize multiple variables simultaneously using a line plot. For example, we can show the evolution of play counts for the 5 songs in the file "spotify.xlsx" over time.
-
-</br>
-
-However, some data visualization packages necessitate a special format to produce the multiple lines plot.
-
-## The required format
-
-</br>
-
-For a multiple line chart, we need to merge the columns `Shape of You`, `Despacito`, `Something Just Like This`, `HUMBLE` and `Unforgettable` into two columns.
-
-One column will contain the number of plays, and the other will contain the song title.
-
-Both columns will be ordered by the variable `Date`.
-
-## 
-
-</br>
-
-To format the data, we use the function `pivot_longer()` from the **tidyr** library.
-
-```{r}
-#| echo: false
-#| output: true
-
-data_lines = spotify_data %>% 
-  pivot_longer(c("Shape of You", "Despacito", "Something Just Like This", 
-                 "HUMBLE.", "Unforgettable"), 
-               names_to = "Cancion", 
-               values_to = "Reproducciones")
-data_lines %>% head()
-```
-
-## Facet grid
-
-</br>
-
-Separate plots for each line.
-
-```{r}
-#| fig-align: center
-#| echo: false
-#| output: true
-
-
-gf_line(Reproducciones ~ Date, data = data_lines) %>%
-  gf_facet_grid( ~ Cancion)
-```
-
-## 
-
-</br>
-
-Or we can plot all lines on a single chart.
-
-```{r}
-#| fig-align: center
-#| echo: false
-#| output: true
-
-gf_line(Reproducciones ~ Date, color = ~Cancion, data = data_lines)
-```
 
 ## Graphs for four variables
 
