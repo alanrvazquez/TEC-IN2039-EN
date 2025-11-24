@@ -242,7 +242,7 @@ In the visualization gallery, choose **Bar Chart**.
 
 ## Select the correct variables
 
-Unfortunately, it is not simple to create a standard bar chart with the counts of each category. To to this, we must select the column with the categories **Species** and an auxiliary column that has complete entries. In this case, we use the **Year**.
+Unfortunately, it is not easy to create a standard bar chart with the counts of each category. To do this, we assign the variable `species` to **Labels/time**, and an auxiliary column with complete entries to **Values**. In this case, we use the `year`.
 
 ![](images/SelectCorrectVariablesBarChart.png){fig-align="center"}
 
@@ -331,6 +331,8 @@ Boston_dataset %>% select(`chas`, `rad`) %>%  head()
 
 ##
 
+</br>
+
 The variables are numeric because their header shows a `dbl`.
 
 ```{r}
@@ -354,6 +356,8 @@ Boston_dataset_wr = Boston_dataset %>%
 
 ##
 
+</br>
+
 Now the header of the variables show a `fct` indicating that the variables are categorical.
 
 ```{r}
@@ -365,6 +369,8 @@ Boston_dataset_wr  %>% select(`chas`, `rad`)
 ```
 
 ##
+
+</br>
 
 Next, we replace the 0 and 1 of `chas` for the label "No" and "Yes", respectively. To this end, we use the function `mutate()` and `caste_match()`.
 
@@ -393,6 +399,8 @@ Boston_dataset_wr = Boston_dataset_wr %>%
 
 ## 
 
+</br>
+
 Now, the columns show the actual category labels instead of the coded (or number) labels.
 
 ```{r}
@@ -403,43 +411,67 @@ Now, the columns show the actual category labels instead of the coded (or number
 Boston_dataset_wr  %>% select(`chas`, `rad`) 
 ```
 
+##
 
-Finally, we save the new dataset using the function "writexl" from the **writexl** package in R. 
-
-## 
-
-</br>
-
-Let's create a bar chart for `chas`.
+We save the new dataset using the function `write_xlsx()` from the **writexl** package in R. 
 
 ```{r}
-#| fig-algin: center
+#| fig-pos: center
 #| echo: true
 #| output: true
 
-Boston_dataset = Boston_dataset %>% 
-  mutate_at(c("chas", "rad"), as.factor) %>% 
-  mutate(chas = case_match(chas, "0" ~ "No", "1" ~ "Yes"))
-gf_percents( ~ chas, data = Boston_dataset)
+# write_xlsx(Boston_dataset_wr, "BostonDataFlourish.xlsx")
 ```
 
-## 
+We then proceed to visualize the processed data using [Flourish](https://flourish.studio/).
+
+![](images/SelectBarChart.png){fig-align="center"}
+
+## Let's create a bar chart for `chas`. 
+
+We load the dataset into Flourish.
+
+![](images/BostonDataFlourish.png){fig-align="center"}
+
+##
+
+We assign the `chas` variable to the **Labels/time**. We also assign an auxiliary column with complete entries to **Values**. In this case, we use `nox`.
+
+![](images/ChasSetVariables.png){fig-align="center"}
+
+##
+
+Now, we go back to the **Preview** tab and set **Aggregation mode** to *Count*.
+
+![](images/FormatChas.png){fig-align="center"}
+
+
+##
 
 </br>
 
-Now, let's create a bar chart for `rad`.
+In the menu of the **Preview** tab, we add a title and a good label for the horizontal axis. 
 
-```{r}
-#| fig-algin: center
-#| echo: false
-#| output: true
+::: columns
+::: {.column width="50%"}
+![](images/LabelChas.png){fig-align="center"}
+:::
+::: {.column width="50%"}
+![](images/HeaderChas.png){fig-align="center"}
+:::
+:::
 
-Boston_dataset = Boston_dataset %>% 
-      mutate(rad = factor(rad, levels = c("Low", "Medium", "High")))
-gf_percents( ~ rad, data = Boston_dataset)
-```
+## Bar chart for `chas`
 
-## Collapsing
+![](images/FinalBarChas.png){fig-align="center"}
+
+## 
+
+Following similar steps, we create a bar chart for `rad` in Flourish.
+
+![](images/FinalRadChart.png){fig-align="center"}
+
+## Collapsing categories
 
 </br>
 
@@ -451,11 +483,11 @@ For example, in the variable `rad`, we can collapse the categories `Medium` and 
 
 ## 
 
-Collapsing categories simplifies the graph
+We collapse categories using the function called `case_when()`.
 
 ```{r}
 #| fig-algin: center
-#| echo: false
+#| echo: true
 #| output: true
 
 Boston_dataset_simple = Boston_dataset_wr %>% 
@@ -463,7 +495,25 @@ Boston_dataset_simple = Boston_dataset_wr %>%
                              rad == "Low" ~ "Low"))
 ```
 
-It also allows us to emphasize a category like `Low` and see how it compares to the other categories (as a whole).
+Collapsing categories simplifies the graph and allows us to emphasize a category like `Low` and see how it compares to the other categories (as a whole).
+
+</br>
+
+We save the new dataset using the function `write_xlsx()`.
+
+```{r}
+#| fig-pos: center
+#| echo: true
+#| output: true
+
+# write_xlsx(Boston_dataset_simple, "BostonCollapsed.xlsx")
+```
+
+We then proceed to visualize the processed data using [Flourish](https://flourish.studio/).
+
+## The resulting bar chart
+
+![](images/FinalBarChartCollapsed.png){fig-align="center"}
 
 # One Numerical Variable
 
@@ -491,146 +541,82 @@ The file "CYLT.xlsx" contains 50 cycle times of a piston operating under fixed c
 piston_data = read_excel("CYCLT.xlsx") 
 ```
 
-## Histogram
 
-Visualizes the distribution of observations, indicating regions where observations are concentrated or sparse.
-
-. . .
-
-It is built using a ***frequency table***.
-
-1.  Define a maximum number of intervals or *bins* (from 5 to 30).
-2.  Define the ranges of the intervals.
-3.  Group the observations in the interval to which they belong.
-
-. . .
-
-R automatically calculates the frequency table for numerical data. The histogram is a visualization of this table.
-
-## 
+## Beeswarm
 
 </br>
 
-```{r}
-#| fig-align: center
-#| echo: false
-#| output: true
+Visualizes the distribution of individual observations along a numeric axis.  
 
-gf_histogram( ~ cycle_time, data = piston_data, color = "black",
-            fill = "pink") + labs(title = "Histogram of cycle time", 
-            x = "Cycle Time (sec)", y = "Frequency", 
-            caption = "Data of 50 cycle times of a pisto") + theme_bw() 
-```
+. . . 
 
-::: notes
-The bars of the histogram touch each other. A gap indicates that there are no observations in that interval.
-:::
-
-## It is not the same as a bar chart
-
-</br>
-
-With categorical data, a bar chart looks similar to a histogram because it displays the frequency of categories.
-
-However, we cannot interpret the shape of a bar chart in the same way as a histogram.
-
-1.  The frequency of a category is represented by the height of the bar, and the width does not contain any information.
-
-2.  A bar chart will not highlight outliers.
-
-::: notes
-Tails and symmetry do not make sense in this setting.
-:::
-
-## Number of bins
-
--   The number of bins is a parameter of the histogram that affects its appearance.
-
-```{r}
-#| fig-algin: center
-#| echo: false
-#| output: true
-
-gf_histogram( ~ cycle_time, data = piston_data, bins = 5, color = "black", 
-              fill = "pink") + labs(title = "Using Five Bins", 
-            x = "Cycle Time (sec)", y = "Frequency", 
-            caption = "Data of 50 cycle times of a pisto") + theme_bw() 
-```
+- Each point represents one data value, and the points are arranged to avoid overlapping—similar to bees clustering around a hive.
+- This makes it easy to see where observations are dense or sparse, while still showing *every* individual data point.
 
 ## 
 
-</br></br>
+![](images/FinalBeeswarmCycle.png){fig-align="center"}
 
-[The left histogram uses 5 bins, and the right histogram uses 30 bins]{style="font-size: 100%;"}
+## 
+
+</br></br></br>
+
+
+- Unlike histograms, which aggregate counts into bars, **beeswarm plots preserve every point**, giving a more detailed picture of the underlying distribution.
+
+## Beeswarm in Flourish
+
+Beeswarm is in the section **Scatter** of the catalog of visualizations in Flourish.
+
+![](images/BeeswarmCatalog.png){fig-align="center"}
+
+## 
+
+In the Beeswarm plot, we replace the current data with the data in "CYLT.xlsx" in the **Data** tab.
+
+![](images/BSCycle.png){fig-align="center"}
+
+
+## 
+
+In the **Data** tab, we only assign the `cycle_time` variable to the **X values** section.
+
+![](images/SelectVarBSCycle.png){fig-align="center"}
+
+## 
+
+Let's go back to the **Preview** tab.
+
+![](images/BSPreview.png){fig-align="center"}
+
+## 
+
+There, we modify the label of the horizontal axis X and header in the sections **X axis** and **Header**.
 
 ::::: columns
-::: {.column width="50%"}
-```{r}
-#| fig-pos: center
-#| echo: false
-#| output: true
-
-gf_histogram( ~ cycle_time, data = piston_data, bins = 5, 
-              color = "black", fill = "pink") + labs(title = "Using Five Bins", 
-            x = "Cycle Time (sec)", y = "Frequency", 
-            caption = "Data of 50 cycle times of a pisto") + theme_bw() 
-              
-```
+::: {.column width="70%"}
+![](images/HeaderBS.png){fig-align="center"}
 :::
 
-::: {.column width="50%"}
-```{r}
-#| fig-pos: center
-#| echo: false
-#| output: true
-
-gf_histogram( ~ cycle_time, data = piston_data, bins = 30, 
-              color = "black", fill = "pink") + labs(title = "Using 30 Bins", 
-            x = "Cycle Time (sec)", y = "Frequency", 
-            caption = "Data of 50 cycle times of a pisto") + theme_bw() 
-```
+::: {.column width="30%"}
+![](images/AxisLabelBS.png){fig-align="center"}
 :::
 :::::
 
-My recommendation is to use the default number of `bins`.
+## Beeswarm plot
 
-::: notes
-A histogram is a familiar type of plot that involves smoothing. A histogram aggregates data values by placing points into bins and plotting one bar for each bin. Smoothing here means that we cannot differentiate the location of individual points within a bin: the points are smoothly distributed across their bins.
-:::
+![](images/FinalBeeswarmCycle.png){fig-align="center"}
 
-## What to look for in a histogram?
+## What to look for in a beeswarm plot?
 
 </br>
 
--   Symmetry and asymmetry of the distribution.
--   The number, location, and size of high-frequency regions (bins).
--   Gaps where no values are observed.
--   Unusually large or anomalous values.
--   A [**bell-shaped**]{style="color:#1e3f5a;"} form.
+- Clusters of points that reveal **dense regions** in the distribution.
+- Areas where points are more spread out, indicating **low-frequency** regions.
+- **Gaps** along the axis where no observations appear.
+- **Outliers**, visible as isolated points far from the main cluster.
+- The overall **shape of the distribution** formed by the pattern of points.
 
-## The obsession with bell curves
-
-</br>
-
-::::: columns
-::: {.column width="50%"}
-The **normal distribution** is a very important probability distribution in statistics.
-:::
-
-::: {.column width="50%"}
-![](images/clipboard-2759719598.png)
-:::
-:::::
-
-It is characterized by a symmetric bell-shaped curve centered around its mean, with the highest probability density at the mean and decreasing symmetrically towards the extremes
-
-## 
-
-Basically, if your observations follow a normal distribution, you can use statistical methods to draw conclusions based on mathematical theory.
-
-![](images/clipboard-983817526.png){fig-align="center" width="554" height="278"}
-
-[*What many people don't know is that this condition is only needed if you have few observations (less than 50).*]{style="color:darkred;"}
 
 # Multiple Variables
 

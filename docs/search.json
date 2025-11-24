@@ -788,7 +788,7 @@
     "href": "T6_PopularGraphs/Popular_Graphs.slides.html#section-7",
     "title": "Popular Graphs",
     "section": "",
-    "text": "Now, the columns show the actual category labels instead of the coded (or number) labels.\n\nBoston_dataset_wr  %&gt;% select(`chas`, `rad`) \n\n# A tibble: 506 × 2\n   chas  rad   \n   &lt;chr&gt; &lt;chr&gt; \n 1 No    Low   \n 2 No    Low   \n 3 No    Low   \n 4 No    Low   \n 5 No    Low   \n 6 No    Low   \n 7 No    Medium\n 8 No    Medium\n 9 No    Medium\n10 No    Medium\n# ℹ 496 more rows\n\n\nFinally, we save the new dataset using the function “writexl” from the writexl package in R."
+    "text": "Now, the columns show the actual category labels instead of the coded (or number) labels.\n\nBoston_dataset_wr  %&gt;% select(`chas`, `rad`) \n\n# A tibble: 506 × 2\n   chas  rad   \n   &lt;chr&gt; &lt;chr&gt; \n 1 No    Low   \n 2 No    Low   \n 3 No    Low   \n 4 No    Low   \n 5 No    Low   \n 6 No    Low   \n 7 No    Medium\n 8 No    Medium\n 9 No    Medium\n10 No    Medium\n# ℹ 496 more rows"
   },
   {
     "objectID": "T6_PopularGraphs/Popular_Graphs.slides.html#multivariate-data",
@@ -886,7 +886,7 @@
     "href": "T6_PopularGraphs/Popular_Graphs.slides.html#section-8",
     "title": "Popular Graphs",
     "section": "",
-    "text": "Let’s create a bar chart for chas.\n\nBoston_dataset = Boston_dataset %&gt;% \n  mutate_at(c(\"chas\", \"rad\"), as.factor) %&gt;% \n  mutate(chas = case_match(chas, \"0\" ~ \"No\", \"1\" ~ \"Yes\"))\ngf_percents( ~ chas, data = Boston_dataset)"
+    "text": "We save the new dataset using the function write_xlsx() from the writexl package in R.\n\n# write_xlsx(Boston_dataset_wr, \"BostonDataFlourish.xlsx\")\n\nWe then proceed to visualize the processed data using Flourish."
   },
   {
     "objectID": "T6_PopularGraphs/Popular_Graphs.slides.html#two-categorical-variables",
@@ -928,7 +928,7 @@
     "href": "T6_PopularGraphs/Popular_Graphs.slides.html#section-9",
     "title": "Popular Graphs",
     "section": "",
-    "text": "Now, let’s create a bar chart for rad."
+    "text": "We assign the chas variable to the Labels/time. We also assign an auxiliary column with complete entries to Values. In this case, we use nox."
   },
   {
     "objectID": "T6_PopularGraphs/Popular_Graphs.slides.html#charts-for-three-variables",
@@ -970,7 +970,7 @@
     "href": "T6_PopularGraphs/Popular_Graphs.slides.html#section-10",
     "title": "Popular Graphs",
     "section": "",
-    "text": "Collapsing categories simplifies the graph\nIt also allows us to emphasize a category like Low and see how it compares to the other categories (as a whole)."
+    "text": "Now, we go back to the Preview tab and set Aggregation mode to Count."
   },
   {
     "objectID": "T6_PopularGraphs/Popular_Graphs.slides.html#facet-grid",
@@ -984,7 +984,7 @@
     "href": "T6_PopularGraphs/Popular_Graphs.slides.html#section-11",
     "title": "Popular Graphs",
     "section": "",
-    "text": "The bars of the histogram touch each other. A gap indicates that there are no observations in that interval."
+    "text": "In the menu of the Preview tab, we add a title and a good label for the horizontal axis."
   },
   {
     "objectID": "T6_PopularGraphs/Popular_Graphs.slides.html#graphs-for-four-variables",
@@ -2160,7 +2160,7 @@
     "href": "T6_PopularGraphs/Popular_Graphs.slides.html#section-12",
     "title": "Popular Graphs",
     "section": "",
-    "text": "The left histogram uses 5 bins, and the right histogram uses 30 bins\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMy recommendation is to use the default number of bins.\n\nA histogram is a familiar type of plot that involves smoothing. A histogram aggregates data values by placing points into bins and plotting one bar for each bin. Smoothing here means that we cannot differentiate the location of individual points within a bin: the points are smoothly distributed across their bins."
+    "text": "Following similar steps, we create a bar chart for rad in Flourish."
   },
   {
     "objectID": "T6_PopularGraphs/Popular_Graphs.slides.html#principle-1-add-the-message-of-the-plot",
@@ -2174,14 +2174,14 @@
     "href": "T6_PopularGraphs/Popular_Graphs.slides.html#section-13",
     "title": "Popular Graphs",
     "section": "",
-    "text": "Basically, if your observations follow a normal distribution, you can use statistical methods to draw conclusions based on mathematical theory.\n\n\n\n\n\nWhat many people don’t know is that this condition is only needed if you have few observations (less than 50)."
+    "text": "We collapse categories using the function called case_when().\n\nBoston_dataset_simple = Boston_dataset_wr %&gt;% \n      mutate(rad = case_when(rad != \"Low\" ~ \"Other\",\n                             rad == \"Low\" ~ \"Low\"))\n\nCollapsing categories simplifies the graph and allows us to emphasize a category like Low and see how it compares to the other categories (as a whole).\n\nWe save the new dataset using the function write_xlsx().\n\n# write_xlsx(Boston_dataset_simple, \"BostonCollapsed.xlsx\")\n\nWe then proceed to visualize the processed data using Flourish."
   },
   {
     "objectID": "T6_PopularGraphs/Popular_Graphs.slides.html#section-14",
     "href": "T6_PopularGraphs/Popular_Graphs.slides.html#section-14",
     "title": "Popular Graphs",
     "section": "",
-    "text": "We can use similar commands as the Cleveland dot plot to improve the bar chart."
+    "text": "Conceptually, beeswarm plots are related to the idea of a frequency table:\n\nDefine a numeric axis divided into many small intervals (bins).\nObservations fall into the appropriate interval.\nPoints stack or shift sideways in crowded regions, revealing patterns of concentration.\n\n\nUnlike histograms, which aggregate counts into bars, beeswarm plots preserve every point, giving a more detailed picture of the underlying distribution."
   },
   {
     "objectID": "T6_PopularGraphs/Popular_Graphs.slides.html#construct-a-bar-chart-in-flourish",
@@ -2195,7 +2195,7 @@
     "href": "T6_PopularGraphs/Popular_Graphs.slides.html#select-the-correct-variables",
     "title": "Popular Graphs",
     "section": "Select the correct variables",
-    "text": "Select the correct variables\nUnfortunately, it is not simple to create a standard bar chart with the counts of each category. To to this, we must select the column with the categories Species and an auxiliary column that has complete entries. In this case, we use the Year."
+    "text": "Select the correct variables\nUnfortunately, it is not easy to create a standard bar chart with the counts of each category. To do this, we assign the variable species to Labels/time, and an auxiliary column with complete entries to Values. In this case, we use the year."
   },
   {
     "objectID": "T6_PopularGraphs/Popular_Graphs.slides.html#principle-1-define-the-message",
@@ -2223,25 +2223,116 @@
     "href": "T6_PopularGraphs/Popular_Graphs.slides.html#section-15",
     "title": "Popular Graphs",
     "section": "",
-    "text": "Advantages of side-by-side bars:\n\nEasier to compare the heights of each individual entity.\nBetter for comparing between groups."
+    "text": "Unlike histograms, which aggregate counts into bars, beeswarm plots preserve every point, giving a more detailed picture of the underlying distribution."
   },
   {
     "objectID": "T6_PopularGraphs/Popular_Graphs.slides.html#section-16",
     "href": "T6_PopularGraphs/Popular_Graphs.slides.html#section-16",
     "title": "Popular Graphs",
     "section": "",
-    "text": "To format the data, we use the function pivot_longer() from the tidyr library.\n\n\n# A tibble: 6 × 4\n  Date                  Day Cancion                  Reproducciones\n  &lt;dttm&gt;              &lt;dbl&gt; &lt;chr&gt;                             &lt;dbl&gt;\n1 2017-01-06 00:00:00     1 Shape of You                   12287078\n2 2017-01-06 00:00:00     1 Despacito                            NA\n3 2017-01-06 00:00:00     1 Something Just Like This             NA\n4 2017-01-06 00:00:00     1 HUMBLE.                              NA\n5 2017-01-06 00:00:00     1 Unforgettable                        NA\n6 2017-01-07 00:00:00     2 Shape of You                   13190270"
+    "text": "In the Beeswarm plot, we replace the current data with the data in “CYLT.xlsx” in the Data tab."
   },
   {
     "objectID": "T6_PopularGraphs/Popular_Graphs.slides.html#section-17",
     "href": "T6_PopularGraphs/Popular_Graphs.slides.html#section-17",
     "title": "Popular Graphs",
     "section": "",
-    "text": "Or we can plot all lines on a single chart."
+    "text": "In the Data tab, we only assign the cycle_time variable to the X values section."
   },
   {
     "objectID": "T6_PopularGraphs/Popular_Graphs.slides.html#section-18",
     "href": "T6_PopularGraphs/Popular_Graphs.slides.html#section-18",
+    "title": "Popular Graphs",
+    "section": "",
+    "text": "Let’s go back to the Preview tab."
+  },
+  {
+    "objectID": "T6_PopularGraphs/Popular_Graphs.slides.html#collapsing-categories",
+    "href": "T6_PopularGraphs/Popular_Graphs.slides.html#collapsing-categories",
+    "title": "Popular Graphs",
+    "section": "Collapsing categories",
+    "text": "Collapsing categories\n\nSome categorical variables tend to have many categories. For example, states in a country or postal codes. In these cases, it can be difficult to visualize all the categories in a single graph.\nOne strategy for developing an effective visualization is to collapse categories.\nFor example, in the variable rad, we can collapse the categories Medium and High into a single category called Other."
+  },
+  {
+    "objectID": "T6_PopularGraphs/Popular_Graphs.slides.html#the-resulting-bar-chart",
+    "href": "T6_PopularGraphs/Popular_Graphs.slides.html#the-resulting-bar-chart",
+    "title": "Popular Graphs",
+    "section": "The resulting bar chart",
+    "text": "The resulting bar chart"
+  },
+  {
+    "objectID": "T6_PopularGraphs/Popular_Graphs.slides.html#section-19",
+    "href": "T6_PopularGraphs/Popular_Graphs.slides.html#section-19",
+    "title": "Popular Graphs",
+    "section": "",
+    "text": "There, we modify the label of the horizontal axis X and header in the sections X axis and Header."
+  },
+  {
+    "objectID": "T6_PopularGraphs/Popular_Graphs.slides.html#lets-create-a-bar-chart-for-chas.",
+    "href": "T6_PopularGraphs/Popular_Graphs.slides.html#lets-create-a-bar-chart-for-chas.",
+    "title": "Popular Graphs",
+    "section": "Let’s create a bar chart for chas.",
+    "text": "Let’s create a bar chart for chas.\nWe load the dataset into Flourish."
+  },
+  {
+    "objectID": "T6_PopularGraphs/Popular_Graphs.slides.html#section-20",
+    "href": "T6_PopularGraphs/Popular_Graphs.slides.html#section-20",
+    "title": "Popular Graphs",
+    "section": "",
+    "text": "We can use similar commands as the Cleveland dot plot to improve the bar chart."
+  },
+  {
+    "objectID": "T6_PopularGraphs/Popular_Graphs.slides.html#section-21",
+    "href": "T6_PopularGraphs/Popular_Graphs.slides.html#section-21",
+    "title": "Popular Graphs",
+    "section": "",
+    "text": "Advantages of side-by-side bars:\n\nEasier to compare the heights of each individual entity.\nBetter for comparing between groups."
+  },
+  {
+    "objectID": "T6_PopularGraphs/Popular_Graphs.slides.html#section-22",
+    "href": "T6_PopularGraphs/Popular_Graphs.slides.html#section-22",
+    "title": "Popular Graphs",
+    "section": "",
+    "text": "To format the data, we use the function pivot_longer() from the tidyr library.\n\n\n# A tibble: 6 × 4\n  Date                  Day Cancion                  Reproducciones\n  &lt;dttm&gt;              &lt;dbl&gt; &lt;chr&gt;                             &lt;dbl&gt;\n1 2017-01-06 00:00:00     1 Shape of You                   12287078\n2 2017-01-06 00:00:00     1 Despacito                            NA\n3 2017-01-06 00:00:00     1 Something Just Like This             NA\n4 2017-01-06 00:00:00     1 HUMBLE.                              NA\n5 2017-01-06 00:00:00     1 Unforgettable                        NA\n6 2017-01-07 00:00:00     2 Shape of You                   13190270"
+  },
+  {
+    "objectID": "T6_PopularGraphs/Popular_Graphs.slides.html#bar-chart-for-chas",
+    "href": "T6_PopularGraphs/Popular_Graphs.slides.html#bar-chart-for-chas",
+    "title": "Popular Graphs",
+    "section": "Bar chart for chas",
+    "text": "Bar chart for chas"
+  },
+  {
+    "objectID": "T6_PopularGraphs/Popular_Graphs.slides.html#beeswarm",
+    "href": "T6_PopularGraphs/Popular_Graphs.slides.html#beeswarm",
+    "title": "Popular Graphs",
+    "section": "Beeswarm",
+    "text": "Beeswarm\n\nVisualizes the distribution of individual observations along a numeric axis.\n\n\nEach point represents one data value, and the points are arranged to avoid overlapping—similar to bees clustering around a hive.\nThis makes it easy to see where observations are dense or sparse, while still showing every individual data point."
+  },
+  {
+    "objectID": "T6_PopularGraphs/Popular_Graphs.slides.html#beeswarm-in-flourish",
+    "href": "T6_PopularGraphs/Popular_Graphs.slides.html#beeswarm-in-flourish",
+    "title": "Popular Graphs",
+    "section": "Beeswarm in Flourish",
+    "text": "Beeswarm in Flourish\nBeeswarm is in the section Scatter of the catalog of visualizations in Flourish."
+  },
+  {
+    "objectID": "T6_PopularGraphs/Popular_Graphs.slides.html#beeswarm-plot",
+    "href": "T6_PopularGraphs/Popular_Graphs.slides.html#beeswarm-plot",
+    "title": "Popular Graphs",
+    "section": "Beeswarm plot",
+    "text": "Beeswarm plot"
+  },
+  {
+    "objectID": "T6_PopularGraphs/Popular_Graphs.slides.html#what-to-look-for-in-a-beeswarm-plot",
+    "href": "T6_PopularGraphs/Popular_Graphs.slides.html#what-to-look-for-in-a-beeswarm-plot",
+    "title": "Popular Graphs",
+    "section": "What to look for in a beeswarm plot?",
+    "text": "What to look for in a beeswarm plot?\n\n\nClusters of points that reveal dense regions in the distribution.\nAreas where points are more spread out, indicating low-frequency regions.\nGaps along the axis where no observations appear.\nOutliers, visible as isolated points far from the main cluster.\nThe overall shape of the distribution formed by the pattern of points."
+  },
+  {
+    "objectID": "T6_PopularGraphs/Popular_Graphs.slides.html#section-23",
+    "href": "T6_PopularGraphs/Popular_Graphs.slides.html#section-23",
     "title": "Popular Graphs",
     "section": "",
     "text": "Or we can plot all lines on a single chart."
