@@ -959,25 +959,32 @@
     "text": "Scatter plot"
   },
   {
+    "objectID": "T6_PopularGraphs/Popular_Graphs.slides.html#generate-scatter-plot-in-flourish",
+    "href": "T6_PopularGraphs/Popular_Graphs.slides.html#generate-scatter-plot-in-flourish",
+    "title": "Popular Graphs",
+    "section": "Generate scatter plot in Flourish",
+    "text": "Generate scatter plot in Flourish\nSelect Scatter in the catalog of visualizations."
+  },
+  {
+    "objectID": "T6_PopularGraphs/Popular_Graphs.slides.html#section-20",
+    "href": "T6_PopularGraphs/Popular_Graphs.slides.html#section-20",
+    "title": "Popular Graphs",
+    "section": "",
+    "text": "Next, load the “auto_dataset.xlsx” into Flourish. Set the variables under study mpg and weight and assign them to Y values and X values, respectively."
+  },
+  {
+    "objectID": "T6_PopularGraphs/Popular_Graphs.slides.html#section-21",
+    "href": "T6_PopularGraphs/Popular_Graphs.slides.html#section-21",
+    "title": "Popular Graphs",
+    "section": "",
+    "text": "Go back to the Preview tab and add text to the axes and title."
+  },
+  {
     "objectID": "T6_PopularGraphs/Popular_Graphs.slides.html#individual-graphs",
     "href": "T6_PopularGraphs/Popular_Graphs.slides.html#individual-graphs",
     "title": "Popular Graphs",
     "section": "Individual graphs",
     "text": "Individual graphs\n\nIndividual variable graphs (such as histograms) do not allow us to study the relationship between two variables. They only provide information on the distribution of each variable."
-  },
-  {
-    "objectID": "T6_PopularGraphs/Popular_Graphs.slides.html#line-graph",
-    "href": "T6_PopularGraphs/Popular_Graphs.slides.html#line-graph",
-    "title": "Popular Graphs",
-    "section": "Line graph",
-    "text": "Line graph\nA line graph is a visual representation of data where data points are connected by a line. Axes:\n\n\\(X\\) (horizontal): Represents time or the independent variable.\n\\(Y\\) (vertical): Represents the dependent variable.\n\nEach point represents a value at a given moment.\n\n\n\nThe objective is to explore trends over time or the evolution of a continuous variable."
-  },
-  {
-    "objectID": "T6_PopularGraphs/Popular_Graphs.slides.html#example-2",
-    "href": "T6_PopularGraphs/Popular_Graphs.slides.html#example-2",
-    "title": "Popular Graphs",
-    "section": "Example 2",
-    "text": "Example 2\n\nConsider the data in the file “spotify.xlsx”. This dataset contains the global daily streams of the top five most popular songs on the music streaming service Spotify in 2017.\n\n\n# A tibble: 3 × 7\n  Date                  Day `Shape of You` Despacito `Something Just Like This`\n  &lt;dttm&gt;              &lt;dbl&gt;          &lt;dbl&gt;     &lt;dbl&gt;                      &lt;dbl&gt;\n1 2017-01-06 00:00:00     1       12287078        NA                         NA\n2 2017-01-07 00:00:00     2       13190270        NA                         NA\n3 2017-01-08 00:00:00     3       13099919        NA                         NA\n# ℹ 2 more variables: HUMBLE. &lt;dbl&gt;, Unforgettable &lt;dbl&gt;"
   },
   {
     "objectID": "T6_PopularGraphs/Popular_Graphs.slides.html#line-plot",
@@ -987,6 +994,48 @@
     "text": "Line plot\nA line plot is a visual representation of data where data points are connected by a line. Axes:\n\n\\(X\\) (horizontal): Represents time or the independent variable.\n\\(Y\\) (vertical): Represents the dependent variable.\n\nEach point represents a value at a given moment.\n\n\n\nThe objective is to explore trends over time or the evolution of a continuous variable."
   },
   {
+    "objectID": "T6_PopularGraphs/Popular_Graphs.slides.html#example-5",
+    "href": "T6_PopularGraphs/Popular_Graphs.slides.html#example-5",
+    "title": "Popular Graphs",
+    "section": "Example 5",
+    "text": "Example 5\n\nConsider the data in the file “spotify.xlsx”. This dataset contains the global daily streams of the top five most popular songs on the music streaming service Spotify in 2017.\n\n\n# A tibble: 3 × 7\n  Date                  Day `Shape of You` Despacito `Something Just Like This`\n  &lt;dttm&gt;              &lt;dbl&gt;          &lt;dbl&gt;     &lt;dbl&gt;                      &lt;dbl&gt;\n1 2017-01-06 00:00:00     1       12287078        NA                         NA\n2 2017-01-07 00:00:00     2       13190270        NA                         NA\n3 2017-01-08 00:00:00     3       13099919        NA                         NA\n# ℹ 2 more variables: HUMBLE. &lt;dbl&gt;, Unforgettable &lt;dbl&gt;"
+  },
+  {
+    "objectID": "T6_PopularGraphs/Popular_Graphs.slides.html#line-plot-1",
+    "href": "T6_PopularGraphs/Popular_Graphs.slides.html#line-plot-1",
+    "title": "Popular Graphs",
+    "section": "Line plot",
+    "text": "Line plot"
+  },
+  {
+    "objectID": "T6_PopularGraphs/Popular_Graphs.slides.html#generate-scatter-line-plot-in-flourish",
+    "href": "T6_PopularGraphs/Popular_Graphs.slides.html#generate-scatter-line-plot-in-flourish",
+    "title": "Popular Graphs",
+    "section": "Generate scatter line plot in Flourish",
+    "text": "Generate scatter line plot in Flourish\nSelect Scatter in the catalog of visualizations."
+  },
+  {
+    "objectID": "T6_PopularGraphs/Popular_Graphs.slides.html#section-22",
+    "href": "T6_PopularGraphs/Popular_Graphs.slides.html#section-22",
+    "title": "Popular Graphs",
+    "section": "",
+    "text": "Next, load the “auto_dataset.xlsx” into Flourish. Set the variables under study Date and Despacito and assign them to Labels/time and Values, respectively."
+  },
+  {
+    "objectID": "T6_PopularGraphs/Popular_Graphs.slides.html#section-23",
+    "href": "T6_PopularGraphs/Popular_Graphs.slides.html#section-23",
+    "title": "Popular Graphs",
+    "section": "",
+    "text": "Go back to the Preview tab and add text to the axes and title."
+  },
+  {
+    "objectID": "T6_PopularGraphs/Popular_Graphs.slides.html#multiple-line-charts",
+    "href": "T6_PopularGraphs/Popular_Graphs.slides.html#multiple-line-charts",
+    "title": "Popular Graphs",
+    "section": "Multiple line charts",
+    "text": "Multiple line charts\nWe can visualize multiple variables simultaneously using a line plot. For example, we can show the evolution of play counts for the 5 songs in the file “spotify.xlsx” over time.\nTo this end, simply go back to the Data tab and set a range of variables in Values."
+  },
+  {
     "objectID": "T6_PopularGraphs/Popular_Graphs.slides.html#plotting-statistical-summaries-by-groups",
     "href": "T6_PopularGraphs/Popular_Graphs.slides.html#plotting-statistical-summaries-by-groups",
     "title": "Popular Graphs",
@@ -994,18 +1043,32 @@
     "text": "Plotting statistical summaries by groups\n\nWe can summarize the values of the numerical variable \\(Y\\) for each category of a categorical variable \\(X\\) using the mean.\nFor example, let’s plot the average miles per gallon of cars produced in America, Europe, and Japan.\nA common visualization for plotting a numerical and a discrete variable when there is only one value per category is the bar chart."
   },
   {
-    "objectID": "T6_PopularGraphs/Popular_Graphs.slides.html#cleveland-dot-plot",
-    "href": "T6_PopularGraphs/Popular_Graphs.slides.html#cleveland-dot-plot",
+    "objectID": "T6_PopularGraphs/Popular_Graphs.slides.html#bar-plot",
+    "href": "T6_PopularGraphs/Popular_Graphs.slides.html#bar-plot",
     "title": "Popular Graphs",
-    "section": "Cleveland dot plot",
-    "text": "Cleveland dot plot\nThe Cleveland dot plot encodes quantitative data across different categories. It is an alternative to a bar chart."
+    "section": "Bar plot",
+    "text": "Bar plot\nIn this case, the bar plot encodes quantitative data across different categories."
   },
   {
-    "objectID": "T6_PopularGraphs/Popular_Graphs.slides.html#section-20",
-    "href": "T6_PopularGraphs/Popular_Graphs.slides.html#section-20",
+    "objectID": "T6_PopularGraphs/Popular_Graphs.slides.html#generate-bar-plot-in-flourish",
+    "href": "T6_PopularGraphs/Popular_Graphs.slides.html#generate-bar-plot-in-flourish",
+    "title": "Popular Graphs",
+    "section": "Generate bar plot in Flourish",
+    "text": "Generate bar plot in Flourish\nSelect Scatter in the catalog of visualizations."
+  },
+  {
+    "objectID": "T6_PopularGraphs/Popular_Graphs.slides.html#section-25",
+    "href": "T6_PopularGraphs/Popular_Graphs.slides.html#section-25",
     "title": "Popular Graphs",
     "section": "",
-    "text": "Next, load the “auto_dataset.xlsx” into Flourish. Set the variables under study mpg and weight and assign them to Y values and X values, respectively."
+    "text": "Load the “auto_dataset.xlsx” into Flourish. Set the variables under study origin and mpg and assign them to Labels/time and Values, respectively."
+  },
+  {
+    "objectID": "T6_PopularGraphs/Popular_Graphs.slides.html#section-26",
+    "href": "T6_PopularGraphs/Popular_Graphs.slides.html#section-26",
+    "title": "Popular Graphs",
+    "section": "",
+    "text": "Go to the Preview tab and set Average in Aggregation mode."
   },
   {
     "objectID": "T6_PopularGraphs/Popular_Graphs.slides.html#two-categorical-variables",
@@ -1043,11 +1106,11 @@
     "text": "Stacked or side-by-side?\n\nThe main difference between stacked and side-by-side bar charts is that the side-by-side chart shows values in separate bars within a category.\nAdvantages of stacked bars:\n\nEasier to understand what proportions of a whole are divided among segments.\nVisually adds up each proportion."
   },
   {
-    "objectID": "T6_PopularGraphs/Popular_Graphs.slides.html#section-21",
-    "href": "T6_PopularGraphs/Popular_Graphs.slides.html#section-21",
+    "objectID": "T6_PopularGraphs/Popular_Graphs.slides.html#section-27",
+    "href": "T6_PopularGraphs/Popular_Graphs.slides.html#section-27",
     "title": "Popular Graphs",
     "section": "",
-    "text": "Go back to the Preview tab and add text to the axes and title."
+    "text": "Advantages of side-by-side bars:\n\nEasier to compare the heights of each individual entity.\nBetter for comparing between groups."
   },
   {
     "objectID": "T6_PopularGraphs/Popular_Graphs.slides.html#charts-for-three-variables",
@@ -1062,48 +1125,6 @@
     "title": "Popular Graphs",
     "section": "Scatter plot by color",
     "text": "Scatter plot by color\nFor two numerical variables and one categorical variable."
-  },
-  {
-    "objectID": "T6_PopularGraphs/Popular_Graphs.slides.html#faceted-or-lattice-plot",
-    "href": "T6_PopularGraphs/Popular_Graphs.slides.html#faceted-or-lattice-plot",
-    "title": "Popular Graphs",
-    "section": "Faceted or lattice plot",
-    "text": "Faceted or lattice plot\nA faceted plot visualizes the relationship or distribution of one or two variables for each subgroup defined by a third variable \\(Z\\)."
-  },
-  {
-    "objectID": "T6_PopularGraphs/Popular_Graphs.slides.html#multiple-line-charts",
-    "href": "T6_PopularGraphs/Popular_Graphs.slides.html#multiple-line-charts",
-    "title": "Popular Graphs",
-    "section": "Multiple line charts",
-    "text": "Multiple line charts\nWe can visualize multiple variables simultaneously using a line plot. For example, we can show the evolution of play counts for the 5 songs in the file “spotify.xlsx” over time.\nTo this end, simply go back to the Data tab and set a range of variables in Values."
-  },
-  {
-    "objectID": "T6_PopularGraphs/Popular_Graphs.slides.html#the-required-format",
-    "href": "T6_PopularGraphs/Popular_Graphs.slides.html#the-required-format",
-    "title": "Popular Graphs",
-    "section": "The required format",
-    "text": "The required format\n\nFor a multiple line chart, we need to merge the columns Shape of You, Despacito, Something Just Like This, HUMBLE and Unforgettable into two columns.\nOne column will contain the number of plays, and the other will contain the song title.\nBoth columns will be ordered by the variable Date."
-  },
-  {
-    "objectID": "T6_PopularGraphs/Popular_Graphs.slides.html#section-22",
-    "href": "T6_PopularGraphs/Popular_Graphs.slides.html#section-22",
-    "title": "Popular Graphs",
-    "section": "",
-    "text": "Next, load the “auto_dataset.xlsx” into Flourish. Set the variables under study Date and Despacito and assign them to Labels/time and Values, respectively."
-  },
-  {
-    "objectID": "T6_PopularGraphs/Popular_Graphs.slides.html#facet-grid",
-    "href": "T6_PopularGraphs/Popular_Graphs.slides.html#facet-grid",
-    "title": "Popular Graphs",
-    "section": "Facet grid",
-    "text": "Facet grid\n\nSeparate plots for each line."
-  },
-  {
-    "objectID": "T6_PopularGraphs/Popular_Graphs.slides.html#section-23",
-    "href": "T6_PopularGraphs/Popular_Graphs.slides.html#section-23",
-    "title": "Popular Graphs",
-    "section": "",
-    "text": "Go back to the Preview tab and add text to the axes and title."
   },
   {
     "objectID": "T6_PopularGraphs/Popular_Graphs.slides.html#graphs-for-four-variables",
@@ -2245,82 +2266,5 @@
     "title": "Statistical Graphs",
     "section": "Discussion",
     "text": "Discussion\n\n\nThe simple linear regression model is easy to interpret due to its structure: \\(\\hat{Y}_i = \\hat{\\beta}_0 + \\hat{\\beta}_1 X_i.\\)\nHowever, it may be too rigid to capture complex relationships between two variables.\nLocal regression is flexible and allows capturing complex relationships between two variables, but it has a low level of interpretability because it does not provide an explicit equation."
-  },
-  {
-    "objectID": "T6_PopularGraphs/Popular_Graphs.slides.html#example-5",
-    "href": "T6_PopularGraphs/Popular_Graphs.slides.html#example-5",
-    "title": "Popular Graphs",
-    "section": "Example 5",
-    "text": "Example 5\n\nConsider the data in the file “spotify.xlsx”. This dataset contains the global daily streams of the top five most popular songs on the music streaming service Spotify in 2017.\n\n\n# A tibble: 3 × 7\n  Date                  Day `Shape of You` Despacito `Something Just Like This`\n  &lt;dttm&gt;              &lt;dbl&gt;          &lt;dbl&gt;     &lt;dbl&gt;                      &lt;dbl&gt;\n1 2017-01-06 00:00:00     1       12287078        NA                         NA\n2 2017-01-07 00:00:00     2       13190270        NA                         NA\n3 2017-01-08 00:00:00     3       13099919        NA                         NA\n# ℹ 2 more variables: HUMBLE. &lt;dbl&gt;, Unforgettable &lt;dbl&gt;"
-  },
-  {
-    "objectID": "T6_PopularGraphs/Popular_Graphs.slides.html#cleveland-plot",
-    "href": "T6_PopularGraphs/Popular_Graphs.slides.html#cleveland-plot",
-    "title": "Popular Graphs",
-    "section": "Cleveland plot",
-    "text": "Cleveland plot\nThe Cleveland plot encodes quantitative data across different categories. It is like a bar chart but with summaries of another variable instead of counts or frequencies."
-  },
-  {
-    "objectID": "T6_PopularGraphs/Popular_Graphs.slides.html#generate-scatter-plot-in-flourish",
-    "href": "T6_PopularGraphs/Popular_Graphs.slides.html#generate-scatter-plot-in-flourish",
-    "title": "Popular Graphs",
-    "section": "Generate scatter plot in Flourish",
-    "text": "Generate scatter plot in Flourish\nSelect Scatter in the catalog of visualizations."
-  },
-  {
-    "objectID": "T6_PopularGraphs/Popular_Graphs.slides.html#generate-scatter-line-plot-in-flourish",
-    "href": "T6_PopularGraphs/Popular_Graphs.slides.html#generate-scatter-line-plot-in-flourish",
-    "title": "Popular Graphs",
-    "section": "Generate scatter line plot in Flourish",
-    "text": "Generate scatter line plot in Flourish\nSelect Scatter in the catalog of visualizations."
-  },
-  {
-    "objectID": "T6_PopularGraphs/Popular_Graphs.slides.html#section-25",
-    "href": "T6_PopularGraphs/Popular_Graphs.slides.html#section-25",
-    "title": "Popular Graphs",
-    "section": "",
-    "text": "Load the “auto_dataset.xlsx” into Flourish. Set the variables under study origin and mpg and assign them to Labels/time and Values, respectively."
-  },
-  {
-    "objectID": "T6_PopularGraphs/Popular_Graphs.slides.html#generate-bar-chart-in-flourish",
-    "href": "T6_PopularGraphs/Popular_Graphs.slides.html#generate-bar-chart-in-flourish",
-    "title": "Popular Graphs",
-    "section": "Generate bar chart in Flourish",
-    "text": "Generate bar chart in Flourish\nSelect Scatter in the catalog of visualizations."
-  },
-  {
-    "objectID": "T6_PopularGraphs/Popular_Graphs.slides.html#section-26",
-    "href": "T6_PopularGraphs/Popular_Graphs.slides.html#section-26",
-    "title": "Popular Graphs",
-    "section": "",
-    "text": "Go to the Preview tab and set Average in Aggregation mode."
-  },
-  {
-    "objectID": "T6_PopularGraphs/Popular_Graphs.slides.html#section-27",
-    "href": "T6_PopularGraphs/Popular_Graphs.slides.html#section-27",
-    "title": "Popular Graphs",
-    "section": "",
-    "text": "Advantages of side-by-side bars:\n\nEasier to compare the heights of each individual entity.\nBetter for comparing between groups."
-  },
-  {
-    "objectID": "T6_PopularGraphs/Popular_Graphs.slides.html#line-plot-1",
-    "href": "T6_PopularGraphs/Popular_Graphs.slides.html#line-plot-1",
-    "title": "Popular Graphs",
-    "section": "Line plot",
-    "text": "Line plot"
-  },
-  {
-    "objectID": "T6_PopularGraphs/Popular_Graphs.slides.html#bar-plot",
-    "href": "T6_PopularGraphs/Popular_Graphs.slides.html#bar-plot",
-    "title": "Popular Graphs",
-    "section": "Bar plot",
-    "text": "Bar plot\nIn this case, the bar plot encodes quantitative data across different categories."
-  },
-  {
-    "objectID": "T6_PopularGraphs/Popular_Graphs.slides.html#generate-bar-plot-in-flourish",
-    "href": "T6_PopularGraphs/Popular_Graphs.slides.html#generate-bar-plot-in-flourish",
-    "title": "Popular Graphs",
-    "section": "Generate bar plot in Flourish",
-    "text": "Generate bar plot in Flourish\nSelect Scatter in the catalog of visualizations."
   }
 ]
