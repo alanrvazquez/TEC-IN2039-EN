@@ -1,5 +1,5 @@
 ---
-title: "Types of Variables"
+title: "Types of Variables and Univariate Plots"
 subtitle: "IN2039: Data Visualization for Decision Making"
 author: 
   - name: Alan R. Vazquez
