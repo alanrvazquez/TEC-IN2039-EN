@@ -1,5 +1,5 @@
 ---
-title: "Popular Graphs"
+title: "Types of Variables"
 subtitle: "IN2039: Data Visualization for Decision Making"
 author: 
   - name: Alan R. Vazquez
@@ -613,4 +613,5 @@ There, we modify the label of the horizontal axis X and header in the sections *
 -   The overall **shape of the distribution** formed by the pattern of points.
 
 # Multiple Variables
+
 # [Return to main page](https://alanrvazquez.github.io/TEC-IN2039-EN/)
