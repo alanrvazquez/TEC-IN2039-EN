@@ -959,18 +959,18 @@
     "text": "Scatter plot"
   },
   {
+    "objectID": "T6_PopularGraphs/Popular_Graphs.slides.html#individual-graphs",
+    "href": "T6_PopularGraphs/Popular_Graphs.slides.html#individual-graphs",
+    "title": "Popular Graphs",
+    "section": "Individual graphs",
+    "text": "Individual graphs\n\nIndividual variable graphs (such as histograms) do not allow us to study the relationship between two variables. They only provide information on the distribution of each variable."
+  },
+  {
     "objectID": "T6_PopularGraphs/Popular_Graphs.slides.html#generate-scatter-plot-in-flourish",
     "href": "T6_PopularGraphs/Popular_Graphs.slides.html#generate-scatter-plot-in-flourish",
     "title": "Popular Graphs",
     "section": "Generate scatter plot in Flourish",
     "text": "Generate scatter plot in Flourish\nSelect Scatter in the catalog of visualizations."
-  },
-  {
-    "objectID": "T6_PopularGraphs/Popular_Graphs.slides.html#section-20",
-    "href": "T6_PopularGraphs/Popular_Graphs.slides.html#section-20",
-    "title": "Popular Graphs",
-    "section": "",
-    "text": "Next, load the “auto_dataset.xlsx” into Flourish. Set the variables under study mpg and weight and assign them to Y values and X values, respectively."
   },
   {
     "objectID": "T6_PopularGraphs/Popular_Graphs.slides.html#section-21",
@@ -980,11 +980,11 @@
     "text": "Next, load the “auto_dataset.xlsx” into Flourish. Set the variables under study mpg and weight and assign them to Y values and X values, respectively."
   },
   {
-    "objectID": "T6_PopularGraphs/Popular_Graphs.slides.html#individual-graphs",
-    "href": "T6_PopularGraphs/Popular_Graphs.slides.html#individual-graphs",
+    "objectID": "T6_PopularGraphs/Popular_Graphs.slides.html#section-22",
+    "href": "T6_PopularGraphs/Popular_Graphs.slides.html#section-22",
     "title": "Popular Graphs",
-    "section": "Individual graphs",
-    "text": "Individual graphs\n\nIndividual variable graphs (such as histograms) do not allow us to study the relationship between two variables. They only provide information on the distribution of each variable."
+    "section": "",
+    "text": "Go back to the Preview tab and add text to the axes and title."
   },
   {
     "objectID": "T6_PopularGraphs/Popular_Graphs.slides.html#line-plot",
@@ -1015,18 +1015,18 @@
     "text": "Generate scatter line plot in Flourish\nSelect Scatter in the catalog of visualizations."
   },
   {
-    "objectID": "T6_PopularGraphs/Popular_Graphs.slides.html#section-22",
-    "href": "T6_PopularGraphs/Popular_Graphs.slides.html#section-22",
-    "title": "Popular Graphs",
-    "section": "",
-    "text": "Go back to the Preview tab and add text to the axes and title."
-  },
-  {
     "objectID": "T6_PopularGraphs/Popular_Graphs.slides.html#section-23",
     "href": "T6_PopularGraphs/Popular_Graphs.slides.html#section-23",
     "title": "Popular Graphs",
     "section": "",
     "text": "Next, load the “auto_dataset.xlsx” into Flourish. Set the variables under study Date and Despacito and assign them to Labels/time and Values, respectively."
+  },
+  {
+    "objectID": "T6_PopularGraphs/Popular_Graphs.slides.html#section-24",
+    "href": "T6_PopularGraphs/Popular_Graphs.slides.html#section-24",
+    "title": "Popular Graphs",
+    "section": "",
+    "text": "Go back to the Preview tab and add text to the axes and title."
   },
   {
     "objectID": "T6_PopularGraphs/Popular_Graphs.slides.html#multiple-line-charts",
@@ -1057,18 +1057,18 @@
     "text": "Generate bar plot in Flourish\nSelect Scatter in the catalog of visualizations."
   },
   {
-    "objectID": "T6_PopularGraphs/Popular_Graphs.slides.html#section-25",
-    "href": "T6_PopularGraphs/Popular_Graphs.slides.html#section-25",
-    "title": "Popular Graphs",
-    "section": "",
-    "text": "Load the “auto_dataset.xlsx” into Flourish. Set the variables under study origin and mpg and assign them to Labels/time and Values, respectively."
-  },
-  {
     "objectID": "T6_PopularGraphs/Popular_Graphs.slides.html#section-26",
     "href": "T6_PopularGraphs/Popular_Graphs.slides.html#section-26",
     "title": "Popular Graphs",
     "section": "",
     "text": "Load the “auto_dataset.xlsx” into Flourish. Set the variables under study origin and mpg and assign them to Labels/time and Values, respectively."
+  },
+  {
+    "objectID": "T6_PopularGraphs/Popular_Graphs.slides.html#section-27",
+    "href": "T6_PopularGraphs/Popular_Graphs.slides.html#section-27",
+    "title": "Popular Graphs",
+    "section": "",
+    "text": "Go to the Preview tab and set Average in Aggregation mode."
   },
   {
     "objectID": "T6_PopularGraphs/Popular_Graphs.slides.html#two-categorical-variables",
@@ -1106,11 +1106,11 @@
     "text": "Stacked or side-by-side?\n\nThe main difference between stacked and side-by-side bar charts is that the side-by-side chart shows values in separate bars within a category.\nAdvantages of stacked bars:\n\nEasier to understand what proportions of a whole are divided among segments.\nVisually adds up each proportion."
   },
   {
-    "objectID": "T6_PopularGraphs/Popular_Graphs.slides.html#section-27",
-    "href": "T6_PopularGraphs/Popular_Graphs.slides.html#section-27",
+    "objectID": "T6_PopularGraphs/Popular_Graphs.slides.html#section-28",
+    "href": "T6_PopularGraphs/Popular_Graphs.slides.html#section-28",
     "title": "Popular Graphs",
     "section": "",
-    "text": "Go to the Preview tab and set Average in Aggregation mode."
+    "text": "Advantages of side-by-side bars:\n\nEasier to compare the heights of each individual entity.\nBetter for comparing between groups."
   },
   {
     "objectID": "T6_PopularGraphs/Popular_Graphs.slides.html#charts-for-three-variables",
@@ -2266,19 +2266,5 @@
     "title": "Statistical Graphs",
     "section": "Discussion",
     "text": "Discussion\n\n\nThe simple linear regression model is easy to interpret due to its structure: \\(\\hat{Y}_i = \\hat{\\beta}_0 + \\hat{\\beta}_1 X_i.\\)\nHowever, it may be too rigid to capture complex relationships between two variables.\nLocal regression is flexible and allows capturing complex relationships between two variables, but it has a low level of interpretability because it does not provide an explicit equation."
-  },
-  {
-    "objectID": "T6_PopularGraphs/Popular_Graphs.slides.html#section-24",
-    "href": "T6_PopularGraphs/Popular_Graphs.slides.html#section-24",
-    "title": "Popular Graphs",
-    "section": "",
-    "text": "Go back to the Preview tab and add text to the axes and title."
-  },
-  {
-    "objectID": "T6_PopularGraphs/Popular_Graphs.slides.html#section-28",
-    "href": "T6_PopularGraphs/Popular_Graphs.slides.html#section-28",
-    "title": "Popular Graphs",
-    "section": "",
-    "text": "Advantages of side-by-side bars:\n\nEasier to compare the heights of each individual entity.\nBetter for comparing between groups."
   }
 ]
