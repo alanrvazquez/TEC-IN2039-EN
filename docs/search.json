@@ -2770,5 +2770,327 @@
     "title": "Popular Graphs",
     "section": "What to look for in a beeswarm plot?",
     "text": "What to look for in a beeswarm plot?\n\n\nClusters of points that reveal dense regions in the distribution.\nAreas where points are more spread out, indicating low-frequency regions.\nGaps along the axis where no observations appear.\nOutliers, visible as isolated points far from the main cluster.\nThe overall shape of the distribution formed by the pattern of points."
+  },
+  {
+    "objectID": "T7_PopularGraphs/Popular_Graphs.slides.html#agenda",
+    "href": "T7_PopularGraphs/Popular_Graphs.slides.html#agenda",
+    "title": "Popular Graphs for Multiple Variables",
+    "section": "Agenda",
+    "text": "Agenda\n\n\nIntroduction to Multivariate Data\nScatter Plots\nLine Plots\nPlots for Categorical Variables"
+  },
+  {
+    "objectID": "T7_PopularGraphs/Popular_Graphs.slides.html#multivariate-data",
+    "href": "T7_PopularGraphs/Popular_Graphs.slides.html#multivariate-data",
+    "title": "Popular Graphs for Multiple Variables",
+    "section": "Multivariate data",
+    "text": "Multivariate data\n\nMultivariate data consists of datasets that contain observations of two or more variables.\n\nVariables can be numerical or categorical.\nVariables may or may not depend on each other.\n\n\nIn fact, the goal is to determine whether there is a relationship between the variables and the type of relationship."
+  },
+  {
+    "objectID": "T7_PopularGraphs/Popular_Graphs.slides.html#example-1",
+    "href": "T7_PopularGraphs/Popular_Graphs.slides.html#example-1",
+    "title": "Popular Graphs for Multiple Variables",
+    "section": "Example 1",
+    "text": "Example 1\nConsider data from 392 cars, including miles per gallon, number of cylinders, horsepower, weight, acceleration, year, origin, among other variables. The data is in the file “auto_dataset.xlsx”."
+  },
+  {
+    "objectID": "T7_PopularGraphs/Popular_Graphs.slides.html#principle-1-define-the-question",
+    "href": "T7_PopularGraphs/Popular_Graphs.slides.html#principle-1-define-the-question",
+    "title": "Popular Graphs for Multiple Variables",
+    "section": "Principle 1: Define the question",
+    "text": "Principle 1: Define the question\nIn the context of multiple-variable data, typical questions to study include:\n\nHow are variable \\(X\\) and variable \\(Y\\) related?\nIs the distribution of variable \\(X\\) the same across all subgroups defined by variable \\(Z\\)?\nAre there any unusual observations in the combination of values for variables \\(X\\) and \\(Y\\)?\nAre there any unusual observations in \\(X\\) for a subgroup of variable \\(Z\\)?"
+  },
+  {
+    "objectID": "T7_PopularGraphs/Popular_Graphs.slides.html#principle-2-turn-data-into-information",
+    "href": "T7_PopularGraphs/Popular_Graphs.slides.html#principle-2-turn-data-into-information",
+    "title": "Popular Graphs for Multiple Variables",
+    "section": "Principle 2: Turn data into information",
+    "text": "Principle 2: Turn data into information\nThere are various types of graphs that help us explore relationships between two or more variables.\n\n\n\n\n\nType\nGraph Type\n\n\n\n\nNumerical\nScatter plot, line graph\n\n\nCategorical\nSide-by-side bar plot, stacked bar plot\n\n\nMixed\nBar Plot\n\n\n\n\n\nFor two features, the combination of types (both quantitative, both qualitative, or a mix) matters."
+  },
+  {
+    "objectID": "T7_PopularGraphs/Popular_Graphs.slides.html#independent-and-dependent-variables",
+    "href": "T7_PopularGraphs/Popular_Graphs.slides.html#independent-and-dependent-variables",
+    "title": "Popular Graphs for Multiple Variables",
+    "section": "Independent and dependent variables",
+    "text": "Independent and dependent variables\nWhen investigating the relationship between two variables (numerical or categorical), we use specific terminology.\n\nOne variable is called the dependent or response variable, denoted by the letter \\(Y\\).\n\n\nThe other variable is called the independent or predictor variable, denoted by the letter \\(X\\).\n\n\n\nOur goal is to determine whether changes in \\(X\\) are associated with changes in \\(Y\\), and the nature of this association."
+  },
+  {
+    "objectID": "T7_PopularGraphs/Popular_Graphs.slides.html#scatter-plot-1",
+    "href": "T7_PopularGraphs/Popular_Graphs.slides.html#scatter-plot-1",
+    "title": "Popular Graphs for Multiple Variables",
+    "section": "Scatter plot",
+    "text": "Scatter plot\n\nThe most common graph for examining the relationship between two numerical variables is the scatter plot.\n\nVariables \\(X\\) and \\(Y\\) are placed on the horizontal and vertical axes, respectively. Each point on the graph represents a pair of \\(X\\) and \\(Y\\) values.\n\n\n\n\nThe goal is to explore linear or non-linear relationships between variables."
+  },
+  {
+    "objectID": "T7_PopularGraphs/Popular_Graphs.slides.html#scatter-plot-2",
+    "href": "T7_PopularGraphs/Popular_Graphs.slides.html#scatter-plot-2",
+    "title": "Popular Graphs for Multiple Variables",
+    "section": "Scatter plot",
+    "text": "Scatter plot"
+  },
+  {
+    "objectID": "T7_PopularGraphs/Popular_Graphs.slides.html#individual-graphs",
+    "href": "T7_PopularGraphs/Popular_Graphs.slides.html#individual-graphs",
+    "title": "Popular Graphs for Multiple Variables",
+    "section": "Individual graphs",
+    "text": "Individual graphs\n\nIndividual variable graphs (such as histograms) do not allow us to study the relationship between two variables. They only provide information on the distribution of each variable."
+  },
+  {
+    "objectID": "T7_PopularGraphs/Popular_Graphs.slides.html#generate-scatter-plot-in-flourish",
+    "href": "T7_PopularGraphs/Popular_Graphs.slides.html#generate-scatter-plot-in-flourish",
+    "title": "Popular Graphs for Multiple Variables",
+    "section": "Generate scatter plot in Flourish",
+    "text": "Generate scatter plot in Flourish\nSelect Scatter in the catalog of visualizations."
+  },
+  {
+    "objectID": "T7_PopularGraphs/Popular_Graphs.slides.html#section",
+    "href": "T7_PopularGraphs/Popular_Graphs.slides.html#section",
+    "title": "Popular Graphs for Multiple Variables",
+    "section": "",
+    "text": "Next, load the “auto_dataset.xlsx” into Flourish. Set the variables under study mpg and weight and assign them to Y values and X values, respectively."
+  },
+  {
+    "objectID": "T7_PopularGraphs/Popular_Graphs.slides.html#section-1",
+    "href": "T7_PopularGraphs/Popular_Graphs.slides.html#section-1",
+    "title": "Popular Graphs for Multiple Variables",
+    "section": "",
+    "text": "Go back to the Preview tab and add text to the axes and title."
+  },
+  {
+    "objectID": "T7_PopularGraphs/Popular_Graphs.slides.html#plots-for-three-or-four-variables",
+    "href": "T7_PopularGraphs/Popular_Graphs.slides.html#plots-for-three-or-four-variables",
+    "title": "Popular Graphs for Multiple Variables",
+    "section": "Plots for three or four variables",
+    "text": "Plots for three or four variables\n\n\nWhen examining a distribution or relationship, we often want to compare it across data subgroups.\nThis process of conditioning on additional variables leads to visualizations involving three or more variables.\nWe now illustrate how to extend the scatter plot to visualize multiple variables."
+  },
+  {
+    "objectID": "T7_PopularGraphs/Popular_Graphs.slides.html#scatter-plot-by-color",
+    "href": "T7_PopularGraphs/Popular_Graphs.slides.html#scatter-plot-by-color",
+    "title": "Popular Graphs for Multiple Variables",
+    "section": "Scatter plot by color",
+    "text": "Scatter plot by color"
+  },
+  {
+    "objectID": "T7_PopularGraphs/Popular_Graphs.slides.html#add-color-to-the-scatter-plot",
+    "href": "T7_PopularGraphs/Popular_Graphs.slides.html#add-color-to-the-scatter-plot",
+    "title": "Popular Graphs for Multiple Variables",
+    "section": "Add color to the scatter plot",
+    "text": "Add color to the scatter plot\nWe a categorical variable in the Color section. For example, let’s use origin."
+  },
+  {
+    "objectID": "T7_PopularGraphs/Popular_Graphs.slides.html#the-result",
+    "href": "T7_PopularGraphs/Popular_Graphs.slides.html#the-result",
+    "title": "Popular Graphs for Multiple Variables",
+    "section": "The result",
+    "text": "The result\nScatter plots by color work well when the additional variable \\(Z\\) is categorical with few categories."
+  },
+  {
+    "objectID": "T7_PopularGraphs/Popular_Graphs.slides.html#bubble-plot-scatter-for-4-variables",
+    "href": "T7_PopularGraphs/Popular_Graphs.slides.html#bubble-plot-scatter-for-4-variables",
+    "title": "Popular Graphs for Multiple Variables",
+    "section": "Bubble Plot: Scatter for 4 variables",
+    "text": "Bubble Plot: Scatter for 4 variables"
+  },
+  {
+    "objectID": "T7_PopularGraphs/Popular_Graphs.slides.html#add-bubbles-to-the-scatter-plot",
+    "href": "T7_PopularGraphs/Popular_Graphs.slides.html#add-bubbles-to-the-scatter-plot",
+    "title": "Popular Graphs for Multiple Variables",
+    "section": "Add bubbles to the scatter plot",
+    "text": "Add bubbles to the scatter plot\nWe set a variable in the Size section, say, horsepower."
+  },
+  {
+    "objectID": "T7_PopularGraphs/Popular_Graphs.slides.html#resulting-bubble-plot",
+    "href": "T7_PopularGraphs/Popular_Graphs.slides.html#resulting-bubble-plot",
+    "title": "Popular Graphs for Multiple Variables",
+    "section": "Resulting bubble plot",
+    "text": "Resulting bubble plot"
+  },
+  {
+    "objectID": "T7_PopularGraphs/Popular_Graphs.slides.html#improve-the-bubble-plot",
+    "href": "T7_PopularGraphs/Popular_Graphs.slides.html#improve-the-bubble-plot",
+    "title": "Popular Graphs for Multiple Variables",
+    "section": "Improve the bubble plot",
+    "text": "Improve the bubble plot\nWe can enhance the plot by reducing the minimum and maximum sizes for the bubbles. Let’s set the maximum size to 200."
+  },
+  {
+    "objectID": "T7_PopularGraphs/Popular_Graphs.slides.html#final-bubble-plot",
+    "href": "T7_PopularGraphs/Popular_Graphs.slides.html#final-bubble-plot",
+    "title": "Popular Graphs for Multiple Variables",
+    "section": "Final bubble plot",
+    "text": "Final bubble plot"
+  },
+  {
+    "objectID": "T7_PopularGraphs/Popular_Graphs.slides.html#line-plot",
+    "href": "T7_PopularGraphs/Popular_Graphs.slides.html#line-plot",
+    "title": "Popular Graphs for Multiple Variables",
+    "section": "Line plot",
+    "text": "Line plot\nA line plot is a visual representation of data where data points are connected by a line. Axes:\n\n\\(X\\) (horizontal): Represents time or the independent variable.\n\\(Y\\) (vertical): Represents the dependent variable.\n\nEach point represents a value at a given moment.\n\n\nThe objective is to explore trends over time or the evolution of a continuous variable."
+  },
+  {
+    "objectID": "T7_PopularGraphs/Popular_Graphs.slides.html#example-2",
+    "href": "T7_PopularGraphs/Popular_Graphs.slides.html#example-2",
+    "title": "Popular Graphs for Multiple Variables",
+    "section": "Example 2",
+    "text": "Example 2\nConsider the data in the file “spotify.xlsx”. This dataset contains the global daily streams of the top five most popular songs on the music streaming service Spotify in 2017."
+  },
+  {
+    "objectID": "T7_PopularGraphs/Popular_Graphs.slides.html#line-plot-1",
+    "href": "T7_PopularGraphs/Popular_Graphs.slides.html#line-plot-1",
+    "title": "Popular Graphs for Multiple Variables",
+    "section": "Line plot",
+    "text": "Line plot"
+  },
+  {
+    "objectID": "T7_PopularGraphs/Popular_Graphs.slides.html#generate-a-line-plot-in-flourish",
+    "href": "T7_PopularGraphs/Popular_Graphs.slides.html#generate-a-line-plot-in-flourish",
+    "title": "Popular Graphs for Multiple Variables",
+    "section": "Generate a line plot in Flourish",
+    "text": "Generate a line plot in Flourish\nSelect Line chart in the catalog of visualizations."
+  },
+  {
+    "objectID": "T7_PopularGraphs/Popular_Graphs.slides.html#section-2",
+    "href": "T7_PopularGraphs/Popular_Graphs.slides.html#section-2",
+    "title": "Popular Graphs for Multiple Variables",
+    "section": "",
+    "text": "Next, load the “auto_dataset.xlsx” into Flourish. Set the variables under study Date and Despacito and assign them to Labels/time and Values, respectively."
+  },
+  {
+    "objectID": "T7_PopularGraphs/Popular_Graphs.slides.html#section-3",
+    "href": "T7_PopularGraphs/Popular_Graphs.slides.html#section-3",
+    "title": "Popular Graphs for Multiple Variables",
+    "section": "",
+    "text": "Go back to the Preview tab and add text to the axes and title."
+  },
+  {
+    "objectID": "T7_PopularGraphs/Popular_Graphs.slides.html#multiple-line-charts",
+    "href": "T7_PopularGraphs/Popular_Graphs.slides.html#multiple-line-charts",
+    "title": "Popular Graphs for Multiple Variables",
+    "section": "Multiple line charts",
+    "text": "Multiple line charts\nWe can visualize multiple variables simultaneously using a line plot. For example, we can show the evolution of play counts for the 5 songs in the file “spotify.xlsx” over time.\nTo this end, simply go back to the Data tab and set a range of variables in Values."
+  },
+  {
+    "objectID": "T7_PopularGraphs/Popular_Graphs.slides.html#plotting-the-average-by-groups",
+    "href": "T7_PopularGraphs/Popular_Graphs.slides.html#plotting-the-average-by-groups",
+    "title": "Popular Graphs for Multiple Variables",
+    "section": "Plotting the average by groups",
+    "text": "Plotting the average by groups\n\nWe can summarize the values of the numerical variable \\(Y\\) for each category of a categorical variable \\(X\\) using the mean or average.\nFor example, let’s plot the average miles per gallon of cars produced in America, Europe, and Japan.\nA common visualization for plotting a numerical and a discrete variable when there is only one value per category is the bar plot.\nThe bar plot encodes quantitative data across different categories."
+  },
+  {
+    "objectID": "T7_PopularGraphs/Popular_Graphs.slides.html#bar-plot-for-averages",
+    "href": "T7_PopularGraphs/Popular_Graphs.slides.html#bar-plot-for-averages",
+    "title": "Popular Graphs for Multiple Variables",
+    "section": "Bar plot for averages",
+    "text": "Bar plot for averages"
+  },
+  {
+    "objectID": "T7_PopularGraphs/Popular_Graphs.slides.html#generate-bar-plot-in-flourish",
+    "href": "T7_PopularGraphs/Popular_Graphs.slides.html#generate-bar-plot-in-flourish",
+    "title": "Popular Graphs for Multiple Variables",
+    "section": "Generate bar plot in Flourish",
+    "text": "Generate bar plot in Flourish\nSelect Bar chart in the catalog of visualizations."
+  },
+  {
+    "objectID": "T7_PopularGraphs/Popular_Graphs.slides.html#section-5",
+    "href": "T7_PopularGraphs/Popular_Graphs.slides.html#section-5",
+    "title": "Popular Graphs for Multiple Variables",
+    "section": "",
+    "text": "Load the “auto_dataset.xlsx” into Flourish. Set the variables under study origin and mpg and assign them to Labels/time and Values, respectively."
+  },
+  {
+    "objectID": "T7_PopularGraphs/Popular_Graphs.slides.html#section-6",
+    "href": "T7_PopularGraphs/Popular_Graphs.slides.html#section-6",
+    "title": "Popular Graphs for Multiple Variables",
+    "section": "",
+    "text": "Go to the Preview tab and set Average in Aggregation mode."
+  },
+  {
+    "objectID": "T7_PopularGraphs/Popular_Graphs.slides.html#two-categorical-variables",
+    "href": "T7_PopularGraphs/Popular_Graphs.slides.html#two-categorical-variables",
+    "title": "Popular Graphs for Multiple Variables",
+    "section": "Two Categorical Variables",
+    "text": "Two Categorical Variables\nWith two categorical variables, we compare the distribution of one variable across subgroups defined by the other variable.\nIn fact, we keep one variable constant and plot the distribution of the other.\n\nTo do this, there are old and new plots:\n\nHierarchical bar plot\nTree map plot\nCircle packing plot"
+  },
+  {
+    "objectID": "T7_PopularGraphs/Popular_Graphs.slides.html#example-3",
+    "href": "T7_PopularGraphs/Popular_Graphs.slides.html#example-3",
+    "title": "Popular Graphs for Multiple Variables",
+    "section": "Example 3",
+    "text": "Example 3\nAs an example, let’s consider the data in the file “penguins.xlsx” again.\n\nFor instance, let’s study the distribution of penguin species across the three different islands using an stacked bar chart."
+  },
+  {
+    "objectID": "T7_PopularGraphs/Popular_Graphs.slides.html#hierarchical-bar-plot",
+    "href": "T7_PopularGraphs/Popular_Graphs.slides.html#hierarchical-bar-plot",
+    "title": "Popular Graphs for Multiple Variables",
+    "section": "Hierarchical bar plot",
+    "text": "Hierarchical bar plot"
+  },
+  {
+    "objectID": "T7_PopularGraphs/Popular_Graphs.slides.html#create-a-hierarchical-plot-in-flourish",
+    "href": "T7_PopularGraphs/Popular_Graphs.slides.html#create-a-hierarchical-plot-in-flourish",
+    "title": "Popular Graphs for Multiple Variables",
+    "section": "Create a hierarchical plot in Flourish",
+    "text": "Create a hierarchical plot in Flourish\nSearch and select the plot in the catalog of visualizations."
+  },
+  {
+    "objectID": "T7_PopularGraphs/Popular_Graphs.slides.html#section-7",
+    "href": "T7_PopularGraphs/Popular_Graphs.slides.html#section-7",
+    "title": "Popular Graphs for Multiple Variables",
+    "section": "",
+    "text": "After you load the “penguins.xlsx” data, select two categorical variables in the Categories/nesting section."
+  },
+  {
+    "objectID": "T7_PopularGraphs/Popular_Graphs.slides.html#section-8",
+    "href": "T7_PopularGraphs/Popular_Graphs.slides.html#section-8",
+    "title": "Popular Graphs for Multiple Variables",
+    "section": "",
+    "text": "To enhance the plot, switch off the automatic height"
+  },
+  {
+    "objectID": "T7_PopularGraphs/Popular_Graphs.slides.html#final-hierarchical-bar-plot-with-titles",
+    "href": "T7_PopularGraphs/Popular_Graphs.slides.html#final-hierarchical-bar-plot-with-titles",
+    "title": "Popular Graphs for Multiple Variables",
+    "section": "Final hierarchical bar plot with titles",
+    "text": "Final hierarchical bar plot with titles\nThe chart shows the frequency of species and island name."
+  },
+  {
+    "objectID": "T7_PopularGraphs/Popular_Graphs.slides.html#if-you-change-hierarchy-to-tree",
+    "href": "T7_PopularGraphs/Popular_Graphs.slides.html#if-you-change-hierarchy-to-tree",
+    "title": "Popular Graphs for Multiple Variables",
+    "section": "If you change hierarchy to tree",
+    "text": "If you change hierarchy to tree"
+  },
+  {
+    "objectID": "T7_PopularGraphs/Popular_Graphs.slides.html#tree-map-plot",
+    "href": "T7_PopularGraphs/Popular_Graphs.slides.html#tree-map-plot",
+    "title": "Popular Graphs for Multiple Variables",
+    "section": "Tree map plot",
+    "text": "Tree map plot"
+  },
+  {
+    "objectID": "T7_PopularGraphs/Popular_Graphs.slides.html#if-you-change-hierarchy-to-circles",
+    "href": "T7_PopularGraphs/Popular_Graphs.slides.html#if-you-change-hierarchy-to-circles",
+    "title": "Popular Graphs for Multiple Variables",
+    "section": "If you change hierarchy to circles",
+    "text": "If you change hierarchy to circles"
+  },
+  {
+    "objectID": "T7_PopularGraphs/Popular_Graphs.slides.html#circle-packing-plot",
+    "href": "T7_PopularGraphs/Popular_Graphs.slides.html#circle-packing-plot",
+    "title": "Popular Graphs for Multiple Variables",
+    "section": "Circle packing plot",
+    "text": "Circle packing plot"
+  },
+  {
+    "objectID": "T7_PopularGraphs/Popular_Graphs.slides.html#discussion",
+    "href": "T7_PopularGraphs/Popular_Graphs.slides.html#discussion",
+    "title": "Popular Graphs for Multiple Variables",
+    "section": "Discussion",
+    "text": "Discussion\nVisualizations such as hierarchy bars, tree maps, and circle packing plots help us explore how two categorical variables relate through nested structure.\n\nHierarchy bar charts are easy to read when one category has only a few levels. The show a clear sense of order from parent → child categories.\nTree maps are excellent use of space when there are many subcategories. The area encodes quantity, helping highlight dominant groups."
+  },
+  {
+    "objectID": "T7_PopularGraphs/Popular_Graphs.slides.html#section-9",
+    "href": "T7_PopularGraphs/Popular_Graphs.slides.html#section-9",
+    "title": "Popular Graphs for Multiple Variables",
+    "section": "",
+    "text": "Circle packing plots are more visually appealing and intuitive for showing nested groups. They are helpful when emphasizing clusters rather than exact magnitudes."
   }
 ]
