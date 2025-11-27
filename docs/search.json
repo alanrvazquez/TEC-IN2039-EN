@@ -2434,5 +2434,341 @@
     "title": "Popular Graphs",
     "section": "Discussion",
     "text": "Discussion\nVisualizations such as hierarchy bars, tree maps, and circle packing plots help us explore how two categorical variables relate through nested structure.\n\nHierarchy bar charts are easy to read when one category has only a few levels. The show a clear sense of order from parent → child categories.\nTree maps are excellent use of space when there are many subcategories. The area encodes quantity, helping highlight dominant groups."
+  },
+  {
+    "objectID": "T6_TypesofVariables/TypesVariables.slides.html#agenda",
+    "href": "T6_TypesofVariables/TypesVariables.slides.html#agenda",
+    "title": "Popular Graphs",
+    "section": "Agenda",
+    "text": "Agenda\n\n\nTypes of Variables\nOne Categorical Variable\nOne Numerical Variable"
+  },
+  {
+    "objectID": "T6_TypesofVariables/TypesVariables.slides.html#types-of-variables",
+    "href": "T6_TypesofVariables/TypesVariables.slides.html#types-of-variables",
+    "title": "Popular Graphs",
+    "section": "Types of variables",
+    "text": "Types of variables\n\nBefore creating a graph, we must examine the type of values that our dataset variables take.\n\nThere are two main types of variables:\n\nNumerical variables.\nCategorical variables."
+  },
+  {
+    "objectID": "T6_TypesofVariables/TypesVariables.slides.html#numerical-variables",
+    "href": "T6_TypesofVariables/TypesVariables.slides.html#numerical-variables",
+    "title": "Popular Graphs",
+    "section": "Numerical variables",
+    "text": "Numerical variables\n\nThese take values that represent numerical measurements or quantities.\n\nHeight (in centimeters).\nWeight (in kilograms).\nAge (in years).\nPrice (in dollars).\nTime (in hours or seconds).\nExam score (number of points on a 100-point scale)."
+  },
+  {
+    "objectID": "T6_TypesofVariables/TypesVariables.slides.html#types-of-numerical-variables",
+    "href": "T6_TypesofVariables/TypesVariables.slides.html#types-of-numerical-variables",
+    "title": "Popular Graphs",
+    "section": "Types of numerical variables",
+    "text": "Types of numerical variables\n\nNumerical variables are divided into two types:\n\nDiscrete: variables that take integer values.\n\n\nExamples:\n\nNumber of children (0, 1, 2, or 3)\nNumber of students in a class (20, 30, or 35)\nNumber of books in a library (10,000, 15,000, 20,000)"
+  },
+  {
+    "objectID": "T6_TypesofVariables/TypesVariables.slides.html#section",
+    "href": "T6_TypesofVariables/TypesVariables.slides.html#section",
+    "title": "Popular Graphs",
+    "section": "",
+    "text": "Continuous: variables that have a large range of possible values.\n\n\nExamples:\n\nA person’s height (could be within the range of 1.60 m to 1.85 m)\nAmbient temperature (could be within the range of -30 \\(^\\circ\\)C to 50 \\(^\\circ\\)C)\nTime for an Uber to arrive (between 5 and 60 minutes)"
+  },
+  {
+    "objectID": "T6_TypesofVariables/TypesVariables.slides.html#categorical-variables",
+    "href": "T6_TypesofVariables/TypesVariables.slides.html#categorical-variables",
+    "title": "Popular Graphs",
+    "section": "Categorical variables",
+    "text": "Categorical variables\n\nThese take values that fall into categories.\n\n\nA category is a class or division of people or things that share particular characteristics.\n\n\n\n\n\n\n\n\n\n\nVariable\nCategories\n\n\nAmazon review\n1\\(\\bigstar\\), 2\\(\\bigstar\\), 3\\(\\bigstar\\), 4\\(\\bigstar\\), 5\\(\\bigstar\\)\n\n\nCountry of origin\nMéxico, Canadá, EUA\n\n\nPostal code\n72703, 90034, 3000, …"
+  },
+  {
+    "objectID": "T6_TypesofVariables/TypesVariables.slides.html#classification-of-categorical-variables",
+    "href": "T6_TypesofVariables/TypesVariables.slides.html#classification-of-categorical-variables",
+    "title": "Popular Graphs",
+    "section": "Classification of categorical variables",
+    "text": "Classification of categorical variables\n\n\nCategorical variables are divided into two important types:\n\nNominal\nOrdinal\n\n\nThe distinction depends on whether the categories have a meaningful order or not."
+  },
+  {
+    "objectID": "T6_TypesofVariables/TypesVariables.slides.html#nominal-categorical-variables",
+    "href": "T6_TypesofVariables/TypesVariables.slides.html#nominal-categorical-variables",
+    "title": "Popular Graphs",
+    "section": "Nominal categorical variables",
+    "text": "Nominal categorical variables\n\nA categorical variable is nominal if its categories do not have a specific order.\n\nExamples:\n\nPolitical party affiliation (Democrat or Republican).\nDog breed (Shepherd, Hound, Terrier, Other).\nComputer operating system (Windows, macOS, Linux)."
+  },
+  {
+    "objectID": "T6_TypesofVariables/TypesVariables.slides.html#ordinal-categorical-variables",
+    "href": "T6_TypesofVariables/TypesVariables.slides.html#ordinal-categorical-variables",
+    "title": "Popular Graphs",
+    "section": "Ordinal categorical variables",
+    "text": "Ordinal categorical variables\n\nA categorical variable is ordinal if its categories do have a meaningful order.\n\nExamples:\n\nT-shirt size (Small, Medium, Large).\nEducation level (High School, University, Postgraduate).\nIncome level (Less than $250K, $250K-$500K, More than $500K)\n\n\nIt is important to note that with an ordinal variable, the difference between, say, small and medium is not necessarily the same as the difference between medium and large. Additionally, the differences between consecutive categories may not be quantifiable. Think about star ratings in a restaurant review—how much better is one star compared to two stars?"
+  },
+  {
+    "objectID": "T6_TypesofVariables/TypesVariables.slides.html#interesting-fact",
+    "href": "T6_TypesofVariables/TypesVariables.slides.html#interesting-fact",
+    "title": "Popular Graphs",
+    "section": "Interesting fact…",
+    "text": "Interesting fact…\n\nInteger values (e.g., 1, 2, 3, …, 5) can represent nominal or ordinal categorical variables.\n\n\n\nRepresentation\n1\n2\n3\n4\n\n\nBlood Type\nA\nB\nAB\nO\n\n\nReview\nBad\nFair\nGood\nVery Good\n\n\n\n\n\nIn practice, boolean values (TRUE and FALSE) often represent nominal categories."
+  },
+  {
+    "objectID": "T6_TypesofVariables/TypesVariables.slides.html#remember",
+    "href": "T6_TypesofVariables/TypesVariables.slides.html#remember",
+    "title": "Popular Graphs",
+    "section": "Remember",
+    "text": "Remember"
+  },
+  {
+    "objectID": "T6_TypesofVariables/TypesVariables.slides.html#a-general-difference-is",
+    "href": "T6_TypesofVariables/TypesVariables.slides.html#a-general-difference-is",
+    "title": "Popular Graphs",
+    "section": "A general difference is …",
+    "text": "A general difference is …\n\n\nQuantitative variables (discrete or continuous) are those where addition or subtraction makes sense.\nCategorical variables (nominal or ordinal) are those where addition or subtraction does NOT make sense."
+  },
+  {
+    "objectID": "T6_TypesofVariables/TypesVariables.slides.html#example-1-penguins-dataset",
+    "href": "T6_TypesofVariables/TypesVariables.slides.html#example-1-penguins-dataset",
+    "title": "Popular Graphs",
+    "section": "Example 1: Penguins dataset",
+    "text": "Example 1: Penguins dataset\n\nWe will illustrate the concepts using the penguins.xlsx dataset. We will focus on visualizing the following categorical variables: species, island y sex.\n\n\n# A tibble: 6 × 3\n  species island    sex   \n  &lt;chr&gt;   &lt;chr&gt;     &lt;chr&gt; \n1 Adelie  Torgersen male  \n2 Adelie  Torgersen female\n3 Adelie  Torgersen female\n4 Adelie  Torgersen &lt;NA&gt;  \n5 Adelie  Torgersen female\n6 Adelie  Torgersen male"
+  },
+  {
+    "objectID": "T6_TypesofVariables/TypesVariables.slides.html#bar-chart",
+    "href": "T6_TypesofVariables/TypesVariables.slides.html#bar-chart",
+    "title": "Popular Graphs",
+    "section": "Bar chart",
+    "text": "Bar chart\nIt visually represents frequencies or percentages of the categories of a categorical variable. The frequency (or percentage) is represented by a bar of proportional height."
+  },
+  {
+    "objectID": "T6_TypesofVariables/TypesVariables.slides.html#construct-a-bar-chart-in-flourish",
+    "href": "T6_TypesofVariables/TypesVariables.slides.html#construct-a-bar-chart-in-flourish",
+    "title": "Popular Graphs",
+    "section": "Construct a bar chart in Flourish",
+    "text": "Construct a bar chart in Flourish"
+  },
+  {
+    "objectID": "T6_TypesofVariables/TypesVariables.slides.html#section-1",
+    "href": "T6_TypesofVariables/TypesVariables.slides.html#section-1",
+    "title": "Popular Graphs",
+    "section": "",
+    "text": "In the visualization gallery, choose Bar Chart."
+  },
+  {
+    "objectID": "T6_TypesofVariables/TypesVariables.slides.html#replace-the-data-with-your-own",
+    "href": "T6_TypesofVariables/TypesVariables.slides.html#replace-the-data-with-your-own",
+    "title": "Popular Graphs",
+    "section": "Replace the data with your own",
+    "text": "Replace the data with your own"
+  },
+  {
+    "objectID": "T6_TypesofVariables/TypesVariables.slides.html#select-the-correct-variables",
+    "href": "T6_TypesofVariables/TypesVariables.slides.html#select-the-correct-variables",
+    "title": "Popular Graphs",
+    "section": "Select the correct variables",
+    "text": "Select the correct variables\nUnfortunately, it is not easy to create a standard bar chart with the counts of each category. To do this, we assign the variable species to Labels/time, and an auxiliary column with complete entries to Values. In this case, we use the year."
+  },
+  {
+    "objectID": "T6_TypesofVariables/TypesVariables.slides.html#section-2",
+    "href": "T6_TypesofVariables/TypesVariables.slides.html#section-2",
+    "title": "Popular Graphs",
+    "section": "",
+    "text": "The preview plot has all bars at the same height. To replace the height for the frequencies of the categories, we change the Agregation mode to Count.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWe also change the Height mode to Standard to enhance the visualization."
+  },
+  {
+    "objectID": "T6_TypesofVariables/TypesVariables.slides.html#principle-1-define-the-message",
+    "href": "T6_TypesofVariables/TypesVariables.slides.html#principle-1-define-the-message",
+    "title": "Popular Graphs",
+    "section": "Principle 1: Define the message",
+    "text": "Principle 1: Define the message\nFollowing Principle 1 of data visualization, we add a header or title to the plot by going to the section Header."
+  },
+  {
+    "objectID": "T6_TypesofVariables/TypesVariables.slides.html#final-bar-chart",
+    "href": "T6_TypesofVariables/TypesVariables.slides.html#final-bar-chart",
+    "title": "Popular Graphs",
+    "section": "Final bar chart",
+    "text": "Final bar chart\n\nWe see that most penguins are Adelie."
+  },
+  {
+    "objectID": "T6_TypesofVariables/TypesVariables.slides.html#example-2-boston-housing-dataset",
+    "href": "T6_TypesofVariables/TypesVariables.slides.html#example-2-boston-housing-dataset",
+    "title": "Popular Graphs",
+    "section": "Example 2: Boston Housing Dataset",
+    "text": "Example 2: Boston Housing Dataset\nThis dataset contains information collected by the U.S. Census Bureau on housing in the Boston, Massachusetts area. The dataset is in Boston_dataset.xlsx."
+  },
+  {
+    "objectID": "T6_TypesofVariables/TypesVariables.slides.html#section-3",
+    "href": "T6_TypesofVariables/TypesVariables.slides.html#section-3",
+    "title": "Popular Graphs",
+    "section": "",
+    "text": "We concentrate on the following variables:\n\nchas : Whether the house is next to the Charles River (1: Yes and 0: No)\nrad : Index of accessibility to radial highways (0: Low, 1: Medium, 2: High)."
+  },
+  {
+    "objectID": "T6_TypesofVariables/TypesVariables.slides.html#data-wrangling-with-r",
+    "href": "T6_TypesofVariables/TypesVariables.slides.html#data-wrangling-with-r",
+    "title": "Popular Graphs",
+    "section": "Data wrangling with R",
+    "text": "Data wrangling with R\nTo create a effective bar plots in Flourish, we must wrangle the variables chas and rad a little bit.\nSpecifically, we must ensure that these variables are categorical and their categories have the appropriate names.\n\nBoston_dataset = read_excel(\"Boston_dataset.xlsx\")\nBoston_dataset %&gt;% select(`chas`, `rad`) %&gt;%  head()\n\n# A tibble: 6 × 2\n   chas   rad\n  &lt;dbl&gt; &lt;dbl&gt;\n1     0     0\n2     0     0\n3     0     0\n4     0     0\n5     0     0\n6     0     0"
+  },
+  {
+    "objectID": "T6_TypesofVariables/TypesVariables.slides.html#section-4",
+    "href": "T6_TypesofVariables/TypesVariables.slides.html#section-4",
+    "title": "Popular Graphs",
+    "section": "",
+    "text": "The variables are numeric because their header shows a dbl.\n\n\n# A tibble: 6 × 2\n   chas   rad\n  &lt;dbl&gt; &lt;dbl&gt;\n1     0     0\n2     0     0\n3     0     0\n4     0     0\n5     0     0\n6     0     0\n\n\nTo set variables as categorical we use the functions mutate() and as.factor().\n\nBoston_dataset_wr = Boston_dataset %&gt;% \n                    mutate(`chas` = as.factor(`chas`)) %&gt;% \n                    mutate(`rad` = as.factor(`rad`))"
+  },
+  {
+    "objectID": "T6_TypesofVariables/TypesVariables.slides.html#section-5",
+    "href": "T6_TypesofVariables/TypesVariables.slides.html#section-5",
+    "title": "Popular Graphs",
+    "section": "",
+    "text": "Now the header of the variables show a fct indicating that the variables are categorical.\n\nBoston_dataset_wr  %&gt;% select(`chas`, `rad`) \n\n# A tibble: 506 × 2\n   chas  rad  \n   &lt;fct&gt; &lt;fct&gt;\n 1 0     0    \n 2 0     0    \n 3 0     0    \n 4 0     0    \n 5 0     0    \n 6 0     0    \n 7 0     1    \n 8 0     1    \n 9 0     1    \n10 0     1    \n# ℹ 496 more rows"
+  },
+  {
+    "objectID": "T6_TypesofVariables/TypesVariables.slides.html#section-6",
+    "href": "T6_TypesofVariables/TypesVariables.slides.html#section-6",
+    "title": "Popular Graphs",
+    "section": "",
+    "text": "Next, we replace the 0 and 1 of chas for the label “No” and “Yes”, respectively. To this end, we use the function mutate() and caste_match().\n\nBoston_dataset_wr = Boston_dataset_wr %&gt;% \n  mutate(`chas` = case_match(`chas`, \"0\" ~ \"No\", \"1\" ~ \"Yes\"))\n\n\nUsing the same functions, we replace the 0, 1, and 2 in the variable rad by “Low”, “Medium”, and “High”, respectively.\n\nBoston_dataset_wr = Boston_dataset_wr %&gt;% \n  mutate(`rad` = case_match(`rad`, \"0\" ~ \"Low\", \"1\" ~ \"Medium\",\n                            \"2\" ~ \"High\"))"
+  },
+  {
+    "objectID": "T6_TypesofVariables/TypesVariables.slides.html#section-7",
+    "href": "T6_TypesofVariables/TypesVariables.slides.html#section-7",
+    "title": "Popular Graphs",
+    "section": "",
+    "text": "Now, the columns show the actual category labels instead of the coded (or number) labels.\n\nBoston_dataset_wr  %&gt;% select(`chas`, `rad`) \n\n# A tibble: 506 × 2\n   chas  rad   \n   &lt;chr&gt; &lt;chr&gt; \n 1 No    Low   \n 2 No    Low   \n 3 No    Low   \n 4 No    Low   \n 5 No    Low   \n 6 No    Low   \n 7 No    Medium\n 8 No    Medium\n 9 No    Medium\n10 No    Medium\n# ℹ 496 more rows"
+  },
+  {
+    "objectID": "T6_TypesofVariables/TypesVariables.slides.html#section-8",
+    "href": "T6_TypesofVariables/TypesVariables.slides.html#section-8",
+    "title": "Popular Graphs",
+    "section": "",
+    "text": "We save the new dataset using the function write_xlsx() from the writexl package in R.\n\n# write_xlsx(Boston_dataset_wr, \"BostonDataFlourish.xlsx\")\n\nWe then proceed to visualize the processed data using Flourish."
+  },
+  {
+    "objectID": "T6_TypesofVariables/TypesVariables.slides.html#lets-create-a-bar-chart-for-chas.",
+    "href": "T6_TypesofVariables/TypesVariables.slides.html#lets-create-a-bar-chart-for-chas.",
+    "title": "Popular Graphs",
+    "section": "Let’s create a bar chart for chas.",
+    "text": "Let’s create a bar chart for chas.\nWe load the dataset into Flourish."
+  },
+  {
+    "objectID": "T6_TypesofVariables/TypesVariables.slides.html#section-9",
+    "href": "T6_TypesofVariables/TypesVariables.slides.html#section-9",
+    "title": "Popular Graphs",
+    "section": "",
+    "text": "We assign the chas variable to the Labels/time. We also assign an auxiliary column with complete entries to Values. In this case, we use nox."
+  },
+  {
+    "objectID": "T6_TypesofVariables/TypesVariables.slides.html#section-10",
+    "href": "T6_TypesofVariables/TypesVariables.slides.html#section-10",
+    "title": "Popular Graphs",
+    "section": "",
+    "text": "Now, we go back to the Preview tab and set Aggregation mode to Count."
+  },
+  {
+    "objectID": "T6_TypesofVariables/TypesVariables.slides.html#section-11",
+    "href": "T6_TypesofVariables/TypesVariables.slides.html#section-11",
+    "title": "Popular Graphs",
+    "section": "",
+    "text": "In the menu of the Preview tab, we add a title and a good label for the horizontal axis."
+  },
+  {
+    "objectID": "T6_TypesofVariables/TypesVariables.slides.html#bar-chart-for-chas",
+    "href": "T6_TypesofVariables/TypesVariables.slides.html#bar-chart-for-chas",
+    "title": "Popular Graphs",
+    "section": "Bar chart for chas",
+    "text": "Bar chart for chas"
+  },
+  {
+    "objectID": "T6_TypesofVariables/TypesVariables.slides.html#section-12",
+    "href": "T6_TypesofVariables/TypesVariables.slides.html#section-12",
+    "title": "Popular Graphs",
+    "section": "",
+    "text": "Following similar steps, we create a bar chart for rad in Flourish."
+  },
+  {
+    "objectID": "T6_TypesofVariables/TypesVariables.slides.html#collapsing-categories",
+    "href": "T6_TypesofVariables/TypesVariables.slides.html#collapsing-categories",
+    "title": "Popular Graphs",
+    "section": "Collapsing categories",
+    "text": "Collapsing categories\n\nSome categorical variables tend to have many categories. For example, states in a country or postal codes. In these cases, it can be difficult to visualize all the categories in a single graph.\nOne strategy for developing an effective visualization is to collapse categories.\nFor example, in the variable rad, we can collapse the categories Medium and High into a single category called Other."
+  },
+  {
+    "objectID": "T6_TypesofVariables/TypesVariables.slides.html#section-13",
+    "href": "T6_TypesofVariables/TypesVariables.slides.html#section-13",
+    "title": "Popular Graphs",
+    "section": "",
+    "text": "We collapse categories using the function called case_when().\n\nBoston_dataset_simple = Boston_dataset_wr %&gt;% \n      mutate(rad = case_when(rad != \"Low\" ~ \"Other\",\n                             rad == \"Low\" ~ \"Low\"))\n\nCollapsing categories simplifies the graph and allows us to emphasize a category like Low and see how it compares to the other categories (as a whole).\n\nWe save the new dataset using the function write_xlsx().\n\n# write_xlsx(Boston_dataset_simple, \"BostonCollapsed.xlsx\")\n\nWe then proceed to visualize the processed data using Flourish."
+  },
+  {
+    "objectID": "T6_TypesofVariables/TypesVariables.slides.html#the-resulting-bar-chart",
+    "href": "T6_TypesofVariables/TypesVariables.slides.html#the-resulting-bar-chart",
+    "title": "Popular Graphs",
+    "section": "The resulting bar chart",
+    "text": "The resulting bar chart"
+  },
+  {
+    "objectID": "T6_TypesofVariables/TypesVariables.slides.html#example-3",
+    "href": "T6_TypesofVariables/TypesVariables.slides.html#example-3",
+    "title": "Popular Graphs",
+    "section": "Example 3",
+    "text": "Example 3\n\n\nA piston is a mechanical device found in most engines.\n\n\n\nOne measure of a piston’s performance is the time it takes to complete a cycle, which we call “cycle time” and is measured in seconds.\nThe file “CYLT.xlsx” contains 50 cycle times of a piston operating under fixed conditions."
+  },
+  {
+    "objectID": "T6_TypesofVariables/TypesVariables.slides.html#beeswarm",
+    "href": "T6_TypesofVariables/TypesVariables.slides.html#beeswarm",
+    "title": "Popular Graphs",
+    "section": "Beeswarm",
+    "text": "Beeswarm\n\nVisualizes the distribution of individual observations along a numeric axis.\n\n\nEach point represents one data value, and the points are arranged to avoid overlapping—similar to bees clustering around a hive.\nThis makes it easy to see where observations are dense or sparse, while still showing every individual data point."
+  },
+  {
+    "objectID": "T6_TypesofVariables/TypesVariables.slides.html#section-15",
+    "href": "T6_TypesofVariables/TypesVariables.slides.html#section-15",
+    "title": "Popular Graphs",
+    "section": "",
+    "text": "Unlike histograms, which aggregate counts into bars, beeswarm plots preserve every point, giving a more detailed picture of the underlying distribution."
+  },
+  {
+    "objectID": "T6_TypesofVariables/TypesVariables.slides.html#beeswarm-in-flourish",
+    "href": "T6_TypesofVariables/TypesVariables.slides.html#beeswarm-in-flourish",
+    "title": "Popular Graphs",
+    "section": "Beeswarm in Flourish",
+    "text": "Beeswarm in Flourish\nBeeswarm is in the section Scatter of the catalog of visualizations in Flourish."
+  },
+  {
+    "objectID": "T6_TypesofVariables/TypesVariables.slides.html#section-16",
+    "href": "T6_TypesofVariables/TypesVariables.slides.html#section-16",
+    "title": "Popular Graphs",
+    "section": "",
+    "text": "In the Beeswarm plot, we replace the current data with the data in “CYLT.xlsx” in the Data tab."
+  },
+  {
+    "objectID": "T6_TypesofVariables/TypesVariables.slides.html#section-17",
+    "href": "T6_TypesofVariables/TypesVariables.slides.html#section-17",
+    "title": "Popular Graphs",
+    "section": "",
+    "text": "In the Data tab, we only assign the cycle_time variable to the X values section."
+  },
+  {
+    "objectID": "T6_TypesofVariables/TypesVariables.slides.html#section-18",
+    "href": "T6_TypesofVariables/TypesVariables.slides.html#section-18",
+    "title": "Popular Graphs",
+    "section": "",
+    "text": "Let’s go back to the Preview tab."
+  },
+  {
+    "objectID": "T6_TypesofVariables/TypesVariables.slides.html#section-19",
+    "href": "T6_TypesofVariables/TypesVariables.slides.html#section-19",
+    "title": "Popular Graphs",
+    "section": "",
+    "text": "There, we modify the label of the horizontal axis X and header in the sections X axis and Header."
+  },
+  {
+    "objectID": "T6_TypesofVariables/TypesVariables.slides.html#beeswarm-plot",
+    "href": "T6_TypesofVariables/TypesVariables.slides.html#beeswarm-plot",
+    "title": "Popular Graphs",
+    "section": "Beeswarm plot",
+    "text": "Beeswarm plot"
+  },
+  {
+    "objectID": "T6_TypesofVariables/TypesVariables.slides.html#what-to-look-for-in-a-beeswarm-plot",
+    "href": "T6_TypesofVariables/TypesVariables.slides.html#what-to-look-for-in-a-beeswarm-plot",
+    "title": "Popular Graphs",
+    "section": "What to look for in a beeswarm plot?",
+    "text": "What to look for in a beeswarm plot?\n\n\nClusters of points that reveal dense regions in the distribution.\nAreas where points are more spread out, indicating low-frequency regions.\nGaps along the axis where no observations appear.\nOutliers, visible as isolated points far from the main cluster.\nThe overall shape of the distribution formed by the pattern of points."
   }
 ]
