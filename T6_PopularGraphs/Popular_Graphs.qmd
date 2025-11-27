@@ -187,7 +187,6 @@ In practice, boolean values (`TRUE` and `FALSE`) often represent nominal categor
 
 -   Categorical variables (nominal or ordinal) are those where addition or subtraction does **NOT** make sense.
 
-
 # One Categorical Variable
 
 ## Example 1: Penguins dataset
@@ -224,19 +223,19 @@ It visually represents frequencies or percentages of the categories of a categor
 
 In the visualization gallery, choose **Bar Chart**.
 
-
 ![](images/SelectBarChart.png){fig-align="center"}
 
 ## Replace the data with your own
 
-::: columns
+::::: columns
 ::: {.column width="50%"}
 ![](images/DefaultBarChart.png){fig-align="center"}
 :::
+
 ::: {.column width="50%"}
-![](images/UploadDataBarChart .png){fig-align="center"}
+![](images/UploadDataBarChart%20.png){fig-align="center"}
 :::
-:::
+:::::
 
 ![](images/UploadedDataBarChart.png){fig-align="center"}
 
@@ -248,16 +247,17 @@ Unfortunately, it is not easy to create a standard bar chart with the counts of 
 
 ## 
 
-The preview plot has all bars at the same height. To replace the height for the  frequencies of the categories, we change the **Agregation mode** to *Count*.
+The preview plot has all bars at the same height. To replace the height for the frequencies of the categories, we change the **Agregation mode** to *Count*.
 
-::: columns
+::::: columns
 ::: {.column width="50%"}
 ![](images/ChangeCountBarChart.png){fig-align="center"}
 :::
+
 ::: {.column width="50%"}
 ![](images/ChangeCountBarChart2.png){fig-align="center"}
 :::
-:::
+:::::
 
 We also change the **Height mode** to *Standard* to enhance the visualization.
 
@@ -265,22 +265,21 @@ We also change the **Height mode** to *Standard* to enhance the visualization.
 
 Following Principle 1 of data visualization, we add a header or title to the plot by going to the section **Header**.
 
-::: columns
+::::: columns
 ::: {.column width="50%"}
 ![](images/AddHeaderBarChart.png){fig-align="center"}
 :::
+
 ::: {.column width="50%"}
 ![](images/SetHeaderBarChart.png){fig-align="center"}
 :::
-:::
-
+:::::
 
 ## Final bar chart
 
 ![](images/FinalBarChart.png){fig-align="center"}
 
 We see that most penguins are Adelie.
-
 
 ## Example 2: Boston Housing Dataset
 
@@ -316,7 +315,7 @@ We concentrate on the following variables:
 
 ## Data wrangling with R
 
-To create a effective bar plots in Flourish, we must wrangle the variables `chas` and `rad` a little bit. 
+To create a effective bar plots in Flourish, we must wrangle the variables `chas` and `rad` a little bit.
 
 Specifically, we must ensure that these variables are categorical and their categories have the appropriate names.
 
@@ -329,7 +328,7 @@ Boston_dataset = read_excel("Boston_dataset.xlsx")
 Boston_dataset %>% select(`chas`, `rad`) %>%  head()
 ```
 
-##
+## 
 
 </br>
 
@@ -354,7 +353,7 @@ Boston_dataset_wr = Boston_dataset %>%
                     mutate(`rad` = as.factor(`rad`))
 ```
 
-##
+## 
 
 </br>
 
@@ -368,7 +367,7 @@ Now the header of the variables show a `fct` indicating that the variables are c
 Boston_dataset_wr  %>% select(`chas`, `rad`) 
 ```
 
-##
+## 
 
 </br>
 
@@ -411,9 +410,9 @@ Now, the columns show the actual category labels instead of the coded (or number
 Boston_dataset_wr  %>% select(`chas`, `rad`) 
 ```
 
-##
+## 
 
-We save the new dataset using the function `write_xlsx()` from the **writexl** package in R. 
+We save the new dataset using the function `write_xlsx()` from the **writexl** package in R.
 
 ```{r}
 #| fig-pos: center
@@ -427,39 +426,39 @@ We then proceed to visualize the processed data using [Flourish](https://flouris
 
 ![](images/SelectBarChart.png){fig-align="center"}
 
-## Let's create a bar chart for `chas`. 
+## Let's create a bar chart for `chas`.
 
 We load the dataset into Flourish.
 
 ![](images/BostonDataFlourish.png){fig-align="center"}
 
-##
+## 
 
 We assign the `chas` variable to the **Labels/time**. We also assign an auxiliary column with complete entries to **Values**. In this case, we use `nox`.
 
 ![](images/ChasSetVariables.png){fig-align="center"}
 
-##
+## 
 
 Now, we go back to the **Preview** tab and set **Aggregation mode** to *Count*.
 
 ![](images/FormatChas.png){fig-align="center"}
 
-
-##
+## 
 
 </br>
 
-In the menu of the **Preview** tab, we add a title and a good label for the horizontal axis. 
+In the menu of the **Preview** tab, we add a title and a good label for the horizontal axis.
 
-::: columns
+::::: columns
 ::: {.column width="50%"}
 ![](images/LabelChas.png){fig-align="center"}
 :::
+
 ::: {.column width="50%"}
 ![](images/HeaderChas.png){fig-align="center"}
 :::
-:::
+:::::
 
 ## Bar chart for `chas`
 
@@ -541,17 +540,16 @@ The file "CYLT.xlsx" contains 50 cycle times of a piston operating under fixed c
 piston_data = read_excel("CYCLT.xlsx") 
 ```
 
-
 ## Beeswarm
 
 </br>
 
-Visualizes the distribution of individual observations along a numeric axis.  
+Visualizes the distribution of individual observations along a numeric axis.
 
-. . . 
+. . .
 
-- Each point represents one data value, and the points are arranged to avoid overlapping—similar to bees clustering around a hive.
-- This makes it easy to see where observations are dense or sparse, while still showing *every* individual data point.
+-   Each point represents one data value, and the points are arranged to avoid overlapping—similar to bees clustering around a hive.
+-   This makes it easy to see where observations are dense or sparse, while still showing *every* individual data point.
 
 ## 
 
@@ -561,8 +559,7 @@ Visualizes the distribution of individual observations along a numeric axis.
 
 </br></br></br>
 
-
-- Unlike histograms, which aggregate counts into bars, **beeswarm plots preserve every point**, giving a more detailed picture of the underlying distribution.
+-   Unlike histograms, which aggregate counts into bars, **beeswarm plots preserve every point**, giving a more detailed picture of the underlying distribution.
 
 ## Beeswarm in Flourish
 
@@ -575,7 +572,6 @@ Beeswarm is in the section **Scatter** of the catalog of visualizations in Flour
 In the Beeswarm plot, we replace the current data with the data in "CYLT.xlsx" in the **Data** tab.
 
 ![](images/BSCycle.png){fig-align="center"}
-
 
 ## 
 
@@ -611,12 +607,11 @@ There, we modify the label of the horizontal axis X and header in the sections *
 
 </br>
 
-- Clusters of points that reveal **dense regions** in the distribution.
-- Areas where points are more spread out, indicating **low-frequency** regions.
-- **Gaps** along the axis where no observations appear.
-- **Outliers**, visible as isolated points far from the main cluster.
-- The overall **shape of the distribution** formed by the pattern of points.
-
+-   Clusters of points that reveal **dense regions** in the distribution.
+-   Areas where points are more spread out, indicating **low-frequency** regions.
+-   **Gaps** along the axis where no observations appear.
+-   **Outliers**, visible as isolated points far from the main cluster.
+-   The overall **shape of the distribution** formed by the pattern of points.
 
 # Multiple Variables
 
@@ -671,11 +666,11 @@ There are various types of graphs that help us explore relationships between two
 </br>
 
 ::: center
-| Type        | Graph Type                                |
-|:------------|:------------------------------------------|
-| Numerical   | Scatter plot, line graph                  |
+| Type        | Graph Type                              |
+|:------------|:----------------------------------------|
+| Numerical   | Scatter plot, line graph                |
 | Categorical | Side-by-side bar plot, stacked bar plot |
-| Mixed       | Bar Plot                           |
+| Mixed       | Bar Plot                                |
 :::
 
 ::: notes
@@ -716,13 +711,13 @@ Variables $X$ and $Y$ are placed on the horizontal and vertical axes, respective
 
 ## Scatter plot
 
-</br>
+::: {.flourish-embed .flourish-scatter data-src="visualisation/26430283"}
+```{=html}
+<script src="https://public.flourish.studio/resources/embed.js"></script>
+```
 
-![](images/FinalScatterPlot.png){fig-align="center"}
-
-##
-
-<div class="flourish-embed flourish-scatter" data-src="visualisation/26430283"><script src="https://public.flourish.studio/resources/embed.js"></script><noscript><img src="https://public.flourish.studio/visualisation/26430283/thumbnail" width="100%" alt="scatter visualization" /></noscript></div>
+<noscript><img src="https://public.flourish.studio/visualisation/26430283/thumbnail" alt="scatter visualization" width="100%"/></noscript>
+:::
 
 ## Individual graphs
 
@@ -759,25 +754,85 @@ histogram_weight
 :::
 :::::
 
-
 ## Generate scatter plot in Flourish
 
 Select *Scatter* in the catalog of visualizations.
 
 ![](images/SelectedScatter.png){fig-align="center"}
 
-##
+## 
 
 Next, load the "auto_dataset.xlsx" into Flourish. Set the variables under study `mpg` and `weight` and assign them to **Y values** and **X values**, respectively.
 
 ![](images/LoadedAutoHighlight.png){fig-align="center"}
 
-##
+## 
 
 Go back to the **Preview** tab and add text to the axes and title.
 
 ![](images/FinalScatterPlot.png){fig-align="center"}
 
+## Plots for three or four variables
+
+</br>
+
+-   When examining a distribution or relationship, we often want to compare it across data subgroups.
+
+-   This process of conditioning on additional variables leads to visualizations involving three or more variables.
+
+-   We now illustrate how to extend the scatter plot to visualize multiple variables.
+
+## Scatter plot by color
+
+::: {.flourish-embed .flourish-scatter data-src="visualisation/26496861"}
+```{=html}
+<script src="https://public.flourish.studio/resources/embed.js"></script>
+```
+
+<noscript><img src="https://public.flourish.studio/visualisation/26496861/thumbnail" alt="scatter visualization" width="100%"/></noscript>
+:::
+
+## Add color to the scatter plot
+
+We a categorical variable in the **Color** section. For example, let's use `origin`.
+
+![](images/SelectScatterbyColor.png){fig-align="center"}
+
+## The result
+
+Scatter plots by color work well when the additional variable $Z$ is categorical with few categories.
+
+![](images/FinalScatterPlotbyColor.png){fig-align="center"}
+
+## Bubble Plot: Scatter for 4 variables
+
+::: {.flourish-embed .flourish-scatter data-src="visualisation/26497298"}
+```{=html}
+<script src="https://public.flourish.studio/resources/embed.js"></script>
+```
+
+<noscript><img src="https://public.flourish.studio/visualisation/26497298/thumbnail" alt="scatter visualization" width="100%"/></noscript>
+:::
+
+## Add bubbles to the scatter plot
+
+We set a variable in the **Size** section, say, `horsepower`.
+
+![](images/SelectBubblePlot.png){fig-align="center"}
+
+## Resulting bubble plot
+
+![](images/InitialBubblePlotAuto.png){fig-align="center"}
+
+## Improve the bubble plot
+
+We can enhance the plot by reducing the minimum and maximum sizes for the bubbles. Let's set the maximum size to 200.
+
+![](images/AdjustBubblePlot.png){fig-align="center"}
+
+## Final bubble plot
+
+![](images/FinalBubblePlot.png){fig-align="center"}
 
 ## Line plot
 
@@ -790,50 +845,42 @@ Each point represents a value at a given moment.
 
 . . .
 
-</br>
-
 > The objective is to explore trends over time or the evolution of a continuous variable.
 
 ## Example 5
 
-</br>
-
 Consider the data in the file "spotify.xlsx". This dataset contains the global daily streams of the top five most popular songs on the music streaming service Spotify in 2017.
 
-```{r}
-#| fig-align: center
-#| echo: false
-#| output: true
+![](images/SpotifyDataset.png){fig-align="center"}
 
-spotify_data = read_excel("spotify.xlsx") 
-spotify_data %>% head(3)
-```
 
 ## Line plot
 
-</br>
+::: {.flourish-embed .flourish-chart data-src="visualisation/26497776"}
+```{=html}
+<script src="https://public.flourish.studio/resources/embed.js"></script>
+```
 
-![](images/FonsiLine.png){fig-align="center"}
+<noscript><img src="https://public.flourish.studio/visualisation/26497776/thumbnail" alt="chart visualization" width="100%"/></noscript>
+:::
 
-## Generate scatter line plot in Flourish
+## Generate a line plot in Flourish
 
-Select *Scatter* in the catalog of visualizations.
+Select *Line chart* in the catalog of visualizations.
 
 ![](images/SelectedLine.png){fig-align="center"}
 
-##
+## 
 
 Next, load the "auto_dataset.xlsx" into Flourish. Set the variables under study `Date` and `Despacito` and assign them to **Labels/time** and **Values**, respectively.
 
 ![](images/LoadedDespacitoHighlight.png){fig-align="center"}
 
-##
+## 
 
 Go back to the **Preview** tab and add text to the axes and title.
 
 ![](images/FonsiLine.png){fig-align="center"}
-
-
 
 ## Multiple line charts
 
@@ -845,46 +892,41 @@ To this end, simply go back to the **Data** tab and set a range of variables in 
 
 ## 
 
-![](images/SpotifyLines.png){fig-align="center"}
+<div class="flourish-embed flourish-chart" data-src="visualisation/26430359"><script src="https://public.flourish.studio/resources/embed.js"></script><noscript><img src="https://public.flourish.studio/visualisation/26430359/thumbnail" width="100%" alt="chart visualization" /></noscript></div>
 
-## Plotting statistical summaries by groups
+## Plotting the average by groups
 
+-   We can summarize the values of the numerical variable $Y$ for each category of a categorical variable $X$ using the *mean* or *average*.
 
-- We can summarize the values of the numerical variable $Y$ for each category of a categorical variable $X$ using the mean.
+-   For example, let's plot the average miles per gallon of cars produced in America, Europe, and Japan.
 
-- For example, let's plot the average miles per gallon of cars produced in America, Europe, and Japan. 
+-   A common visualization for plotting a numerical and a discrete variable when there is only one value per category is the **bar plot**.
 
-- A common visualization for plotting a numerical and a discrete variable when there is only one value per category is the **bar chart**.
+- The bar plot encodes quantitative data across different categories.
 
-## Bar plot
+## Bar plot for averages
 
-In this case, the bar plot encodes quantitative data across different categories. 
-
-![](images/CleavelandFinalMPG.png){fig-align="center"}
+<div class="flourish-embed flourish-chart" data-src="visualisation/26430455"><script src="https://public.flourish.studio/resources/embed.js"></script><noscript><img src="https://public.flourish.studio/visualisation/26430455/thumbnail" width="100%" alt="chart visualization" /></noscript></div>
 
 ## Generate bar plot in Flourish
 
-Select *Scatter* in the catalog of visualizations.
+Select *Bar chart* in the catalog of visualizations.
 
 ![](images/SelectBarChart.png){fig-align="center"}
 
-##
+## 
 
 Load the "auto_dataset.xlsx" into Flourish. Set the variables under study `origin` and `mpg` and assign them to **Labels/time** and **Values**, respectively.
 
 ![](images/BarChartMPGSelect.png){fig-align="center"}
 
-##
+## 
 
 Go to the **Preview** tab and set *Average* in **Aggregation mode**.
 
 ![](images/FormatBarChartMPG.png){fig-align="center"}
 
-
-
 ## Two Categorical Variables
-
-</br>
 
 With two categorical variables, we compare the distribution of one variable across subgroups defined by the other variable.
 
@@ -892,107 +934,78 @@ In fact, we keep one variable constant and plot the distribution of the other.
 
 . . .
 
-To do this, the most popular charts are extensions of bar graphs:
+To do this, there are old and new plots:
 
--   Stacked bar charts
--   Side-by-side bar charts
+-   Hierarchical bar plot
+-   Tree map plot
+-   Circle packing plot
 
 ## Example 1 (cont.)
 
-</br></br>
-
 As an example, let's consider the data in the file "penguins.xlsx" again.
 
-```{r}
-#| echo: false
-#| output: true
+![](images/PenguinsDataset.png){fig-align="center"}
 
-penguins_data %>% head()
-```
+For instance, let's study the distribution of penguin species across the three different islands using an stacked bar chart.
 
-## Stacked bar chart
+## Hierarchical bar plot
 
-We study the distribution of penguin species across the three different islands using an stacked bar chart.
+<div class="flourish-embed flourish-hierarchy" data-src="visualisation/26498177"><script src="https://public.flourish.studio/resources/embed.js"></script><noscript><img src="https://public.flourish.studio/visualisation/26498177/thumbnail" width="100%" alt="hierarchy visualization" /></noscript></div>
 
-```{r}
-#| fig-align: center
-#| echo: false
-#| output: true
+## Create a hierarchical plot in Flourish
 
-gf_bar( ~ species, data = penguins_data, fill = ~island)
-```
+Search and select the plot in the catalog of visualizations.
 
-The chart shows the frequency of each species, separated by island name.
+![](images/SelectHierarchyCatalog.png){fig-align="center"}
 
-## Side-by-side bar chart
+##
 
-An alternative to the previous chart is to place the bars side by side for the categories of the categorical variable $X$.
+After you load the "penguins.xlsx" data, select two categorical variables in the **Categories/nesting** section.
 
-```{r}
-#| fig-align: center
-#| echo: false
-#| output: true
-
-gf_bar( ~ species, fill = ~island, 
-        data = penguins_data, position = position_dodge())
-```
-
-## Stacked or side-by-side?
-
-</br>
-
-The main difference between stacked and side-by-side bar charts is that the side-by-side chart shows values in separate bars within a category.
-
-Advantages of **stacked** bars:
-
--   Easier to understand what proportions of a whole are divided among segments.
-
--   Visually adds up each proportion.
+![](images/SelectVarsHierarhicalPlot.png){fig-align="center"}
 
 ## 
 
+To enhance the plot, switch off the automatic height
+
+![](images/AutomaticOffHierarhicalBar.png){fig-align="center"}
+
+## Final hierarchical bar plot with titles
+
+The chart shows the frequency of species and island name.
+
+![](images/FinalHierarchyChart.png){fig-align="center"}
+
+## If you change hierarchy to tree
+
+![](images/TreeMapSelect.png){fig-align="center"}
+
+## Tree map plot
+
+<div class="flourish-embed flourish-hierarchy" data-src="visualisation/26498305"><script src="https://public.flourish.studio/resources/embed.js"></script><noscript><img src="https://public.flourish.studio/visualisation/26498305/thumbnail" width="100%" alt="hierarchy visualization" /></noscript></div>
+
+## If you change hierarchy to circles
+
+![](images/CircleMapSelect.png){fig-align="center"}
+
+## Circle packing plot
+
+<div class="flourish-embed flourish-hierarchy" data-src="visualisation/26498314"><script src="https://public.flourish.studio/resources/embed.js"></script><noscript><img src="https://public.flourish.studio/visualisation/26498314/thumbnail" width="100%" alt="hierarchy visualization" /></noscript></div>
+
+## Discussion
+
+
+Visualizations such as hierarchy bars, tree maps, and circle packing plots help us explore how two categorical variables relate through *nested structure*.
+
+- **Hierarchy bar charts** are easy to read when one category has only a few levels. The show a clear sense of order from parent → child categories.
+
+- **Tree maps** are excellent use of space when there are many subcategories. The area encodes quantity, helping highlight dominant groups.
+
+##
+
 </br></br></br>
 
-Advantages of **side-by-side** bars:
+- **Circle packing plots** are more visually appealing and intuitive for showing nested groups. They are helpful when emphasizing *clusters* rather than exact magnitudes.
 
--   Easier to compare the heights of each individual entity.
-
--   Better for comparing between groups.
-
-## Charts for three variables
-
-</br>
-
--   When examining a distribution or relationship, we often want to compare it across data subgroups.
-
--   This process of conditioning on additional variables leads to visualizations involving three or more variables.
-
--   Here we explain how to create charts to visualize multiple variables.
-
-## Scatter plot by color
-
-For two numerical variables and one categorical variable.
-
-```{r}
-#| fig-align: center
-#| echo: false
-#| output: true
-
-gf_point(mpg ~ weight, color = ~origin, data = auto_data) 
-```
-
-
-## Graphs for four variables
-
-A common chart for four variables is the scatter plot, where the color and size of the symbols depend on two [**categorical**]{style="color:#8B8000;"} variables.
-
-```{r}
-#| fig-align: center
-#| echo: false
-#| output: true
-
-gf_point(bill_length_mm ~ bill_depth_mm, size = ~island, 
-color = ~species, data = penguins_data)
-```
 
 # [Return to main page](https://alanrvazquez.github.io/TEC-IN2039-EN/)

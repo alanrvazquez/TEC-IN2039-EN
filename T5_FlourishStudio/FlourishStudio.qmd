@@ -158,7 +158,7 @@ Next, we click on **Import** and see that 367 rows or observations were uploaded
 
 ::::: columns
 ::: {.column width="50%"}
-Flourish studio successfully recognized that there is a column **Data** containing times, which must go in the horizontal axis. 
+Flourish studio successfully recognized that there is a column **Data** containing times, which must go in the horizontal axis.
 
 Using the **Values** section we can set the columns that contain te number of plays of the songs.
 :::
@@ -226,7 +226,6 @@ You can create a story by clicking on **New Story** in the main panel.
 ::::
 
 ::: {.column width="60%"}
-
 </br></br>
 
 ![](images/Stories.png){fig-align="center"}
