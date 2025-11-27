@@ -720,23 +720,9 @@ Variables $X$ and $Y$ are placed on the horizontal and vertical axes, respective
 
 ![](images/FinalScatterPlot.png){fig-align="center"}
 
-## Generate scatter plot in Flourish
-
-Select *Scatter* in the catalog of visualizations.
-
-![](images/SelectedScatter.png){fig-align="center"}
-
 ##
 
-Next, load the "auto_dataset.xlsx" into Flourish. Set the variables under study `mpg` and `weight` and assign them to **Y values** and **X values**, respectively.
-
-![](images/LoadedAutoHighlight.png){fig-align="center"}
-
-##
-
-Go back to the **Preview** tab and add text to the axes and title.
-
-![](images/FinalScatterPlot.png){fig-align="center"}
+<div class="flourish-embed flourish-scatter" data-src="visualisation/26430283"><script src="https://public.flourish.studio/resources/embed.js"></script><noscript><img src="https://public.flourish.studio/visualisation/26430283/thumbnail" width="100%" alt="scatter visualization" /></noscript></div>
 
 ## Individual graphs
 
@@ -772,6 +758,26 @@ histogram_weight
 ```
 :::
 :::::
+
+
+## Generate scatter plot in Flourish
+
+Select *Scatter* in the catalog of visualizations.
+
+![](images/SelectedScatter.png){fig-align="center"}
+
+##
+
+Next, load the "auto_dataset.xlsx" into Flourish. Set the variables under study `mpg` and `weight` and assign them to **Y values** and **X values**, respectively.
+
+![](images/LoadedAutoHighlight.png){fig-align="center"}
+
+##
+
+Go back to the **Preview** tab and add text to the axes and title.
+
+![](images/FinalScatterPlot.png){fig-align="center"}
+
 
 ## Line plot
 

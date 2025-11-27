@@ -977,7 +977,7 @@
     "href": "T6_PopularGraphs/Popular_Graphs.slides.html#section-21",
     "title": "Popular Graphs",
     "section": "",
-    "text": "Go back to the Preview tab and add text to the axes and title."
+    "text": "Next, load the “auto_dataset.xlsx” into Flourish. Set the variables under study mpg and weight and assign them to Y values and X values, respectively."
   },
   {
     "objectID": "T6_PopularGraphs/Popular_Graphs.slides.html#individual-graphs",
@@ -1019,14 +1019,14 @@
     "href": "T6_PopularGraphs/Popular_Graphs.slides.html#section-22",
     "title": "Popular Graphs",
     "section": "",
-    "text": "Next, load the “auto_dataset.xlsx” into Flourish. Set the variables under study Date and Despacito and assign them to Labels/time and Values, respectively."
+    "text": "Go back to the Preview tab and add text to the axes and title."
   },
   {
     "objectID": "T6_PopularGraphs/Popular_Graphs.slides.html#section-23",
     "href": "T6_PopularGraphs/Popular_Graphs.slides.html#section-23",
     "title": "Popular Graphs",
     "section": "",
-    "text": "Go back to the Preview tab and add text to the axes and title."
+    "text": "Next, load the “auto_dataset.xlsx” into Flourish. Set the variables under study Date and Despacito and assign them to Labels/time and Values, respectively."
   },
   {
     "objectID": "T6_PopularGraphs/Popular_Graphs.slides.html#multiple-line-charts",
@@ -1068,7 +1068,7 @@
     "href": "T6_PopularGraphs/Popular_Graphs.slides.html#section-26",
     "title": "Popular Graphs",
     "section": "",
-    "text": "Go to the Preview tab and set Average in Aggregation mode."
+    "text": "Load the “auto_dataset.xlsx” into Flourish. Set the variables under study origin and mpg and assign them to Labels/time and Values, respectively."
   },
   {
     "objectID": "T6_PopularGraphs/Popular_Graphs.slides.html#two-categorical-variables",
@@ -1110,7 +1110,7 @@
     "href": "T6_PopularGraphs/Popular_Graphs.slides.html#section-27",
     "title": "Popular Graphs",
     "section": "",
-    "text": "Advantages of side-by-side bars:\n\nEasier to compare the heights of each individual entity.\nBetter for comparing between groups."
+    "text": "Go to the Preview tab and set Average in Aggregation mode."
   },
   {
     "objectID": "T6_PopularGraphs/Popular_Graphs.slides.html#charts-for-three-variables",
@@ -2266,5 +2266,19 @@
     "title": "Statistical Graphs",
     "section": "Discussion",
     "text": "Discussion\n\n\nThe simple linear regression model is easy to interpret due to its structure: \\(\\hat{Y}_i = \\hat{\\beta}_0 + \\hat{\\beta}_1 X_i.\\)\nHowever, it may be too rigid to capture complex relationships between two variables.\nLocal regression is flexible and allows capturing complex relationships between two variables, but it has a low level of interpretability because it does not provide an explicit equation."
+  },
+  {
+    "objectID": "T6_PopularGraphs/Popular_Graphs.slides.html#section-24",
+    "href": "T6_PopularGraphs/Popular_Graphs.slides.html#section-24",
+    "title": "Popular Graphs",
+    "section": "",
+    "text": "Go back to the Preview tab and add text to the axes and title."
+  },
+  {
+    "objectID": "T6_PopularGraphs/Popular_Graphs.slides.html#section-28",
+    "href": "T6_PopularGraphs/Popular_Graphs.slides.html#section-28",
+    "title": "Popular Graphs",
+    "section": "",
+    "text": "Advantages of side-by-side bars:\n\nEasier to compare the heights of each individual entity.\nBetter for comparing between groups."
   }
 ]
