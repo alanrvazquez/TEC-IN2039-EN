@@ -190,29 +190,69 @@ In practice, boolean values (`TRUE` and `FALSE`) often represent nominal categor
 
 ## Example 1: Penguins dataset
 
-</br>
-
-We will illustrate the concepts using the `penguins.xlsx` dataset. We will focus on visualizing the following categorical variables: `species`, `island` y `sex`.
+We will illustrate the concepts using the `penguins.xlsx` dataset. We will focus on visualizing the categorical variable `species`.
 
 ```{r}
 #| fig-pos: center
-#| echo: false
+#| echo: true
 #| output: true
 
 library(readxl)
 library(tidyverse)
-library(ggformula)
+library(writexl)
 penguins_data = read_excel("penguins.xlsx")
 penguins_data %>% 
   select(species, island, sex) %>%
   head()
 ```
 
+## Principle 2: Turn data into information
+
+As a starting point,we compute the frequencies of each category of `species` using the **dplyr** functions `group_by()`, `summarise()`, and `n()`.
+
+- The `group_by()` function takes an existing table and converts it into a grouped table where operations are performed "by group".
+
+- The `n()` function counts the values in a category.
+
+```{r}
+#| fig-pos: center
+#| echo: true
+#| output: false
+
+frequencies_species = penguins_data %>% 
+                      group_by(species) %>% 
+                      summarise("Frequency" = n())
+```
+
+## Frequency table
+
+</br>
+
+```{r}
+#| fig-pos: center
+#| echo: true
+#| output: true
+
+frequencies_species
+```
+
+</br>
+
+We save the frequency table for further processing with Flourish studio using the command below. 
+
+```{r}
+#| fig-pos: center
+#| echo: true
+#| output: true
+
+# write_xlsx(frequencies_species, "PenguinsDataFlourish.xlsx")
+```
+
 ## Bar chart
 
-It visually represents frequencies or percentages of the categories of a categorical variable. The frequency (or percentage) is represented by a bar of proportional height.
+Shows frequencies of the categories of a categorical variable.
 
-![](images/FinalBarChart.png){fig-align="center"}
+<div class="flourish-embed flourish-chart" data-src="visualisation/26426128"><script src="https://public.flourish.studio/resources/embed.js"></script><noscript><img src="https://public.flourish.studio/visualisation/26426128/thumbnail" width="100%" alt="chart visualization" /></noscript></div>
 
 ## Construct a bar chart in Flourish
 
@@ -240,13 +280,15 @@ In the visualization gallery, choose **Bar Chart**.
 
 ## Select the correct variables
 
-Unfortunately, it is not easy to create a standard bar chart with the counts of each category. To do this, we assign the variable `species` to **Labels/time**, and an auxiliary column with complete entries to **Values**. In this case, we use the `year`.
+Make sure that you uploaded the file "PenguinsDataFlourish.xlsx" and not the original one. 
+
+Now, we assign the variable `species` to **Labels/time**, and `Frequency` to **Values**. 
 
 ![](images/SelectCorrectVariablesBarChart.png){fig-align="center"}
 
 ## 
 
-The preview plot has all bars at the same height. To replace the height for the frequencies of the categories, we change the **Agregation mode** to *Count*.
+The preview plot has all bars at the same height. To replace the height for the frequencies of the categories, we change the **Agregation mode** to *None*.
 
 ::::: columns
 ::: {.column width="50%"}
@@ -409,16 +451,34 @@ Now, the columns show the actual category labels instead of the coded (or number
 Boston_dataset_wr  %>% select(`chas`, `rad`) 
 ```
 
+##
+
+For the bar chart, we compute the frequencies of the categories of `chas` and `rad`.
+
+```{r}
+#| fig-pos: center
+#| echo: true
+#| output: true
+frequencies_Boston_chas = Boston_dataset_wr %>% 
+                      group_by(`chas`) %>% 
+                      summarise("Frequency" = n())
+
+frequencies_Boston_rad = Boston_dataset_wr %>% 
+                      group_by(`rad`) %>% 
+                      summarise("Frequency" = n())
+```
+
 ## 
 
-We save the new dataset using the function `write_xlsx()` from the **writexl** package in R.
+We save the new datasets using the function `write_xlsx()` from the **writexl** package in R.
 
 ```{r}
 #| fig-pos: center
 #| echo: true
 #| output: true
 
-# write_xlsx(Boston_dataset_wr, "BostonDataFlourish.xlsx")
+#write_xlsx(frequencies_Boston_chas, "BostonDataFlourishChas.xlsx")
+#write_xlsx(frequencies_Boston_rad, "BostonDataFlourishRad.xlsx")
 ```
 
 We then proceed to visualize the processed data using [Flourish](https://flourish.studio/).
@@ -427,19 +487,19 @@ We then proceed to visualize the processed data using [Flourish](https://flouris
 
 ## Let's create a bar chart for `chas`.
 
-We load the dataset into Flourish.
+We load the dataset "BostonDataFlourishChas.xlsx" into Flourish.
 
-![](images/BostonDataFlourish.png){fig-align="center"}
+![](images/BostonDataChasFlourish.png){fig-align="center"}
 
 ## 
 
-We assign the `chas` variable to the **Labels/time**. We also assign an auxiliary column with complete entries to **Values**. In this case, we use `nox`.
+We assign the `chas` variable to the **Labels/time** and `Frequency` to **Values**. 
 
 ![](images/ChasSetVariables.png){fig-align="center"}
 
 ## 
 
-Now, we go back to the **Preview** tab and set **Aggregation mode** to *Count*.
+Now, we go back to the **Preview** tab and set **Aggregation mode** to *None*.
 
 ![](images/FormatChas.png){fig-align="center"}
 
@@ -461,13 +521,11 @@ In the menu of the **Preview** tab, we add a title and a good label for the hori
 
 ## Bar chart for `chas`
 
-![](images/FinalBarChas.png){fig-align="center"}
+<div class="flourish-embed flourish-chart" data-src="visualisation/26635994"><script src="https://public.flourish.studio/resources/embed.js"></script><noscript><img src="https://public.flourish.studio/visualisation/26635994/thumbnail" width="100%" alt="chart visualization" /></noscript></div>
 
-## 
+## Similarly, we create a bar chart for `rad`
 
-Following similar steps, we create a bar chart for `rad` in Flourish.
-
-![](images/FinalRadChart.png){fig-align="center"}
+<div class="flourish-embed flourish-chart" data-src="visualisation/26428955"><script src="https://public.flourish.studio/resources/embed.js"></script><noscript><img src="https://public.flourish.studio/visualisation/26428955/thumbnail" width="100%" alt="chart visualization" /></noscript></div>
 
 ## Collapsing categories
 
@@ -552,7 +610,7 @@ Visualizes the distribution of individual observations along a numeric axis.
 
 ## 
 
-![](images/FinalBeeswarmCycle.png){fig-align="center"}
+<div class="flourish-embed flourish-scatter" data-src="visualisation/26426925"><script src="https://public.flourish.studio/resources/embed.js"></script><noscript><img src="https://public.flourish.studio/visualisation/26426925/thumbnail" width="100%" alt="scatter visualization" /></noscript></div>
 
 ## 
 
@@ -612,6 +670,5 @@ There, we modify the label of the horizontal axis X and header in the sections *
 -   **Outliers**, visible as isolated points far from the main cluster.
 -   The overall **shape of the distribution** formed by the pattern of points.
 
-# Multiple Variables
 
 # [Return to main page](https://alanrvazquez.github.io/TEC-IN2039-EN/)

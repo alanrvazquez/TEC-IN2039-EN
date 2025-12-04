@@ -425,9 +425,15 @@ Alan R. Vazquez
 </section>
 <section id="example-1-penguins-dataset" class="slide level2">
 <h2>Example 1: Penguins dataset</h2>
-<p><br></p>
-<p>We will illustrate the concepts using the <code>penguins.xlsx</code> dataset. We will focus on visualizing the following categorical variables: <code>species</code>, <code>island</code> y <code>sex</code>.</p>
+<p>We will illustrate the concepts using the <code>penguins.xlsx</code> dataset. We will focus on visualizing the categorical variable <code>species</code>.</p>
 <div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">library</span>(readxl)</span>
+<span id="cb1-2"><a></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-3"><a></a><span class="fu">library</span>(writexl)</span>
+<span id="cb1-4"><a></a>penguins_data <span class="ot">=</span> <span class="fu">read_excel</span>(<span class="st">"penguins.xlsx"</span>)</span>
+<span id="cb1-5"><a></a>penguins_data <span class="sc">%&gt;%</span> </span>
+<span id="cb1-6"><a></a>  <span class="fu">select</span>(species, island, sex) <span class="sc">%&gt;%</span></span>
+<span id="cb1-7"><a></a>  <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 3
   species island    sex   
@@ -441,11 +447,49 @@ Alan R. Vazquez
 </div>
 </div>
 </section>
+<section id="principle-2-turn-data-into-information" class="slide level2">
+<h2>Principle 2: Turn data into information</h2>
+<p>As a starting point,we compute the frequencies of each category of <code>species</code> using the <strong>dplyr</strong> functions <code>group_by()</code>, <code>summarise()</code>, and <code>n()</code>.</p>
+<ul>
+<li><p>The <code>group_by()</code> function takes an existing table and converts it into a grouped table where operations are performed “by group”.</p></li>
+<li><p>The <code>n()</code> function counts the values in a category.</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a>frequencies_species <span class="ot">=</span> penguins_data <span class="sc">%&gt;%</span> </span>
+<span id="cb3-2"><a></a>                      <span class="fu">group_by</span>(species) <span class="sc">%&gt;%</span> </span>
+<span id="cb3-3"><a></a>                      <span class="fu">summarise</span>(<span class="st">"Frequency"</span> <span class="ot">=</span> <span class="fu">n</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="frequency-table" class="slide level2">
+<h2>Frequency table</h2>
+<p><br></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a>frequencies_species</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 2
+  species   Frequency
+  &lt;chr&gt;         &lt;int&gt;
+1 Adelie          152
+2 Chinstrap        68
+3 Gentoo          124</code></pre>
+</div>
+</div>
+<p><br></p>
+<p>We save the frequency table for further processing with Flourish studio using the command below.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a><span class="co"># write_xlsx(frequencies_species, "PenguinsDataFlourish.xlsx")</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
 <section id="bar-chart" class="slide level2">
 <h2>Bar chart</h2>
-<p>It visually represents frequencies or percentages of the categories of a categorical variable. The frequency (or percentage) is represented by a bar of proportional height.</p>
-
-<img data-src="images/FinalBarChart.png" class="quarto-figure quarto-figure-center r-stretch"></section>
+<p>Shows frequencies of the categories of a categorical variable.</p>
+<div class="flourish-embed flourish-chart" data-src="visualisation/26426128">
+<script src="https://public.flourish.studio/resources/embed.js"></script>
+<noscript>
+<img src="https://public.flourish.studio/visualisation/26426128/thumbnail" width="100%" alt="chart visualization">
+</noscript>
+</div>
+</section>
 <section id="construct-a-bar-chart-in-flourish" class="slide level2">
 <h2>Construct a bar chart in Flourish</h2>
 
@@ -479,12 +523,13 @@ Alan R. Vazquez
 </section>
 <section id="select-the-correct-variables" class="slide level2">
 <h2>Select the correct variables</h2>
-<p>Unfortunately, it is not easy to create a standard bar chart with the counts of each category. To do this, we assign the variable <code>species</code> to <strong>Labels/time</strong>, and an auxiliary column with complete entries to <strong>Values</strong>. In this case, we use the <code>year</code>.</p>
+<p>Make sure that you uploaded the file “PenguinsDataFlourish.xlsx” and not the original one.</p>
+<p>Now, we assign the variable <code>species</code> to <strong>Labels/time</strong>, and <code>Frequency</code> to <strong>Values</strong>.</p>
 
 <img data-src="images/SelectCorrectVariablesBarChart.png" class="quarto-figure quarto-figure-center r-stretch"></section>
 <section id="section-2" class="slide level2">
 <h2></h2>
-<p>The preview plot has all bars at the same height. To replace the height for the frequencies of the categories, we change the <strong>Agregation mode</strong> to <em>Count</em>.</p>
+<p>The preview plot has all bars at the same height. To replace the height for the frequencies of the categories, we change the <strong>Agregation mode</strong> to <em>None</em>.</p>
 <div class="columns">
 <div class="column" style="width:50%;">
 <div class="quarto-figure quarto-figure-center">
@@ -548,8 +593,8 @@ Alan R. Vazquez
 <p>To create a effective bar plots in Flourish, we must wrangle the variables <code>chas</code> and <code>rad</code> a little bit.</p>
 <p>Specifically, we must ensure that these variables are categorical and their categories have the appropriate names.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a>Boston_dataset <span class="ot">=</span> <span class="fu">read_excel</span>(<span class="st">"Boston_dataset.xlsx"</span>)</span>
-<span id="cb2-2"><a></a>Boston_dataset <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="st">`</span><span class="at">chas</span><span class="st">`</span>, <span class="st">`</span><span class="at">rad</span><span class="st">`</span>) <span class="sc">%&gt;%</span>  <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a>Boston_dataset <span class="ot">=</span> <span class="fu">read_excel</span>(<span class="st">"Boston_dataset.xlsx"</span>)</span>
+<span id="cb7-2"><a></a>Boston_dataset <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="st">`</span><span class="at">chas</span><span class="st">`</span>, <span class="st">`</span><span class="at">rad</span><span class="st">`</span>) <span class="sc">%&gt;%</span>  <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 2
    chas   rad
@@ -582,9 +627,9 @@ Alan R. Vazquez
 </div>
 <p>To set variables as categorical we use the functions <code>mutate()</code> and <code>as.factor()</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a>Boston_dataset_wr <span class="ot">=</span> Boston_dataset <span class="sc">%&gt;%</span> </span>
-<span id="cb5-2"><a></a>                    <span class="fu">mutate</span>(<span class="st">`</span><span class="at">chas</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">as.factor</span>(<span class="st">`</span><span class="at">chas</span><span class="st">`</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb5-3"><a></a>                    <span class="fu">mutate</span>(<span class="st">`</span><span class="at">rad</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">as.factor</span>(<span class="st">`</span><span class="at">rad</span><span class="st">`</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a>Boston_dataset_wr <span class="ot">=</span> Boston_dataset <span class="sc">%&gt;%</span> </span>
+<span id="cb10-2"><a></a>                    <span class="fu">mutate</span>(<span class="st">`</span><span class="at">chas</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">as.factor</span>(<span class="st">`</span><span class="at">chas</span><span class="st">`</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb10-3"><a></a>                    <span class="fu">mutate</span>(<span class="st">`</span><span class="at">rad</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">as.factor</span>(<span class="st">`</span><span class="at">rad</span><span class="st">`</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="section-5" class="slide level2">
@@ -592,7 +637,7 @@ Alan R. Vazquez
 <p><br></p>
 <p>Now the header of the variables show a <code>fct</code> indicating that the variables are categorical.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a>Boston_dataset_wr  <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="st">`</span><span class="at">chas</span><span class="st">`</span>, <span class="st">`</span><span class="at">rad</span><span class="st">`</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a>Boston_dataset_wr  <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="st">`</span><span class="at">chas</span><span class="st">`</span>, <span class="st">`</span><span class="at">rad</span><span class="st">`</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 506 × 2
    chas  rad  
@@ -616,15 +661,15 @@ Alan R. Vazquez
 <p><br></p>
 <p>Next, we replace the 0 and 1 of <code>chas</code> for the label “No” and “Yes”, respectively. To this end, we use the function <code>mutate()</code> and <code>caste_match()</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a>Boston_dataset_wr <span class="ot">=</span> Boston_dataset_wr <span class="sc">%&gt;%</span> </span>
-<span id="cb8-2"><a></a>  <span class="fu">mutate</span>(<span class="st">`</span><span class="at">chas</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">case_match</span>(<span class="st">`</span><span class="at">chas</span><span class="st">`</span>, <span class="st">"0"</span> <span class="sc">~</span> <span class="st">"No"</span>, <span class="st">"1"</span> <span class="sc">~</span> <span class="st">"Yes"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a>Boston_dataset_wr <span class="ot">=</span> Boston_dataset_wr <span class="sc">%&gt;%</span> </span>
+<span id="cb13-2"><a></a>  <span class="fu">mutate</span>(<span class="st">`</span><span class="at">chas</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">case_match</span>(<span class="st">`</span><span class="at">chas</span><span class="st">`</span>, <span class="st">"0"</span> <span class="sc">~</span> <span class="st">"No"</span>, <span class="st">"1"</span> <span class="sc">~</span> <span class="st">"Yes"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><br></p>
 <p>Using the same functions, we replace the 0, 1, and 2 in the variable <code>rad</code> by “Low”, “Medium”, and “High”, respectively.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a>Boston_dataset_wr <span class="ot">=</span> Boston_dataset_wr <span class="sc">%&gt;%</span> </span>
-<span id="cb9-2"><a></a>  <span class="fu">mutate</span>(<span class="st">`</span><span class="at">rad</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">case_match</span>(<span class="st">`</span><span class="at">rad</span><span class="st">`</span>, <span class="st">"0"</span> <span class="sc">~</span> <span class="st">"Low"</span>, <span class="st">"1"</span> <span class="sc">~</span> <span class="st">"Medium"</span>,</span>
-<span id="cb9-3"><a></a>                            <span class="st">"2"</span> <span class="sc">~</span> <span class="st">"High"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a>Boston_dataset_wr <span class="ot">=</span> Boston_dataset_wr <span class="sc">%&gt;%</span> </span>
+<span id="cb14-2"><a></a>  <span class="fu">mutate</span>(<span class="st">`</span><span class="at">rad</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">case_match</span>(<span class="st">`</span><span class="at">rad</span><span class="st">`</span>, <span class="st">"0"</span> <span class="sc">~</span> <span class="st">"Low"</span>, <span class="st">"1"</span> <span class="sc">~</span> <span class="st">"Medium"</span>,</span>
+<span id="cb14-3"><a></a>                            <span class="st">"2"</span> <span class="sc">~</span> <span class="st">"High"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="section-7" class="slide level2">
@@ -632,7 +677,7 @@ Alan R. Vazquez
 <p><br></p>
 <p>Now, the columns show the actual category labels instead of the coded (or number) labels.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a>Boston_dataset_wr  <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="st">`</span><span class="at">chas</span><span class="st">`</span>, <span class="st">`</span><span class="at">rad</span><span class="st">`</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a>Boston_dataset_wr  <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="st">`</span><span class="at">chas</span><span class="st">`</span>, <span class="st">`</span><span class="at">rad</span><span class="st">`</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 506 × 2
    chas  rad   
@@ -653,29 +698,43 @@ Alan R. Vazquez
 </section>
 <section id="section-8" class="slide level2">
 <h2></h2>
-<p>We save the new dataset using the function <code>write_xlsx()</code> from the <strong>writexl</strong> package in R.</p>
+<p>For the bar chart, we compute the frequencies of the categories of <code>chas</code> and <code>rad</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a><span class="co"># write_xlsx(Boston_dataset_wr, "BostonDataFlourish.xlsx")</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a>frequencies_Boston_chas <span class="ot">=</span> Boston_dataset_wr <span class="sc">%&gt;%</span> </span>
+<span id="cb17-2"><a></a>                      <span class="fu">group_by</span>(<span class="st">`</span><span class="at">chas</span><span class="st">`</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb17-3"><a></a>                      <span class="fu">summarise</span>(<span class="st">"Frequency"</span> <span class="ot">=</span> <span class="fu">n</span>())</span>
+<span id="cb17-4"><a></a></span>
+<span id="cb17-5"><a></a>frequencies_Boston_rad <span class="ot">=</span> Boston_dataset_wr <span class="sc">%&gt;%</span> </span>
+<span id="cb17-6"><a></a>                      <span class="fu">group_by</span>(<span class="st">`</span><span class="at">rad</span><span class="st">`</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb17-7"><a></a>                      <span class="fu">summarise</span>(<span class="st">"Frequency"</span> <span class="ot">=</span> <span class="fu">n</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="section-9" class="slide level2">
+<h2></h2>
+<p>We save the new datasets using the function <code>write_xlsx()</code> from the <strong>writexl</strong> package in R.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a></a><span class="co">#write_xlsx(frequencies_Boston_chas, "BostonDataFlourishChas.xlsx")</span></span>
+<span id="cb18-2"><a></a><span class="co">#write_xlsx(frequencies_Boston_rad, "BostonDataFlourishRad.xlsx")</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>We then proceed to visualize the processed data using <a href="https://flourish.studio/">Flourish</a>.</p>
 
 <img data-src="images/SelectBarChart.png" class="quarto-figure quarto-figure-center r-stretch"></section>
 <section id="lets-create-a-bar-chart-for-chas." class="slide level2">
 <h2>Let’s create a bar chart for <code>chas</code>.</h2>
-<p>We load the dataset into Flourish.</p>
+<p>We load the dataset “BostonDataFlourishChas.xlsx” into Flourish.</p>
 
-<img data-src="images/BostonDataFlourish.png" class="quarto-figure quarto-figure-center r-stretch"></section>
-<section id="section-9" class="slide level2">
-<h2></h2>
-<p>We assign the <code>chas</code> variable to the <strong>Labels/time</strong>. We also assign an auxiliary column with complete entries to <strong>Values</strong>. In this case, we use <code>nox</code>.</p>
-
-<img data-src="images/ChasSetVariables.png" class="quarto-figure quarto-figure-center r-stretch"></section>
+<img data-src="images/BostonDataChasFlourish.png" class="quarto-figure quarto-figure-center r-stretch"></section>
 <section id="section-10" class="slide level2">
 <h2></h2>
-<p>Now, we go back to the <strong>Preview</strong> tab and set <strong>Aggregation mode</strong> to <em>Count</em>.</p>
+<p>We assign the <code>chas</code> variable to the <strong>Labels/time</strong> and <code>Frequency</code> to <strong>Values</strong>.</p>
+
+<img data-src="images/ChasSetVariables.png" class="quarto-figure quarto-figure-center r-stretch"></section>
+<section id="section-11" class="slide level2">
+<h2></h2>
+<p>Now, we go back to the <strong>Preview</strong> tab and set <strong>Aggregation mode</strong> to <em>None</em>.</p>
 
 <img data-src="images/FormatChas.png" class="quarto-figure quarto-figure-center r-stretch"></section>
-<section id="section-11" class="slide level2">
+<section id="section-12" class="slide level2">
 <h2></h2>
 <p><br></p>
 <p>In the menu of the <strong>Preview</strong> tab, we add a title and a good label for the horizontal axis.</p>
@@ -696,13 +755,22 @@ Alan R. Vazquez
 </section>
 <section id="bar-chart-for-chas" class="slide level2">
 <h2>Bar chart for <code>chas</code></h2>
-
-<img data-src="images/FinalBarChas.png" class="quarto-figure quarto-figure-center r-stretch"></section>
-<section id="section-12" class="slide level2">
-<h2></h2>
-<p>Following similar steps, we create a bar chart for <code>rad</code> in Flourish.</p>
-
-<img data-src="images/FinalRadChart.png" class="quarto-figure quarto-figure-center r-stretch"></section>
+<div class="flourish-embed flourish-chart" data-src="visualisation/26635994">
+<script src="https://public.flourish.studio/resources/embed.js"></script>
+<noscript>
+<img src="https://public.flourish.studio/visualisation/26635994/thumbnail" width="100%" alt="chart visualization">
+</noscript>
+</div>
+</section>
+<section id="similarly-we-create-a-bar-chart-for-rad" class="slide level2">
+<h2>Similarly, we create a bar chart for <code>rad</code></h2>
+<div class="flourish-embed flourish-chart" data-src="visualisation/26428955">
+<script src="https://public.flourish.studio/resources/embed.js"></script>
+<noscript>
+<img src="https://public.flourish.studio/visualisation/26428955/thumbnail" width="100%" alt="chart visualization">
+</noscript>
+</div>
+</section>
 <section id="collapsing-categories" class="slide level2">
 <h2>Collapsing categories</h2>
 <p><br></p>
@@ -714,15 +782,15 @@ Alan R. Vazquez
 <h2></h2>
 <p>We collapse categories using the function called <code>case_when()</code>.</p>
 <div class="cell" data-fig-algin="center">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a>Boston_dataset_simple <span class="ot">=</span> Boston_dataset_wr <span class="sc">%&gt;%</span> </span>
-<span id="cb13-2"><a></a>      <span class="fu">mutate</span>(<span class="at">rad =</span> <span class="fu">case_when</span>(rad <span class="sc">!=</span> <span class="st">"Low"</span> <span class="sc">~</span> <span class="st">"Other"</span>,</span>
-<span id="cb13-3"><a></a>                             rad <span class="sc">==</span> <span class="st">"Low"</span> <span class="sc">~</span> <span class="st">"Low"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a></a>Boston_dataset_simple <span class="ot">=</span> Boston_dataset_wr <span class="sc">%&gt;%</span> </span>
+<span id="cb19-2"><a></a>      <span class="fu">mutate</span>(<span class="at">rad =</span> <span class="fu">case_when</span>(rad <span class="sc">!=</span> <span class="st">"Low"</span> <span class="sc">~</span> <span class="st">"Other"</span>,</span>
+<span id="cb19-3"><a></a>                             rad <span class="sc">==</span> <span class="st">"Low"</span> <span class="sc">~</span> <span class="st">"Low"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Collapsing categories simplifies the graph and allows us to emphasize a category like <code>Low</code> and see how it compares to the other categories (as a whole).</p>
 <p><br></p>
 <p>We save the new dataset using the function <code>write_xlsx()</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a><span class="co"># write_xlsx(Boston_dataset_simple, "BostonCollapsed.xlsx")</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a></a><span class="co"># write_xlsx(Boston_dataset_simple, "BostonCollapsed.xlsx")</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>We then proceed to visualize the processed data using <a href="https://flourish.studio/">Flourish</a>.</p>
 </section>
@@ -759,8 +827,13 @@ Alan R. Vazquez
 </section>
 <section id="section-14" class="slide level2">
 <h2></h2>
-
-<img data-src="images/FinalBeeswarmCycle.png" class="quarto-figure quarto-figure-center r-stretch"></section>
+<div class="flourish-embed flourish-scatter" data-src="visualisation/26426925">
+<script src="https://public.flourish.studio/resources/embed.js"></script>
+<noscript>
+<img src="https://public.flourish.studio/visualisation/26426925/thumbnail" width="100%" alt="scatter visualization">
+</noscript>
+</div>
+</section>
 <section id="section-15" class="slide level2">
 <h2></h2>
 <p><br><br><br></p>
@@ -821,11 +894,6 @@ Alan R. Vazquez
 <li>The overall <strong>shape of the distribution</strong> formed by the pattern of points.</li>
 </ul>
 </section></section>
-<section id="multiple-variables" class="title-slide slide level1 center">
-<h1>Multiple Variables</h1>
-
-</section>
-
 <section id="return-to-main-page" class="title-slide slide level1 center">
 <h1><a href="https://alanrvazquez.github.io/TEC-IN2039-EN/">Return to main page</a></h1>
 

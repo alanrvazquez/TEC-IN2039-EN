@@ -26,7 +26,6 @@ editor: visual
 3.  Line Plots
 4.  Plots for Categorical Variables
 
-
 # Introduction to Multivariate Data
 
 ## Multivariate data
@@ -266,7 +265,7 @@ Each point represents a value at a given moment.
 
 . . .
 
-> The objective is to explore trends over time or the evolution of a continuous variable.
+> The objective is to explore trends over time or the evolution of a continuous or discrete variable.
 
 ## Example 2
 
