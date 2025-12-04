@@ -1691,7 +1691,7 @@
     "href": "index.slides.html#course-topics",
     "title": "IN2039 Data Visualization for Decision Making",
     "section": "Course topics",
-    "text": "Course topics\n\nIntroduction (slides)\nTools for Data Manipulation (slides) (colab) (dplyr cheat sheet)\nTidy Data (slides) (colab) (tidyr cheat sheet)\nWeb Scraping (slides) (colab)\nIntroduction to Flourish Studio (slides) (My First Line Plot) (My First Flourish Story)\nTypes of variables and univariate plots (slides) (colab)\nPopular graphs for multiple variables (slides)\nStatistical graphs (slides)"
+    "text": "Course topics\n\nIntroduction (slides)\nTools for Data Manipulation (slides) (colab) (dplyr cheat sheet)\nTidy Data (slides) (colab) (tidyr cheat sheet)\nWeb Scraping (slides) (colab)\nIntroduction to Flourish Studio (slides) (My First Line Plot) (My First Flourish Story)\nTypes of variables and univariate plots (slides) (colab)\nPopular graphs for multiple variables (slides)\nStatistical graphs"
   },
   {
     "objectID": "index.slides.html#about-the-author",
@@ -1712,7 +1712,7 @@
     "href": "index.html",
     "title": "IN2039 Data Visualization for Decision Making",
     "section": "",
-    "text": "Course topics\n\nIntroduction (slides)\nTools for Data Manipulation (slides) (colab) (dplyr cheat sheet)\nTidy Data (slides) (colab) (tidyr cheat sheet)\nWeb Scraping (slides) (colab)\nIntroduction to Flourish Studio (slides) (My First Line Plot) (My First Flourish Story)\nTypes of variables and univariate plots (slides) (colab)\nPopular graphs for multiple variables (slides)\nStatistical graphs (slides)\n\n\n\nAbout the author\nAlan R. Vazquez (website) is a Research Professor at the Department of Industrial Engineering at Tecnologico de Monterrey, Monterrey campus.\n\n\nLicense\n\nIN2039 Data Visualization for Decision Making by Alan R. Vazquez is licensed under CC BY-NC-SA 4.0"
+    "text": "Course topics\n\nIntroduction (slides)\nTools for Data Manipulation (slides) (colab) (dplyr cheat sheet)\nTidy Data (slides) (colab) (tidyr cheat sheet)\nWeb Scraping (slides) (colab)\nIntroduction to Flourish Studio (slides) (My First Line Plot) (My First Flourish Story)\nTypes of variables and univariate plots (slides) (colab)\nPopular graphs for multiple variables (slides)\nStatistical graphs\n\n\n\nAbout the author\nAlan R. Vazquez (website) is a Research Professor at the Department of Industrial Engineering at Tecnologico de Monterrey, Monterrey campus.\n\n\nLicense\n\nIN2039 Data Visualization for Decision Making by Alan R. Vazquez is licensed under CC BY-NC-SA 4.0"
   },
   {
     "objectID": "T4_WebScraping/WebScraping.slides.html#agenda",
@@ -2121,6 +2121,20 @@
     "text": "Example 1: Penguins dataset\nWe will illustrate the concepts using the penguins.xlsx dataset. We will focus on visualizing the categorical variable species.\n\nlibrary(readxl)\nlibrary(tidyverse)\nlibrary(writexl)\npenguins_data = read_excel(\"penguins.xlsx\")\npenguins_data %&gt;% \n  select(species, island, sex) %&gt;%\n  head()\n\n# A tibble: 6 × 3\n  species island    sex   \n  &lt;chr&gt;   &lt;chr&gt;     &lt;chr&gt; \n1 Adelie  Torgersen male  \n2 Adelie  Torgersen female\n3 Adelie  Torgersen female\n4 Adelie  Torgersen &lt;NA&gt;  \n5 Adelie  Torgersen female\n6 Adelie  Torgersen male"
   },
   {
+    "objectID": "T6_TypesofVariables/TypesVariables.slides.html#principle-2-turn-data-into-information",
+    "href": "T6_TypesofVariables/TypesVariables.slides.html#principle-2-turn-data-into-information",
+    "title": "Types of Variables and Univariate Plots",
+    "section": "Principle 2: Turn data into information",
+    "text": "Principle 2: Turn data into information\nAs a starting point,we compute the frequencies of each category of species using the dplyr functions group_by(), summarise(), and n().\n\nThe group_by() function takes an existing table and converts it into a grouped table where operations are performed “by group”.\nThe n() function counts the values in a category.\n\n\nfrequencies_species = penguins_data %&gt;% \n                      group_by(species) %&gt;% \n                      summarise(\"Frequency\" = n())"
+  },
+  {
+    "objectID": "T6_TypesofVariables/TypesVariables.slides.html#frequency-table",
+    "href": "T6_TypesofVariables/TypesVariables.slides.html#frequency-table",
+    "title": "Types of Variables and Univariate Plots",
+    "section": "Frequency table",
+    "text": "Frequency table\n\n\nfrequencies_species\n\n# A tibble: 3 × 2\n  species   Frequency\n  &lt;chr&gt;         &lt;int&gt;\n1 Adelie          152\n2 Chinstrap        68\n3 Gentoo          124\n\n\n\nWe save the frequency table for further processing with Flourish studio using the command below.\n\n# write_xlsx(frequencies_species, \"PenguinsDataFlourish.xlsx\")"
+  },
+  {
     "objectID": "T6_TypesofVariables/TypesVariables.slides.html#bar-chart",
     "href": "T6_TypesofVariables/TypesVariables.slides.html#bar-chart",
     "title": "Types of Variables and Univariate Plots",
@@ -2233,18 +2247,18 @@
     "text": "For the bar chart, we compute the frequencies of the categories of chas and rad.\n\nfrequencies_Boston_chas = Boston_dataset_wr %&gt;% \n                      group_by(`chas`) %&gt;% \n                      summarise(\"Frequency\" = n())\n\nfrequencies_Boston_rad = Boston_dataset_wr %&gt;% \n                      group_by(`rad`) %&gt;% \n                      summarise(\"Frequency\" = n())"
   },
   {
-    "objectID": "T6_TypesofVariables/TypesVariables.slides.html#lets-create-a-bar-chart-for-chas.",
-    "href": "T6_TypesofVariables/TypesVariables.slides.html#lets-create-a-bar-chart-for-chas.",
-    "title": "Types of Variables and Univariate Plots",
-    "section": "Let’s create a bar chart for chas.",
-    "text": "Let’s create a bar chart for chas.\nWe load the dataset “BostonDataFlourishChas.xlsx” into Flourish."
-  },
-  {
     "objectID": "T6_TypesofVariables/TypesVariables.slides.html#section-9",
     "href": "T6_TypesofVariables/TypesVariables.slides.html#section-9",
     "title": "Types of Variables and Univariate Plots",
     "section": "",
     "text": "We save the new datasets using the function write_xlsx() from the writexl package in R.\n\n#write_xlsx(frequencies_Boston_chas, \"BostonDataFlourishChas.xlsx\")\n#write_xlsx(frequencies_Boston_rad, \"BostonDataFlourishRad.xlsx\")\n\nWe then proceed to visualize the processed data using Flourish."
+  },
+  {
+    "objectID": "T6_TypesofVariables/TypesVariables.slides.html#lets-create-a-bar-chart-for-chas.",
+    "href": "T6_TypesofVariables/TypesVariables.slides.html#lets-create-a-bar-chart-for-chas.",
+    "title": "Types of Variables and Univariate Plots",
+    "section": "Let’s create a bar chart for chas.",
+    "text": "Let’s create a bar chart for chas.\nWe load the dataset “BostonDataFlourishChas.xlsx” into Flourish."
   },
   {
     "objectID": "T6_TypesofVariables/TypesVariables.slides.html#section-10",
@@ -2261,6 +2275,13 @@
     "text": "Now, we go back to the Preview tab and set Aggregation mode to None."
   },
   {
+    "objectID": "T6_TypesofVariables/TypesVariables.slides.html#section-12",
+    "href": "T6_TypesofVariables/TypesVariables.slides.html#section-12",
+    "title": "Types of Variables and Univariate Plots",
+    "section": "",
+    "text": "In the menu of the Preview tab, we add a title and a good label for the horizontal axis."
+  },
+  {
     "objectID": "T6_TypesofVariables/TypesVariables.slides.html#bar-chart-for-chas",
     "href": "T6_TypesofVariables/TypesVariables.slides.html#bar-chart-for-chas",
     "title": "Types of Variables and Univariate Plots",
@@ -2268,11 +2289,11 @@
     "text": "Bar chart for chas"
   },
   {
-    "objectID": "T6_TypesofVariables/TypesVariables.slides.html#section-12",
-    "href": "T6_TypesofVariables/TypesVariables.slides.html#section-12",
+    "objectID": "T6_TypesofVariables/TypesVariables.slides.html#similarly-we-create-a-bar-chart-for-rad",
+    "href": "T6_TypesofVariables/TypesVariables.slides.html#similarly-we-create-a-bar-chart-for-rad",
     "title": "Types of Variables and Univariate Plots",
-    "section": "",
-    "text": "In the menu of the Preview tab, we add a title and a good label for the horizontal axis."
+    "section": "Similarly, we create a bar chart for rad",
+    "text": "Similarly, we create a bar chart for rad"
   },
   {
     "objectID": "T6_TypesofVariables/TypesVariables.slides.html#collapsing-categories",
@@ -2364,40 +2385,5 @@
     "title": "Types of Variables and Univariate Plots",
     "section": "What to look for in a beeswarm plot?",
     "text": "What to look for in a beeswarm plot?\n\n\nClusters of points that reveal dense regions in the distribution.\nAreas where points are more spread out, indicating low-frequency regions.\nGaps along the axis where no observations appear.\nOutliers, visible as isolated points far from the main cluster.\nThe overall shape of the distribution formed by the pattern of points."
-  },
-  {
-    "objectID": "T6_TypesofVariables/TypesVariables.slides.html#principle-2-turn-data-into-information",
-    "href": "T6_TypesofVariables/TypesVariables.slides.html#principle-2-turn-data-into-information",
-    "title": "Types of Variables and Univariate Plots",
-    "section": "Principle 2: Turn data into information",
-    "text": "Principle 2: Turn data into information\nAs a starting point,we compute the frequencies of each category of species using the dplyr functions group_by(), summarise(), and n().\n\nThe group_by() function takes an existing table and converts it into a grouped table where operations are performed “by group”.\nThe n() function counts the values in a category.\n\n\nfrequencies_species = penguins_data %&gt;% \n                      group_by(species) %&gt;% \n                      summarise(\"Frequency\" = n())"
-  },
-  {
-    "objectID": "T6_TypesofVariables/TypesVariables.slides.html#frequency-table",
-    "href": "T6_TypesofVariables/TypesVariables.slides.html#frequency-table",
-    "title": "Types of Variables and Univariate Plots",
-    "section": "Frequency table",
-    "text": "Frequency table\n\n\nfrequencies_species\n\n# A tibble: 3 × 2\n  species   Frequency\n  &lt;chr&gt;         &lt;int&gt;\n1 Adelie          152\n2 Chinstrap        68\n3 Gentoo          124\n\n\n\nWe save the frequency table for further processing with Flourish studio using the command below.\n\n# write_xlsx(frequencies_species, \"PenguinsDataFlourish.xlsx\")"
-  },
-  {
-    "objectID": "T6_TypesofVariables/TypesVariables.slides.html#section-14",
-    "href": "T6_TypesofVariables/TypesVariables.slides.html#section-14",
-    "title": "Types of Variables and Univariate Plots",
-    "section": "",
-    "text": "We collapse categories using the function called case_when().\n\nBoston_dataset_simple = Boston_dataset_wr %&gt;% \n      mutate(rad = case_when(rad != \"Low\" ~ \"Other\",\n                             rad == \"Low\" ~ \"Low\"))\n\nCollapsing categories simplifies the graph and allows us to emphasize a category like Low and see how it compares to the other categories (as a whole).\n\nWe save the new dataset using the function write_xlsx().\n\n# write_xlsx(Boston_dataset_simple, \"BostonCollapsed.xlsx\")\n\nWe then proceed to visualize the processed data using Flourish."
-  },
-  {
-    "objectID": "T6_TypesofVariables/TypesVariables.slides.html#section-20",
-    "href": "T6_TypesofVariables/TypesVariables.slides.html#section-20",
-    "title": "Types of Variables and Univariate Plots",
-    "section": "",
-    "text": "There, we modify the label of the horizontal axis X and header in the sections X axis and Header."
-  },
-  {
-    "objectID": "T6_TypesofVariables/TypesVariables.slides.html#similarly-we-create-a-bar-chart-for-rad",
-    "href": "T6_TypesofVariables/TypesVariables.slides.html#similarly-we-create-a-bar-chart-for-rad",
-    "title": "Types of Variables and Univariate Plots",
-    "section": "Similarly, we create a bar chart for rad",
-    "text": "Similarly, we create a bar chart for rad"
   }
 ]
