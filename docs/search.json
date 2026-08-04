@@ -585,7 +585,7 @@
     "href": "T2_Tools/Tools.slides.html#agenda",
     "title": "Tools for Data Manipulation",
     "section": "Agenda",
-    "text": "Agenda\n\n\nIntroduction to R\nReading data with readxl\nData manipulation with dplyr"
+    "text": "Agenda\n\n\nIntroduction to Python\nReading data with pandas\nData manipulation with pandas"
   },
   {
     "objectID": "T2_Tools/Tools.slides.html#r",
@@ -599,7 +599,7 @@
     "href": "T2_Tools/Tools.slides.html#google-colab",
     "title": "Tools for Data Manipulation",
     "section": "Google Colab",
-    "text": "Google Colab\nGoogle’s free cloud collaboration platform for creating R documents.\n\nRun R and collaborate on Jupyter notebooks for free.\nHarness the power of GPUs for free to accelerate your data science projects.\nEasily save and upload your notebooks to Google Drive."
+    "text": "Google Colab\nGoogle’s free cloud collaboration platform for creating Python documents.\n\nRun Python and collaborate on Jupyter notebooks for free.\nHarness the power of GPUs for free to accelerate your data science projects.\nEasily save and upload your notebooks to Google Drive."
   },
   {
     "objectID": "T2_Tools/Tools.slides.html#lets-try-a-command-in-r",
@@ -613,7 +613,7 @@
     "href": "T2_Tools/Tools.slides.html#lets-try-another-command",
     "title": "Tools for Data Manipulation",
     "section": "Let’s try another command",
-    "text": "Let’s try another command\n\nWhat do you think will happen if we run this command?\n\nsum(1, 5, 10)\n\n\n\n\n[1] 16"
+    "text": "Let’s try another command\n\nWhat do you think will happen if we run this command?\n\nsum([1, 5, 10])\n\n\n\n\n16"
   },
   {
     "objectID": "T2_Tools/Tools.slides.html#use-r-as-a-basic-calculator",
@@ -627,7 +627,7 @@
     "href": "T2_Tools/Tools.slides.html#comments",
     "title": "Tools for Data Manipulation",
     "section": "Comments",
-    "text": "Comments\n\nSometimes we write things in the coding window that we want R to ignore. These are called comments and start with #.\n\nR will ignore the comments and just execute the code.\n\n# you can put whatever after #\n# for example... blah blah blah\n\n\nSi desea escribir un comentario que ocupe más de una línea, es una buena idea poner un # al principio de cada línea."
+    "text": "Comments\n\nSometimes we write things in the coding window that we want Python to ignore. These are called comments and start with #.\n\nPython will ignore the comments and just execute the code.\n\n# you can put whatever after #\n# for example... blah blah blah\n\n\nSi desea escribir un comentario que ocupe más de una línea, es una buena idea poner un # al principio de cada línea."
   },
   {
     "objectID": "T2_Tools/Tools.slides.html#introduction-to-functions-in-r",
@@ -655,7 +655,7 @@
     "href": "T2_Tools/Tools.slides.html#for-example",
     "title": "Tools for Data Manipulation",
     "section": "For example",
-    "text": "For example\n\n\n# This code will assign the number 18\n# to the object called my_favorite_number\n\nmy_favorite_number = 18\n\nAfter running this code, nothing happens. But if we run the object on its own, we can see what’s inside it.\n\nmy_favorite_number\n\n[1] 18\n\n\nYou can also use print(my_favorite_number)."
+    "text": "For example\n\n\n# This code will assign the number 18\n# to the object called my_favorite_number\n\nmy_favorite_number = 18\n\nAfter running this code, nothing happens. But if we run the object on its own, we can see what’s inside it.\n\nmy_favorite_number\n\n18\n\n\nYou can also use print(my_favorite_number)."
   },
   {
     "objectID": "T2_Tools/Tools.slides.html#vectors",
@@ -669,21 +669,21 @@
     "href": "T2_Tools/Tools.slides.html#for-example-1",
     "title": "Tools for Data Manipulation",
     "section": "For example",
-    "text": "For example\n\nThis code creates two vectors:\n\nmy_vector = c(1, 2, 3, 4, 5)\nmy_vector_2 = c(10, 10, 10, 10, 10)\n\n\nLet’s see their content:\n\nmy_vector\n\n[1] 1 2 3 4 5\n\n\n\nmy_vector_2\n\n[1] 10 10 10 10 10"
+    "text": "For example\n\nThis code creates two vectors\n\nmy_list = [1, 2, 3, 4, 5]\nmy_list_2 = [10, 10, 10, 10, 10]\n\nLet’s see its content\n\nmy_list\n\n[1, 2, 3, 4, 5]\n\n\n\nmy_list_2\n\n[10, 10, 10, 10, 10]"
   },
   {
     "objectID": "T2_Tools/Tools.slides.html#operations",
     "href": "T2_Tools/Tools.slides.html#operations",
     "title": "Tools for Data Manipulation",
     "section": "Operations",
-    "text": "Operations\n\nWe can do simple operations with vectors. For example, we can sum all the elements of a list.\n\nmy_vector = c(1, 2, 3, 4, 5)\nsum(my_vector)\n\n[1] 15"
+    "text": "Operations\n\nWe can do simple operations with vectors. For example, we can sum all the elements of a list.\n\nmy_list = [1, 2, 3, 4, 5]\nsum(my_list)\n\n15"
   },
   {
     "objectID": "T2_Tools/Tools.slides.html#indexing",
     "href": "T2_Tools/Tools.slides.html#indexing",
     "title": "Tools for Data Manipulation",
     "section": "Indexing",
-    "text": "Indexing\n\nWe can index a position in the vector using square brackets with a number like this: [1].\nSo, if we wanted to print the contents of the first position in my_vector, we could write\n\nmy_vector[1]\n\n[1] 1\n\n\n\n\nIn contrast with Python, the first element of an R vector is indexed using 1."
+    "text": "Indexing\n\nWe can index a position in the vector using square brackets with a number like this: [1].\nSo, if we wanted to print the contents of the first position in my_list, we could write\n\nmy_list[1]\n\n2\n\n\nAn feature of Python is that the first element of a list or vector is indexed using the number 0.\n\nmy_list[0]\n\n1"
   },
   {
     "objectID": "T2_Tools/Tools.slides.html#a-little-more-about-r-objects",
@@ -697,21 +697,21 @@
     "href": "T2_Tools/Tools.slides.html#character-values",
     "title": "Tools for Data Manipulation",
     "section": "Character values",
-    "text": "Character values\n\nCharacters are made up of text, such as words or sentences. An example of a list with characters as elements is:\n\n\nmany_greetings = c(\"hi\", \"hello\", \"hola\", \"bonjour\", \"ni hao\", \"merhaba\")\nmany_greetings\n\n[1] \"hi\"      \"hello\"   \"hola\"    \"bonjour\" \"ni hao\"  \"merhaba\"\n\n\n\n\nIt is important to know that numbers can also be treated as characters, depending on the context.\nFor example, when 20 is enclosed in quotes (\"20\") it will be treated as a character value, even though it encloses a number in quotes."
+    "text": "Character values\n\nCharacters are made up of text, such as words or sentences. An example of a list with characters as elements is:\n\n\nmany_greetings = [\"hi\", \"hello\", \"hola\", \"bonjour\", \"ni hao\", \"merhaba\"]\nmany_greetings\n\n['hi', 'hello', 'hola', 'bonjour', 'ni hao', 'merhaba']\n\n\n\n\nIt is important to know that numbers can also be treated as characters, depending on the context.\nFor example, when 20 is enclosed in quotes (\"20\") it will be treated as a character value, even though it encloses a number in quotes."
   },
   {
     "objectID": "T2_Tools/Tools.slides.html#boolean-values",
     "href": "T2_Tools/Tools.slides.html#boolean-values",
     "title": "Tools for Data Manipulation",
     "section": "Boolean values",
-    "text": "Boolean values\n\nBoolean values are True or False.\nWe may have a question like:\n\nIs the first element of the vector many_greetings \"hola\"?\n\n\nWe can ask R to find out and return the answer True or False.\n\nmany_greetings[1] == \"hola\"\n\n[1] FALSE"
+    "text": "Boolean values\n\nBoolean values are True or False.\nWe may have a question like:\n\nIs the first element of the vector many_greetings \"hola\"?\n\n\nWe can ask Python to find out and return the answer True or False.\n\nmany_greetings[1] == \"hola\"\n\nFalse"
   },
   {
     "objectID": "T2_Tools/Tools.slides.html#logical-operators",
     "href": "T2_Tools/Tools.slides.html#logical-operators",
     "title": "Tools for Data Manipulation",
     "section": "Logical operators",
-    "text": "Logical operators\n\nMost of the questions we ask R to answer with True or False involve comparison operators like &gt;, &lt;, &gt;=, &lt;=, and ==.\nThe double == sign checks whether two values are equal. There is even a comparison operator to check whether values are not equal: !=.\nFor example, 5 != 3 is a True statement."
+    "text": "Logical operators\n\nMost of the questions we ask Python to answer with True or False involve comparison operators like &gt;, &lt;, &gt;=, &lt;=, and ==.\nThe double == sign checks whether two values are equal. There is even a comparison operator to check whether values are not equal: !=.\nFor example, 5 != 3 is a True statement."
   },
   {
     "objectID": "T2_Tools/Tools.slides.html#common-logical-operators",
@@ -774,7 +774,7 @@
     "href": "T2_Tools/Tools.slides.html#the-function-head",
     "title": "Tools for Data Manipulation",
     "section": "The function head()",
-    "text": "The function head()\n\nThe function head() allows you to print the first 6 rows of a data frame.\n\n# Print the first 4 rows of the dataset.\nhead(penguins_data)\n\n# A tibble: 6 × 8\n  species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g\n  &lt;chr&gt;   &lt;chr&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;dbl&gt;       &lt;dbl&gt;\n1 Adelie  Torgersen           39.1          18.7               181        3750\n2 Adelie  Torgersen           39.5          17.4               186        3800\n3 Adelie  Torgersen           40.3          18                 195        3250\n4 Adelie  Torgersen           NA            NA                  NA          NA\n5 Adelie  Torgersen           36.7          19.3               193        3450\n6 Adelie  Torgersen           39.3          20.6               190        3650\n# ℹ 2 more variables: sex &lt;chr&gt;, year &lt;dbl&gt;"
+    "text": "The function head()\nThe function head() allows you to print the first rows of a pandas data frame.\n\n# Print the first 4 rows of the dataset.\npenguins_data.head(4)\n\n\n\n\n\n\n\n\nspecies\nisland\nbill_length_mm\nbill_depth_mm\nflipper_length_mm\nbody_mass_g\nsex\nyear\n\n\n\n\n0\nAdelie\nTorgersen\n39.1\n18.7\n181.0\n3750.0\nmale\n2007\n\n\n1\nAdelie\nTorgersen\n39.5\n17.4\n186.0\n3800.0\nfemale\n2007\n\n\n2\nAdelie\nTorgersen\n40.3\n18.0\n195.0\n3250.0\nfemale\n2007\n\n\n3\nAdelie\nTorgersen\nNaN\nNaN\nNaN\nNaN\nNaN\n2007"
   },
   {
     "objectID": "T2_Tools/Tools.slides.html#mini-activity-solo-mode",
@@ -809,7 +809,7 @@
     "href": "T2_Tools/Tools.slides.html#section-1",
     "title": "Tools for Data Manipulation",
     "section": "",
-    "text": "To practice, we will use the dataset penguins_data."
+    "text": "To index multiple variables of a data frame, we put the names of the variables in a list object. For example, we select bill_length_mm, species, and island as follows:\n\nsub_penguins_data = penguins_data[ ['bill_length_mm',  'species', 'island'] ]\nsub_penguins_data.head()\n\n\n\n\n\n\n\n\nbill_length_mm\nspecies\nisland\n\n\n\n\n0\n39.1\nAdelie\nTorgersen\n\n\n1\n39.5\nAdelie\nTorgersen\n\n\n2\n40.3\nAdelie\nTorgersen\n\n\n3\nNaN\nAdelie\nTorgersen\n\n\n4\n36.7\nAdelie\nTorgersen"
   },
   {
     "objectID": "T2_Tools/Tools.slides.html#filter-observations-with-filter",
@@ -823,7 +823,7 @@
     "href": "T2_Tools/Tools.slides.html#section-2",
     "title": "Tools for Data Manipulation",
     "section": "",
-    "text": "We can also filter the observations for the species “Gentoo.”\n\npenguins_data %&gt;% filter(species == \"Gentoo\") %&gt;% head()\n\n# A tibble: 6 × 8\n  species island bill_length_mm bill_depth_mm flipper_length_mm body_mass_g\n  &lt;chr&gt;   &lt;chr&gt;           &lt;dbl&gt;         &lt;dbl&gt;             &lt;dbl&gt;       &lt;dbl&gt;\n1 Gentoo  Biscoe           46.1          13.2               211        4500\n2 Gentoo  Biscoe           50            16.3               230        5700\n3 Gentoo  Biscoe           48.7          14.1               210        4450\n4 Gentoo  Biscoe           50            15.2               218        5700\n5 Gentoo  Biscoe           47.6          14.5               215        5400\n6 Gentoo  Biscoe           46.5          13.5               210        4550\n# ℹ 2 more variables: sex &lt;chr&gt;, year &lt;dbl&gt;"
+    "text": "rows_penguins_data\n\n\n\n\n\n\n\n\nspecies\nisland\nbill_length_mm\nbill_depth_mm\nflipper_length_mm\nbody_mass_g\nsex\nyear\n\n\n\n\n2\nAdelie\nTorgersen\n40.3\n18.0\n195.0\n3250.0\nfemale\n2007\n\n\n3\nAdelie\nTorgersen\nNaN\nNaN\nNaN\nNaN\nNaN\n2007\n\n\n4\nAdelie\nTorgersen\n36.7\n19.3\n193.0\n3450.0\nfemale\n2007\n\n\n5\nAdelie\nTorgersen\n39.3\n20.6\n190.0\n3650.0\nmale\n2007\n\n\n\n\n\n\n\nNote that the index 2 and 5 refer to observations 3 and 7, respectively, in the dataset. This is because the first index in Python is 0."
   },
   {
     "objectID": "T2_Tools/Tools.slides.html#select-columns-with-select",
@@ -858,7 +858,7 @@
     "href": "T2_Tools/Tools.slides.html#section-3",
     "title": "Tools for Data Manipulation",
     "section": "",
-    "text": "To sort in descending order we use desc(bill_length_mm) in arrange().\n\npenguins_data %&gt;% \n  arrange(desc(bill_length_mm)) %&gt;% \n  head()\n\n# A tibble: 6 × 8\n  species   island bill_length_mm bill_depth_mm flipper_length_mm body_mass_g\n  &lt;chr&gt;     &lt;chr&gt;           &lt;dbl&gt;         &lt;dbl&gt;             &lt;dbl&gt;       &lt;dbl&gt;\n1 Gentoo    Biscoe           59.6          17                 230        6050\n2 Chinstrap Dream            58            17.8               181        3700\n3 Gentoo    Biscoe           55.9          17                 228        5600\n4 Chinstrap Dream            55.8          19.8               207        4000\n5 Gentoo    Biscoe           55.1          16                 230        5850\n6 Gentoo    Biscoe           54.3          15.7               231        5650\n# ℹ 2 more variables: sex &lt;chr&gt;, year &lt;dbl&gt;"
+    "text": "To practice, we will use the dataset penguins_data."
   },
   {
     "objectID": "T2_Tools/Tools.slides.html#summarize-with-summarise",
@@ -872,7 +872,7 @@
     "href": "T2_Tools/Tools.slides.html#saving-results-in-new-objects",
     "title": "Tools for Data Manipulation",
     "section": "Saving results in new objects",
-    "text": "Saving results in new objects\nAfter performing operations on our data, we can save the modified dataset as a new object.\n\nsummary_penguins_data = penguins_data %&gt;%\n  select(bill_length_mm, bill_depth_mm, body_mass_g) %&gt;%\n  summarise(PromLength = mean(bill_length_mm, na.rm = TRUE),\n            PromDepth = mean(bill_depth_mm, na.rm = TRUE),\n            PromMass = mean(body_mass_g, na.rm = TRUE))\n\n\nAnd apply the dplyr verbs to the new object.\n\nsummary_penguins_data %&gt;% head()\n\n# A tibble: 1 × 3\n  PromLength PromDepth PromMass\n       &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;\n1       43.9      17.2    4202."
+    "text": "Saving results in new objects\n\nAfter performing operations on our data, we can save the modified dataset as a new object.\n\nmean_penguins_data = (penguins_data\n  .filter([\"bill_length_mm\", \"bill_depth_mm\", \"body_mass_g\"], axis = 1)\n  .agg([\"mean\"])\n)\n\nmean_penguins_data\n\n\n\n\n\n\n\n\nbill_length_mm\nbill_depth_mm\nbody_mass_g\n\n\n\n\nmean\n43.92193\n17.15117\n4201.754386"
   },
   {
     "objectID": "T2_Tools/Tools.slides.html#more-on-dplyr",
@@ -886,7 +886,7 @@
     "href": "T2_Tools/Tools.slides.html#final-remarks",
     "title": "Tools for Data Manipulation",
     "section": "Final remarks",
-    "text": "Final remarks\n\n\ndplyr is a library that allows us to manipulate data in R.\nVariable types help specify the operations and visualizations we can apply to the data.\nThere are appropriate or designed graphs for visualizing numeric or categorical variables.\nIn this course, we will see several graphs for each variable type and their combinations."
+    "text": "Final remarks\n\n\npandas is a library that allows us to manipulate data in Python.\nVariable types help specify the operations and visualizations we can apply to the data.\nThere are appropriate or designed graphs for visualizing numeric or categorical variables.\nIn this course, we will see several graphs for each variable type and their combinations."
   },
   {
     "objectID": "T7_PopularGraphs/Popular_Graphs.slides.html#agenda",
@@ -2385,5 +2385,250 @@
     "title": "Types of Variables and Univariate Plots",
     "section": "What to look for in a beeswarm plot?",
     "text": "What to look for in a beeswarm plot?\n\n\nClusters of points that reveal dense regions in the distribution.\nAreas where points are more spread out, indicating low-frequency regions.\nGaps along the axis where no observations appear.\nOutliers, visible as isolated points far from the main cluster.\nThe overall shape of the distribution formed by the pattern of points."
+  },
+  {
+    "objectID": "T2_Tools/Tools.slides.html#python",
+    "href": "T2_Tools/Tools.slides.html#python",
+    "title": "Tools for Data Manipulation",
+    "section": "Python",
+    "text": "Python\n\n\n\n\nA versatile programming language.\nIt is free!\nIt is widely used for data cleaning, data visualization, and data modelling.\nIt can be extended with packages (libraries) developed by other users."
+  },
+  {
+    "objectID": "T2_Tools/Tools.slides.html#lets-try-a-command-in-python",
+    "href": "T2_Tools/Tools.slides.html#lets-try-a-command-in-python",
+    "title": "Tools for Data Manipulation",
+    "section": "Let’s try a command in Python",
+    "text": "Let’s try a command in Python\n\nWhat do you think will happen if we run this command?\n\nprint(\"Hello world!\")\n\n\n\n\nHello world!"
+  },
+  {
+    "objectID": "T2_Tools/Tools.slides.html#use-python-as-a-basic-calculator",
+    "href": "T2_Tools/Tools.slides.html#use-python-as-a-basic-calculator",
+    "title": "Tools for Data Manipulation",
+    "section": "Use Python as a basic calculator",
+    "text": "Use Python as a basic calculator\n\n\n5 + 1\n\n6\n\n\n\n10 - 3\n\n7\n\n\n\n2 * 4\n\n8\n\n\n\n9 / 3\n\n3.0"
+  },
+  {
+    "objectID": "T2_Tools/Tools.slides.html#introduction-to-functions-in-python",
+    "href": "T2_Tools/Tools.slides.html#introduction-to-functions-in-python",
+    "title": "Tools for Data Manipulation",
+    "section": "Introduction to functions in Python",
+    "text": "Introduction to functions in Python\n\nOne of the best things about Python is that there are many built-in commands you can use. These are called functions.\n\nFunctions have two basic parts:\n\nThe first part is the name of the function (for example, sum).\nThe second part is the input to the function, which goes inside the parentheses (sum([1, 5, 15]))."
+  },
+  {
+    "objectID": "T2_Tools/Tools.slides.html#python-is-strict",
+    "href": "T2_Tools/Tools.slides.html#python-is-strict",
+    "title": "Tools for Data Manipulation",
+    "section": "Python is strict",
+    "text": "Python is strict\n\nPython, like all programming languages, is very strict. For example, if you write\n\n\nsum([1, 100])\n\n101\n\n\n\nit will tell you the answer, 101.\n\n\n\nBut if you write\n\n\nSum([1, 100])\n\n\n---------------------------------------------------------------------------\nNameError                                 Traceback (most recent call last)\nCell In[11], line 1\n----&gt; 1 Sum([1, 100])\n\nNameError: name 'Sum' is not defined\n\n\n\n\nwith the “s” capitalized, he will act like he has no idea what we are talking about!\n\n\nlo mismo si olvidas incluir un parentesis"
+  },
+  {
+    "objectID": "T2_Tools/Tools.slides.html#save-your-work-in-python-objects",
+    "href": "T2_Tools/Tools.slides.html#save-your-work-in-python-objects",
+    "title": "Tools for Data Manipulation",
+    "section": "Save your work in Python objects",
+    "text": "Save your work in Python objects\n\nVirtually anything, including the results of any Python function, can be saved in an object.\nThis is accomplished by using an assignment operator, which can be an equals symbol (=).\n\nYou can make up any name you want for a Python object. However, there are two basic rules for this:\n\nIt must be different from a function name in Python.\nIt should be as specific as possible."
+  },
+  {
+    "objectID": "T2_Tools/Tools.slides.html#lists",
+    "href": "T2_Tools/Tools.slides.html#lists",
+    "title": "Tools for Data Manipulation",
+    "section": "Lists",
+    "text": "Lists\n\nSo far we have used Python objects to store a single number. But in statistics we are dealing with variation, which by definition needs more than one number.\n\nA Python object can also store a complete set of numbers, called a list.\nYou can think of a list as a vector of numbers (or values).\n\n\nThe [] command can be used to combine several individual values into a list.\n\npuedes pensar que el c es por combinar"
+  },
+  {
+    "objectID": "T2_Tools/Tools.slides.html#a-little-more-about-objects-in-python",
+    "href": "T2_Tools/Tools.slides.html#a-little-more-about-objects-in-python",
+    "title": "Tools for Data Manipulation",
+    "section": "A little more about objects in Python",
+    "text": "A little more about objects in Python\n\nYou can think of Python objects as containers that hold values.\nA Python object can hold a single value, or it can hold a group of values (as in a vector).\nSo far, we’ve only put numbers into Python objects.\n\n\nPython objects can actually contain three types of values: numbers, characters, and booleans."
+  },
+  {
+    "objectID": "T2_Tools/Tools.slides.html#question",
+    "href": "T2_Tools/Tools.slides.html#question",
+    "title": "Tools for Data Manipulation",
+    "section": "Question",
+    "text": "Question\n\nRead this code and predict its response. Then, run the code in Google Colab and validate if you were correct.\n\nA = 1\nB = 5\ncompare = A &gt; B\ncompare"
+  },
+  {
+    "objectID": "T2_Tools/Tools.slides.html#python-libraries",
+    "href": "T2_Tools/Tools.slides.html#python-libraries",
+    "title": "Tools for Data Manipulation",
+    "section": "Python libraries",
+    "text": "Python libraries\nLibraries are the fundamental units of reproducible Python code. They include reusable Python functions, documentation describing how to use them, and sample data.\n\nIn this course, we will be working mostly with the following libraries:\n\npandas for data manipulation and wrangling"
+  },
+  {
+    "objectID": "T2_Tools/Tools.slides.html#loading-data-in-python",
+    "href": "T2_Tools/Tools.slides.html#loading-data-in-python",
+    "title": "Tools for Data Manipulation",
+    "section": "Loading data in Python",
+    "text": "Loading data in Python\nIn this course, we will assume that data is stored in an Excel file with the above organization. As an example, let’s use the file penguins.xlsx.\n\n\n\n\n\n\n\nThe file must be previously uploaded to Google Colab."
+  },
+  {
+    "objectID": "T2_Tools/Tools.slides.html#pandas-library",
+    "href": "T2_Tools/Tools.slides.html#pandas-library",
+    "title": "Tools for Data Manipulation",
+    "section": "pandas library",
+    "text": "pandas library\n\n\n\n\n\n\n\n\n\n\npandas is an open-source Python library for data manipulation and analysis.\nIt is built on top of numpy for high-performance data operations.\nIt allows the user to import, clean, transform, and analyze data efficiently\nhttps://pandas.pydata.org/"
+  },
+  {
+    "objectID": "T2_Tools/Tools.slides.html#importing-pandas",
+    "href": "T2_Tools/Tools.slides.html#importing-pandas",
+    "title": "Tools for Data Manipulation",
+    "section": "Importing pandas",
+    "text": "Importing pandas\nFortunately, the pandas library is already pre-installed in Google Colab.\n\nHowever, we need to inform Google Colab that we want to use pandas and its functions using the following command:\n\nimport pandas as pd\n\n\nThe command as pd allows us to have a short name for pandas. To use a function of pandas, we use the command pd.function()."
+  },
+  {
+    "objectID": "T2_Tools/Tools.slides.html#loading-data-using-pandas",
+    "href": "T2_Tools/Tools.slides.html#loading-data-using-pandas",
+    "title": "Tools for Data Manipulation",
+    "section": "Loading data using pandas",
+    "text": "Loading data using pandas\n\nThe following code shows how to read the data in the file “penguins.xlsx” into Python.\n\n# Load the Excel file into a pandas DataFrame.\npenguins_data = pd.read_excel(\"penguins.xlsx\")"
+  },
+  {
+    "objectID": "T2_Tools/Tools.slides.html#indexing-variables-a-dataset",
+    "href": "T2_Tools/Tools.slides.html#indexing-variables-a-dataset",
+    "title": "Tools for Data Manipulation",
+    "section": "Indexing variables a dataset",
+    "text": "Indexing variables a dataset\nWe can select a specific variables of a data frame using the syntaxis below.\n\npenguins_data['bill_length_mm']\n\n0      39.1\n1      39.5\n2      40.3\n3       NaN\n4      36.7\n       ... \n339    55.8\n340    43.5\n341    49.6\n342    50.8\n343    50.2\nName: bill_length_mm, Length: 344, dtype: float64\n\n\nHere, we selected the variable bill_length_mm in the penguins_data dataset."
+  },
+  {
+    "objectID": "T2_Tools/Tools.slides.html#indexing-rows",
+    "href": "T2_Tools/Tools.slides.html#indexing-rows",
+    "title": "Tools for Data Manipulation",
+    "section": "Indexing rows",
+    "text": "Indexing rows\nTo index rows in a dataset, we use the argument loc from pandas. For example, we select the rows 3 to 6 of the penguins_dataset dataset:\n\nrows_penguins_data = penguins_data.loc[2:5]\nrows_penguins_data\n\n\n\n\n\n\n\n\nspecies\nisland\nbill_length_mm\nbill_depth_mm\nflipper_length_mm\nbody_mass_g\nsex\nyear\n\n\n\n\n2\nAdelie\nTorgersen\n40.3\n18.0\n195.0\n3250.0\nfemale\n2007\n\n\n3\nAdelie\nTorgersen\nNaN\nNaN\nNaN\nNaN\nNaN\n2007\n\n\n4\nAdelie\nTorgersen\n36.7\n19.3\n193.0\n3450.0\nfemale\n2007\n\n\n5\nAdelie\nTorgersen\n39.3\n20.6\n190.0\n3650.0\nmale\n2007"
+  },
+  {
+    "objectID": "T2_Tools/Tools.slides.html#indexing-rows-and-columns",
+    "href": "T2_Tools/Tools.slides.html#indexing-rows-and-columns",
+    "title": "Tools for Data Manipulation",
+    "section": "Indexing rows and columns",
+    "text": "Indexing rows and columns\nUsing loc, we can also retrieve a subset from the dataset by selecting specific columns and rows.\n\nsub_rows_pdata = penguins_data.loc[2:5, ['bill_length_mm',  'species', 'island'] ]\nsub_rows_pdata\n\n\n\n\n\n\n\n\nbill_length_mm\nspecies\nisland\n\n\n\n\n2\n40.3\nAdelie\nTorgersen\n\n\n3\nNaN\nAdelie\nTorgersen\n\n\n4\n36.7\nAdelie\nTorgersen\n\n\n5\n39.3\nAdelie\nTorgersen"
+  },
+  {
+    "objectID": "T2_Tools/Tools.slides.html#chaining-operations-with-pandas",
+    "href": "T2_Tools/Tools.slides.html#chaining-operations-with-pandas",
+    "title": "Tools for Data Manipulation",
+    "section": "Chaining operations with pandas",
+    "text": "Chaining operations with pandas\nOne of the most important techniques in pandas is chaining, which allows for cleaner and more readable data manipulation.\nThe general structure of chaining looks like this:"
+  },
+  {
+    "objectID": "T2_Tools/Tools.slides.html#key-pandas-methods",
+    "href": "T2_Tools/Tools.slides.html#key-pandas-methods",
+    "title": "Tools for Data Manipulation",
+    "section": "Key pandas methods",
+    "text": "Key pandas methods\npandas provides methods or functions to solve common data manipulation tasks:\n\n.filter() selects specific columns or rows.\n.query() filters observations based on conditions.\n.assign() adds new variables that are functions of existing variables.\n.sort_values() changes the order of rows.\n.agg() reduces multiple values to a single numerical summary."
+  },
+  {
+    "objectID": "T2_Tools/Tools.slides.html#example",
+    "href": "T2_Tools/Tools.slides.html#example",
+    "title": "Tools for Data Manipulation",
+    "section": "Example",
+    "text": "Example\nLet’s load the dataset and the pandas library.\n\nimport pandas as pd\n\n# Load the Excel file into a pandas DataFrame.\npenguins_data = pd.read_excel(\"penguins.xlsx\")\n\n# Preview the dataset.\npenguins_data.head(4)\n\n\n\n\n\n\n\n\nspecies\nisland\nbill_length_mm\nbill_depth_mm\nflipper_length_mm\nbody_mass_g\nsex\nyear\n\n\n\n\n0\nAdelie\nTorgersen\n39.1\n18.7\n181.0\n3750.0\nmale\n2007\n\n\n1\nAdelie\nTorgersen\n39.5\n17.4\n186.0\n3800.0\nfemale\n2007\n\n\n2\nAdelie\nTorgersen\n40.3\n18.0\n195.0\n3250.0\nfemale\n2007\n\n\n3\nAdelie\nTorgersen\nNaN\nNaN\nNaN\nNaN\nNaN\n2007"
+  },
+  {
+    "objectID": "T2_Tools/Tools.slides.html#selecting-columns-with-.filter",
+    "href": "T2_Tools/Tools.slides.html#selecting-columns-with-.filter",
+    "title": "Tools for Data Manipulation",
+    "section": "Selecting columns with .filter()",
+    "text": "Selecting columns with .filter()\nSelect the columns species, body_mass_g and sex.\n\n(penguins_data\n  .filter([\"species\", \"body_mass_g\", \"sex\"], axis = 1)\n).head()\n\n\n\n\n\n\n\n\nspecies\nbody_mass_g\nsex\n\n\n\n\n0\nAdelie\n3750.0\nmale\n\n\n1\nAdelie\n3800.0\nfemale\n\n\n2\nAdelie\n3250.0\nfemale\n\n\n3\nAdelie\nNaN\nNaN\n\n\n4\nAdelie\n3450.0\nfemale"
+  },
+  {
+    "objectID": "T2_Tools/Tools.slides.html#section-4",
+    "href": "T2_Tools/Tools.slides.html#section-4",
+    "title": "Tools for Data Manipulation",
+    "section": "",
+    "text": "The axis argument tells .filter() whether to select rows (0) or columns (1) from the dataframe.\n\n(penguins_data\n  .filter([\"species\", \"body_mass_g\", \"sex\"], axis = 1)\n).head()\n\n\n\nThe .head() command allows us to print the first six rows of the newly produced dataframe. We must remove it to have the entire new dataframe."
+  },
+  {
+    "objectID": "T2_Tools/Tools.slides.html#section-5",
+    "href": "T2_Tools/Tools.slides.html#section-5",
+    "title": "Tools for Data Manipulation",
+    "section": "",
+    "text": "We can also use .filter() to select rows too. To this end, we set axis = 1. We can select specific rows, such as 0 and 10.\n\n(penguins_data\n  .filter([0, 10], axis = 0)\n)\n\n\n\n\n\n\n\n\nspecies\nisland\nbill_length_mm\nbill_depth_mm\nflipper_length_mm\nbody_mass_g\nsex\nyear\n\n\n\n\n0\nAdelie\nTorgersen\n39.1\n18.7\n181.0\n3750.0\nmale\n2007\n\n\n10\nAdelie\nTorgersen\n37.8\n17.1\n186.0\n3300.0\nNaN\n2007"
+  },
+  {
+    "objectID": "T2_Tools/Tools.slides.html#section-6",
+    "href": "T2_Tools/Tools.slides.html#section-6",
+    "title": "Tools for Data Manipulation",
+    "section": "",
+    "text": "Or, we can select a set of rows using the function range(). For example, let’s select the first 5 rows.\n\n(penguins_data\n  .filter(range(5), axis = 0)\n)\n\n\n\n\n\n\n\n\nspecies\nisland\nbill_length_mm\nbill_depth_mm\nflipper_length_mm\nbody_mass_g\nsex\nyear\n\n\n\n\n0\nAdelie\nTorgersen\n39.1\n18.7\n181.0\n3750.0\nmale\n2007\n\n\n1\nAdelie\nTorgersen\n39.5\n17.4\n186.0\n3800.0\nfemale\n2007\n\n\n2\nAdelie\nTorgersen\n40.3\n18.0\n195.0\n3250.0\nfemale\n2007\n\n\n3\nAdelie\nTorgersen\nNaN\nNaN\nNaN\nNaN\nNaN\n2007\n\n\n4\nAdelie\nTorgersen\n36.7\n19.3\n193.0\n3450.0\nfemale\n2007"
+  },
+  {
+    "objectID": "T2_Tools/Tools.slides.html#filtering-rows-with-.query",
+    "href": "T2_Tools/Tools.slides.html#filtering-rows-with-.query",
+    "title": "Tools for Data Manipulation",
+    "section": "Filtering rows with .query()",
+    "text": "Filtering rows with .query()\n\nAn alternative way of selecting rows is .query(). Compared to .filter(), .query() allows us to filter the data using statements or queries involving the variables.\n\nFor example, let’s filter the data for the species “Gentoo.”\n\n(penguins_data\n  .query(\"species == 'Gentoo'\")\n)"
+  },
+  {
+    "objectID": "T2_Tools/Tools.slides.html#section-7",
+    "href": "T2_Tools/Tools.slides.html#section-7",
+    "title": "Tools for Data Manipulation",
+    "section": "",
+    "text": "(penguins_data\n  .query(\"species == 'Gentoo'\")\n).head()\n\n\n\n\n\n\n\n\nspecies\nisland\nbill_length_mm\nbill_depth_mm\nflipper_length_mm\nbody_mass_g\nsex\nyear\n\n\n\n\n152\nGentoo\nBiscoe\n46.1\n13.2\n211.0\n4500.0\nfemale\n2007\n\n\n153\nGentoo\nBiscoe\n50.0\n16.3\n230.0\n5700.0\nmale\n2007\n\n\n154\nGentoo\nBiscoe\n48.7\n14.1\n210.0\n4450.0\nfemale\n2007\n\n\n155\nGentoo\nBiscoe\n50.0\n15.2\n218.0\n5700.0\nmale\n2007\n\n\n156\nGentoo\nBiscoe\n47.6\n14.5\n215.0\n5400.0\nmale\n2007"
+  },
+  {
+    "objectID": "T2_Tools/Tools.slides.html#section-8",
+    "href": "T2_Tools/Tools.slides.html#section-8",
+    "title": "Tools for Data Manipulation",
+    "section": "",
+    "text": "We can also filter the data to get penguins with a body mass greater than 5000g.\n\n(penguins_data\n  .query(\"body_mass_g &gt; 5000\")\n).head()\n\n\n\n\n\n\n\n\nspecies\nisland\nbill_length_mm\nbill_depth_mm\nflipper_length_mm\nbody_mass_g\nsex\nyear\n\n\n\n\n153\nGentoo\nBiscoe\n50.0\n16.3\n230.0\n5700.0\nmale\n2007\n\n\n155\nGentoo\nBiscoe\n50.0\n15.2\n218.0\n5700.0\nmale\n2007\n\n\n156\nGentoo\nBiscoe\n47.6\n14.5\n215.0\n5400.0\nmale\n2007\n\n\n159\nGentoo\nBiscoe\n46.7\n15.3\n219.0\n5200.0\nmale\n2007\n\n\n161\nGentoo\nBiscoe\n46.8\n15.4\n215.0\n5150.0\nmale\n2007"
+  },
+  {
+    "objectID": "T2_Tools/Tools.slides.html#section-9",
+    "href": "T2_Tools/Tools.slides.html#section-9",
+    "title": "Tools for Data Manipulation",
+    "section": "",
+    "text": "We can even combine .filter() and .query(). For example, let’s select the columns species, body_mass_g and sex, then filter the data for the “Gentoo” species.\n\n(penguins_data\n  .filter([\"species\", \"body_mass_g\", \"sex\"], axis = 1)\n  .query(\"species == 'Gentoo'\")\n).head(4)\n\n\n\n\n\n\n\n\nspecies\nbody_mass_g\nsex\n\n\n\n\n152\nGentoo\n4500.0\nfemale\n\n\n153\nGentoo\n5700.0\nmale\n\n\n154\nGentoo\n4450.0\nfemale\n\n\n155\nGentoo\n5700.0\nmale"
+  },
+  {
+    "objectID": "T2_Tools/Tools.slides.html#create-new-columns-with-.assign",
+    "href": "T2_Tools/Tools.slides.html#create-new-columns-with-.assign",
+    "title": "Tools for Data Manipulation",
+    "section": "Create new columns with .assign()",
+    "text": "Create new columns with .assign()\n\nWith .assign(), we can create new columns (variables) that are functions of existing ones. This function uses a special Python keyword called lambda. Technically, this keyword defines an anonymous function.\n\nFor example, we create a new variable LDRatio equaling the ratio of bill_length_mm and bill_depth_mm.\n\n(penguins_data\n  .assign(LDRatio = lambda df: df[\"bill_length_mm\"] / df[\"bill_depth_mm\"])\n)"
+  },
+  {
+    "objectID": "T2_Tools/Tools.slides.html#section-10",
+    "href": "T2_Tools/Tools.slides.html#section-10",
+    "title": "Tools for Data Manipulation",
+    "section": "",
+    "text": "In this code, the df after lambda indicates that the dataframe (penguins_data) will be referred to as df inside the function. The colon : sets the start of the function.\n\n(penguins_data\n  .assign(LDRatio = lambda df: df[\"bill_length_mm\"] / df[\"bill_depth_mm\"])\n)\n\nThe code appends the new variable to the end of the resulting dataframe."
+  },
+  {
+    "objectID": "T2_Tools/Tools.slides.html#section-11",
+    "href": "T2_Tools/Tools.slides.html#section-11",
+    "title": "Tools for Data Manipulation",
+    "section": "",
+    "text": "We can see the new variable using .filter().\n\n(penguins_data\n  .assign(LDRatio = lambda df: df[\"bill_length_mm\"] / df[\"bill_depth_mm\"])\n  .filter([\"bill_length_mm\", \"bill_depth_mm\", \"LDRatio\"], axis = 1)\n).head()\n\n\n\n\n\n\n\n\nbill_length_mm\nbill_depth_mm\nLDRatio\n\n\n\n\n0\n39.1\n18.7\n2.090909\n\n\n1\n39.5\n17.4\n2.270115\n\n\n2\n40.3\n18.0\n2.238889\n\n\n3\nNaN\nNaN\nNaN\n\n\n4\n36.7\n19.3\n1.901554"
+  },
+  {
+    "objectID": "T2_Tools/Tools.slides.html#sorting-with-.sort_values",
+    "href": "T2_Tools/Tools.slides.html#sorting-with-.sort_values",
+    "title": "Tools for Data Manipulation",
+    "section": "Sorting with .sort_values()",
+    "text": "Sorting with .sort_values()\nWe can sort the data based on a column like bill_length_mm.\n\n(penguins_data\n  .sort_values(\"bill_length_mm\")\n).head(4)\n\n\n\n\n\n\n\n\nspecies\nisland\nbill_length_mm\nbill_depth_mm\nflipper_length_mm\nbody_mass_g\nsex\nyear\n\n\n\n\n142\nAdelie\nDream\n32.1\n15.5\n188.0\n3050.0\nfemale\n2009\n\n\n98\nAdelie\nDream\n33.1\n16.1\n178.0\n2900.0\nfemale\n2008\n\n\n70\nAdelie\nTorgersen\n33.5\n19.0\n190.0\n3600.0\nfemale\n2008\n\n\n92\nAdelie\nDream\n34.0\n17.1\n185.0\n3400.0\nfemale\n2008"
+  },
+  {
+    "objectID": "T2_Tools/Tools.slides.html#section-12",
+    "href": "T2_Tools/Tools.slides.html#section-12",
+    "title": "Tools for Data Manipulation",
+    "section": "",
+    "text": "To sort in descending order, use ascending=False inside sort_values().\n\n(penguins_data\n  .sort_values(\"bill_length_mm\", ascending=False)\n).head()\n\n\n\n\n\n\n\n\nspecies\nisland\nbill_length_mm\nbill_depth_mm\nflipper_length_mm\nbody_mass_g\nsex\nyear\n\n\n\n\n185\nGentoo\nBiscoe\n59.6\n17.0\n230.0\n6050.0\nmale\n2007\n\n\n293\nChinstrap\nDream\n58.0\n17.8\n181.0\n3700.0\nfemale\n2007\n\n\n253\nGentoo\nBiscoe\n55.9\n17.0\n228.0\n5600.0\nmale\n2009\n\n\n339\nChinstrap\nDream\n55.8\n19.8\n207.0\n4000.0\nmale\n2009\n\n\n267\nGentoo\nBiscoe\n55.1\n16.0\n230.0\n5850.0\nmale\n2009"
+  },
+  {
+    "objectID": "T2_Tools/Tools.slides.html#summarizing-with-.agg",
+    "href": "T2_Tools/Tools.slides.html#summarizing-with-.agg",
+    "title": "Tools for Data Manipulation",
+    "section": "Summarizing with .agg()",
+    "text": "Summarizing with .agg()\nWe can calculate summary statistics of the columns bill_length_mm, bill_depth_mm, and body_mass_g.\n\n(penguins_data\n  .filter([\"bill_length_mm\", \"bill_depth_mm\", \"body_mass_g\"], axis = 1)\n  .agg([\"mean\"])\n)\n\n\n\n\n\n\n\n\nbill_length_mm\nbill_depth_mm\nbody_mass_g\n\n\n\n\nmean\n43.92193\n17.15117\n4201.754386\n\n\n\n\n\n\n\n\n\nBy default, agg() ignores missing values."
+  },
+  {
+    "objectID": "T2_Tools/Tools.slides.html#more-on-pandas",
+    "href": "T2_Tools/Tools.slides.html#more-on-pandas",
+    "title": "Tools for Data Manipulation",
+    "section": "More on pandas",
+    "text": "More on pandas\n\n\nhttps://wesmckinney.com/book/"
   }
 ]

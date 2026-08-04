@@ -21,13 +21,13 @@ editor: visual
 
 </br>
 
-1.  Introduction to R
-2.  Reading data with **readxl**
-3.  Data manipulation with **dplyr**
+1.  Introduction to Python
+2.  Reading data with **pandas**
+3.  Data manipulation with **pandas**
 
-# Introduction to R
+# Introduction to Python
 
-## R
+## Python
 
 </br>
 
@@ -43,15 +43,15 @@ editor: visual
 :::
 
 ::: {.column width="30%"}
-![](images/clipboard-148304512.png){fig-align="center" width="324"}
+![](images/python.png){fig-align="center" width="324"}
 :::
 :::::
 
 ## Google Colab
 
-*Google's free cloud collaboration platform for creating R documents.*
+*Google's free cloud collaboration platform for creating Python documents.*
 
-- Run R and collaborate on Jupyter notebooks for free.
+- Run Python and collaborate on Jupyter notebooks for free.
 
 - Harness the power of GPUs for free to accelerate your data science projects.
 
@@ -59,13 +59,13 @@ editor: visual
 
 ![](images/Google_Colaboratory_SVG_Logo.svg.png){fig-align="right" width="2560"}
 
-## Let's try a command in R
+## Let's try a command in Python
 
-</br></br>
+</br></br></br>
 
 What do you think will happen if we run this command?
 
-```{r}
+```{python}
 #| echo: true
 #| output: false
 
@@ -74,7 +74,7 @@ print("Hello world!")
 
 . . .
 
-```{r}
+```{python}
 #| echo: false
 #| output: true
 
@@ -83,52 +83,52 @@ print("Hello world!")
 
 ## Let's try another command
 
-</br></br>
+</br></br></br>
 
 What do you think will happen if we run this command?
 
-```{r}
+```{python}
 #| echo: true
 #| output: false
 
-sum(1, 5, 10)
+sum([1, 5, 10])
 ```
 
 . . .
 
-```{r}
+```{python}
 #| echo: false
 #| output: true
 
-sum(1, 5, 10)
+sum([1, 5, 10])
 ```
 
-## Use R as a basic calculator
+## Use Python as a basic calculator
 
 </br></br>
 
-```{r}
+```{python}
 #| echo: true
 #| output: true
 
 5 + 1
 ```
 
-```{r}
+```{python}
 #| echo: true
 #| output: true
 
 10 - 3
 ```
 
-```{r}
+```{python}
 #| echo: true
 #| output: true
 
 2 * 4
 ```
 
-```{r}
+```{python}
 #| echo: true
 #| output: true
 
@@ -139,13 +139,13 @@ sum(1, 5, 10)
 
 </br>
 
-Sometimes we write things in the coding window that we want R to ignore. These are called comments and start with `#`.
+Sometimes we write things in the coding window that we want Python to ignore. These are called comments and start with `#`.
 
 </br>
 
-R will ignore the comments and just execute the code.
+Python will ignore the comments and just execute the code.
 
-```{r}
+```{python}
 #| echo: true
 #| output: true
 
@@ -157,11 +157,11 @@ R will ignore the comments and just execute the code.
 Si desea escribir un comentario que ocupe más de una línea, es una buena idea poner un \# al principio de cada línea.
 :::
 
-## Introduction to functions in R
+## Introduction to functions in Python
 
 </br>
 
-One of the cool things about R is that there are many built-in commands you can use. These are called *functions*.
+One of the best things about Python is that there are many built-in commands you can use. These are called *functions*.
 
 . . .
 
@@ -170,58 +170,65 @@ Functions have two basic parts:
 ::: incremental
 - The first part is the name of the function (for example, `sum`).
 
-- The second part is the input to the function, which goes inside the parentheses (`sum(1, 5, 15)`).
+- The second part is the input to the function, which goes inside the parentheses (`sum([1, 5, 15])`).
 :::
 
-## R is strict
+## Python is strict
 
-R, like all programming languages, is very strict. For example, if you write
-
-```{r}
+::: {style="font-size: 90%;"}
+Python, like all programming languages, is very strict. For example, if you write
+:::
+```{python}
 #| echo: true
-sum(1, 100)
+sum([1, 100])
 ```
 
+::: {style="font-size: 90%;"}
 it will tell you the answer, 101.
+:::
 
 . . .
 
+::: {style="font-size: 90%;"}
 But if you write
+:::
 
-```{r}
+```{python}
 #| echo: true
 #| error: true
-Sum(1, 100)
+Sum([1, 100])
 ```
 
-with the “s” capitalized, R will act like it has no idea what we are talking about!
+::: {style="font-size: 90%;"}
+with the “s” capitalized, he will act like he has no idea what we are talking about!
+:::
 
 ::: notes
 lo mismo si olvidas incluir un parentesis
 :::
 
-## Save your work in R objects
+## Save your work in Python objects
 
 </br>
 
-Virtually anything, including the results of any R function, can be saved in an *object*.
+Virtually anything, including the results of any Python function, can be saved in an *object*.
 
-This is accomplished by using an assignment operator, which can be an equal symbol (`=`) or a leftward symbol (`<-`).
+This is accomplished by using an assignment operator, which can be an equals symbol (`=`).
 
 . . .
 
-You can make up any name you want for a R object. However, there are two basic rules for this:
+You can make up any name you want for a Python object. However, there are two basic rules for this:
 
 ::: incremental
-1.  It has to be different from a function name in R.
-2.  It has to be specific possible yet succinct.
+1.  It **must** be different from a function name in Python.
+2.  It should be as specific as possible.
 :::
 
 ## For example
 
 </br>
 
-```{r}
+```{python}
 #| echo: true
 
 # This code will assign the number 18
@@ -232,7 +239,7 @@ my_favorite_number = 18
 
 After running this code, nothing happens. But if we run the object on its own, we can see what's inside it.
 
-```{r}
+```{python}
 #| echo: true
 
 my_favorite_number
@@ -240,21 +247,21 @@ my_favorite_number
 
 You can also use `print(my_favorite_number)`.
 
-## Vectors
+## Lists
 
 </br>
 
-So far we have used R objects to store a single number. But in data visualization we are dealing with multiple numbers or observations.
+So far we have used Python objects to store a single number. But in statistics we are dealing with variation, which by definition needs more than one number.
 
 . . .
 
-A R object can also store a complete set of numbers, called a ***vector***.
+A Python object can also store a complete set of numbers, called a *list*.
 
 You can think of a list as a vector of numbers (or values).
 
 . . .
 
-The `c()` command can be used to combine several individual values into a list.
+The `[]` command can be used to combine several individual values into a list.
 
 ::: notes
 puedes pensar que el c es por combinar
@@ -264,27 +271,25 @@ puedes pensar que el c es por combinar
 
 </br>
 
-This code creates two vectors:
+This code creates two vectors
 
-```{r}
+```{python}
 #| echo: true
 
-my_vector = c(1, 2, 3, 4, 5)
-my_vector_2 = c(10, 10, 10, 10, 10)
+my_list = [1, 2, 3, 4, 5]
+my_list_2 = [10, 10, 10, 10, 10]
 ```
 
-. . .
+Let's see its content
 
-Let's see their content:
-
-```{r}
+```{python}
 #| echo: true
-my_vector
+my_list
 ```
 
-```{r}
+```{python}
 #| echo: true
-my_vector_2
+my_list_2
 ```
 
 ## Operations
@@ -293,11 +298,11 @@ my_vector_2
 
 We can do simple operations with vectors. For example, we can sum all the elements of a list.
 
-```{r}
+```{python}
 #| echo: true
 
-my_vector = c(1, 2, 3, 4, 5)
-sum(my_vector)
+my_list = [1, 2, 3, 4, 5]
+sum(my_list)
 ```
 
 ## Indexing
@@ -306,35 +311,37 @@ sum(my_vector)
 
 We can index a position in the vector using square brackets with a number like this: `[1]`.
 
-So, if we wanted to print the contents of the first position in `my_vector`, we could write
+So, if we wanted to print the contents of the first position in `my_list`, we could write
 
-```{r}
+```{python}
 #| echo: true
 
-my_vector[1]
+my_list[1]
 ```
 
-. . .
+[**An feature of Python is that the first element of a list or vector is indexed using the number 0.**]{style="color:red;"}
+
+```{python}
+#| echo: true
+
+my_list[0]
+```
+
+## A little more about objects in Python
 
 </br>
 
-[In contrast with Python, the first element of an R vector is indexed using 1.]{style="color:darkblue;"}
+You can think of Python objects as containers that hold values.
 
-## A little more about R objects
+A Python object can hold a single value, or it can hold a group of values (as in a vector).
 
-</br>
-
-You can think of R objects as containers that hold values.
-
-A R object can hold a single value, or it can hold a group of values (as in a vector).
-
-So far, we've only put numbers into R objects.
+So far, we've only put numbers into Python objects.
 
 . . .
 
 <br/>
 
-***R objects can actually contain three types of values: numbers, characters, and booleans.***
+***Python objects can actually contain three types of values: numbers, characters, and booleans.***
 
 ## Character values
 
@@ -344,10 +351,10 @@ Characters are made up of text, such as words or sentences. An example of a list
 
 . . .
 
-```{r}
+```{python}
 #| echo: true
 
-many_greetings = c("hi", "hello", "hola", "bonjour", "ni hao", "merhaba")
+many_greetings = ["hi", "hello", "hola", "bonjour", "ni hao", "merhaba"]
 many_greetings
 ```
 
@@ -359,7 +366,7 @@ For example, when 20 is enclosed in quotes (`"20"`) it will be treated as a char
 
 ## Boolean values
 
-</br></br>
+</br>
 
 Boolean values are `True` or `False`.
 
@@ -369,9 +376,9 @@ We may have a question like:
 
 . . .
 
-We can ask R to find out and return the answer `True` or `False`.
+We can ask Python to find out and return the answer `True` or `False`.
 
-```{r}
+```{python}
 #| echo: true
 
 many_greetings[1] == "hola"
@@ -381,7 +388,7 @@ many_greetings[1] == "hola"
 
 </br>
 
-Most of the questions we ask R to answer with `True` or `False` involve comparison operators like `>`, `<`, `>=`, `<=`, and `==`.
+Most of the questions we ask Python to answer with `True` or `False` involve comparison operators like `>`, `<`, `>=`, `<=`, and `==`.
 
 The double `==` sign checks whether two values are equal. There is even a comparison operator to check whether values are *not* equal: `!=`.
 
@@ -403,6 +410,22 @@ For example, `5 != 3` is a `True` statement.
 
 - `!=` (*not equal to*)
 
+## Question
+
+</br>
+
+Read this code and predict its response. Then, run the code in Google Colab and validate if you were correct.
+
+```{python}
+#| echo: true
+#| output: false
+
+A = 1
+B = 5
+compare = A > B
+compare
+```
+
 ## Programming culture: Trial and error
 
 </br>
@@ -413,23 +436,21 @@ There are many ways to make small mistakes in programming (for example, typing a
 
 We often have to find these mistakes through trial and error.
 
-## R libraries
+## Python libraries
+
+Libraries are the fundamental units of reproducible Python code. They include reusable Python functions, documentation describing how to use them, and sample data.
 
 </br>
 
-Libraries are the fundamental units of reproducible R code. They include reusable R functions, documentation describing how to use them, and sample data.
+In this course, we will be working mostly with the following libraries:
 
-In this course, we will be working mostly with the following libraries for data manipulation:
+- **pandas** for data manipulation and wrangling
 
-- `readxl` for reading data.
-- `dplyr` for data manipulation and wrangling
-- `tidyr` for structuring data.
+# Reading data with pandas
 
-# Reading data with **readxl**
+## Loading data in Python
 
-## Loading data in R
-
-In this course, we will assume that data is stored in an Excel file. As an example, let's use the file `penguins.xlsx`.
+In this course, we will assume that data is stored in an Excel file with the above organization. As an example, let's use the file `penguins.xlsx`.
 
 ::::: columns
 ::: {.column width="50%"}
@@ -455,280 +476,422 @@ The dataset `penguins.xlsx` contains data from penguins living in three islands.
 
 ![](images/alan_pingu.jpg){fig-align="center"}
 
-## readxl library
+
+## pandas library
 
 </br>
 
 ::::: columns
-::: {.column width="70%"}
-To load data into R, we'll use the library called **readxl**. Fortunately, this library comes pre-installed in Google Colab.
+::: {.column width="30%"}
+![](images/pandas-logo-300.png){fig-align="left"}
 :::
 
-::: {.column width="30%"}
-![](images/clipboard-2627775172.png){fig-align="right" width="244"}
+::: {.column width="70%"}
+- **pandas** is an open-source Python library for data manipulation and analysis.
+- It is built on top of **numpy** for high-performance data operations.
+- It allows the user to import, clean, transform, and analyze data efficiently
+- <https://pandas.pydata.org/>
 :::
 :::::
 
-However, we need to inform Google Colab that we want to use **readxl** and its functions. We load the library into R using the following command.
+## Importing pandas
 
-```{r}
-#| echo: true
-
-library(readxl)
-```
-
-## Loading data using readxl
+Fortunately, the **pandas** library is already pre-installed in Google Colab.
 
 </br>
 
-The following code shows how to read the data in the file "penguins.xlsx" into R.
+However, we need to inform Google Colab that we want to use **pandas** and its functions using the following command:
 
-```{r}
+```{python}
 #| echo: true
 
-# Load the Excel file into R.
-penguins_data = read_excel("penguins.xlsx")
+import pandas as pd
 ```
-
-## The function `head()`
 
 </br>
 
-The function `head()` allows you to print the first 6 rows of a data frame.
+The command `as pd` allows us to have a short name for **pandas**. To use a function of **pandas**, we use the command `pd.function()`.
 
-```{r}
+## Loading data using pandas
+
+</br>
+
+The following code shows how to read the data in the file "penguins.xlsx" into Python.
+
+```{python}
+#| echo: true
+
+# Load the Excel file into a pandas DataFrame.
+penguins_data = pd.read_excel("penguins.xlsx")
+```
+
+## The function head()
+
+The function `head()` allows you to print the first rows of a pandas data frame.
+
+```{python}
 #| echo: true
 # Print the first 4 rows of the dataset.
-head(penguins_data)
+penguins_data.head(4)
 ```
 
-## Mini-activity (*solo* mode)
+## Indexing variables a dataset
 
-</br></br>
+We can select a specific variables of a data frame using the syntaxis below.
 
-1.  Open the following <a href="https://drive.google.com/file/d/1kS1_M-wLRc9BDRAadV_K6yosNK0XF9qi/view?usp=sharing" target="_blank">Google Colab</a> link: <https://drive.google.com/file/d/1kS1_M-wLRc9BDRAadV_K6yosNK0XF9qi/view?usp=sharing>
-
-2.  Copy the notebook to your drive.
-
-3.  Answer the questions.
-
-# Data manipulation with **dplyr**
-
-## A New Library: dplyr
-
-::::: columns
-::: {.column width="50%"}
-![](images/tidyverse.jpeg){fig-align="center" width="465" height="375"}
-:::
-
-::: {.column width="50%"}
-- **dplyr** allows you to manipulate data and generate statistical summaries.
-
-- It is part of a collection of data science packages called **tidyverse**.
-
-- <https://dplyr.tidyverse.org/>
-:::
-:::::
-
-Load it to Google Colab with the following code.
-
-```{r}
+```{python}
 #| echo: true
-#| output: false
 
-library(dplyr)
+penguins_data['bill_length_mm']
 ```
 
-## pipe
+Here, we selected the variable `bill_length_mm` in the `penguins_data` dataset.
 
-One of the most important commands of **dplyr** is `pipe`, which is executed using the operator `%>%`. This operator sends an object to a calling function or expression.
+## 
 
-The grammar for using pipe is as follows:
+To index multiple variables of a data frame, we put the names of the variables in a list object. For example, we select `bill_length_mm`, `species`, and `island` as follows:
 
-![](images/clipboard-3314164992.png){fig-align="center"}
+```{python}
+#| echo: true
 
-## dplyr's verbs
+sub_penguins_data = penguins_data[ ['bill_length_mm',  'species', 'island'] ]
+sub_penguins_data.head()
+```
 
-**dplyr** is a data manipulation grammar that provides a set of verbs (functions) to solve the most common data manipulation challenges:
+## Indexing rows
+
+To index rows in a dataset, we use the argument `loc` from **pandas**. For example, we select the rows 3 to 6 of the `penguins_dataset` dataset:
+
+```{python}
+#| echo: true
+
+rows_penguins_data = penguins_data.loc[2:5]
+rows_penguins_data
+```
+
+## 
+
+</br>
+
+```{python}
+#| echo: true
+
+rows_penguins_data
+```
+
+Note that the index 2 and 5 refer to observations 3 and 7, respectively, in the dataset. This is because the first index in Python is 0.
+
+## Indexing rows and columns
+
+Using `loc`, we can also retrieve a subset from the dataset by selecting specific columns and rows.
+
+```{python}
+#| echo: true
+
+sub_rows_pdata = penguins_data.loc[2:5, ['bill_length_mm',  'species', 'island'] ]
+sub_rows_pdata
+```
+
+
+# Data manipulation with pandas
+
+## Chaining operations with pandas
+
+One of the most important techniques in **pandas** is [**chaining**]{style="color:brown;"}, which allows for cleaner and more readable data manipulation.
+
+The general structure of chaining looks like this:
+
+![](images/chaining_pandas.png){fig-align="center"}
+
+## Key pandas methods
+
+**pandas** provides methods or functions to solve common data manipulation tasks:
 
 ::: incremental
-- `filter()` selects observations based on their values.
+- `.filter()` selects specific columns or rows.
 
-- `select()` selects variables based on their names.
+- `.query()` filters observations based on conditions.
 
-- `mutate()` adds new variables that are functions of existing variables.
+- `.assign()` adds new variables that are functions of existing variables.
 
-- `arrange()` changes the order of rows.
+- `.sort_values()` changes the order of rows.
 
-- `summarise()` reduces multiple values to a single numerical summary.
+- `.agg()` reduces multiple values to a single numerical summary.
 :::
 
 ## 
 
-![](images/clipboard-2829866229.png){fig-align="center"}
+![](images/pandas_manipulation.png){fig-align="center"}
 
 To practice, we will use the dataset `penguins_data`.
 
-## Filter observations with `filter()`
+## Example
 
-We can filter the data to obtain penguins with a body mass greater than 5000.
+Let's load the dataset and the **pandas** library.
 
-```{r}
-#| eval: true
+```{python}
 #| echo: true
 
-penguins_data %>% filter(body_mass_g > 5000) %>% head()
+import pandas as pd
+
+# Load the Excel file into a pandas DataFrame.
+penguins_data = pd.read_excel("penguins.xlsx")
+
+# Preview the dataset.
+penguins_data.head(4)
 ```
 
-> Recall that `head()` prints the first 5 rows of a dataframe. We **must** remove it to have the entire new dataframe.
-
-## 
-
-</br></br>
-
-We can also filter the observations for the species "Gentoo."
-
-```{r}
-#| eval: true
-#| echo: true
-
-penguins_data %>% filter(species == "Gentoo") %>% head()
-```
-
-## Select columns with `select()`
-
-</br></br>
+## Selecting columns with `.filter()`
 
 Select the columns `species`, `body_mass_g` and `sex`.
 
-```{r}
+```{python}
 #| eval: true
 #| echo: true
 
-penguins_data %>% select(species, body_mass_g, sex) %>% head()
+(penguins_data
+  .filter(["species", "body_mass_g", "sex"], axis = 1)
+).head()
 ```
 
-## `select()` and `filter()`
+## 
 
 </br>
 
-Select the columns `species`, `body_mass_g`, and `sex`. Then, filter the data for the species "Gentoo."
+The `axis` argument tells `.filter()` whether to select rows (`0`) or columns (`1`) from the dataframe.
 
-```{r}
-#| eval: true
+```{python}
+#| output: false
 #| echo: true
 
-penguins_data %>% 
-  select(species, body_mass_g, sex) %>% 
-  filter(species == "Gentoo") %>% 
-  head()
+(penguins_data
+  .filter(["species", "body_mass_g", "sex"], axis = 1)
+).head()
 ```
-
-## Create new columns with `mutate()`
-
-With `mutate()`, we can add new columns (variables) that are functions of the columns in the data. For example, we can calculate the division of `bill_length_mm` and `bill_depth_mm`.
-
-```{r}
-#| eval: true
-#| echo: true
-
-penguins_data %>% 
-  mutate("RadioLengthDepth" = bill_length_mm/bill_depth_mm) %>% 
-  select(species, body_mass_g, sex, RadioLengthDepth) %>%
-  head()
-```
-
-## Sort the observations with `arrange()`
 
 </br>
 
-We can sort the data based on a column, say `bill_length_mm`.
+> The `.head()` command allows us to print the first six rows of the newly produced dataframe. We **must** remove it to have the entire new dataframe.
 
-```{r}
+## 
+
+</br>
+
+We can also use `.filter()` to select rows too. To this end, we set `axis = 1`. We can select specific rows, such as 0 and 10.
+
+```{python}
+#| output: true
+#| echo: true
+
+(penguins_data
+  .filter([0, 10], axis = 0)
+)
+```
+
+## 
+
+Or, we can select a set of rows using the function `range()`. For example, let's select the first 5 rows.
+
+```{python}
+#| output: true
+#| echo: true
+
+(penguins_data
+  .filter(range(5), axis = 0)
+)
+```
+
+## Filtering rows with `.query()`
+
+</br>
+
+An alternative way of selecting rows is `.query()`. Compared to `.filter()`, `.query()` allows us to filter the data using statements or *queries* involving the variables.
+
+</br>
+
+For example, let's filter the data for the species "Gentoo."
+
+```{python}
+#| output: false
+#| echo: true
+
+(penguins_data
+  .query("species == 'Gentoo'")
+)
+```
+
+## 
+
+</br>
+
+```{python}
+#| output: true
+#| echo: true
+
+(penguins_data
+  .query("species == 'Gentoo'")
+).head()
+```
+
+## 
+
+We can also filter the data to get penguins with a body mass greater than 5000g.
+
+```{python}
 #| eval: true
 #| echo: true
 
-penguins_data %>% 
-  arrange(bill_length_mm) %>% 
-  head()
+(penguins_data
+  .query("body_mass_g > 5000")
+).head()
+```
+
+## 
+
+We can even **combine** `.filter()` and `.query()`. For example, let's select the columns `species`, `body_mass_g` and `sex`, then filter the data for the "Gentoo" species.
+
+```{python}
+#| eval: true
+#| echo: true
+
+(penguins_data
+  .filter(["species", "body_mass_g", "sex"], axis = 1)
+  .query("species == 'Gentoo'")
+).head(4)
+```
+
+## Create new columns with `.assign()`
+
+</br>
+
+With `.assign()`, we can create new columns (variables) that are functions of existing ones. This function uses a special Python keyword called `lambda`. Technically, this keyword defines an *anonymous* function.
+
+</br>
+
+For example, we create a new variable `LDRatio` equaling the ratio of `bill_length_mm` and `bill_depth_mm`.
+
+```{python}
+#| output: false
+#| echo: true
+
+(penguins_data
+  .assign(LDRatio = lambda df: df["bill_length_mm"] / df["bill_depth_mm"])
+)
 ```
 
 ## 
 
 </br></br>
 
-To sort in descending order we use `desc(bill_length_mm)` in `arrange()`.
+In this code, the `df` after `lambda` indicates that the dataframe (`penguins_data`) will be referred to as `df` inside the function. The colon `:` sets the start of the function.
 
-```{r}
-#| eval: true
+```{python}
+#| output: false
 #| echo: true
 
-penguins_data %>% 
-  arrange(desc(bill_length_mm)) %>% 
-  head()
+(penguins_data
+  .assign(LDRatio = lambda df: df["bill_length_mm"] / df["bill_depth_mm"])
+)
 ```
 
-## Summarize with `summarise()`
+The code appends the new variable to the end of the resulting dataframe.
 
-We can calculate the average of the `bill_length_mm`, `bill_depth_mm`, and `body_mass_g` columns.
+## 
 
-```{r}
-#| eval: true
+We can see the new variable using `.filter()`.
+
+```{python}
+#| output: true
 #| echo: true
 
-penguins_data %>% 
-  select(bill_length_mm, bill_depth_mm, body_mass_g) %>%
-  summarise(PromLength = mean(bill_length_mm, na.rm = TRUE), 
-            PromDepth = mean(bill_depth_mm, na.rm = TRUE),
-            PromMass = mean(body_mass_g, na.rm = TRUE))
+(penguins_data
+  .assign(LDRatio = lambda df: df["bill_length_mm"] / df["bill_depth_mm"])
+  .filter(["bill_length_mm", "bill_depth_mm", "LDRatio"], axis = 1)
+).head()
 ```
 
-> The argument `na.rm == TRUE` allows us to ignore the missing data.
+## Sorting with `.sort_values()`
 
-## Saving results in new objects
+We can sort the data based on a column like `bill_length_mm`.
 
-After performing operations on our data, we can save the modified dataset as a new object.
-
-```{r}
+```{python}
 #| eval: true
 #| echo: true
 
-summary_penguins_data = penguins_data %>%
-  select(bill_length_mm, bill_depth_mm, body_mass_g) %>%
-  summarise(PromLength = mean(bill_length_mm, na.rm = TRUE),
-            PromDepth = mean(bill_depth_mm, na.rm = TRUE),
-            PromMass = mean(body_mass_g, na.rm = TRUE))
+(penguins_data
+  .sort_values("bill_length_mm")
+).head(4)
+```
+
+## 
+
+To sort in descending order, use `ascending=False` inside `sort_values()`.
+
+```{python}
+#| eval: true
+#| echo: true
+
+(penguins_data
+  .sort_values("bill_length_mm", ascending=False)
+).head()
+```
+
+## Summarizing with `.agg()`
+
+We can calculate summary statistics of the columns `bill_length_mm`, `bill_depth_mm`, and `body_mass_g`.
+
+```{python}
+#| eval: true
+#| echo: true
+
+(penguins_data
+  .filter(["bill_length_mm", "bill_depth_mm", "body_mass_g"], axis = 1)
+  .agg(["mean"])
+)
 ```
 
 </br>
 
-And apply the **dplyr** verbs to the new object.
+> By default, `agg()` ignores missing values.
 
-```{r}
+## Saving results in new objects
+
+</br>
+
+After performing operations on our data, we can save the modified dataset as a new object.
+
+```{python}
 #| eval: true
 #| echo: true
 
-summary_penguins_data %>% head()
+mean_penguins_data = (penguins_data
+  .filter(["bill_length_mm", "bill_depth_mm", "body_mass_g"], axis = 1)
+  .agg(["mean"])
+)
+
+mean_penguins_data
 ```
 
-## More on dplyr
+## More on pandas
 
-![](images/RforData.jpg){fig-align="center"}
+![](images/python_book.jpg){fig-align="center"}
 
 ::: {style="font-size: 50%;"}
-<https://r4ds.hadley.nz/>
+<https://wesmckinney.com/book/>
 :::
+
 
 ## Final remarks
 
 </br>
 
-- **dplyr** is a library that allows us to manipulate data in R.
+- **pandas** is a library that allows us to manipulate data in Python.
 
 - Variable types help specify the operations and visualizations we can apply to the data.
 
 - There are appropriate or designed graphs for visualizing numeric or categorical variables.
 
 - In this course, we will see several graphs for each variable type and their combinations.
+
 
 # [Return to main page](https://alanrvazquez.github.io/TEC-IN2039-EN/)
