@@ -202,12 +202,12 @@ The **pandas** library provides several functions for reshaping, organizing, and
 
 Here, we will discuss some of the most common ones:
 
-| Purpose | Function 1 | Function 2 |
-|:--------------------------|:----------------------|:----------------------|
-| **Pivoting** | `melt()` | `pivot()` |
+| Purpose                   | Function 1    | Function 2  |
+|:--------------------------|:--------------|:------------|
+| **Pivoting**              | `melt()`      | `pivot()`   |
 | **Splitting / Combining** | `str.split()` | `str.cat()` |
-| **Missing values** | `fillna()` | `dropna()` |
-| **Combining tables** | `merge()` | `concat()` |
+| **Missing values**        | `fillna()`    | `dropna()`  |
+| **Combining tables**      | `merge()`     | `concat()`  |
 
 ## Example 2
 
@@ -251,8 +251,8 @@ spotify_long = (spotify_data
                 var_name="Song",
                 value_name="Plays"
                 )
+                )
 ```
-
 
 ## Remark on column names
 
@@ -263,7 +263,6 @@ Python allows column names to contain spaces and special characters because they
 For example, columns such as `"Shape of You"` or `"Something Just Like This"` can be referenced directly inside quotation marks.
 
 > When using **pandas**, column names are almost always written as strings enclosed in quotation marks.
-
 
 ## The long version of the data
 
@@ -293,7 +292,7 @@ spotify_wide = (spotify_long
 spotify_wide.head()
 ```
 
-##
+## 
 
 </br>
 
@@ -302,11 +301,10 @@ We can also apply `pivot()` to the `table2` dataset from the previous section.
 ```{python}
 #| echo: true
 
-#table2
+table2
 ```
 
-
-##
+## 
 
 </br></br>
 
@@ -316,7 +314,7 @@ The wider version of `table2` is:
 #| echo: true
 
 (table2
-.pivot(index=["country", "year"], columns="type",values="count")
+.pivot(index = ["country", "year"], columns = "type", values = "count")
 .reset_index()
 )
 ```
@@ -355,7 +353,7 @@ Consider the `Comment` column.
 ```{python}
 #| echo: true
 
-complete_data['Comment']
+client_data['Comment']
 ```
 
 ## 
@@ -366,7 +364,7 @@ The column has some values such as "Requires part: valve" and "Delay: maintenanc
 #| echo: false
 #| output: true
 
-complete_data['Comment']
+client_data['Comment']
 ```
 
 ## 
@@ -383,7 +381,7 @@ One input of the function is the symbol or character for which we cant to make a
 #| echo: true
 #| output: false
 
-complete_data['Comment'].str.split(':', expand = True)
+client_data['Comment'].str.split(':', expand = True)
 ```
 
 ## 
@@ -394,7 +392,7 @@ The result is two columns.
 #| echo: true
 #| output: true
 
-split_column = complete_data['Comment'].str.split(':', expand = True)
+split_column = client_data['Comment'].str.split(':', expand = True)
 split_column.head()
 ```
 
@@ -408,7 +406,7 @@ We can assign them to new columns in the dataset using the following code.
 #| echo: true
 #| output: true
 
-augmented_data = (complete_data
+augmented_data = (client_data
                   .assign(First_comment = split_column.filter([0]),
                   Second_comment = split_column.filter([1]))
                   )
@@ -432,10 +430,9 @@ The `str.cat()` function performs the opposite operation. It combines multiple t
 ```{python}
 #| echo: true
 
-combined_column = (augmented_data
-                .filter(["First_comment"], axis = 1)
-                .str.cat(combined_data["Second_comment"], sep=": ")
-                )
+combined_column = (augmented_data["First_comment"]
+                  .str.cat(augmented_data["Second_comment"], sep=": ")
+                  )
 
 combined_data = (augmented_data
                 .assign(Comment = combined_column)
@@ -445,7 +442,7 @@ combined_data = (augmented_data
 
 The first object is the column that starts the concatenation, and the remaining columns are added using `str.cat()`.
 
-##
+## 
 
 </br>
 
@@ -458,7 +455,6 @@ The result.
 .filter(["Comment"], axis = 1)
 )
 ```
-
 
 # Basic data wrangling
 
@@ -497,7 +493,6 @@ The `client_data_single` dataframe does not have duplicate rows.
 
 client_data_single.head()
 ```
-
 
 ## Fill blank cells
 
