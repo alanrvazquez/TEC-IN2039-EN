@@ -22,62 +22,35 @@ editor: visual
 </br>
 
 1.  Tidy Data
-2.  **tidyr** within the Tidyverse
+2.  **pandas** for Tidy dATA
 3.  Data Wrangling
 
 ## Load the libraries
 
 </br></br></br>
 
-Remember to load the R libraries into Google Colab before we start:
+Remember to load the Python libraries into Google Colab before we start:
 
-```{r}
+```{python}
 #| echo: true
 #| output: false
 
-library(readxl)
-library(dplyr)
+import pandas as pd
 ```
-
 
 # Tidy Data
-
-## A new library: tidyr
-
-::::: columns
-::: {.column width="50%"}
-![](images/tidyverse.jpeg){fig-align="center" width="491" height="374"}
-:::
-
-::: {.column width="50%"}
--   **tidyr** allows you to reshape and regroup a dataset.
-
--   It is part of the collection of data science packages called **tidyverse**.
-
--   <https://tidyr.tidyverse.org/>
-:::
-:::::
-
-Load it to Google Colab with the following code.
-
-```{r}
-#| echo: true
-#| output: false
-
-library(tidyr)
-```
 
 ## Data science workflow
 
 ![](images/data-science-workflow.png){fig-align="center"}
 
--   Every data science project involves [**importing**]{style="color:darkblue;"}, [**tidying**]{style="color:darkblue;"}, [**transforming**]{style="color:darkblue;"}, [**visualizing**]{style="color:darkblue;"}, [**modeling**]{style="color:darkblue;"}, and [**communicating**]{style="color:darkblue;"} data.
+- Every data science project involves [**importing**]{style="color:darkblue;"}, [**tidying**]{style="color:darkblue;"}, [**transforming**]{style="color:darkblue;"}, [**visualizing**]{style="color:darkblue;"}, [**modeling**]{style="color:darkblue;"}, and [**communicating**]{style="color:darkblue;"} data.
 
 ## 
 
 </br>
 
-1.  [**Import:**]{style="color:darkblue;"} Bring raw data into R.
+1.  [**Import:**]{style="color:darkblue;"} Bring raw data into Python.
 2.  [**Tidy:**]{style="color:darkblue;"} Reshape into a consistent format.
 3.  [**Transform:**]{style="color:darkblue;"} Create new variables and summaries.
 4.  [**Visualize:**]{style="color:darkblue;"} Explore patterns visually.
@@ -88,13 +61,12 @@ library(tidyr)
 
 </br>
 
-1.  [**Import:**]{style="color:darkblue;"} Bring raw data into R. (**readxl**)
-2.  [**Tidy:**]{style="color:darkblue;"} Reshape into a consistent format. (**tidyr**)
-3.  [**Transform:**]{style="color:darkblue;"} Create new variables and summaries. (**dplyr**)
+1.  [**Import:**]{style="color:darkblue;"} Bring raw data into Python. (**pandas**)
+2.  [**Tidy:**]{style="color:darkblue;"} Reshape into a consistent format. (**pandas**)
+3.  [**Transform:**]{style="color:darkblue;"} Create new variables and summaries. (**pandas**)
 4.  [**Visualize:**]{style="color:darkblue;"} Explore patterns visually.
 5.  [**Model:**]{style="color:darkblue;"} Fit statistical or machine learning models.
 6.  [**Communicate:**]{style="color:darkblue;"} Share insights clearly.
-
 
 ## Why do we need tidy data?
 
@@ -103,10 +75,10 @@ library(tidyr)
 </br>
 
 ::: incremental
--   Tidy data make R tools work together smoothly.
--   Each tidy dataset is like a well-organized spreadsheet.
--   Making your data tidy allows you to avoid common errors that occurred in the data analysis.
--   The **tidyr** package has functions to make your data *tidy*.
+- Tidy data make Python tools work together smoothly.
+- Each tidy dataset is like a well-organized spreadsheet.
+- Making your data tidy allows you to avoid common errors that occurred in the data analysis.
+- The **pandas** package has functions to make your data *tidy*.
 :::
 
 ## Tidy Data
@@ -117,9 +89,9 @@ library(tidyr)
 ::: {.column width="50%"}
 In tidy data:
 
--   Each variable is in a column
--   Each observation is in a row
--   Each cell is a single measurement.
+- Each variable is in a column
+- Each observation is in a row
+- Each cell is a single measurement.
 :::
 
 ::: {.column width="50%"}
@@ -149,7 +121,7 @@ table1
 
 *tidy* data because each variable is in a column , each observation is in a row, and each cell is a single measurement.
 
-##
+## 
 
 </br>
 
@@ -160,9 +132,10 @@ Consider another version:
 
 table2
 ```
+
 [Not *tidy* because the last column is a summary statistic (`count`) of two variables.]{style="color:purple;"}
 
-##
+## 
 
 </br>
 
@@ -176,7 +149,7 @@ table3
 
 [Not *tidy* because the last column is a summary statistic (`rate`) of two variables, or there are two measurements involved in this column.]{style="color:purple;"}
 
-##
+## 
 
 </br>
 
@@ -196,34 +169,34 @@ table4b
 
 [Not *tidy* data!]{style="color:purple;"}
 
+# pandas for Tidy Data
 
-# tidyr within the Tidyverse
-
-## The role of the tidyr package
+## The role of the pandas library
 
 </br>
 
 ::: incremental
--   **tidyr** works seamlessly with **dplyr**.\
--   While **dplyr** focuses on data manipulation, **tidyr** focuses on data structure.\
--   Together, they make your data clean and consistent before visualization or modeling.
+- **pandas** provides functions to manipulate both the structure and the contents of a dataset.\
+- It includes tools for filtering, reshaping, cleaning, and combining data.\
+- Together with visualization and machine learning libraries, **pandas** prepares your data for analysis.
 :::
 
-
-## tidyr's comon functions
-
-</br>
-
-The **tidyr** provides functions for reshaping, organizing, and completing data.
+## Common pandas functions for tidy data
 
 </br>
 
-Here, we will discuss the more common ones:
+The **pandas** library provides several functions for reshaping, organizing, and completing datasets.
 
-| Purpose                   | Function 1       | Function 2      |
-|:--------------------------|:-----------------|:----------------|
-| **Pivoting**              | `pivot_longer()` | `pivot_wider()` |
-| **Splitting / Combining** | `separate()`     | `unite()`       |
+</br>
+
+Here, we will discuss some of the most common ones:
+
+| Purpose | Function 1 | Function 2 |
+|:--------------------------|:----------------------|:----------------------|
+| **Pivoting** | `melt()` | `pivot()` |
+| **Splitting / Combining** | `str.split()` | `str.cat()` |
+| **Missing values** | `fillna()` | `dropna()` |
+| **Combining tables** | `merge()` | `concat()` |
 
 ## Example 2
 
@@ -255,7 +228,7 @@ spotify_data %>% head()
 
 </br>
 
-A common problem is a dataset where some of the column names are not names of variables, but *values* of a variable. 
+A common problem is a dataset where some of the column names are not names of variables, but *values* of a variable.
 
 `pivot_longer()` transforms columns into rows (convert from wide to long format).
 
@@ -280,10 +253,9 @@ In R, variable names (column names) typically:
 
 - Cannot start with a number.
 
-So, when a dataset has column names like "Shape of You" or "Something Just Like This", R cannot recognize them directly unless you enclose them in **backticks** ("`"). 
+So, when a dataset has column names like "Shape of You" or "Something Just Like This", R cannot recognize them directly unless you enclose them in **backticks** ("\`").
 
 > There are some exceptions though, like when you first define the name of the variable like "Song".
-
 
 ## The long version of the data
 
@@ -312,7 +284,7 @@ spotify_wide = spotify_long %>%
 spotify_wide %>% head()
 ```
 
-##
+## 
 
 </br>
 
@@ -324,7 +296,7 @@ We can also apply it to the `table2` dataset in the previous section.
 table2 
 ```
 
-##
+## 
 
 </br></br>
 
@@ -336,7 +308,6 @@ The wider version of `table2` is:
 table2 %>%
     pivot_wider(names_from = type, values_from = count)
 ```
-
 
 ## Example 3
 
@@ -364,7 +335,7 @@ industrial_data %>% head()
 
 ## `separate()`
 
-`separate()` pulls apart one column into multiple columns, by splitting wherever a separator character appears. 
+`separate()` pulls apart one column into multiple columns, by splitting wherever a separator character appears.
 
 Consider the column `Comment` from `industrial_data`.
 
@@ -409,7 +380,6 @@ The result is two columns.
 augmented_data %>% select(`First_comment`, `Second_comment`) %>%  head()
 ```
 
-
 ## `unite()`
 
 </br></br>
@@ -424,9 +394,10 @@ augmented_data  %>%
   unite(Comment, First_comment, Second_comment, sep = ": ") %>% 
     select(Comment)
 ```
+
 In the `unite()` function, the first input is the name of the new column, the other inputs are the columns to be united.
 
-##
+## 
 
 </br>
 
@@ -447,9 +418,9 @@ augmented_data  %>%
 
 <br>
 
--   Data wrangling is the process of transforming raw data into a clean and structured format.
--   It involves merging, reshaping, filtering, and organizing data for analysis.
--   Here, we illustrate some special functions of the **tidyverse** for cleaning common issues with a dataset.
+- Data wrangling is the process of transforming raw data into a clean and structured format.
+- It involves merging, reshaping, filtering, and organizing data for analysis.
+- Here, we illustrate some special functions of the **tidyverse** for cleaning common issues with a dataset.
 
 ## Add an index column
 
@@ -571,11 +542,11 @@ complete_data %>%  select(`Output (units)`) %>%  head()
 :::
 
 ::: {.column width="50%"}
--   **stringr** provides a consistent set of functions for working with strings.
+- **stringr** provides a consistent set of functions for working with strings.
 
--   It is also part of the **tidyverse** collection.
+- It is also part of the **tidyverse** collection.
 
--   <https://stringr.tidyverse.org/>
+- <https://stringr.tidyverse.org/>
 :::
 :::::
 
@@ -605,7 +576,7 @@ augmented_data
 
 Something that we notice is that the column `First_Comment` has some extra characters like "`\n`" that may be useless when working with the data.
 
-We can remove them using the function `str_trim()` from the **stringr** package. 
+We can remove them using the function `str_trim()` from the **stringr** package.
 
 ```{r}
 #| echo: true
@@ -628,7 +599,7 @@ augmented_data %>%  select(`First_comment`)
 
 ## 
 
-We can remove special characters such as "!" from all cells in the column. 
+We can remove special characters such as "!" from all cells in the column.
 
 To do this, we use the functions `mutate()` and `str_remove_all()` with the character to remove. That is, we create a new cleaned variable without the specific character.
 
@@ -711,7 +682,6 @@ mutate(Operator = str_to_title(Operator)) %>%
 select(Operator) %>% 
 head()
 ```
-
 
 ## More on tidyr and stringr
 
