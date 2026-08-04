@@ -22,7 +22,7 @@ editor: visual
 </br>
 
 1.  Tidy Data
-2.  **pandas** for Tidy dATA
+2.  **pandas** for Tidy data
 3.  Data Wrangling
 
 ## Load the libraries
@@ -206,107 +206,108 @@ Consider the data in the file "spotify.xlsx". This dataset contains the global d
 
 </br>
 
-Let's read the dataset using the function `read_excel()` from the **readxl** library.
+Let's read the dataset using the `read_excel()` function from the **pandas** library.
 
-```{r}
-#| echo: true 
+```{python}
+#| echo: true
 
-spotify_data = read_excel("spotify.xlsx") 
+spotify_data = pd.read_excel("spotify.xlsx")
 ```
 
 ## 
 
 Let's preview the dataset.
 
-```{r}
+```{python}
 #| echo: true
 
-spotify_data %>% head()
+spotify_data.head()
 ```
 
-## `pivot_longer()`
-
-</br>
+## `melt()`
 
 A common problem is a dataset where some of the column names are not names of variables, but *values* of a variable.
 
-`pivot_longer()` transforms columns into rows (convert from wide to long format).
+The `melt()` function transforms columns into rows (converts data from **wide** to **long** format). Let's apply it to `spotify_data`.
 
-Let's apply it to the `spotify_data`.
-
-```{r}
+```{python}
 #| echo: true
-#| output: false
 
-spotify_long = spotify_data %>% 
-  pivot_longer(c(`Shape of You`, `Despacito`, `Something Just Like This`, 
-                 `HUMBLE.`, `Unforgettable`), 
-               names_to = "Song", 
-               values_to = "Plays")
+spotify_long = (spotify_data
+                .melt(id_vars=["Date"],
+                value_vars=["Shape of You", "Despacito", 
+                "Something Just Like This", "HUMBLE.", "Unforgettable"],
+                var_name="Song",
+                value_name="Plays"
+                )
 ```
 
-## Remark on variable names
 
-In R, variable names (column names) typically:
+## Remark on column names
 
-- Cannot contain spaces or special symbols like "-", "/", or "%".
+</br></br>
 
-- Cannot start with a number.
+Python allows column names to contain spaces and special characters because they are stored as **strings**.
 
-So, when a dataset has column names like "Shape of You" or "Something Just Like This", R cannot recognize them directly unless you enclose them in **backticks** ("\`").
+For example, columns such as `"Shape of You"` or `"Something Just Like This"` can be referenced directly inside quotation marks.
 
-> There are some exceptions though, like when you first define the name of the variable like "Song".
+> When using **pandas**, column names are almost always written as strings enclosed in quotation marks.
+
 
 ## The long version of the data
 
 </br>
 
-- A `Song` column with the names of the songs in the dataset.
-- A `Plays` column with the number of plays of each song for each date.
+- A `Song` column with the names of the songs.
+- A `Plays` column with the number of plays for each song and date.
 
-```{r}
+```{python}
 #| echo: true
-#| output: true
 
-spotify_long %>% head()
+spotify_long.head()
 ```
 
-## `pivot_wider()`
+## `pivot()`
 
-`pivot_wider()` is the opposite of `pivot_longer()`. We use it when an observation is scattered across multiple rows.
+The `pivot()` function is the opposite of `melt()`. We use it when an observation is scattered across multiple rows and we want to convert the dataset back to a *wide* format.
 
-```{r}
+```{python}
 #| echo: true
-#| output: true
 
-spotify_wide = spotify_long %>% 
-  pivot_wider(names_from = "Song", values_from = "Plays")
-spotify_wide %>% head()
+spotify_wide = (spotify_long
+                .pivot(index="Date", columns="Song", values="Plays")
+                .reset_index()
+                )
+
+spotify_wide.head()
 ```
 
-## 
+##
 
 </br>
 
-We can also apply it to the `table2` dataset in the previous section.
+We can also apply `pivot()` to the `table2` dataset from the previous section.
 
-```{r}
+```{python}
 #| echo: true
 
-table2 
+#table2
 ```
 
-## 
+
+##
 
 </br></br>
 
 The wider version of `table2` is:
 
-```{r}
+```{python}
 #| echo: true
 
-table2 %>%
-    pivot_wider(names_from = type, values_from = count)
+(table2
+.pivot(index=["country", "year"], columns="type",values="count")
+.reset_index()
+)
 ```
 
 ## Example 3
@@ -315,274 +316,254 @@ table2 %>%
 
 Consider an industrial engineer who receives a messy Excel file from a manufacturing client. The data file is called "industrial_dataset.xlsx", which file includes data about machine maintenance logs, production output, and operator comments.
 
-```{r}
+```{python}
 #| echo: true
 
-industrial_data = read_excel("industrial_dataset.xlsx")
+client_data = pd.read_excel("industrial_dataset.xlsx")
 ```
 
-We use this dataset to illustrate the functions `separate()` and `unite()`.
+We use this dataset to illustrate the functions `str.split()` and `str.cat()`.
 
 ## Let's preview the data.
 
 </br></br>
 
-```{r}
+```{python}
 #| echo: true
 
-industrial_data %>% head()
+# Preview the dataset.
+client_data.head()
 ```
 
-## `separate()`
+## `str.split()`
 
-`separate()` pulls apart one column into multiple columns, by splitting wherever a separator character appears.
+The `str.split()` function separates the contents of one column into multiple columns by splitting the text wherever a separator appears.
 
-Consider the column `Comment` from `industrial_data`.
+Consider the `Comment` column.
 
-```{r}
+```{python}
 #| echo: true
 
-industrial_data %>% select(Comment)
+complete_data['Comment']
 ```
 
 ## 
-
-</br>
 
 The column has some values such as "Requires part: valve" and "Delay: maintenance\n" that we may want to split into columns.
 
-```{r}
+```{python}
 #| echo: false
 #| output: true
 
-industrial_data %>% select(Comment)
+complete_data['Comment']
 ```
 
 ## 
 
-Using `separate()`, we split the values in the column according to the colon ":".
+</br>
 
-```{r}
+We can split the values in the column according to the colon ":".
+
+That is, everything before the colon will be in a column. Everything after the colon will be in another column. To achieve this, we use the function `str.split()`.
+
+One input of the function is the symbol or character for which we cant to make a split. The other input, `expand = True` tells Python that we want to create new columns.
+
+```{python}
 #| echo: true
 #| output: false
 
-augmented_data = industrial_data  %>% 
-separate(Comment, into = c("First_comment", "Second_comment"), 
-         sep = ":")
+complete_data['Comment'].str.split(':', expand = True)
 ```
+
+## 
 
 The result is two columns.
 
-```{r}
+```{python}
 #| echo: true
 #| output: true
 
-augmented_data %>% select(`First_comment`, `Second_comment`) %>%  head()
+split_column = complete_data['Comment'].str.split(':', expand = True)
+split_column.head()
 ```
-
-## `unite()`
-
-</br></br>
-
-`unite()` is the inverse of `separate()`. It combines multiple columns into a single column.
-
-```{r}
-#| echo: true
-#| output: false
-
-augmented_data  %>% 
-  unite(Comment, First_comment, Second_comment, sep = ": ") %>% 
-    select(Comment)
-```
-
-In the `unite()` function, the first input is the name of the new column, the other inputs are the columns to be united.
 
 ## 
 
 </br>
 
-The result.
+We can assign them to new columns in the dataset using the following code.
 
-```{r}
+```{python}
 #| echo: true
 #| output: true
 
-augmented_data  %>% 
-  unite(Comment, First_comment, Second_comment, sep = ": ") %>% 
-    select(Comment)
-```
-
-# Data Wrangling
-
-## Data Wrangling
-
-<br>
-
-- Data wrangling is the process of transforming raw data into a clean and structured format.
-- It involves merging, reshaping, filtering, and organizing data for analysis.
-- Here, we illustrate some special functions of the **tidyverse** for cleaning common issues with a dataset.
-
-## Add an index column
-
-</br>
-
-In some cases, it is useful to have a unique identifier for each row in the dataset. We can create an identifier using the functions `mutate()` and `row_number()` with some extra syntaxis.
-
-```{r}
-#| echo: true
-
-industrial_data_single = industrial_data %>% 
-                         mutate(ID = row_number())
-```
-
-## 
-
-</br>
-
-The new column is appended to the end of the dataframe.
-
-```{r}
-#| echo: true
-
-industrial_data_single %>%  head()
-```
-
-## 
-
-To bring it to the beginning of the array, we can use the `select()` and `everything()` functions.
-
-```{r}
-#| echo: true
-
-industrial_data_single = industrial_data_single %>% 
-select(ID, everything())
-
-industrial_data_single %>%  head()
-```
-
-## Fill blank cells
-
-In the `industrial_data_single`, there are columns with missing values. We can fill them with specific values or text using `replace_na()` function. In this function, we use the syntaxis `'Variable' = 'Replace'`, where the `Variable` is the column in the dataset and `Replace` is the text or number to fill the entry in.
-
-Let's fill in the missing entries of the columns `Operator`, `Maintenance Date`, and `Comment`.
-
-```{r}
-#| echo: true
-#| output: false
-
-complete_data = industrial_data_single %>% 
-                  replace_na( list(
-                  Operator = "Unknown",
-                  `Maintenance Date` = as.Date("2023-01-01"),
-                  Comment = "None") 
+augmented_data = (complete_data
+                  .assign(First_comment = split_column.filter([0]),
+                  Second_comment = split_column.filter([1]))
                   )
 ```
 
 ## 
 
+```{python}
+#| echo: true
+#| output: true
+
+augmented_data.head()
+```
+
+## `str.cat()`
+
 </br></br>
 
-```{r}
+The `str.cat()` function performs the opposite operation. It combines multiple text columns into a single column.
+
+```{python}
 #| echo: true
 
-complete_data %>%  head()
+combined_column = (augmented_data
+                .filter(["First_comment"], axis = 1)
+                .str.cat(combined_data["Second_comment"], sep=": ")
+                )
+
+combined_data = (augmented_data
+                .assign(Comment = combined_column)
+                .drop(["First_comment", "Second_comment"], axis = 1)
+                )
+```
+
+The first object is the column that starts the concatenation, and the remaining columns are added using `str.cat()`.
+
+##
+
+</br>
+
+The result.
+
+```{python}
+#| echo: true
+
+(combined_data
+.filter(["Comment"], axis = 1)
+)
+```
+
+
+# Basic data wrangling
+
+## Data wrangling
+
+</br>
+
+- Data wrangling is the process of transforming raw data into a clean and structured format.
+
+- It involves merging, reshaping, filtering, and organizing data for analysis.
+
+- Here, we illustrate some special functions of the **pandas** for cleaning common issues with a dataset.
+
+## Remove duplicate rows
+
+</br></br>
+
+Duplicate or identical rows are rows that have the same entries in every column in the dataset.
+
+If only one row is needed for the analysis, we can remove the duplicates using the `.drop_duplicates()` function.
+
+```{python}
+#| echo: true
+
+client_data_single = (client_data
+                     .drop_duplicates()
+                      )
+```
+
+## 
+
+The `client_data_single` dataframe does not have duplicate rows.
+
+```{python}
+#| echo: true
+
+client_data_single.head()
+```
+
+
+## Fill blank cells
+
+In the dataset, there are columns with missing values. If we would like to fill them with specific values or text, we use the `.fillna()` function. In this function, we use the syntaxis `'Variable': 'Replace'`, where the `Variable` is the column in the dataset and `Replace` is the text or number to fill the entry in.
+
+Let's fill in the missing entries of the columns `Operator`, `Maintenance Date`, and `Comment`.
+
+```{python}
+#| echo: true
+
+complete_data = (client_data_single
+                .fillna({'Operator': 'Unknown', 
+                'Maintenance Date': '2023-01-01',
+                'Comment': 'None'})
+                ) 
+```
+
+## 
+
+```{python}
+#| echo: true
+
+complete_data.head()
 ```
 
 ## Replace values
 
+</br>
+
 There are some cases in which columns have some undesired or unwatned values. Consider the `Output (units)` as an example.
 
-```{r}
+```{python}
 #| echo: true
 
-complete_data %>% select(`Output (units)`) %>% head()
+complete_data['Output (units)'].head()
 ```
 
 The column has the numbers of units but also text such as "error".
 
 ## 
 
-We can replace the "error" in this column by a user-specified value, say, 0. To this end, we use the functions `mutate()` and `na_if()`.
+</br>
 
-```{r}
+We can replace the "error" in this column by a user-specified value, say, 0. To this end, we use the function `.replace()`. The function has two inputs. The first one is the value to replace and the second one is the replacement value.
+
+```{python}
 #| echo: true
 
-complete_data = complete_data %>% 
-mutate(`Output (units)` = na_if(`Output (units)`, "error"))
-
-# Let's check the column.
-complete_data %>%  select(`Output (units)`) %>%  head()
+complete_data['Output (units)'] = complete_data['Output (units)'].replace('error', 0)
 ```
-
-[**However, the new column is character (`chr`)!**]{style="color:darkred;"}
 
 ## 
 
 </br>
 
-We turn the column numeric using the functions `mutate()` and `as.numeric()`.
+Let's check the new column.
 
-```{r}
+```{python}
 #| echo: true
-#| output: true
 
-complete_data = complete_data %>% 
-mutate(`Output (units)` = as.numeric(`Output (units)`))
-
-complete_data %>%  select(`Output (units)`) %>%  head()
+complete_data['Output (units)']
 ```
 
-[**Now, the column is numeric or `dbl`!**]{style="color:darkblue;"}
-
-## A new library: stringr
-
-::::: columns
-::: {.column width="50%"}
-![](images/tidyverse.jpeg){fig-align="center" width="491" height="374"}
-:::
-
-::: {.column width="50%"}
-- **stringr** provides a consistent set of functions for working with strings.
-
-- It is also part of the **tidyverse** collection.
-
-- <https://stringr.tidyverse.org/>
-:::
-:::::
-
-Load it to Google Colab with the following code.
-
-```{r}
-#| echo: true
-#| output: false
-
-library(stringr)
-```
-
-## Example 3 (cont.)
-
-Let's reconsider the Example 4 after splitting the column `Comment` into two columns `First_Comment` and `Second_comment`.
-
-```{r}
-#| echo: true
-#| output: true
-
-augmented_data
-```
+Note that the new column is now numeric.
 
 ## Remove characters
 
 </br>
 
-Something that we notice is that the column `First_Comment` has some extra characters like "`\n`" that may be useless when working with the data.
+Something that we notice is that the column `First_Comment` has some extra characters like "\n" that may be useless when working with the data.
 
-We can remove them using the function `str_trim()` from the **stringr** package.
+We can remove them using the function `str.strip()`. The input of the function is the character to remove.
 
-```{r}
+```{python}
 #| echo: true
 
-augmented_data = augmented_data  %>% 
-mutate(First_comment = str_trim(First_comment, side = "both"))
+augmented_data['First_comment'] = augmented_data['First_comment'].str.strip("\n")
 ```
 
 ## 
@@ -591,104 +572,91 @@ mutate(First_comment = str_trim(First_comment, side = "both"))
 
 Let's see the cleaned column.
 
-```{r}
+```{python}
 #| echo: true
 
-augmented_data %>%  select(`First_comment`)
+augmented_data['First_comment']
 ```
 
 ## 
 
-We can remove special characters such as "!" from all cells in the column.
+</br>
 
-To do this, we use the functions `mutate()` and `str_remove_all()` with the character to remove. That is, we create a new cleaned variable without the specific character.
+We can also remove other characters.
 
-```{r}
+```{python}
 #| echo: true
 
-augmented_data %>%  
-  mutate("First_comment" = str_remove_all(`First_comment`, "!")) %>% 
-  select(`First_comment`) %>% head()
+augmented_data['First_comment'].str.strip("!")
 ```
 
 ## Transform text case
 
-When working with text columns containing names, we may have different ways of writing. A common case is when having lower case or upper case names or a combination thereof.
+When working with text columns such as those containing names, it might be possible to have different ways of writing. A common case is when having lower case or upper case names or a combination thereof.
 
 For example, consider the column `Operator` containing the names of the operators.
 
-```{r}
+```{python}
 #| echo: true
 
-complete_data %>% select(Operator) %>%  head()
+complete_data['Operator'].head()
 ```
 
 ## Remove extra spaces
 
 </br>
 
-To deal with names, we first use the `str_trim()` to remove leading and trailing characters from strings.
+To deal with names, we first use the `.str.strip()` to remove leading and trailing characters from strings.
 
-```{r}
+```{python}
 #| echo: true
 
-complete_data =  complete_data %>% 
-mutate(Operator = str_trim(Operator))
-
-complete_data %>% select(Operator) %>%  head()
+complete_data['Operator'] = complete_data['Operator'].str.strip()
+complete_data['Operator']
 ```
 
 ## Change to lowercase letters
 
 </br>
 
-We can turn all names to lowercase using the function `str_to_lower()`.
+We can turn all names to lowercase using the function `str.lower()`.
 
-```{r}
+```{python}
 #| echo: true
 
-complete_data %>% 
-mutate(Operator = str_to_lower(Operator)) %>% 
-select(Operator) %>% 
-head()
+complete_data['Operator'].str.lower()
 ```
 
 ## Change to uppercase letters
 
 </br>
 
-We can turn all names to uppercase using the function `str_to_upper()`.
+We can turn all names to lowercase using the function `str.upper()`.
 
-```{r}
+```{python}
 #| echo: true
 
-complete_data %>% 
-mutate(Operator = str_to_upper(Operator)) %>% 
-select(Operator) %>% 
-head()
+complete_data['Operator'].str.upper()
 ```
 
 ## Capitalize the first letter
 
 </br>
 
-We can convert all names to title case using the function `str_to_title()`.
+We can convert all names to title case using the function `str.title()`.
 
-```{r}
+```{python}
 #| echo: true
 
-complete_data %>% 
-mutate(Operator = str_to_title(Operator)) %>% 
-select(Operator) %>% 
-head()
+complete_data['Operator'].str.title()
 ```
 
-## More on tidyr and stringr
+## More functions of pandas
 
-![](images/RforData.jpg){fig-align="center"}
+![](images/python_book.jpg){fig-align="center"}
 
 ::: {style="font-size: 50%;"}
-<https://r4ds.hadley.nz/>
+<https://wesmckinney.com/book/>
 :::
 
 # [Return to main page](https://alanrvazquez.github.io/TEC-IN2039-EN/)
