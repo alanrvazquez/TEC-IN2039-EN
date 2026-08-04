@@ -781,7 +781,7 @@
     "href": "T2_Tools/Tools.slides.html#mini-activity-solo-mode",
     "title": "Tools for Data Manipulation",
     "section": "Mini-activity (solo mode)",
-    "text": "Mini-activity (solo mode)\n\n\nOpen the following Google Colab link: https://drive.google.com/file/d/1kS1_M-wLRc9BDRAadV_K6yosNK0XF9qi/view?usp=sharing\nCopy the notebook to your drive.\nAnswer the questions."
+    "text": "Mini-activity (solo mode)\n\n\nOpen the following Google Colab link: https://colab.research.google.com/drive/1xLoaOMharQmmasNApjm38jZcw-gtcxvm?usp=sharing\nCopy the notebook to your drive.\nAnswer the questions."
   },
   {
     "objectID": "T2_Tools/Tools.slides.html#a-new-library-dplyr",
@@ -2419,7 +2419,7 @@
     "href": "T2_Tools/Tools.slides.html#python-is-strict",
     "title": "Tools for Data Manipulation",
     "section": "Python is strict",
-    "text": "Python is strict\n\nPython, like all programming languages, is very strict. For example, if you write\n\n\nsum([1, 100])\n\n101\n\n\n\nit will tell you the answer, 101.\n\n\n\nBut if you write\n\n\nSum([1, 100])\n\n\n---------------------------------------------------------------------------\nNameError                                 Traceback (most recent call last)\nCell In[11], line 1\n----&gt; 1 Sum([1, 100])\n\nNameError: name 'Sum' is not defined\n\n\n\n\nwith the “s” capitalized, he will act like he has no idea what we are talking about!\n\n\nlo mismo si olvidas incluir un parentesis"
+    "text": "Python is strict\n\nPython, like all programming languages, is very strict. For example, if you write\n\n\nsum([1, 100])\n\n101\n\n\n\nit will tell you the answer, 101.\n\n\n\nBut if you write\n\n\nSum([1, 100])\n\n\n---------------------------------------------------------------------------\nNameError                                 Traceback (most recent call last)\nCell In[57], line 1\n----&gt; 1 Sum([1, 100])\n\nNameError: name 'Sum' is not defined\n\n\n\n\nwith the “s” capitalized, he will act like he has no idea what we are talking about!\n\n\nlo mismo si olvidas incluir un parentesis"
   },
   {
     "objectID": "T2_Tools/Tools.slides.html#save-your-work-in-python-objects",

@@ -592,6 +592,15 @@ sub_rows_pdata = penguins_data.loc[2:5, ['bill_length_mm',  'species', 'island']
 sub_rows_pdata
 ```
 
+## Mini-activity (*solo* mode)
+
+</br></br>
+
+1.  Open the following <a href="https://colab.research.google.com/drive/1xLoaOMharQmmasNApjm38jZcw-gtcxvm?usp=sharing" target="_blank">Google Colab</a> link: <https://colab.research.google.com/drive/1xLoaOMharQmmasNApjm38jZcw-gtcxvm?usp=sharing>
+
+2.  Copy the notebook to your drive.
+
+3.  Answer the questions.
 
 # Data manipulation with pandas
 
