@@ -38,6 +38,17 @@ Remember to load the Python libraries into Google Colab before we start:
 import pandas as pd
 ```
 
+```{python}
+#| echo: false
+#| output: false
+
+table1 = pd.read_excel("sample_tables.xlsx", sheet_name = "table1")
+table2 = pd.read_excel("sample_tables.xlsx", sheet_name = "table2")
+table3 = pd.read_excel("sample_tables.xlsx", sheet_name = "table3")
+table4a = pd.read_excel("sample_tables.xlsx", sheet_name = "table4a")
+table4b = pd.read_excel("sample_tables.xlsx", sheet_name = "table4b")
+```
+
 # Tidy Data
 
 ## Data science workflow
@@ -113,7 +124,7 @@ Consider four datasets with the same values of four variables `country`, `year`,
 
 First, we have the *tidy* dataset version.
 
-```{r}
+```{python}
 #| echo: false
 
 table1
@@ -127,7 +138,7 @@ table1
 
 Consider another version:
 
-```{r}
+```{python}
 #| echo: false
 
 table2
@@ -141,7 +152,7 @@ table2
 
 Consider another version:
 
-```{r}
+```{python}
 #| echo: false
 
 table3
@@ -155,13 +166,13 @@ table3
 
 Consider one last version involving two datasets.
 
-```{r}
+```{python}
 #| echo: false
 
 table4a
 ```
 
-```{r}
+```{python}
 #| echo: false
 
 table4b
