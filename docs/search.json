@@ -641,7 +641,7 @@
     "href": "T2_Tools/Tools.slides.html#r-is-strict",
     "title": "Tools for Data Manipulation",
     "section": "R is strict",
-    "text": "R is strict\nR, like all programming languages, is very strict. For example, if you write\n\nsum(1, 100)\n\n[1] 101\n\n\nit will tell you the answer, 101.\n\nBut if you write\n\nSum(1, 100)\n\nError in Sum(1, 100): could not find function \"Sum\"\n\n\nwith the “s” capitalized, R will act like it has no idea what we are talking about!\n\nlo mismo si olvidas incluir un parentesis"
+    "text": "R is strict\nR, like all programming languages, is very strict. For example, if you write\n\nsum(1, 100)\n\n[1] 101\n\n\nit will tell you the answer, 101.\n\nBut if you write\n\nSum(1, 100)\n\nError in `Sum()`:\n! could not find function \"Sum\"\n\n\nwith the “s” capitalized, R will act like it has no idea what we are talking about!\n\nlo mismo si olvidas incluir un parentesis"
   },
   {
     "objectID": "T2_Tools/Tools.slides.html#save-your-work-in-r-objects",

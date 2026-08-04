@@ -35,9 +35,9 @@ editor: visual
 Multivariate data consists of datasets that contain observations of two or more variables.
 
 ::: incremental
--   Variables can be numerical or categorical.
+- Variables can be numerical or categorical.
 
--   Variables may or may not depend on each other.
+- Variables may or may not depend on each other.
 :::
 
 . . .
@@ -66,13 +66,13 @@ auto_data %>% head()
 In the context of multiple-variable data, typical questions to study include:
 
 ::: incremental
--   How are variable $X$ and variable $Y$ related?
+- How are variable $X$ and variable $Y$ related?
 
--   Is the distribution of variable $X$ the same across all subgroups defined by variable $Z$?
+- Is the distribution of variable $X$ the same across all subgroups defined by variable $Z$?
 
--   Are there any unusual observations in the combination of values for variables $X$ and $Y$?
+- Are there any unusual observations in the combination of values for variables $X$ and $Y$?
 
--   Are there any unusual observations in $X$ for a subgroup of variable $Z$?
+- Are there any unusual observations in $X$ for a subgroup of variable $Z$?
 :::
 
 ## Principle 2: Turn data into information
@@ -194,11 +194,11 @@ Go back to the **Preview** tab and add text to the axes and title.
 
 </br>
 
--   When examining a distribution or relationship, we often want to compare it across data subgroups.
+- When examining a distribution or relationship, we often want to compare it across data subgroups.
 
--   This process of conditioning on additional variables leads to visualizations involving three or more variables.
+- This process of conditioning on additional variables leads to visualizations involving three or more variables.
 
--   We now illustrate how to extend the scatter plot to visualize multiple variables.
+- We now illustrate how to extend the scatter plot to visualize multiple variables.
 
 ## Scatter plot by color
 
@@ -258,8 +258,8 @@ We can enhance the plot by reducing the minimum and maximum sizes for the bubble
 
 A line plot is a visual representation of data where data points are connected by a line. Axes:
 
--   $X$ (horizontal): Represents time or the independent variable.
--   $Y$ (vertical): Represents the dependent variable.
+- $X$ (horizontal): Represents time or the independent variable.
+- $Y$ (vertical): Represents the dependent variable.
 
 Each point represents a value at a given moment.
 
@@ -323,13 +323,13 @@ To this end, simply go back to the **Data** tab and set a range of variables in 
 
 ## Plotting the average by groups
 
--   We can summarize the values of the numerical variable $Y$ for each category of a categorical variable $X$ using the *mean* or *average*.
+- We can summarize the values of the numerical variable $Y$ for each category of a categorical variable $X$ using the *mean* or *average*.
 
--   For example, let's plot the average miles per gallon of cars produced in America, Europe, and Japan.
+- For example, let's plot the average miles per gallon of cars produced in America, Europe, and Japan.
 
--   A common visualization for plotting a numerical and a discrete variable when there is only one value per category is the **bar plot**.
+- A common visualization for plotting a numerical and a discrete variable when there is only one value per category is the **bar plot**.
 
--   The bar plot encodes quantitative data across different categories.
+- The bar plot encodes quantitative data across different categories.
 
 ## Bar plot for averages
 
@@ -369,9 +369,9 @@ In fact, we keep one variable constant and plot the distribution of the other.
 
 To do this, there are old and new plots:
 
--   Hierarchical bar plot
--   Tree map plot
--   Circle packing plot
+- Hierarchical bar plot
+- Tree map plot
+- Circle packing plot
 
 ## Example 3
 
@@ -447,14 +447,14 @@ The chart shows the frequency of species and island name.
 
 Visualizations such as hierarchy bars, tree maps, and circle packing plots help us explore how two categorical variables relate through *nested structure*.
 
--   **Hierarchy bar charts** are easy to read when one category has only a few levels. The show a clear sense of order from parent → child categories.
+- **Hierarchy bar charts** are easy to read when one category has only a few levels. The show a clear sense of order from parent → child categories.
 
--   **Tree maps** are excellent use of space when there are many subcategories. The area encodes quantity, helping highlight dominant groups.
+- **Tree maps** are excellent use of space when there are many subcategories. The area encodes quantity, helping highlight dominant groups.
 
 ## 
 
 </br></br></br>
 
--   **Circle packing plots** are more visually appealing and intuitive for showing nested groups. They are helpful when emphasizing *clusters* rather than exact magnitudes.
+- **Circle packing plots** are more visually appealing and intuitive for showing nested groups. They are helpful when emphasizing *clusters* rather than exact magnitudes.
 
 # [Return to main page](https://alanrvazquez.github.io/TEC-IN2039-EN/)

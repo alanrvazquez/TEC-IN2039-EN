@@ -33,13 +33,13 @@ editor: visual
 
 ::::: columns
 ::: {.column width="70%"}
--   A versatile programming language.
+- A versatile programming language.
 
--   It is free!
+- It is free!
 
--   It is widely used for data cleaning, data visualization, and data modelling.
+- It is widely used for data cleaning, data visualization, and data modelling.
 
--   It can be extended with packages (libraries) developed by other users.
+- It can be extended with packages (libraries) developed by other users.
 :::
 
 ::: {.column width="30%"}
@@ -51,11 +51,11 @@ editor: visual
 
 *Google's free cloud collaboration platform for creating R documents.*
 
--   Run R and collaborate on Jupyter notebooks for free.
+- Run R and collaborate on Jupyter notebooks for free.
 
--   Harness the power of GPUs for free to accelerate your data science projects.
+- Harness the power of GPUs for free to accelerate your data science projects.
 
--   Easily save and upload your notebooks to Google Drive.
+- Easily save and upload your notebooks to Google Drive.
 
 ![](images/Google_Colaboratory_SVG_Logo.svg.png){fig-align="right" width="2560"}
 
@@ -168,9 +168,9 @@ One of the cool things about R is that there are many built-in commands you can 
 Functions have two basic parts:
 
 ::: incremental
--   The first part is the name of the function (for example, `sum`).
+- The first part is the name of the function (for example, `sum`).
 
--   The second part is the input to the function, which goes inside the parentheses (`sum(1, 5, 15)`).
+- The second part is the input to the function, which goes inside the parentheses (`sum(1, 5, 15)`).
 :::
 
 ## R is strict
@@ -365,7 +365,7 @@ Boolean values are `True` or `False`.
 
 We may have a question like:
 
--   Is the first element of the vector `many_greetings` `"hola"`?
+- Is the first element of the vector `many_greetings` `"hola"`?
 
 . . .
 
@@ -391,17 +391,17 @@ For example, `5 != 3` is a `True` statement.
 
 </br>
 
--   `>` (*larger than*)
+- `>` (*larger than*)
 
--   `>=` (*larger than or equal to*)
+- `>=` (*larger than or equal to*)
 
--   `<` (*smaller than*)
+- `<` (*smaller than*)
 
--   `<=` (*smaller than or equal to*)
+- `<=` (*smaller than or equal to*)
 
--   `==` (*equal to*)
+- `==` (*equal to*)
 
--   `!=` (*not equal to*)
+- `!=` (*not equal to*)
 
 ## Programming culture: Trial and error
 
@@ -421,9 +421,9 @@ Libraries are the fundamental units of reproducible R code. They include reusabl
 
 In this course, we will be working mostly with the following libraries for data manipulation:
 
--   `readxl` for reading data.
--   `dplyr` for data manipulation and wrangling
--   `tidyr` for structuring data.
+- `readxl` for reading data.
+- `dplyr` for data manipulation and wrangling
+- `tidyr` for structuring data.
 
 # Reading data with **readxl**
 
@@ -522,11 +522,11 @@ head(penguins_data)
 :::
 
 ::: {.column width="50%"}
--   **dplyr** allows you to manipulate data and generate statistical summaries.
+- **dplyr** allows you to manipulate data and generate statistical summaries.
 
--   It is part of a collection of data science packages called **tidyverse**.
+- It is part of a collection of data science packages called **tidyverse**.
 
--   <https://dplyr.tidyverse.org/>
+- <https://dplyr.tidyverse.org/>
 :::
 :::::
 
@@ -552,15 +552,15 @@ The grammar for using pipe is as follows:
 **dplyr** is a data manipulation grammar that provides a set of verbs (functions) to solve the most common data manipulation challenges:
 
 ::: incremental
--   `filter()` selects observations based on their values.
+- `filter()` selects observations based on their values.
 
--   `select()` selects variables based on their names.
+- `select()` selects variables based on their names.
 
--   `mutate()` adds new variables that are functions of existing variables.
+- `mutate()` adds new variables that are functions of existing variables.
 
--   `arrange()` changes the order of rows.
+- `arrange()` changes the order of rows.
 
--   `summarise()` reduces multiple values to a single numerical summary.
+- `summarise()` reduces multiple values to a single numerical summary.
 :::
 
 ## 
@@ -723,12 +723,12 @@ summary_penguins_data %>% head()
 
 </br>
 
--   **dplyr** is a library that allows us to manipulate data in R.
+- **dplyr** is a library that allows us to manipulate data in R.
 
--   Variable types help specify the operations and visualizations we can apply to the data.
+- Variable types help specify the operations and visualizations we can apply to the data.
 
--   There are appropriate or designed graphs for visualizing numeric or categorical variables.
+- There are appropriate or designed graphs for visualizing numeric or categorical variables.
 
--   In this course, we will see several graphs for each variable type and their combinations.
+- In this course, we will see several graphs for each variable type and their combinations.
 
 # [Return to main page](https://alanrvazquez.github.io/TEC-IN2039-EN/)

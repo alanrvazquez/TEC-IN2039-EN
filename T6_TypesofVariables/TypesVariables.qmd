@@ -36,9 +36,9 @@ Before creating a graph, we must examine the type of values that our dataset var
 There are two main types of variables:
 
 ::: incremental
--   [Numerical variables.]{style="color:darkblue;"}
+- [Numerical variables.]{style="color:darkblue;"}
 
--   [Categorical variables.]{style="color:darkred;"}
+- [Categorical variables.]{style="color:darkred;"}
 :::
 
 ## Numerical variables
@@ -48,12 +48,12 @@ There are two main types of variables:
 These take values that represent numerical measurements or quantities.
 
 ::: incremental
--   Height (in centimeters).
--   Weight (in kilograms).
--   Age (in years).
--   Price (in dollars).
--   Time (in hours or seconds).
--   Exam score (number of points on a 100-point scale).
+- Height (in centimeters).
+- Weight (in kilograms).
+- Age (in years).
+- Price (in dollars).
+- Time (in hours or seconds).
+- Exam score (number of points on a 100-point scale).
 :::
 
 ## Types of numerical variables
@@ -62,7 +62,7 @@ These take values that represent numerical measurements or quantities.
 
 Numerical variables are divided into two types:
 
--   [*Discrete*]{style="color:darkblue;"}: variables that take integer values.
+- [*Discrete*]{style="color:darkblue;"}: variables that take integer values.
 
 . . .
 
@@ -76,7 +76,7 @@ Examples:
 
 </br>
 
--   [*Continuous*]{style="color:darkblue;"}: variables that have a large range of possible values.
+- [*Continuous*]{style="color:darkblue;"}: variables that have a large range of possible values.
 
 . . .
 
@@ -113,8 +113,8 @@ These take values that fall into *categories*.
 
 Categorical variables are divided into two important types:
 
--   [*Nominal*]{style="color:darkred;"}
--   [*Ordinal*]{style="color:darkgreen;"}
+- [*Nominal*]{style="color:darkred;"}
+- [*Ordinal*]{style="color:darkgreen;"}
 
 ::: notes
 The distinction depends on whether the categories have a meaningful order or not.
@@ -131,9 +131,9 @@ A categorical variable is nominal if its categories **do not have** a specific o
 Examples:
 
 ::: incremental
--   Political party affiliation (Democrat or Republican).
--   Dog breed (Shepherd, Hound, Terrier, Other).
--   Computer operating system (Windows, macOS, Linux).
+- Political party affiliation (Democrat or Republican).
+- Dog breed (Shepherd, Hound, Terrier, Other).
+- Computer operating system (Windows, macOS, Linux).
 :::
 
 ## Ordinal categorical variables
@@ -147,9 +147,9 @@ A categorical variable is ordinal if its categories **do have a meaningful order
 Examples:
 
 ::: incremental
--   T-shirt size (Small, Medium, Large).
--   Education level (High School, University, Postgraduate).
--   Income level (Less than \$250K, \$250K-\$500K, More than \$500K)
+- T-shirt size (Small, Medium, Large).
+- Education level (High School, University, Postgraduate).
+- Income level (Less than \$250K, \$250K-\$500K, More than \$500K)
 :::
 
 ::: notes
@@ -182,9 +182,9 @@ In practice, boolean values (`TRUE` and `FALSE`) often represent nominal categor
 
 </br>
 
--   Quantitative variables (discrete or continuous) are those where addition or subtraction makes sense.
+- Quantitative variables (discrete or continuous) are those where addition or subtraction makes sense.
 
--   Categorical variables (nominal or ordinal) are those where addition or subtraction does **NOT** make sense.
+- Categorical variables (nominal or ordinal) are those where addition or subtraction does **NOT** make sense.
 
 # One Categorical Variable
 
@@ -238,7 +238,7 @@ frequencies_species
 
 </br>
 
-We save the frequency table for further processing with Flourish studio using the command below. 
+We save the frequency table for further processing with Flourish studio using the command below.
 
 ```{r}
 #| fig-pos: center
@@ -252,7 +252,13 @@ We save the frequency table for further processing with Flourish studio using th
 
 Shows frequencies of the categories of a categorical variable.
 
-<div class="flourish-embed flourish-chart" data-src="visualisation/26426128"><script src="https://public.flourish.studio/resources/embed.js"></script><noscript><img src="https://public.flourish.studio/visualisation/26426128/thumbnail" width="100%" alt="chart visualization" /></noscript></div>
+::: {.flourish-embed .flourish-chart data-src="visualisation/26426128"}
+```{=html}
+<script src="https://public.flourish.studio/resources/embed.js"></script>
+```
+
+<noscript><img src="https://public.flourish.studio/visualisation/26426128/thumbnail" alt="chart visualization" width="100%"/></noscript>
+:::
 
 ## Construct a bar chart in Flourish
 
@@ -271,18 +277,18 @@ In the visualization gallery, choose **Bar Chart**.
 ![](images/DefaultBarChart.png){fig-align="center"}
 :::
 
-::: {.column width="50%"}
+::: {.column width="45%"}
 ![](images/UploadDataBarChart%20.png){fig-align="center"}
 :::
 :::::
 
-![](images/UploadedDataBarChart.png){fig-align="center"}
+![](images/UploadedDataBarChart.png){fig-align="center" width="294"}
 
 ## Select the correct variables
 
-Make sure that you uploaded the file "PenguinsDataFlourish.xlsx" and not the original one. 
+Make sure that you uploaded the file "PenguinsDataFlourish.xlsx" and not the original one.
 
-Now, we assign the variable `species` to **Labels/time**, and `Frequency` to **Values**. 
+Now, we assign the variable `species` to **Labels/time**, and `Frequency` to **Values**.
 
 ![](images/SelectCorrectVariablesBarChart.png){fig-align="center"}
 
@@ -350,9 +356,9 @@ Boston_dataset = read_excel("Boston_dataset.xlsx")
 
 We concentrate on the following variables:
 
--   `chas` : Whether the house is next to the Charles River (1: Yes and 0: No)
+- `chas` : Whether the house is next to the Charles River (1: Yes and 0: No)
 
--   `rad` : Index of accessibility to radial highways (0: Low, 1: Medium, 2: High).
+- `rad` : Index of accessibility to radial highways (0: Low, 1: Medium, 2: High).
 
 ## Data wrangling with R
 
@@ -451,7 +457,7 @@ Now, the columns show the actual category labels instead of the coded (or number
 Boston_dataset_wr  %>% select(`chas`, `rad`) 
 ```
 
-##
+## 
 
 For the bar chart, we compute the frequencies of the categories of `chas` and `rad`.
 
@@ -493,7 +499,7 @@ We load the dataset "BostonDataFlourishChas.xlsx" into Flourish.
 
 ## 
 
-We assign the `chas` variable to the **Labels/time** and `Frequency` to **Values**. 
+We assign the `chas` variable to the **Labels/time** and `Frequency` to **Values**.
 
 ![](images/ChasSetVariables.png){fig-align="center"}
 
@@ -521,11 +527,23 @@ In the menu of the **Preview** tab, we add a title and a good label for the hori
 
 ## Bar chart for `chas`
 
-<div class="flourish-embed flourish-chart" data-src="visualisation/26635994"><script src="https://public.flourish.studio/resources/embed.js"></script><noscript><img src="https://public.flourish.studio/visualisation/26635994/thumbnail" width="100%" alt="chart visualization" /></noscript></div>
+::: {.flourish-embed .flourish-chart data-src="visualisation/26635994"}
+```{=html}
+<script src="https://public.flourish.studio/resources/embed.js"></script>
+```
+
+<noscript><img src="https://public.flourish.studio/visualisation/26635994/thumbnail" alt="chart visualization" width="100%"/></noscript>
+:::
 
 ## Similarly, we create a bar chart for `rad`
 
-<div class="flourish-embed flourish-chart" data-src="visualisation/26428955"><script src="https://public.flourish.studio/resources/embed.js"></script><noscript><img src="https://public.flourish.studio/visualisation/26428955/thumbnail" width="100%" alt="chart visualization" /></noscript></div>
+::: {.flourish-embed .flourish-chart data-src="visualisation/26428955"}
+```{=html}
+<script src="https://public.flourish.studio/resources/embed.js"></script>
+```
+
+<noscript><img src="https://public.flourish.studio/visualisation/26428955/thumbnail" alt="chart visualization" width="100%"/></noscript>
+:::
 
 ## Collapsing categories
 
@@ -605,18 +623,24 @@ Visualizes the distribution of individual observations along a numeric axis.
 
 . . .
 
--   Each point represents one data value, and the points are arranged to avoid overlapping—similar to bees clustering around a hive.
--   This makes it easy to see where observations are dense or sparse, while still showing *every* individual data point.
+- Each point represents one data value, and the points are arranged to avoid overlapping—similar to bees clustering around a hive.
+- This makes it easy to see where observations are dense or sparse, while still showing *every* individual data point.
 
 ## 
 
-<div class="flourish-embed flourish-scatter" data-src="visualisation/26426925"><script src="https://public.flourish.studio/resources/embed.js"></script><noscript><img src="https://public.flourish.studio/visualisation/26426925/thumbnail" width="100%" alt="scatter visualization" /></noscript></div>
+::: {.flourish-embed .flourish-scatter data-src="visualisation/26426925"}
+```{=html}
+<script src="https://public.flourish.studio/resources/embed.js"></script>
+```
+
+<noscript><img src="https://public.flourish.studio/visualisation/26426925/thumbnail" alt="scatter visualization" width="100%"/></noscript>
+:::
 
 ## 
 
 </br></br></br>
 
--   Unlike histograms, which aggregate counts into bars, **beeswarm plots preserve every point**, giving a more detailed picture of the underlying distribution.
+- Unlike histograms, which aggregate counts into bars, **beeswarm plots preserve every point**, giving a more detailed picture of the underlying distribution.
 
 ## Beeswarm in Flourish
 
@@ -664,11 +688,10 @@ There, we modify the label of the horizontal axis X and header in the sections *
 
 </br>
 
--   Clusters of points that reveal **dense regions** in the distribution.
--   Areas where points are more spread out, indicating **low-frequency** regions.
--   **Gaps** along the axis where no observations appear.
--   **Outliers**, visible as isolated points far from the main cluster.
--   The overall **shape of the distribution** formed by the pattern of points.
-
+- Clusters of points that reveal **dense regions** in the distribution.
+- Areas where points are more spread out, indicating **low-frequency** regions.
+- **Gaps** along the axis where no observations appear.
+- **Outliers**, visible as isolated points far from the main cluster.
+- The overall **shape of the distribution** formed by the pattern of points.
 
 # [Return to main page](https://alanrvazquez.github.io/TEC-IN2039-EN/)
