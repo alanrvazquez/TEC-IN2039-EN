@@ -120,9 +120,9 @@ In tidy data:
 
 ## Example 1
 
-Consider four datasets with the same values of four variables `country`, `year`, `population`, and `cases`.
-
-First, we have the *tidy* dataset version.
+::: {style="font-size: 90%;"}
+Consider four datasets with the same values of four variables `country`, `year`, `population`, and `cases`. First, this is *tidy* version.
+:::
 
 ```{python}
 #| echo: false
@@ -130,11 +130,19 @@ First, we have the *tidy* dataset version.
 table1
 ```
 
-*tidy* data because each variable is in a column , each observation is in a row, and each cell is a single measurement.
-
-## 
+##
 
 </br>
+
+This is *tidy* data because each variable is in a column , each observation is in a row, and each cell is a single measurement.
+
+```{python}
+#| echo: false
+
+table1
+```
+
+## 
 
 Consider another version:
 
@@ -148,8 +156,6 @@ table2
 
 ## 
 
-</br>
-
 Consider another version:
 
 ```{python}
@@ -161,8 +167,6 @@ table3
 [Not *tidy* because the last column is a summary statistic (`rate`) of two variables, or there are two measurements involved in this column.]{style="color:purple;"}
 
 ## 
-
-</br>
 
 Consider one last version involving two datasets.
 
@@ -192,9 +196,7 @@ table4b
 - Together with visualization and machine learning libraries, **pandas** prepares your data for analysis.
 :::
 
-## Common pandas functions for tidy data
-
-</br>
+## Common functions for tidy data
 
 The **pandas** library provides several functions for reshaping, organizing, and completing datasets.
 
@@ -232,7 +234,7 @@ Let's preview the dataset.
 ```{python}
 #| echo: true
 
-spotify_data.head()
+spotify_data.head(3)
 ```
 
 ## `melt()`
@@ -266,20 +268,22 @@ For example, columns such as `"Shape of You"` or `"Something Just Like This"` ca
 
 ## The long version of the data
 
-</br>
-
 - A `Song` column with the names of the songs.
 - A `Plays` column with the number of plays for each song and date.
 
 ```{python}
 #| echo: true
 
-spotify_long.head()
+spotify_long.head(4)
 ```
 
 ## `pivot()`
 
+</br></br>
+
 The `pivot()` function is the opposite of `melt()`. We use it when an observation is scattered across multiple rows and we want to convert the dataset back to a *wide* format.
+
+</br>
 
 ```{python}
 #| echo: true
@@ -288,13 +292,17 @@ spotify_wide = (spotify_long
                 .pivot(index="Date", columns="Song", values="Plays")
                 .reset_index()
                 )
+```
+
+## The result
+
+```{python}
+#| echo: true
 
 spotify_wide.head()
 ```
 
 ## 
-
-</br>
 
 We can also apply `pivot()` to the `table2` dataset from the previous section.
 
@@ -305,8 +313,6 @@ table2
 ```
 
 ## 
-
-</br></br>
 
 The wider version of `table2` is:
 
@@ -331,24 +337,21 @@ Consider an industrial engineer who receives a messy Excel file from a manufactu
 client_data = pd.read_excel("industrial_dataset.xlsx")
 ```
 
+</br>
+
 We use this dataset to illustrate the functions `str.split()` and `str.cat()`.
 
 ## Let's preview the data.
 
-</br></br>
-
 ```{python}
 #| echo: true
 
-# Preview the dataset.
 client_data.head()
 ```
 
 ## `str.split()`
 
-The `str.split()` function separates the contents of one column into multiple columns by splitting the text wherever a separator appears.
-
-Consider the `Comment` column.
+The `str.split()` function separates the contents of one column into multiple columns by splitting the text wherever a separator appears. Consider the `Comment` column.
 
 ```{python}
 #| echo: true
@@ -357,6 +360,8 @@ client_data['Comment']
 ```
 
 ## 
+
+</br>
 
 The column has some values such as "Requires part: valve" and "Delay: maintenance\n" that we may want to split into columns.
 
@@ -369,11 +374,13 @@ client_data['Comment']
 
 ## 
 
+We can split the values in the column according to ":".
+
 </br>
 
-We can split the values in the column according to the colon ":".
-
 That is, everything before the colon will be in a column. Everything after the colon will be in another column. To achieve this, we use the function `str.split()`.
+
+</br>
 
 One input of the function is the symbol or character for which we cant to make a split. The other input, `expand = True` tells Python that we want to create new columns.
 
@@ -385,6 +392,8 @@ client_data['Comment'].str.split(':', expand = True)
 ```
 
 ## 
+
+</br></br>
 
 The result is two columns.
 
@@ -398,8 +407,6 @@ split_column.head()
 
 ## 
 
-</br>
-
 We can assign them to new columns in the dataset using the following code.
 
 ```{python}
@@ -410,20 +417,13 @@ augmented_data = (client_data
                   .assign(First_comment = split_column.filter([0]),
                   Second_comment = split_column.filter([1]))
                   )
+augmented_data.head(4)
 ```
 
-## 
-
-```{python}
-#| echo: true
-#| output: true
-
-augmented_data.head()
-```
 
 ## `str.cat()`
 
-</br></br>
+</br>
 
 The `str.cat()` function performs the opposite operation. It combines multiple text columns into a single column.
 
@@ -443,8 +443,6 @@ combined_data = (augmented_data
 The first object is the column that starts the concatenation, and the remaining columns are added using `str.cat()`.
 
 ## 
-
-</br>
 
 The result.
 
@@ -486,7 +484,7 @@ client_data_single = (client_data
 
 ## 
 
-The `client_data_single` dataframe does not have duplicate rows.
+The `client_data_single` does not have duplicate rows.
 
 ```{python}
 #| echo: true
@@ -496,7 +494,7 @@ client_data_single.head()
 
 ## Fill blank cells
 
-In the dataset, there are columns with missing values. If we would like to fill them with specific values or text, we use the `.fillna()` function. In this function, we use the syntaxis `'Variable': 'Replace'`, where the `Variable` is the column in the dataset and `Replace` is the text or number to fill the entry in.
+Sometimes there are columns with missing values. If we would like to fill them with a value or text, we use the `.fillna()` function. In this function, we use the syntaxis `'Variable': 'Replace'`, where the `Variable` is the column in the dataset and `Replace` is the text or number to fill the entry in.
 
 Let's fill in the missing entries of the columns `Operator`, `Maintenance Date`, and `Comment`.
 
@@ -537,6 +535,8 @@ The column has the numbers of units but also text such as "error".
 </br>
 
 We can replace the "error" in this column by a user-specified value, say, 0. To this end, we use the function `.replace()`. The function has two inputs. The first one is the value to replace and the second one is the replacement value.
+
+</br>
 
 ```{python}
 #| echo: true

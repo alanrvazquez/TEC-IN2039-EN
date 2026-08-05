@@ -291,28 +291,28 @@
     "href": "T3_TidyData/TidyData.slides.html#example-1",
     "title": "Tidy Data",
     "section": "Example 1",
-    "text": "Example 1\nConsider four datasets with the same values of four variables country, year, population, and cases.\nFirst, we have the tidy dataset version.\n\n\n\n\n\n\n\n\n\ncountry\nyear\ncases\npopulation\n\n\n\n\n0\nAfghanistan\n1999\n745\n19987071\n\n\n1\nAfghanistan\n2000\n2666\n20595360\n\n\n2\nBrazil\n1999\n37737\n172006362\n\n\n3\nBrazil\n2000\n80488\n174504898\n\n\n4\nChina\n1999\n212258\n1272915272\n\n\n5\nChina\n2000\n213766\n1280428583\n\n\n\n\n\n\n\ntidy data because each variable is in a column , each observation is in a row, and each cell is a single measurement."
+    "text": "Example 1\n\nConsider four datasets with the same values of four variables country, year, population, and cases. First, this is tidy version.\n\n\n\n\n\n\n\n\n\n\ncountry\nyear\ncases\npopulation\n\n\n\n\n0\nAfghanistan\n1999\n745\n19987071\n\n\n1\nAfghanistan\n2000\n2666\n20595360\n\n\n2\nBrazil\n1999\n37737\n172006362\n\n\n3\nBrazil\n2000\n80488\n174504898\n\n\n4\nChina\n1999\n212258\n1272915272\n\n\n5\nChina\n2000\n213766\n1280428583"
   },
   {
     "objectID": "T3_TidyData/TidyData.slides.html#section-3",
     "href": "T3_TidyData/TidyData.slides.html#section-3",
     "title": "Tidy Data",
     "section": "",
-    "text": "Consider another version:\n\n\n\n\n\n\n\n\n\ncountry\nyear\ntype\ncount\n\n\n\n\n0\nAfghanistan\n1999\ncases\n745\n\n\n1\nAfghanistan\n1999\npopulation\n19987071\n\n\n2\nAfghanistan\n2000\ncases\n2666\n\n\n3\nAfghanistan\n2000\npopulation\n20595360\n\n\n4\nBrazil\n1999\ncases\n37737\n\n\n5\nBrazil\n1999\npopulation\n172006362\n\n\n6\nBrazil\n2000\ncases\n80488\n\n\n7\nBrazil\n2000\npopulation\n174504898\n\n\n8\nChina\n1999\ncases\n212258\n\n\n9\nChina\n1999\npopulation\n1272915272\n\n\n10\nChina\n2000\ncases\n213766\n\n\n\n\n\n\n\nNot tidy because the last column is a summary statistic (count) of two variables."
+    "text": "This is tidy data because each variable is in a column , each observation is in a row, and each cell is a single measurement.\n\n\n\n\n\n\n\n\n\ncountry\nyear\ncases\npopulation\n\n\n\n\n0\nAfghanistan\n1999\n745\n19987071\n\n\n1\nAfghanistan\n2000\n2666\n20595360\n\n\n2\nBrazil\n1999\n37737\n172006362\n\n\n3\nBrazil\n2000\n80488\n174504898\n\n\n4\nChina\n1999\n212258\n1272915272\n\n\n5\nChina\n2000\n213766\n1280428583"
   },
   {
     "objectID": "T3_TidyData/TidyData.slides.html#section-4",
     "href": "T3_TidyData/TidyData.slides.html#section-4",
     "title": "Tidy Data",
     "section": "",
-    "text": "Consider another version:\n\n\n\n\n\n\n\n\n\ncountry\nyear\nrate\n\n\n\n\n0\nAfghanistan\n1999\n745/19987071\n\n\n1\nAfghanistan\n2000\n2666/20595360\n\n\n2\nBrazil\n1999\n37737/172006362\n\n\n3\nBrazil\n2000\n80488/174504898\n\n\n4\nChina\n1999\n212258/1272915272\n\n\n5\nChina\n2000\n213766/1280428583\n\n\n\n\n\n\n\nNot tidy because the last column is a summary statistic (rate) of two variables, or there are two measurements involved in this column."
+    "text": "Consider another version:\n\n\n\n\n\n\n\n\n\ncountry\nyear\ntype\ncount\n\n\n\n\n0\nAfghanistan\n1999\ncases\n745\n\n\n1\nAfghanistan\n1999\npopulation\n19987071\n\n\n2\nAfghanistan\n2000\ncases\n2666\n\n\n3\nAfghanistan\n2000\npopulation\n20595360\n\n\n4\nBrazil\n1999\ncases\n37737\n\n\n5\nBrazil\n1999\npopulation\n172006362\n\n\n6\nBrazil\n2000\ncases\n80488\n\n\n7\nBrazil\n2000\npopulation\n174504898\n\n\n8\nChina\n1999\ncases\n212258\n\n\n9\nChina\n1999\npopulation\n1272915272\n\n\n10\nChina\n2000\ncases\n213766\n\n\n\n\n\n\n\nNot tidy because the last column is a summary statistic (count) of two variables."
   },
   {
     "objectID": "T3_TidyData/TidyData.slides.html#section-5",
     "href": "T3_TidyData/TidyData.slides.html#section-5",
     "title": "Tidy Data",
     "section": "",
-    "text": "Consider one last version involving two datasets.\n\n\n\n\n\n\n\n\n\ncountry\n1999\n2000\n\n\n\n\n0\nAfghanistan\n745\n2666\n\n\n1\nBrazil\n37737\n80488\n\n\n2\nChina\n212258\n213766\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\ncountry\n1999\n2000\n\n\n\n\n0\nAfghanistan\n19987071\n20595360\n\n\n1\nBrazil\n172006362\n174504898\n\n\n2\nChina\n1272915272\n1280428583\n\n\n\n\n\n\n\nNot tidy data!"
+    "text": "Consider another version:\n\n\n\n\n\n\n\n\n\ncountry\nyear\nrate\n\n\n\n\n0\nAfghanistan\n1999\n745/19987071\n\n\n1\nAfghanistan\n2000\n2666/20595360\n\n\n2\nBrazil\n1999\n37737/172006362\n\n\n3\nBrazil\n2000\n80488/174504898\n\n\n4\nChina\n1999\n212258/1272915272\n\n\n5\nChina\n2000\n213766/1280428583\n\n\n\n\n\n\n\nNot tidy because the last column is a summary statistic (rate) of two variables, or there are two measurements involved in this column."
   },
   {
     "objectID": "T3_TidyData/TidyData.slides.html#the-role-of-the-tidyr-package",
@@ -340,7 +340,7 @@
     "href": "T3_TidyData/TidyData.slides.html#section-6",
     "title": "Tidy Data",
     "section": "",
-    "text": "Let’s preview the dataset.\n\nspotify_data.head()\n\n\n\n\n\n\n\n\nDate\nDay\nShape of You\nDespacito\nSomething Just Like This\nHUMBLE.\nUnforgettable\n\n\n\n\n0\n2017-01-06\n1\n12287078\nNaN\nNaN\nNaN\nNaN\n\n\n1\n2017-01-07\n2\n13190270\nNaN\nNaN\nNaN\nNaN\n\n\n2\n2017-01-08\n3\n13099919\nNaN\nNaN\nNaN\nNaN\n\n\n3\n2017-01-09\n4\n14506351\nNaN\nNaN\nNaN\nNaN\n\n\n4\n2017-01-10\n5\n14275628\nNaN\nNaN\nNaN\nNaN"
+    "text": "Consider one last version involving two datasets.\n\n\n\n\n\n\n\n\n\ncountry\n1999\n2000\n\n\n\n\n0\nAfghanistan\n745\n2666\n\n\n1\nBrazil\n37737\n80488\n\n\n2\nChina\n212258\n213766\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\ncountry\n1999\n2000\n\n\n\n\n0\nAfghanistan\n19987071\n20595360\n\n\n1\nBrazil\n172006362\n174504898\n\n\n2\nChina\n1272915272\n1280428583\n\n\n\n\n\n\n\nNot tidy data!"
   },
   {
     "objectID": "T3_TidyData/TidyData.slides.html#pivot_longer",
@@ -361,7 +361,7 @@
     "href": "T3_TidyData/TidyData.slides.html#the-long-version-of-the-data",
     "title": "Tidy Data",
     "section": "The long version of the data",
-    "text": "The long version of the data\n\n\nA Song column with the names of the songs.\nA Plays column with the number of plays for each song and date.\n\n\nspotify_long.head()\n\n\n\n\n\n\n\n\nDate\nSong\nPlays\n\n\n\n\n0\n2017-01-06\nShape of You\n12287078.0\n\n\n1\n2017-01-07\nShape of You\n13190270.0\n\n\n2\n2017-01-08\nShape of You\n13099919.0\n\n\n3\n2017-01-09\nShape of You\n14506351.0\n\n\n4\n2017-01-10\nShape of You\n14275628.0"
+    "text": "The long version of the data\n\nA Song column with the names of the songs.\nA Plays column with the number of plays for each song and date.\n\n\nspotify_long.head(4)\n\n\n\n\n\n\n\n\nDate\nSong\nPlays\n\n\n\n\n0\n2017-01-06\nShape of You\n12287078.0\n\n\n1\n2017-01-07\nShape of You\n13190270.0\n\n\n2\n2017-01-08\nShape of You\n13099919.0\n\n\n3\n2017-01-09\nShape of You\n14506351.0"
   },
   {
     "objectID": "T3_TidyData/TidyData.slides.html#pivot_wider",
@@ -375,28 +375,28 @@
     "href": "T3_TidyData/TidyData.slides.html#section-7",
     "title": "Tidy Data",
     "section": "",
-    "text": "We can also apply pivot() to the table2 dataset from the previous section.\n\ntable2\n\n\n\n\n\n\n\n\ncountry\nyear\ntype\ncount\n\n\n\n\n0\nAfghanistan\n1999\ncases\n745\n\n\n1\nAfghanistan\n1999\npopulation\n19987071\n\n\n2\nAfghanistan\n2000\ncases\n2666\n\n\n3\nAfghanistan\n2000\npopulation\n20595360\n\n\n4\nBrazil\n1999\ncases\n37737\n\n\n5\nBrazil\n1999\npopulation\n172006362\n\n\n6\nBrazil\n2000\ncases\n80488\n\n\n7\nBrazil\n2000\npopulation\n174504898\n\n\n8\nChina\n1999\ncases\n212258\n\n\n9\nChina\n1999\npopulation\n1272915272\n\n\n10\nChina\n2000\ncases\n213766"
+    "text": "Let’s preview the dataset.\n\nspotify_data.head(3)\n\n\n\n\n\n\n\n\nDate\nDay\nShape of You\nDespacito\nSomething Just Like This\nHUMBLE.\nUnforgettable\n\n\n\n\n0\n2017-01-06\n1\n12287078\nNaN\nNaN\nNaN\nNaN\n\n\n1\n2017-01-07\n2\n13190270\nNaN\nNaN\nNaN\nNaN\n\n\n2\n2017-01-08\n3\n13099919\nNaN\nNaN\nNaN\nNaN"
   },
   {
     "objectID": "T3_TidyData/TidyData.slides.html#section-8",
     "href": "T3_TidyData/TidyData.slides.html#section-8",
     "title": "Tidy Data",
     "section": "",
-    "text": "The wider version of table2 is:\n\n(table2\n.pivot(index = [\"country\", \"year\"], columns = \"type\", values = \"count\")\n.reset_index()\n)\n\n\n\n\n\n\n\ntype\ncountry\nyear\ncases\npopulation\n\n\n\n\n0\nAfghanistan\n1999\n745.0\n1.998707e+07\n\n\n1\nAfghanistan\n2000\n2666.0\n2.059536e+07\n\n\n2\nBrazil\n1999\n37737.0\n1.720064e+08\n\n\n3\nBrazil\n2000\n80488.0\n1.745049e+08\n\n\n4\nChina\n1999\n212258.0\n1.272915e+09\n\n\n5\nChina\n2000\n213766.0\nNaN"
+    "text": "We can also apply pivot() to the table2 dataset from the previous section.\n\ntable2\n\n\n\n\n\n\n\n\ncountry\nyear\ntype\ncount\n\n\n\n\n0\nAfghanistan\n1999\ncases\n745\n\n\n1\nAfghanistan\n1999\npopulation\n19987071\n\n\n2\nAfghanistan\n2000\ncases\n2666\n\n\n3\nAfghanistan\n2000\npopulation\n20595360\n\n\n4\nBrazil\n1999\ncases\n37737\n\n\n5\nBrazil\n1999\npopulation\n172006362\n\n\n6\nBrazil\n2000\ncases\n80488\n\n\n7\nBrazil\n2000\npopulation\n174504898\n\n\n8\nChina\n1999\ncases\n212258\n\n\n9\nChina\n1999\npopulation\n1272915272\n\n\n10\nChina\n2000\ncases\n213766"
   },
   {
     "objectID": "T3_TidyData/TidyData.slides.html#example-3",
     "href": "T3_TidyData/TidyData.slides.html#example-3",
     "title": "Tidy Data",
     "section": "Example 3",
-    "text": "Example 3\n\nConsider an industrial engineer who receives a messy Excel file from a manufacturing client. The data file is called “industrial_dataset.xlsx”, which file includes data about machine maintenance logs, production output, and operator comments.\n\nclient_data = pd.read_excel(\"industrial_dataset.xlsx\")\n\nWe use this dataset to illustrate the functions str.split() and str.cat()."
+    "text": "Example 3\n\nConsider an industrial engineer who receives a messy Excel file from a manufacturing client. The data file is called “industrial_dataset.xlsx”, which file includes data about machine maintenance logs, production output, and operator comments.\n\nclient_data = pd.read_excel(\"industrial_dataset.xlsx\")\n\n\nWe use this dataset to illustrate the functions str.split() and str.cat()."
   },
   {
     "objectID": "T3_TidyData/TidyData.slides.html#lets-preview-the-data.",
     "href": "T3_TidyData/TidyData.slides.html#lets-preview-the-data.",
     "title": "Tidy Data",
     "section": "Let’s preview the data.",
-    "text": "Let’s preview the data.\n\n\n# Preview the dataset.\nclient_data.head()\n\n\n\n\n\n\n\n\nMachine ID\nOutput (units)\nMaintenance Date\nOperator\nComment\n\n\n\n\n0\n101\n1200\n2023-01-10\nAna\nok\n\n\n1\n101\n1200\n2023-01-10\nAna\nok\n\n\n2\n102\n1050\n2023-01-12\nBob\nNeeds oil!\n\n\n3\n103\nerror\n2023-01-13\nCharlie\nAll good\\n\n\n\n4\n103\n950\n2023-01-13\nCharlie\nAll good\\n"
+    "text": "Let’s preview the data.\n\nclient_data.head()\n\n\n\n\n\n\n\n\nMachine ID\nOutput (units)\nMaintenance Date\nOperator\nComment\n\n\n\n\n0\n101\n1200\n2023-01-10\nAna\nok\n\n\n1\n101\n1200\n2023-01-10\nAna\nok\n\n\n2\n102\n1050\n2023-01-12\nBob\nNeeds oil!\n\n\n3\n103\nerror\n2023-01-13\nCharlie\nAll good\\n\n\n\n4\n103\n950\n2023-01-13\nCharlie\nAll good\\n"
   },
   {
     "objectID": "T3_TidyData/TidyData.slides.html#separate",
@@ -410,14 +410,14 @@
     "href": "T3_TidyData/TidyData.slides.html#section-9",
     "title": "Tidy Data",
     "section": "",
-    "text": "The column has some values such as “Requires part: valve” and “Delay: maintenance” that we may want to split into columns.\n\n\n0                       ok\n1                       ok\n2               Needs oil!\n3               All good\\n\n4               All good\\n\n              ...         \n95    Requires part: valve\n96                      ok\n97    Delay: maintenance\\n\n98              Needs oil!\n99              All good\\n\nName: Comment, Length: 100, dtype: object"
+    "text": "The wider version of table2 is:\n\n(table2\n.pivot(index = [\"country\", \"year\"], columns = \"type\", values = \"count\")\n.reset_index()\n)\n\n\n\n\n\n\n\ntype\ncountry\nyear\ncases\npopulation\n\n\n\n\n0\nAfghanistan\n1999\n745.0\n1.998707e+07\n\n\n1\nAfghanistan\n2000\n2666.0\n2.059536e+07\n\n\n2\nBrazil\n1999\n37737.0\n1.720064e+08\n\n\n3\nBrazil\n2000\n80488.0\n1.745049e+08\n\n\n4\nChina\n1999\n212258.0\n1.272915e+09\n\n\n5\nChina\n2000\n213766.0\nNaN"
   },
   {
     "objectID": "T3_TidyData/TidyData.slides.html#section-10",
     "href": "T3_TidyData/TidyData.slides.html#section-10",
     "title": "Tidy Data",
     "section": "",
-    "text": "We can split the values in the column according to the colon “:”.\nThat is, everything before the colon will be in a column. Everything after the colon will be in another column. To achieve this, we use the function str.split().\nOne input of the function is the symbol or character for which we cant to make a split. The other input, expand = True tells Python that we want to create new columns.\n\nclient_data['Comment'].str.split(':', expand = True)"
+    "text": "The column has some values such as “Requires part: valve” and “Delay: maintenance” that we may want to split into columns.\n\n\n0                       ok\n1                       ok\n2               Needs oil!\n3               All good\\n\n4               All good\\n\n              ...         \n95    Requires part: valve\n96                      ok\n97    Delay: maintenance\\n\n98              Needs oil!\n99              All good\\n\nName: Comment, Length: 100, dtype: object"
   },
   {
     "objectID": "T3_TidyData/TidyData.slides.html#unite",
@@ -431,7 +431,7 @@
     "href": "T3_TidyData/TidyData.slides.html#section-11",
     "title": "Tidy Data",
     "section": "",
-    "text": "The result is two columns.\n\nsplit_column = client_data['Comment'].str.split(':', expand = True)\nsplit_column.head()\n\n\n\n\n\n\n\n\n0\n1\n\n\n\n\n0\nok\nNone\n\n\n1\nok\nNone\n\n\n2\nNeeds oil!\nNone\n\n\n3\nAll good\\n\nNone\n\n\n4\nAll good\\n\nNone"
+    "text": "We can split the values in the column according to “:”.\n\nThat is, everything before the colon will be in a column. Everything after the colon will be in another column. To achieve this, we use the function str.split().\n\nOne input of the function is the symbol or character for which we cant to make a split. The other input, expand = True tells Python that we want to create new columns.\n\nclient_data['Comment'].str.split(':', expand = True)"
   },
   {
     "objectID": "T3_TidyData/TidyData.slides.html#data-wrangling-1",
@@ -452,21 +452,21 @@
     "href": "T3_TidyData/TidyData.slides.html#section-12",
     "title": "Tidy Data",
     "section": "",
-    "text": "We can assign them to new columns in the dataset using the following code.\n\naugmented_data = (client_data\n                  .assign(First_comment = split_column.filter([0]),\n                  Second_comment = split_column.filter([1]))\n                  )"
+    "text": "The result is two columns.\n\nsplit_column = client_data['Comment'].str.split(':', expand = True)\nsplit_column.head()\n\n\n\n\n\n\n\n\n0\n1\n\n\n\n\n0\nok\nNone\n\n\n1\nok\nNone\n\n\n2\nNeeds oil!\nNone\n\n\n3\nAll good\\n\nNone\n\n\n4\nAll good\\n\nNone"
   },
   {
     "objectID": "T3_TidyData/TidyData.slides.html#section-13",
     "href": "T3_TidyData/TidyData.slides.html#section-13",
     "title": "Tidy Data",
     "section": "",
-    "text": "augmented_data.head()\n\n\n\n\n\n\n\n\nMachine ID\nOutput (units)\nMaintenance Date\nOperator\nComment\nFirst_comment\nSecond_comment\n\n\n\n\n0\n101\n1200\n2023-01-10\nAna\nok\nok\nNone\n\n\n1\n101\n1200\n2023-01-10\nAna\nok\nok\nNone\n\n\n2\n102\n1050\n2023-01-12\nBob\nNeeds oil!\nNeeds oil!\nNone\n\n\n3\n103\nerror\n2023-01-13\nCharlie\nAll good\\n\nAll good\\n\nNone\n\n\n4\n103\n950\n2023-01-13\nCharlie\nAll good\\n\nAll good\\n\nNone"
+    "text": "We can assign them to new columns in the dataset using the following code.\n\naugmented_data = (client_data\n                  .assign(First_comment = split_column.filter([0]),\n                  Second_comment = split_column.filter([1]))\n                  )\naugmented_data.head(4)\n\n\n\n\n\n\n\n\nMachine ID\nOutput (units)\nMaintenance Date\nOperator\nComment\nFirst_comment\nSecond_comment\n\n\n\n\n0\n101\n1200\n2023-01-10\nAna\nok\nok\nNone\n\n\n1\n101\n1200\n2023-01-10\nAna\nok\nok\nNone\n\n\n2\n102\n1050\n2023-01-12\nBob\nNeeds oil!\nNeeds oil!\nNone\n\n\n3\n103\nerror\n2023-01-13\nCharlie\nAll good\\n\nAll good\\n\nNone"
   },
   {
     "objectID": "T3_TidyData/TidyData.slides.html#fill-blank-cells",
     "href": "T3_TidyData/TidyData.slides.html#fill-blank-cells",
     "title": "Tidy Data",
     "section": "Fill blank cells",
-    "text": "Fill blank cells\nIn the dataset, there are columns with missing values. If we would like to fill them with specific values or text, we use the .fillna() function. In this function, we use the syntaxis 'Variable': 'Replace', where the Variable is the column in the dataset and Replace is the text or number to fill the entry in.\nLet’s fill in the missing entries of the columns Operator, Maintenance Date, and Comment.\n\ncomplete_data = (client_data_single\n                .fillna({'Operator': 'Unknown', \n                'Maintenance Date': '2023-01-01',\n                'Comment': 'None'})\n                )"
+    "text": "Fill blank cells\nSometimes there are columns with missing values. If we would like to fill them with a value or text, we use the .fillna() function. In this function, we use the syntaxis 'Variable': 'Replace', where the Variable is the column in the dataset and Replace is the text or number to fill the entry in.\nLet’s fill in the missing entries of the columns Operator, Maintenance Date, and Comment.\n\ncomplete_data = (client_data_single\n                .fillna({'Operator': 'Unknown', \n                'Maintenance Date': '2023-01-01',\n                'Comment': 'None'})\n                )"
   },
   {
     "objectID": "T3_TidyData/TidyData.slides.html#section-14",
@@ -487,7 +487,7 @@
     "href": "T3_TidyData/TidyData.slides.html#section-15",
     "title": "Tidy Data",
     "section": "",
-    "text": "The client_data_single dataframe does not have duplicate rows.\n\nclient_data_single.head()\n\n\n\n\n\n\n\n\nMachine ID\nOutput (units)\nMaintenance Date\nOperator\nComment\n\n\n\n\n0\n101\n1200\n2023-01-10\nAna\nok\n\n\n1\n101\n1200\n2023-01-10\nAna\nok\n\n\n2\n102\n1050\n2023-01-12\nBob\nNeeds oil!\n\n\n3\n103\nerror\n2023-01-13\nCharlie\nAll good\\n\n\n\n4\n103\n950\n2023-01-13\nCharlie\nAll good\\n"
+    "text": "The client_data_single does not have duplicate rows.\n\nclient_data_single.head()\n\n\n\n\n\n\n\n\nMachine ID\nOutput (units)\nMaintenance Date\nOperator\nComment\n\n\n\n\n0\n101\n1200\n2023-01-10\nAna\nok\n\n\n1\n101\n1200\n2023-01-10\nAna\nok\n\n\n2\n102\n1050\n2023-01-12\nBob\nNeeds oil!\n\n\n3\n103\nerror\n2023-01-13\nCharlie\nAll good\\n\n\n\n4\n103\n950\n2023-01-13\nCharlie\nAll good\\n"
   },
   {
     "objectID": "T3_TidyData/TidyData.slides.html#section-16",
@@ -522,7 +522,7 @@
     "href": "T3_TidyData/TidyData.slides.html#section-17",
     "title": "Tidy Data",
     "section": "",
-    "text": "We can replace the “error” in this column by a user-specified value, say, 0. To this end, we use the function .replace(). The function has two inputs. The first one is the value to replace and the second one is the replacement value.\n\ncomplete_data['Output (units)'] = complete_data['Output (units)'].replace('error', 0)"
+    "text": "We can replace the “error” in this column by a user-specified value, say, 0. To this end, we use the function .replace(). The function has two inputs. The first one is the value to replace and the second one is the replacement value.\n\n\ncomplete_data['Output (units)'] = complete_data['Output (units)'].replace('error', 0)"
   },
   {
     "objectID": "T3_TidyData/TidyData.slides.html#section-18",
@@ -2664,14 +2664,14 @@
     "href": "T3_TidyData/TidyData.slides.html#pivot",
     "title": "Tidy Data",
     "section": "pivot()",
-    "text": "pivot()\nThe pivot() function is the opposite of melt(). We use it when an observation is scattered across multiple rows and we want to convert the dataset back to a wide format.\n\nspotify_wide = (spotify_long\n                .pivot(index=\"Date\", columns=\"Song\", values=\"Plays\")\n                .reset_index()\n                )\n\nspotify_wide.head()\n\n\n\n\n\n\n\nSong\nDate\nDespacito\nHUMBLE.\nShape of You\nSomething Just Like This\nUnforgettable\n\n\n\n\n0\n2017-01-06\nNaN\nNaN\n12287078.0\nNaN\nNaN\n\n\n1\n2017-01-07\nNaN\nNaN\n13190270.0\nNaN\nNaN\n\n\n2\n2017-01-08\nNaN\nNaN\n13099919.0\nNaN\nNaN\n\n\n3\n2017-01-09\nNaN\nNaN\n14506351.0\nNaN\nNaN\n\n\n4\n2017-01-10\nNaN\nNaN\n14275628.0\nNaN\nNaN"
+    "text": "pivot()\n\nThe pivot() function is the opposite of melt(). We use it when an observation is scattered across multiple rows and we want to convert the dataset back to a wide format.\n\n\nspotify_wide = (spotify_long\n                .pivot(index=\"Date\", columns=\"Song\", values=\"Plays\")\n                .reset_index()\n                )"
   },
   {
     "objectID": "T3_TidyData/TidyData.slides.html#str.split",
     "href": "T3_TidyData/TidyData.slides.html#str.split",
     "title": "Tidy Data",
     "section": "str.split()",
-    "text": "str.split()\nThe str.split() function separates the contents of one column into multiple columns by splitting the text wherever a separator appears.\nConsider the Comment column.\n\nclient_data['Comment']\n\n0                       ok\n1                       ok\n2               Needs oil!\n3               All good\\n\n4               All good\\n\n              ...         \n95    Requires part: valve\n96                      ok\n97    Delay: maintenance\\n\n98              Needs oil!\n99              All good\\n\nName: Comment, Length: 100, dtype: object"
+    "text": "str.split()\nThe str.split() function separates the contents of one column into multiple columns by splitting the text wherever a separator appears. Consider the Comment column.\n\nclient_data['Comment']\n\n0                       ok\n1                       ok\n2               Needs oil!\n3               All good\\n\n4               All good\\n\n              ...         \n95    Requires part: valve\n96                      ok\n97    Delay: maintenance\\n\n98              Needs oil!\n99              All good\\n\nName: Comment, Length: 100, dtype: object"
   },
   {
     "objectID": "T3_TidyData/TidyData.slides.html#str.cat",
@@ -2714,5 +2714,26 @@
     "title": "Tidy Data",
     "section": "More functions of pandas",
     "text": "More functions of pandas\n\n\nhttps://wesmckinney.com/book/"
+  },
+  {
+    "objectID": "T3_TidyData/TidyData.slides.html#section-21",
+    "href": "T3_TidyData/TidyData.slides.html#section-21",
+    "title": "Tidy Data",
+    "section": "",
+    "text": "We can also remove other characters.\n\naugmented_data['First_comment'].str.strip(\"!\")\n\n0                ok\n1                ok\n2         Needs oil\n3          All good\n4          All good\n          ...      \n95    Requires part\n96               ok\n97            Delay\n98        Needs oil\n99         All good\nName: First_comment, Length: 100, dtype: object"
+  },
+  {
+    "objectID": "T3_TidyData/TidyData.slides.html#common-functions-for-tidy-data",
+    "href": "T3_TidyData/TidyData.slides.html#common-functions-for-tidy-data",
+    "title": "Tidy Data",
+    "section": "Common functions for tidy data",
+    "text": "Common functions for tidy data\nThe pandas library provides several functions for reshaping, organizing, and completing datasets.\n\nHere, we will discuss some of the most common ones:\n\n\n\nPurpose\nFunction 1\nFunction 2\n\n\n\n\nPivoting\nmelt()\npivot()\n\n\nSplitting / Combining\nstr.split()\nstr.cat()\n\n\nMissing values\nfillna()\ndropna()\n\n\nCombining tables\nmerge()\nconcat()"
+  },
+  {
+    "objectID": "T3_TidyData/TidyData.slides.html#the-result",
+    "href": "T3_TidyData/TidyData.slides.html#the-result",
+    "title": "Tidy Data",
+    "section": "The result",
+    "text": "The result\n\nspotify_wide.head()\n\n\n\n\n\n\n\nSong\nDate\nDespacito\nHUMBLE.\nShape of You\nSomething Just Like This\nUnforgettable\n\n\n\n\n0\n2017-01-06\nNaN\nNaN\n12287078.0\nNaN\nNaN\n\n\n1\n2017-01-07\nNaN\nNaN\n13190270.0\nNaN\nNaN\n\n\n2\n2017-01-08\nNaN\nNaN\n13099919.0\nNaN\nNaN\n\n\n3\n2017-01-09\nNaN\nNaN\n14506351.0\nNaN\nNaN\n\n\n4\n2017-01-10\nNaN\nNaN\n14275628.0\nNaN\nNaN"
   }
 ]
