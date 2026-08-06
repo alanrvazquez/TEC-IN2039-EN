@@ -22,22 +22,20 @@ editor: visual
 </br>
 
 1.  HTML Basics
-2.  Web Scraping with the **rvest** package
+2.  Web Scraping using **requests** and **BeautifulSoup**
 3.  Legal and Ethical Issues with Web Scraping
 
 ## Load the libraries
 
 </br></br></br>
 
-Remember to load the R libraries into Google Colab before we start:
+Remember to load the Python libraries into Google Colab before we start:
 
-```{r}
+```{python}
 #| echo: true
 #| output: false
 
-library(readxl)
-library(dplyr)
-library(tidyr)
+import pandas as pd
 ```
 
 # HTML Basics
@@ -50,11 +48,11 @@ WWW (or the Web) is the information system where documents (web pages) are ident
 
 A web page consists of:
 
--   **HTML** provides the basic structure of the web page
+- **HTML** provides the basic structure of the web page
 
--   **CSS** controls the look of the web page (optional)
+- **CSS** controls the look of the web page (optional)
 
--   **JS** is a programming language that can modify the behavior of elements of the web page (optional)
+- **JS** is a programming language that can modify the behavior of elements of the web page (optional)
 
 ## HTML basics
 
@@ -81,26 +79,26 @@ HTML has a hierarchical structure formed by elements which consist of a start ta
 
 There are over 100 HTML elements. Some of the most important are:
 
--   Every HTML page must be in an `<html>` element, and it must have two children:
+- Every HTML page must be in an `<html>` element, and it must have two children:
 
-    -   `<head>` containing document metadata like the page title
-    -   `<body>` containing the content you see in the browser.
+  - `<head>` containing document metadata like the page title
+  - `<body>` containing the content you see in the browser.
 
 ## 
 
 </br>
 
--   Block tags form the overall structure of the page:
-    -   Header 1: `<h1>content</h1>`
-    -   Paragraph: `<p>content</p>`
-    -   Ordered list: `<ol>content</ol>`
+- Block tags form the overall structure of the page:
+  - Header 1: `<h1>content</h1>`
+  - Paragraph: `<p>content</p>`
+  - Ordered list: `<ol>content</ol>`
 
 . . .
 
--   Inline tags that format text inside block tags:
-    -   Bold: `<b>content</b>`
-    -   Italics: `<i>content</i>`
-    -   Links: `<a>content</a>`
+- Inline tags that format text inside block tags:
+  - Bold: `<b>content</b>`
+  - Italics: `<i>content</i>`
+  - Links: `<a>content</a>`
 
 ## Other elements
 
@@ -123,11 +121,11 @@ Most elements can have content (text or more elements) in between their start an
 ```
 
 ::: incremental
--   The `<p>` element is the parent node that contains text and one child element, `<b>`.
+- The `<p>` element is the parent node that contains text and one child element, `<b>`.
 
--   The `<b>` element wraps the word Hadley and gives it bold formatting.
+- The `<b>` element wraps the word Hadley and gives it bold formatting.
 
--   `<b>` has contents (the text “Hadley”) but no children of its own.
+- `<b>` has contents (the text “Hadley”) but no children of its own.
 :::
 
 ## Attributes
@@ -212,13 +210,13 @@ The bar of **SelectorGadget** identifies that the element is a `p` because it is
 
 </br></br>
 
--   HTML files have the extension .html.
+- HTML files have the extension .html.
 
--   They are rendered using a web browser via an URL.
+- They are rendered using a web browser via an URL.
 
--   More information on HTML elements can be found in [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/HTML), which are produced by Mozilla, the company that makes the Firefox web browser.
+- More information on HTML elements can be found in [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/HTML), which are produced by Mozilla, the company that makes the Firefox web browser.
 
-# Web Scraping with the **rvest** package
+# Web Scraping using **requests** and **BeautifulSoup**
 
 ## What is web scraping?
 
@@ -229,37 +227,67 @@ It allows you to collect data that is displayed on web pages but not directly av
 ![](images/web-scraping.png){fig-align="center" width="600" height="300"}
 
 ::: notes
--   Common uses include:
-    -   Collecting product or price information\
-    -   Gathering research or statistical data\
-    -   Monitoring online content changes
+- Common uses include:
+  - Collecting product or price information\
+  - Gathering research or statistical data\
+  - Monitoring online content changes
 :::
 
-## A new library: rvest
+## A new library: requests
+
+:::::: columns
+::: {.column width="30%"}
+![](images/requests_logo.png){fig-align="center" width="264"}
+:::
+
+:::: {.column width="70%"}
+::: {style="font-size: 95%;"}
+- **requests** allows Python to communicate with websites.
+
+- It downloads the HTML code of a webpage so that it can be processed by other libraries.
+
+- It is one of the most widely used libraries for working with web resources in Python.
+
+- <https://requests.readthedocs.io/>
+:::
+::::
+::::::
+
+Load it into Google Colab with the following code.
+
+```{python}
+#| echo: true
+
+import requests
+```
+
+## Another new library: BeautifulSoup
 
 ::::: columns
 ::: {.column width="30%"}
-![](images/rvest_logo.png){fig-align="center" width="200" height="200"}
+![](images/beautifulsuup_logo.png){fig-align="center" width="308" height="138"}
 :::
 
 ::: {.column width="70%"}
--   **rvest** allows you to easily scrape (collect) data from web pages.
+::: {style="font-size: 95%;"}
+- **BeautifulSoup** allows you to easily scrape (collect) information from web pages.
 
--   It helps you extract specific information such as tables, links, and text using simple functions.
+- It extracts HTML elements such as tables, links, headings, and text using simple functions.
 
--   **rvest** is part of the **tidyverse**.
+- BeautifulSoup is one of the most popular web scraping libraries in Python.
 
--   <https://rvest.tidyverse.org/>
+- <https://www.crummy.com/software/BeautifulSoup/>
+:::
 :::
 :::::
 
 Load it to Google Colab with the following code.
 
-```{r}
+```{python}
 #| echo: true
 #| output: false
 
-library(rvest)
+from bs4 import BeautifulSoup
 ```
 
 ## Example 2
@@ -272,14 +300,29 @@ Let's scrape data on the super bowl results and winners. To this end, we will us
 
 </br></br>
 
-Using **rvest**, we load the HTML code of the website using the function `read_html()`.
+Using **requests**, we first download the HTML code of the webpage. 
 
-```{r}
+Then, we use **BeautifulSoup** to parse the HTML document.
+
+```{python}
 #| echo: true
 #| output: true
 
-superbowl_website = read_html("https://www.foxsports.com/nfl-super-bowl-winners-and-results")
-superbowl_website 
+url = "https://www.foxsports.com/nfl-super-bowl-winners-and-results"
+
+response = requests.get(url)
+
+superbowl_website = BeautifulSoup(response.text, "html.parser")
+```
+
+## The output
+
+```{python}
+#| echo: true
+#| output: true
+
+
+superbowl_website
 ```
 
 ## Now, let's inspect the elements using SelectorGadget
@@ -290,16 +333,15 @@ superbowl_website
 
 ## 
 
-We scrape elements of a website stored in `superbowl_website` using the function `html_elements()`.
+We scrape elements of a website stored in `superbowl_website` using the `select()` function.
 
 For example, we can retrieve all paragraph elements (`<p>content<\p>`). To this end, we set the CSS selector to "p".
 
-```{r}
+```{python}
 #| echo: true
-#| output: true
 
-sb_web_p = superbowl_website %>% 
-  html_elements(css = "p")
+sb_web_p = superbowl_website.select("p")
+
 sb_web_p
 ```
 
@@ -309,14 +351,16 @@ sb_web_p
 
 However, the scraped elements are in HTML code.
 
-To turn them into actual text for R, we use the `html_text2()` function.
+To turn them into actual text for Python, we use the `get_text()` function.
 
-```{r}
+```{python}
 #| echo: true
-#| output: true
 
-superbowl_web_paragraph = sb_web_p %>%
-  html_text2()
+superbowl_web_paragraph = [
+    paragraph.get_text(strip=True)
+    for paragraph in sb_web_p
+]
+
 superbowl_web_paragraph
 ```
 
@@ -326,150 +370,183 @@ Now, let's scrape the table with the superbowl data. To this end, we inspect the
 
 ![](images/superbowl_table.png){fig-align="center"}
 
-In this case, the element is `.data-table`.
+In this case, the CSS element is `.data-table`.
 
 ## 
 
-</br></br>
+We retrieve the table using the `select()` function.
 
-We retrieve the data in the table by setting `css = data-table` in the `html_elements()` function.
-
-```{r}
+```{python}
 #| echo: true
-#| output: true
 
-sb_table_data = superbowl_website %>% 
-  html_elements(css = ".data-table")
+sb_table_data = superbowl_website.select(".data-table")
+
 sb_table_data
 ```
 
-Note that we have loaded two tables simultaneously.
+Notice that two HTML tables were retrieved.
 
 ## 
 
-Again, the tables are in HTML format. We can turn them into standard R tables using the function `html_table()`.
+Again, the tables are in HTML format. We can turn them into pandas DataFrames using the function `pd.read_html()` from **pandas**.
 
-```{r}
+```{python}
 #| echo: true
-#| output: true
 
-superbowl_tables = sb_table_data %>% html_table()
+superbowl_tables = pd.read_html(str(sb_table_data))
+
 superbowl_tables
 ```
 
-## 
+## Comments
 
-</br>
+</br></br>
 
-However, the output `superbowl_tables` is not a single table, but several objects included in an R `list()`.
+- The object `superbowl_tables` is not a single table. Instead, it is a Python *list*.
 
-A `list()` in R is a data structure that can store elements of different types, such as numbers, strings, vectors, or even other lists.
-
-It's the most flexible container in R — unlike vectors or data frames, a list can mix various kinds of data in one object.
+- Unlike a DataFrame, a list can contain many different types of objects, such as numbers, strings, dictionaries, or even other DataFrames.
 
 ## 
 
-</br>
+To retrieve one table from the list, we use square brackets.
 
-To retrieve one table, we select the elements of the resulting list `superbowl_tables`. For instance, to display the first table we use...
+For example, the first table is
 
-```{r}
+```{python}
 #| echo: true
-#| output: true
 
-superbowl_tables[[1]] %>%  head()
+superbowl_tables[0].head()
 ```
 
 ## 
 
 </br>
 
-To retrieve the second table, we use...
+The second table is
 
-```{r}
+```{python}
 #| echo: true
-#| output: true
 
-superbowl_tables[[2]] %>%  head()
+superbowl_tables[1].head()
 ```
 
 # 
 
 Let's continue with the table corresponding to the super bowl dates and results.
 
-```{r}
+```{python}
 #| echo: true
-#| output: true
 
-superbowl_data = superbowl_tables[[1]] 
-superbowl_data %>%  head()
+superbowl_data = superbowl_tables[0]
+
+superbowl_data.head()
 ```
 
 ## Data wrangling
 
-To make the data easier to work, we will create a separate column for year. To this end, we use `separate()` from **tidyr**.
+</br></br>
 
-```{r}
+To make the data easier to work with, we will create a separate column for the year.
+
+To do this, we use the `str.split()` function from **pandas**.
+
+```{python}
+#| echo: true
+
+superbowl_data_wr = superbowl_data.copy()
+
+superbowl_data_wr[["Day", "Year"]] = (
+    superbowl_data_wr["DATE"]
+    .str.split(",", expand=True)
+)
+```
+
+##
+
+```{python}
 #| echo: true
 #| output: true
 
-superbowl_data_wr = superbowl_data %>% 
-  separate(DATE, into = c("Day", "Year"), sep = ",")
-superbowl_data_wr %>% head()
+superbowl_data_wr.head()
 ```
 
 ## Be careful...
 
+</br></br>
+
 The new column `Year` is character, so we turn it into numeric using the code below.
 
-```{r}
+```{python}
 #| echo: true
-#| output: true
 
-superbowl_data_wr = superbowl_data_wr %>% 
-  mutate(`Year` = as.numeric(`Year`))
-superbowl_data_wr %>% head()
+superbowl_data_wr["Year"] = (
+    pd.to_numeric(superbowl_data_wr["Year"])
+)
 ```
 
 ## 
+
+</br></br>
 
 Further, let's separate the column `TEAMS & RESULT` into two columns "W Team" and "L Team".
 
-```{r}
+```{python}
 #| echo: true
-#| output: true
 
-superbowl_data_wr = superbowl_data_wr %>% 
-  separate(`TEAMS & RESULT`, into = c("W Team", "L Team"), sep = ",")
-superbowl_data_wr %>% head()
+superbowl_data_wr[["W Team", "L Team"]] = (
+    superbowl_data_wr["TEAMS & RESULT"]
+    .str.split(",", expand=True)
+)
+```
+
+## The result
+
+```{python}
+#| echo: true
+
+superbowl_data_wr.head()
 ```
 
 ## 
 
-</br>
-
+::: {style="font-size: 80%;"}
 After that, we can separate the score of each team into corresponding columns. Note that we must also ensure that the new columns are numeric. All these steps are carried out using the pipeline below.
+:::
 
-```{r}
+```{python}
 #| echo: true
-#| output: true
 
-superbowl_data_final = superbowl_data_wr %>% 
-  separate(`W Team`, into = c("W Team", "W Score"), sep = "(?<=\\D)(?=\\d)") %>% 
-  separate(`L Team`, into = c("L Team", "L Score"), sep = "(?<=\\D)(?=\\d)") %>% 
-  mutate(`W Score` = as.numeric(`W Score`),
-         `L Score` = as.numeric(`L Score`))
+superbowl_data_wr[["W Team", "W Score"]] = (
+    superbowl_data_wr["W Team"]
+    .str.split(r"(?<=\D)(?=\d)", expand=True)
+)
+
+superbowl_data_wr[["L Team", "L Score"]] = (
+    superbowl_data_wr["L Team"]
+    .str.split(r"(?<=\D)(?=\d)", expand=True)
+)
+
+superbowl_data_wr["W Score"] = pd.to_numeric(
+    superbowl_data_wr["W Score"]
+)
+
+superbowl_data_wr["L Score"] = pd.to_numeric(
+    superbowl_data_wr["L Score"]
+)
 ```
 
-> The `sep = "(?<=\\D)(?=\\d)"` tells R that we want to isolate the numbers into a new column.
+## 
+
+</br></br></br>
+
+> The `sep = "(?<=\\D)(?=\\d)"` tells Python that we want to isolate the numbers into a new column.
 
 ## The final dataset
 
-```{r}
+```{python}
 #| echo: true
-#| output: true
 
-superbowl_data_final %>% head(10)
+superbowl_data_wr.head(4)
 ```
 
 ## The web scraping process
@@ -478,9 +555,9 @@ superbowl_data_final %>% head(10)
 
 So, the web scraping process consists of the following steps:
 
-1.  Read the HTML page into R with `read_html()`.
-2.  Extract nodes corresponding to elements of interest with the help of **SelectorGadget** to identify them and functions like `html_elements()`, `html_table()`, `html_node()`, among others.
-3.  Clean up the extracted fields using functions form **stringr**, **dplyr**, and **tidyr**.
+1.  Download the HTML page using `requests.get()` and parse it with **BeautifulSoup**.
+2.  Extract the elements of interest using **SelectorGadget** to identify their CSS selectors and functions such as `select()`, `get_text()`, and `pd.read_html()`.
+3.  Clean and reshape the extracted data using functions from **pandas**.
 
 # Legal and Ethical Issues with Web Scraping
 
@@ -488,11 +565,11 @@ So, the web scraping process consists of the following steps:
 
 When scraping the web you need to be aware of `robots.txt`.
 
--   The robots exclusion standard, also known as the robots exclusion protocol or robots.txt, is a standard used by websites to communicate with web crawlers and other web robots.
+- The robots exclusion standard, also known as the robots exclusion protocol or robots.txt, is a standard used by websites to communicate with web crawlers and other web robots.
 
--   The standard specifies how to inform the web robot about which areas of the website should not be processed or scanned.
+- The standard specifies how to inform the web robot about which areas of the website should not be processed or scanned.
 
--   See more at [Wikipedia](https://en.wikipedia.org/wiki/Robots_exclusion_standard).
+- See more at [Wikipedia](https://en.wikipedia.org/wiki/Robots_exclusion_standard).
 
 ## Essentially, ...
 
@@ -510,75 +587,95 @@ It does not enforce security—well-written bots respect the rules, but maliciou
 ::: {.column width="50%"}
 ![](images/robots_wiki.png){fig-align="center"}
 :::
+
 ::: {.column width="50%"}
 ![](images/robots_fox.png){fig-align="center"}
 :::
-:::
+:::::
 
-## The robotstxt package
+## The urllib.robotparser package
 
-To check if scraping/crawling a specific website is allowed, we use the R package called **robotstxt**. Let's load it into R.
+</br></br>
 
-```{r}
+To check whether scraping or crawling a website is allowed, Python provides the **urllib.robotparser** library.
+
+Let's load it into Google Colab.
+
+```{python}
 #| echo: true
-#| output: true
 
-library(robotstxt)
+from urllib.robotparser import RobotFileParser
 ```
 
 . . .
 
-The package has a function called `paths_allowed()` that tells you whether a website can be scraped or not.
+The `RobotFileParser` class reads a website's `robots.txt` file. We can then use the `can_fetch()` method to determine whether a webpage can be scraped.
 
-. . .
+## Example 3
 
 For instance, let's confirm that we can scrape the website <https://www.foxsports.com/nfl-super-bowl-winners-and-results>
 
-```{r robots}
+```{python}
 #| echo: true
-#| output: true
 
-paths_allowed("https://www.foxsports.com/nfl-super-bowl-winners-and-results")
+robots = RobotFileParser()
+
+robots.set_url("https://www.foxsports.com/robots.txt")
+
+robots.read()
+
+robots.can_fetch(
+    "*",
+    "https://www.foxsports.com/nfl-super-bowl-winners-and-results"
+)
 ```
 
-## When to scrape data form a website?
+## When should we scrape data from a website?
 
 </br></br></br>
 
--   If the output of `paths_allowed()` is `TRUE`, then we "can" scrape data from this website.
--   If the output of `paths_allowed()` is `FALSE`, then [**we cannot scrape data from this website!**]{style="color:darkred;"}
+- If `can_fetch()` returns `True`, then we **can** scrape data from the webpage.
+- If `can_fetch()` returns `False`, then [**we should not scrape data from that webpage.**]{style="color:darkred;"}
 
 ## What abut the industrial engineering Wikipedia site?
 
 </br></br>
 
-```{r}
+```{python}
 #| echo: true
-#| output: true
 
-paths_allowed("https://en.wikipedia.org/wiki/Industrial_engineering")
+robots = RobotFileParser()
+
+robots.set_url("https://en.wikipedia.org/robots.txt")
+
+robots.read()
+
+robots.can_fetch(
+    "*",
+    "https://en.wikipedia.org/wiki/Industrial_engineering"
+)
 ```
 
-The output is `TRUE`, so we are "good" to scrape it.
+The output is `True`, so we are "good" to scrape it.
 
 ## Final comments
 
 </br></br>
 
 ::: incremental
--   A misconception about web data is that if the data is publicly available, it can be scraped.
+- A misconception about web data is that if the data is publicly available, it can be scraped.
 
--   Even if `paths_allowed() = TRUE`, we must consider the privacy and consent when the data is about human subjects, because it may include sensitive information. For more information, reach the [Institutional Research Ethics Committee](https://comiteinstitucionaletica.tec.mx/en).
+- Even if `can_fetch()` returns `True`, we must consider the privacy and consent when the data is about human subjects, because it may include sensitive information. For more information, reach the [Institutional Research Ethics Committee](https://comiteinstitucionaletica.tec.mx/en).
 :::
 
 ## 
 
 </br></br>
 
--   Another thing to consider is the legal aspect of web scraping. Always review the website’s terms of service before collecting data. For example, review the [Wikipedia Terms of Use](https://foundation.wikimedia.org/wiki/Policy:Terms_of_Use) and the [Fox Sports Terms of Use](https://www.foxsports.com/terms-of-use)
+- Another thing to consider is the legal aspect of web scraping. Always review the website’s terms of service before collecting data. For example, review the [Wikipedia Terms of Use](https://foundation.wikimedia.org/wiki/Policy:Terms_of_Use) and the [Fox Sports Terms of Use](https://www.foxsports.com/terms-of-use)
 
 . . .
 
--   Scraping without permission can violate intellectual property rights or privacy regulations, depending on the jurisdiction
+- Scraping without permission can violate intellectual property rights or privacy regulations, depending on the jurisdiction
 
 # [Return to main page](https://alanrvazquez.github.io/TEC-IN2039-EN/)
