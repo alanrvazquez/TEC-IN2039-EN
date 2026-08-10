@@ -58,20 +58,20 @@ Provost, F., & Fawcett, T. (2013). [Data Science for Business: What you need to 
 
 </br>
 
--   Business understanding refers to defining the business problem to be solved.
+- Business understanding refers to defining the business problem to be solved.
 
--   The goal is to reframe the business problem as a data science problem.
+- The goal is to reframe the business problem as a data science problem.
 
--   Often, reframing the problem and designing a solution is an iterative process.
+- Often, reframing the problem and designing a solution is an iterative process.
 
 ## Data understanding
 
 ::: incremental
--   If the goal is to solve a business problem, the data that makes up the raw material available from which the solution will be built.
+- If the goal is to solve a business problem, the data that makes up the raw material available from which the solution will be built.
 
--   The available data rarely matches the problem.
+- The available data rarely matches the problem.
 
--   For example, historical data is often collected for purposes unrelated to the current business problem or for no explicit purpose at all.
+- For example, historical data is often collected for purposes unrelated to the current business problem or for no explicit purpose at all.
 :::
 
 . . .
@@ -201,12 +201,12 @@ Formulate the question of interest or the message you want to convey.
 ::: notes
 El mensaje puede ser una pregunta
 
--   What is the key comparison?
--   How do we emphasize it?
--   Do you have reason to expect that one group/observation might be different?
--   Why might your finding about shape matter?
--   What additional comparison might add value to the investigation?
--   Are there any potentially important features to compare against?
+- What is the key comparison?
+- How do we emphasize it?
+- Do you have reason to expect that one group/observation might be different?
+- Why might your finding about shape matter?
+- What additional comparison might add value to the investigation?
+- Are there any potentially important features to compare against?
 :::
 
 ## ***Principle 2*****: *Turn Data into Information***
@@ -370,11 +370,11 @@ slp_plot + theme_minimal() + theme(text = element_text(size = 15),
 
 ## Why storytelling matters in data visualization?
 
--   Raw data alone is not enough—insights must be communicated effectively.
+- Raw data alone is not enough—insights must be communicated effectively.
 
--   Decision-makers rely on clear, engaging, and meaningful presentations of data.
+- Decision-makers rely on clear, engaging, and meaningful presentations of data.
 
--   Good storytelling connects data to real-world problems and solutions.
+- Good storytelling connects data to real-world problems and solutions.
 
 . . .
 
@@ -400,43 +400,43 @@ For example, a simple bar chart can be enhanced by context and narrative to expl
 
 1.  Introduction (What's the problem?)
 
--   Define the problem or question you’re addressing.
--   Provide relevant background or context.
+- Define the problem or question you’re addressing.
+- Provide relevant background or context.
 
 . . .
 
 2.  Data (How will you solve it?)
 
--   Collected, cleaned, and arranged analyzed data.
--   Provides objective evidence to support claims.
+- Collected, cleaned, and arranged analyzed data.
+- Provides objective evidence to support claims.
 
 ## 
 
 3.  Visuals (What's your solution?)
 
--   Graphs, charts, and maps help translate numbers into meaningful insights (histograms, box plots, line charts, scatter plots, etc.).
--   Highlight key trends, comparisons, and relationships.
--   Good design guides the audience to the key message.
+- Graphs, charts, and maps help translate numbers into meaningful insights (histograms, box plots, line charts, scatter plots, etc.).
+- Highlight key trends, comparisons, and relationships.
+- Good design guides the audience to the key message.
 
 . . .
 
 4.  Narrative (Why does it matter?)
 
--   Puts data into context—explains the significance of findings.
--   Answers: Why does this matter? Who is affected? What should be done?
+- Puts data into context—explains the significance of findings.
+- Answers: Why does this matter? Who is affected? What should be done?
 
 ## Best practices for storytelling
 
 ::: incremental
--   **Know Your Audience** – Tailor the message to decision-makers, engineers, or the public.
+- **Know Your Audience** – Tailor the message to decision-makers, engineers, or the public.
 
--   **Keep it Simple** – Avoid unnecessary complexity; [**clarity is key**]{style="color:darkblue;"}.
+- **Keep it Simple** – Avoid unnecessary complexity; [**clarity is key**]{style="color:darkblue;"}.
 
--   **Use the Right Visuals** – Choose the best chart type for your message.
+- **Use the Right Visuals** – Choose the best chart type for your message.
 
--   **Emphasize Key Takeaways** – Bold the most important insights.
+- **Emphasize Key Takeaways** – Bold the most important insights.
 
--   **Create a Narrative Flow** – Guide the audience through the story step by step.
+- **Create a Narrative Flow** – Guide the audience through the story step by step.
 :::
 
 # General Advice for Effective Presentations
@@ -494,11 +494,11 @@ Start your speech with "By \[insert what you want to accomplish\] you will \[ins
 ::: {style="font-size: 95%;"}
 For example, start with
 
--   *"In this presentation, I’ll show you how sensors and data can help you detect problems before they cause failures, keeping your production line running smoothly."*
+- *"In this presentation, I’ll show you how sensors and data can help you detect problems before they cause failures, keeping your production line running smoothly."*
 
 Instead of
 
--   *"In this presentation, I will explain how I used a random forest algorithm to predict when a machine will fail. I’ll describe my model, the data preprocessing steps, and my evaluation metrics."*
+- *"In this presentation, I will explain how I used a random forest algorithm to predict when a machine will fail. I’ll describe my model, the data preprocessing steps, and my evaluation metrics."*
 :::
 
 ## 3. Present the “so what.”
@@ -510,11 +510,11 @@ Don’t dive straight into details — explain *why it matters* first.
 ::: {style="font-size: 95%;"}
 For example, is better to start with
 
--   *"When a natural disaster disrupts production, companies lose millions of dollars and fail to deliver on time. Supply chain resilience is about designing systems that can recover quickly from these disruptions, keeping customers satisfied."*
+- *"When a natural disaster disrupts production, companies lose millions of dollars and fail to deliver on time. Supply chain resilience is about designing systems that can recover quickly from these disruptions, keeping customers satisfied."*
 
 than
 
--   *"In this project, I analyzed supplier diversification, lead time variability, and network centrality. We used simulation models to measure disruption propagation in the supply chain network."*
+- *"In this project, I analyzed supplier diversification, lead time variability, and network centrality. We used simulation models to measure disruption propagation in the supply chain network."*
 :::
 
 ## 
@@ -561,9 +561,9 @@ Prepare a short presentation (up to 3 minutes) about any topic you’re passiona
 
 **Guidelines**:
 
--   Use slides (PowerPoint, Google Slides, or Canva).\
--   Upload your slides to **CANVAS** before next class.\
--   A few students will be randomly selected to present live.
+- Use slides (PowerPoint, Google Slides, or Canva).\
+- Upload your slides to **CANVAS** before next class.\
+- A few students will be randomly selected to present live.
 
 We won't judge your topic. We’re looking for **clarity, connection, and passion**.
 

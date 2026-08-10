@@ -1,6 +1,6 @@
 ---
 title: "IN2039 Data Visualization for Decision Making"
-subtitle: "Materials for Semester AD 2025"
+subtitle: "Materials for Semester AD 2026"
 author: 
   - name: Alan R. Vazquez
     orcid: 0000-0002-3658-0911
