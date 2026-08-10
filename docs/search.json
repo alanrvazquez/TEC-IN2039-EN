@@ -641,7 +641,7 @@
     "href": "T2_Tools/Tools.slides.html#python-is-strict",
     "title": "Tools for Data Manipulation",
     "section": "Python is strict",
-    "text": "Python is strict\n\nPython, like all programming languages, is very strict. For example, if you write\n\n\nsum([1, 100])\n\n101\n\n\n\nit will tell you the answer, 101.\n\n\n\nBut if you write\n\n\nSum([1, 100])\n\n\n---------------------------------------------------------------------------\nNameError                                 Traceback (most recent call last)\nCell In[103], line 1\n----&gt; 1 Sum([1, 100])\n\nNameError: name 'Sum' is not defined\n\n\n\n\nwith the “s” capitalized, he will act like he has no idea what we are talking about!\n\n\nlo mismo si olvidas incluir un parentesis"
+    "text": "Python is strict\n\nPython, like all programming languages, is very strict. For example, if you write\n\n\nsum([1, 100])\n\n101\n\n\n\nit will tell you the answer, 101.\n\n\n\nBut if you write\n\n\nSum([1, 100])\n\n\n---------------------------------------------------------------------------\nNameError                                 Traceback (most recent call last)\nCell In[105], line 1\n----&gt; 1 Sum([1, 100])\n\nNameError: name 'Sum' is not defined\n\n\n\n\nwith the “s” capitalized, he will act like he has no idea what we are talking about!\n\n\nlo mismo si olvidas incluir un parentesis"
   },
   {
     "objectID": "T2_Tools/Tools.slides.html#save-your-work-in-python-objects",
@@ -2518,5 +2518,12 @@
     "title": "Types of Variables and Univariate Plots",
     "section": "What to look for in a beeswarm plot?",
     "text": "What to look for in a beeswarm plot?\n\n\nClusters of points that reveal dense regions in the distribution.\nAreas where points are more spread out, indicating low-frequency regions.\nGaps along the axis where no observations appear.\nOutliers, visible as isolated points far from the main cluster.\nThe overall shape of the distribution formed by the pattern of points."
+  },
+  {
+    "objectID": "T2_Tools/Tools.slides.html#saving-pandas-dataframes-into-excel",
+    "href": "T2_Tools/Tools.slides.html#saving-pandas-dataframes-into-excel",
+    "title": "Tools for Data Manipulation",
+    "section": "Saving pandas dataframes into Excel",
+    "text": "Saving pandas dataframes into Excel\n\nFinally, we can save the pandas objects into an Excel file using the function .to_excel() as follows.\n\n# mean_penguins_data.to_excel(\"mean_penguins_data.xlsx\")\n\n\n\nOf course, remove the # symbol before running the code."
   }
 ]

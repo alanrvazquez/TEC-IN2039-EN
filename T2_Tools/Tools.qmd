@@ -881,6 +881,23 @@ mean_penguins_data = (penguins_data
 mean_penguins_data
 ```
 
+## Saving pandas dataframes into Excel
+
+</br></br>
+
+Finally, we can save the **pandas** objects into an Excel file using the function `.to_excel()` as follows.
+
+```{python}
+#| eval: true
+#| echo: true
+
+# mean_penguins_data.to_excel("mean_penguins_data.xlsx")
+```
+
+</br>
+
+> Of course, remove the \# symbol before running the code. 
+
 ## More on pandas
 
 ![](images/python_book.jpg){fig-align="center"}
