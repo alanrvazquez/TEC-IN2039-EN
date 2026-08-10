@@ -178,6 +178,7 @@ Functions have two basic parts:
 ::: {style="font-size: 90%;"}
 Python, like all programming languages, is very strict. For example, if you write
 :::
+
 ```{python}
 #| echo: true
 sum([1, 100])
@@ -438,13 +439,13 @@ We often have to find these mistakes through trial and error.
 
 ## Python libraries
 
+</br></br>
+
 Libraries are the fundamental units of reproducible Python code. They include reusable Python functions, documentation describing how to use them, and sample data.
 
 </br>
 
-In this course, we will be working mostly with the following libraries:
-
-- **pandas** for data manipulation and wrangling
+In this course, we will be working mostly with **pandas** for data manipulation and wrangling
 
 # Reading data with pandas
 
@@ -475,7 +476,6 @@ The dataset `penguins.xlsx` contains data from penguins living in three islands.
 ## Alan Vazquez with a gentoo penguin
 
 ![](images/alan_pingu.jpg){fig-align="center"}
-
 
 ## pandas library
 
@@ -889,7 +889,6 @@ mean_penguins_data
 <https://wesmckinney.com/book/>
 :::
 
-
 ## Final remarks
 
 </br>
@@ -901,6 +900,5 @@ mean_penguins_data
 - There are appropriate or designed graphs for visualizing numeric or categorical variables.
 
 - In this course, we will see several graphs for each variable type and their combinations.
-
 
 # [Return to main page](https://alanrvazquez.github.io/TEC-IN2039-EN/)
