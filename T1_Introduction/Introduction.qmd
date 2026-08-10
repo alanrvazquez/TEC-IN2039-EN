@@ -529,7 +529,7 @@ than
 7.  **You are the presentation.** Visuals in PowerPoint reinforce a speaker's message and help the audience key points. However, the presenter should always be the focus of the presentation, not the visuals.
 :::
 
-## 8 End with a call to action
+## 4 End with a call to action
 
 Tell your audience *what you want them to do next.*
 
