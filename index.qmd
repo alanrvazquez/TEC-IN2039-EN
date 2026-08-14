@@ -12,7 +12,7 @@ author:
 
 1.  Introduction ([slides](/T1_Introduction/Introduction.slides.html))
 2.  Tools for Data Manipulation ([slides](/T2_Tools/Tools.slides.html)) ([colab](https://colab.research.google.com/drive/1ROp2vCpFgZ8WbHFS_6bN3O3n2FBmlnEP?usp=sharing)) 
-3.  Tidy Data ([slides](/T3_TidyData/TidyData.slides.html)) ([colab](https://colab.research.google.com/drive/1T5oVH4X2Dth_NLLcUHiD0qC-U7GVtP1y?usp=sharing)) 
+3.  Tidy Data ([slides](/T3_TidyData/TidyData.slides.html)) ([colab](https://colab.research.google.com/drive/16cYGecv-evCSmXgmqSMfHu2Gv0OlEWmt?usp=sharing)) 
 4.  Web Scraping ([slides](/T4_WebScraping/WebScraping.slides.html)) ([colab](https://colab.research.google.com/drive/1TZ8iQPNxYiGgw4wq-3ILxBbtOE2LF0BJ?usp=sharing))
 5.  Introduction to [Flourish Studio](https://flourish.studio/) ([slides](/T5_FlourishStudio/FlourishStudio.slides.html)) ([My First Line Plot](https://public.flourish.studio/visualisation/26339799/)) ([My First Flourish Story](https://public.flourish.studio/story/3455881/))
 6.  Types of variables and univariate plots ([slides](/T6_TypesofVariables/TypesVariables.slides.html)) ([colab](https://colab.research.google.com/drive/1WbCK-anbhreTM3RJPozJK30Ez4un3UUc?usp=sharing))
