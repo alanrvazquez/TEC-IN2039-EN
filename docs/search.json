@@ -396,21 +396,21 @@
     "href": "T3_TidyData/TidyData.slides.html#example-3",
     "title": "Tidy Data",
     "section": "Example 3",
-    "text": "Example 3\n\nConsider an industrial engineer who receives a messy Excel file from a manufacturing client. The data file is called “industrial_dataset.xlsx”, which file includes data about machine maintenance logs, production output, and operator comments.\n\nclient_data = pd.read_excel(\"industrial_dataset.xlsx\")\n\n\nWe use this dataset to illustrate the functions str.split() and str.cat()."
+    "text": "Example 3\n\nConsider an industrial engineer who receives a messy Excel file from a manufacturing client. The data file is called “industrial_dataset.xlsx”, which file includes data about machine maintenance logs, production output, and operator comments.\n\nindustrial_data = pd.read_excel(\"industrial_dataset.xlsx\")\n\n\nWe use this dataset to illustrate the functions str.split() and str.cat()."
   },
   {
     "objectID": "T3_TidyData/TidyData.slides.html#lets-preview-the-data.",
     "href": "T3_TidyData/TidyData.slides.html#lets-preview-the-data.",
     "title": "Tidy Data",
     "section": "Let’s preview the data.",
-    "text": "Let’s preview the data.\n\nclient_data.head()\n\n\n\n\n\n\n\n\nMachine ID\nOutput (units)\nMaintenance Date\nOperator\nComment\n\n\n\n\n0\n101\n1200\n2023-01-10\nAna\nok\n\n\n1\n101\n1200\n2023-01-10\nAna\nok\n\n\n2\n102\n1050\n2023-01-12\nBob\nNeeds oil!\n\n\n3\n103\nerror\n2023-01-13\nCharlie\nAll good\\n\n\n\n4\n103\n950\n2023-01-13\nCharlie\nAll good\\n"
+    "text": "Let’s preview the data.\n\nindustrial_data.head()\n\n\n\n\n\n\n\n\nMachine ID\nOutput (units)\nMaintenance Date\nOperator\nComment\n\n\n\n\n0\n101\n1200\n2023-01-10\nAna\nok\n\n\n1\n101\n1200\n2023-01-10\nAna\nok\n\n\n2\n102\n1050\n2023-01-12\nBob\nNeeds oil!\n\n\n3\n103\nerror\n2023-01-13\nCharlie\nAll good\\n\n\n\n4\n103\n950\n2023-01-13\nCharlie\nAll good\\n"
   },
   {
     "objectID": "T3_TidyData/TidyData.slides.html#str.split",
     "href": "T3_TidyData/TidyData.slides.html#str.split",
     "title": "Tidy Data",
     "section": "str.split()",
-    "text": "str.split()\nThe str.split() function separates the contents of one column into multiple columns by splitting the text wherever a separator appears. Consider the Comment column.\n\nclient_data['Comment']\n\n0                       ok\n1                       ok\n2               Needs oil!\n3               All good\\n\n4               All good\\n\n              ...         \n95    Requires part: valve\n96                      ok\n97    Delay: maintenance\\n\n98              Needs oil!\n99              All good\\n\nName: Comment, Length: 100, dtype: object"
+    "text": "str.split()\nThe str.split() function separates the contents of one column into multiple columns by splitting the text wherever a separator appears. Consider the Comment column.\n\nindustrial_data['Comment']\n\n0                       ok\n1                       ok\n2               Needs oil!\n3               All good\\n\n4               All good\\n\n              ...         \n95    Requires part: valve\n96                      ok\n97    Delay: maintenance\\n\n98              Needs oil!\n99              All good\\n\nName: Comment, Length: 100, dtype: object"
   },
   {
     "objectID": "T3_TidyData/TidyData.slides.html#section-10",
@@ -424,35 +424,35 @@
     "href": "T3_TidyData/TidyData.slides.html#section-11",
     "title": "Tidy Data",
     "section": "",
-    "text": "We can split the values in the column according to “:”.\n\nThat is, everything before the colon will be in a column. Everything after the colon will be in another column. To achieve this, we use the function str.split().\n\nOne input of the function is the symbol or character for which we cant to make a split. The other input, expand = True tells Python that we want to create new columns.\n\nclient_data['Comment'].str.split(':', expand = True)"
+    "text": "We can split the values in the column according to “:”.\n\nThat is, everything before the colon will be in a column. Everything after the colon will be in another column. To achieve this, we use the function str.split().\n\nOne input of the function is the symbol or character for which we cant to make a split. The other input, expand = True tells Python that we want to create new columns.\n\nindustrial_data['Comment'].str.split(':', expand = True)"
   },
   {
     "objectID": "T3_TidyData/TidyData.slides.html#section-12",
     "href": "T3_TidyData/TidyData.slides.html#section-12",
     "title": "Tidy Data",
     "section": "",
-    "text": "The result is two columns.\n\nsplit_column = client_data['Comment'].str.split(':', expand = True)\nsplit_column.head()\n\n\n\n\n\n\n\n\n0\n1\n\n\n\n\n0\nok\nNone\n\n\n1\nok\nNone\n\n\n2\nNeeds oil!\nNone\n\n\n3\nAll good\\n\nNone\n\n\n4\nAll good\\n\nNone"
+    "text": "The result is two columns.\n\nsplit_column = industrial_data['Comment'].str.split(':', expand = True)\nsplit_column.head()\n\n\n\n\n\n\n\n\n0\n1\n\n\n\n\n0\nok\nNone\n\n\n1\nok\nNone\n\n\n2\nNeeds oil!\nNone\n\n\n3\nAll good\\n\nNone\n\n\n4\nAll good\\n\nNone"
   },
   {
     "objectID": "T3_TidyData/TidyData.slides.html#section-13",
     "href": "T3_TidyData/TidyData.slides.html#section-13",
     "title": "Tidy Data",
     "section": "",
-    "text": "We can assign them to new columns in the dataset using the following code.\n\naugmented_data = (client_data\n                  .assign(First_comment = split_column.filter([0]),\n                  Second_comment = split_column.filter([1]))\n                  )\naugmented_data.head(4)\n\n\n\n\n\n\n\n\nMachine ID\nOutput (units)\nMaintenance Date\nOperator\nComment\nFirst_comment\nSecond_comment\n\n\n\n\n0\n101\n1200\n2023-01-10\nAna\nok\nok\nNone\n\n\n1\n101\n1200\n2023-01-10\nAna\nok\nok\nNone\n\n\n2\n102\n1050\n2023-01-12\nBob\nNeeds oil!\nNeeds oil!\nNone\n\n\n3\n103\nerror\n2023-01-13\nCharlie\nAll good\\n\nAll good\\n\nNone"
+    "text": "We can assign them to new columns in the dataset using the following code.\n\naugmented_data = (industrial_data\n                  .assign(First_comment = split_column.filter([0]),\n                  Second_comment = split_column.filter([1]))\n                  )\naugmented_data.head(4)\n\n\n\n\n\n\n\n\nMachine ID\nOutput (units)\nMaintenance Date\nOperator\nComment\nFirst_comment\nSecond_comment\n\n\n\n\n0\n101\n1200\n2023-01-10\nAna\nok\nok\nNone\n\n\n1\n101\n1200\n2023-01-10\nAna\nok\nok\nNone\n\n\n2\n102\n1050\n2023-01-12\nBob\nNeeds oil!\nNeeds oil!\nNone\n\n\n3\n103\nerror\n2023-01-13\nCharlie\nAll good\\n\nAll good\\n\nNone"
   },
   {
     "objectID": "T3_TidyData/TidyData.slides.html#str.cat",
     "href": "T3_TidyData/TidyData.slides.html#str.cat",
     "title": "Tidy Data",
     "section": "str.cat()",
-    "text": "str.cat()\n\nThe str.cat() function performs the opposite operation. It combines multiple text columns into a single column.\n\ncombined_column = (augmented_data[\"First_comment\"]\n                  .str.cat(augmented_data[\"Second_comment\"], sep=\": \")\n                  )\n\ncombined_data = (augmented_data\n                .assign(Comment = combined_column)\n                .drop([\"First_comment\", \"Second_comment\"], axis = 1)\n                )\n\nThe first object is the column that starts the concatenation, and the remaining columns are added using str.cat()."
+    "text": "str.cat()\n\nThe str.cat() function performs the opposite operation. It combines multiple text columns into a single column.\n\ncombined_column = (augmented_data[\"First_comment\"]\n                  .str.cat(augmented_data[\"Second_comment\"], sep=\": \")\n                  )\n\nThe first object is the column that starts the concatenation, and the remaining columns are added using str.cat()."
   },
   {
     "objectID": "T3_TidyData/TidyData.slides.html#section-14",
     "href": "T3_TidyData/TidyData.slides.html#section-14",
     "title": "Tidy Data",
     "section": "",
-    "text": "The result.\n\n(combined_data\n.filter([\"Comment\"], axis = 1)\n)\n\n\n\n\n\n\n\n\nComment\n\n\n\n\n0\nNaN\n\n\n1\nNaN\n\n\n2\nNaN\n\n\n3\nNaN\n\n\n4\nNaN\n\n\n...\n...\n\n\n95\nRequires part: valve\n\n\n96\nNaN\n\n\n97\nDelay: maintenance\\n\n\n\n98\nNaN\n\n\n99\nNaN\n\n\n\n\n100 rows × 1 columns"
+    "text": "The result is in the combined_data dataframe.\n\ncombined_data[\"Comment\"]\n\n0                       NaN\n1                       NaN\n2                       NaN\n3                       NaN\n4                       NaN\n              ...          \n95    Requires part:  valve\n96                      NaN\n97    Delay:  maintenance\\n\n98                      NaN\n99                      NaN\nName: Comment, Length: 100, dtype: object"
   },
   {
     "objectID": "T3_TidyData/TidyData.slides.html#data-wrangling",
@@ -466,21 +466,21 @@
     "href": "T3_TidyData/TidyData.slides.html#remove-duplicate-rows",
     "title": "Tidy Data",
     "section": "Remove duplicate rows",
-    "text": "Remove duplicate rows\n\nDuplicate or identical rows are rows that have the same entries in every column in the dataset.\nIf only one row is needed for the analysis, we can remove the duplicates using the .drop_duplicates() function.\n\nclient_data_single = (client_data\n                     .drop_duplicates()\n                      )"
+    "text": "Remove duplicate rows\n\nDuplicate or identical rows are rows that have the same entries in every column in the dataset.\nIf only one row is needed for the analysis, we can remove the duplicates using the .drop_duplicates() function.\n\nindustrial_data_single = (industrial_data\n                     .drop_duplicates()\n                      )"
   },
   {
     "objectID": "T3_TidyData/TidyData.slides.html#section-15",
     "href": "T3_TidyData/TidyData.slides.html#section-15",
     "title": "Tidy Data",
     "section": "",
-    "text": "The client_data_single does not have duplicate rows.\n\nclient_data_single.head()\n\n\n\n\n\n\n\n\nMachine ID\nOutput (units)\nMaintenance Date\nOperator\nComment\n\n\n\n\n0\n101\n1200\n2023-01-10\nAna\nok\n\n\n1\n101\n1200\n2023-01-10\nAna\nok\n\n\n2\n102\n1050\n2023-01-12\nBob\nNeeds oil!\n\n\n3\n103\nerror\n2023-01-13\nCharlie\nAll good\\n\n\n\n4\n103\n950\n2023-01-13\nCharlie\nAll good\\n"
+    "text": "The industrial_data_single does not have duplicate rows.\n\nindustrial_data_single.head()\n\n\n\n\n\n\n\n\nMachine ID\nOutput (units)\nMaintenance Date\nOperator\nComment\n\n\n\n\n0\n101\n1200\n2023-01-10\nAna\nok\n\n\n1\n101\n1200\n2023-01-10\nAna\nok\n\n\n2\n102\n1050\n2023-01-12\nBob\nNeeds oil!\n\n\n3\n103\nerror\n2023-01-13\nCharlie\nAll good\\n\n\n\n4\n103\n950\n2023-01-13\nCharlie\nAll good\\n"
   },
   {
     "objectID": "T3_TidyData/TidyData.slides.html#fill-blank-cells",
     "href": "T3_TidyData/TidyData.slides.html#fill-blank-cells",
     "title": "Tidy Data",
     "section": "Fill blank cells",
-    "text": "Fill blank cells\nSometimes there are columns with missing values. If we would like to fill them with a value or text, we use the .fillna() function. In this function, we use the syntaxis 'Variable': 'Replace', where the Variable is the column in the dataset and Replace is the text or number to fill the entry in.\nLet’s fill in the missing entries of the columns Operator, Maintenance Date, and Comment.\n\ncomplete_data = (client_data_single\n                .fillna({'Operator': 'Unknown', \n                'Maintenance Date': '2023-01-01',\n                'Comment': 'None'})\n                )"
+    "text": "Fill blank cells\nSometimes there are columns with missing values. If we would like to fill them with a value or text, we use the .fillna() function. In this function, we use the syntaxis 'Variable': 'Replace', where the Variable is the column in the dataset and Replace is the text or number to fill the entry in.\nLet’s fill in the missing entries of the columns Operator, Maintenance Date, and Comment.\n\ncomplete_data = (industrial_data_single\n                .fillna({'Operator': 'Unknown', \n                'Maintenance Date': '2023-01-01',\n                'Comment': 'None'})\n                )"
   },
   {
     "objectID": "T3_TidyData/TidyData.slides.html#section-16",
@@ -2525,5 +2525,12 @@
     "title": "Types of Variables and Univariate Plots",
     "section": "What to look for in a beeswarm plot?",
     "text": "What to look for in a beeswarm plot?\n\n\nClusters of points that reveal dense regions in the distribution.\nAreas where points are more spread out, indicating low-frequency regions.\nGaps along the axis where no observations appear.\nOutliers, visible as isolated points far from the main cluster.\nThe overall shape of the distribution formed by the pattern of points."
+  },
+  {
+    "objectID": "T3_TidyData/TidyData.slides.html#remove-columns-with-drop",
+    "href": "T3_TidyData/TidyData.slides.html#remove-columns-with-drop",
+    "title": "Tidy Data",
+    "section": "Remove columns with drop()",
+    "text": "Remove columns with drop()\n\nNext, we add the new column to the original dataset and remove the other columns First_comment and Second_comment using the function drop() from pandas.\n\ncombined_data = (augmented_data\n                .assign(Comment = combined_column)\n                .drop([\"First_comment\", \"Second_comment\"], axis = 1)\n                )"
   }
 ]

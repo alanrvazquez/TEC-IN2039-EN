@@ -333,7 +333,7 @@ Consider an industrial engineer who receives a messy Excel file from a manufactu
 ```{python}
 #| echo: true
 
-client_data = pd.read_excel("industrial_dataset.xlsx")
+industrial_data = pd.read_excel("industrial_dataset.xlsx")
 ```
 
 </br>
@@ -345,7 +345,7 @@ We use this dataset to illustrate the functions `str.split()` and `str.cat()`.
 ```{python}
 #| echo: true
 
-client_data.head()
+industrial_data.head()
 ```
 
 ## `str.split()`
@@ -355,7 +355,7 @@ The `str.split()` function separates the contents of one column into multiple co
 ```{python}
 #| echo: true
 
-client_data['Comment']
+industrial_data['Comment']
 ```
 
 ## 
@@ -368,7 +368,7 @@ The column has some values such as "Requires part: valve" and "Delay: maintenanc
 #| echo: false
 #| output: true
 
-client_data['Comment']
+industrial_data['Comment']
 ```
 
 ## 
@@ -387,7 +387,7 @@ One input of the function is the symbol or character for which we cant to make a
 #| echo: true
 #| output: false
 
-client_data['Comment'].str.split(':', expand = True)
+industrial_data['Comment'].str.split(':', expand = True)
 ```
 
 ## 
@@ -400,7 +400,7 @@ The result is two columns.
 #| echo: true
 #| output: true
 
-split_column = client_data['Comment'].str.split(':', expand = True)
+split_column = industrial_data['Comment'].str.split(':', expand = True)
 split_column.head()
 ```
 
@@ -412,7 +412,7 @@ We can assign them to new columns in the dataset using the following code.
 #| echo: true
 #| output: true
 
-augmented_data = (client_data
+augmented_data = (industrial_data
                   .assign(First_comment = split_column.filter([0]),
                   Second_comment = split_column.filter([1]))
                   )
@@ -421,7 +421,7 @@ augmented_data.head(4)
 
 ## `str.cat()`
 
-</br>
+</br></br>
 
 The `str.cat()` function performs the opposite operation. It combines multiple text columns into a single column.
 
@@ -431,6 +431,18 @@ The `str.cat()` function performs the opposite operation. It combines multiple t
 combined_column = (augmented_data["First_comment"]
                   .str.cat(augmented_data["Second_comment"], sep=": ")
                   )
+```
+
+The first object is the column that starts the concatenation, and the remaining columns are added using `str.cat()`.
+
+## Remove columns with `drop()`
+
+</br></br>
+
+Next, we add the new column to the original dataset and remove the other columns `First_comment` and `Second_comment` using the function `drop()` from **pandas**.
+
+```{python}
+#| echo: true
 
 combined_data = (augmented_data
                 .assign(Comment = combined_column)
@@ -438,18 +450,16 @@ combined_data = (augmented_data
                 )
 ```
 
-The first object is the column that starts the concatenation, and the remaining columns are added using `str.cat()`.
-
 ## 
 
-The result.
+</br></br>
+
+The result is in the `combined_data` dataframe.
 
 ```{python}
 #| echo: true
 
-(combined_data
-.filter(["Comment"], axis = 1)
-)
+combined_data["Comment"]
 ```
 
 # Basic data wrangling
@@ -475,19 +485,19 @@ If only one row is needed for the analysis, we can remove the duplicates using t
 ```{python}
 #| echo: true
 
-client_data_single = (client_data
+industrial_data_single = (industrial_data
                      .drop_duplicates()
                       )
 ```
 
 ## 
 
-The `client_data_single` does not have duplicate rows.
+The `industrial_data_single` does not have duplicate rows.
 
 ```{python}
 #| echo: true
 
-client_data_single.head()
+industrial_data_single.head()
 ```
 
 ## Fill blank cells
@@ -499,7 +509,7 @@ Let's fill in the missing entries of the columns `Operator`, `Maintenance Date`,
 ```{python}
 #| echo: true
 
-complete_data = (client_data_single
+complete_data = (industrial_data_single
                 .fillna({'Operator': 'Unknown', 
                 'Maintenance Date': '2023-01-01',
                 'Comment': 'None'})
