@@ -298,7 +298,7 @@
     "href": "T3_TidyData/TidyData.slides.html#section-4",
     "title": "Tidy Data",
     "section": "",
-    "text": "Consider another version:\n\n\n\n\n\n\n\n\n\ncountry\nyear\ntype\ncount\n\n\n\n\n0\nAfghanistan\n1999\ncases\n745\n\n\n1\nAfghanistan\n1999\npopulation\n19987071\n\n\n2\nAfghanistan\n2000\ncases\n2666\n\n\n3\nAfghanistan\n2000\npopulation\n20595360\n\n\n4\nBrazil\n1999\ncases\n37737\n\n\n5\nBrazil\n1999\npopulation\n172006362\n\n\n6\nBrazil\n2000\ncases\n80488\n\n\n7\nBrazil\n2000\npopulation\n174504898\n\n\n8\nChina\n1999\ncases\n212258\n\n\n9\nChina\n1999\npopulation\n1272915272\n\n\n10\nChina\n2000\ncases\n213766\n\n\n\n\n\n\n\nNot tidy because the last column is a summary statistic (count) of two variables."
+    "text": "Consider another version:\n\n\n\n\n\n\n\n\n\ncountry\nyear\ntype\ncount\n\n\n\n\n0\nAfghanistan\n1999\ncases\n745\n\n\n1\nAfghanistan\n1999\npopulation\n19987071\n\n\n2\nAfghanistan\n2000\ncases\n2666\n\n\n3\nAfghanistan\n2000\npopulation\n20595360\n\n\n4\nBrazil\n1999\ncases\n37737\n\n\n5\nBrazil\n1999\npopulation\n172006362\n\n\n\n\n\n\n\nNot tidy because the last column is a summary statistic (count) of two variables."
   },
   {
     "objectID": "T3_TidyData/TidyData.slides.html#section-5",
@@ -347,7 +347,7 @@
     "href": "T3_TidyData/TidyData.slides.html#melt",
     "title": "Tidy Data",
     "section": "melt()",
-    "text": "melt()\nA common problem is a dataset where some of the column names are not names of variables, but values of a variable.\nThe melt() function transforms columns into rows (converts data from wide to long format). Let’s apply it to spotify_data.\n\nspotify_long = (spotify_data\n                .melt(id_vars=[\"Date\"],\n                value_vars=[\"Shape of You\", \"Despacito\", \n                \"Something Just Like This\", \"HUMBLE.\", \"Unforgettable\"],\n                var_name=\"Song\",\n                value_name=\"Plays\"\n                )\n                )"
+    "text": "melt()\nA common problem is a dataset where some of the column names are not names of variables, but values of a variable.\nThe melt() function transforms columns into rows (converts data from wide to long format). Let’s apply it to spotify_data.\n\nspotify_long = (spotify_data\n                .melt(id_vars=[\"Date\"],\n                value_vars=[\"Shape of You\", \"Despacito\", \n                \"Something Just Like This\", \"HUMBLE.\", \"Unforgettable\"],\n                var_name=\"Song\",\n                value_name=\"Plays\")\n                )"
   },
   {
     "objectID": "T3_TidyData/TidyData.slides.html#remark-on-column-names",

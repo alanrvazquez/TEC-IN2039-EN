@@ -59,7 +59,7 @@ table4b = pd.read_excel("sample_tables.xlsx", sheet_name = "table4b")
 
 ## 
 
-</br>
+</br></br>
 
 1.  [**Import:**]{style="color:darkblue;"} Bring raw data into Python.
 2.  [**Tidy:**]{style="color:darkblue;"} Reshape into a consistent format.
@@ -70,7 +70,7 @@ table4b = pd.read_excel("sample_tables.xlsx", sheet_name = "table4b")
 
 ## 
 
-</br>
+</br></br>
 
 1.  [**Import:**]{style="color:darkblue;"} Bring raw data into Python. (**pandas**)
 2.  [**Tidy:**]{style="color:darkblue;"} Reshape into a consistent format. (**pandas**)
@@ -130,7 +130,7 @@ Consider four datasets with the same values of four variables `country`, `year`,
 table1
 ```
 
-##
+## 
 
 </br>
 
@@ -149,7 +149,7 @@ Consider another version:
 ```{python}
 #| echo: false
 
-table2
+table2.head(6)
 ```
 
 [Not *tidy* because the last column is a summary statistic (`count`) of two variables.]{style="color:purple;"}
@@ -251,8 +251,7 @@ spotify_long = (spotify_data
                 value_vars=["Shape of You", "Despacito", 
                 "Something Just Like This", "HUMBLE.", "Unforgettable"],
                 var_name="Song",
-                value_name="Plays"
-                )
+                value_name="Plays")
                 )
 ```
 
@@ -419,7 +418,6 @@ augmented_data = (client_data
                   )
 augmented_data.head(4)
 ```
-
 
 ## `str.cat()`
 
