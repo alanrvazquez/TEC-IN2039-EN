@@ -219,7 +219,7 @@ Consider the data in the file "spotify.xlsx". This dataset contains the global d
 
 </br>
 
-Let's read the dataset using the `read_excel()` function from the **pandas** library.
+Let's read the dataset using the `.read_excel()` function from the **pandas** library.
 
 ```{python}
 #| echo: true
@@ -237,11 +237,11 @@ Let's preview the dataset.
 spotify_data.head(3)
 ```
 
-## `melt()`
+## `.melt()`
 
 A common problem is a dataset where some of the column names are not names of variables, but *values* of a variable.
 
-The `melt()` function transforms columns into rows (converts data from **wide** to **long** format). Let's apply it to `spotify_data`.
+The `.melt()` function transforms columns into rows (converts data from **wide** to **long** format). Let's apply it to `spotify_data`.
 
 ```{python}
 #| echo: true
@@ -276,11 +276,11 @@ For example, columns such as `"Shape of You"` or `"Something Just Like This"` ca
 spotify_long.head(4)
 ```
 
-## `pivot()`
+## `.pivot()`
 
 </br></br>
 
-The `pivot()` function is the opposite of `melt()`. We use it when an observation is scattered across multiple rows and we want to convert the dataset back to a *wide* format.
+The `.pivot()` function is the opposite of `melt()`. We use it when an observation is scattered across multiple rows and we want to convert the dataset back to a *wide* format.
 
 </br>
 
@@ -301,29 +301,6 @@ spotify_wide = (spotify_long
 spotify_wide.head()
 ```
 
-## 
-
-We can also apply `pivot()` to the `table2` dataset from the previous section.
-
-```{python}
-#| echo: true
-
-table2
-```
-
-## 
-
-The wider version of `table2` is:
-
-```{python}
-#| echo: true
-
-(table2
-.pivot(index = ["country", "year"], columns = "type", values = "count")
-.reset_index()
-)
-```
-
 ## Example 3
 
 </br>
@@ -338,7 +315,7 @@ industrial_data = pd.read_excel("industrial_dataset.xlsx")
 
 </br>
 
-We use this dataset to illustrate the functions `str.split()` and `str.cat()`.
+We use this dataset to illustrate the functions `.str.split()` and `.str.cat()`.
 
 ## Let's preview the data.
 
@@ -348,9 +325,9 @@ We use this dataset to illustrate the functions `str.split()` and `str.cat()`.
 industrial_data.head()
 ```
 
-## `str.split()`
+## `.str.split()`
 
-The `str.split()` function separates the contents of one column into multiple columns by splitting the text wherever a separator appears. Consider the `Comment` column.
+The `.str.split()` function separates the contents of one column into multiple columns by splitting the text wherever a separator appears. Consider the `Comment` column.
 
 ```{python}
 #| echo: true
@@ -377,7 +354,7 @@ We can split the values in the column according to ":".
 
 </br>
 
-That is, everything before the colon will be in a column. Everything after the colon will be in another column. To achieve this, we use the function `str.split()`.
+That is, everything before the colon will be in a column. Everything after the colon will be in another column. To achieve this, we use the function `.str.split()`.
 
 </br>
 
@@ -419,11 +396,11 @@ augmented_data = (industrial_data
 augmented_data.head(4)
 ```
 
-## `str.cat()`
+## `.str.cat()`
 
 </br></br>
 
-The `str.cat()` function performs the opposite operation. It combines multiple text columns into a single column.
+The `.str.cat()` function performs the opposite operation. It combines multiple text columns into a single column.
 
 ```{python}
 #| echo: true
@@ -435,11 +412,11 @@ combined_column = (augmented_data["First_comment"]
 
 The first object is the column that starts the concatenation, and the remaining columns are added using `str.cat()`.
 
-## Remove columns with `drop()`
+## Remove columns with `.drop()`
 
 </br></br>
 
-Next, we add the new column to the original dataset and remove the other columns `First_comment` and `Second_comment` using the function `drop()` from **pandas**.
+Next, we add the new column to the original dataset and remove the other columns `First_comment` and `Second_comment` using the function `.drop()` from **pandas**.
 
 ```{python}
 #| echo: true
@@ -502,7 +479,26 @@ industrial_data_single.head()
 
 ## Fill blank cells
 
-Sometimes there are columns with missing values. If we would like to fill them with a value or text, we use the `.fillna()` function. In this function, we use the syntaxis `'Variable': 'Replace'`, where the `Variable` is the column in the dataset and `Replace` is the text or number to fill the entry in.
+
+:::::: columns
+::: {.column width="70%"}
+Sometimes there are columns with missing values. [In Python, missing values are denoted by `NaN` (*Not a Number*).]{style="color:purple;"} 
+
+If we would like to fill them with a value or text, we use the `.fillna()` function. In this function, we use the syntaxis `'Variable': 'Replace'`, where the `Variable` is the column in the dataset and `Replace` is the text or number to fill the entry in.
+:::
+::: {.column width="30%"}
+```{python}
+#| echo: true
+#| code-fold: true
+
+industrial_data_single['Operator'].head(10)
+```
+:::
+:::
+
+## 
+
+</br></br></br>
 
 Let's fill in the missing entries of the columns `Operator`, `Maintenance Date`, and `Comment`.
 
@@ -542,26 +538,30 @@ The column has the numbers of units but also text such as "error".
 
 </br>
 
-We can replace the "error" in this column by a user-specified value, say, 0. To this end, we use the function `.replace()`. The function has two inputs. The first one is the value to replace and the second one is the replacement value.
+We can replace the "error" in this column by a user-specified value, say, `NaN`. To this end, we use the function `.replace()`. The function has two inputs. The first one is the value to replace and the second one is the replacement value.
 
 </br>
 
 ```{python}
 #| echo: true
 
-complete_data['Output (units)'] = complete_data['Output (units)'].replace('error', 0)
+complete_data['Output (units)'] = complete_data['Output (units)'].replace('error', float('nan'))
 ```
+
+</br>
+
+> The `float('nan')` allows the column to be numeric.
 
 ## 
 
 </br>
 
-Let's check the new column.
+Let's check the new column's information.
 
 ```{python}
 #| echo: true
 
-complete_data['Output (units)']
+complete_data['Output (units)'].info()
 ```
 
 Note that the new column is now numeric.
@@ -572,7 +572,7 @@ Note that the new column is now numeric.
 
 Something that we notice is that the column `First_Comment` has some extra characters like "\n" that may be useless when working with the data.
 
-We can remove them using the function `str.strip()`. The input of the function is the character to remove.
+We can remove them using the function `.str.strip()`. The input of the function is the character to remove.
 
 ```{python}
 #| echo: true
