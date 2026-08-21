@@ -228,7 +228,7 @@ Alan R. Vazquez
 <h2>Load the libraries</h2>
 <p><br><br><br></p>
 <p>Remember to load the Python libraries into Google Colab before we start:</p>
-<div id="8d2b8dbd" class="cell" data-execution_count="1">
+<div id="9fb2072f" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a></a><span class="im">import</span> pandas <span class="im">as</span> pd</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
@@ -466,7 +466,7 @@ Alan R. Vazquez
 </div>
 </div></div>
 <p>Load it into Google Colab with the following code.</p>
-<div id="b1518881" class="cell" data-execution_count="2">
+<div id="1299b94e" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a></a><span class="im">import</span> requests</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
@@ -490,7 +490,7 @@ Alan R. Vazquez
 </div>
 </div></div>
 <p>Load it to Google Colab with the following code.</p>
-<div id="0cfff413" class="cell" data-execution_count="3">
+<div id="0f20a288" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a></a><span class="im">from</span> bs4 <span class="im">import</span> BeautifulSoup</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
@@ -504,7 +504,7 @@ Alan R. Vazquez
 <p><br><br></p>
 <p>Using <strong>requests</strong>, we first download the HTML code of the webpage.</p>
 <p>Then, we use <strong>BeautifulSoup</strong> to parse the HTML document.</p>
-<div id="eef51c15" class="cell" data-execution_count="4">
+<div id="d54f60d7" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a></a>url <span class="op">=</span> <span class="st">"https://www.foxsports.com/nfl-super-bowl-winners-and-results"</span></span>
 <span id="cb6-2"><a></a></span>
 <span id="cb6-3"><a></a>response <span class="op">=</span> requests.get(url)</span>
@@ -514,9 +514,9 @@ Alan R. Vazquez
 </section>
 <section id="the-output" class="slide level2">
 <h2>The output</h2>
-<div id="18f900d8" class="cell" data-execution_count="5">
+<div id="c5bd1a1a" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a></a>superbowl_website</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="5">
+<div class="cell-output cell-output-display" data-execution_count="27">
 <pre><code>&lt;!DOCTYPE html&gt;
 &lt;html lang="en-US" prefix='og: "http://ogp.me/ns# fb: http://ogp.me/ns/fb#"'&gt;&lt;head&gt;&lt;meta charset="utf-8"/&gt;
 &lt;meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0, user-scalable=yes" name="viewport"/&gt;
@@ -1065,11 +1065,11 @@ Alan R. Vazquez
 <h2></h2>
 <p>We scrape elements of a website stored in <code>superbowl_website</code> using the <code>select()</code> function.</p>
 <p>For example, we can retrieve all paragraph elements (<code>&lt;p&gt;content&lt;\p&gt;</code>). To this end, we set the CSS selector to “p”.</p>
-<div id="85c89186" class="cell" data-execution_count="6">
+<div id="0c5176c2" class="cell" data-execution_count="6">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a></a>sb_web_p <span class="op">=</span> superbowl_website.select(<span class="st">"p"</span>)</span>
 <span id="cb9-2"><a></a></span>
 <span id="cb9-3"><a></a>sb_web_p</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="6">
+<div class="cell-output cell-output-display" data-execution_count="28">
 <pre><code>[&lt;p class="subnav-title ff-ffc bold fs-23 lh-25 uc pd-b-10"&gt;
              BROWSE BY
            &lt;/p&gt;,
@@ -1083,7 +1083,7 @@ Alan R. Vazquez
 <p><br></p>
 <p>However, the scraped elements are in HTML code.</p>
 <p>To turn them into actual text for Python, we use the <code>get_text()</code> function.</p>
-<div id="1216d39c" class="cell" data-execution_count="7">
+<div id="90370d6b" class="cell" data-execution_count="7">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a></a><span class="co"># Start a list to store paragraphs</span></span>
 <span id="cb11-2"><a></a>superbowl_web_paragraph <span class="op">=</span> []</span>
 <span id="cb11-3"><a></a></span>
@@ -1093,7 +1093,7 @@ Alan R. Vazquez
 <span id="cb11-7"><a></a>  superbowl_web_paragraph.append(cleaned_paragraph)</span>
 <span id="cb11-8"><a></a></span>
 <span id="cb11-9"><a></a>superbowl_web_paragraph</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="7">
+<div class="cell-output cell-output-display" data-execution_count="29">
 <pre><code>['BROWSE BY',
  'Super Bowl History of each of the Super Bowl winning and losing teams throughout NFL professional football history. The Super Bowl locations, dates and final scores are also included (1967-2026).',
  '&lt;&lt;SUPER BOWL PAGE']</code></pre>
@@ -1110,11 +1110,11 @@ Alan R. Vazquez
 <section id="section-11" class="slide level2">
 <h2></h2>
 <p>We retrieve the table using the <code>select()</code> function.</p>
-<div id="6dee9b1a" class="cell" data-execution_count="8">
+<div id="5045b453" class="cell" data-execution_count="8">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a></a>sb_table_data <span class="op">=</span> superbowl_website.select(<span class="st">".data-table"</span>)</span>
 <span id="cb13-2"><a></a></span>
 <span id="cb13-3"><a></a>sb_table_data</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="8">
+<div class="cell-output cell-output-display" data-execution_count="30">
 <pre><code>[&lt;table class="data-table"&gt;&lt;thead class="data-header fs-11 ls-pt25"&gt;&lt;tr class=""&gt;&lt;th class="ff-n cell-text" colspan="1" data-index="0" data-priority="1"&gt;NO.&lt;/th&gt;&lt;th class="ff-n cell-text" colspan="1" data-index="0" data-priority="1"&gt;LOCATION&lt;/th&gt;&lt;th class="ff-n cell-text" colspan="1" data-index="4" data-priority="1"&gt;DATE&lt;/th&gt;&lt;th class="ff-n cell-text" colspan="1" data-index="5" data-priority="1"&gt;TEAMS &amp;amp; RESULT&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody class="row-data lh-1pt43 fs-14"&gt;&lt;tr class="faded"&gt;&lt;td class="cell-text" data-index="0"&gt;I&lt;/td&gt;&lt;td class="cell-text" data-index="0"&gt;Los Angeles Memorial Coliseum&lt;/td&gt;&lt;td class="cell-text" data-index="0"&gt;Jan. 15, 1967&lt;/td&gt;&lt;td class="cell-text" data-index="2"&gt;Green Bay 35, Kansas City 10&lt;/td&gt;&lt;/tr&gt;&lt;tr class="faded"&gt;&lt;td class="cell-text" data-index="0"&gt;II&lt;/td&gt;&lt;td class="cell-text" data-index="0"&gt;Miami Orange Bowl&lt;/td&gt;&lt;td class="cell-text" data-index="0"&gt;Jan. 14, 1968&lt;/td&gt;&lt;td class="cell-text" data-index="2"&gt;Green Bay 33, Oakland 14&lt;/td&gt;&lt;/tr&gt;&lt;tr class="faded"&gt;&lt;td class="cell-text" data-index="0"&gt;III&lt;/td&gt;&lt;td class="cell-text" data-index="0"&gt;Miami Orange Bowl&lt;/td&gt;&lt;td class="cell-text" data-index="0"&gt;Jan. 12, 1969&lt;/td&gt;&lt;td class="cell-text" data-index="2"&gt;New York Jets 16, Baltimore 7&lt;/td&gt;&lt;/tr&gt;&lt;tr class="faded"&gt;&lt;td class="cell-text" data-index="0"&gt;IV&lt;/td&gt;&lt;td class="cell-text" data-index="0"&gt;Tulane Stadium&lt;/td&gt;&lt;td class="cell-text" data-index="0"&gt;Jan. 11, 1970&lt;/td&gt;&lt;td class="cell-text" data-index="2"&gt;Kansas City 23, Minnesota 7&lt;/td&gt;&lt;/tr&gt;&lt;tr class="faded"&gt;&lt;td class="cell-text" data-index="0"&gt;V&lt;/td&gt;&lt;td class="cell-text" data-index="0"&gt;Miami Orange Bowl&lt;/td&gt;&lt;td class="cell-text" data-index="0"&gt;Jan. 17, 1971&lt;/td&gt;&lt;td class="cell-text" data-index="2"&gt;Baltimore 16, Dallas 13&lt;/td&gt;&lt;/tr&gt;&lt;tr class="faded"&gt;&lt;td class="cell-text" data-index="0"&gt;VI&lt;/td&gt;&lt;td class="cell-text" data-index="0"&gt;Tulane Stadium&lt;/td&gt;&lt;td class="cell-text" data-index="0"&gt;Jan. 16, 1972&lt;/td&gt;&lt;td class="cell-text" data-index="2"&gt;Dallas 24, Miami 3&lt;/td&gt;&lt;/tr&gt;&lt;tr class="faded"&gt;&lt;td class="cell-text" data-index="0"&gt;VII&lt;/td&gt;&lt;td class="cell-text" data-index="0"&gt;Los Angeles Memorial Coliseum&lt;/td&gt;&lt;td class="cell-text" data-index="0"&gt;Jan. 14, 1973&lt;/td&gt;&lt;td class="cell-text" data-index="2"&gt;Miami 14, Washington 7&lt;/td&gt;&lt;/tr&gt;&lt;tr class="faded"&gt;&lt;td class="cell-text" data-index="0"&gt;VIII&lt;/td&gt;&lt;td class="cell-text" data-index="0"&gt;Rice Stadium&lt;/td&gt;&lt;td class="cell-text" data-index="0"&gt;Jan. 13, 1974&lt;/td&gt;&lt;td class="cell-text" data-index="2"&gt;Miami 24, Minnesota 7&lt;/td&gt;&lt;/tr&gt;&lt;tr class="faded"&gt;&lt;td class="cell-text" data-index="0"&gt;IX&lt;/td&gt;&lt;td class="cell-text" data-index="0"&gt;Tulane Stadium&lt;/td&gt;&lt;td class="cell-text" data-index="0"&gt;Jan. 12, 1975&lt;/td&gt;&lt;td class="cell-text" data-index="2"&gt;Pittsburgh 16, Minnesota 6&lt;/td&gt;&lt;/tr&gt;&lt;tr class="faded"&gt;&lt;td class="cell-text" data-index="0"&gt;X&lt;/td&gt;&lt;td class="cell-text" data-index="0"&gt;Miami Orange Bowl&lt;/td&gt;&lt;td class="cell-text" data-index="0"&gt;Jan. 18, 1976&lt;/td&gt;&lt;td class="cell-text" data-index="2"&gt;Pittsburgh 21, Dallas 17&lt;/td&gt;&lt;/tr&gt;&lt;tr class="faded"&gt;&lt;td class="cell-text" data-index="0"&gt;XI&lt;/td&gt;&lt;td class="cell-text" data-index="0"&gt;Rose Bowl&lt;/td&gt;&lt;td class="cell-text" data-index="0"&gt;Jan. 9, 1977&lt;/td&gt;&lt;td class="cell-text" data-index="2"&gt;Oakland 32, Minnesota 14&lt;/td&gt;&lt;/tr&gt;&lt;tr class="faded"&gt;&lt;td class="cell-text" data-index="0"&gt;XII&lt;/td&gt;&lt;td class="cell-text" data-index="0"&gt;Louisiana Superdome&lt;/td&gt;&lt;td class="cell-text" data-index="0"&gt;Jan. 15, 1978&lt;/td&gt;&lt;td class="cell-text" data-index="2"&gt;Dallas 27, Denver 10&lt;/td&gt;&lt;/tr&gt;&lt;tr class="faded"&gt;&lt;td class="cell-text" data-index="0"&gt;XIII&lt;/td&gt;&lt;td class="cell-text" data-index="0"&gt;Miami Orange Bowl&lt;/td&gt;&lt;td class="cell-text" data-index="0"&gt;Jan. 21, 1979&lt;/td&gt;&lt;td class="cell-text" data-index="2"&gt;Pittsburgh 35, Dallas 31&lt;/td&gt;&lt;/tr&gt;&lt;tr class="faded"&gt;&lt;td class="cell-text" data-index="0"&gt;XIV&lt;/td&gt;&lt;td class="cell-text" data-index="0"&gt;Rose Bowl&lt;/td&gt;&lt;td class="cell-text" data-index="0"&gt;Jan. 20, 1980&lt;/td&gt;&lt;td class="cell-text" data-index="2"&gt;Pittsburgh 31, Los Angeles Rams 19&lt;/td&gt;&lt;/tr&gt;&lt;tr class="faded"&gt;&lt;td class="cell-text" data-index="0"&gt;XV&lt;/td&gt;&lt;td class="cell-text" data-index="0"&gt;Louisiana Superdome&lt;/td&gt;&lt;td class="cell-text" data-index="0"&gt;Jan. 25, 1981&lt;/td&gt;&lt;td class="cell-text" data-index="2"&gt;Oakland 27, Philadelphia 10&lt;/td&gt;&lt;/tr&gt;&lt;tr class="faded"&gt;&lt;td class="cell-text" data-index="0"&gt;XVI&lt;/td&gt;&lt;td class="cell-text" data-index="0"&gt;Pontiac Silverdome&lt;/td&gt;&lt;td class="cell-text" data-index="0"&gt;Jan. 24, 1982&lt;/td&gt;&lt;td class="cell-text" data-index="2"&gt;San Francisco 26, Cincinnati 21&lt;/td&gt;&lt;/tr&gt;&lt;tr class="faded"&gt;&lt;td class="cell-text" data-index="0"&gt;XVII&lt;/td&gt;&lt;td class="cell-text" data-index="0"&gt;Rose Bowl&lt;/td&gt;&lt;td class="cell-text" data-index="0"&gt;Jan. 30, 1983&lt;/td&gt;&lt;td class="cell-text" data-index="2"&gt;Washington 27, Miami 17&lt;/td&gt;&lt;/tr&gt;&lt;tr class="faded"&gt;&lt;td class="cell-text" data-index="0"&gt;XVIII&lt;/td&gt;&lt;td class="cell-text" data-index="0"&gt;Tampa Stadium&lt;/td&gt;&lt;td class="cell-text" data-index="0"&gt;Jan. 22, 1984&lt;/td&gt;&lt;td class="cell-text" data-index="2"&gt;Los Angeles Raiders 38, Washington 9&lt;/td&gt;&lt;/tr&gt;&lt;tr class="faded"&gt;&lt;td class="cell-text" data-index="0"&gt;XIX&lt;/td&gt;&lt;td class="cell-text" data-index="0"&gt;Stanford Stadium&lt;/td&gt;&lt;td class="cell-text" data-index="0"&gt;Jan. 20, 1985&lt;/td&gt;&lt;td class="cell-text" data-index="2"&gt;San Francisco 38, Miami 16&lt;/td&gt;&lt;/tr&gt;&lt;tr class="faded"&gt;&lt;td class="cell-text" data-index="0"&gt;XX&lt;/td&gt;&lt;td class="cell-text" data-index="0"&gt;Louisiana Superdome&lt;/td&gt;&lt;td class="cell-text" data-index="0"&gt;Jan. 26, 1986&lt;/td&gt;&lt;td class="cell-text" data-index="2"&gt;Chicago 46, New England 10&lt;/td&gt;&lt;/tr&gt;&lt;tr class="faded"&gt;&lt;td class="cell-text" data-index="0"&gt;XXI&lt;/td&gt;&lt;td class="cell-text" data-index="0"&gt;Rose Bowl&lt;/td&gt;&lt;td class="cell-text" data-index="0"&gt;Jan. 25, 1987&lt;/td&gt;&lt;td class="cell-text" data-index="2"&gt;New York Giants 39, Denver 20&lt;/td&gt;&lt;/tr&gt;&lt;tr class="faded"&gt;&lt;td class="cell-text" data-index="0"&gt;XXII&lt;/td&gt;&lt;td class="cell-text" data-index="0"&gt;Jack Murphy Stadium&lt;/td&gt;&lt;td class="cell-text" data-index="0"&gt;Jan. 31, 1988&lt;/td&gt;&lt;td class="cell-text" data-index="2"&gt;Washington 42, Denver 10&lt;/td&gt;&lt;/tr&gt;&lt;tr class="faded"&gt;&lt;td class="cell-text" data-index="0"&gt;XXIII&lt;/td&gt;&lt;td class="cell-text" data-index="0"&gt;Joe Robbie Stadium&lt;/td&gt;&lt;td class="cell-text" data-index="0"&gt;Jan. 22, 1989&lt;/td&gt;&lt;td class="cell-text" data-index="2"&gt;San Francisco 20, Cincinnati 16&lt;/td&gt;&lt;/tr&gt;&lt;tr class="faded"&gt;&lt;td class="cell-text" data-index="0"&gt;XXIV&lt;/td&gt;&lt;td class="cell-text" data-index="0"&gt;Louisiana Superdome&lt;/td&gt;&lt;td class="cell-text" data-index="0"&gt;Jan. 28, 1990&lt;/td&gt;&lt;td class="cell-text" data-index="2"&gt;San Francisco 55, Denver 10&lt;/td&gt;&lt;/tr&gt;&lt;tr class="faded"&gt;&lt;td class="cell-text" data-index="0"&gt;XXV&lt;/td&gt;&lt;td class="cell-text" data-index="0"&gt;Tampa Stadium&lt;/td&gt;&lt;td class="cell-text" data-index="0"&gt;Jan. 27, 1991&lt;/td&gt;&lt;td class="cell-text" data-index="2"&gt;New York Giants 20, Buffalo 19&lt;/td&gt;&lt;/tr&gt;&lt;tr class="faded"&gt;&lt;td class="cell-text" data-index="0"&gt;XXVI&lt;/td&gt;&lt;td class="cell-text" data-index="0"&gt;Metrodome&lt;/td&gt;&lt;td class="cell-text" data-index="0"&gt;Jan. 26, 1992&lt;/td&gt;&lt;td class="cell-text" data-index="2"&gt;Washington 37, Buffalo 24&lt;/td&gt;&lt;/tr&gt;&lt;tr class="faded"&gt;&lt;td class="cell-text" data-index="0"&gt;XXVII&lt;/td&gt;&lt;td class="cell-text" data-index="0"&gt;Rose Bowl&lt;/td&gt;&lt;td class="cell-text" data-index="0"&gt;Jan. 31, 1993&lt;/td&gt;&lt;td class="cell-text" data-index="2"&gt;Dallas 52, Buffalo 17&lt;/td&gt;&lt;/tr&gt;&lt;tr class="faded"&gt;&lt;td class="cell-text" data-index="0"&gt;XXVIII&lt;/td&gt;&lt;td class="cell-text" data-index="0"&gt;Georgia Dome&lt;/td&gt;&lt;td class="cell-text" data-index="0"&gt;Jan. 30, 1994&lt;/td&gt;&lt;td class="cell-text" data-index="2"&gt;Dallas 30, Buffalo 13&lt;/td&gt;&lt;/tr&gt;&lt;tr class="faded"&gt;&lt;td class="cell-text" data-index="0"&gt;XXIX&lt;/td&gt;&lt;td class="cell-text" data-index="0"&gt;Joe Robbie Stadium&lt;/td&gt;&lt;td class="cell-text" data-index="0"&gt;Jan. 29, 1995&lt;/td&gt;&lt;td class="cell-text" data-index="2"&gt;San Francisco 49, San Diego 26&lt;/td&gt;&lt;/tr&gt;&lt;tr class="faded"&gt;&lt;td class="cell-text" data-index="0"&gt;XXX&lt;/td&gt;&lt;td class="cell-text" data-index="0"&gt;Sun Devil Stadium&lt;/td&gt;&lt;td class="cell-text" data-index="0"&gt;Jan. 28, 1996&lt;/td&gt;&lt;td class="cell-text" data-index="2"&gt;Dallas 27, Pittsburgh 17&lt;/td&gt;&lt;/tr&gt;&lt;tr class="faded"&gt;&lt;td class="cell-text" data-index="0"&gt;XXXI&lt;/td&gt;&lt;td class="cell-text" data-index="0"&gt;Louisiana Superdome&lt;/td&gt;&lt;td class="cell-text" data-index="0"&gt;Jan. 26, 1997&lt;/td&gt;&lt;td class="cell-text" data-index="2"&gt;Green Bay 35, New England 21&lt;/td&gt;&lt;/tr&gt;&lt;tr class="faded"&gt;&lt;td class="cell-text" data-index="0"&gt;XXXII&lt;/td&gt;&lt;td class="cell-text" data-index="0"&gt;Qualcomm Stadium&lt;/td&gt;&lt;td class="cell-text" data-index="0"&gt;Jan. 25, 1998&lt;/td&gt;&lt;td class="cell-text" data-index="2"&gt;Denver 31, Green Bay 24&lt;/td&gt;&lt;/tr&gt;&lt;tr class="faded"&gt;&lt;td class="cell-text" data-index="0"&gt;XXXIII&lt;/td&gt;&lt;td class="cell-text" data-index="0"&gt;Pro Player Stadium&lt;/td&gt;&lt;td class="cell-text" data-index="0"&gt;Jan. 31, 1999&lt;/td&gt;&lt;td class="cell-text" data-index="2"&gt;Denver 34, Atlanta 19&lt;/td&gt;&lt;/tr&gt;&lt;tr class="faded"&gt;&lt;td class="cell-text" data-index="0"&gt;XXXIV&lt;/td&gt;&lt;td class="cell-text" data-index="0"&gt;Georgia Dome&lt;/td&gt;&lt;td class="cell-text" data-index="0"&gt;Jan. 30, 2000&lt;/td&gt;&lt;td class="cell-text" data-index="2"&gt;St. Louis 23, Tennessee 16&lt;/td&gt;&lt;/tr&gt;&lt;tr class="faded"&gt;&lt;td class="cell-text" data-index="0"&gt;XXXV&lt;/td&gt;&lt;td class="cell-text" data-index="0"&gt;Raymond James Stadium&lt;/td&gt;&lt;td class="cell-text" data-index="0"&gt;Jan. 28, 2001&lt;/td&gt;&lt;td class="cell-text" data-index="2"&gt;Baltimore 34, New York Giants 7&lt;/td&gt;&lt;/tr&gt;&lt;tr class="faded"&gt;&lt;td class="cell-text" data-index="0"&gt;XXXVI&lt;/td&gt;&lt;td class="cell-text" data-index="0"&gt;Louisiana Superdome&lt;/td&gt;&lt;td class="cell-text" data-index="0"&gt;Feb. 3, 2002&lt;/td&gt;&lt;td class="cell-text" data-index="2"&gt;New England 20, St. Louis 17&lt;/td&gt;&lt;/tr&gt;&lt;tr class="faded"&gt;&lt;td class="cell-text" data-index="0"&gt;XXXVII&lt;/td&gt;&lt;td class="cell-text" data-index="0"&gt;Qualcomm Stadium&lt;/td&gt;&lt;td class="cell-text" data-index="0"&gt;Jan. 26, 2003&lt;/td&gt;&lt;td class="cell-text" data-index="2"&gt;Tampa Bay 48, Oakland 21&lt;/td&gt;&lt;/tr&gt;&lt;tr class="faded"&gt;&lt;td class="cell-text" data-index="0"&gt;XXXVIII&lt;/td&gt;&lt;td class="cell-text" data-index="0"&gt;Reliant Stadium&lt;/td&gt;&lt;td class="cell-text" data-index="0"&gt;Feb. 1, 2004&lt;/td&gt;&lt;td class="cell-text" data-index="2"&gt;New England 32, Carolina 29&lt;/td&gt;&lt;/tr&gt;&lt;tr class="faded"&gt;&lt;td class="cell-text" data-index="0"&gt;XXXIX&lt;/td&gt;&lt;td class="cell-text" data-index="0"&gt;Alltel Stadium&lt;/td&gt;&lt;td class="cell-text" data-index="0"&gt;Feb. 6, 2005&lt;/td&gt;&lt;td class="cell-text" data-index="2"&gt;New England 24, Philadelphia 21&lt;/td&gt;&lt;/tr&gt;&lt;tr class="faded"&gt;&lt;td class="cell-text" data-index="0"&gt;XL&lt;/td&gt;&lt;td class="cell-text" data-index="0"&gt;Ford Field&lt;/td&gt;&lt;td class="cell-text" data-index="0"&gt;Feb. 5, 2006&lt;/td&gt;&lt;td class="cell-text" data-index="2"&gt;Pittsburgh 21, Seattle 10&lt;/td&gt;&lt;/tr&gt;&lt;tr class="faded"&gt;&lt;td class="cell-text" data-index="0"&gt;XLI&lt;/td&gt;&lt;td class="cell-text" data-index="0"&gt;Dolphin Stadium&lt;/td&gt;&lt;td class="cell-text" data-index="0"&gt;Feb. 4, 2007&lt;/td&gt;&lt;td class="cell-text" data-index="2"&gt;Indianapolis 29, Chicago 17&lt;/td&gt;&lt;/tr&gt;&lt;tr class="faded"&gt;&lt;td class="cell-text" data-index="0"&gt;XLII&lt;/td&gt;&lt;td class="cell-text" data-index="0"&gt;University of Phoenix Stadium&lt;/td&gt;&lt;td class="cell-text" data-index="0"&gt;Feb. 3, 2008&lt;/td&gt;&lt;td class="cell-text" data-index="2"&gt;New York Giants 17, New England 14&lt;/td&gt;&lt;/tr&gt;&lt;tr class="faded"&gt;&lt;td class="cell-text" data-index="0"&gt;XLIII&lt;/td&gt;&lt;td class="cell-text" data-index="0"&gt;Raymond James Stadium&lt;/td&gt;&lt;td class="cell-text" data-index="0"&gt;Feb. 1, 2009&lt;/td&gt;&lt;td class="cell-text" data-index="2"&gt;Pittsburgh 27, Arizona 23&lt;/td&gt;&lt;/tr&gt;&lt;tr class="faded"&gt;&lt;td class="cell-text" data-index="0"&gt;XLIV&lt;/td&gt;&lt;td class="cell-text" data-index="0"&gt;Sun Life Stadium&lt;/td&gt;&lt;td class="cell-text" data-index="0"&gt;Feb. 7, 2010&lt;/td&gt;&lt;td class="cell-text" data-index="2"&gt;New Orleans 31, Indianapolis 17&lt;/td&gt;&lt;/tr&gt;&lt;tr class="faded"&gt;&lt;td class="cell-text" data-index="0"&gt;XLV&lt;/td&gt;&lt;td class="cell-text" data-index="0"&gt;Cowboys Stadium&lt;/td&gt;&lt;td class="cell-text" data-index="0"&gt;Feb. 6, 2011&lt;/td&gt;&lt;td class="cell-text" data-index="2"&gt;Green Bay 31, Pittsburgh 25&lt;/td&gt;&lt;/tr&gt;&lt;tr class="faded"&gt;&lt;td class="cell-text" data-index="0"&gt;XLVI&lt;/td&gt;&lt;td class="cell-text" data-index="0"&gt;Lucas Oil Stadium&lt;/td&gt;&lt;td class="cell-text" data-index="0"&gt;Feb. 5, 2012&lt;/td&gt;&lt;td class="cell-text" data-index="2"&gt;New York Giants 21, New England 17&lt;/td&gt;&lt;/tr&gt;&lt;tr class="faded"&gt;&lt;td class="cell-text" data-index="0"&gt;XLVII&lt;/td&gt;&lt;td class="cell-text" data-index="0"&gt;Mercedes-Benz Superdome&lt;/td&gt;&lt;td class="cell-text" data-index="0"&gt;Feb. 3, 2013&lt;/td&gt;&lt;td class="cell-text" data-index="2"&gt;Baltimore 34, San Francisco 31&lt;/td&gt;&lt;/tr&gt;&lt;tr class="faded"&gt;&lt;td class="cell-text" data-index="0"&gt;XLVIII&lt;/td&gt;&lt;td class="cell-text" data-index="0"&gt;MetLife Stadium&lt;/td&gt;&lt;td class="cell-text" data-index="0"&gt;Feb. 2, 2014&lt;/td&gt;&lt;td class="cell-text" data-index="2"&gt;Seattle 43, Denver 8&lt;/td&gt;&lt;/tr&gt;&lt;tr class="faded"&gt;&lt;td class="cell-text" data-index="0"&gt;XLIX&lt;/td&gt;&lt;td class="cell-text" data-index="0"&gt;University of Phoenix Stadium&lt;/td&gt;&lt;td class="cell-text" data-index="0"&gt;Feb. 1, 2015&lt;/td&gt;&lt;td class="cell-text" data-index="2"&gt;New England 28, Seattle 24&lt;/td&gt;&lt;/tr&gt;&lt;tr class="faded"&gt;&lt;td class="cell-text" data-index="0"&gt;50&lt;/td&gt;&lt;td class="cell-text" data-index="0"&gt;Levi's Stadium&lt;/td&gt;&lt;td class="cell-text" data-index="0"&gt;Feb. 7, 2016&lt;/td&gt;&lt;td class="cell-text" data-index="2"&gt;Denver 24, Carolina 10&lt;/td&gt;&lt;/tr&gt;&lt;tr class="faded"&gt;&lt;td class="cell-text" data-index="0"&gt;LI&lt;/td&gt;&lt;td class="cell-text" data-index="0"&gt;NRG Stadium&lt;/td&gt;&lt;td class="cell-text" data-index="0"&gt;Feb. 5, 2017&lt;/td&gt;&lt;td class="cell-text" data-index="2"&gt;New England 34, Atlanta 28&lt;/td&gt;&lt;/tr&gt;&lt;tr class="faded"&gt;&lt;td class="cell-text" data-index="0"&gt;LII&lt;/td&gt;&lt;td class="cell-text" data-index="0"&gt;U.S. Bank Stadium&lt;/td&gt;&lt;td class="cell-text" data-index="0"&gt;Feb. 4, 2018&lt;/td&gt;&lt;td class="cell-text" data-index="2"&gt;Philadelphia 41, New England 33&lt;/td&gt;&lt;/tr&gt;&lt;tr class="faded"&gt;&lt;td class="cell-text" data-index="0"&gt;LIII&lt;/td&gt;&lt;td class="cell-text" data-index="0"&gt;Mercedes-Benz Stadium&lt;/td&gt;&lt;td class="cell-text" data-index="0"&gt;Feb. 3, 2019&lt;/td&gt;&lt;td class="cell-text" data-index="2"&gt;New England 13, Los Angeles Rams 3&lt;/td&gt;&lt;/tr&gt;&lt;tr class="faded"&gt;&lt;td class="cell-text" data-index="0"&gt;LIV&lt;/td&gt;&lt;td class="cell-text" data-index="0"&gt;Hard Rock Stadium&lt;/td&gt;&lt;td class="cell-text" data-index="0"&gt;Feb. 2, 2020&lt;/td&gt;&lt;td class="cell-text" data-index="2"&gt;Kansas City 31, San Francisco 20&lt;/td&gt;&lt;/tr&gt;&lt;tr class="faded"&gt;&lt;td class="cell-text" data-index="0"&gt;LV&lt;/td&gt;&lt;td class="cell-text" data-index="0"&gt;Raymond James Stadium&lt;/td&gt;&lt;td class="cell-text" data-index="0"&gt;Feb. 7, 2021&lt;/td&gt;&lt;td class="cell-text" data-index="2"&gt;Tampa Bay 31, Kansas City 9&lt;/td&gt;&lt;/tr&gt;&lt;tr class="faded"&gt;&lt;td class="cell-text" data-index="0"&gt;LVI&lt;/td&gt;&lt;td class="cell-text" data-index="0"&gt;SoFi Stadium&lt;/td&gt;&lt;td class="cell-text" data-index="0"&gt;Feb. 13, 2022&lt;/td&gt;&lt;td class="cell-text" data-index="2"&gt;Los Angeles Rams 23, Cincinnati 20&lt;/td&gt;&lt;/tr&gt;&lt;tr class="faded"&gt;&lt;td class="cell-text" data-index="0"&gt;LVII&lt;/td&gt;&lt;td class="cell-text" data-index="0"&gt;State Farm Stadium&lt;/td&gt;&lt;td class="cell-text" data-index="0"&gt;Feb. 12, 2023&lt;/td&gt;&lt;td class="cell-text" data-index="2"&gt;Kansas City 38, Philadelphia 35&lt;/td&gt;&lt;/tr&gt;&lt;tr class="faded"&gt;&lt;td class="cell-text" data-index="0"&gt;LVIII&lt;/td&gt;&lt;td class="cell-text" data-index="0"&gt;Allegiant Stadium&lt;/td&gt;&lt;td class="cell-text" data-index="0"&gt;Feb. 11, 2024&lt;/td&gt;&lt;td class="cell-text" data-index="2"&gt;Kansas City 25, San Francisco 22&lt;/td&gt;&lt;/tr&gt;&lt;tr class="faded"&gt;&lt;td class="cell-text" data-index="0"&gt;LIX&lt;/td&gt;&lt;td class="cell-text" data-index="0"&gt;Caesars Superdome&lt;/td&gt;&lt;td class="cell-text" data-index="0"&gt;Feb. 9, 2025&lt;/td&gt;&lt;td class="cell-text" data-index="2"&gt;Philadelphia 40, Kansas City 22&lt;/td&gt;&lt;/tr&gt;&lt;tr class="faded"&gt;&lt;td class="cell-text" data-index="0"&gt;LX&lt;/td&gt;&lt;td class="cell-text" data-index="0"&gt;Levi's Stadium&lt;/td&gt;&lt;td class="cell-text" data-index="0"&gt;Feb. 8, 2026&lt;/td&gt;&lt;td class="cell-text" data-index="2"&gt;Seattle 29, New England 13&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;,
  &lt;table class="data-table"&gt;&lt;thead class="data-header fs-11 ls-pt25"&gt;&lt;tr class=""&gt;&lt;th class="ff-n cell-text" colspan="1" data-index="0" data-priority="1"&gt;TEAM&lt;/th&gt;&lt;th class="ff-n cell-text" colspan="1" data-index="0" data-priority="1"&gt;WINS&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody class="row-data lh-1pt43 fs-14"&gt;&lt;tr class="faded"&gt;&lt;td class="cell-text" data-index="0"&gt;New England Patriots&lt;/td&gt;&lt;td class="cell-text" data-index="0"&gt;6&lt;/td&gt;&lt;/tr&gt;&lt;tr class="faded"&gt;&lt;td class="cell-text" data-index="0"&gt;Pittsburgh Steelers&lt;/td&gt;&lt;td class="cell-text" data-index="0"&gt;6&lt;/td&gt;&lt;/tr&gt;&lt;tr class="faded"&gt;&lt;td class="cell-text" data-index="0"&gt;Dallas Cowboys&lt;/td&gt;&lt;td class="cell-text" data-index="0"&gt;5&lt;/td&gt;&lt;/tr&gt;&lt;tr class="faded"&gt;&lt;td class="cell-text" data-index="0"&gt;San Francisco 49ers&lt;/td&gt;&lt;td class="cell-text" data-index="0"&gt;5&lt;/td&gt;&lt;/tr&gt;&lt;tr class="faded"&gt;&lt;td class="cell-text" data-index="0"&gt;Green Bay Packers&lt;/td&gt;&lt;td class="cell-text" data-index="0"&gt;4&lt;/td&gt;&lt;/tr&gt;&lt;tr class="faded"&gt;&lt;td class="cell-text" data-index="0"&gt;New York Giants&lt;/td&gt;&lt;td class="cell-text" data-index="0"&gt;4&lt;/td&gt;&lt;/tr&gt;&lt;tr class="faded"&gt;&lt;td class="cell-text" data-index="0"&gt;Kansas City Chiefs&lt;/td&gt;&lt;td class="cell-text" data-index="0"&gt;4&lt;/td&gt;&lt;/tr&gt;&lt;tr class="faded"&gt;&lt;td class="cell-text" data-index="0"&gt;Denver Broncos&lt;/td&gt;&lt;td class="cell-text" data-index="0"&gt;3&lt;/td&gt;&lt;/tr&gt;&lt;tr class="faded"&gt;&lt;td class="cell-text" data-index="0"&gt;Washington Commanders&lt;/td&gt;&lt;td class="cell-text" data-index="0"&gt;3&lt;/td&gt;&lt;/tr&gt;&lt;tr class="faded"&gt;&lt;td class="cell-text" data-index="0"&gt;Las Vegas Raiders&lt;/td&gt;&lt;td class="cell-text" data-index="0"&gt;3&lt;/td&gt;&lt;/tr&gt;&lt;tr class="faded"&gt;&lt;td class="cell-text" data-index="0"&gt;Miami Dolphins&lt;/td&gt;&lt;td class="cell-text" data-index="0"&gt;2&lt;/td&gt;&lt;/tr&gt;&lt;tr class="faded"&gt;&lt;td class="cell-text" data-index="0"&gt;Los Angeles Rams&lt;/td&gt;&lt;td class="cell-text" data-index="0"&gt;2&lt;/td&gt;&lt;/tr&gt;&lt;tr class="faded"&gt;&lt;td class="cell-text" data-index="0"&gt;Indianapolis Colts&lt;/td&gt;&lt;td class="cell-text" data-index="0"&gt;2&lt;/td&gt;&lt;/tr&gt;&lt;tr class="faded"&gt;&lt;td class="cell-text" data-index="0"&gt;Baltimore Ravens&lt;/td&gt;&lt;td class="cell-text" data-index="0"&gt;2&lt;/td&gt;&lt;/tr&gt;&lt;tr class="faded"&gt;&lt;td class="cell-text" data-index="0"&gt;Tampa Bay Buccaneers&lt;/td&gt;&lt;td class="cell-text" data-index="0"&gt;2&lt;/td&gt;&lt;/tr&gt;&lt;tr class="faded"&gt;&lt;td class="cell-text" data-index="0"&gt;Philadelphia Eagles&lt;/td&gt;&lt;td class="cell-text" data-index="0"&gt;2&lt;/td&gt;&lt;/tr&gt;&lt;tr class="faded"&gt;&lt;td class="cell-text" data-index="0"&gt;Seattle Seahawks&lt;/td&gt;&lt;td class="cell-text" data-index="0"&gt;2&lt;/td&gt;&lt;/tr&gt;&lt;tr class="faded"&gt;&lt;td class="cell-text" data-index="0"&gt;Chicago Bears&lt;/td&gt;&lt;td class="cell-text" data-index="0"&gt;1&lt;/td&gt;&lt;/tr&gt;&lt;tr class="faded"&gt;&lt;td class="cell-text" data-index="0"&gt;New York Jets&lt;/td&gt;&lt;td class="cell-text" data-index="0"&gt;1&lt;/td&gt;&lt;/tr&gt;&lt;tr class="faded"&gt;&lt;td class="cell-text" data-index="0"&gt;New Orleans Saints&lt;/td&gt;&lt;td class="cell-text" data-index="0"&gt;1&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;]</code></pre>
 </div>
@@ -1124,11 +1124,11 @@ Alan R. Vazquez
 <section id="section-12" class="slide level2">
 <h2></h2>
 <p>Again, the tables are in HTML format. We can turn them into pandas DataFrames using the function <code>pd.read_html()</code> from <strong>pandas</strong>.</p>
-<div id="dc95ccff" class="cell" data-execution_count="9">
+<div id="3327b632" class="cell" data-execution_count="9">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a></a>superbowl_tables <span class="op">=</span> pd.read_html(<span class="bu">str</span>(sb_table_data))</span>
 <span id="cb15-2"><a></a></span>
 <span id="cb15-3"><a></a>superbowl_tables</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="9">
+<div class="cell-output cell-output-display" data-execution_count="31">
 <pre><code>[        NO.                       LOCATION           DATE  \
  0         I  Los Angeles Memorial Coliseum  Jan. 15, 1967   
  1        II              Miami Orange Bowl  Jan. 14, 1968   
@@ -1288,9 +1288,9 @@ Alan R. Vazquez
 <h2></h2>
 <p>To retrieve one table from the list, we use square brackets.</p>
 <p>For example, the first table is</p>
-<div id="abc66752" class="cell" data-execution_count="10">
+<div id="2421fb1d" class="cell" data-execution_count="10">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a></a>superbowl_tables[<span class="dv">0</span>].head()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="10">
+<div class="cell-output cell-output-display" data-execution_count="32">
 <div>
 <style scoped="">
     .dataframe tbody tr th:only-of-type {
@@ -1363,9 +1363,9 @@ Alan R. Vazquez
 <h2></h2>
 <p><br></p>
 <p>The second table is</p>
-<div id="4e54b8bd" class="cell" data-execution_count="11">
+<div id="8bee701d" class="cell" data-execution_count="11">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a></a>superbowl_tables[<span class="dv">1</span>].head()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="11">
+<div class="cell-output cell-output-display" data-execution_count="33">
 <div>
 <style scoped="">
     .dataframe tbody tr th:only-of-type {
@@ -1426,11 +1426,11 @@ Alan R. Vazquez
 <section id="section-15" class="title-slide slide level1 center">
 <h1></h1>
 <p>Let’s continue with the table corresponding to the super bowl dates and results.</p>
-<div id="6d41a797" class="cell" data-execution_count="12">
+<div id="7a0fb49f" class="cell" data-execution_count="12">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a></a>superbowl_data <span class="op">=</span> superbowl_tables[<span class="dv">0</span>]</span>
 <span id="cb19-2"><a></a></span>
 <span id="cb19-3"><a></a>superbowl_data.head()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="12">
+<div class="cell-output cell-output-display" data-execution_count="34">
 <div>
 <style scoped="">
     .dataframe tbody tr th:only-of-type {
@@ -1504,7 +1504,7 @@ Alan R. Vazquez
 <p><br><br></p>
 <p>To make the data easier to work with, we will create a separate column for the year.</p>
 <p>To do this, we use the <code>str.split()</code> function from <strong>pandas</strong>.</p>
-<div id="d44b401a" class="cell" data-execution_count="13">
+<div id="d208984d" class="cell" data-execution_count="13">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a></a>superbowl_data_wr <span class="op">=</span> superbowl_data.copy()</span>
 <span id="cb20-2"><a></a></span>
 <span id="cb20-3"><a></a>superbowl_data_wr[[<span class="st">"Day"</span>, <span class="st">"Year"</span>]] <span class="op">=</span> (</span>
@@ -1515,9 +1515,9 @@ Alan R. Vazquez
 </section>
 <section id="section-16" class="slide level2">
 <h2></h2>
-<div id="8ad4c55f" class="cell" data-execution_count="14">
+<div id="d9c14256" class="cell" data-execution_count="14">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a></a>superbowl_data_wr.head()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="14">
+<div class="cell-output cell-output-display" data-execution_count="36">
 <div>
 <style scoped="">
     .dataframe tbody tr th:only-of-type {
@@ -1602,7 +1602,7 @@ Alan R. Vazquez
 <h2>Be careful…</h2>
 <p><br><br></p>
 <p>The new column <code>Year</code> is character, so we turn it into numeric using the code below.</p>
-<div id="2d25e6da" class="cell" data-execution_count="15">
+<div id="613e6a34" class="cell" data-execution_count="15">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a></a>superbowl_data_wr[<span class="st">"Year"</span>] <span class="op">=</span> (</span>
 <span id="cb22-2"><a></a>    pd.to_numeric(superbowl_data_wr[<span class="st">"Year"</span>])</span>
 <span id="cb22-3"><a></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -1612,7 +1612,7 @@ Alan R. Vazquez
 <h2></h2>
 <p><br><br></p>
 <p>Further, let’s separate the column <code>TEAMS &amp; RESULT</code> into two columns “W Team” and “L Team”.</p>
-<div id="67c50bac" class="cell" data-execution_count="16">
+<div id="c0ccfccc" class="cell" data-execution_count="16">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a></a>superbowl_data_wr[[<span class="st">"W Team"</span>, <span class="st">"L Team"</span>]] <span class="op">=</span> (</span>
 <span id="cb23-2"><a></a>    superbowl_data_wr[<span class="st">"TEAMS &amp; RESULT"</span>]</span>
 <span id="cb23-3"><a></a>    .<span class="bu">str</span>.split(<span class="st">","</span>, expand<span class="op">=</span><span class="va">True</span>)</span>
@@ -1621,9 +1621,9 @@ Alan R. Vazquez
 </section>
 <section id="the-result" class="slide level2">
 <h2>The result</h2>
-<div id="70befa42" class="cell" data-execution_count="17">
+<div id="e06b0b74" class="cell" data-execution_count="17">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a></a>superbowl_data_wr.head()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="17">
+<div class="cell-output cell-output-display" data-execution_count="39">
 <div>
 <style scoped="">
     .dataframe tbody tr th:only-of-type {
@@ -1721,7 +1721,7 @@ Alan R. Vazquez
 <div style="font-size: 80%;">
 <p>After that, we can separate the score of each team into corresponding columns. Note that we must also ensure that the new columns are numeric. All these steps are carried out using the pipeline below.</p>
 </div>
-<div id="c1b8d127" class="cell" data-execution_count="18">
+<div id="1f883350" class="cell" data-execution_count="18">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a></a>superbowl_data_wr[[<span class="st">"W Team"</span>, <span class="st">"W Score"</span>]] <span class="op">=</span> (</span>
 <span id="cb25-2"><a></a>    superbowl_data_wr[<span class="st">"W Team"</span>]</span>
 <span id="cb25-3"><a></a>    .<span class="bu">str</span>.split(<span class="vs">r"</span><span class="kw">(</span><span class="fu">?&lt;</span><span class="vs">=</span><span class="dv">\D</span><span class="kw">)</span><span class="ex">(</span><span class="fu">?=</span><span class="dv">\d</span><span class="ex">)</span><span class="vs">"</span>, expand<span class="op">=</span><span class="va">True</span>)</span>
@@ -1750,9 +1750,9 @@ Alan R. Vazquez
 </section>
 <section id="the-final-dataset" class="slide level2">
 <h2>The final dataset</h2>
-<div id="59d9a869" class="cell" data-execution_count="19">
+<div id="ecd681cc" class="cell" data-execution_count="19">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a></a>superbowl_data_wr.head(<span class="dv">4</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="19">
+<div class="cell-output cell-output-display" data-execution_count="41">
 <div>
 <style scoped="">
     .dataframe tbody tr th:only-of-type {
@@ -1897,7 +1897,7 @@ Alan R. Vazquez
 <p><br><br></p>
 <p>To check whether scraping or crawling a website is allowed, Python provides the <strong>urllib.robotparser</strong> library.</p>
 <p>Let’s load it into Google Colab.</p>
-<div id="a61d6ab6" class="cell" data-execution_count="20">
+<div id="f35f7342" class="cell" data-execution_count="20">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a></a><span class="im">from</span> urllib.robotparser <span class="im">import</span> RobotFileParser</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="fragment">
@@ -1907,7 +1907,7 @@ Alan R. Vazquez
 <section id="example-3" class="slide level2">
 <h2>Example 3</h2>
 <p>For instance, let’s confirm that we can scrape the website <a href="https://www.foxsports.com/nfl-super-bowl-winners-and-results" class="uri">https://www.foxsports.com/nfl-super-bowl-winners-and-results</a></p>
-<div id="dc9fd50e" class="cell" data-execution_count="21">
+<div id="615c94c8" class="cell" data-execution_count="21">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a></a>robots <span class="op">=</span> RobotFileParser()</span>
 <span id="cb28-2"><a></a></span>
 <span id="cb28-3"><a></a>robots.set_url(<span class="st">"https://www.foxsports.com/robots.txt"</span>)</span>
@@ -1918,7 +1918,7 @@ Alan R. Vazquez
 <span id="cb28-8"><a></a>    <span class="st">"*"</span>,</span>
 <span id="cb28-9"><a></a>    <span class="st">"https://www.foxsports.com/nfl-super-bowl-winners-and-results"</span></span>
 <span id="cb28-10"><a></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="21">
+<div class="cell-output cell-output-display" data-execution_count="43">
 <pre><code>True</code></pre>
 </div>
 </div>
@@ -1933,8 +1933,8 @@ Alan R. Vazquez
 </section>
 <section id="what-abut-the-industrial-engineering-wikipedia-site" class="slide level2">
 <h2>What abut the industrial engineering Wikipedia site?</h2>
-<p><br><br></p>
-<div id="6ba8197f" class="cell" data-execution_count="22">
+<p><br></p>
+<div id="5853d704" class="cell" data-execution_count="22">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a></a>robots <span class="op">=</span> RobotFileParser()</span>
 <span id="cb30-2"><a></a></span>
 <span id="cb30-3"><a></a>robots.set_url(<span class="st">"https://en.wikipedia.org/robots.txt"</span>)</span>
@@ -1945,7 +1945,7 @@ Alan R. Vazquez
 <span id="cb30-8"><a></a>    <span class="st">"*"</span>,</span>
 <span id="cb30-9"><a></a>    <span class="st">"https://en.wikipedia.org/wiki/Industrial_engineering"</span></span>
 <span id="cb30-10"><a></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="22">
+<div class="cell-output cell-output-display" data-execution_count="44">
 <pre><code>False</code></pre>
 </div>
 </div>

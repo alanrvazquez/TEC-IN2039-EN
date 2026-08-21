@@ -2,7 +2,7 @@
  "cells": [
   {
    "cell_type": "markdown",
-   "id": "866aafcb",
+   "id": "b62d01dc",
    "metadata": {},
    "source": [
     "---\n",
@@ -42,7 +42,7 @@
   {
    "cell_type": "code",
    "execution_count": 1,
-   "id": "8d2b8dbd",
+   "id": "9fb2072f",
    "metadata": {},
    "outputs": [],
    "source": [
@@ -54,7 +54,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "4ed18619",
+   "id": "2bf6fc87",
    "metadata": {},
    "source": [
     "# HTML Basics\n",
@@ -278,18 +278,9 @@
   {
    "cell_type": "code",
    "execution_count": 2,
-   "id": "b1518881",
+   "id": "1299b94e",
    "metadata": {},
-   "outputs": [
-    {
-     "name": "stderr",
-     "output_type": "stream",
-     "text": [
-      "/Users/alanvazquez/Documents/GitHub/TEC-IN2039-EN/env/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020\n",
-      "  warnings.warn(\n"
-     ]
-    }
-   ],
+   "outputs": [],
    "source": [
     "#| echo: true\n",
     "\n",
@@ -298,7 +289,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "2ce1c445",
+   "id": "cbd8c016",
    "metadata": {},
    "source": [
     "## Another new library: BeautifulSoup\n",
@@ -327,7 +318,7 @@
   {
    "cell_type": "code",
    "execution_count": 3,
-   "id": "0cfff413",
+   "id": "0f20a288",
    "metadata": {},
    "outputs": [],
    "source": [
@@ -339,7 +330,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "7367ca7a",
+   "id": "e1cd546f",
    "metadata": {},
    "source": [
     "## Example 2\n",
@@ -360,7 +351,7 @@
   {
    "cell_type": "code",
    "execution_count": 4,
-   "id": "eef51c15",
+   "id": "d54f60d7",
    "metadata": {},
    "outputs": [],
    "source": [
@@ -376,7 +367,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "c7af837d",
+   "id": "141e01fb",
    "metadata": {},
    "source": [
     "## The output"
@@ -385,7 +376,7 @@
   {
    "cell_type": "code",
    "execution_count": 5,
-   "id": "18f900d8",
+   "id": "c5bd1a1a",
    "metadata": {},
    "outputs": [
     {
@@ -929,7 +920,7 @@
        "<script>window.__NUXT__={};window.__NUXT__.config={public:{app_version:\"v77\",domainName:\"foxsports.com\",secureDomainName:\"https://www.foxsports.com\",envType:\"live\",articleSearch:\"https://prod-api.foxsports.com/fs//articles\",externalTagsSearch:\"https://prod-api.foxsports.com/fs/externaltags\",slackWebhook:\"\",slackChannel:\"\",slackEnable:\"\",nodeEnv:\"production\",facebookPageId:\"59404413854\",facebookArticlePageId:\"938570826205118\",omnitureAccountId:\"\",a57Url:\"https://a57.foxsports.com/\",articlesPerCategoryPage:20,qa:\"\",staticQa:\"\",zipCode:\"19019\",areaId:\"PAZ071\",envStage:\"prod\",customSegmentPlugin:{script:\"static.foxtv.com/static/orion/scripts/core/utils/CustomSegmentPlugin.js\",primary_business_unit:\"fts\",secondary_business_unit:\"wtxf\",app_name:\"foxsports.com\",app_platform:\"web\",app_version:\"1.0.0\"},logoImage:\"fts-philadelphia\",livestream:{accessKey:\"odyDr5pXM9czP75SJkU0pkNvTOdj5BAn\",mcp:\"EPFOX\",videoId:\"adstDan7P9VqxX60\",token:\"TWWWuKmllM5ZTUDHR0dorXPidZHmesrZC5zYodVpKqg~Mn4wfg\"},livestreamEvent:{accessKey:\"odyDr5pXM9czP75SJkU0pkNvTOdj5BAn\",mcp:\"EPFOX\",videoId:\"adstza2AMgZvgn1d\",token:\"i4cTurJerZIBlNeOJMUoYFF7QfQ-zij53eh4B3qlljM~Mn4wfg\"},adTagUrl:{VOD:\"https://pubads.g.doubleclick.net/gampad/ads?iu=/63790564/wttg_fox5&description_url=[placeholder]&env=vp&impl=s&correlator=&tfcd=0&npa=0&gdfp_req=1&output=vast&sz=1001x1001&unviewed_position_start=1\",livestream:\"https://pubads.g.doubleclick.net/gampad/live/ads?iu=/63790564/wttg_fox5/Livestream&description_url=[placeholder]&env=vp&impl=s&correlator=&tfcd=0&npa=0&gdfp_req=1&output=vast&sz=1001x1001&unviewed_position_start=1\"},adTag:\"/63790564/wttg_fox5\",anvack:\"\",secretKey:\"\",mcp:\"\",segmentId:\"\",siteTitle:\"FOX Sports\",siteAbbr:\"FOX Sports\",locationName:\"Washington, D.C.\",siteDescr:\"Test desc\",parentSlug:\"fs\",envName:\"prod\",fbAppId:\"380390622023704\",redirectOnLogout:\"true\",segmentAnalytics:\"true\",mvpdLoginPageUrl:\"/provider/register\",successLoginForward:\"/\",successRegisterForward:\"/accounts/settings/account-info\",accountsLoginUrl:\"/accounts/login\",debugConsole:\"true\",debugEnabled:\"true\",clientsideAssetsUrl:\"https://statics.foxsports.com/static/orion/\",stationIdentifier:\"FS\",prismStationId:\"\",stationPlaceholderImage:\"https://www.foxsports.com/img/fox5-default-image.png\",stationTwitterHandler:\"@foxsports\",stationTwitterImage:\"\",lowerCaseStationId:\"fs\",fbiaRecirculationId:\"608654959303956_814725985363518\",socialLinks:{facebook:\"https://www.facebook.com/foxsports\",twitter:\"https://twitter.com/foxsports\",instagram:\"https://www.instagram.com/foxsports\"},timezone:\"US/Eastern\",apiBasePath:\"https://prod-api.foxsports.com/fs/\",v3ApiBasePath:\"https://prod-api.foxsports.com/cms/v3/\",ampBasePath:\"https://amp.foxsports.com/stories\",tagVersion:\"v784\",grafanaFaroEnabled:true,grafanaFaroAppName:\"fox-sports-web-prod\",fairplayPromosApiKey:\"%FAIRPLAY_PROMOS_API_KEY%\",fsSettings:{personalizedNewsletter:{paths:[\"/scores\"],hero:\"https://b.fssta.com/uploads/application/fscom/newsletter_hero.png\",enabled:false,frequency:[1,3,5]},legacy:{utagLib:\"https://tags.tiqcdn.com/utag/foxcorp/fscom-main/prod/utag.js\",staticDomain:\"https://b.fssta.com/sta/\",isLocked:true,segmentScript:\"https://statics.foxsports.com/static/orion/js/segment-analytics.js\",videoLoader:\"https://statics.foxsports.com/static/orion/js/video-loader.js\",segmentUrl:\"js/segment-analytics.js\",videoLoaderUrl:\"js/video-loader.js\",optimizely:\"https://cdn.optimizely.com/js/17902805246.js\",segmentApiKey:\"nZKOCs4zQ7sYYrXWnMX12o0ZzMijA5Yj\"},takeover:{takeover:[{backgroundColor:\"#000000\",menuColorActive:\"#fff\",backgroundImages:{tablet:\"https://statics.foxsports.com/www.foxsports.com/content/uploads/2025/06/portugalwins-nationsleaguefinal-takeover2000x230.jpg\",desktop:\"https://statics.foxsports.com/www.foxsports.com/content/uploads/2025/06/portugalwins-nationsleaguefinal-takeover2880x1356-scaled.jpg\",mobile:\"https://statics.foxsports.com/www.foxsports.com/content/uploads/2025/06/portugalwins-nationsleaguefinal-takeover750x144.jpg\"},menuColor:\"#ffffffb3\",contentUri:\"\",linkOut:\"https://www.foxsports.com/soccer/nations-league-portugal-vs-spain-jun-08-2025-game-boxscore-614412?cmpId=takeover\",whiteList:[\"/\",\"/scores/soccer\",\"/soccer/nations-league\"],isPost:false,enabled:true}]},debugConsoleEnabled:false,minutely:{apvUrl:\"https://service.minute-ly.com/api/v1/external/app/lKgwIpnhFtNkEqsjkMvS1w/stream\"},playerScript:{enableClientConfig:true,src:\"//player.fox.com/v3/foxsports.js\",verticalVideoPlayback:\"https://prod.api.digitalvideoplatform.com/sports/v3.0/partner-playback/vod\",isLocked:true,v3Controls:\"https://prod.player.fox.digitalvideoplatform.com/wpf/v3/latest/lib/wpf_controls.js\",v3ConvivaReporter:\"https://prod.player.fox.digitalvideoplatform.com/wpf/v3/latest/lib/wpf_conviva_reporter.js\",v3MuxReporter:\"https://prod.player.fox.digitalvideoplatform.com/wpf/v3/latest/lib/wpf_mux_reporter.js\",v3YospacePlayer:\"https://prod.player.fox.digitalvideoplatform.com/wpf/v3/latest/lib/wpf_bitmovin_yospace_player.js\",v3:\"https://prod.player.fox.digitalvideoplatform.com/wpf/v3/latest/wpf_player_all_skinless.js\",baseEndpoint:\"https://prod.api.digitalvideoplatform.com/sports/v3.0\"},widgets:{fairplay:\"https://b2b-static.oddschecker.com/oc-widgets/oc-connect-widget/index.js\"},cookies:{xdDomain:\".foxsports.com\",xdCookieName:\"FOXACCT\",fscomDebugLongitude:\"DEBUG_PANEL_LONGITUDE\",xdCookieSync:\"false\",ccpaCookieDomain:\".foxsports.com\",loginCookieName:\"puticket\",xdCookie:true,fscomDebugLatitude:\"DEBUG_PANEL_LATITUDE\",ccpaCookieName:\"us_privacy\",ccpaCookieValue:\"1---\",isLocked:true,fantasyCookieName:\"pWHATIFSPORTS\",xdPath:\"/\"},debugConsole:{enableClientConfig:true,enabled:false},bettingStatesConfig:{nonDFS:[],betStates:[\"AZ\",\"CO\",\"CT\",\"IL\",\"IN\",\"IA\",\"LA\",\"KS\",\"KY\",\"MA\",\"MD\",\"ME\",\"MI\",\"MO\",\"NC\",\"NJ\",\"NY\",\"OH\",\"PA\",\"TN\",\"VA\",\"VT\",\"WV\",\"WY\"]},specialEventCurrentYears:{\"fifa-womens-world-cup\":\"2023\",\"nfl-draft\":\"2026\",indy:\"2026\",\"world-series\":\"2025\",\"nba-draft\":\"2026\",\"college-basketball-crown\":\"2026\",\"super-bowl\":\"2026\",\"fifa-world-cup\":\"2026\",\"copa-america\":\"2024\",\"womens-uefa-euro-cup\":\"2025\",\"uefa-euro-cup\":\"2024\",\"gold-cup\":\"2025\",daytona:\"2026\"},spark:{staticDomain:\"https://statics.foxsports.com/\",enableClientConfig:true,isLocked:true,apiPath:\"https://prod-api.foxsports.com/fs/\",assetsRootUrl:\"https://statics.foxsports.com/static/orion/style/\",env:\"production\"},identity:{recaptchaKey:\"6LcyRZYlAAAAADeVMY9pXIQ8Op1dJdJvN31mza63\",authCookieName:\"FOXACCT\",clientId:\"b8704183-b1b6-4a43-a243-8a187d6c62a1\",apiKey:\"cf289e299efdfa39fb6316f259d1de93\",newsletterMidpointUrl:\"https://api3.fox.com/v2.0/prospect/v2\",entitlementsBaseUrl:\"https://ent.fox.com/fs\",authBaseUrl:\"https://auth.fox.com/\",scheduledEndpoint:\"foxsports-scheduled\",environment:\"prod\",enableClientConfig:true,eventSdk:{apiKey:\"eN58eq7Yu71kh9lOvt3l6HtNGvlxLIbA\"},idp:{managePath:\"manage/sports\",displayNamePath:\"manage/sports/displayname-update\",passwordPath:\"manage/sports/password-update\"},apiPath:\"https://api3.fox.com/v2.0\",authCookieDomain:\".foxsports.com\",ppvCallSign:\"ppv-digital\"},datadog:{src:\"https://www.datadoghq-browser-agent.com/datadog-rum-v4.js\",clientToken:\"pub6e978fdffd200a8180a724799e02fc0a\",service:\"fscom-web\",sessionReplaySampleRate:1,env:\"prod\",applicationId:\"4f680568-77ad-4217-b408-9cf89440238a\",sampleRate:10,config:{trackResources:true,site:\"datadoghq.com\",clientToken:\"pub6e978fdffd200a8180a724799e02fc0a\",service:\"fscom-web\",sessionReplaySampleRate:1,trackLongTasks:true,env:\"prod\",applicationId:\"4f680568-77ad-4217-b408-9cf89440238a\",defaultPrivacyLevel:\"mask-user-input\",sessionSampleRate:10,trackInteractions:true}},networkAssets:{networks:[{imageUrl:\"https://foxsports-wordpress-www-prsupports-prod.s3.amazonaws.com/uploads/sites/2/2016/12/FSLogo_1040x585.jpg\",alt:\"FOX Sports\",url:\"https://www.foxsports.com/networks/fox-sports\"},{imageUrl:\"https://foxsports-wordpress-www-prsupports-prod.s3.amazonaws.com/uploads/sites/2/2016/12/FS1-1040x585.jpg\",alt:\"FS1\",url:\"https://www.foxsports.com/networks/fox-sports-1\"},{imageUrl:\"https://foxsports-wordpress-www-prsupports-prod.s3.amazonaws.com/uploads/sites/2/2016/12/LOGO-DEPORTES-1040x585.jpg\",alt:\"FOX Deportes\",url:\"https://www.foxsports.com/networks/deportes\"}]},taboola:{disableOnEntities:[\"fifa-world-cup\",\"fifa-womens-world-cup\"]},magicLink:{interval:10},heap:{env_id:479232849},openWeb:{spotID:\"sp_6KWS6TTa\"},featureFlags:{disableSegmentAnalytics:true,enableChunkedArticleRendering:true,disableEventSDK:false,disableEarlyStreamAccess:true,disableHeap:false,disableEntityFavDisplay:false,disableMobileNavGoat:false,disableChampAi:true,disableOpenweb:true,disableS6Sponsor:false,enableScoresRedesign:true,disableBraze:false,newOddsModulesWeb:true,disablePressPassSearch:false,enableFoxOnePromo:true,enableUpstreamUserId:false,disableHedgehogReactions:false,hidePopularSearches:true,toggleThemeOn:false,disableFairplayOnEventV1Pages:true,enableFoxKitSDKs:true,disableEventPageV2:false,disableComments:true,disableReactionsAndCommentsOn:[\"external_wwe\",\"external_goal\",\"external_dataskrive\",\"spark_ap_post\",\"external_indycar\"],disableSearch2:false,disableEventStrikeAds:false,enableClientConfig:true,enablePersonalizedArticles:false,disableMagicLink:false,enableV2EventsOn:[\"ufl\",\"nfl\",\"college-football\"],disableCleatusAi:true},foxBet:{cta:{link:\"https://foxsports.onelink.me/SY6x/2ps7a8c4\"},apiPath:\"https://www.foxsports.com/device/location\",stateList:[{abbreviation:\"PA\",url:\"https://amaya.onelink.me/IT13?pid=FOX&c=FOX%20NEWS&af_ad=ARTICLE&af_dp=foxbetuspa%3A%2F%2F&af_web_dp=https%3A%2F%2Fmtairycasino.foxbet.com&af_ad=FSAPPFSCOM\"},{abbreviation:\"NJ\",url:\"https://amaya.onelink.me/TKLZ?pid=FOX%20NEWS&c=FOX%20NEWS&af_ad=ARTICLE&af_dp=foxbetusnj%3A%2F%2F&af_web_dp=https%3A%2F%2Fnj.foxbet.com&af_ad=FSAPPFSCOM\"},{abbreviation:\"CO\",url:\"https://amaya.onelink.me/LPl3?pid=FOX%20Media&af_ad=ARTICLE&af_dp=foxbetusco%3A%2F%2F&af_web_dp=https%3A%2F%2Fco.foxbet.com&af_ad=FSAPPFSCOM\"},{abbreviation:\"MI\",url:\"https://amaya.onelink.me/IT13?pid=Cross_sale&c=FOXMEDIA&af_dp=foxbetusmi%3A%2F%2F&af_web_dp=https%3A%2F%2Fmi.foxbet.com&af_ad=FSAPPFSCOM\"}],location:{}},product:{enableClientConfig:true,apiKey:\"cf289e299efdfa39fb6316f259d1de93\",apiPath:\"https://api.fox.com/fs/product/\",replaysEndpoint:\"curated/v1/sporting/keystone/detail/by_filters?video_type=replay&size=25\",listingByIdEndpoint:\"entities/v1/id/\"},entitlementNetworks:{foxdep:{callSigns:[\"FOXDEP\",\"FOXDEP-DIGITAL\"]},enableClientConfig:true,fs2:{callSigns:[\"FS2\",\"FS2-DIGITAL\"]},fs1:{callSigns:[\"FS1\",\"FS1-DIGITAL\"]},foxone:{callSigns:[]},\"btn-btn2go\":{callSigns:[\"BTN\",\"BTN-DIGITAL\"]},\"fbc-fox\":{callSigns:[\"FOX\",\"FOX-DIGITAL\"]},fspl:{callSigns:[\"FSP\"]},btn:{callSigns:[]}},dpp:{recaptchaKey:\"6LcyRZYlAAAAADeVMY9pXIQ8Op1dJdJvN31mza63\",enableClientConfig:true,apiKey:\"cf289e299efdfa39fb6316f259d1de93\",newsletterMidpointUrl:\"https://api3.fox.com/v2.0/prospect/v2\",isLocked:true,apiPath:\"https://api3.fox.com/v2.0/\",ppvCallSign:\"ppv-digital\"},freewheelAds:{playThreshold:.3,caidList:{soccer:\"SoccerNIVA1\",mlb:\"MLBNIVA1\",nfl:\"NFLNIVA1\",nascar:\"NascarNIVA1\",cbk:\"CBBNIVA1\",cfb:\"CFBNIVA1\"},serverURL:\"https://7e14d.v.fwmrm.net/ad/p/1\",caid:\"ROSNIVA1\",slau:\"Video_Pre-Roll_NIVA\",siteSectionId:\"fsapp/webdesktop/vod/videopage\",nw:516429,sdkSrc:\"https://mssl.fwmrm.net/libs/adm/6.55.0/AdManager.js\",sfid:15250384,prof:\"516429:niva_foxsports_webdesktop_vod\",afid:359947445,platforms:{iPhone:{siteSectionId:\"fsapp/ioshandheld/vod/videopage\",prof:\"516429:niva_foxsports_ioshandheld_vod\"},androidTablet:{siteSectionId:\"fsapp/androidtablet/vod/videopage\",prof:\"516429:niva_foxsports_androidtablet_vod\"},web:{siteSectionId:\"fsapp/webdesktop/vod/videopage\",prof:\"516429:niva_foxsports_webdesktop_vod\"},iPad:{siteSectionId:\"fsapp/iostablet/vod/videopage\",prof:\"516429:niva_foxsports_iostablet_vod\"},Android:{siteSectionId:\"fsapp/androidhandheld/vod/videopage\",prof:\"516429:niva_foxsports_androidhandheld_vod\"}}},braze:{enableClientConfig:true,apiKey:\"b0a18aec-62d9-462c-92b3-6112e41be11a\",approvedRoutes:{\"/live\":true,\"/stories\":true,\"/scores\":true,\"/odds\":true,\"/fox-super-6\":true,\"/\":true},approvedPageTypes:[],sdkEndpoint:\"sdk.iad-05.braze.com\",approvedGlobs:[]},rssFeed:{baseUrl:\"https://api.foxsports.com/v2/content/optimized-rss?partnerKey=MB0Wehpmuj2lUhuRhQaafhBjAJqaPU244mlTDK1i\",defaultSize:30},errorAssets:[{imageUrl:\"https://b.fssta.com/uploads/application/fscom/404_assets/FourOhFour01.png\",personInImage:\"Jon Rahm\"},{imageUrl:\"https://a57.foxsports.com/statics.foxsports.com/www.foxsports.com/content/uploads/2025/03/974/552/still-21284462-9066-903-still.jpg\",personInImage:\"A.J. Brown\"},{imageUrl:\"https://a57.foxsports.com/stage-statics.foxsports.com/stage.foxsports.com/content/uploads/2025/03/974/552/nicks_crying.jpg\",personInImage:\"Nick Sirianni \"},{imageUrl:\"https://a57.foxsports.com/statics.foxsports.com/www.foxsports.com/content/uploads/2025/03/974/552/ghmxcsvbeae1ts5-11.jpeg\",personInImage:\"Chris Jones\"},{imageUrl:\"https://statics.foxsports.com/www.foxsports.com/content/uploads/2025/10/image-16.png\",personInImage:\"Marcus Freeman\"},{imageUrl:\"https://b.fssta.com/uploads/application/fscom/404_assets/FourOhFour07.png\",personInImage:\"Nikola Jokic\"},{imageUrl:\"https://b.fssta.com/uploads/application/fscom/404_assets/FourOhFour08.png\",personInImage:\"Ross Chastain\"}],mvpd:{noProviderCtaText:\"Don't have a TV Provider?\",activePVPCta:\"Sign Up\",enableClientConfig:true,expiredPVPCta:\"Watch 3 Days Free\",noProviderLink:\"https://www.foxsports.com/watch/instant-access\",activePVPDescription:\"Watch 3 Days Free\",noProviderCtaTextESP:\"No tienes un Proveedor\",noProviderLinkESP:\"https://www.foxdeportes.com/mira-en-vivo\",foxOneUrls:{liveTvExpired:\"https://subs.fox.com/subscribe/payment?select=foxone,1,month&cmpid=org=one::ag=owned::mc=referral::src=fs::cmp=10010151015::add=664a\",eventExpired:\"https://subs.fox.com/subscribe/payment?select=foxone,1,month&cmpid=org=one::ag=owned::mc=referral::src=fs::cmp=10010151015::add=664b\",vodReplayExpired:\"https://subs.fox.com/subscribe/payment?select=foxone,1,month&cmpid=org=one::ag=owned::mc=referral::src=fs::cmp=10010151015::add=664e\",liveTvActive:\"https://subs.fox.com/subscribe/payment?select=foxone,1,month&cmpid=org=one::ag=owned::mc=referral::src=fs::cmp=10010151015::add=664c\",vodReplayExpiring:\"https://subs.fox.com/subscribe/payment?select=foxone,1,month&cmpid=org=one::ag=owned::mc=referral::src=fs::cmp=10010151015::add=664f\",eventActive:\"https://subs.fox.com/subscribe/payment?select=foxone,1,month&cmpid=org=one::ag=owned::mc=referral::src=fs::cmp=10010151015::add=664d\"}},environment:{enableClientConfig:true,value:\"prod\"},hedgehog:{apiPath:\" https://api.community.fox.com\",commentsScriptUrl:\"https://foxx.hedgehogcortex.com/embed/hedgehog-comments.js\",articleBottomReactionsCategories:[\"article_bottom\"],tenant:1,platform:\"fox\"},envName:\"prod\",super6:{questionTooltipShownTimes:3,userProfileEndpoint:\"user/contests/{contestId}/entry\",contestEndpoint:\"contests/{contestId}\",module:{contestUrl:\"/2024-nfl-super-6-challenge/my-entry\",contestId:\"2024-nfl-super-6-challenge\",backgroundImgUrlDesktop:\"https://b.fssta.com/uploads/application/super-6/promotion/Generic/S6_Widget_BKGD_Generic_1290x696.png\",questionLoaderDelay:\"12\",backgroundImgUrlMobile:\"https://b.fssta.com/uploads/application/super-6/promotion/Generic/S6_FSCOM_Home_PromoBanner_Generic_660x660%402x.png\"},questionSetEndpoint:\"contests/{contestId}/periods/{periodId}/question-set\",shareLink:\"https://www.foxsports.com/fox-super-6\",userContestEntry:\"user/contests/{contestId}/entry\",locationEndpoint:\"https://www.foxsports.com/device/location\",shareUrlTemplate:\"https://www.foxsports.com/fox-super-6/{contestId}/view-entry?entryId={entryId}&period={periodId}\",editTiebreaker:\"user/{contestId}/entry/picks/{periodId}/tiebreakers/{questionNumber}\",dataSharingEndpoint:\"user/contests/{contestId}/entry/dataSharingOptIn\",staticPromoIndex:0,betCardIndex:2,userContestEntryPeriodView:\"user/contests/{contestId}/entry/periodView\",betCardWeek:8,userContestEntryPicks:\"user/contests/{contestId}/entry/picks/{periodId}\",contestPeriod:\"contests/{contestId}/periods/{periodNumber}\",apiPath:\"https://api.foxsports.com/supersix/v1/\",contestEntryPeriodView:\"contests/{contestId}/entries/{entryId}/periodView\",contestLeaderboardEndpoint:\"contests/{contestId}/leaderboard/table\",contestEntries:\"contests/{contestId}/entries\",editQuestion:\"user/{contestId}/entry/picks/{periodId}/questions/{questionNumber}\",whiteList:[\"https://dev-fe.foxsports.com\",\"https://stage-fe.foxsports.com\",\"https://qa-fe.foxsports.com\",\"https://stage2-fe.foxsports.com\",\"https://stage-preview.foxsports.com\",\"https://preview.foxsports.com\",\"https://www.foxsports.com\",\"https://dev.foxnews.com\",\"https://dev-preview.foxnews.com\",\"https://stage.foxnews.com\",\"https://stage-preview.foxnews.com\",\"https://preview.foxnews.com\",\"https://www.foxnews.com\",\"https://dev2.outkick.com\",\"https://stage.outkick.com\",\"https://stage-preview.outkick.com\",\"https://preview.outkick.com\",\"https://www.outkick.com\",\"https://dev-amp.foxsports.com\",\"https://stage-amp.foxsports.com\",\"https://amp.foxsports.com\",\"https://www.tmz.com\",\"https://www.caffeine.tv\",\"https://www.nascar.com\",\"https://www.theufl.com\",\"https://www.foxcincy.com\"],contestEntry:\"contests/{contestId}/entries/{entryId}\"},accounts:{enableClientConfig:true,accountUpdate:\"https://api3.fox.com/v2.0/update/\",isLocked:true,favCacheKey:\"_WIS_parseCache\",favAuthProvider:\"fox\",registrationServerApi:\"https://www.foxsports.com/accounts/api/jwt/\",favApiPathDCG:\"https://api3.fox.com/v2.0/favorites/sports-legacy\"},liveCallSigns:{enableClientConfig:true,order:[\"FOX\",\"FS1\",\"FOX-DIGITAL\",\"FS2\",\"BTN\",\"FOXDEP\",\"FSP\",\"FOX PPV\"]},articles:{taboola:[{mode:\"hip-mid-article-rec-reel\",container:\"taboola-reco-reel-mid-article-thumbnails\",targetType:\"mix\",position:9,placement:\"Reco Reel Mid Article Thumbnails\"}],freewheelPosition:4},pollingOptions:{liveStandingsInterval:60,eventRecapInterval:60,eventFeedInterval:30,liveScoresInterval:8,entityOddsInterval:60,eventMatchupInterval:60,eventOddsInterval:60,liveListingsInterval:300},marketingProspect:{prospect:\"foxsports\",foxOneLink:\"https://www.fox.com/?cmpid=org=one::ag=owned::mc=referral::src=fs::cmp=10010071002::add=416a\",enableClientConfig:true,newsletterMidpointUrl:\"https://api3.fox.com/v2.0/prospect/v2\",subscriptionGroupId:[\"7381692b-ed97-49f6-8de9-b5f970462e5a\"],foxOneCta:\"Watch 3 Days Free\"},bifrost:{trending:\"general/trending/\",podcastsEndpoint:\"general/delta/podcasts/main\",topicsEndpoint:\"general/topic/all\",enableClientConfig:true,apiKey:\"jE7yBJVRNAwdDesMgTzTXUUSx1It41Fq\",isLocked:true,apiPath:\"https://api.foxsports.com/bifrost/v1/\",topEventsEndpoint:\"topevents/importance/importantevents\",recommendations:\"recommendations/nextarticle/\",bulkFavoritesEndpoint:\"explore/favorite/specialeventfavorites/wc\",pollsApiPath:\"https://api.foxsports.com/foxpolls/v1/\"}},bettingSettings:{news:{components:[{news:{},fairPlayComponent:{rrIndex:1,index:5,slotId:\"vrbqc8UU0whT7-dhX797b\",type:\"bet-builder\"}}]},games:{components:[{\"games-list\":{slotId:\"z72cHsgoLTYlH1dtcCBMs\"},fairPlayComponent:{rrIndex:1,slotId:\"vrbqc8UU0whT7-dhX797b\",type:\"value-bets\"}}],disableOnSports:[\"soccer\"]},futures:{components:[{futures:{},fairPlayComponent:{rrIndex:1,slotId:\"vrbqc8UU0whT7-dhX797b\",type:\"value-bets\"}}]},props:{components:[{fairPlayComponent:{isSoccerDefaultPage:true,slotId:\"ZyTnHNSDCxAT8WYn-eovZ\",type:\"value-bets\"}},{fairPlayComponent:{slotId:\"M29As4vtEegE6ZTBFSdbp\",type:\"value-bets\"}},{fairPlayComponent:{rrIndex:1,slotId:\"vrbqc8UU0whT7-dhX797b\",type:\"bet-builder\"}}]}},adSettings:{strike:{pageTypeDict:{\"super-6-webview\":\"super-6\",\"team-index\":\"team\",\"boxscore-updated-url\":\"event\",shows:\"show\",\"special-event-page-subnav\":\"special-event\",\"special-event-page\":\"special-event\",\"live-channel\":\"watch\",\"league-stats\":\"league\",results:\"event\",\"watch-replay\":\"watch\",\"subleague-futures\":\"league\",\"event-schedule\":\"watch\",\"scores-scorespath\":\"scores\",\"betting-page\":\"odds\",static:\"homepage\",\"watch-vertical-videoId\":\"watch\",\"super-6-contest-view-entry\":\"super-6\",league:\"league\",\"special-event-one-off-page\":\"topic\",index:\"homepage\",\"super-6-home\":\"super-6\",article:\"story\",racetrax:\"event\",\"show-replays\":\"watch\",golfScorecard:\"event\",\"live-blog-category-canonical\":\"story\",subleague:\"league\",foxsuper6widget:\"super-6\",personalities:\"personality\",\"fan-guide-webview\":\"special-event\",\"league-futures\":\"league\",video:\"watch\",replays:\"watch\",showsPage:\"show\",watchShows:\"watch\",live:\"watch\",\"scores-scorespath-subleague\":\"scores\",\"soccer-leagues\":\"league\",\"team-futures\":\"team\",\"golf-boxscore\":\"event\",\"watch-vertical-video-id\":\"watch\",personalitiesPage:\"personality\",\"player-index\":\"athlete\",\"odds-page\":\"odds\",\"special-event-page-clean-subnav\":\"special-event\",topics:\"topic\",\"all-articles\":\"story\",\"special-event-page-clean-subview\":\"special-event\",boxscore:\"event\",\"ap-article\":\"story\",\"team-subnav\":\"team\",\"player-subnav\":\"athlete\",\"subleague-stats\":\"league\",podcasts:\"show\",\"special-event-page-subview\":\"special-event\",\"special-event-page-clean\":\"special-event\",\"super-6-contest\":\"super-6\",\"super-6-overall-view\":\"super-6\",\"topics-topic\":\"topic\",\"stories-cat\":\"story\",videoVanityUrl:\"watch\"},adhesionUnit:{iosAdUnitTablet:\"\",androidAdUnitTablet:\"\",minutesToReEnable:10,androidAdUnitMobile:\"\",blacklist:{urls:[\"/big-noon-kickoff-experience\",\"/instant-access\",\"/provider/register\",\"/newsletter\",\"/mobile\",\"/executives\",\"/rss-feeds\",\"/privacy-policy\",\"/terms-of-use\",\"/closed-captioning\",\"/ppv-terms-of-use\",\"/fox-super-6-how-to-play\",\"/fox-super-6\",\"/draftkings-pick-6-terms\",\"/usfl-app\",\"/about-cleatus-ai\",\"/profile-updates\",\"/2024-ufl-super-6-challenge-official-rules\",\"/our-commitment-responsible-gambling\",\"/recordkeeping\",\"/end-user-license-agreement\",\"/2025-liv-golf-miami-super-6-challenge-official-rules\",\"/draftkings-osb-terms\",\"/2024-nfl-network-international-super-6-challenge-official-rules\",\"/big-noon-kickoff-5k-sweepstakes\",\"/alaska-airlines\",\"/draftkings-daily-fantasy-sports-terms\",\"/draftkings-sportsbook-terms\",\"/pp-test-3\",\"/usfl-application-end-user-license-agreement\",\"/whats-new\",\"/find-fs1-on-your-tv\"],pageTypes:[\"super-6\"]},disabled:false,iosAdUnitMobile:\"\",webAdUnitTablet:\"adh\",webAdUnitMobile:\"adh\",webAdUnitDesktop:\"adh\"},sePageTypeOverrides:{\"fifa-womens-world-cup\":\"world-cup\",\"fifa-world-cup\":\"world-cup\"},channelName:\"fsp\",placements:{news:{webAdUnitTablet:\"lb{index}\",webAdUnitMobile:\"ban{index}\",webAdUnitDesktop:\"ban{index}\",frequency:5},scores:{mobileChipsPerRow:1,chipsPerRow:3,leagueOffset:1,topFrequency:2,eventChipsPerRow:2,webAdUnitTablet:\"lb{index}\",webAdUnitMobile:\"ban{index}\",webAdUnitDesktop:\"lb{index}\",frequency:4},videos:{webAdUnitTablet:\"lb{index}\",webAdUnitMobile:\"ban{index}\",webAdUnitDesktop:\"ban{index}\",frequency:5},recap:{webAdUnitTablet:\"lb{index}\",webAdUnitMobile:\"ban{index}\",webAdUnitDesktop:\"ban{index}\"},poll:{adTimerSeconds:4},article:{\"right-rail\":{disabled:true,webAdUnitTablet:\"ban1\",webAdUnitMobile:\"ban1\",webAdUnitDesktop:\"ban1\"},body:{numOfAds:20,startIndex:1,niva:{startIndex:2,webAdUnitTablet:\"nivalb\",webAdUnitMobile:\"nivaban\",webAdUnitDesktop:\"nivaban\"},minCharCount:170,webAdUnitTablet:\"lb{index}\",webAdUnitMobile:\"ban{index}\",webAdUnitDesktop:\"ban{index}\",frequency:4}},replays:{webAdUnitTablet:\"lb{index}\",webAdUnitMobile:\"ban{index}\",webAdUnitDesktop:\"ban{index}\",frequency:5},feed:{webAdUnitTablet:\"lb{index}\",webAdUnitMobile:\"ban{index}\",webAdUnitDesktop:\"ban{index}\"},\"league-scores\":{mobileChipsPerRow:1,chipsPerRow:3,leagueOffset:1,eventChipsPerRow:2,webAdUnitTablet:\"lb{index}\",webAdUnitMobile:\"ban{index}\",webAdUnitDesktop:\"ban{index}\",frequency:4},odds:{numOfAds:2,startIndex:0,webAdUnitTablet:\"lb{index}\",webAdUnitMobile:\"ban{index}\",webAdUnitDesktop:\"ban{index}\",frequency:2},\"live-blog\":{\"right-rail\":{disabled:true,webAdUnitTablet:\"ban1\",webAdUnitMobile:\"ban1\",webAdUnitDesktop:\"ban1\"},body:{numOfAds:20,startIndex:0,niva:{startIndex:1,webAdUnitTablet:\"nivalb\",webAdUnitMobile:\"nivaban\",webAdUnitDesktop:\"nivaban\"},intro:{startIndex:1,webAdUnitTablet:\"lb1\",webAdUnitMobile:\"ban1\",webAdUnitDesktop:\"ban1\"},webAdUnitTablet:\"lb{index}\",webAdUnitMobile:\"ban{index}\",webAdUnitDesktop:\"ban{index}\",frequency:3}},event:{webAdUnitTablet:\"lb{index}\",webAdUnitMobile:\"ban{index}\",webAdUnitDesktop:\"ban{index}\"},sfvod:{webAdUnitTablet:\"lb{index}\",webAdUnitMobile:\"ban{index}\",webAdUnitDesktop:\"ban{index}\",frequency:5},matchup:{webAdUnitTablet:\"lb{index}\",webAdUnitMobile:\"ban{index}\",webAdUnitDesktop:\"ban{index}\"}},scriptSrc:\"//strike.fox.com/static/sports/display/loader.js\"}},cleatusSettings:{fscom:{maxNumMessages:20,rotowireDisclaimer:\"Generated response includes Rotowire news.\",gamblingDisclaimer:\"Gambling problem? Call 1-800-GAMBLER CO, DC, IL, IN, LA, MD, MS, NJ, OH, PA, TN, VA, WV, WY Call 877-8-HOPENY or text HOPENY (467369) (NY) Call 1-800-327-5050(MA) \\n21+ to wager. Please Gamble Responsibly. Call 1-800-NEXT-STEP(AZ), 1-800-522-4700 (KS, NV), 1-800 BETS-OFF (IA), 1-800-270-7117 for confidential help (MI)\"}},takeoverSettings:[{backgroundColor:\"#011f4d\",menuColorActive:\"#fff\",backgroundImages:{tablet:\"https://statics.foxsports.com/www.foxsports.com/content/uploads/2026/06/wc26hub-websitetakeover-2000x230-2.jpg\",desktop:\"https://statics.foxsports.com/www.foxsports.com/content/uploads/2026/06/wc26hub-websitetakeover-2880x1356-2-scaled.jpg\",mobile:\"https://statics.foxsports.com/www.foxsports.com/content/uploads/2026/06/wc26hub-websitetakeover-750x144-2.jpg\"},menuColor:\"#ffffffb3\",contentUri:\"\",opensNewTab:false,whiteList:[\"/soccer/fifa-world-cup\",\"/soccer/fifa-world-cup/highlights\",\"/soccer/fifa-world-cup/scores\",\"/soccer/fifa-world-cup/schedule\",\"/soccer/fifa-world-cup/odds\",\"/soccer/fifa-world-cup/news\",\"/soccer/fifa-world-cup/history\",\"/soccer/fifa-world-cup/standings\",\"/soccer/fifa-world-cup/teams\",\"/soccer/fifa-world-cup/awards\"],isPost:false,enabled:true},{backgroundColor:\"#072942\",menuColorActive:\"#fff\",backgroundImages:{tablet:\"https://statics.foxsports.com/www.foxsports.com/content/uploads/2026/08/f250-websitetakeover-2000x230-1.jpg\",desktop:\"https://statics.foxsports.com/www.foxsports.com/content/uploads/2026/08/f250-websitetakeover-2880x1356-1-scaled.jpg\",mobile:\"https://statics.foxsports.com/www.foxsports.com/content/uploads/2026/08/f250-websitetakeover-750x144-1.jpg\"},menuColor:\"#ffffffb3\",contentUri:\"\",opensNewTab:false,linkOut:\"https://www.foxsports.com/motor/freedom-250-grand-prix-of-washington-dc-ntt-indycar-series-aug-23-2026-racetrax-6251?cmpID=takeover\",whiteList:[\"/\"],isPost:false,enabled:true}]},app:{baseURL:\"/\",buildId:\"8e7f5228-be56-4656-be7e-456042b69c97\",buildAssetsDir:\"/_nuxt/\",cdnURL:\"\"}}</script></body></html>"
       ]
      },
-     "execution_count": 5,
+     "execution_count": 27,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -944,7 +935,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "90e84afa",
+   "id": "d0459cf4",
    "metadata": {},
    "source": [
     "## Now, let's inspect the elements using SelectorGadget\n",
@@ -963,7 +954,7 @@
   {
    "cell_type": "code",
    "execution_count": 6,
-   "id": "85c89186",
+   "id": "0c5176c2",
    "metadata": {},
    "outputs": [
     {
@@ -976,7 +967,7 @@
        " <p style=\"margin-bottom:15px;margin-top:40px;\"><span class=\"fs-18\">&lt;&lt; </span><a class=\"pill-comp\" href=\"/nfl/super-bowl\"><img alt=\"National Football League\" height=\"20\" src=\"https://b.fssta.com/uploads/application/leagues/logos/NFL.vresize.20.20.medium.0.png\" style=\"vertical-align:bottom;\" width=\"20\"/><span class=\"fs-18\">SUPER BOWL PAGE</span></a></p>]"
       ]
      },
-     "execution_count": 6,
+     "execution_count": 28,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -991,7 +982,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "c936136d",
+   "id": "8a671e1b",
    "metadata": {},
    "source": [
     "## \n",
@@ -1006,7 +997,7 @@
   {
    "cell_type": "code",
    "execution_count": 7,
-   "id": "1216d39c",
+   "id": "90370d6b",
    "metadata": {},
    "outputs": [
     {
@@ -1017,7 +1008,7 @@
        " '<<SUPER BOWL PAGE']"
       ]
      },
-     "execution_count": 7,
+     "execution_count": 29,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -1038,7 +1029,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "2f495d61",
+   "id": "7ac80f60",
    "metadata": {},
    "source": [
     "# \n",
@@ -1057,7 +1048,7 @@
   {
    "cell_type": "code",
    "execution_count": 8,
-   "id": "6dee9b1a",
+   "id": "5045b453",
    "metadata": {},
    "outputs": [
     {
@@ -1067,7 +1058,7 @@
        " <table class=\"data-table\"><thead class=\"data-header fs-11 ls-pt25\"><tr class=\"\"><th class=\"ff-n cell-text\" colspan=\"1\" data-index=\"0\" data-priority=\"1\">TEAM</th><th class=\"ff-n cell-text\" colspan=\"1\" data-index=\"0\" data-priority=\"1\">WINS</th></tr></thead><tbody class=\"row-data lh-1pt43 fs-14\"><tr class=\"faded\"><td class=\"cell-text\" data-index=\"0\">New England Patriots</td><td class=\"cell-text\" data-index=\"0\">6</td></tr><tr class=\"faded\"><td class=\"cell-text\" data-index=\"0\">Pittsburgh Steelers</td><td class=\"cell-text\" data-index=\"0\">6</td></tr><tr class=\"faded\"><td class=\"cell-text\" data-index=\"0\">Dallas Cowboys</td><td class=\"cell-text\" data-index=\"0\">5</td></tr><tr class=\"faded\"><td class=\"cell-text\" data-index=\"0\">San Francisco 49ers</td><td class=\"cell-text\" data-index=\"0\">5</td></tr><tr class=\"faded\"><td class=\"cell-text\" data-index=\"0\">Green Bay Packers</td><td class=\"cell-text\" data-index=\"0\">4</td></tr><tr class=\"faded\"><td class=\"cell-text\" data-index=\"0\">New York Giants</td><td class=\"cell-text\" data-index=\"0\">4</td></tr><tr class=\"faded\"><td class=\"cell-text\" data-index=\"0\">Kansas City Chiefs</td><td class=\"cell-text\" data-index=\"0\">4</td></tr><tr class=\"faded\"><td class=\"cell-text\" data-index=\"0\">Denver Broncos</td><td class=\"cell-text\" data-index=\"0\">3</td></tr><tr class=\"faded\"><td class=\"cell-text\" data-index=\"0\">Washington Commanders</td><td class=\"cell-text\" data-index=\"0\">3</td></tr><tr class=\"faded\"><td class=\"cell-text\" data-index=\"0\">Las Vegas Raiders</td><td class=\"cell-text\" data-index=\"0\">3</td></tr><tr class=\"faded\"><td class=\"cell-text\" data-index=\"0\">Miami Dolphins</td><td class=\"cell-text\" data-index=\"0\">2</td></tr><tr class=\"faded\"><td class=\"cell-text\" data-index=\"0\">Los Angeles Rams</td><td class=\"cell-text\" data-index=\"0\">2</td></tr><tr class=\"faded\"><td class=\"cell-text\" data-index=\"0\">Indianapolis Colts</td><td class=\"cell-text\" data-index=\"0\">2</td></tr><tr class=\"faded\"><td class=\"cell-text\" data-index=\"0\">Baltimore Ravens</td><td class=\"cell-text\" data-index=\"0\">2</td></tr><tr class=\"faded\"><td class=\"cell-text\" data-index=\"0\">Tampa Bay Buccaneers</td><td class=\"cell-text\" data-index=\"0\">2</td></tr><tr class=\"faded\"><td class=\"cell-text\" data-index=\"0\">Philadelphia Eagles</td><td class=\"cell-text\" data-index=\"0\">2</td></tr><tr class=\"faded\"><td class=\"cell-text\" data-index=\"0\">Seattle Seahawks</td><td class=\"cell-text\" data-index=\"0\">2</td></tr><tr class=\"faded\"><td class=\"cell-text\" data-index=\"0\">Chicago Bears</td><td class=\"cell-text\" data-index=\"0\">1</td></tr><tr class=\"faded\"><td class=\"cell-text\" data-index=\"0\">New York Jets</td><td class=\"cell-text\" data-index=\"0\">1</td></tr><tr class=\"faded\"><td class=\"cell-text\" data-index=\"0\">New Orleans Saints</td><td class=\"cell-text\" data-index=\"0\">1</td></tr></tbody></table>]"
       ]
      },
-     "execution_count": 8,
+     "execution_count": 30,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -1082,7 +1073,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "fa025a03",
+   "id": "452d30ed",
    "metadata": {},
    "source": [
     "Notice that two HTML tables were retrieved.\n",
@@ -1095,7 +1086,7 @@
   {
    "cell_type": "code",
    "execution_count": 9,
-   "id": "dc95ccff",
+   "id": "3327b632",
    "metadata": {},
    "outputs": [
     {
@@ -1255,7 +1246,7 @@
        " 19     New Orleans Saints     1]"
       ]
      },
-     "execution_count": 9,
+     "execution_count": 31,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -1270,7 +1261,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "694503f0",
+   "id": "c4be98a8",
    "metadata": {},
    "source": [
     "## Comments\n",
@@ -1291,7 +1282,7 @@
   {
    "cell_type": "code",
    "execution_count": 10,
-   "id": "abc66752",
+   "id": "2421fb1d",
    "metadata": {},
    "outputs": [
     {
@@ -1377,7 +1368,7 @@
        "4        Baltimore 16, Dallas 13  "
       ]
      },
-     "execution_count": 10,
+     "execution_count": 32,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -1390,7 +1381,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "49afe88d",
+   "id": "f46596d1",
    "metadata": {},
    "source": [
     "## \n",
@@ -1403,7 +1394,7 @@
   {
    "cell_type": "code",
    "execution_count": 11,
-   "id": "4e54b8bd",
+   "id": "8bee701d",
    "metadata": {},
    "outputs": [
     {
@@ -1470,7 +1461,7 @@
        "4     Green Bay Packers     4"
       ]
      },
-     "execution_count": 11,
+     "execution_count": 33,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -1483,7 +1474,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "414f7996",
+   "id": "274e3b88",
    "metadata": {},
    "source": [
     "# \n",
@@ -1494,7 +1485,7 @@
   {
    "cell_type": "code",
    "execution_count": 12,
-   "id": "6d41a797",
+   "id": "7a0fb49f",
    "metadata": {},
    "outputs": [
     {
@@ -1580,7 +1571,7 @@
        "4        Baltimore 16, Dallas 13  "
       ]
      },
-     "execution_count": 12,
+     "execution_count": 34,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -1595,7 +1586,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "e9800722",
+   "id": "0d5a2dfe",
    "metadata": {},
    "source": [
     "## Data wrangling\n",
@@ -1610,7 +1601,7 @@
   {
    "cell_type": "code",
    "execution_count": 13,
-   "id": "d44b401a",
+   "id": "d208984d",
    "metadata": {},
    "outputs": [],
    "source": [
@@ -1626,7 +1617,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "d3eb931f",
+   "id": "1b4244d3",
    "metadata": {},
    "source": [
     "## "
@@ -1635,7 +1626,7 @@
   {
    "cell_type": "code",
    "execution_count": 14,
-   "id": "8ad4c55f",
+   "id": "d9c14256",
    "metadata": {},
    "outputs": [
     {
@@ -1733,7 +1724,7 @@
        "4        Baltimore 16, Dallas 13  Jan. 17   1971  "
       ]
      },
-     "execution_count": 14,
+     "execution_count": 36,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -1747,7 +1738,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "72ce991e",
+   "id": "60b8fc7c",
    "metadata": {},
    "source": [
     "## Be careful...\n",
@@ -1760,7 +1751,7 @@
   {
    "cell_type": "code",
    "execution_count": 15,
-   "id": "2d25e6da",
+   "id": "613e6a34",
    "metadata": {},
    "outputs": [],
    "source": [
@@ -1773,7 +1764,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "a3ea8dd2",
+   "id": "517ab4a1",
    "metadata": {},
    "source": [
     "## \n",
@@ -1786,7 +1777,7 @@
   {
    "cell_type": "code",
    "execution_count": 16,
-   "id": "67c50bac",
+   "id": "c0ccfccc",
    "metadata": {},
    "outputs": [],
    "source": [
@@ -1800,7 +1791,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "9b51fe12",
+   "id": "0431c43b",
    "metadata": {},
    "source": [
     "## The result"
@@ -1809,7 +1800,7 @@
   {
    "cell_type": "code",
    "execution_count": 17,
-   "id": "70befa42",
+   "id": "e06b0b74",
    "metadata": {},
    "outputs": [
     {
@@ -1926,7 +1917,7 @@
        "4        Dallas 13  "
       ]
      },
-     "execution_count": 17,
+     "execution_count": 39,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -1939,7 +1930,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "dd3c0486",
+   "id": "220fafcc",
    "metadata": {},
    "source": [
     "## \n",
@@ -1952,7 +1943,7 @@
   {
    "cell_type": "code",
    "execution_count": 18,
-   "id": "c1b8d127",
+   "id": "1f883350",
    "metadata": {},
    "outputs": [],
    "source": [
@@ -1979,7 +1970,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "b5248f9c",
+   "id": "cb753c2d",
    "metadata": {},
    "source": [
     "## \n",
@@ -1994,7 +1985,7 @@
   {
    "cell_type": "code",
    "execution_count": 19,
-   "id": "59d9a869",
+   "id": "ecd681cc",
    "metadata": {},
    "outputs": [
     {
@@ -2107,7 +2098,7 @@
        "3     Minnesota        23        7  "
       ]
      },
-     "execution_count": 19,
+     "execution_count": 41,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -2120,7 +2111,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "0c3d9b6e",
+   "id": "ba2b91d9",
    "metadata": {},
    "source": [
     "## The web scraping process\n",
@@ -2179,7 +2170,7 @@
   {
    "cell_type": "code",
    "execution_count": 20,
-   "id": "a61d6ab6",
+   "id": "f35f7342",
    "metadata": {},
    "outputs": [],
    "source": [
@@ -2190,7 +2181,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "79d6a28c",
+   "id": "3a4e763e",
    "metadata": {},
    "source": [
     ". . .\n",
@@ -2205,7 +2196,7 @@
   {
    "cell_type": "code",
    "execution_count": 21,
-   "id": "dc9fd50e",
+   "id": "615c94c8",
    "metadata": {},
    "outputs": [
     {
@@ -2214,7 +2205,7 @@
        "True"
       ]
      },
-     "execution_count": 21,
+     "execution_count": 43,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -2236,7 +2227,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "ed3c971b",
+   "id": "512fc2b0",
    "metadata": {},
    "source": [
     "## When should we scrape data from a website?\n",
@@ -2248,13 +2239,13 @@
     "\n",
     "## What abut the industrial engineering Wikipedia site?\n",
     "\n",
-    "</br></br>"
+    "</br>"
    ]
   },
   {
    "cell_type": "code",
    "execution_count": 22,
-   "id": "6ba8197f",
+   "id": "5853d704",
    "metadata": {},
    "outputs": [
     {
@@ -2263,7 +2254,7 @@
        "False"
       ]
      },
-     "execution_count": 22,
+     "execution_count": 44,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -2285,7 +2276,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "b925afe7",
+   "id": "e09ca214",
    "metadata": {},
    "source": [
     "The output is `True`, so we are \"good\" to scrape it.\n",
@@ -2320,18 +2311,6 @@
    "language": "python",
    "name": "python3",
    "path": "/Users/alanvazquez/Documents/GitHub/TEC-IN2039-EN/env/share/jupyter/kernels/python3"
-  },
-  "language_info": {
-   "codemirror_mode": {
-    "name": "ipython",
-    "version": 3
-   },
-   "file_extension": ".py",
-   "mimetype": "text/x-python",
-   "name": "python",
-   "nbconvert_exporter": "python",
-   "pygments_lexer": "ipython3",
-   "version": "3.9.6"
   }
  },
  "nbformat": 4,

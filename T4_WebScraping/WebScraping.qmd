@@ -642,7 +642,7 @@ robots.can_fetch(
 
 ## What abut the industrial engineering Wikipedia site?
 
-</br></br>
+</br>
 
 ```{python}
 #| echo: true
