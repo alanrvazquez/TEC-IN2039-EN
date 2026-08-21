@@ -635,7 +635,7 @@ robots.can_fetch(
 
 ## When should we scrape data from a website?
 
-</br></br></br>
+</br></br>
 
 - If `can_fetch()` returns `True`, then we **can** scrape data from the webpage.
 - If `can_fetch()` returns `False`, then [**we should not scrape data from that webpage.**]{style="color:darkred;"}
