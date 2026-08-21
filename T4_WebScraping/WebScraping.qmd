@@ -356,10 +356,13 @@ To turn them into actual text for Python, we use the `get_text()` function.
 ```{python}
 #| echo: true
 
-superbowl_web_paragraph = [
-    paragraph.get_text(strip=True)
-    for paragraph in sb_web_p
-]
+# Start a list to store paragraphs
+superbowl_web_paragraph = []
+
+# Clean and store each paragraph
+for paragraph in sb_web_p:
+  cleaned_paragraph = paragraph.get_text(strip=True)
+  superbowl_web_paragraph.append(cleaned_paragraph)
 
 superbowl_web_paragraph
 ```
