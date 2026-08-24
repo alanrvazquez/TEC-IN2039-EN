@@ -430,57 +430,60 @@ Alan R. Vazquez
 <h2>Example 1: Penguins dataset</h2>
 <p>We will illustrate the concepts using the <code>penguins.xlsx</code> dataset. We will focus on visualizing the categorical variable <code>species</code>.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">library</span>(readxl)</span>
-<span id="cb1-2"><a></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-3"><a></a><span class="fu">library</span>(writexl)</span>
-<span id="cb1-4"><a></a>penguins_data <span class="ot">=</span> <span class="fu">read_excel</span>(<span class="st">"penguins.xlsx"</span>)</span>
-<span id="cb1-5"><a></a>penguins_data <span class="sc">%&gt;%</span> </span>
-<span id="cb1-6"><a></a>  <span class="fu">select</span>(species, island, sex) <span class="sc">%&gt;%</span></span>
-<span id="cb1-7"><a></a>  <span class="fu">head</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-2"><a></a>penguins_data <span class="op">=</span> pd.read_excel(<span class="st">"penguins.xlsx"</span>)</span>
+<span id="cb1-3"><a></a>penguins_data.<span class="bu">filter</span>([<span class="st">"species"</span>, <span class="st">"island"</span>, <span class="st">"sex"</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 6 × 3
-  species island    sex   
-  &lt;chr&gt;   &lt;chr&gt;     &lt;chr&gt; 
-1 Adelie  Torgersen male  
-2 Adelie  Torgersen female
-3 Adelie  Torgersen female
-4 Adelie  Torgersen &lt;NA&gt;  
-5 Adelie  Torgersen female
-6 Adelie  Torgersen male  </code></pre>
+<pre><code>       species     island     sex
+0       Adelie  Torgersen    male
+1       Adelie  Torgersen  female
+2       Adelie  Torgersen  female
+3       Adelie  Torgersen     NaN
+4       Adelie  Torgersen  female
+..         ...        ...     ...
+339  Chinstrap      Dream    male
+340  Chinstrap      Dream  female
+341  Chinstrap      Dream    male
+342  Chinstrap      Dream    male
+343  Chinstrap      Dream  female
+
+[344 rows x 3 columns]</code></pre>
 </div>
 </div>
 </section>
 <section id="principle-2-turn-data-into-information" class="slide level2">
 <h2>Principle 2: Turn data into information</h2>
-<p>As a starting point,we compute the frequencies of each category of <code>species</code> using the <strong>dplyr</strong> functions <code>group_by()</code>, <code>summarise()</code>, and <code>n()</code>.</p>
+<div style="font-size: 90%;">
+<p>As a starting point,we compute the frequencies of each category of <code>species</code> using the <strong>pandas</strong> functions <code>.filter()</code>, <code>.groupby()</code> and <code>.agg()</code>.</p>
 <ul>
-<li><p>The <code>group_by()</code> function takes an existing table and converts it into a grouped table where operations are performed “by group”.</p></li>
-<li><p>The <code>n()</code> function counts the values in a category.</p></li>
+<li><p>The <code>.groupby()</code> function takes an existing table and converts it into a grouped table where operations are performed “by group”.</p></li>
+<li><p>The <code>.size()</code> function counts the values in a category.</p></li>
 </ul>
+</div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a>frequencies_species <span class="ot">=</span> penguins_data <span class="sc">%&gt;%</span> </span>
-<span id="cb3-2"><a></a>                      <span class="fu">group_by</span>(species) <span class="sc">%&gt;%</span> </span>
-<span id="cb3-3"><a></a>                      <span class="fu">summarise</span>(<span class="st">"Frequency"</span> <span class="ot">=</span> <span class="fu">n</span>())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a></a>frequencies_species <span class="op">=</span> (penguins_data </span>
+<span id="cb3-2"><a></a>                      .groupby(<span class="st">"species"</span>)</span>
+<span id="cb3-3"><a></a>                      .size()</span>
+<span id="cb3-4"><a></a>                      )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="frequency-table" class="slide level2">
 <h2>Frequency table</h2>
 <p><br></p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a>frequencies_species</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a></a>frequencies_species</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 3 × 2
-  species   Frequency
-  &lt;chr&gt;         &lt;int&gt;
-1 Adelie          152
-2 Chinstrap        68
-3 Gentoo          124</code></pre>
+<pre><code>species
+Adelie       152
+Chinstrap     68
+Gentoo       124
+dtype: int64</code></pre>
 </div>
 </div>
 <p><br></p>
 <p>We save the frequency table for further processing with Flourish studio using the command below.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a><span class="co"># write_xlsx(frequencies_species, "PenguinsDataFlourish.xlsx")</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a><span class="co"># frequencies_species.to_excel("PenguinsDataFlourish.xlsx")</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="bar-chart" class="slide level2">
@@ -584,140 +587,104 @@ Alan R. Vazquez
 </section>
 <section id="section-3" class="slide level2">
 <h2></h2>
-<p><br></p>
+<p><br><br></p>
 <p>We concentrate on the following variables:</p>
 <ul>
 <li><p><code>chas</code> : Whether the house is next to the Charles River (1: Yes and 0: No)</p></li>
 <li><p><code>rad</code> : Index of accessibility to radial highways (0: Low, 1: Medium, 2: High).</p></li>
 </ul>
 </section>
-<section id="data-wrangling-with-r" class="slide level2">
-<h2>Data wrangling with R</h2>
+<section id="data-wrangling-with-python" class="slide level2">
+<h2>Data wrangling with Python</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<p><br></p>
 <p>To create a effective bar plots in Flourish, we must wrangle the variables <code>chas</code> and <code>rad</code> a little bit.</p>
 <p>Specifically, we must ensure that these variables are categorical and their categories have the appropriate names.</p>
+</div><div class="column" style="width:40%;">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a>Boston_dataset <span class="ot">=</span> <span class="fu">read_excel</span>(<span class="st">"Boston_dataset.xlsx"</span>)</span>
-<span id="cb7-2"><a></a>Boston_dataset <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="st">`</span><span class="at">chas</span><span class="st">`</span>, <span class="st">`</span><span class="at">rad</span><span class="st">`</span>) <span class="sc">%&gt;%</span>  <span class="fu">head</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a></a>(Boston_dataset</span>
+<span id="cb7-2"><a></a>.<span class="bu">filter</span>([<span class="st">"chas"</span>, <span class="st">"rad"</span>])</span>
+<span id="cb7-3"><a></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 6 × 2
-   chas   rad
-  &lt;dbl&gt; &lt;dbl&gt;
-1     0     0
-2     0     0
-3     0     0
-4     0     0
-5     0     0
-6     0     0</code></pre>
+<pre><code>     chas  rad
+0       0    0
+1       0    0
+2       0    0
+3       0    0
+4       0    0
+..    ...  ...
+501     0    0
+502     0    0
+503     0    0
+504     0    0
+505     0    0
+
+[506 rows x 2 columns]</code></pre>
 </div>
 </div>
+</div></div>
 </section>
 <section id="section-4" class="slide level2">
 <h2></h2>
+<p><br><br></p>
+<p>To this end, we replace the 0 and 1 of <code>chas</code> for the label “No” and “Yes”, respectively, using <code>.replace()</code>.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a></a>Boston_dataset[<span class="st">'chas'</span>] <span class="op">=</span> Boston_dataset[<span class="st">'chas'</span>].replace(<span class="dv">0</span>, <span class="st">'No'</span>)</span>
+<span id="cb9-2"><a></a>Boston_dataset[<span class="st">'chas'</span>] <span class="op">=</span> Boston_dataset[<span class="st">'chas'</span>].replace(<span class="dv">1</span>, <span class="st">'Yes'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 <p><br></p>
-<p>The variables are numeric because their header shows a <code>dbl</code>.</p>
+<p>Using this function, we replace the 0, 1, and 2 in the variable <code>rad</code> by “Low”, “Medium”, and “High”, respectively.</p>
 <div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 6 × 2
-   chas   rad
-  &lt;dbl&gt; &lt;dbl&gt;
-1     0     0
-2     0     0
-3     0     0
-4     0     0
-5     0     0
-6     0     0</code></pre>
-</div>
-</div>
-<p>To set variables as categorical we use the functions <code>mutate()</code> and <code>as.factor()</code>.</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a>Boston_dataset_wr <span class="ot">=</span> Boston_dataset <span class="sc">%&gt;%</span> </span>
-<span id="cb10-2"><a></a>                    <span class="fu">mutate</span>(<span class="st">`</span><span class="at">chas</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">as.factor</span>(<span class="st">`</span><span class="at">chas</span><span class="st">`</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb10-3"><a></a>                    <span class="fu">mutate</span>(<span class="st">`</span><span class="at">rad</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">as.factor</span>(<span class="st">`</span><span class="at">rad</span><span class="st">`</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a></a>Boston_dataset[<span class="st">'rad'</span>] <span class="op">=</span> Boston_dataset[<span class="st">'rad'</span>].replace(<span class="dv">0</span>, <span class="st">'Low'</span>)</span>
+<span id="cb10-2"><a></a>Boston_dataset[<span class="st">'rad'</span>] <span class="op">=</span> Boston_dataset[<span class="st">'rad'</span>].replace(<span class="dv">1</span>, <span class="st">'Medium'</span>)</span>
+<span id="cb10-3"><a></a>Boston_dataset[<span class="st">'rad'</span>] <span class="op">=</span> Boston_dataset[<span class="st">'rad'</span>].replace(<span class="dv">2</span>, <span class="st">'High'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="section-5" class="slide level2">
 <h2></h2>
 <p><br></p>
-<p>Now the header of the variables show a <code>fct</code> indicating that the variables are categorical.</p>
+<p>Now, the columns show the actual category labels instead of the coded (or number) labels.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a>Boston_dataset_wr  <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="st">`</span><span class="at">chas</span><span class="st">`</span>, <span class="st">`</span><span class="at">rad</span><span class="st">`</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a></a>Boston_dataset.<span class="bu">filter</span>([<span class="st">"chas"</span>, <span class="st">"rad"</span>]) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 506 × 2
-   chas  rad  
-   &lt;fct&gt; &lt;fct&gt;
- 1 0     0    
- 2 0     0    
- 3 0     0    
- 4 0     0    
- 5 0     0    
- 6 0     0    
- 7 0     1    
- 8 0     1    
- 9 0     1    
-10 0     1    
-# ℹ 496 more rows</code></pre>
+<pre><code>    chas  rad
+0     No  Low
+1     No  Low
+2     No  Low
+3     No  Low
+4     No  Low
+..   ...  ...
+501   No  Low
+502   No  Low
+503   No  Low
+504   No  Low
+505   No  Low
+
+[506 rows x 2 columns]</code></pre>
 </div>
 </div>
 </section>
 <section id="section-6" class="slide level2">
 <h2></h2>
-<p><br></p>
-<p>Next, we replace the 0 and 1 of <code>chas</code> for the label “No” and “Yes”, respectively. To this end, we use the function <code>mutate()</code> and <code>caste_match()</code>.</p>
+<p><br><br></p>
+<p>For the bar chart, we compute the frequencies of the categories of <code>chas</code> and <code>rad</code>.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a>Boston_dataset_wr <span class="ot">=</span> Boston_dataset_wr <span class="sc">%&gt;%</span> </span>
-<span id="cb13-2"><a></a>  <span class="fu">mutate</span>(<span class="st">`</span><span class="at">chas</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">case_match</span>(<span class="st">`</span><span class="at">chas</span><span class="st">`</span>, <span class="st">"0"</span> <span class="sc">~</span> <span class="st">"No"</span>, <span class="st">"1"</span> <span class="sc">~</span> <span class="st">"Yes"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<p><br></p>
-<p>Using the same functions, we replace the 0, 1, and 2 in the variable <code>rad</code> by “Low”, “Medium”, and “High”, respectively.</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a>Boston_dataset_wr <span class="ot">=</span> Boston_dataset_wr <span class="sc">%&gt;%</span> </span>
-<span id="cb14-2"><a></a>  <span class="fu">mutate</span>(<span class="st">`</span><span class="at">rad</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">case_match</span>(<span class="st">`</span><span class="at">rad</span><span class="st">`</span>, <span class="st">"0"</span> <span class="sc">~</span> <span class="st">"Low"</span>, <span class="st">"1"</span> <span class="sc">~</span> <span class="st">"Medium"</span>,</span>
-<span id="cb14-3"><a></a>                            <span class="st">"2"</span> <span class="sc">~</span> <span class="st">"High"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a></a>frequencies_Boston_chas <span class="op">=</span> (Boston_dataset </span>
+<span id="cb13-2"><a></a>                          .groupby(<span class="st">"chas"</span>)</span>
+<span id="cb13-3"><a></a>                          .size())</span>
+<span id="cb13-4"><a></a></span>
+<span id="cb13-5"><a></a>frequencies_Boston_rad <span class="op">=</span> (Boston_dataset </span>
+<span id="cb13-6"><a></a>                          .groupby(<span class="st">"rad"</span>)</span>
+<span id="cb13-7"><a></a>                          .size())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="section-7" class="slide level2">
 <h2></h2>
-<p><br></p>
-<p>Now, the columns show the actual category labels instead of the coded (or number) labels.</p>
+<p>We save the new datasets using the function <code>.to_excel()</code> from the <strong>pandas</strong>.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a>Boston_dataset_wr  <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="st">`</span><span class="at">chas</span><span class="st">`</span>, <span class="st">`</span><span class="at">rad</span><span class="st">`</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 506 × 2
-   chas  rad   
-   &lt;chr&gt; &lt;chr&gt; 
- 1 No    Low   
- 2 No    Low   
- 3 No    Low   
- 4 No    Low   
- 5 No    Low   
- 6 No    Low   
- 7 No    Medium
- 8 No    Medium
- 9 No    Medium
-10 No    Medium
-# ℹ 496 more rows</code></pre>
-</div>
-</div>
-</section>
-<section id="section-8" class="slide level2">
-<h2></h2>
-<p>For the bar chart, we compute the frequencies of the categories of <code>chas</code> and <code>rad</code>.</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a>frequencies_Boston_chas <span class="ot">=</span> Boston_dataset_wr <span class="sc">%&gt;%</span> </span>
-<span id="cb17-2"><a></a>                      <span class="fu">group_by</span>(<span class="st">`</span><span class="at">chas</span><span class="st">`</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb17-3"><a></a>                      <span class="fu">summarise</span>(<span class="st">"Frequency"</span> <span class="ot">=</span> <span class="fu">n</span>())</span>
-<span id="cb17-4"><a></a></span>
-<span id="cb17-5"><a></a>frequencies_Boston_rad <span class="ot">=</span> Boston_dataset_wr <span class="sc">%&gt;%</span> </span>
-<span id="cb17-6"><a></a>                      <span class="fu">group_by</span>(<span class="st">`</span><span class="at">rad</span><span class="st">`</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb17-7"><a></a>                      <span class="fu">summarise</span>(<span class="st">"Frequency"</span> <span class="ot">=</span> <span class="fu">n</span>())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</section>
-<section id="section-9" class="slide level2">
-<h2></h2>
-<p>We save the new datasets using the function <code>write_xlsx()</code> from the <strong>writexl</strong> package in R.</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a></a><span class="co">#write_xlsx(frequencies_Boston_chas, "BostonDataFlourishChas.xlsx")</span></span>
-<span id="cb18-2"><a></a><span class="co">#write_xlsx(frequencies_Boston_rad, "BostonDataFlourishRad.xlsx")</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a><span class="co">#frequencies_Boston_chas.to_excel("BostonDataFlourishChas.xlsx")</span></span>
+<span id="cb14-2"><a></a><span class="co">#frequencies_Boston_rad.to_excel("BostonDataFlourishRad.xlsx")</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>We then proceed to visualize the processed data using <a href="https://flourish.studio/">Flourish</a>.</p>
 
@@ -727,17 +694,17 @@ Alan R. Vazquez
 <p>We load the dataset “BostonDataFlourishChas.xlsx” into Flourish.</p>
 
 <img data-src="images/BostonDataChasFlourish.png" class="quarto-figure quarto-figure-center r-stretch"></section>
-<section id="section-10" class="slide level2">
+<section id="section-8" class="slide level2">
 <h2></h2>
 <p>We assign the <code>chas</code> variable to the <strong>Labels/time</strong> and <code>Frequency</code> to <strong>Values</strong>.</p>
 
 <img data-src="images/ChasSetVariables.png" class="quarto-figure quarto-figure-center r-stretch"></section>
-<section id="section-11" class="slide level2">
+<section id="section-9" class="slide level2">
 <h2></h2>
 <p>Now, we go back to the <strong>Preview</strong> tab and set <strong>Aggregation mode</strong> to <em>None</em>.</p>
 
 <img data-src="images/FormatChas.png" class="quarto-figure quarto-figure-center r-stretch"></section>
-<section id="section-12" class="slide level2">
+<section id="section-10" class="slide level2">
 <h2></h2>
 <p><br></p>
 <p>In the menu of the <strong>Preview</strong> tab, we add a title and a good label for the horizontal axis.</p>
@@ -781,19 +748,21 @@ Alan R. Vazquez
 <p>One strategy for developing an effective visualization is to collapse categories.</p>
 <p>For example, in the variable <code>rad</code>, we can collapse the categories <code>Medium</code> and <code>High</code> into a single category called <code>Other</code>.</p>
 </section>
-<section id="section-13" class="slide level2">
+<section id="section-11" class="slide level2">
 <h2></h2>
-<p>We collapse categories using the function called <code>case_when()</code>.</p>
+<p>We collapse categories using the function called <code>.where()</code>.</p>
 <div class="cell" data-fig-algin="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a></a>Boston_dataset_simple <span class="ot">=</span> Boston_dataset_wr <span class="sc">%&gt;%</span> </span>
-<span id="cb19-2"><a></a>      <span class="fu">mutate</span>(<span class="at">rad =</span> <span class="fu">case_when</span>(rad <span class="sc">!=</span> <span class="st">"Low"</span> <span class="sc">~</span> <span class="st">"Other"</span>,</span>
-<span id="cb19-3"><a></a>                             rad <span class="sc">==</span> <span class="st">"Low"</span> <span class="sc">~</span> <span class="st">"Low"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a></a>Boston_dataset_simple <span class="op">=</span> Boston_dataset.copy()</span>
+<span id="cb15-2"><a></a>Boston_dataset_simple[<span class="st">"rad"</span>] <span class="op">=</span> (Boston_dataset_simple</span>
+<span id="cb15-3"><a></a>                                .<span class="bu">filter</span>([<span class="st">"rad"</span>])</span>
+<span id="cb15-4"><a></a>                                .where(Boston_dataset_simple[<span class="st">"rad"</span>] <span class="op">==</span> <span class="st">"Low"</span>, <span class="st">"Other"</span>)</span>
+<span id="cb15-5"><a></a>                                )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Collapsing categories simplifies the graph and allows us to emphasize a category like <code>Low</code> and see how it compares to the other categories (as a whole).</p>
 <p><br></p>
-<p>We save the new dataset using the function <code>write_xlsx()</code>.</p>
+<p>We save the new dataset using the function <code>.to_excel()</code>.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a></a><span class="co"># write_xlsx(Boston_dataset_simple, "BostonCollapsed.xlsx")</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a></a><span class="co"># Boston_dataset_simple.to_excel("BostonCollapsed.xlsx")</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>We then proceed to visualize the processed data using <a href="https://flourish.studio/">Flourish</a>.</p>
 </section>
@@ -828,7 +797,7 @@ Alan R. Vazquez
 </ul>
 </div>
 </section>
-<section id="section-14" class="slide level2">
+<section id="section-12" class="slide level2">
 <h2></h2>
 <div class="flourish-embed flourish-scatter" data-src="visualisation/26426925">
 <script src="https://public.flourish.studio/resources/embed.js"></script>
@@ -837,7 +806,7 @@ Alan R. Vazquez
 </noscript>
 </div>
 </section>
-<section id="section-15" class="slide level2">
+<section id="section-13" class="slide level2">
 <h2></h2>
 <p><br><br><br></p>
 <ul>
@@ -849,22 +818,22 @@ Alan R. Vazquez
 <p>Beeswarm is in the section <strong>Scatter</strong> of the catalog of visualizations in Flourish.</p>
 
 <img data-src="images/BeeswarmCatalog.png" class="quarto-figure quarto-figure-center r-stretch"></section>
-<section id="section-16" class="slide level2">
+<section id="section-14" class="slide level2">
 <h2></h2>
 <p>In the Beeswarm plot, we replace the current data with the data in “CYLT.xlsx” in the <strong>Data</strong> tab.</p>
 
 <img data-src="images/BSCycle.png" class="quarto-figure quarto-figure-center r-stretch"></section>
-<section id="section-17" class="slide level2">
+<section id="section-15" class="slide level2">
 <h2></h2>
 <p>In the <strong>Data</strong> tab, we only assign the <code>cycle_time</code> variable to the <strong>X values</strong> section.</p>
 
 <img data-src="images/SelectVarBSCycle.png" class="quarto-figure quarto-figure-center r-stretch"></section>
-<section id="section-18" class="slide level2">
+<section id="section-16" class="slide level2">
 <h2></h2>
 <p>Let’s go back to the <strong>Preview</strong> tab.</p>
 
 <img data-src="images/BSPreview.png" class="quarto-figure quarto-figure-center r-stretch"></section>
-<section id="section-19" class="slide level2">
+<section id="section-17" class="slide level2">
 <h2></h2>
 <p>There, we modify the label of the horizontal axis X and header in the sections <strong>X axis</strong> and <strong>Header</strong>.</p>
 <div class="columns">

@@ -192,43 +192,42 @@ In practice, boolean values (`TRUE` and `FALSE`) often represent nominal categor
 
 We will illustrate the concepts using the `penguins.xlsx` dataset. We will focus on visualizing the categorical variable `species`.
 
-```{r}
+```{python}
 #| fig-pos: center
 #| echo: true
 #| output: true
 
-library(readxl)
-library(tidyverse)
-library(writexl)
-penguins_data = read_excel("penguins.xlsx")
-penguins_data %>% 
-  select(species, island, sex) %>%
-  head()
+import pandas as pd
+penguins_data = pd.read_excel("penguins.xlsx")
+penguins_data.filter(["species", "island", "sex"])
 ```
 
 ## Principle 2: Turn data into information
 
-As a starting point,we compute the frequencies of each category of `species` using the **dplyr** functions `group_by()`, `summarise()`, and `n()`.
+::: {style="font-size: 90%;"}
+As a starting point,we compute the frequencies of each category of `species` using the **pandas** functions `.filter()`, `.groupby()` and `.agg()`.
 
-- The `group_by()` function takes an existing table and converts it into a grouped table where operations are performed "by group".
+- The `.groupby()` function takes an existing table and converts it into a grouped table where operations are performed "by group".
 
-- The `n()` function counts the values in a category.
+- The `.size()` function counts the values in a category.
+:::
 
-```{r}
+```{python}
 #| fig-pos: center
 #| echo: true
 #| output: false
 
-frequencies_species = penguins_data %>% 
-                      group_by(species) %>% 
-                      summarise("Frequency" = n())
+frequencies_species = (penguins_data 
+                      .groupby("species")
+                      .size()
+                      )
 ```
 
 ## Frequency table
 
 </br>
 
-```{r}
+```{python}
 #| fig-pos: center
 #| echo: true
 #| output: true
@@ -245,7 +244,7 @@ We save the frequency table for further processing with Flourish studio using th
 #| echo: true
 #| output: true
 
-# write_xlsx(frequencies_species, "PenguinsDataFlourish.xlsx")
+# frequencies_species.to_excel("PenguinsDataFlourish.xlsx")
 ```
 
 ## Bar chart
@@ -342,17 +341,17 @@ This dataset contains information collected by the U.S. Census Bureau on housing
 :::
 :::::
 
-```{r}
+```{python}
 #| fig-pos: center
 #| echo: false
 #| output: true
 
-Boston_dataset = read_excel("Boston_dataset.xlsx")
+Boston_dataset = pd.read_excel("Boston_dataset.xlsx")
 ```
 
 ## 
 
-</br>
+</br></br>
 
 We concentrate on the following variables:
 
@@ -360,87 +359,56 @@ We concentrate on the following variables:
 
 - `rad` : Index of accessibility to radial highways (0: Low, 1: Medium, 2: High).
 
-## Data wrangling with R
+## Data wrangling with Python
+
+:::::: columns
+::: {.column width="60%"}
+
+</br>
 
 To create a effective bar plots in Flourish, we must wrangle the variables `chas` and `rad` a little bit.
 
 Specifically, we must ensure that these variables are categorical and their categories have the appropriate names.
-
-```{r}
+:::
+::: {.column width="40%"}
+```{python}
 #| fig-pos: center
 #| echo: true
 #| output: true
 
-Boston_dataset = read_excel("Boston_dataset.xlsx")
-Boston_dataset %>% select(`chas`, `rad`) %>%  head()
+(Boston_dataset
+.filter(["chas", "rad"])
+)
 ```
-
+:::
+:::
 ## 
 
-</br>
+</br></br>
 
-The variables are numeric because their header shows a `dbl`.
+To this end, we replace the 0 and 1 of `chas` for the label "No" and "Yes", respectively, using `.replace()`.
 
-```{r}
-#| fig-pos: center
-#| echo: false
-#| output: true
-Boston_dataset %>% select(`chas`, `rad`) %>%  head()
-```
-
-To set variables as categorical we use the functions `mutate()` and `as.factor()`.
-
-```{r}
+```{python}
 #| fig-pos: center
 #| echo: true
 #| output: false
 
-Boston_dataset_wr = Boston_dataset %>% 
-                    mutate(`chas` = as.factor(`chas`)) %>% 
-                    mutate(`rad` = as.factor(`rad`))
+Boston_dataset['chas'] = Boston_dataset['chas'].replace(0, 'No')
+Boston_dataset['chas'] = Boston_dataset['chas'].replace(1, 'Yes')
 ```
-
-## 
 
 </br>
 
-Now the header of the variables show a `fct` indicating that the variables are categorical.
+Using this function, we replace the 0, 1, and 2 in the variable `rad` by "Low", "Medium", and "High", respectively.
 
-```{r}
-#| fig-pos: center
-#| echo: true
-#| output: true
-
-Boston_dataset_wr  %>% select(`chas`, `rad`) 
-```
-
-## 
-
-</br>
-
-Next, we replace the 0 and 1 of `chas` for the label "No" and "Yes", respectively. To this end, we use the function `mutate()` and `caste_match()`.
-
-```{r}
+```{python}
 #| fig-pos: center
 #| echo: true
 #| output: false
 
-Boston_dataset_wr = Boston_dataset_wr %>% 
-  mutate(`chas` = case_match(`chas`, "0" ~ "No", "1" ~ "Yes"))
-```
-
-</br>
-
-Using the same functions, we replace the 0, 1, and 2 in the variable `rad` by "Low", "Medium", and "High", respectively.
-
-```{r}
-#| fig-pos: center
-#| echo: true
-#| output: false
-
-Boston_dataset_wr = Boston_dataset_wr %>% 
-  mutate(`rad` = case_match(`rad`, "0" ~ "Low", "1" ~ "Medium",
-                            "2" ~ "High"))
+Boston_dataset['rad'] = Boston_dataset['rad'].replace(0, 'Low')
+Boston_dataset['rad'] = Boston_dataset['rad'].replace(1, 'Medium')
+Boston_dataset['rad'] = Boston_dataset['rad'].replace(2, 'High')
 ```
 
 ## 
@@ -449,42 +417,44 @@ Boston_dataset_wr = Boston_dataset_wr %>%
 
 Now, the columns show the actual category labels instead of the coded (or number) labels.
 
-```{r}
+```{python}
 #| fig-pos: center
 #| echo: true
 #| output: true
 
-Boston_dataset_wr  %>% select(`chas`, `rad`) 
+Boston_dataset.filter(["chas", "rad"]) 
 ```
 
 ## 
+
+</br></br>
 
 For the bar chart, we compute the frequencies of the categories of `chas` and `rad`.
 
-```{r}
+```{python}
 #| fig-pos: center
 #| echo: true
 #| output: true
-frequencies_Boston_chas = Boston_dataset_wr %>% 
-                      group_by(`chas`) %>% 
-                      summarise("Frequency" = n())
+frequencies_Boston_chas = (Boston_dataset 
+                          .groupby("chas")
+                          .size())
 
-frequencies_Boston_rad = Boston_dataset_wr %>% 
-                      group_by(`rad`) %>% 
-                      summarise("Frequency" = n())
+frequencies_Boston_rad = (Boston_dataset 
+                          .groupby("rad")
+                          .size())
 ```
 
 ## 
 
-We save the new datasets using the function `write_xlsx()` from the **writexl** package in R.
+We save the new datasets using the function `.to_excel()` from the **pandas**.
 
 ```{r}
 #| fig-pos: center
 #| echo: true
 #| output: true
 
-#write_xlsx(frequencies_Boston_chas, "BostonDataFlourishChas.xlsx")
-#write_xlsx(frequencies_Boston_rad, "BostonDataFlourishRad.xlsx")
+#frequencies_Boston_chas.to_excel("BostonDataFlourishChas.xlsx")
+#frequencies_Boston_rad.to_excel("BostonDataFlourishRad.xlsx")
 ```
 
 We then proceed to visualize the processed data using [Flourish](https://flourish.studio/).
@@ -557,30 +527,32 @@ For example, in the variable `rad`, we can collapse the categories `Medium` and 
 
 ## 
 
-We collapse categories using the function called `case_when()`.
+We collapse categories using the function called `.where()`.
 
-```{r}
+```{python}
 #| fig-algin: center
 #| echo: true
 #| output: true
 
-Boston_dataset_simple = Boston_dataset_wr %>% 
-      mutate(rad = case_when(rad != "Low" ~ "Other",
-                             rad == "Low" ~ "Low"))
+Boston_dataset_simple = Boston_dataset.copy()
+Boston_dataset_simple["rad"] = (Boston_dataset_simple
+                                .filter(["rad"])
+                                .where(Boston_dataset_simple["rad"] == "Low", "Other")
+                                )
 ```
 
 Collapsing categories simplifies the graph and allows us to emphasize a category like `Low` and see how it compares to the other categories (as a whole).
 
 </br>
 
-We save the new dataset using the function `write_xlsx()`.
+We save the new dataset using the function `.to_excel()`.
 
-```{r}
+```{python}
 #| fig-pos: center
 #| echo: true
 #| output: true
 
-# write_xlsx(Boston_dataset_simple, "BostonCollapsed.xlsx")
+# Boston_dataset_simple.to_excel("BostonCollapsed.xlsx")
 ```
 
 We then proceed to visualize the processed data using [Flourish](https://flourish.studio/).
@@ -607,12 +579,12 @@ One measure of a piston's performance is the time it takes to complete a cycle, 
 
 The file "CYLT.xlsx" contains 50 cycle times of a piston operating under fixed conditions.
 
-```{r}
+```{python}
 #| fig-pos: center
 #| echo: false
 #| output: true
 
-piston_data = read_excel("CYCLT.xlsx") 
+piston_data = pd.read_excel("CYCLT.xlsx") 
 ```
 
 ## Beeswarm

@@ -2258,21 +2258,21 @@
     "href": "T6_TypesofVariables/TypesVariables.slides.html#example-1-penguins-dataset",
     "title": "Types of Variables and Univariate Plots",
     "section": "Example 1: Penguins dataset",
-    "text": "Example 1: Penguins dataset\nWe will illustrate the concepts using the penguins.xlsx dataset. We will focus on visualizing the categorical variable species.\n\nlibrary(readxl)\nlibrary(tidyverse)\nlibrary(writexl)\npenguins_data = read_excel(\"penguins.xlsx\")\npenguins_data %&gt;% \n  select(species, island, sex) %&gt;%\n  head()\n\n# A tibble: 6 × 3\n  species island    sex   \n  &lt;chr&gt;   &lt;chr&gt;     &lt;chr&gt; \n1 Adelie  Torgersen male  \n2 Adelie  Torgersen female\n3 Adelie  Torgersen female\n4 Adelie  Torgersen &lt;NA&gt;  \n5 Adelie  Torgersen female\n6 Adelie  Torgersen male"
+    "text": "Example 1: Penguins dataset\nWe will illustrate the concepts using the penguins.xlsx dataset. We will focus on visualizing the categorical variable species.\n\nimport pandas as pd\npenguins_data = pd.read_excel(\"penguins.xlsx\")\npenguins_data.filter([\"species\", \"island\", \"sex\"])\n\n       species     island     sex\n0       Adelie  Torgersen    male\n1       Adelie  Torgersen  female\n2       Adelie  Torgersen  female\n3       Adelie  Torgersen     NaN\n4       Adelie  Torgersen  female\n..         ...        ...     ...\n339  Chinstrap      Dream    male\n340  Chinstrap      Dream  female\n341  Chinstrap      Dream    male\n342  Chinstrap      Dream    male\n343  Chinstrap      Dream  female\n\n[344 rows x 3 columns]"
   },
   {
     "objectID": "T6_TypesofVariables/TypesVariables.slides.html#principle-2-turn-data-into-information",
     "href": "T6_TypesofVariables/TypesVariables.slides.html#principle-2-turn-data-into-information",
     "title": "Types of Variables and Univariate Plots",
     "section": "Principle 2: Turn data into information",
-    "text": "Principle 2: Turn data into information\nAs a starting point,we compute the frequencies of each category of species using the dplyr functions group_by(), summarise(), and n().\n\nThe group_by() function takes an existing table and converts it into a grouped table where operations are performed “by group”.\nThe n() function counts the values in a category.\n\n\nfrequencies_species = penguins_data %&gt;% \n                      group_by(species) %&gt;% \n                      summarise(\"Frequency\" = n())"
+    "text": "Principle 2: Turn data into information\n\nAs a starting point,we compute the frequencies of each category of species using the pandas functions .filter(), .groupby() and .agg().\n\nThe .groupby() function takes an existing table and converts it into a grouped table where operations are performed “by group”.\nThe .size() function counts the values in a category.\n\n\n\nfrequencies_species = (penguins_data \n                      .groupby(\"species\")\n                      .size()\n                      )"
   },
   {
     "objectID": "T6_TypesofVariables/TypesVariables.slides.html#frequency-table",
     "href": "T6_TypesofVariables/TypesVariables.slides.html#frequency-table",
     "title": "Types of Variables and Univariate Plots",
     "section": "Frequency table",
-    "text": "Frequency table\n\n\nfrequencies_species\n\n# A tibble: 3 × 2\n  species   Frequency\n  &lt;chr&gt;         &lt;int&gt;\n1 Adelie          152\n2 Chinstrap        68\n3 Gentoo          124\n\n\n\nWe save the frequency table for further processing with Flourish studio using the command below.\n\n# write_xlsx(frequencies_species, \"PenguinsDataFlourish.xlsx\")"
+    "text": "Frequency table\n\n\nfrequencies_species\n\nspecies\nAdelie       152\nChinstrap     68\nGentoo       124\ndtype: int64\n\n\n\nWe save the frequency table for further processing with Flourish studio using the command below.\n\n# frequencies_species.to_excel(\"PenguinsDataFlourish.xlsx\")"
   },
   {
     "objectID": "T6_TypesofVariables/TypesVariables.slides.html#bar-chart",
@@ -2356,42 +2356,42 @@
     "href": "T6_TypesofVariables/TypesVariables.slides.html#section-4",
     "title": "Types of Variables and Univariate Plots",
     "section": "",
-    "text": "The variables are numeric because their header shows a dbl.\n\n\n# A tibble: 6 × 2\n   chas   rad\n  &lt;dbl&gt; &lt;dbl&gt;\n1     0     0\n2     0     0\n3     0     0\n4     0     0\n5     0     0\n6     0     0\n\n\nTo set variables as categorical we use the functions mutate() and as.factor().\n\nBoston_dataset_wr = Boston_dataset %&gt;% \n                    mutate(`chas` = as.factor(`chas`)) %&gt;% \n                    mutate(`rad` = as.factor(`rad`))"
+    "text": "To this end, we replace the 0 and 1 of chas for the label “No” and “Yes”, respectively, using .replace().\n\nBoston_dataset['chas'] = Boston_dataset['chas'].replace(0, 'No')\nBoston_dataset['chas'] = Boston_dataset['chas'].replace(1, 'Yes')\n\n\nUsing this function, we replace the 0, 1, and 2 in the variable rad by “Low”, “Medium”, and “High”, respectively.\n\nBoston_dataset['rad'] = Boston_dataset['rad'].replace(0, 'Low')\nBoston_dataset['rad'] = Boston_dataset['rad'].replace(1, 'Medium')\nBoston_dataset['rad'] = Boston_dataset['rad'].replace(2, 'High')"
   },
   {
     "objectID": "T6_TypesofVariables/TypesVariables.slides.html#section-5",
     "href": "T6_TypesofVariables/TypesVariables.slides.html#section-5",
     "title": "Types of Variables and Univariate Plots",
     "section": "",
-    "text": "Now the header of the variables show a fct indicating that the variables are categorical.\n\nBoston_dataset_wr  %&gt;% select(`chas`, `rad`) \n\n# A tibble: 506 × 2\n   chas  rad  \n   &lt;fct&gt; &lt;fct&gt;\n 1 0     0    \n 2 0     0    \n 3 0     0    \n 4 0     0    \n 5 0     0    \n 6 0     0    \n 7 0     1    \n 8 0     1    \n 9 0     1    \n10 0     1    \n# ℹ 496 more rows"
+    "text": "Now, the columns show the actual category labels instead of the coded (or number) labels.\n\nBoston_dataset.filter([\"chas\", \"rad\"]) \n\n    chas  rad\n0     No  Low\n1     No  Low\n2     No  Low\n3     No  Low\n4     No  Low\n..   ...  ...\n501   No  Low\n502   No  Low\n503   No  Low\n504   No  Low\n505   No  Low\n\n[506 rows x 2 columns]"
   },
   {
     "objectID": "T6_TypesofVariables/TypesVariables.slides.html#section-6",
     "href": "T6_TypesofVariables/TypesVariables.slides.html#section-6",
     "title": "Types of Variables and Univariate Plots",
     "section": "",
-    "text": "Next, we replace the 0 and 1 of chas for the label “No” and “Yes”, respectively. To this end, we use the function mutate() and caste_match().\n\nBoston_dataset_wr = Boston_dataset_wr %&gt;% \n  mutate(`chas` = case_match(`chas`, \"0\" ~ \"No\", \"1\" ~ \"Yes\"))\n\n\nUsing the same functions, we replace the 0, 1, and 2 in the variable rad by “Low”, “Medium”, and “High”, respectively.\n\nBoston_dataset_wr = Boston_dataset_wr %&gt;% \n  mutate(`rad` = case_match(`rad`, \"0\" ~ \"Low\", \"1\" ~ \"Medium\",\n                            \"2\" ~ \"High\"))"
+    "text": "For the bar chart, we compute the frequencies of the categories of chas and rad.\n\nfrequencies_Boston_chas = (Boston_dataset \n                          .groupby(\"chas\")\n                          .size())\n\nfrequencies_Boston_rad = (Boston_dataset \n                          .groupby(\"rad\")\n                          .size())"
   },
   {
     "objectID": "T6_TypesofVariables/TypesVariables.slides.html#section-7",
     "href": "T6_TypesofVariables/TypesVariables.slides.html#section-7",
     "title": "Types of Variables and Univariate Plots",
     "section": "",
-    "text": "Now, the columns show the actual category labels instead of the coded (or number) labels.\n\nBoston_dataset_wr  %&gt;% select(`chas`, `rad`) \n\n# A tibble: 506 × 2\n   chas  rad   \n   &lt;chr&gt; &lt;chr&gt; \n 1 No    Low   \n 2 No    Low   \n 3 No    Low   \n 4 No    Low   \n 5 No    Low   \n 6 No    Low   \n 7 No    Medium\n 8 No    Medium\n 9 No    Medium\n10 No    Medium\n# ℹ 496 more rows"
+    "text": "We save the new datasets using the function .to_excel() from the pandas.\n\n#frequencies_Boston_chas.to_excel(\"BostonDataFlourishChas.xlsx\")\n#frequencies_Boston_rad.to_excel(\"BostonDataFlourishRad.xlsx\")\n\nWe then proceed to visualize the processed data using Flourish."
   },
   {
     "objectID": "T6_TypesofVariables/TypesVariables.slides.html#section-8",
     "href": "T6_TypesofVariables/TypesVariables.slides.html#section-8",
     "title": "Types of Variables and Univariate Plots",
     "section": "",
-    "text": "For the bar chart, we compute the frequencies of the categories of chas and rad.\n\nfrequencies_Boston_chas = Boston_dataset_wr %&gt;% \n                      group_by(`chas`) %&gt;% \n                      summarise(\"Frequency\" = n())\n\nfrequencies_Boston_rad = Boston_dataset_wr %&gt;% \n                      group_by(`rad`) %&gt;% \n                      summarise(\"Frequency\" = n())"
+    "text": "We assign the chas variable to the Labels/time and Frequency to Values."
   },
   {
     "objectID": "T6_TypesofVariables/TypesVariables.slides.html#section-9",
     "href": "T6_TypesofVariables/TypesVariables.slides.html#section-9",
     "title": "Types of Variables and Univariate Plots",
     "section": "",
-    "text": "We save the new datasets using the function write_xlsx() from the writexl package in R.\n\n#write_xlsx(frequencies_Boston_chas, \"BostonDataFlourishChas.xlsx\")\n#write_xlsx(frequencies_Boston_rad, \"BostonDataFlourishRad.xlsx\")\n\nWe then proceed to visualize the processed data using Flourish."
+    "text": "Now, we go back to the Preview tab and set Aggregation mode to None."
   },
   {
     "objectID": "T6_TypesofVariables/TypesVariables.slides.html#lets-create-a-bar-chart-for-chas.",
@@ -2405,14 +2405,14 @@
     "href": "T6_TypesofVariables/TypesVariables.slides.html#section-10",
     "title": "Types of Variables and Univariate Plots",
     "section": "",
-    "text": "We assign the chas variable to the Labels/time and Frequency to Values."
+    "text": "In the menu of the Preview tab, we add a title and a good label for the horizontal axis."
   },
   {
     "objectID": "T6_TypesofVariables/TypesVariables.slides.html#section-11",
     "href": "T6_TypesofVariables/TypesVariables.slides.html#section-11",
     "title": "Types of Variables and Univariate Plots",
     "section": "",
-    "text": "Now, we go back to the Preview tab and set Aggregation mode to None."
+    "text": "We collapse categories using the function called .where().\n\nBoston_dataset_simple = Boston_dataset.copy()\nBoston_dataset_simple[\"rad\"] = (Boston_dataset_simple\n                                .filter([\"rad\"])\n                                .where(Boston_dataset_simple[\"rad\"] == \"Low\", \"Other\")\n                                )\n\nCollapsing categories simplifies the graph and allows us to emphasize a category like Low and see how it compares to the other categories (as a whole).\n\nWe save the new dataset using the function .to_excel().\n\n# Boston_dataset_simple.to_excel(\"BostonCollapsed.xlsx\")\n\nWe then proceed to visualize the processed data using Flourish."
   },
   {
     "objectID": "T6_TypesofVariables/TypesVariables.slides.html#section-12",
@@ -2447,7 +2447,7 @@
     "href": "T6_TypesofVariables/TypesVariables.slides.html#section-13",
     "title": "Types of Variables and Univariate Plots",
     "section": "",
-    "text": "We collapse categories using the function called case_when().\n\nBoston_dataset_simple = Boston_dataset_wr %&gt;% \n      mutate(rad = case_when(rad != \"Low\" ~ \"Other\",\n                             rad == \"Low\" ~ \"Low\"))\n\nCollapsing categories simplifies the graph and allows us to emphasize a category like Low and see how it compares to the other categories (as a whole).\n\nWe save the new dataset using the function write_xlsx().\n\n# write_xlsx(Boston_dataset_simple, \"BostonCollapsed.xlsx\")\n\nWe then proceed to visualize the processed data using Flourish."
+    "text": "Unlike histograms, which aggregate counts into bars, beeswarm plots preserve every point, giving a more detailed picture of the underlying distribution."
   },
   {
     "objectID": "T6_TypesofVariables/TypesVariables.slides.html#the-resulting-bar-chart",
@@ -2475,7 +2475,7 @@
     "href": "T6_TypesofVariables/TypesVariables.slides.html#section-15",
     "title": "Types of Variables and Univariate Plots",
     "section": "",
-    "text": "Unlike histograms, which aggregate counts into bars, beeswarm plots preserve every point, giving a more detailed picture of the underlying distribution."
+    "text": "In the Data tab, we only assign the cycle_time variable to the X values section."
   },
   {
     "objectID": "T6_TypesofVariables/TypesVariables.slides.html#beeswarm-in-flourish",
@@ -2489,14 +2489,14 @@
     "href": "T6_TypesofVariables/TypesVariables.slides.html#section-16",
     "title": "Types of Variables and Univariate Plots",
     "section": "",
-    "text": "In the Beeswarm plot, we replace the current data with the data in “CYLT.xlsx” in the Data tab."
+    "text": "Let’s go back to the Preview tab."
   },
   {
     "objectID": "T6_TypesofVariables/TypesVariables.slides.html#section-17",
     "href": "T6_TypesofVariables/TypesVariables.slides.html#section-17",
     "title": "Types of Variables and Univariate Plots",
     "section": "",
-    "text": "In the Data tab, we only assign the cycle_time variable to the X values section."
+    "text": "There, we modify the label of the horizontal axis X and header in the sections X axis and Header."
   },
   {
     "objectID": "T6_TypesofVariables/TypesVariables.slides.html#section-18",
@@ -2525,5 +2525,19 @@
     "title": "Types of Variables and Univariate Plots",
     "section": "What to look for in a beeswarm plot?",
     "text": "What to look for in a beeswarm plot?\n\n\nClusters of points that reveal dense regions in the distribution.\nAreas where points are more spread out, indicating low-frequency regions.\nGaps along the axis where no observations appear.\nOutliers, visible as isolated points far from the main cluster.\nThe overall shape of the distribution formed by the pattern of points."
+  },
+  {
+    "objectID": "T6_TypesofVariables/TypesVariables.slides.html#data-wrangling-with-python",
+    "href": "T6_TypesofVariables/TypesVariables.slides.html#data-wrangling-with-python",
+    "title": "Types of Variables and Univariate Plots",
+    "section": "Data wrangling with Python",
+    "text": "Data wrangling with Python\n\n\n\nTo create a effective bar plots in Flourish, we must wrangle the variables chas and rad a little bit.\nSpecifically, we must ensure that these variables are categorical and their categories have the appropriate names.\n\n\n(Boston_dataset\n.filter([\"chas\", \"rad\"])\n)\n\n     chas  rad\n0       0    0\n1       0    0\n2       0    0\n3       0    0\n4       0    0\n..    ...  ...\n501     0    0\n502     0    0\n503     0    0\n504     0    0\n505     0    0\n\n[506 rows x 2 columns]"
+  },
+  {
+    "objectID": "T6_TypesofVariables/TypesVariables.slides.html#section-14",
+    "href": "T6_TypesofVariables/TypesVariables.slides.html#section-14",
+    "title": "Types of Variables and Univariate Plots",
+    "section": "",
+    "text": "In the Beeswarm plot, we replace the current data with the data in “CYLT.xlsx” in the Data tab."
   }
 ]

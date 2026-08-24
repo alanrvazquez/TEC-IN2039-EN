@@ -15,7 +15,7 @@ author:
 3.  Tidy Data ([slides](/T3_TidyData/TidyData.slides.html)) ([colab](https://colab.research.google.com/drive/16cYGecv-evCSmXgmqSMfHu2Gv0OlEWmt?usp=sharing)) 
 4.  Web Scraping ([slides](/T4_WebScraping/WebScraping.slides.html)) ([colab](https://colab.research.google.com/drive/1dOjPuUb6qklBqyZ1IfBmIxt6wzgn9Xsy?usp=sharing))
 5.  Introduction to [Flourish Studio](https://flourish.studio/) ([slides](/T5_FlourishStudio/FlourishStudio.slides.html)) ([My First Line Plot](https://public.flourish.studio/visualisation/26339799/)) ([My First Flourish Story](https://public.flourish.studio/story/3455881/))
-6.  Types of variables and univariate plots ([slides](/T6_TypesofVariables/TypesVariables.slides.html)) ([colab](https://colab.research.google.com/drive/1WbCK-anbhreTM3RJPozJK30Ez4un3UUc?usp=sharing))
+6.  Types of variables and univariate plots ([slides](/T6_TypesofVariables/TypesVariables.slides.html)) ([colab](https://colab.research.google.com/drive/1RcfDesiqhqetPZxFvyMtfFxp2m4tZpAq?usp=sharing))
 7.  Popular graphs for multiple variables ([slides](/T7_PopularGraphs/Popular_Graphs.slides.html))
 8.  Statistical graphs
 
