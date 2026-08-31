@@ -151,8 +151,8 @@ Alan R. Vazquez
 <p><br></p>
 <ol type="1">
 <li>Introduction to Multivariate Data</li>
-<li>Scatter Plots</li>
-<li>Line Plots</li>
+<li>Plots for Numerical Variables</li>
+<li>Plots for Numerical and Categorical Variables</li>
 <li>Plots for Categorical Variables</li>
 </ol>
 </section>
@@ -229,6 +229,11 @@ Alan R. Vazquez
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
+</section></section>
+<section>
+<section id="plots-for-numerical-variables" class="title-slide slide level1 center">
+<h1>Plots for Numerical Variables</h1>
+
 </section>
 <section id="independent-and-dependent-variables" class="slide level2">
 <h2>Independent and dependent variables</h2>
@@ -244,13 +249,8 @@ Alan R. Vazquez
 <p>Our goal is to determine whether changes in <span class="math inline">\(X\)</span> are associated with changes in <span class="math inline">\(Y\)</span>, and the nature of this association.</p>
 </blockquote>
 </div>
-</section></section>
-<section>
-<section id="scatter-plot" class="title-slide slide level1 center">
-<h1>Scatter plot</h1>
-
 </section>
-<section id="scatter-plot-1" class="slide level2">
+<section id="scatter-plot" class="slide level2">
 <h2>Scatter plot</h2>
 <p><br></p>
 <p>The most common graph for examining the relationship between two numerical variables is the <span style="color:#174062;"><strong><em>scatter plot</em></strong></span>.</p>
@@ -264,7 +264,7 @@ Alan R. Vazquez
 </blockquote>
 </div>
 </section>
-<section id="scatter-plot-2" class="slide level2">
+<section id="scatter-plot-1" class="slide level2">
 <h2>Scatter plot</h2>
 <div class="flourish-embed flourish-scatter" data-src="visualisation/26430283">
 <script src="https://public.flourish.studio/resources/embed.js"></script>
@@ -278,7 +278,7 @@ Alan R. Vazquez
 <p>Individual variable graphs (such as histograms) do not allow us to study the relationship between two variables. They only provide information on the <em>distribution</em> of each variable.</p>
 <div class="columns">
 <div class="column" style="width:50%;">
-<div id="2ef28875" class="cell" data-execution_count="2">
+<div id="40371fba" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -288,7 +288,7 @@ Alan R. Vazquez
 </div>
 </div>
 </div><div class="column" style="width:50%;">
-<div id="d3cf0a2b" class="cell" data-execution_count="3">
+<div id="2a44a92c" class="cell" data-execution_count="3">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -368,12 +368,7 @@ Alan R. Vazquez
 <section id="final-bubble-plot" class="slide level2">
 <h2>Final bubble plot</h2>
 
-<img data-src="images/FinalBubblePlot.png" class="quarto-figure quarto-figure-center r-stretch"></section></section>
-<section>
-<section id="line-plots" class="title-slide slide level1 center">
-<h1>Line Plots</h1>
-
-</section>
+<img data-src="images/FinalBubblePlot.png" class="quarto-figure quarto-figure-center r-stretch"></section>
 <section id="line-plot" class="slide level2">
 <h2>Line plot</h2>
 <p>A line plot is a visual representation of data where data points are connected by a line. Axes:</p>
@@ -492,6 +487,58 @@ Alan R. Vazquez
 </noscript>
 </div>
 </div>
+</section>
+<section id="creating-a-beeswarm-plot-in-flourish" class="slide level2">
+<h2>Creating a beeswarm plot in Flourish</h2>
+<p>Select <em>Beeswarm</em> in the catalog of visualizations.</p>
+
+<img data-src="images/beeswarmOne.png" class="quarto-figure quarto-figure-center r-stretch"></section>
+<section id="section-7" class="slide level2">
+<h2></h2>
+<p>Load the “auto_dataset.xlsx” into Flourish. Set the variables under study <code>origin</code> and <code>mpg</code> and assign them to <strong>X</strong> and <strong>Y</strong>, respectively.</p>
+
+<img data-src="images/beeswarmTwo.png" class="quarto-figure quarto-figure-center r-stretch"></section>
+<section id="section-8" class="slide level2">
+<h2></h2>
+<p>Improve the plot by adding a title and axis labels.</p>
+
+<img data-src="images/beeswarmThree.png" class="quarto-figure quarto-figure-center r-stretch"></section>
+<section id="bar-chart-or-beeswarm-plot" class="slide level2">
+<h2>Bar chart or beeswarm plot?</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 58%">
+<col style="width: 41%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Bar chart of averages</strong></th>
+<th style="text-align: left;"><strong>Beeswarm plot</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Shows <strong>one value per category</strong>: the mean.</td>
+<td style="text-align: left;">Shows <strong>every observation</strong> within each category.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Makes it easy to compare the <strong>average</strong> between groups.</td>
+<td style="text-align: left;">Allows us to compare the <strong>distribution</strong> between groups.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Hides variation within each category.</td>
+<td style="text-align: left;">Shows variation, concentration, gaps, and unusual observations.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="what-should-we-look-for" class="slide level2">
+<h2>What should we look for?</h2>
+<ul>
+<li><p>In a bar chart, focus on the differences between the <span style="color:darkblue;"><strong>average values</strong></span> of the categories.</p></li>
+<li><p>In a beeswarm plot, look at how much the <span style="color:darkblue;"><strong>distributions overlap</strong></span>. Little or no overlap suggests that the categorical variable can clearly <span style="color:darkblue;"><strong>distinguish between values</strong></span> of the numerical variable.</p></li>
+<li><p>A large difference in averages does <em>not necessarily</em> mean that the groups are completely different. The beeswarm plot can reveal whether their individual observations actually overlap.</p></li>
+</ul>
 </section></section>
 <section>
 <section id="plots-for-categorical-variables" class="title-slide slide level1 center">
@@ -531,12 +578,12 @@ Alan R. Vazquez
 <p>Search and select the plot in the catalog of visualizations.</p>
 
 <img data-src="images/SelectHierarchyCatalog.png" class="quarto-figure quarto-figure-center r-stretch"></section>
-<section id="section-7" class="slide level2">
+<section id="section-9" class="slide level2">
 <h2></h2>
 <p>After you load the “penguins.xlsx” data, select two categorical variables in the <strong>Categories/nesting</strong> section.</p>
 
 <img data-src="images/SelectVarsHierarhicalPlot.png" class="quarto-figure quarto-figure-center r-stretch"></section>
-<section id="section-8" class="slide level2">
+<section id="section-10" class="slide level2">
 <h2></h2>
 <p>To enhance the plot, switch off the automatic height</p>
 
@@ -580,7 +627,7 @@ Alan R. Vazquez
 <li><p><strong>Tree maps</strong> are excellent use of space when there are many subcategories. The area encodes quantity, helping highlight dominant groups.</p></li>
 </ul>
 </section>
-<section id="section-9" class="slide level2">
+<section id="section-11" class="slide level2">
 <h2></h2>
 <p><br><br><br></p>
 <ul>
