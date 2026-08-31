@@ -1,5 +1,1867 @@
 [
   {
+    "objectID": "T1_Introduction/Introduction.slides.html#agenda",
+    "href": "T1_Introduction/Introduction.slides.html#agenda",
+    "title": "Introduction to Data Visualization",
+    "section": "Agenda",
+    "text": "Agenda\n\n\nIntroduction to Data Science\nThree Principles of Data Visualization\nStorytelling for Data Visualization\nGeneral Advice for Effective Presentations"
+  },
+  {
+    "objectID": "T1_Introduction/Introduction.slides.html#data-science-is",
+    "href": "T1_Introduction/Introduction.slides.html#data-science-is",
+    "title": "Introduction to Data Visualization",
+    "section": "Data science is …",
+    "text": "Data science is …\na multidisciplinary field that uses scientific methods, processes, algorithms and systems to extract knowledge and insights from vast amounts of structured and unstructured data."
+  },
+  {
+    "objectID": "T1_Introduction/Introduction.slides.html#the-scheme-of-data-science",
+    "href": "T1_Introduction/Introduction.slides.html#the-scheme-of-data-science",
+    "title": "Introduction to Data Visualization",
+    "section": "The scheme of data science",
+    "text": "The scheme of data science\n\n\nProvost, F., & Fawcett, T. (2013). Data Science for Business: What you need to know about data mining and data-analytic thinking. O’Reilly Media, Inc."
+  },
+  {
+    "objectID": "T1_Introduction/Introduction.slides.html#business-understanding",
+    "href": "T1_Introduction/Introduction.slides.html#business-understanding",
+    "title": "Introduction to Data Visualization",
+    "section": "Business understanding",
+    "text": "Business understanding\n\n\nBusiness understanding refers to defining the business problem to be solved.\nThe goal is to reframe the business problem as a data science problem.\nOften, reframing the problem and designing a solution is an iterative process."
+  },
+  {
+    "objectID": "T1_Introduction/Introduction.slides.html#data-understanding",
+    "href": "T1_Introduction/Introduction.slides.html#data-understanding",
+    "title": "Introduction to Data Visualization",
+    "section": "Data understanding",
+    "text": "Data understanding\n\nIf the goal is to solve a business problem, the data that makes up the raw material available from which the solution will be built.\nThe available data rarely matches the problem.\nFor example, historical data is often collected for purposes unrelated to the current business problem or for no explicit purpose at all.\n\n\n\nOur goal is to turn data into information that answers useful questions."
+  },
+  {
+    "objectID": "T1_Introduction/Introduction.slides.html#data-types",
+    "href": "T1_Introduction/Introduction.slides.html#data-types",
+    "title": "Introduction to Data Visualization",
+    "section": "Data types",
+    "text": "Data types\n\n\n\nText\n\n\nImages\n\nVideo\n\n\nAudio"
+  },
+  {
+    "objectID": "T1_Introduction/Introduction.slides.html#numerical-data",
+    "href": "T1_Introduction/Introduction.slides.html#numerical-data",
+    "title": "Introduction to Data Visualization",
+    "section": "Numerical data",
+    "text": "Numerical data\n\nData science methodology is based on numerical data given in tables.\n\n\nIn fact, texts, images, videos or audios are transformed into this format to process them.\n\n\nIn this course, we will assume that the data is in a table."
+  },
+  {
+    "objectID": "T1_Introduction/Introduction.slides.html#what-is-data-visualization",
+    "href": "T1_Introduction/Introduction.slides.html#what-is-data-visualization",
+    "title": "Introduction to Data Visualization",
+    "section": "What is data visualization?",
+    "text": "What is data visualization?\n\n“A visualization [of data] is any visual presentation intended to reveal evidence, making the invisible visible.” Alberto Cairo (2015)."
+  },
+  {
+    "objectID": "T1_Introduction/Introduction.slides.html#section",
+    "href": "T1_Introduction/Introduction.slides.html#section",
+    "title": "Introduction to Data Visualization",
+    "section": "",
+    "text": "https://www.nytimes.com/2019/02/28/learning/whats-going-on-in-this-graph-march-6-2019.html"
+  },
+  {
+    "objectID": "T1_Introduction/Introduction.slides.html#section-1",
+    "href": "T1_Introduction/Introduction.slides.html#section-1",
+    "title": "Introduction to Data Visualization",
+    "section": "",
+    "text": "https://www.nytimes.com/2018/09/18/learning/whats-going-on-in-this-graph-sept-19-2018.html"
+  },
+  {
+    "objectID": "T1_Introduction/Introduction.slides.html#section-2",
+    "href": "T1_Introduction/Introduction.slides.html#section-2",
+    "title": "Introduction to Data Visualization",
+    "section": "",
+    "text": "https://www.nytimes.com/2018/10/16/learning/whats-going-on-in-this-graph-oct-17-2018.html"
+  },
+  {
+    "objectID": "T1_Introduction/Introduction.slides.html#section-3",
+    "href": "T1_Introduction/Introduction.slides.html#section-3",
+    "title": "Introduction to Data Visualization",
+    "section": "",
+    "text": "At its core, data visualization allows you to delve into complex datasets to extract meaningful insights using graphical displays.\n\nData visualizations are primarily concerned with providing evidence and enabling the audience to explore and draw their own conclusions about what the visualizations reveal about the data.\n\n\nData visualization has 3 key principles…\n\nAs data scientists, we create data visualizations in order to understand our data and explain our analyses to other people. A plot should have a message, and it’s our job to communicate this message as clearly as possible."
+  },
+  {
+    "objectID": "T1_Introduction/Introduction.slides.html#principle-1-define-the-message-or-question",
+    "href": "T1_Introduction/Introduction.slides.html#principle-1-define-the-message-or-question",
+    "title": "Introduction to Data Visualization",
+    "section": "Principle 1: Define the Message or Question",
+    "text": "Principle 1: Define the Message or Question\n\nFormulate the question of interest or the message you want to convey.\n\n\n\n\n\n\n\n\n\n\n\nEl mensaje puede ser una pregunta\n\nWhat is the key comparison?\nHow do we emphasize it?\nDo you have reason to expect that one group/observation might be different?\nWhy might your finding about shape matter?\nWhat additional comparison might add value to the investigation?\nAre there any potentially important features to compare against?"
+  },
+  {
+    "objectID": "T1_Introduction/Introduction.slides.html#principle-2-turn-data-into-information",
+    "href": "T1_Introduction/Introduction.slides.html#principle-2-turn-data-into-information",
+    "title": "Introduction to Data Visualization",
+    "section": "Principle 2: Turn Data into Information",
+    "text": "Principle 2: Turn Data into Information\nYour graph should use data to convey the message or answer the question. In other words, it should transform data into information.\n\n\nEnhance your graph with color symbols and text to convey additional information."
+  },
+  {
+    "objectID": "T1_Introduction/Introduction.slides.html#principle-3-apply-graphic-design-principles",
+    "href": "T1_Introduction/Introduction.slides.html#principle-3-apply-graphic-design-principles",
+    "title": "Introduction to Data Visualization",
+    "section": "Principle 3: Apply Graphic Design Principles",
+    "text": "Principle 3: Apply Graphic Design Principles\n\n\n\n\n\n\nObjects are easily identifiable by color.\nUse direct labels instead of a legend.\nElements such as text, lines, and shapes of the same nature should look similar.\nBalance graphics and text.\nBe cautious with default settings in visualization software.\nUse a grid-based layout to organize your visualization.\n\n\n\n\n\n\n\n\n\n\n\nDon’t limit yourself to simple elements. Enhance your graph with color symbols to convey additional information. If possible, add context with markers and reference labels.\nAdditionally, include a legend in the graph that describes key features and summarizes its conclusions."
+  },
+  {
+    "objectID": "T1_Introduction/Introduction.slides.html#example",
+    "href": "T1_Introduction/Introduction.slides.html#example",
+    "title": "Introduction to Data Visualization",
+    "section": "Example",
+    "text": "Example\n\nPrinciple 1: It is cheaper to take Uber than to own a car in four of the five largest cities in the USA.\n\n\n\n\nWeekly cost (in USD) of daily commuting\n\n\nCity\nUber\nCar\n\n\n\n\nNew York City\n142\n218\n\n\nWashington D.C.\n96\n130\n\n\nChicago\n77\n116\n\n\nLos Angeles\n62\n89\n\n\nDallas\n181\n65\n\n\n\n\n\n\n\nThe estimated costs are based on a twice-daily 10.4 mile one-way commute at peak times over the course of a week using either the UberPool option (where available) or alternatively UberX vs the cost of using a personal vehicle (including any associated costs of ownership). Study conducted in February 2017."
+  },
+  {
+    "objectID": "T1_Introduction/Introduction.slides.html#section-4",
+    "href": "T1_Introduction/Introduction.slides.html#section-4",
+    "title": "Introduction to Data Visualization",
+    "section": "",
+    "text": "Principle 2: Turn data into information."
+  },
+  {
+    "objectID": "T1_Introduction/Introduction.slides.html#section-5",
+    "href": "T1_Introduction/Introduction.slides.html#section-5",
+    "title": "Introduction to Data Visualization",
+    "section": "",
+    "text": "Principle 3: Apply Graphic Design Principles."
+  },
+  {
+    "objectID": "T1_Introduction/Introduction.slides.html#section-6",
+    "href": "T1_Introduction/Introduction.slides.html#section-6",
+    "title": "Introduction to Data Visualization",
+    "section": "",
+    "text": "“The greatest value of a picture is when it forces us to notice what we never expected to see.” – John W. Tukey.\n\n\n\n\n\nhttps://www.storytellingwithdata.com/ is an excellent guide on data visualization."
+  },
+  {
+    "objectID": "T1_Introduction/Introduction.slides.html#activity-1.1-cooperative-mode",
+    "href": "T1_Introduction/Introduction.slides.html#activity-1.1-cooperative-mode",
+    "title": "Introduction to Data Visualization",
+    "section": "Activity 1.1 (cooperative mode)",
+    "text": "Activity 1.1 (cooperative mode)\n\n\nGet together with a classmate\nAanalyze the five data visualizations in this Google Slides file\nFor each graph, write a short critique (3-4 sentences) using the three principles of data visualization.\nUpload your document in PDF with your critiques to Canvas."
+  },
+  {
+    "objectID": "T1_Introduction/Introduction.slides.html#why-storytelling-matters-in-data-visualization",
+    "href": "T1_Introduction/Introduction.slides.html#why-storytelling-matters-in-data-visualization",
+    "title": "Introduction to Data Visualization",
+    "section": "Why storytelling matters in data visualization?",
+    "text": "Why storytelling matters in data visualization?\n\nRaw data alone is not enough—insights must be communicated effectively.\nDecision-makers rely on clear, engaging, and meaningful presentations of data.\nGood storytelling connects data to real-world problems and solutions.\n\n\nFor example, a simple bar chart can be enhanced by context and narrative to explain a business trend or social issue."
+  },
+  {
+    "objectID": "T1_Introduction/Introduction.slides.html#section-7",
+    "href": "T1_Introduction/Introduction.slides.html#section-7",
+    "title": "Introduction to Data Visualization",
+    "section": "",
+    "text": "“The most powerful person in the world is the storyteller.” – Steve Jobs"
+  },
+  {
+    "objectID": "T1_Introduction/Introduction.slides.html#four-components-of-a-data-story",
+    "href": "T1_Introduction/Introduction.slides.html#four-components-of-a-data-story",
+    "title": "Introduction to Data Visualization",
+    "section": "Four Components of a Data Story",
+    "text": "Four Components of a Data Story\n\n\nIntroduction (What’s the problem?)\n\n\nDefine the problem or question you’re addressing.\nProvide relevant background or context.\n\n\n\nData (How will you solve it?)\n\n\nCollected, cleaned, and arranged analyzed data.\nProvides objective evidence to support claims."
+  },
+  {
+    "objectID": "T1_Introduction/Introduction.slides.html#section-8",
+    "href": "T1_Introduction/Introduction.slides.html#section-8",
+    "title": "Introduction to Data Visualization",
+    "section": "",
+    "text": "Visuals (What’s your solution?)\n\n\nGraphs, charts, and maps help translate numbers into meaningful insights (histograms, box plots, line charts, scatter plots, etc.).\nHighlight key trends, comparisons, and relationships.\nGood design guides the audience to the key message.\n\n\n\nNarrative (Why does it matter?)\n\n\nPuts data into context—explains the significance of findings.\nAnswers: Why does this matter? Who is affected? What should be done?"
+  },
+  {
+    "objectID": "T1_Introduction/Introduction.slides.html#best-practices-for-storytelling",
+    "href": "T1_Introduction/Introduction.slides.html#best-practices-for-storytelling",
+    "title": "Introduction to Data Visualization",
+    "section": "Best practices for storytelling",
+    "text": "Best practices for storytelling\n\nKnow Your Audience – Tailor the message to decision-makers, engineers, or the public.\nKeep it Simple – Avoid unnecessary complexity; clarity is key.\nUse the Right Visuals – Choose the best chart type for your message.\nEmphasize Key Takeaways – Bold the most important insights.\nCreate a Narrative Flow – Guide the audience through the story step by step."
+  },
+  {
+    "objectID": "T1_Introduction/Introduction.slides.html#the-advice-is-based-on",
+    "href": "T1_Introduction/Introduction.slides.html#the-advice-is-based-on",
+    "title": "Introduction to Data Visualization",
+    "section": "The advice is based on",
+    "text": "The advice is based on\n\n\nhttps://www.amazon.com/Even-Geek-Speak-Joey-Asher/dp/0978577604"
+  },
+  {
+    "objectID": "T1_Introduction/Introduction.slides.html#avoid-jargon-overload",
+    "href": "T1_Introduction/Introduction.slides.html#avoid-jargon-overload",
+    "title": "Introduction to Data Visualization",
+    "section": "1. Avoid jargon overload",
+    "text": "1. Avoid jargon overload\nSpeak in plain, everyday language your audience understands.\n\n\nFor example:\n\n\n\n\n\n\n\n\nClear and Engaging\n\n\n\nWhat Is Lean Manufacturing?\nLean Manufacturing is about finding smarter ways to work. The goal is to make products using less time, less waste, and fewer resources, while keeping customers happy.\n\n\n\n\n\n\n\n\n\n\n\nJargon Overload\n\n\n\nWhat Is Lean Manufacturing?\nLean Manufacturing is a systematic approach to process optimization that utilizes value stream mapping to identify and eliminate non–value-added activities."
+  },
+  {
+    "objectID": "T1_Introduction/Introduction.slides.html#state-the-main-objective",
+    "href": "T1_Introduction/Introduction.slides.html#state-the-main-objective",
+    "title": "Introduction to Data Visualization",
+    "section": "2. State the main objective",
+    "text": "2. State the main objective\nStart your speech with “By [insert what you want to accomplish] you will [insert what your listener wants].”\n\n\nFor example, start with\n\n“In this presentation, I’ll show you how sensors and data can help you detect problems before they cause failures, keeping your production line running smoothly.”\n\nInstead of\n\n“In this presentation, I will explain how I used a random forest algorithm to predict when a machine will fail. I’ll describe my model, the data preprocessing steps, and my evaluation metrics.”"
+  },
+  {
+    "objectID": "T1_Introduction/Introduction.slides.html#present-the-so-what.",
+    "href": "T1_Introduction/Introduction.slides.html#present-the-so-what.",
+    "title": "Introduction to Data Visualization",
+    "section": "3. Present the “so what.”",
+    "text": "3. Present the “so what.”\nDon’t dive straight into details — explain why it matters first.\n\n\nFor example, is better to start with\n\n“When a natural disaster disrupts production, companies lose millions of dollars and fail to deliver on time. Supply chain resilience is about designing systems that can recover quickly from these disruptions, keeping customers satisfied.”\n\nthan\n\n“In this project, I analyzed supplier diversification, lead time variability, and network centrality. We used simulation models to measure disruption propagation in the supply chain network.”"
+  },
+  {
+    "objectID": "T1_Introduction/Introduction.slides.html#section-9",
+    "href": "T1_Introduction/Introduction.slides.html#section-9",
+    "title": "Introduction to Data Visualization",
+    "section": "",
+    "text": "Limit your slides. One main idea per slide keeps your message clear and focused.\n\n\nUse the 3-points structure. Come up with no more than three points in support of your main objective. Support each of the points with facts or examples.\nPractice for clarity, not memorization. Rehearse enough to sound natural and confident.\nYou are the presentation. Visuals in PowerPoint reinforce a speaker’s message and help the audience key points. However, the presenter should always be the focus of the presentation, not the visuals."
+  },
+  {
+    "objectID": "T1_Introduction/Introduction.slides.html#end-with-a-call-to-action",
+    "href": "T1_Introduction/Introduction.slides.html#end-with-a-call-to-action",
+    "title": "Introduction to Data Visualization",
+    "section": "4 End with a call to action",
+    "text": "4 End with a call to action\nTell your audience what you want them to do next.\n\n\n\n\n\n\n\n\nExample\n\n\n\nLet’s Make Our Plant More Efficient\nWe’ve seen that improving energy efficiency saves costs, reduces emissions, and strengthens competitiveness.\nNow it’s your turn:\n\nIdentify one process in your area that wastes energy.\nPropose one small improvement this week.\nShare your idea in next Monday’s team meeting."
+  },
+  {
+    "objectID": "T1_Introduction/Introduction.slides.html#activity-1.2-solo-mode-and-take-home",
+    "href": "T1_Introduction/Introduction.slides.html#activity-1.2-solo-mode-and-take-home",
+    "title": "Introduction to Data Visualization",
+    "section": "Activity 1.2 (Solo mode and take-home)",
+    "text": "Activity 1.2 (Solo mode and take-home)\nPrepare a short presentation (up to 3 minutes) about any topic you’re passionate about.\nGuidelines:\n\nUse slides (PowerPoint, Google Slides, or Canva).\n\nUpload your slides to CANVAS before next class.\n\nA few students will be randomly selected to present live.\n\nWe won’t judge your topic. We’re looking for clarity, connection, and passion."
+  },
+  {
+    "objectID": "T3_TidyData/TidyData.slides.html#agenda",
+    "href": "T3_TidyData/TidyData.slides.html#agenda",
+    "title": "Tidy Data",
+    "section": "Agenda",
+    "text": "Agenda\n\n\nTidy Data\npandas for Tidy data\nData Wrangling"
+  },
+  {
+    "objectID": "T3_TidyData/TidyData.slides.html#load-the-libraries",
+    "href": "T3_TidyData/TidyData.slides.html#load-the-libraries",
+    "title": "Tidy Data",
+    "section": "Load the libraries",
+    "text": "Load the libraries\n\nRemember to load the Python libraries into Google Colab before we start:\n\nimport pandas as pd"
+  },
+  {
+    "objectID": "T3_TidyData/TidyData.slides.html#data-science-workflow",
+    "href": "T3_TidyData/TidyData.slides.html#data-science-workflow",
+    "title": "Tidy Data",
+    "section": "Data science workflow",
+    "text": "Data science workflow\n\n\nEvery data science project involves importing, tidying, transforming, visualizing, modeling, and communicating data."
+  },
+  {
+    "objectID": "T3_TidyData/TidyData.slides.html#section",
+    "href": "T3_TidyData/TidyData.slides.html#section",
+    "title": "Tidy Data",
+    "section": "",
+    "text": "Import: Bring raw data into Python.\nTidy: Reshape into a consistent format.\nTransform: Create new variables and summaries.\nVisualize: Explore patterns visually.\nModel: Fit statistical or machine learning models.\nCommunicate: Share insights clearly."
+  },
+  {
+    "objectID": "T3_TidyData/TidyData.slides.html#section-1",
+    "href": "T3_TidyData/TidyData.slides.html#section-1",
+    "title": "Tidy Data",
+    "section": "",
+    "text": "Import: Bring raw data into Python. (pandas)\nTidy: Reshape into a consistent format. (pandas)\nTransform: Create new variables and summaries. (pandas)\nVisualize: Explore patterns visually.\nModel: Fit statistical or machine learning models.\nCommunicate: Share insights clearly."
+  },
+  {
+    "objectID": "T3_TidyData/TidyData.slides.html#why-do-we-need-tidy-data",
+    "href": "T3_TidyData/TidyData.slides.html#why-do-we-need-tidy-data",
+    "title": "Tidy Data",
+    "section": "Why do we need tidy data?",
+    "text": "Why do we need tidy data?\n\n“Tidy datasets are easy to manipulate, model, and visualize.” — Hadley Wickham\n\n\n\nTidy data make Python tools work together smoothly.\nEach tidy dataset is like a well-organized spreadsheet.\nMaking your data tidy allows you to avoid common errors that occurred in the data analysis.\nThe pandas package has functions to make your data tidy."
+  },
+  {
+    "objectID": "T3_TidyData/TidyData.slides.html#tidy-data-1",
+    "href": "T3_TidyData/TidyData.slides.html#tidy-data-1",
+    "title": "Tidy Data",
+    "section": "Tidy Data",
+    "text": "Tidy Data\n\n\n\nIn tidy data:\n\nEach variable is in a column\nEach observation is in a row\nEach cell is a single measurement."
+  },
+  {
+    "objectID": "T3_TidyData/TidyData.slides.html#section-2",
+    "href": "T3_TidyData/TidyData.slides.html#section-2",
+    "title": "Tidy Data",
+    "section": "",
+    "text": "https://openscapes.org/blog/2020-10-12-tidy-data/"
+  },
+  {
+    "objectID": "T3_TidyData/TidyData.slides.html#example-1",
+    "href": "T3_TidyData/TidyData.slides.html#example-1",
+    "title": "Tidy Data",
+    "section": "Example 1",
+    "text": "Example 1\n\nConsider four datasets with the same values of four variables country, year, population, and cases. First, this is tidy version.\n\n\n\n\n\n\n\n\n\n\ncountry\nyear\ncases\npopulation\n\n\n\n\n0\nAfghanistan\n1999\n745\n19987071\n\n\n1\nAfghanistan\n2000\n2666\n20595360\n\n\n2\nBrazil\n1999\n37737\n172006362\n\n\n3\nBrazil\n2000\n80488\n174504898\n\n\n4\nChina\n1999\n212258\n1272915272\n\n\n5\nChina\n2000\n213766\n1280428583"
+  },
+  {
+    "objectID": "T3_TidyData/TidyData.slides.html#section-3",
+    "href": "T3_TidyData/TidyData.slides.html#section-3",
+    "title": "Tidy Data",
+    "section": "",
+    "text": "This is tidy data because each variable is in a column , each observation is in a row, and each cell is a single measurement.\n\n\n\n\n\n\n\n\n\ncountry\nyear\ncases\npopulation\n\n\n\n\n0\nAfghanistan\n1999\n745\n19987071\n\n\n1\nAfghanistan\n2000\n2666\n20595360\n\n\n2\nBrazil\n1999\n37737\n172006362\n\n\n3\nBrazil\n2000\n80488\n174504898\n\n\n4\nChina\n1999\n212258\n1272915272\n\n\n5\nChina\n2000\n213766\n1280428583"
+  },
+  {
+    "objectID": "T3_TidyData/TidyData.slides.html#section-4",
+    "href": "T3_TidyData/TidyData.slides.html#section-4",
+    "title": "Tidy Data",
+    "section": "",
+    "text": "Consider another version:\n\n\n\n\n\n\n\n\n\ncountry\nyear\ntype\ncount\n\n\n\n\n0\nAfghanistan\n1999\ncases\n745\n\n\n1\nAfghanistan\n1999\npopulation\n19987071\n\n\n2\nAfghanistan\n2000\ncases\n2666\n\n\n3\nAfghanistan\n2000\npopulation\n20595360\n\n\n4\nBrazil\n1999\ncases\n37737\n\n\n5\nBrazil\n1999\npopulation\n172006362\n\n\n\n\n\n\n\nNot tidy because the last column is a summary statistic (count) of two variables."
+  },
+  {
+    "objectID": "T3_TidyData/TidyData.slides.html#section-5",
+    "href": "T3_TidyData/TidyData.slides.html#section-5",
+    "title": "Tidy Data",
+    "section": "",
+    "text": "Consider another version:\n\n\n\n\n\n\n\n\n\ncountry\nyear\nrate\n\n\n\n\n0\nAfghanistan\n1999\n745/19987071\n\n\n1\nAfghanistan\n2000\n2666/20595360\n\n\n2\nBrazil\n1999\n37737/172006362\n\n\n3\nBrazil\n2000\n80488/174504898\n\n\n4\nChina\n1999\n212258/1272915272\n\n\n5\nChina\n2000\n213766/1280428583\n\n\n\n\n\n\n\nNot tidy because the last column is a summary statistic (rate) of two variables, or there are two measurements involved in this column."
+  },
+  {
+    "objectID": "T3_TidyData/TidyData.slides.html#section-6",
+    "href": "T3_TidyData/TidyData.slides.html#section-6",
+    "title": "Tidy Data",
+    "section": "",
+    "text": "Consider one last version involving two datasets.\n\n\n\n\n\n\n\n\n\ncountry\n1999\n2000\n\n\n\n\n0\nAfghanistan\n745\n2666\n\n\n1\nBrazil\n37737\n80488\n\n\n2\nChina\n212258\n213766\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\ncountry\n1999\n2000\n\n\n\n\n0\nAfghanistan\n19987071\n20595360\n\n\n1\nBrazil\n172006362\n174504898\n\n\n2\nChina\n1272915272\n1280428583\n\n\n\n\n\n\n\nNot tidy data!"
+  },
+  {
+    "objectID": "T3_TidyData/TidyData.slides.html#the-role-of-the-pandas-library",
+    "href": "T3_TidyData/TidyData.slides.html#the-role-of-the-pandas-library",
+    "title": "Tidy Data",
+    "section": "The role of the pandas library",
+    "text": "The role of the pandas library\n\n\npandas provides functions to manipulate both the structure and the contents of a dataset.\n\nIt includes tools for filtering, reshaping, cleaning, and combining data.\n\nTogether with visualization and machine learning libraries, pandas prepares your data for analysis."
+  },
+  {
+    "objectID": "T3_TidyData/TidyData.slides.html#common-functions-for-tidy-data",
+    "href": "T3_TidyData/TidyData.slides.html#common-functions-for-tidy-data",
+    "title": "Tidy Data",
+    "section": "Common functions for tidy data",
+    "text": "Common functions for tidy data\nThe pandas library provides several functions for reshaping, organizing, and completing datasets.\n\nHere, we will discuss some of the most common ones:\n\n\n\nPurpose\nFunction 1\nFunction 2\n\n\n\n\nPivoting\nmelt()\npivot()\n\n\nSplitting / Combining\nstr.split()\nstr.cat()\n\n\nMissing values\nfillna()\ndropna()\n\n\nCombining tables\nmerge()\nconcat()"
+  },
+  {
+    "objectID": "T3_TidyData/TidyData.slides.html#example-2",
+    "href": "T3_TidyData/TidyData.slides.html#example-2",
+    "title": "Tidy Data",
+    "section": "Example 2",
+    "text": "Example 2\n\nConsider the data in the file “spotify.xlsx”. This dataset contains the global daily plays of the five most popular songs on the Spotify music streaming service in 2017.\n\nLet’s read the dataset using the .read_excel() function from the pandas library.\n\nspotify_data = pd.read_excel(\"spotify.xlsx\")"
+  },
+  {
+    "objectID": "T3_TidyData/TidyData.slides.html#section-7",
+    "href": "T3_TidyData/TidyData.slides.html#section-7",
+    "title": "Tidy Data",
+    "section": "",
+    "text": "Let’s preview the dataset.\n\nspotify_data.head(3)\n\n\n\n\n\n\n\n\nDate\nDay\nShape of You\nDespacito\nSomething Just Like This\nHUMBLE.\nUnforgettable\n\n\n\n\n0\n2017-01-06\n1\n12287078\nNaN\nNaN\nNaN\nNaN\n\n\n1\n2017-01-07\n2\n13190270\nNaN\nNaN\nNaN\nNaN\n\n\n2\n2017-01-08\n3\n13099919\nNaN\nNaN\nNaN\nNaN"
+  },
+  {
+    "objectID": "T3_TidyData/TidyData.slides.html#melt",
+    "href": "T3_TidyData/TidyData.slides.html#melt",
+    "title": "Tidy Data",
+    "section": ".melt()",
+    "text": ".melt()\nA common problem is a dataset where some of the column names are not names of variables, but values of a variable.\nThe .melt() function transforms columns into rows (converts data from wide to long format). Let’s apply it to spotify_data.\n\nspotify_long = (spotify_data\n                .melt(id_vars=[\"Date\"],\n                value_vars=[\"Shape of You\", \"Despacito\", \n                \"Something Just Like This\", \"HUMBLE.\", \"Unforgettable\"],\n                var_name=\"Song\",\n                value_name=\"Plays\")\n                )"
+  },
+  {
+    "objectID": "T3_TidyData/TidyData.slides.html#remark-on-column-names",
+    "href": "T3_TidyData/TidyData.slides.html#remark-on-column-names",
+    "title": "Tidy Data",
+    "section": "Remark on column names",
+    "text": "Remark on column names\n\nPython allows column names to contain spaces and special characters because they are stored as strings.\nFor example, columns such as \"Shape of You\" or \"Something Just Like This\" can be referenced directly inside quotation marks.\n\nWhen using pandas, column names are almost always written as strings enclosed in quotation marks."
+  },
+  {
+    "objectID": "T3_TidyData/TidyData.slides.html#the-long-version-of-the-data",
+    "href": "T3_TidyData/TidyData.slides.html#the-long-version-of-the-data",
+    "title": "Tidy Data",
+    "section": "The long version of the data",
+    "text": "The long version of the data\n\nA Song column with the names of the songs.\nA Plays column with the number of plays for each song and date.\n\n\nspotify_long.head(4)\n\n\n\n\n\n\n\n\nDate\nSong\nPlays\n\n\n\n\n0\n2017-01-06\nShape of You\n12287078.0\n\n\n1\n2017-01-07\nShape of You\n13190270.0\n\n\n2\n2017-01-08\nShape of You\n13099919.0\n\n\n3\n2017-01-09\nShape of You\n14506351.0"
+  },
+  {
+    "objectID": "T3_TidyData/TidyData.slides.html#pivot",
+    "href": "T3_TidyData/TidyData.slides.html#pivot",
+    "title": "Tidy Data",
+    "section": ".pivot()",
+    "text": ".pivot()\n\nThe .pivot() function is the opposite of melt(). We use it when an observation is scattered across multiple rows and we want to convert the dataset back to a wide format.\n\n\nspotify_wide = (spotify_long\n                .pivot(index=\"Date\", columns=\"Song\", values=\"Plays\")\n                .reset_index()\n                )"
+  },
+  {
+    "objectID": "T3_TidyData/TidyData.slides.html#the-result",
+    "href": "T3_TidyData/TidyData.slides.html#the-result",
+    "title": "Tidy Data",
+    "section": "The result",
+    "text": "The result\n\nspotify_wide.head()\n\n\n\n\n\n\n\nSong\nDate\nDespacito\nHUMBLE.\nShape of You\nSomething Just Like This\nUnforgettable\n\n\n\n\n0\n2017-01-06\nNaN\nNaN\n12287078.0\nNaN\nNaN\n\n\n1\n2017-01-07\nNaN\nNaN\n13190270.0\nNaN\nNaN\n\n\n2\n2017-01-08\nNaN\nNaN\n13099919.0\nNaN\nNaN\n\n\n3\n2017-01-09\nNaN\nNaN\n14506351.0\nNaN\nNaN\n\n\n4\n2017-01-10\nNaN\nNaN\n14275628.0\nNaN\nNaN"
+  },
+  {
+    "objectID": "T3_TidyData/TidyData.slides.html#example-3",
+    "href": "T3_TidyData/TidyData.slides.html#example-3",
+    "title": "Tidy Data",
+    "section": "Example 3",
+    "text": "Example 3\n\nConsider an industrial engineer who receives a messy Excel file from a manufacturing client. The data file is called “industrial_dataset.xlsx”, which file includes data about machine maintenance logs, production output, and operator comments.\n\nindustrial_data = pd.read_excel(\"industrial_dataset.xlsx\")\n\n\nWe use this dataset to illustrate the functions .str.split() and .str.cat()."
+  },
+  {
+    "objectID": "T3_TidyData/TidyData.slides.html#lets-preview-the-data.",
+    "href": "T3_TidyData/TidyData.slides.html#lets-preview-the-data.",
+    "title": "Tidy Data",
+    "section": "Let’s preview the data.",
+    "text": "Let’s preview the data.\n\nindustrial_data.head()\n\n\n\n\n\n\n\n\nMachine ID\nOutput (units)\nMaintenance Date\nOperator\nComment\n\n\n\n\n0\n101\n1200\n2023-01-10\nAna\nok\n\n\n1\n101\n1200\n2023-01-10\nAna\nok\n\n\n2\n102\n1050\n2023-01-12\nBob\nNeeds oil!\n\n\n3\n103\nerror\n2023-01-13\nCharlie\nAll good\\n\n\n\n4\n103\n950\n2023-01-13\nCharlie\nAll good\\n"
+  },
+  {
+    "objectID": "T3_TidyData/TidyData.slides.html#str.split",
+    "href": "T3_TidyData/TidyData.slides.html#str.split",
+    "title": "Tidy Data",
+    "section": ".str.split()",
+    "text": ".str.split()\nThe .str.split() function separates the contents of one column into multiple columns by splitting the text wherever a separator appears. Consider the Comment column.\n\nindustrial_data['Comment']\n\n0                       ok\n1                       ok\n2               Needs oil!\n3               All good\\n\n4               All good\\n\n              ...         \n95    Requires part: valve\n96                      ok\n97    Delay: maintenance\\n\n98              Needs oil!\n99              All good\\n\nName: Comment, Length: 100, dtype: object"
+  },
+  {
+    "objectID": "T3_TidyData/TidyData.slides.html#section-8",
+    "href": "T3_TidyData/TidyData.slides.html#section-8",
+    "title": "Tidy Data",
+    "section": "",
+    "text": "The column has some values such as “Requires part: valve” and “Delay: maintenance” that we may want to split into columns.\n\n\n0                       ok\n1                       ok\n2               Needs oil!\n3               All good\\n\n4               All good\\n\n              ...         \n95    Requires part: valve\n96                      ok\n97    Delay: maintenance\\n\n98              Needs oil!\n99              All good\\n\nName: Comment, Length: 100, dtype: object"
+  },
+  {
+    "objectID": "T3_TidyData/TidyData.slides.html#section-9",
+    "href": "T3_TidyData/TidyData.slides.html#section-9",
+    "title": "Tidy Data",
+    "section": "",
+    "text": "We can split the values in the column according to “:”.\n\nThat is, everything before the colon will be in a column. Everything after the colon will be in another column. To achieve this, we use the function .str.split().\n\nOne input of the function is the symbol or character for which we cant to make a split. The other input, expand = True tells Python that we want to create new columns.\n\nindustrial_data['Comment'].str.split(':', expand = True)"
+  },
+  {
+    "objectID": "T3_TidyData/TidyData.slides.html#section-10",
+    "href": "T3_TidyData/TidyData.slides.html#section-10",
+    "title": "Tidy Data",
+    "section": "",
+    "text": "The result is two columns.\n\nsplit_column = industrial_data['Comment'].str.split(':', expand = True)\nsplit_column.head()\n\n\n\n\n\n\n\n\n0\n1\n\n\n\n\n0\nok\nNone\n\n\n1\nok\nNone\n\n\n2\nNeeds oil!\nNone\n\n\n3\nAll good\\n\nNone\n\n\n4\nAll good\\n\nNone"
+  },
+  {
+    "objectID": "T3_TidyData/TidyData.slides.html#section-11",
+    "href": "T3_TidyData/TidyData.slides.html#section-11",
+    "title": "Tidy Data",
+    "section": "",
+    "text": "We can assign them to new columns in the dataset using the following code.\n\naugmented_data = (industrial_data\n                  .assign(First_comment = split_column.filter([0]),\n                  Second_comment = split_column.filter([1]))\n                  )\naugmented_data.head(4)\n\n\n\n\n\n\n\n\nMachine ID\nOutput (units)\nMaintenance Date\nOperator\nComment\nFirst_comment\nSecond_comment\n\n\n\n\n0\n101\n1200\n2023-01-10\nAna\nok\nok\nNone\n\n\n1\n101\n1200\n2023-01-10\nAna\nok\nok\nNone\n\n\n2\n102\n1050\n2023-01-12\nBob\nNeeds oil!\nNeeds oil!\nNone\n\n\n3\n103\nerror\n2023-01-13\nCharlie\nAll good\\n\nAll good\\n\nNone"
+  },
+  {
+    "objectID": "T3_TidyData/TidyData.slides.html#str.cat",
+    "href": "T3_TidyData/TidyData.slides.html#str.cat",
+    "title": "Tidy Data",
+    "section": ".str.cat()",
+    "text": ".str.cat()\n\nThe .str.cat() function performs the opposite operation. It combines multiple text columns into a single column.\n\ncombined_column = (augmented_data[\"First_comment\"]\n                  .str.cat(augmented_data[\"Second_comment\"], sep=\": \")\n                  )\n\nThe first object is the column that starts the concatenation, and the remaining columns are added using str.cat()."
+  },
+  {
+    "objectID": "T3_TidyData/TidyData.slides.html#remove-columns-with-.drop",
+    "href": "T3_TidyData/TidyData.slides.html#remove-columns-with-.drop",
+    "title": "Tidy Data",
+    "section": "Remove columns with .drop()",
+    "text": "Remove columns with .drop()\n\nNext, we add the new column to the original dataset and remove the other columns First_comment and Second_comment using the function .drop() from pandas.\n\ncombined_data = (augmented_data\n                .assign(Comment = combined_column)\n                .drop([\"First_comment\", \"Second_comment\"], axis = 1)\n                )"
+  },
+  {
+    "objectID": "T3_TidyData/TidyData.slides.html#section-12",
+    "href": "T3_TidyData/TidyData.slides.html#section-12",
+    "title": "Tidy Data",
+    "section": "",
+    "text": "The result is in the combined_data dataframe.\n\ncombined_data[\"Comment\"]\n\n0                       NaN\n1                       NaN\n2                       NaN\n3                       NaN\n4                       NaN\n              ...          \n95    Requires part:  valve\n96                      NaN\n97    Delay:  maintenance\\n\n98                      NaN\n99                      NaN\nName: Comment, Length: 100, dtype: object"
+  },
+  {
+    "objectID": "T3_TidyData/TidyData.slides.html#data-wrangling",
+    "href": "T3_TidyData/TidyData.slides.html#data-wrangling",
+    "title": "Tidy Data",
+    "section": "Data wrangling",
+    "text": "Data wrangling\n\n\nData wrangling is the process of transforming raw data into a clean and structured format.\nIt involves merging, reshaping, filtering, and organizing data for analysis.\nHere, we illustrate some special functions of the pandas for cleaning common issues with a dataset."
+  },
+  {
+    "objectID": "T3_TidyData/TidyData.slides.html#remove-duplicate-rows",
+    "href": "T3_TidyData/TidyData.slides.html#remove-duplicate-rows",
+    "title": "Tidy Data",
+    "section": "Remove duplicate rows",
+    "text": "Remove duplicate rows\n\nDuplicate or identical rows are rows that have the same entries in every column in the dataset.\nIf only one row is needed for the analysis, we can remove the duplicates using the .drop_duplicates() function.\n\nindustrial_data_single = (industrial_data\n                     .drop_duplicates()\n                      )"
+  },
+  {
+    "objectID": "T3_TidyData/TidyData.slides.html#section-13",
+    "href": "T3_TidyData/TidyData.slides.html#section-13",
+    "title": "Tidy Data",
+    "section": "",
+    "text": "The industrial_data_single does not have duplicate rows.\n\nindustrial_data_single.head()\n\n\n\n\n\n\n\n\nMachine ID\nOutput (units)\nMaintenance Date\nOperator\nComment\n\n\n\n\n0\n101\n1200\n2023-01-10\nAna\nok\n\n\n1\n101\n1200\n2023-01-10\nAna\nok\n\n\n2\n102\n1050\n2023-01-12\nBob\nNeeds oil!\n\n\n3\n103\nerror\n2023-01-13\nCharlie\nAll good\\n\n\n\n4\n103\n950\n2023-01-13\nCharlie\nAll good\\n"
+  },
+  {
+    "objectID": "T3_TidyData/TidyData.slides.html#fill-blank-cells",
+    "href": "T3_TidyData/TidyData.slides.html#fill-blank-cells",
+    "title": "Tidy Data",
+    "section": "Fill blank cells",
+    "text": "Fill blank cells\n\n\nSometimes there are columns with missing values. In Python, missing values are denoted by NaN (Not a Number).\nIf we would like to fill them with a value or text, we use the .fillna() function. In this function, we use the syntaxis 'Variable': 'Replace', where the Variable is the column in the dataset and Replace is the text or number to fill the entry in.\n\n\n\nCode\nindustrial_data_single['Operator'].head(10)\n\n\n0       Ana \n1        Ana\n2        Bob\n3    Charlie\n4    Charlie\n5        NaN\n6       DAVE\n7       dave\n8    Charlie\n9    Charlie\nName: Operator, dtype: object"
+  },
+  {
+    "objectID": "T3_TidyData/TidyData.slides.html#section-14",
+    "href": "T3_TidyData/TidyData.slides.html#section-14",
+    "title": "Tidy Data",
+    "section": "",
+    "text": "Let’s fill in the missing entries of the columns Operator, Maintenance Date, and Comment.\n\ncomplete_data = (industrial_data_single\n                .fillna({'Operator': 'Unknown', \n                'Maintenance Date': '2023-01-01',\n                'Comment': 'None'})\n                )"
+  },
+  {
+    "objectID": "T3_TidyData/TidyData.slides.html#section-15",
+    "href": "T3_TidyData/TidyData.slides.html#section-15",
+    "title": "Tidy Data",
+    "section": "",
+    "text": "complete_data.head()\n\n\n\n\n\n\n\n\nMachine ID\nOutput (units)\nMaintenance Date\nOperator\nComment\n\n\n\n\n0\n101\n1200\n2023-01-10\nAna\nok\n\n\n1\n101\n1200\n2023-01-10\nAna\nok\n\n\n2\n102\n1050\n2023-01-12\nBob\nNeeds oil!\n\n\n3\n103\nerror\n2023-01-13\nCharlie\nAll good\\n\n\n\n4\n103\n950\n2023-01-13\nCharlie\nAll good\\n"
+  },
+  {
+    "objectID": "T3_TidyData/TidyData.slides.html#replace-values",
+    "href": "T3_TidyData/TidyData.slides.html#replace-values",
+    "title": "Tidy Data",
+    "section": "Replace values",
+    "text": "Replace values\n\nThere are some cases in which columns have some undesired or unwatned values. Consider the Output (units) as an example.\n\ncomplete_data['Output (units)'].head()\n\n0     1200\n1     1200\n2     1050\n3    error\n4      950\nName: Output (units), dtype: object\n\n\nThe column has the numbers of units but also text such as “error”."
+  },
+  {
+    "objectID": "T3_TidyData/TidyData.slides.html#section-16",
+    "href": "T3_TidyData/TidyData.slides.html#section-16",
+    "title": "Tidy Data",
+    "section": "",
+    "text": "We can replace the “error” in this column by a user-specified value, say, NaN. To this end, we use the function .replace(). The function has two inputs. The first one is the value to replace and the second one is the replacement value.\n\n\ncomplete_data['Output (units)'] = complete_data['Output (units)'].replace('error', float('nan'))\n\n\n\nThe float('nan') allows the column to be numeric."
+  },
+  {
+    "objectID": "T3_TidyData/TidyData.slides.html#section-17",
+    "href": "T3_TidyData/TidyData.slides.html#section-17",
+    "title": "Tidy Data",
+    "section": "",
+    "text": "Let’s check the new column’s information.\n\ncomplete_data['Output (units)'].info()\n\n&lt;class 'pandas.core.series.Series'&gt;\nRangeIndex: 100 entries, 0 to 99\nSeries name: Output (units)\nNon-Null Count  Dtype  \n--------------  -----  \n84 non-null     float64\ndtypes: float64(1)\nmemory usage: 928.0 bytes\n\n\nNote that the new column is now numeric."
+  },
+  {
+    "objectID": "T3_TidyData/TidyData.slides.html#remove-characters",
+    "href": "T3_TidyData/TidyData.slides.html#remove-characters",
+    "title": "Tidy Data",
+    "section": "Remove characters",
+    "text": "Remove characters\n\nSomething that we notice is that the column First_Comment has some extra characters like “” that may be useless when working with the data.\nWe can remove them using the function .str.strip(). The input of the function is the character to remove.\n\naugmented_data['First_comment'] = augmented_data['First_comment'].str.strip(\"\\n\")"
+  },
+  {
+    "objectID": "T3_TidyData/TidyData.slides.html#section-18",
+    "href": "T3_TidyData/TidyData.slides.html#section-18",
+    "title": "Tidy Data",
+    "section": "",
+    "text": "Let’s see the cleaned column.\n\naugmented_data['First_comment']\n\n0                ok\n1                ok\n2        Needs oil!\n3          All good\n4          All good\n          ...      \n95    Requires part\n96               ok\n97            Delay\n98       Needs oil!\n99         All good\nName: First_comment, Length: 100, dtype: object"
+  },
+  {
+    "objectID": "T3_TidyData/TidyData.slides.html#section-19",
+    "href": "T3_TidyData/TidyData.slides.html#section-19",
+    "title": "Tidy Data",
+    "section": "",
+    "text": "We can also remove other characters.\n\naugmented_data['First_comment'].str.strip(\"!\")\n\n0                ok\n1                ok\n2         Needs oil\n3          All good\n4          All good\n          ...      \n95    Requires part\n96               ok\n97            Delay\n98        Needs oil\n99         All good\nName: First_comment, Length: 100, dtype: object"
+  },
+  {
+    "objectID": "T3_TidyData/TidyData.slides.html#transform-text-case",
+    "href": "T3_TidyData/TidyData.slides.html#transform-text-case",
+    "title": "Tidy Data",
+    "section": "Transform text case",
+    "text": "Transform text case\nWhen working with text columns such as those containing names, it might be possible to have different ways of writing. A common case is when having lower case or upper case names or a combination thereof.\nFor example, consider the column Operator containing the names of the operators.\n\ncomplete_data['Operator'].head()\n\n0       Ana \n1        Ana\n2        Bob\n3    Charlie\n4    Charlie\nName: Operator, dtype: object"
+  },
+  {
+    "objectID": "T3_TidyData/TidyData.slides.html#remove-extra-spaces",
+    "href": "T3_TidyData/TidyData.slides.html#remove-extra-spaces",
+    "title": "Tidy Data",
+    "section": "Remove extra spaces",
+    "text": "Remove extra spaces\n\nTo deal with names, we first use the .str.strip() to remove leading and trailing characters from strings.\n\ncomplete_data['Operator'] = complete_data['Operator'].str.strip()\ncomplete_data['Operator']\n\n0         Ana\n1         Ana\n2         Bob\n3     Charlie\n4     Charlie\n       ...   \n95    Charlie\n96        Ana\n97        Ana\n98    Charlie\n99        ana\nName: Operator, Length: 100, dtype: object"
+  },
+  {
+    "objectID": "T3_TidyData/TidyData.slides.html#change-to-lowercase-letters",
+    "href": "T3_TidyData/TidyData.slides.html#change-to-lowercase-letters",
+    "title": "Tidy Data",
+    "section": "Change to lowercase letters",
+    "text": "Change to lowercase letters\n\nWe can turn all names to lowercase using the function str.lower().\n\ncomplete_data['Operator'].str.lower()\n\n0         ana\n1         ana\n2         bob\n3     charlie\n4     charlie\n       ...   \n95    charlie\n96        ana\n97        ana\n98    charlie\n99        ana\nName: Operator, Length: 100, dtype: object"
+  },
+  {
+    "objectID": "T3_TidyData/TidyData.slides.html#change-to-uppercase-letters",
+    "href": "T3_TidyData/TidyData.slides.html#change-to-uppercase-letters",
+    "title": "Tidy Data",
+    "section": "Change to uppercase letters",
+    "text": "Change to uppercase letters\n\nWe can turn all names to lowercase using the function str.upper().\n\ncomplete_data['Operator'].str.upper()\n\n0         ANA\n1         ANA\n2         BOB\n3     CHARLIE\n4     CHARLIE\n       ...   \n95    CHARLIE\n96        ANA\n97        ANA\n98    CHARLIE\n99        ANA\nName: Operator, Length: 100, dtype: object"
+  },
+  {
+    "objectID": "T3_TidyData/TidyData.slides.html#capitalize-the-first-letter",
+    "href": "T3_TidyData/TidyData.slides.html#capitalize-the-first-letter",
+    "title": "Tidy Data",
+    "section": "Capitalize the first letter",
+    "text": "Capitalize the first letter\n\nWe can convert all names to title case using the function str.title().\n\ncomplete_data['Operator'].str.title()\n\n0         Ana\n1         Ana\n2         Bob\n3     Charlie\n4     Charlie\n       ...   \n95    Charlie\n96        Ana\n97        Ana\n98    Charlie\n99        Ana\nName: Operator, Length: 100, dtype: object"
+  },
+  {
+    "objectID": "T3_TidyData/TidyData.slides.html#more-functions-of-pandas",
+    "href": "T3_TidyData/TidyData.slides.html#more-functions-of-pandas",
+    "title": "Tidy Data",
+    "section": "More functions of pandas",
+    "text": "More functions of pandas\n\n\nhttps://wesmckinney.com/book/"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site\n\n1 + 1\n\n2"
+  },
+  {
+    "objectID": "T2_Tools/Tools.slides.html#agenda",
+    "href": "T2_Tools/Tools.slides.html#agenda",
+    "title": "Tools for Data Manipulation",
+    "section": "Agenda",
+    "text": "Agenda\n\n\nIntroduction to Python\nReading data with pandas\nData manipulation with pandas"
+  },
+  {
+    "objectID": "T2_Tools/Tools.slides.html#python",
+    "href": "T2_Tools/Tools.slides.html#python",
+    "title": "Tools for Data Manipulation",
+    "section": "Python",
+    "text": "Python\n\n\n\n\nA versatile programming language.\nIt is free!\nIt is widely used for data cleaning, data visualization, and data modelling.\nIt can be extended with packages (libraries) developed by other users."
+  },
+  {
+    "objectID": "T2_Tools/Tools.slides.html#google-colab",
+    "href": "T2_Tools/Tools.slides.html#google-colab",
+    "title": "Tools for Data Manipulation",
+    "section": "Google Colab",
+    "text": "Google Colab\nGoogle’s free cloud collaboration platform for creating Python documents.\n\nRun Python and collaborate on Jupyter notebooks for free.\nHarness the power of GPUs for free to accelerate your data science projects.\nEasily save and upload your notebooks to Google Drive."
+  },
+  {
+    "objectID": "T2_Tools/Tools.slides.html#lets-try-a-command-in-python",
+    "href": "T2_Tools/Tools.slides.html#lets-try-a-command-in-python",
+    "title": "Tools for Data Manipulation",
+    "section": "Let’s try a command in Python",
+    "text": "Let’s try a command in Python\n\nWhat do you think will happen if we run this command?\n\nprint(\"Hello world!\")\n\n\n\n\nHello world!"
+  },
+  {
+    "objectID": "T2_Tools/Tools.slides.html#lets-try-another-command",
+    "href": "T2_Tools/Tools.slides.html#lets-try-another-command",
+    "title": "Tools for Data Manipulation",
+    "section": "Let’s try another command",
+    "text": "Let’s try another command\n\nWhat do you think will happen if we run this command?\n\nsum([1, 5, 10])\n\n\n\n\n16"
+  },
+  {
+    "objectID": "T2_Tools/Tools.slides.html#use-python-as-a-basic-calculator",
+    "href": "T2_Tools/Tools.slides.html#use-python-as-a-basic-calculator",
+    "title": "Tools for Data Manipulation",
+    "section": "Use Python as a basic calculator",
+    "text": "Use Python as a basic calculator\n\n\n5 + 1\n\n6\n\n\n\n10 - 3\n\n7\n\n\n\n2 * 4\n\n8\n\n\n\n9 / 3\n\n3.0"
+  },
+  {
+    "objectID": "T2_Tools/Tools.slides.html#comments",
+    "href": "T2_Tools/Tools.slides.html#comments",
+    "title": "Tools for Data Manipulation",
+    "section": "Comments",
+    "text": "Comments\n\nSometimes we write things in the coding window that we want Python to ignore. These are called comments and start with #.\n\nPython will ignore the comments and just execute the code.\n\n# you can put whatever after #\n# for example... blah blah blah\n\n\nSi desea escribir un comentario que ocupe más de una línea, es una buena idea poner un # al principio de cada línea."
+  },
+  {
+    "objectID": "T2_Tools/Tools.slides.html#introduction-to-functions-in-python",
+    "href": "T2_Tools/Tools.slides.html#introduction-to-functions-in-python",
+    "title": "Tools for Data Manipulation",
+    "section": "Introduction to functions in Python",
+    "text": "Introduction to functions in Python\n\nOne of the best things about Python is that there are many built-in commands you can use. These are called functions.\n\nFunctions have two basic parts:\n\nThe first part is the name of the function (for example, sum).\nThe second part is the input to the function, which goes inside the parentheses (sum([1, 5, 15]))."
+  },
+  {
+    "objectID": "T2_Tools/Tools.slides.html#python-is-strict",
+    "href": "T2_Tools/Tools.slides.html#python-is-strict",
+    "title": "Tools for Data Manipulation",
+    "section": "Python is strict",
+    "text": "Python is strict\n\nPython, like all programming languages, is very strict. For example, if you write\n\n\nsum([1, 100])\n\n101\n\n\n\nit will tell you the answer, 101.\n\n\n\nBut if you write\n\n\nSum([1, 100])\n\n\n---------------------------------------------------------------------------\nNameError                                 Traceback (most recent call last)\nCell In[11], line 1\n----&gt; 1 Sum([1, 100])\n\nNameError: name 'Sum' is not defined\n\n\n\n\nwith the “s” capitalized, he will act like he has no idea what we are talking about!\n\n\nlo mismo si olvidas incluir un parentesis"
+  },
+  {
+    "objectID": "T2_Tools/Tools.slides.html#save-your-work-in-python-objects",
+    "href": "T2_Tools/Tools.slides.html#save-your-work-in-python-objects",
+    "title": "Tools for Data Manipulation",
+    "section": "Save your work in Python objects",
+    "text": "Save your work in Python objects\n\nVirtually anything, including the results of any Python function, can be saved in an object.\nThis is accomplished by using an assignment operator, which can be an equals symbol (=).\n\nYou can make up any name you want for a Python object. However, there are two basic rules for this:\n\nIt must be different from a function name in Python.\nIt should be as specific as possible."
+  },
+  {
+    "objectID": "T2_Tools/Tools.slides.html#for-example",
+    "href": "T2_Tools/Tools.slides.html#for-example",
+    "title": "Tools for Data Manipulation",
+    "section": "For example",
+    "text": "For example\n\n\n# This code will assign the number 18\n# to the object called my_favorite_number\n\nmy_favorite_number = 18\n\nAfter running this code, nothing happens. But if we run the object on its own, we can see what’s inside it.\n\nmy_favorite_number\n\n18\n\n\nYou can also use print(my_favorite_number)."
+  },
+  {
+    "objectID": "T2_Tools/Tools.slides.html#lists",
+    "href": "T2_Tools/Tools.slides.html#lists",
+    "title": "Tools for Data Manipulation",
+    "section": "Lists",
+    "text": "Lists\n\nSo far we have used Python objects to store a single number. But in statistics we are dealing with variation, which by definition needs more than one number.\n\nA Python object can also store a complete set of numbers, called a list.\nYou can think of a list as a vector of numbers (or values).\n\n\nThe [] command can be used to combine several individual values into a list.\n\npuedes pensar que el c es por combinar"
+  },
+  {
+    "objectID": "T2_Tools/Tools.slides.html#for-example-1",
+    "href": "T2_Tools/Tools.slides.html#for-example-1",
+    "title": "Tools for Data Manipulation",
+    "section": "For example",
+    "text": "For example\n\nThis code creates two vectors\n\nmy_list = [1, 2, 3, 4, 5]\nmy_list_2 = [10, 10, 10, 10, 10]\n\nLet’s see its content\n\nmy_list\n\n[1, 2, 3, 4, 5]\n\n\n\nmy_list_2\n\n[10, 10, 10, 10, 10]"
+  },
+  {
+    "objectID": "T2_Tools/Tools.slides.html#operations",
+    "href": "T2_Tools/Tools.slides.html#operations",
+    "title": "Tools for Data Manipulation",
+    "section": "Operations",
+    "text": "Operations\n\nWe can do simple operations with vectors. For example, we can sum all the elements of a list.\n\nmy_list = [1, 2, 3, 4, 5]\nsum(my_list)\n\n15"
+  },
+  {
+    "objectID": "T2_Tools/Tools.slides.html#indexing",
+    "href": "T2_Tools/Tools.slides.html#indexing",
+    "title": "Tools for Data Manipulation",
+    "section": "Indexing",
+    "text": "Indexing\n\nWe can index a position in the vector using square brackets with a number like this: [1].\nSo, if we wanted to print the contents of the first position in my_list, we could write\n\nmy_list[1]\n\n2\n\n\nAn feature of Python is that the first element of a list or vector is indexed using the number 0.\n\nmy_list[0]\n\n1"
+  },
+  {
+    "objectID": "T2_Tools/Tools.slides.html#a-little-more-about-objects-in-python",
+    "href": "T2_Tools/Tools.slides.html#a-little-more-about-objects-in-python",
+    "title": "Tools for Data Manipulation",
+    "section": "A little more about objects in Python",
+    "text": "A little more about objects in Python\n\nYou can think of Python objects as containers that hold values.\nA Python object can hold a single value, or it can hold a group of values (as in a vector).\nSo far, we’ve only put numbers into Python objects.\n\n\nPython objects can actually contain three types of values: numbers, characters, and booleans."
+  },
+  {
+    "objectID": "T2_Tools/Tools.slides.html#character-values",
+    "href": "T2_Tools/Tools.slides.html#character-values",
+    "title": "Tools for Data Manipulation",
+    "section": "Character values",
+    "text": "Character values\n\nCharacters are made up of text, such as words or sentences. An example of a list with characters as elements is:\n\n\nmany_greetings = [\"hi\", \"hello\", \"hola\", \"bonjour\", \"ni hao\", \"merhaba\"]\nmany_greetings\n\n['hi', 'hello', 'hola', 'bonjour', 'ni hao', 'merhaba']\n\n\n\n\nIt is important to know that numbers can also be treated as characters, depending on the context.\nFor example, when 20 is enclosed in quotes (\"20\") it will be treated as a character value, even though it encloses a number in quotes."
+  },
+  {
+    "objectID": "T2_Tools/Tools.slides.html#boolean-values",
+    "href": "T2_Tools/Tools.slides.html#boolean-values",
+    "title": "Tools for Data Manipulation",
+    "section": "Boolean values",
+    "text": "Boolean values\n\nBoolean values are True or False.\nWe may have a question like:\n\nIs the first element of the vector many_greetings \"hola\"?\n\n\nWe can ask Python to find out and return the answer True or False.\n\nmany_greetings[1] == \"hola\"\n\nFalse"
+  },
+  {
+    "objectID": "T2_Tools/Tools.slides.html#logical-operators",
+    "href": "T2_Tools/Tools.slides.html#logical-operators",
+    "title": "Tools for Data Manipulation",
+    "section": "Logical operators",
+    "text": "Logical operators\n\nMost of the questions we ask Python to answer with True or False involve comparison operators like &gt;, &lt;, &gt;=, &lt;=, and ==.\nThe double == sign checks whether two values are equal. There is even a comparison operator to check whether values are not equal: !=.\nFor example, 5 != 3 is a True statement."
+  },
+  {
+    "objectID": "T2_Tools/Tools.slides.html#common-logical-operators",
+    "href": "T2_Tools/Tools.slides.html#common-logical-operators",
+    "title": "Tools for Data Manipulation",
+    "section": "Common logical operators",
+    "text": "Common logical operators\n\n\n&gt; (larger than)\n&gt;= (larger than or equal to)\n&lt; (smaller than)\n&lt;= (smaller than or equal to)\n== (equal to)\n!= (not equal to)"
+  },
+  {
+    "objectID": "T2_Tools/Tools.slides.html#question",
+    "href": "T2_Tools/Tools.slides.html#question",
+    "title": "Tools for Data Manipulation",
+    "section": "Question",
+    "text": "Question\n\nRead this code and predict its response. Then, run the code in Google Colab and validate if you were correct.\n\nA = 1\nB = 5\ncompare = A &gt; B\ncompare"
+  },
+  {
+    "objectID": "T2_Tools/Tools.slides.html#programming-culture-trial-and-error",
+    "href": "T2_Tools/Tools.slides.html#programming-culture-trial-and-error",
+    "title": "Tools for Data Manipulation",
+    "section": "Programming culture: Trial and error",
+    "text": "Programming culture: Trial and error\n\nThe best way to learn programming is to try things out and see what happens. Write some code, run it, and think about why it didn’t work.\nThere are many ways to make small mistakes in programming (for example, typing a capital letter when a lowercase letter is needed).\nWe often have to find these mistakes through trial and error."
+  },
+  {
+    "objectID": "T2_Tools/Tools.slides.html#python-libraries",
+    "href": "T2_Tools/Tools.slides.html#python-libraries",
+    "title": "Tools for Data Manipulation",
+    "section": "Python libraries",
+    "text": "Python libraries\n\nLibraries are the fundamental units of reproducible Python code. They include reusable Python functions, documentation describing how to use them, and sample data.\n\nIn this course, we will be working mostly with pandas for data manipulation and wrangling"
+  },
+  {
+    "objectID": "T2_Tools/Tools.slides.html#loading-data-in-python",
+    "href": "T2_Tools/Tools.slides.html#loading-data-in-python",
+    "title": "Tools for Data Manipulation",
+    "section": "Loading data in Python",
+    "text": "Loading data in Python\nIn this course, we will assume that data is stored in an Excel file with the above organization. As an example, let’s use the file penguins.xlsx.\n\n\n\n\n\n\n\nThe file must be previously uploaded to Google Colab."
+  },
+  {
+    "objectID": "T2_Tools/Tools.slides.html#section",
+    "href": "T2_Tools/Tools.slides.html#section",
+    "title": "Tools for Data Manipulation",
+    "section": "",
+    "text": "The dataset penguins.xlsx contains data from penguins living in three islands."
+  },
+  {
+    "objectID": "T2_Tools/Tools.slides.html#alan-vazquez-with-a-gentoo-penguin",
+    "href": "T2_Tools/Tools.slides.html#alan-vazquez-with-a-gentoo-penguin",
+    "title": "Tools for Data Manipulation",
+    "section": "Alan Vazquez with a gentoo penguin",
+    "text": "Alan Vazquez with a gentoo penguin"
+  },
+  {
+    "objectID": "T2_Tools/Tools.slides.html#pandas-library",
+    "href": "T2_Tools/Tools.slides.html#pandas-library",
+    "title": "Tools for Data Manipulation",
+    "section": "pandas library",
+    "text": "pandas library\n\n\n\n\n\n\n\n\n\n\npandas is an open-source Python library for data manipulation and analysis.\nIt is built on top of numpy for high-performance data operations.\nIt allows the user to import, clean, transform, and analyze data efficiently\nhttps://pandas.pydata.org/"
+  },
+  {
+    "objectID": "T2_Tools/Tools.slides.html#importing-pandas",
+    "href": "T2_Tools/Tools.slides.html#importing-pandas",
+    "title": "Tools for Data Manipulation",
+    "section": "Importing pandas",
+    "text": "Importing pandas\nFortunately, the pandas library is already pre-installed in Google Colab.\n\nHowever, we need to inform Google Colab that we want to use pandas and its functions using the following command:\n\nimport pandas as pd\n\n\nThe command as pd allows us to have a short name for pandas. To use a function of pandas, we use the command pd.function()."
+  },
+  {
+    "objectID": "T2_Tools/Tools.slides.html#loading-data-using-pandas",
+    "href": "T2_Tools/Tools.slides.html#loading-data-using-pandas",
+    "title": "Tools for Data Manipulation",
+    "section": "Loading data using pandas",
+    "text": "Loading data using pandas\n\nThe following code shows how to read the data in the file “penguins.xlsx” into Python.\n\n# Load the Excel file into a pandas DataFrame.\npenguins_data = pd.read_excel(\"penguins.xlsx\")"
+  },
+  {
+    "objectID": "T2_Tools/Tools.slides.html#the-function-head",
+    "href": "T2_Tools/Tools.slides.html#the-function-head",
+    "title": "Tools for Data Manipulation",
+    "section": "The function head()",
+    "text": "The function head()\nThe function head() allows you to print the first rows of a pandas data frame.\n\n# Print the first 4 rows of the dataset.\npenguins_data.head(4)\n\n\n\n\n\n\n\n\nspecies\nisland\nbill_length_mm\nbill_depth_mm\nflipper_length_mm\nbody_mass_g\nsex\nyear\n\n\n\n\n0\nAdelie\nTorgersen\n39.1\n18.7\n181.0\n3750.0\nmale\n2007\n\n\n1\nAdelie\nTorgersen\n39.5\n17.4\n186.0\n3800.0\nfemale\n2007\n\n\n2\nAdelie\nTorgersen\n40.3\n18.0\n195.0\n3250.0\nfemale\n2007\n\n\n3\nAdelie\nTorgersen\nNaN\nNaN\nNaN\nNaN\nNaN\n2007"
+  },
+  {
+    "objectID": "T2_Tools/Tools.slides.html#indexing-variables-a-dataset",
+    "href": "T2_Tools/Tools.slides.html#indexing-variables-a-dataset",
+    "title": "Tools for Data Manipulation",
+    "section": "Indexing variables a dataset",
+    "text": "Indexing variables a dataset\nWe can select a specific variables of a data frame using the syntaxis below.\n\npenguins_data['bill_length_mm']\n\n0      39.1\n1      39.5\n2      40.3\n3       NaN\n4      36.7\n       ... \n339    55.8\n340    43.5\n341    49.6\n342    50.8\n343    50.2\nName: bill_length_mm, Length: 344, dtype: float64\n\n\nHere, we selected the variable bill_length_mm in the penguins_data dataset."
+  },
+  {
+    "objectID": "T2_Tools/Tools.slides.html#section-1",
+    "href": "T2_Tools/Tools.slides.html#section-1",
+    "title": "Tools for Data Manipulation",
+    "section": "",
+    "text": "To index multiple variables of a data frame, we put the names of the variables in a list object. For example, we select bill_length_mm, species, and island as follows:\n\nsub_penguins_data = penguins_data[ ['bill_length_mm',  'species', 'island'] ]\nsub_penguins_data.head()\n\n\n\n\n\n\n\n\nbill_length_mm\nspecies\nisland\n\n\n\n\n0\n39.1\nAdelie\nTorgersen\n\n\n1\n39.5\nAdelie\nTorgersen\n\n\n2\n40.3\nAdelie\nTorgersen\n\n\n3\nNaN\nAdelie\nTorgersen\n\n\n4\n36.7\nAdelie\nTorgersen"
+  },
+  {
+    "objectID": "T2_Tools/Tools.slides.html#indexing-rows",
+    "href": "T2_Tools/Tools.slides.html#indexing-rows",
+    "title": "Tools for Data Manipulation",
+    "section": "Indexing rows",
+    "text": "Indexing rows\nTo index rows in a dataset, we use the argument loc from pandas. For example, we select the rows 3 to 6 of the penguins_dataset dataset:\n\nrows_penguins_data = penguins_data.loc[2:5]\nrows_penguins_data\n\n\n\n\n\n\n\n\nspecies\nisland\nbill_length_mm\nbill_depth_mm\nflipper_length_mm\nbody_mass_g\nsex\nyear\n\n\n\n\n2\nAdelie\nTorgersen\n40.3\n18.0\n195.0\n3250.0\nfemale\n2007\n\n\n3\nAdelie\nTorgersen\nNaN\nNaN\nNaN\nNaN\nNaN\n2007\n\n\n4\nAdelie\nTorgersen\n36.7\n19.3\n193.0\n3450.0\nfemale\n2007\n\n\n5\nAdelie\nTorgersen\n39.3\n20.6\n190.0\n3650.0\nmale\n2007"
+  },
+  {
+    "objectID": "T2_Tools/Tools.slides.html#section-2",
+    "href": "T2_Tools/Tools.slides.html#section-2",
+    "title": "Tools for Data Manipulation",
+    "section": "",
+    "text": "rows_penguins_data\n\n\n\n\n\n\n\n\nspecies\nisland\nbill_length_mm\nbill_depth_mm\nflipper_length_mm\nbody_mass_g\nsex\nyear\n\n\n\n\n2\nAdelie\nTorgersen\n40.3\n18.0\n195.0\n3250.0\nfemale\n2007\n\n\n3\nAdelie\nTorgersen\nNaN\nNaN\nNaN\nNaN\nNaN\n2007\n\n\n4\nAdelie\nTorgersen\n36.7\n19.3\n193.0\n3450.0\nfemale\n2007\n\n\n5\nAdelie\nTorgersen\n39.3\n20.6\n190.0\n3650.0\nmale\n2007\n\n\n\n\n\n\n\nNote that the index 2 and 5 refer to observations 3 and 7, respectively, in the dataset. This is because the first index in Python is 0."
+  },
+  {
+    "objectID": "T2_Tools/Tools.slides.html#indexing-rows-and-columns",
+    "href": "T2_Tools/Tools.slides.html#indexing-rows-and-columns",
+    "title": "Tools for Data Manipulation",
+    "section": "Indexing rows and columns",
+    "text": "Indexing rows and columns\nUsing loc, we can also retrieve a subset from the dataset by selecting specific columns and rows.\n\nsub_rows_pdata = penguins_data.loc[2:5, ['bill_length_mm',  'species', 'island'] ]\nsub_rows_pdata\n\n\n\n\n\n\n\n\nbill_length_mm\nspecies\nisland\n\n\n\n\n2\n40.3\nAdelie\nTorgersen\n\n\n3\nNaN\nAdelie\nTorgersen\n\n\n4\n36.7\nAdelie\nTorgersen\n\n\n5\n39.3\nAdelie\nTorgersen"
+  },
+  {
+    "objectID": "T2_Tools/Tools.slides.html#mini-activity-solo-mode",
+    "href": "T2_Tools/Tools.slides.html#mini-activity-solo-mode",
+    "title": "Tools for Data Manipulation",
+    "section": "Mini-activity (solo mode)",
+    "text": "Mini-activity (solo mode)\n\n\nOpen the following Google Colab link: https://colab.research.google.com/drive/1xLoaOMharQmmasNApjm38jZcw-gtcxvm?usp=sharing\nCopy the notebook to your drive.\nAnswer the questions."
+  },
+  {
+    "objectID": "T2_Tools/Tools.slides.html#chaining-operations-with-pandas",
+    "href": "T2_Tools/Tools.slides.html#chaining-operations-with-pandas",
+    "title": "Tools for Data Manipulation",
+    "section": "Chaining operations with pandas",
+    "text": "Chaining operations with pandas\nOne of the most important techniques in pandas is chaining, which allows for cleaner and more readable data manipulation.\nThe general structure of chaining looks like this:"
+  },
+  {
+    "objectID": "T2_Tools/Tools.slides.html#key-pandas-methods",
+    "href": "T2_Tools/Tools.slides.html#key-pandas-methods",
+    "title": "Tools for Data Manipulation",
+    "section": "Key pandas methods",
+    "text": "Key pandas methods\npandas provides methods or functions to solve common data manipulation tasks:\n\n.filter() selects specific columns or rows.\n.query() filters observations based on conditions.\n.assign() adds new variables that are functions of existing variables.\n.sort_values() changes the order of rows.\n.agg() reduces multiple values to a single numerical summary."
+  },
+  {
+    "objectID": "T2_Tools/Tools.slides.html#section-3",
+    "href": "T2_Tools/Tools.slides.html#section-3",
+    "title": "Tools for Data Manipulation",
+    "section": "",
+    "text": "To practice, we will use the dataset penguins_data."
+  },
+  {
+    "objectID": "T2_Tools/Tools.slides.html#example",
+    "href": "T2_Tools/Tools.slides.html#example",
+    "title": "Tools for Data Manipulation",
+    "section": "Example",
+    "text": "Example\nLet’s load the dataset and the pandas library.\n\nimport pandas as pd\n\n# Load the Excel file into a pandas DataFrame.\npenguins_data = pd.read_excel(\"penguins.xlsx\")\n\n# Preview the dataset.\npenguins_data.head(4)\n\n\n\n\n\n\n\n\nspecies\nisland\nbill_length_mm\nbill_depth_mm\nflipper_length_mm\nbody_mass_g\nsex\nyear\n\n\n\n\n0\nAdelie\nTorgersen\n39.1\n18.7\n181.0\n3750.0\nmale\n2007\n\n\n1\nAdelie\nTorgersen\n39.5\n17.4\n186.0\n3800.0\nfemale\n2007\n\n\n2\nAdelie\nTorgersen\n40.3\n18.0\n195.0\n3250.0\nfemale\n2007\n\n\n3\nAdelie\nTorgersen\nNaN\nNaN\nNaN\nNaN\nNaN\n2007"
+  },
+  {
+    "objectID": "T2_Tools/Tools.slides.html#selecting-columns-with-.filter",
+    "href": "T2_Tools/Tools.slides.html#selecting-columns-with-.filter",
+    "title": "Tools for Data Manipulation",
+    "section": "Selecting columns with .filter()",
+    "text": "Selecting columns with .filter()\nSelect the columns species, body_mass_g and sex.\n\n(penguins_data\n  .filter([\"species\", \"body_mass_g\", \"sex\"], axis = 1)\n).head()\n\n\n\n\n\n\n\n\nspecies\nbody_mass_g\nsex\n\n\n\n\n0\nAdelie\n3750.0\nmale\n\n\n1\nAdelie\n3800.0\nfemale\n\n\n2\nAdelie\n3250.0\nfemale\n\n\n3\nAdelie\nNaN\nNaN\n\n\n4\nAdelie\n3450.0\nfemale"
+  },
+  {
+    "objectID": "T2_Tools/Tools.slides.html#section-4",
+    "href": "T2_Tools/Tools.slides.html#section-4",
+    "title": "Tools for Data Manipulation",
+    "section": "",
+    "text": "The axis argument tells .filter() whether to select rows (0) or columns (1) from the dataframe.\n\n(penguins_data\n  .filter([\"species\", \"body_mass_g\", \"sex\"], axis = 1)\n).head()\n\n\n\nThe .head() command allows us to print the first six rows of the newly produced dataframe. We must remove it to have the entire new dataframe."
+  },
+  {
+    "objectID": "T2_Tools/Tools.slides.html#section-5",
+    "href": "T2_Tools/Tools.slides.html#section-5",
+    "title": "Tools for Data Manipulation",
+    "section": "",
+    "text": "We can also use .filter() to select rows too. To this end, we set axis = 1. We can select specific rows, such as 0 and 10.\n\n(penguins_data\n  .filter([0, 10], axis = 0)\n)\n\n\n\n\n\n\n\n\nspecies\nisland\nbill_length_mm\nbill_depth_mm\nflipper_length_mm\nbody_mass_g\nsex\nyear\n\n\n\n\n0\nAdelie\nTorgersen\n39.1\n18.7\n181.0\n3750.0\nmale\n2007\n\n\n10\nAdelie\nTorgersen\n37.8\n17.1\n186.0\n3300.0\nNaN\n2007"
+  },
+  {
+    "objectID": "T2_Tools/Tools.slides.html#section-6",
+    "href": "T2_Tools/Tools.slides.html#section-6",
+    "title": "Tools for Data Manipulation",
+    "section": "",
+    "text": "Or, we can select a set of rows using the function range(). For example, let’s select the first 5 rows.\n\n(penguins_data\n  .filter(range(5), axis = 0)\n)\n\n\n\n\n\n\n\n\nspecies\nisland\nbill_length_mm\nbill_depth_mm\nflipper_length_mm\nbody_mass_g\nsex\nyear\n\n\n\n\n0\nAdelie\nTorgersen\n39.1\n18.7\n181.0\n3750.0\nmale\n2007\n\n\n1\nAdelie\nTorgersen\n39.5\n17.4\n186.0\n3800.0\nfemale\n2007\n\n\n2\nAdelie\nTorgersen\n40.3\n18.0\n195.0\n3250.0\nfemale\n2007\n\n\n3\nAdelie\nTorgersen\nNaN\nNaN\nNaN\nNaN\nNaN\n2007\n\n\n4\nAdelie\nTorgersen\n36.7\n19.3\n193.0\n3450.0\nfemale\n2007"
+  },
+  {
+    "objectID": "T2_Tools/Tools.slides.html#filtering-rows-with-.query",
+    "href": "T2_Tools/Tools.slides.html#filtering-rows-with-.query",
+    "title": "Tools for Data Manipulation",
+    "section": "Filtering rows with .query()",
+    "text": "Filtering rows with .query()\n\nAn alternative way of selecting rows is .query(). Compared to .filter(), .query() allows us to filter the data using statements or queries involving the variables.\n\nFor example, let’s filter the data for the species “Gentoo.”\n\n(penguins_data\n  .query(\"species == 'Gentoo'\")\n)"
+  },
+  {
+    "objectID": "T2_Tools/Tools.slides.html#section-7",
+    "href": "T2_Tools/Tools.slides.html#section-7",
+    "title": "Tools for Data Manipulation",
+    "section": "",
+    "text": "(penguins_data\n  .query(\"species == 'Gentoo'\")\n).head()\n\n\n\n\n\n\n\n\nspecies\nisland\nbill_length_mm\nbill_depth_mm\nflipper_length_mm\nbody_mass_g\nsex\nyear\n\n\n\n\n152\nGentoo\nBiscoe\n46.1\n13.2\n211.0\n4500.0\nfemale\n2007\n\n\n153\nGentoo\nBiscoe\n50.0\n16.3\n230.0\n5700.0\nmale\n2007\n\n\n154\nGentoo\nBiscoe\n48.7\n14.1\n210.0\n4450.0\nfemale\n2007\n\n\n155\nGentoo\nBiscoe\n50.0\n15.2\n218.0\n5700.0\nmale\n2007\n\n\n156\nGentoo\nBiscoe\n47.6\n14.5\n215.0\n5400.0\nmale\n2007"
+  },
+  {
+    "objectID": "T2_Tools/Tools.slides.html#section-8",
+    "href": "T2_Tools/Tools.slides.html#section-8",
+    "title": "Tools for Data Manipulation",
+    "section": "",
+    "text": "We can also filter the data to get penguins with a body mass greater than 5000g.\n\n(penguins_data\n  .query(\"body_mass_g &gt; 5000\")\n).head()\n\n\n\n\n\n\n\n\nspecies\nisland\nbill_length_mm\nbill_depth_mm\nflipper_length_mm\nbody_mass_g\nsex\nyear\n\n\n\n\n153\nGentoo\nBiscoe\n50.0\n16.3\n230.0\n5700.0\nmale\n2007\n\n\n155\nGentoo\nBiscoe\n50.0\n15.2\n218.0\n5700.0\nmale\n2007\n\n\n156\nGentoo\nBiscoe\n47.6\n14.5\n215.0\n5400.0\nmale\n2007\n\n\n159\nGentoo\nBiscoe\n46.7\n15.3\n219.0\n5200.0\nmale\n2007\n\n\n161\nGentoo\nBiscoe\n46.8\n15.4\n215.0\n5150.0\nmale\n2007"
+  },
+  {
+    "objectID": "T2_Tools/Tools.slides.html#section-9",
+    "href": "T2_Tools/Tools.slides.html#section-9",
+    "title": "Tools for Data Manipulation",
+    "section": "",
+    "text": "We can even combine .filter() and .query(). For example, let’s select the columns species, body_mass_g and sex, then filter the data for the “Gentoo” species.\n\n(penguins_data\n  .filter([\"species\", \"body_mass_g\", \"sex\"], axis = 1)\n  .query(\"species == 'Gentoo'\")\n).head(4)\n\n\n\n\n\n\n\n\nspecies\nbody_mass_g\nsex\n\n\n\n\n152\nGentoo\n4500.0\nfemale\n\n\n153\nGentoo\n5700.0\nmale\n\n\n154\nGentoo\n4450.0\nfemale\n\n\n155\nGentoo\n5700.0\nmale"
+  },
+  {
+    "objectID": "T2_Tools/Tools.slides.html#create-new-columns-with-.assign",
+    "href": "T2_Tools/Tools.slides.html#create-new-columns-with-.assign",
+    "title": "Tools for Data Manipulation",
+    "section": "Create new columns with .assign()",
+    "text": "Create new columns with .assign()\n\nWith .assign(), we can create new columns (variables) that are functions of existing ones. This function uses a special Python keyword called lambda. Technically, this keyword defines an anonymous function.\n\nFor example, we create a new variable LDRatio equaling the ratio of bill_length_mm and bill_depth_mm.\n\n(penguins_data\n  .assign(LDRatio = lambda df: df[\"bill_length_mm\"] / df[\"bill_depth_mm\"])\n)"
+  },
+  {
+    "objectID": "T2_Tools/Tools.slides.html#section-10",
+    "href": "T2_Tools/Tools.slides.html#section-10",
+    "title": "Tools for Data Manipulation",
+    "section": "",
+    "text": "In this code, the df after lambda indicates that the dataframe (penguins_data) will be referred to as df inside the function. The colon : sets the start of the function.\n\n(penguins_data\n  .assign(LDRatio = lambda df: df[\"bill_length_mm\"] / df[\"bill_depth_mm\"])\n)\n\nThe code appends the new variable to the end of the resulting dataframe."
+  },
+  {
+    "objectID": "T2_Tools/Tools.slides.html#section-11",
+    "href": "T2_Tools/Tools.slides.html#section-11",
+    "title": "Tools for Data Manipulation",
+    "section": "",
+    "text": "We can see the new variable using .filter().\n\n(penguins_data\n  .assign(LDRatio = lambda df: df[\"bill_length_mm\"] / df[\"bill_depth_mm\"])\n  .filter([\"bill_length_mm\", \"bill_depth_mm\", \"LDRatio\"], axis = 1)\n).head()\n\n\n\n\n\n\n\n\nbill_length_mm\nbill_depth_mm\nLDRatio\n\n\n\n\n0\n39.1\n18.7\n2.090909\n\n\n1\n39.5\n17.4\n2.270115\n\n\n2\n40.3\n18.0\n2.238889\n\n\n3\nNaN\nNaN\nNaN\n\n\n4\n36.7\n19.3\n1.901554"
+  },
+  {
+    "objectID": "T2_Tools/Tools.slides.html#sorting-with-.sort_values",
+    "href": "T2_Tools/Tools.slides.html#sorting-with-.sort_values",
+    "title": "Tools for Data Manipulation",
+    "section": "Sorting with .sort_values()",
+    "text": "Sorting with .sort_values()\nWe can sort the data based on a column like bill_length_mm.\n\n(penguins_data\n  .sort_values(\"bill_length_mm\")\n).head(4)\n\n\n\n\n\n\n\n\nspecies\nisland\nbill_length_mm\nbill_depth_mm\nflipper_length_mm\nbody_mass_g\nsex\nyear\n\n\n\n\n142\nAdelie\nDream\n32.1\n15.5\n188.0\n3050.0\nfemale\n2009\n\n\n98\nAdelie\nDream\n33.1\n16.1\n178.0\n2900.0\nfemale\n2008\n\n\n70\nAdelie\nTorgersen\n33.5\n19.0\n190.0\n3600.0\nfemale\n2008\n\n\n92\nAdelie\nDream\n34.0\n17.1\n185.0\n3400.0\nfemale\n2008"
+  },
+  {
+    "objectID": "T2_Tools/Tools.slides.html#section-12",
+    "href": "T2_Tools/Tools.slides.html#section-12",
+    "title": "Tools for Data Manipulation",
+    "section": "",
+    "text": "To sort in descending order, use ascending=False inside sort_values().\n\n(penguins_data\n  .sort_values(\"bill_length_mm\", ascending=False)\n).head()\n\n\n\n\n\n\n\n\nspecies\nisland\nbill_length_mm\nbill_depth_mm\nflipper_length_mm\nbody_mass_g\nsex\nyear\n\n\n\n\n185\nGentoo\nBiscoe\n59.6\n17.0\n230.0\n6050.0\nmale\n2007\n\n\n293\nChinstrap\nDream\n58.0\n17.8\n181.0\n3700.0\nfemale\n2007\n\n\n253\nGentoo\nBiscoe\n55.9\n17.0\n228.0\n5600.0\nmale\n2009\n\n\n339\nChinstrap\nDream\n55.8\n19.8\n207.0\n4000.0\nmale\n2009\n\n\n267\nGentoo\nBiscoe\n55.1\n16.0\n230.0\n5850.0\nmale\n2009"
+  },
+  {
+    "objectID": "T2_Tools/Tools.slides.html#summarizing-with-.agg",
+    "href": "T2_Tools/Tools.slides.html#summarizing-with-.agg",
+    "title": "Tools for Data Manipulation",
+    "section": "Summarizing with .agg()",
+    "text": "Summarizing with .agg()\nWe can calculate summary statistics of the columns bill_length_mm, bill_depth_mm, and body_mass_g.\n\n(penguins_data\n  .filter([\"bill_length_mm\", \"bill_depth_mm\", \"body_mass_g\"], axis = 1)\n  .agg([\"mean\"])\n)\n\n\n\n\n\n\n\n\nbill_length_mm\nbill_depth_mm\nbody_mass_g\n\n\n\n\nmean\n43.92193\n17.15117\n4201.754386\n\n\n\n\n\n\n\n\n\nBy default, agg() ignores missing values."
+  },
+  {
+    "objectID": "T2_Tools/Tools.slides.html#saving-results-in-new-objects",
+    "href": "T2_Tools/Tools.slides.html#saving-results-in-new-objects",
+    "title": "Tools for Data Manipulation",
+    "section": "Saving results in new objects",
+    "text": "Saving results in new objects\n\nAfter performing operations on our data, we can save the modified dataset as a new object.\n\nmean_penguins_data = (penguins_data\n  .filter([\"bill_length_mm\", \"bill_depth_mm\", \"body_mass_g\"], axis = 1)\n  .agg([\"mean\"])\n)\n\nmean_penguins_data\n\n\n\n\n\n\n\n\nbill_length_mm\nbill_depth_mm\nbody_mass_g\n\n\n\n\nmean\n43.92193\n17.15117\n4201.754386"
+  },
+  {
+    "objectID": "T2_Tools/Tools.slides.html#saving-pandas-dataframes-into-excel",
+    "href": "T2_Tools/Tools.slides.html#saving-pandas-dataframes-into-excel",
+    "title": "Tools for Data Manipulation",
+    "section": "Saving pandas dataframes into Excel",
+    "text": "Saving pandas dataframes into Excel\n\nFinally, we can save the pandas objects into an Excel file using the function .to_excel() as follows.\n\n# mean_penguins_data.to_excel(\"mean_penguins_data.xlsx\")\n\n\n\nOf course, remove the # symbol before running the code."
+  },
+  {
+    "objectID": "T2_Tools/Tools.slides.html#more-on-pandas",
+    "href": "T2_Tools/Tools.slides.html#more-on-pandas",
+    "title": "Tools for Data Manipulation",
+    "section": "More on pandas",
+    "text": "More on pandas\n\n\nhttps://wesmckinney.com/book/"
+  },
+  {
+    "objectID": "T2_Tools/Tools.slides.html#final-remarks",
+    "href": "T2_Tools/Tools.slides.html#final-remarks",
+    "title": "Tools for Data Manipulation",
+    "section": "Final remarks",
+    "text": "Final remarks\n\n\npandas is a library that allows us to manipulate data in Python.\nVariable types help specify the operations and visualizations we can apply to the data.\nThere are appropriate or designed graphs for visualizing numeric or categorical variables.\nIn this course, we will see several graphs for each variable type and their combinations."
+  },
+  {
+    "objectID": "T7_PopularGraphs/Popular_Graphs.slides.html#agenda",
+    "href": "T7_PopularGraphs/Popular_Graphs.slides.html#agenda",
+    "title": "Popular Graphs for Multiple Variables",
+    "section": "Agenda",
+    "text": "Agenda\n\n\nIntroduction to Multivariate Data\nPlots for Numerical Variables\nPlots for Numerical and Categorical Variables\nPlots for Categorical Variables"
+  },
+  {
+    "objectID": "T7_PopularGraphs/Popular_Graphs.slides.html#multivariate-data",
+    "href": "T7_PopularGraphs/Popular_Graphs.slides.html#multivariate-data",
+    "title": "Popular Graphs for Multiple Variables",
+    "section": "Multivariate data",
+    "text": "Multivariate data\n\nMultivariate data consists of datasets that contain observations of two or more variables.\n\nVariables can be numerical or categorical.\nVariables may or may not depend on each other.\n\n\nIn fact, the goal is to determine whether there is a relationship between the variables and the type of relationship."
+  },
+  {
+    "objectID": "T7_PopularGraphs/Popular_Graphs.slides.html#example-1",
+    "href": "T7_PopularGraphs/Popular_Graphs.slides.html#example-1",
+    "title": "Popular Graphs for Multiple Variables",
+    "section": "Example 1",
+    "text": "Example 1\nConsider data from 392 cars, including miles per gallon, number of cylinders, horsepower, weight, acceleration, year, origin, among other variables. The data is in the file “auto_dataset.xlsx”."
+  },
+  {
+    "objectID": "T7_PopularGraphs/Popular_Graphs.slides.html#principle-1-define-the-question",
+    "href": "T7_PopularGraphs/Popular_Graphs.slides.html#principle-1-define-the-question",
+    "title": "Popular Graphs for Multiple Variables",
+    "section": "Principle 1: Define the question",
+    "text": "Principle 1: Define the question\nIn the context of multiple-variable data, typical questions to study include:\n\nHow are variable \\(X\\) and variable \\(Y\\) related?\nIs the distribution of variable \\(X\\) the same across all subgroups defined by variable \\(Z\\)?\nAre there any unusual observations in the combination of values for variables \\(X\\) and \\(Y\\)?\nAre there any unusual observations in \\(X\\) for a subgroup of variable \\(Z\\)?"
+  },
+  {
+    "objectID": "T7_PopularGraphs/Popular_Graphs.slides.html#principle-2-turn-data-into-information",
+    "href": "T7_PopularGraphs/Popular_Graphs.slides.html#principle-2-turn-data-into-information",
+    "title": "Popular Graphs for Multiple Variables",
+    "section": "Principle 2: Turn data into information",
+    "text": "Principle 2: Turn data into information\nThere are various types of graphs that help us explore relationships between two or more variables.\n\n\n\n\n\nType\nGraph Type\n\n\n\n\nNumerical\nScatter plot, line graph\n\n\nCategorical\nSide-by-side bar plot, stacked bar plot\n\n\nMixed\nBeeswarm plot\n\n\n\n\n\nFor two features, the combination of types (both quantitative, both qualitative, or a mix) matters."
+  },
+  {
+    "objectID": "T7_PopularGraphs/Popular_Graphs.slides.html#independent-and-dependent-variables",
+    "href": "T7_PopularGraphs/Popular_Graphs.slides.html#independent-and-dependent-variables",
+    "title": "Popular Graphs for Multiple Variables",
+    "section": "Independent and dependent variables",
+    "text": "Independent and dependent variables\nWhen investigating the relationship between two variables (numerical or categorical), we use specific terminology.\n\nOne variable is called the dependent or response variable, denoted by the letter \\(Y\\).\n\n\nThe other variable is called the independent or predictor variable, denoted by the letter \\(X\\).\n\n\n\nOur goal is to determine whether changes in \\(X\\) are associated with changes in \\(Y\\), and the nature of this association."
+  },
+  {
+    "objectID": "T7_PopularGraphs/Popular_Graphs.slides.html#scatter-plot",
+    "href": "T7_PopularGraphs/Popular_Graphs.slides.html#scatter-plot",
+    "title": "Popular Graphs for Multiple Variables",
+    "section": "Scatter plot",
+    "text": "Scatter plot\n\nThe most common graph for examining the relationship between two numerical variables is the scatter plot.\n\nVariables \\(X\\) and \\(Y\\) are placed on the horizontal and vertical axes, respectively. Each point on the graph represents a pair of \\(X\\) and \\(Y\\) values.\n\n\n\n\nThe goal is to explore linear or non-linear relationships between variables."
+  },
+  {
+    "objectID": "T7_PopularGraphs/Popular_Graphs.slides.html#scatter-plot-1",
+    "href": "T7_PopularGraphs/Popular_Graphs.slides.html#scatter-plot-1",
+    "title": "Popular Graphs for Multiple Variables",
+    "section": "Scatter plot",
+    "text": "Scatter plot"
+  },
+  {
+    "objectID": "T7_PopularGraphs/Popular_Graphs.slides.html#individual-graphs",
+    "href": "T7_PopularGraphs/Popular_Graphs.slides.html#individual-graphs",
+    "title": "Popular Graphs for Multiple Variables",
+    "section": "Individual graphs",
+    "text": "Individual graphs\nIndividual variable graphs (such as histograms) do not allow us to study the relationship between two variables. They only provide information on the distribution of each variable."
+  },
+  {
+    "objectID": "T7_PopularGraphs/Popular_Graphs.slides.html#generate-scatter-plot-in-flourish",
+    "href": "T7_PopularGraphs/Popular_Graphs.slides.html#generate-scatter-plot-in-flourish",
+    "title": "Popular Graphs for Multiple Variables",
+    "section": "Generate scatter plot in Flourish",
+    "text": "Generate scatter plot in Flourish\nSelect Scatter in the catalog of visualizations."
+  },
+  {
+    "objectID": "T7_PopularGraphs/Popular_Graphs.slides.html#section",
+    "href": "T7_PopularGraphs/Popular_Graphs.slides.html#section",
+    "title": "Popular Graphs for Multiple Variables",
+    "section": "",
+    "text": "Next, load the “auto_dataset.xlsx” into Flourish. Set the variables under study mpg and weight and assign them to Y values and X values, respectively."
+  },
+  {
+    "objectID": "T7_PopularGraphs/Popular_Graphs.slides.html#section-1",
+    "href": "T7_PopularGraphs/Popular_Graphs.slides.html#section-1",
+    "title": "Popular Graphs for Multiple Variables",
+    "section": "",
+    "text": "Go back to the Preview tab and add text to the axes and title."
+  },
+  {
+    "objectID": "T7_PopularGraphs/Popular_Graphs.slides.html#plots-for-three-or-four-variables",
+    "href": "T7_PopularGraphs/Popular_Graphs.slides.html#plots-for-three-or-four-variables",
+    "title": "Popular Graphs for Multiple Variables",
+    "section": "Plots for three or four variables",
+    "text": "Plots for three or four variables\n\n\nWhen examining a distribution or relationship, we often want to compare it across data subgroups.\nThis process of conditioning on additional variables leads to visualizations involving three or more variables.\nWe now illustrate how to extend the scatter plot to visualize multiple variables."
+  },
+  {
+    "objectID": "T7_PopularGraphs/Popular_Graphs.slides.html#scatter-plot-by-color",
+    "href": "T7_PopularGraphs/Popular_Graphs.slides.html#scatter-plot-by-color",
+    "title": "Popular Graphs for Multiple Variables",
+    "section": "Scatter plot by color",
+    "text": "Scatter plot by color"
+  },
+  {
+    "objectID": "T7_PopularGraphs/Popular_Graphs.slides.html#add-color-to-the-scatter-plot",
+    "href": "T7_PopularGraphs/Popular_Graphs.slides.html#add-color-to-the-scatter-plot",
+    "title": "Popular Graphs for Multiple Variables",
+    "section": "Add color to the scatter plot",
+    "text": "Add color to the scatter plot\nWe a categorical variable in the Color section. For example, let’s use origin."
+  },
+  {
+    "objectID": "T7_PopularGraphs/Popular_Graphs.slides.html#the-result",
+    "href": "T7_PopularGraphs/Popular_Graphs.slides.html#the-result",
+    "title": "Popular Graphs for Multiple Variables",
+    "section": "The result",
+    "text": "The result\nScatter plots by color work well when the additional variable \\(Z\\) is categorical with few categories."
+  },
+  {
+    "objectID": "T7_PopularGraphs/Popular_Graphs.slides.html#bubble-plot-scatter-for-4-variables",
+    "href": "T7_PopularGraphs/Popular_Graphs.slides.html#bubble-plot-scatter-for-4-variables",
+    "title": "Popular Graphs for Multiple Variables",
+    "section": "Bubble Plot: Scatter for 4 variables",
+    "text": "Bubble Plot: Scatter for 4 variables"
+  },
+  {
+    "objectID": "T7_PopularGraphs/Popular_Graphs.slides.html#add-bubbles-to-the-scatter-plot",
+    "href": "T7_PopularGraphs/Popular_Graphs.slides.html#add-bubbles-to-the-scatter-plot",
+    "title": "Popular Graphs for Multiple Variables",
+    "section": "Add bubbles to the scatter plot",
+    "text": "Add bubbles to the scatter plot\nWe set a variable in the Size section, say, horsepower."
+  },
+  {
+    "objectID": "T7_PopularGraphs/Popular_Graphs.slides.html#resulting-bubble-plot",
+    "href": "T7_PopularGraphs/Popular_Graphs.slides.html#resulting-bubble-plot",
+    "title": "Popular Graphs for Multiple Variables",
+    "section": "Resulting bubble plot",
+    "text": "Resulting bubble plot"
+  },
+  {
+    "objectID": "T7_PopularGraphs/Popular_Graphs.slides.html#improve-the-bubble-plot",
+    "href": "T7_PopularGraphs/Popular_Graphs.slides.html#improve-the-bubble-plot",
+    "title": "Popular Graphs for Multiple Variables",
+    "section": "Improve the bubble plot",
+    "text": "Improve the bubble plot\nWe can enhance the plot by reducing the minimum and maximum sizes for the bubbles. Let’s set the maximum size to 200."
+  },
+  {
+    "objectID": "T7_PopularGraphs/Popular_Graphs.slides.html#final-bubble-plot",
+    "href": "T7_PopularGraphs/Popular_Graphs.slides.html#final-bubble-plot",
+    "title": "Popular Graphs for Multiple Variables",
+    "section": "Final bubble plot",
+    "text": "Final bubble plot"
+  },
+  {
+    "objectID": "T7_PopularGraphs/Popular_Graphs.slides.html#line-plot",
+    "href": "T7_PopularGraphs/Popular_Graphs.slides.html#line-plot",
+    "title": "Popular Graphs for Multiple Variables",
+    "section": "Line plot",
+    "text": "Line plot\nA line plot is a visual representation of data where data points are connected by a line. Axes:\n\n\\(X\\) (horizontal): Represents time or the independent variable.\n\\(Y\\) (vertical): Represents the dependent variable.\n\nEach point represents a value at a given moment.\n\n\nThe objective is to explore trends over time or the evolution of a continuous or discrete variable."
+  },
+  {
+    "objectID": "T7_PopularGraphs/Popular_Graphs.slides.html#example-2",
+    "href": "T7_PopularGraphs/Popular_Graphs.slides.html#example-2",
+    "title": "Popular Graphs for Multiple Variables",
+    "section": "Example 2",
+    "text": "Example 2\nConsider the data in the file “spotify.xlsx”. This dataset contains the global daily streams of the top five most popular songs on the music streaming service Spotify in 2017."
+  },
+  {
+    "objectID": "T7_PopularGraphs/Popular_Graphs.slides.html#line-plot-1",
+    "href": "T7_PopularGraphs/Popular_Graphs.slides.html#line-plot-1",
+    "title": "Popular Graphs for Multiple Variables",
+    "section": "Line plot",
+    "text": "Line plot"
+  },
+  {
+    "objectID": "T7_PopularGraphs/Popular_Graphs.slides.html#generate-a-line-plot-in-flourish",
+    "href": "T7_PopularGraphs/Popular_Graphs.slides.html#generate-a-line-plot-in-flourish",
+    "title": "Popular Graphs for Multiple Variables",
+    "section": "Generate a line plot in Flourish",
+    "text": "Generate a line plot in Flourish\nSelect Line chart in the catalog of visualizations."
+  },
+  {
+    "objectID": "T7_PopularGraphs/Popular_Graphs.slides.html#section-2",
+    "href": "T7_PopularGraphs/Popular_Graphs.slides.html#section-2",
+    "title": "Popular Graphs for Multiple Variables",
+    "section": "",
+    "text": "Next, load the “auto_dataset.xlsx” into Flourish. Set the variables under study Date and Despacito and assign them to Labels/time and Values, respectively."
+  },
+  {
+    "objectID": "T7_PopularGraphs/Popular_Graphs.slides.html#section-3",
+    "href": "T7_PopularGraphs/Popular_Graphs.slides.html#section-3",
+    "title": "Popular Graphs for Multiple Variables",
+    "section": "",
+    "text": "Go back to the Preview tab and add text to the axes and title."
+  },
+  {
+    "objectID": "T7_PopularGraphs/Popular_Graphs.slides.html#multiple-line-charts",
+    "href": "T7_PopularGraphs/Popular_Graphs.slides.html#multiple-line-charts",
+    "title": "Popular Graphs for Multiple Variables",
+    "section": "Multiple line charts",
+    "text": "Multiple line charts\nWe can visualize multiple variables simultaneously using a line plot. For example, we can show the evolution of play counts for the 5 songs in the file “spotify.xlsx” over time.\nTo this end, simply go back to the Data tab and set a range of variables in Values."
+  },
+  {
+    "objectID": "T7_PopularGraphs/Popular_Graphs.slides.html#plotting-the-average-by-groups",
+    "href": "T7_PopularGraphs/Popular_Graphs.slides.html#plotting-the-average-by-groups",
+    "title": "Popular Graphs for Multiple Variables",
+    "section": "Plotting the average by groups",
+    "text": "Plotting the average by groups\n\nWe can summarize the values of the numerical variable \\(Y\\) for each category of a categorical variable \\(X\\) using the mean or average.\nFor example, let’s plot the average miles per gallon of cars produced in America, Europe, and Japan.\nA common visualization for plotting a numerical and a discrete variable when there is only one value per category is the bar plot.\nThe bar plot encodes quantitative data across different categories."
+  },
+  {
+    "objectID": "T7_PopularGraphs/Popular_Graphs.slides.html#bar-plot-for-averages",
+    "href": "T7_PopularGraphs/Popular_Graphs.slides.html#bar-plot-for-averages",
+    "title": "Popular Graphs for Multiple Variables",
+    "section": "Bar plot for averages",
+    "text": "Bar plot for averages"
+  },
+  {
+    "objectID": "T7_PopularGraphs/Popular_Graphs.slides.html#generate-bar-plot-in-flourish",
+    "href": "T7_PopularGraphs/Popular_Graphs.slides.html#generate-bar-plot-in-flourish",
+    "title": "Popular Graphs for Multiple Variables",
+    "section": "Generate bar plot in Flourish",
+    "text": "Generate bar plot in Flourish\nSelect Bar chart in the catalog of visualizations."
+  },
+  {
+    "objectID": "T7_PopularGraphs/Popular_Graphs.slides.html#section-5",
+    "href": "T7_PopularGraphs/Popular_Graphs.slides.html#section-5",
+    "title": "Popular Graphs for Multiple Variables",
+    "section": "",
+    "text": "Load the “auto_dataset.xlsx” into Flourish. Set the variables under study origin and mpg and assign them to Labels/time and Values, respectively."
+  },
+  {
+    "objectID": "T7_PopularGraphs/Popular_Graphs.slides.html#section-6",
+    "href": "T7_PopularGraphs/Popular_Graphs.slides.html#section-6",
+    "title": "Popular Graphs for Multiple Variables",
+    "section": "",
+    "text": "Go to the Preview tab and set Average in Aggregation mode."
+  },
+  {
+    "objectID": "T7_PopularGraphs/Popular_Graphs.slides.html#beeswarm-plot",
+    "href": "T7_PopularGraphs/Popular_Graphs.slides.html#beeswarm-plot",
+    "title": "Popular Graphs for Multiple Variables",
+    "section": "Beeswarm plot",
+    "text": "Beeswarm plot\nA beeswarm plot shows every observation as a point and places the points so they do not overlap.\nIt allows us to see both the individual observations and the distribution of the numerical variable within each category.\n\nWhy use it?\n\nEasy to see the actual observations.\nMakes differences between groups visible.\nWorks particularly well with small and medium-sized datasets."
+  },
+  {
+    "objectID": "T7_PopularGraphs/Popular_Graphs.slides.html#beeswarm-plot-1",
+    "href": "T7_PopularGraphs/Popular_Graphs.slides.html#beeswarm-plot-1",
+    "title": "Popular Graphs for Multiple Variables",
+    "section": "Beeswarm plot",
+    "text": "Beeswarm plot"
+  },
+  {
+    "objectID": "T7_PopularGraphs/Popular_Graphs.slides.html#creating-a-beeswarm-plot-in-flourish",
+    "href": "T7_PopularGraphs/Popular_Graphs.slides.html#creating-a-beeswarm-plot-in-flourish",
+    "title": "Popular Graphs for Multiple Variables",
+    "section": "Creating a beeswarm plot in Flourish",
+    "text": "Creating a beeswarm plot in Flourish\nSelect Beeswarm in the catalog of visualizations."
+  },
+  {
+    "objectID": "T7_PopularGraphs/Popular_Graphs.slides.html#section-7",
+    "href": "T7_PopularGraphs/Popular_Graphs.slides.html#section-7",
+    "title": "Popular Graphs for Multiple Variables",
+    "section": "",
+    "text": "Load the “auto_dataset.xlsx” into Flourish. Set the variables under study origin and mpg and assign them to X and Y, respectively."
+  },
+  {
+    "objectID": "T7_PopularGraphs/Popular_Graphs.slides.html#section-8",
+    "href": "T7_PopularGraphs/Popular_Graphs.slides.html#section-8",
+    "title": "Popular Graphs for Multiple Variables",
+    "section": "",
+    "text": "Improve the plot by adding a title and axis labels."
+  },
+  {
+    "objectID": "T7_PopularGraphs/Popular_Graphs.slides.html#bar-chart-or-beeswarm-plot",
+    "href": "T7_PopularGraphs/Popular_Graphs.slides.html#bar-chart-or-beeswarm-plot",
+    "title": "Popular Graphs for Multiple Variables",
+    "section": "Bar chart or beeswarm plot?",
+    "text": "Bar chart or beeswarm plot?\n\n\n\n\n\n\n\nBar chart of averages\nBeeswarm plot\n\n\n\n\nShows one value per category: the mean.\nShows every observation within each category.\n\n\nMakes it easy to compare the average between groups.\nAllows us to compare the distribution between groups.\n\n\nHides variation within each category.\nShows variation, concentration, gaps, and unusual observations."
+  },
+  {
+    "objectID": "T7_PopularGraphs/Popular_Graphs.slides.html#what-should-we-look-for",
+    "href": "T7_PopularGraphs/Popular_Graphs.slides.html#what-should-we-look-for",
+    "title": "Popular Graphs for Multiple Variables",
+    "section": "What should we look for?",
+    "text": "What should we look for?\n\nIn a bar chart, focus on the differences between the average values of the categories.\nIn a beeswarm plot, look at how much the distributions overlap. Little or no overlap suggests that the categorical variable can clearly distinguish between values of the numerical variable.\nA large difference in averages does not necessarily mean that the groups are completely different. The beeswarm plot can reveal whether their individual observations actually overlap."
+  },
+  {
+    "objectID": "T7_PopularGraphs/Popular_Graphs.slides.html#two-categorical-variables",
+    "href": "T7_PopularGraphs/Popular_Graphs.slides.html#two-categorical-variables",
+    "title": "Popular Graphs for Multiple Variables",
+    "section": "Two Categorical Variables",
+    "text": "Two Categorical Variables\nWith two categorical variables, we compare the distribution of one variable across subgroups defined by the other variable.\nIn fact, we keep one variable constant and plot the distribution of the other.\n\nTo do this, there are old and new plots:\n\nHierarchical bar plot\nTree map plot\nCircle packing plot"
+  },
+  {
+    "objectID": "T7_PopularGraphs/Popular_Graphs.slides.html#example-3",
+    "href": "T7_PopularGraphs/Popular_Graphs.slides.html#example-3",
+    "title": "Popular Graphs for Multiple Variables",
+    "section": "Example 3",
+    "text": "Example 3\nAs an example, let’s consider the data in the file “penguins.xlsx” again.\n\nFor instance, let’s study the distribution of penguin species across the three different islands using an stacked bar chart."
+  },
+  {
+    "objectID": "T7_PopularGraphs/Popular_Graphs.slides.html#hierarchical-bar-plot",
+    "href": "T7_PopularGraphs/Popular_Graphs.slides.html#hierarchical-bar-plot",
+    "title": "Popular Graphs for Multiple Variables",
+    "section": "Hierarchical bar plot",
+    "text": "Hierarchical bar plot"
+  },
+  {
+    "objectID": "T7_PopularGraphs/Popular_Graphs.slides.html#create-a-hierarchical-plot-in-flourish",
+    "href": "T7_PopularGraphs/Popular_Graphs.slides.html#create-a-hierarchical-plot-in-flourish",
+    "title": "Popular Graphs for Multiple Variables",
+    "section": "Create a hierarchical plot in Flourish",
+    "text": "Create a hierarchical plot in Flourish\nSearch and select the plot in the catalog of visualizations."
+  },
+  {
+    "objectID": "T7_PopularGraphs/Popular_Graphs.slides.html#section-9",
+    "href": "T7_PopularGraphs/Popular_Graphs.slides.html#section-9",
+    "title": "Popular Graphs for Multiple Variables",
+    "section": "",
+    "text": "After you load the “penguins.xlsx” data, select two categorical variables in the Categories/nesting section."
+  },
+  {
+    "objectID": "T7_PopularGraphs/Popular_Graphs.slides.html#section-10",
+    "href": "T7_PopularGraphs/Popular_Graphs.slides.html#section-10",
+    "title": "Popular Graphs for Multiple Variables",
+    "section": "",
+    "text": "To enhance the plot, switch off the automatic height"
+  },
+  {
+    "objectID": "T7_PopularGraphs/Popular_Graphs.slides.html#final-hierarchical-bar-plot-with-titles",
+    "href": "T7_PopularGraphs/Popular_Graphs.slides.html#final-hierarchical-bar-plot-with-titles",
+    "title": "Popular Graphs for Multiple Variables",
+    "section": "Final hierarchical bar plot with titles",
+    "text": "Final hierarchical bar plot with titles\nThe chart shows the frequency of species and island name."
+  },
+  {
+    "objectID": "T7_PopularGraphs/Popular_Graphs.slides.html#if-you-change-hierarchy-to-tree",
+    "href": "T7_PopularGraphs/Popular_Graphs.slides.html#if-you-change-hierarchy-to-tree",
+    "title": "Popular Graphs for Multiple Variables",
+    "section": "If you change hierarchy to tree",
+    "text": "If you change hierarchy to tree"
+  },
+  {
+    "objectID": "T7_PopularGraphs/Popular_Graphs.slides.html#tree-map-plot",
+    "href": "T7_PopularGraphs/Popular_Graphs.slides.html#tree-map-plot",
+    "title": "Popular Graphs for Multiple Variables",
+    "section": "Tree map plot",
+    "text": "Tree map plot"
+  },
+  {
+    "objectID": "T7_PopularGraphs/Popular_Graphs.slides.html#if-you-change-hierarchy-to-circles",
+    "href": "T7_PopularGraphs/Popular_Graphs.slides.html#if-you-change-hierarchy-to-circles",
+    "title": "Popular Graphs for Multiple Variables",
+    "section": "If you change hierarchy to circles",
+    "text": "If you change hierarchy to circles"
+  },
+  {
+    "objectID": "T7_PopularGraphs/Popular_Graphs.slides.html#circle-packing-plot",
+    "href": "T7_PopularGraphs/Popular_Graphs.slides.html#circle-packing-plot",
+    "title": "Popular Graphs for Multiple Variables",
+    "section": "Circle packing plot",
+    "text": "Circle packing plot"
+  },
+  {
+    "objectID": "T7_PopularGraphs/Popular_Graphs.slides.html#discussion",
+    "href": "T7_PopularGraphs/Popular_Graphs.slides.html#discussion",
+    "title": "Popular Graphs for Multiple Variables",
+    "section": "Discussion",
+    "text": "Discussion\nVisualizations such as hierarchy bars, tree maps, and circle packing plots help us explore how two categorical variables relate through nested structure.\n\nHierarchy bar charts are easy to read when one category has only a few levels. The show a clear sense of order from parent → child categories.\nTree maps are excellent use of space when there are many subcategories. The area encodes quantity, helping highlight dominant groups."
+  },
+  {
+    "objectID": "T7_PopularGraphs/Popular_Graphs.slides.html#section-11",
+    "href": "T7_PopularGraphs/Popular_Graphs.slides.html#section-11",
+    "title": "Popular Graphs for Multiple Variables",
+    "section": "",
+    "text": "Circle packing plots are more visually appealing and intuitive for showing nested groups. They are helpful when emphasizing clusters rather than exact magnitudes."
+  },
+  {
+    "objectID": "T5_FlourishStudio/FlourishStudio.slides.html#agenda",
+    "href": "T5_FlourishStudio/FlourishStudio.slides.html#agenda",
+    "title": "Introduction to Flourish Studio",
+    "section": "Agenda",
+    "text": "Agenda\n\n\nGetting Started\nLoading Data\nCreating Stories"
+  },
+  {
+    "objectID": "T5_FlourishStudio/FlourishStudio.slides.html#what-is-flourish-studio",
+    "href": "T5_FlourishStudio/FlourishStudio.slides.html#what-is-flourish-studio",
+    "title": "Introduction to Flourish Studio",
+    "section": "What is flourish studio?",
+    "text": "What is flourish studio?\n\nA web-based tool for building interactive charts, maps, and stories.\nDesigned for accessibility: beginner-friendly, but powerful.\nIt is free!\nhttps://flourish.studio/\n\n\n\n\nBeautiful and customizable graphics.\nEasy import from Excel, CSV, or Google Sheets.\nInteractive features that enhance decision-making.\nPerfect for class projects and presentations."
+  },
+  {
+    "objectID": "T5_FlourishStudio/FlourishStudio.slides.html#create-your-account",
+    "href": "T5_FlourishStudio/FlourishStudio.slides.html#create-your-account",
+    "title": "Introduction to Flourish Studio",
+    "section": "Create your account",
+    "text": "Create your account\n\nGo to Flourish Studio.\nClick Sign up."
+  },
+  {
+    "objectID": "T5_FlourishStudio/FlourishStudio.slides.html#section-1",
+    "href": "T5_FlourishStudio/FlourishStudio.slides.html#section-1",
+    "title": "Introduction to Flourish Studio",
+    "section": "",
+    "text": "I recommend singing up with your Google-Tec account."
+  },
+  {
+    "objectID": "T5_FlourishStudio/FlourishStudio.slides.html#section-2",
+    "href": "T5_FlourishStudio/FlourishStudio.slides.html#section-2",
+    "title": "Introduction to Flourish Studio",
+    "section": "",
+    "text": "If you already have an account, simply log in."
+  },
+  {
+    "objectID": "T5_FlourishStudio/FlourishStudio.slides.html#main-page",
+    "href": "T5_FlourishStudio/FlourishStudio.slides.html#main-page",
+    "title": "Introduction to Flourish Studio",
+    "section": "Main page",
+    "text": "Main page\n\n\n\n\nThe main page shows:\n\nProjects (your visualizations)\nTemplates you can choose from\nTeam tools (ignore for now)\nOptions to Create a new visualization"
+  },
+  {
+    "objectID": "T5_FlourishStudio/FlourishStudio.slides.html#example",
+    "href": "T5_FlourishStudio/FlourishStudio.slides.html#example",
+    "title": "Introduction to Flourish Studio",
+    "section": "Example",
+    "text": "Example\nConsider the data in the file “spotify.xlsx”. This dataset contains the global daily plays of the five most popular songs on the Spotify music streaming service in 2017. Our goal is to create a line chart on the number of plays per song."
+  },
+  {
+    "objectID": "T5_FlourishStudio/FlourishStudio.slides.html#section-3",
+    "href": "T5_FlourishStudio/FlourishStudio.slides.html#section-3",
+    "title": "Introduction to Flourish Studio",
+    "section": "",
+    "text": "To load a dataset, we select the option Data."
+  },
+  {
+    "objectID": "T5_FlourishStudio/FlourishStudio.slides.html#section-4",
+    "href": "T5_FlourishStudio/FlourishStudio.slides.html#section-4",
+    "title": "Introduction to Flourish Studio",
+    "section": "",
+    "text": "We see a predefined dataset, but we replace it by clicking on Upload data."
+  },
+  {
+    "objectID": "T5_FlourishStudio/FlourishStudio.slides.html#section-5",
+    "href": "T5_FlourishStudio/FlourishStudio.slides.html#section-5",
+    "title": "Introduction to Flourish Studio",
+    "section": "",
+    "text": "Next, we click on Import and see that 367 rows or observations were uploaded successfuly."
+  },
+  {
+    "objectID": "T5_FlourishStudio/FlourishStudio.slides.html#selecting-data",
+    "href": "T5_FlourishStudio/FlourishStudio.slides.html#selecting-data",
+    "title": "Introduction to Flourish Studio",
+    "section": "Selecting data",
+    "text": "Selecting data\n\n\nFlourish studio successfully recognized that there is a column Data containing times, which must go in the horizontal axis.\nUsing the Values section we can set the columns that contain te number of plays of the songs."
+  },
+  {
+    "objectID": "T5_FlourishStudio/FlourishStudio.slides.html#line-plot",
+    "href": "T5_FlourishStudio/FlourishStudio.slides.html#line-plot",
+    "title": "Introduction to Flourish Studio",
+    "section": "Line plot",
+    "text": "Line plot\nIf we go back to the Preview, we see the resulting line plot.\n\nWe will give more details about this and other plots in later lectures."
+  },
+  {
+    "objectID": "T5_FlourishStudio/FlourishStudio.slides.html#saving-the-plot",
+    "href": "T5_FlourishStudio/FlourishStudio.slides.html#saving-the-plot",
+    "title": "Introduction to Flourish Studio",
+    "section": "Saving the plot",
+    "text": "Saving the plot\nTo save the plot we rename it as “My First Line Plot” and go click on the Flourish studio icon next to the neame to go back to the main panel."
+  },
+  {
+    "objectID": "T5_FlourishStudio/FlourishStudio.slides.html#section-6",
+    "href": "T5_FlourishStudio/FlourishStudio.slides.html#section-6",
+    "title": "Introduction to Flourish Studio",
+    "section": "",
+    "text": "You now see that the plot is now in your projects."
+  },
+  {
+    "objectID": "T5_FlourishStudio/FlourishStudio.slides.html#what-is-a-flourish-story",
+    "href": "T5_FlourishStudio/FlourishStudio.slides.html#what-is-a-flourish-story",
+    "title": "Introduction to Flourish Studio",
+    "section": "What is a “Flourish Story”?",
+    "text": "What is a “Flourish Story”?\n\n\nFlourish allows you to combine multiple visualizations into a narrative sequence called a Story.\nA Story works like a slideshow where each slide is linked to a chart, a map, or a custom visualization.\nThis feature is perfect for telling data-driven stories, step by step, using interactive elements.\nThink of it as creating a visual presentation directly from your charts."
+  },
+  {
+    "objectID": "T5_FlourishStudio/FlourishStudio.slides.html#section-7",
+    "href": "T5_FlourishStudio/FlourishStudio.slides.html#section-7",
+    "title": "Introduction to Flourish Studio",
+    "section": "",
+    "text": "You can create a story by clicking on New Story in the main panel."
+  },
+  {
+    "objectID": "T5_FlourishStudio/FlourishStudio.slides.html#section-8",
+    "href": "T5_FlourishStudio/FlourishStudio.slides.html#section-8",
+    "title": "Introduction to Flourish Studio",
+    "section": "",
+    "text": "On the Flourish home page, click New story.\nA blank story canvas will open.\nYou can start adding slides by clicking New slide.\nEach slide can display:\n\nA chart you already created (Choose a visualization)\nText-only slides for transitions or explanations (Basic slide)\n\nStories automatically save to your project workspace."
+  },
+  {
+    "objectID": "T5_FlourishStudio/FlourishStudio.slides.html#choose-visualization",
+    "href": "T5_FlourishStudio/FlourishStudio.slides.html#choose-visualization",
+    "title": "Introduction to Flourish Studio",
+    "section": "Choose visualization",
+    "text": "Choose visualization\nIf you click on choose visualization, you can add the previously created line plot to the story."
+  },
+  {
+    "objectID": "T5_FlourishStudio/FlourishStudio.slides.html#section-9",
+    "href": "T5_FlourishStudio/FlourishStudio.slides.html#section-9",
+    "title": "Introduction to Flourish Studio",
+    "section": "",
+    "text": "After selecting the plot, we see a new slide in our story."
+  },
+  {
+    "objectID": "T5_FlourishStudio/FlourishStudio.slides.html#principle-1-define-the-message-or-research-question",
+    "href": "T5_FlourishStudio/FlourishStudio.slides.html#principle-1-define-the-message-or-research-question",
+    "title": "Introduction to Flourish Studio",
+    "section": "Principle 1: Define the message or research question",
+    "text": "Principle 1: Define the message or research question\nWe can add an informative title to the plot by filling end the section Add a caption here."
+  },
+  {
+    "objectID": "T5_FlourishStudio/FlourishStudio.slides.html#section-10",
+    "href": "T5_FlourishStudio/FlourishStudio.slides.html#section-10",
+    "title": "Introduction to Flourish Studio",
+    "section": "",
+    "text": "After you are done, assign a name to your story."
+  },
+  {
+    "objectID": "T5_FlourishStudio/FlourishStudio.slides.html#present-your-story",
+    "href": "T5_FlourishStudio/FlourishStudio.slides.html#present-your-story",
+    "title": "Introduction to Flourish Studio",
+    "section": "Present your story",
+    "text": "Present your story\nYou can present your story by clicking on the icon with two opposite arrows."
+  },
+  {
+    "objectID": "T5_FlourishStudio/FlourishStudio.slides.html#voilà",
+    "href": "T5_FlourishStudio/FlourishStudio.slides.html#voilà",
+    "title": "Introduction to Flourish Studio",
+    "section": "Voilà",
+    "text": "Voilà\nYou are now in presentation mode and can start telling your story."
+  },
+  {
+    "objectID": "T5_FlourishStudio/FlourishStudio.slides.html#final-comments",
+    "href": "T5_FlourishStudio/FlourishStudio.slides.html#final-comments",
+    "title": "Introduction to Flourish Studio",
+    "section": "Final comments",
+    "text": "Final comments\n\n\nFlourish Studio is a powerful and beginner-friendly tool for creating interactive data visualizations without writing code.\nIt integrates seamlessly with CANVA, making it easy to embed dynamic charts into your design projects.\nThe platform supports a wide variety of visualization templates, which we will explore later.\nStories, templates, and data workflows help you communicate insights clearly and professionally."
+  },
+  {
+    "objectID": "T8_StatisticalGraphs/Statistical_Graphs.slides.html#agenda",
+    "href": "T8_StatisticalGraphs/Statistical_Graphs.slides.html#agenda",
+    "title": "Statistical Graphs for Multiple Variables",
+    "section": "Agenda",
+    "text": "Agenda\n\n\nOne Numerical Variable\nMultiple Variables\n\nSide-by-Side Box Plots\nRegression Plots"
+  },
+  {
+    "objectID": "T8_StatisticalGraphs/Statistical_Graphs.slides.html#example-1",
+    "href": "T8_StatisticalGraphs/Statistical_Graphs.slides.html#example-1",
+    "title": "Statistical Graphs for Multiple Variables",
+    "section": "Example 1",
+    "text": "Example 1\n\n\nA piston is a mechanical device found in most engines.\n\n\n\nOne measure of a piston’s performance is the time it takes to complete a cycle, which we call “cycle time” and is measured in seconds.\nThe file “CYLT.xlsx” contains 50 cycle times of a piston operating under fixed conditions."
+  },
+  {
+    "objectID": "T8_StatisticalGraphs/Statistical_Graphs.slides.html#summary-statistic",
+    "href": "T8_StatisticalGraphs/Statistical_Graphs.slides.html#summary-statistic",
+    "title": "Statistical Graphs for Multiple Variables",
+    "section": "Summary statistic",
+    "text": "Summary statistic\n\n\nHelps us to summarize a list of observations in a simple way.\n\nFor numerical data, the most popular summary statistics are:\n\nMean\nVariance and standard deviation\nQuartiles\nMaximum and minimum"
+  },
+  {
+    "objectID": "T8_StatisticalGraphs/Statistical_Graphs.slides.html#mean",
+    "href": "T8_StatisticalGraphs/Statistical_Graphs.slides.html#mean",
+    "title": "Statistical Graphs for Multiple Variables",
+    "section": "Mean",
+    "text": "Mean\n\n\nIndicates the center of the data.\n\n\nLet \\(y_1, y_2, \\ldots, y_n\\) be an observed sample of size \\(n\\).\nThe mean is\n\\[\\bar{y} = \\frac{1}{n}\\sum_{i=1}^{n} y_i = \\frac{y_1 + y_2 + \\cdots + y_n}{n}.\\]"
+  },
+  {
+    "objectID": "T8_StatisticalGraphs/Statistical_Graphs.slides.html#variance",
+    "href": "T8_StatisticalGraphs/Statistical_Graphs.slides.html#variance",
+    "title": "Statistical Graphs for Multiple Variables",
+    "section": "Variance",
+    "text": "Variance\n\nIndicates how spread out the data are around the mean.\n\n\nLet \\(y_1, y_2, \\ldots, y_n\\) be an observed sample of size \\(n\\). The variance is\n\\[\ns^2 = \\frac{1}{n-1} \\sum_{i=1}^{n} (y_i - \\bar{y})^2 = \\frac{(y_1 - \\bar{y})^2  + \\cdots + (y_n - \\bar{y})^2}{n-1}\n\\]\n\nThe variance is like an average of the squared differences between each observation and the mean."
+  },
+  {
+    "objectID": "T8_StatisticalGraphs/Statistical_Graphs.slides.html#standard-deviation",
+    "href": "T8_StatisticalGraphs/Statistical_Graphs.slides.html#standard-deviation",
+    "title": "Statistical Graphs for Multiple Variables",
+    "section": "Standard deviation",
+    "text": "Standard deviation\nA drawback of the variance is that it is not on the same scale as the actual observations.\nTo obtain a measure of spread whose units are the same as those of the sample, we simply take the squared root of the variance\n\\[\ns = \\left(\\frac{1}{n-1} \\sum_{i=1}^{n} (y_i - \\bar{y})^2 \\right)^{1/2}\n\\]\nThis quantity is known as the standard deviation. It is in the same units as the observations."
+  },
+  {
+    "objectID": "T8_StatisticalGraphs/Statistical_Graphs.slides.html#for-the-piston-data",
+    "href": "T8_StatisticalGraphs/Statistical_Graphs.slides.html#for-the-piston-data",
+    "title": "Statistical Graphs for Multiple Variables",
+    "section": "For the piston data",
+    "text": "For the piston data\n\n\nThe average of the cycle time of the piston is 0.652 seconds.\n\n\nThe standard deviation of the cycle time of the piston is 0.373 seconds.\nTherefore, on average, a piston takes 0.652 seconds to complete a cycle, with a variation of \\(\\pm\\) 0.373 seconds."
+  },
+  {
+    "objectID": "T8_StatisticalGraphs/Statistical_Graphs.slides.html#quartiles",
+    "href": "T8_StatisticalGraphs/Statistical_Graphs.slides.html#quartiles",
+    "title": "Statistical Graphs for Multiple Variables",
+    "section": "Quartiles",
+    "text": "Quartiles\n\nThe median is the middle number of the ordered data values.\n\nQuartiles divide the data as nearly as possible into quarters:\n\nFirst quartile (\\(Q_1\\)) is the median of the lower half of the data.\nSecond quartile (\\(Q_2\\)) is the median of the data.\nThird quartile (\\(Q_3\\)) is the median of the upper half of the data."
+  },
+  {
+    "objectID": "T8_StatisticalGraphs/Statistical_Graphs.slides.html#section",
+    "href": "T8_StatisticalGraphs/Statistical_Graphs.slides.html#section",
+    "title": "Statistical Graphs for Multiple Variables",
+    "section": "",
+    "text": "The generalization of quartiles are percentiles or quantiles."
+  },
+  {
+    "objectID": "T8_StatisticalGraphs/Statistical_Graphs.slides.html#for-the-piston-data-1",
+    "href": "T8_StatisticalGraphs/Statistical_Graphs.slides.html#for-the-piston-data-1",
+    "title": "Statistical Graphs for Multiple Variables",
+    "section": "For the piston data",
+    "text": "For the piston data\n\n\n\\(Q_1 = 0.305\\). So, 25% of cycle times are below 0.305 seconds.\n\\(Q_2 = 0.546\\). So, 50% of cycle times are below 0.546 seconds.\n\\(Q_3 = 1.07\\). So, 75% of cycle times are below 1.07 seconds.\nThe maximum cycle time is 1.14 seconds.\nThe minimum cycle time is 0.175 seconds."
+  },
+  {
+    "objectID": "T8_StatisticalGraphs/Statistical_Graphs.slides.html#mean-vs.-median",
+    "href": "T8_StatisticalGraphs/Statistical_Graphs.slides.html#mean-vs.-median",
+    "title": "Statistical Graphs for Multiple Variables",
+    "section": "Mean vs. Median",
+    "text": "Mean vs. Median\n\nThe mean and median estimate the central value of the data in different ways.\n\nThe mean is the sum of the values divided by the total.\nThe median is the central value of an ordered set of data."
+  },
+  {
+    "objectID": "T8_StatisticalGraphs/Statistical_Graphs.slides.html#when-do-we-use-the-mean",
+    "href": "T8_StatisticalGraphs/Statistical_Graphs.slides.html#when-do-we-use-the-mean",
+    "title": "Statistical Graphs for Multiple Variables",
+    "section": "When do we use the mean?",
+    "text": "When do we use the mean?\n\nThe mean is used when the data is symmetrically or evenly distributed and there are no significant outliers.\n\nFor example, the height of a large sample of people in a homogeneous population."
+  },
+  {
+    "objectID": "T8_StatisticalGraphs/Statistical_Graphs.slides.html#when-do-we-use-the-median",
+    "href": "T8_StatisticalGraphs/Statistical_Graphs.slides.html#when-do-we-use-the-median",
+    "title": "Statistical Graphs for Multiple Variables",
+    "section": "When do we use the median?",
+    "text": "When do we use the median?\n\nThe median is used when there are outliers that could skew the mean.\nFor example:\n\nAnnual household income in a country (where there are a few billionaires who distort the mean).\nHouse prices in a city (where a few very expensive properties can inflate the mean)."
+  },
+  {
+    "objectID": "T8_StatisticalGraphs/Statistical_Graphs.slides.html#activity-solo-mode-part-1",
+    "href": "T8_StatisticalGraphs/Statistical_Graphs.slides.html#activity-solo-mode-part-1",
+    "title": "Statistical Graphs for Multiple Variables",
+    "section": "Activity (solo mode) Part 1",
+    "text": "Activity (solo mode) Part 1\nA company that manufactures capacitor retaining bolts for automobile engines implemented a quality control system. As part of this quality control system, a team of engineers decided to record the number of nonconforming bolts produced each shift.\nThe file bolts.xlsx contains the number of non-conforming bolts during the last 45 shifts.\n\nCalculate and interpret the mean, variance, standard deviation, quartiles, minimum and maximum."
+  },
+  {
+    "objectID": "T8_StatisticalGraphs/Statistical_Graphs.slides.html#boxplot",
+    "href": "T8_StatisticalGraphs/Statistical_Graphs.slides.html#boxplot",
+    "title": "Statistical Graphs for Multiple Variables",
+    "section": "Boxplot",
+    "text": "Boxplot\n\nA boxplot helps us visualize the distribution of observations using quartiles.\n\n\nIt is very effective for detecting “outliers.”\n\n\n\nAn important component of the boxplot is the interquartile range (IQR), which is the difference between the third quartile and the first quartile (\\(Q_3 - Q_1\\)).\n\n\nThe interquartile range is the distance needed to encompass the middle half of the data."
+  },
+  {
+    "objectID": "T8_StatisticalGraphs/Statistical_Graphs.slides.html#anatomy-of-a-box-plot",
+    "href": "T8_StatisticalGraphs/Statistical_Graphs.slides.html#anatomy-of-a-box-plot",
+    "title": "Statistical Graphs for Multiple Variables",
+    "section": "Anatomy of a Box Plot",
+    "text": "Anatomy of a Box Plot\n\nLearn more here https://builtin.com/articles/1-5-iqr-rule"
+  },
+  {
+    "objectID": "T8_StatisticalGraphs/Statistical_Graphs.slides.html#outliers",
+    "href": "T8_StatisticalGraphs/Statistical_Graphs.slides.html#outliers",
+    "title": "Statistical Graphs for Multiple Variables",
+    "section": "Outliers",
+    "text": "Outliers\n\n\nOutliers are points that are much larger or smaller than the rest of the sample points.\nOutliers may be data entry errors or they may be points that really are different from the rest.\nOutliers should not be deleted without considerable thought—sometimes calculations and analyses will be done with and without outliers and then compared."
+  },
+  {
+    "objectID": "T8_StatisticalGraphs/Statistical_Graphs.slides.html#boxplot-for-the-piston-data",
+    "href": "T8_StatisticalGraphs/Statistical_Graphs.slides.html#boxplot-for-the-piston-data",
+    "title": "Statistical Graphs for Multiple Variables",
+    "section": "Boxplot for the piston data",
+    "text": "Boxplot for the piston data\nUsually, the box plot is shown vertically."
+  },
+  {
+    "objectID": "T8_StatisticalGraphs/Statistical_Graphs.slides.html#section-1",
+    "href": "T8_StatisticalGraphs/Statistical_Graphs.slides.html#section-1",
+    "title": "Statistical Graphs for Multiple Variables",
+    "section": "",
+    "text": "But in some cases, we may want to display the the box plot horizontally."
+  },
+  {
+    "objectID": "T8_StatisticalGraphs/Statistical_Graphs.slides.html#multivariate-data",
+    "href": "T8_StatisticalGraphs/Statistical_Graphs.slides.html#multivariate-data",
+    "title": "Statistical Graphs for Multiple Variables",
+    "section": "Multivariate data",
+    "text": "Multivariate data\n\nMultivariate data consists of datasets that contain observations of two or more variables.\n\nVariables can be numerical or categorical.\nVariables may or may not depend on each other.\n\n\nIn fact, the goal is to determine whether there is a relationship between the variables and the type of relationship."
+  },
+  {
+    "objectID": "T8_StatisticalGraphs/Statistical_Graphs.slides.html#example-2",
+    "href": "T8_StatisticalGraphs/Statistical_Graphs.slides.html#example-2",
+    "title": "Statistical Graphs for Multiple Variables",
+    "section": "Example 2",
+    "text": "Example 2\n\nConsider data from 392 cars, including miles per gallon, number of cylinders, horsepower, weight, acceleration, year, origin, among other variables. The data is in the file “auto_dataset.xlsx”.\n\n\n# A tibble: 6 × 9\n    mpg cylinders displacement horsepower weight acceleration  year origin  \n  &lt;dbl&gt;     &lt;dbl&gt;        &lt;dbl&gt; &lt;chr&gt;       &lt;dbl&gt;        &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;   \n1    18         8          307 130          3504         12      70 American\n2    15         8          350 165          3693         11.5    70 American\n3    18         8          318 150          3436         11      70 American\n4    16         8          304 150          3433         12      70 American\n5    17         8          302 140          3449         10.5    70 American\n6    15         8          429 198          4341         10      70 American\n# ℹ 1 more variable: `car name` &lt;chr&gt;"
+  },
+  {
+    "objectID": "T8_StatisticalGraphs/Statistical_Graphs.slides.html#principle-1-define-the-question",
+    "href": "T8_StatisticalGraphs/Statistical_Graphs.slides.html#principle-1-define-the-question",
+    "title": "Statistical Graphs for Multiple Variables",
+    "section": "Principle 1: Define the question",
+    "text": "Principle 1: Define the question\nIn the context of multiple-variable data, typical questions to study include:\n\nHow are variable \\(X\\) and variable \\(Y\\) related?\nIs the distribution of variable \\(X\\) the same across all subgroups defined by variable \\(Z\\)?\nAre there any unusual observations in the combination of values for variables \\(X\\) and \\(Y\\)?\nAre there any unusual observations in \\(X\\) for a subgroup of variable \\(Z\\)?"
+  },
+  {
+    "objectID": "T8_StatisticalGraphs/Statistical_Graphs.slides.html#principle-2-turn-data-into-information",
+    "href": "T8_StatisticalGraphs/Statistical_Graphs.slides.html#principle-2-turn-data-into-information",
+    "title": "Statistical Graphs for Multiple Variables",
+    "section": "Principle 2: Turn data into information",
+    "text": "Principle 2: Turn data into information\nThere are various types of graphs that help us explore relationships between two or more variables.\n\n\n\n\n\nType\nGraph Type\n\n\n\n\nNumerical\nRegression plot\n\n\nMixed\nSide-by-side box plot\n\n\n\n\n\nFor two features, the combination of types (both quantitative, both qualitative, or a mix) matters."
+  },
+  {
+    "objectID": "T8_StatisticalGraphs/Statistical_Graphs.slides.html#independent-and-dependent-variables",
+    "href": "T8_StatisticalGraphs/Statistical_Graphs.slides.html#independent-and-dependent-variables",
+    "title": "Statistical Graphs for Multiple Variables",
+    "section": "Independent and dependent variables",
+    "text": "Independent and dependent variables\nWhen investigating the relationship between two variables (numerical or categorical), we use specific terminology.\n\nOne variable is called the dependent or response variable, denoted by the letter \\(Y\\).\n\n\nThe other variable is called the independent or predictor variable, denoted by the letter \\(X\\).\n\n\n\nOur goal is to determine whether changes in \\(X\\) are associated with changes in \\(Y\\), and the nature of this association."
+  },
+  {
+    "objectID": "T8_StatisticalGraphs/Statistical_Graphs.slides.html#categorical-and-numerical-variables",
+    "href": "T8_StatisticalGraphs/Statistical_Graphs.slides.html#categorical-and-numerical-variables",
+    "title": "Statistical Graphs for Multiple Variables",
+    "section": "Categorical and Numerical Variables",
+    "text": "Categorical and Numerical Variables\nTo examine the relationship between a numerical and a categorical variable, we use the categorical variable to divide the data into groups. This way, we compare the distribution of the numerical variable among these groups.\n\nIn this context:\n\n\\(X\\) is the categorical variable.\n\\(Y\\) is the numerical variable.\n\n\n\nThe side-by-side boxplot is the most effective way to study the relationship between a categorical and a numerical variable."
+  },
+  {
+    "objectID": "T8_StatisticalGraphs/Statistical_Graphs.slides.html#boxplot-by-groups",
+    "href": "T8_StatisticalGraphs/Statistical_Graphs.slides.html#boxplot-by-groups",
+    "title": "Statistical Graphs for Multiple Variables",
+    "section": "Boxplot by groups",
+    "text": "Boxplot by groups\nThe side-by-side boxplot compares the distribution of a variable across different groups.\nFor example, if we want to compare the distributions of miles per gallon of cars built in America, Europe, or Japan, we use the following command:"
+  },
+  {
+    "objectID": "T8_StatisticalGraphs/Statistical_Graphs.slides.html#regression-plots",
+    "href": "T8_StatisticalGraphs/Statistical_Graphs.slides.html#regression-plots",
+    "title": "Statistical Graphs for Multiple Variables",
+    "section": "Regression Plots",
+    "text": "Regression Plots\n\nQuestions we can answer with simple linear regression:\n\nIs there a relationship between a response variable and predictors?\nHow strong is the relationship?\nWhat is the uncertainty?\nHow precisely can we predict a future outcome?"
+  },
+  {
+    "objectID": "T8_StatisticalGraphs/Statistical_Graphs.slides.html#section-2",
+    "href": "T8_StatisticalGraphs/Statistical_Graphs.slides.html#section-2",
+    "title": "Statistical Graphs for Multiple Variables",
+    "section": "",
+    "text": "Is there a relationship between a car’s weight and its miles per gallon?"
+  },
+  {
+    "objectID": "T8_StatisticalGraphs/Statistical_Graphs.slides.html#regression-problem",
+    "href": "T8_StatisticalGraphs/Statistical_Graphs.slides.html#regression-problem",
+    "title": "Statistical Graphs for Multiple Variables",
+    "section": "Regression problem",
+    "text": "Regression problem\n\nObjetive: Find the best function \\(f(X)\\) of the predictor \\(X\\) that describes the response \\(Y\\).\n\nMathematically, we want to establish the following relationship:\n\\[\nY = f(X) + \\epsilon,\n\\]\nwhere \\(\\epsilon\\) is a natural (random) error."
+  },
+  {
+    "objectID": "T8_StatisticalGraphs/Statistical_Graphs.slides.html#section-3",
+    "href": "T8_StatisticalGraphs/Statistical_Graphs.slides.html#section-3",
+    "title": "Statistical Graphs for Multiple Variables",
+    "section": "",
+    "text": "In practice, it is very difficult to know the true structure of the function \\(f(X)\\).\n\n\nThe best we can do is construct an approximation (function) \\(\\hat{f}(X)\\).\nThere are several strategies to build \\(\\hat{f}(X)\\), one of the most common is:\n\nDefine a simple “structure” or “formula.”\nEstimate the elements of the “formula” using the data."
+  },
+  {
+    "objectID": "T8_StatisticalGraphs/Statistical_Graphs.slides.html#linear-regression-model",
+    "href": "T8_StatisticalGraphs/Statistical_Graphs.slides.html#linear-regression-model",
+    "title": "Statistical Graphs for Multiple Variables",
+    "section": "Linear regression model",
+    "text": "Linear regression model\nA very common function \\(f(X)\\) to predict a response \\(Y\\) is the linear regression model.\nIts mathematical form is:\n\\[\n\\hat{Y}_i = \\hat{\\beta}_0 + \\hat{\\beta}_1 X_i,\n\\]\n\nWhere \\(i\\) is the index of the \\(n\\) observations, and\n\\(\\hat{Y}_i\\) is the predicted value of the actual response \\(Y_i\\) associated with a predictor value \\(X_i\\).\nThe values \\(\\hat{\\beta}_0\\) and \\(\\hat{\\beta}_1\\) are called coefficients of the model."
+  },
+  {
+    "objectID": "T8_StatisticalGraphs/Statistical_Graphs.slides.html#principle-2-turn-data-into-information-1",
+    "href": "T8_StatisticalGraphs/Statistical_Graphs.slides.html#principle-2-turn-data-into-information-1",
+    "title": "Statistical Graphs for Multiple Variables",
+    "section": "Principle 2: Turn data into information",
+    "text": "Principle 2: Turn data into information\nThe values of \\(\\hat{\\beta}_0\\) and \\(\\hat{\\beta}_1\\) are obtained using the data. Specifically, the formulas for the coefficients are:\n\\[\\hat{\\beta}_1 = \\frac{ \\sum_{i=1}^{n} (Y_i - \\bar{Y}) (X_i - \\bar{X}) }{\\sum_{i=1}^{n} (X_i - \\bar{X})^2} \\text{  y  } \\hat{\\beta}_0 = \\bar{Y} - \\hat{\\beta}_1 \\bar{X},\\]\nwhere \\(\\bar{X} = \\sum_{i=1}^n X_i/n\\) and \\(\\bar{Y} = \\sum_{i=1}^n Y_i/n\\).\nThese formulas are derived from the method of least squares."
+  },
+  {
+    "objectID": "T8_StatisticalGraphs/Statistical_Graphs.slides.html#for-our-example",
+    "href": "T8_StatisticalGraphs/Statistical_Graphs.slides.html#for-our-example",
+    "title": "Statistical Graphs for Multiple Variables",
+    "section": "For our example",
+    "text": "For our example\n\\(\\hat{Y}_i = 46.32 -0.0076 X_i\\)"
+  },
+  {
+    "objectID": "T8_StatisticalGraphs/Statistical_Graphs.slides.html#the-formula",
+    "href": "T8_StatisticalGraphs/Statistical_Graphs.slides.html#the-formula",
+    "title": "Statistical Graphs for Multiple Variables",
+    "section": "The formula",
+    "text": "The formula\n\\(\\text{mpg}_i = 46.32 - 0.0076 \\times \\text{weight}_i\\)"
+  },
+  {
+    "objectID": "T8_StatisticalGraphs/Statistical_Graphs.slides.html#interpretation-of-the-coefficients",
+    "href": "T8_StatisticalGraphs/Statistical_Graphs.slides.html#interpretation-of-the-coefficients",
+    "title": "Statistical Graphs for Multiple Variables",
+    "section": "Interpretation of the coefficients",
+    "text": "Interpretation of the coefficients\nWhat does \\(\\hat{\\beta}_0 = 46.32\\) mean?\n\n\\(\\hat{\\beta}_0\\) is the average response value when \\(X_i = 0\\)."
+  },
+  {
+    "objectID": "T8_StatisticalGraphs/Statistical_Graphs.slides.html#section-4",
+    "href": "T8_StatisticalGraphs/Statistical_Graphs.slides.html#section-4",
+    "title": "Statistical Graphs for Multiple Variables",
+    "section": "",
+    "text": "Does \\(\\hat{\\beta}_0 = 46.32\\) make sense?\n\n\nNo! Because there are no cars with a weight of 0."
+  },
+  {
+    "objectID": "T8_StatisticalGraphs/Statistical_Graphs.slides.html#section-5",
+    "href": "T8_StatisticalGraphs/Statistical_Graphs.slides.html#section-5",
+    "title": "Statistical Graphs for Multiple Variables",
+    "section": "",
+    "text": "What does \\(\\hat{\\beta}_1 = - 0.0076\\) mean?\n\n\\(\\hat{\\beta}_1\\) is the average change in the response when \\(X_i\\) increases by one unit."
+  },
+  {
+    "objectID": "T8_StatisticalGraphs/Statistical_Graphs.slides.html#interpretation-of-hatbeta_1",
+    "href": "T8_StatisticalGraphs/Statistical_Graphs.slides.html#interpretation-of-hatbeta_1",
+    "title": "Statistical Graphs for Multiple Variables",
+    "section": "Interpretation of \\(\\hat{\\beta}_1\\)",
+    "text": "Interpretation of \\(\\hat{\\beta}_1\\)\n\n\nFor every extra pound in a car’s weight, the car has an average reduction of 0.0076 miles per gallon."
+  },
+  {
+    "objectID": "T8_StatisticalGraphs/Statistical_Graphs.slides.html#do-all-points-fall-exactly-on-the-line",
+    "href": "T8_StatisticalGraphs/Statistical_Graphs.slides.html#do-all-points-fall-exactly-on-the-line",
+    "title": "Statistical Graphs for Multiple Variables",
+    "section": "Do all points fall exactly on the line?",
+    "text": "Do all points fall exactly on the line?\n\n\nNo! The model has errors.\n\n\n\nTechnically, the error of the i-th observation is given by: \\(\\hat{e}_i = Y_i - \\hat{Y}_i = Y_i - \\hat{\\beta}_0 - \\hat{\\beta}_1 X_i\\).\nThe behavior of the errors (\\(e_i\\)’s) indicates whether the model is correct or not, which can be validated using a residual analysis (see IN1002B for example)."
+  },
+  {
+    "objectID": "T8_StatisticalGraphs/Statistical_Graphs.slides.html#local-regression",
+    "href": "T8_StatisticalGraphs/Statistical_Graphs.slides.html#local-regression",
+    "title": "Statistical Graphs for Multiple Variables",
+    "section": "Local regression",
+    "text": "Local regression\n\nThis is a modern alternative to the simple linear regression model for capturing complex relationships between two variables.\nBasic Idea: It fits linear regression models to small subsets of the data. These subsets consist of observations that are close to each other.\nThe most common method for fitting a local regression model is LOESS. We will omit the details of this method here since they require advanced statistical concepts."
+  },
+  {
+    "objectID": "T8_StatisticalGraphs/Statistical_Graphs.slides.html#for-our-example-1",
+    "href": "T8_StatisticalGraphs/Statistical_Graphs.slides.html#for-our-example-1",
+    "title": "Statistical Graphs for Multiple Variables",
+    "section": "For our example",
+    "text": "For our example"
+  },
+  {
+    "objectID": "T8_StatisticalGraphs/Statistical_Graphs.slides.html#another-example",
+    "href": "T8_StatisticalGraphs/Statistical_Graphs.slides.html#another-example",
+    "title": "Statistical Graphs for Multiple Variables",
+    "section": "Another example",
+    "text": "Another example\nLet’s consider the relationship between car acceleration and the total volume of all engine cylinders."
+  },
+  {
+    "objectID": "T8_StatisticalGraphs/Statistical_Graphs.slides.html#linear-regression",
+    "href": "T8_StatisticalGraphs/Statistical_Graphs.slides.html#linear-regression",
+    "title": "Statistical Graphs for Multiple Variables",
+    "section": "Linear regression",
+    "text": "Linear regression"
+  },
+  {
+    "objectID": "T8_StatisticalGraphs/Statistical_Graphs.slides.html#discussion",
+    "href": "T8_StatisticalGraphs/Statistical_Graphs.slides.html#discussion",
+    "title": "Statistical Graphs for Multiple Variables",
+    "section": "Discussion",
+    "text": "Discussion\n\n\nThe simple linear regression model is easy to interpret due to its structure: \\(\\hat{Y}_i = \\hat{\\beta}_0 + \\hat{\\beta}_1 X_i.\\)\nHowever, it may be too rigid to capture complex relationships between two variables.\nLocal regression is flexible and allows capturing complex relationships between two variables, but it has a low level of interpretability because it does not provide an explicit equation."
+  },
+  {
+    "objectID": "index.slides.html#course-topics",
+    "href": "index.slides.html#course-topics",
+    "title": "IN2039 Data Visualization for Decision Making",
+    "section": "Course topics",
+    "text": "Course topics\n\nIntroduction (slides)\nTools for Data Manipulation (slides) (colab)\nTidy Data (slides) (colab)\nWeb Scraping (slides) (colab)\nIntroduction to Flourish Studio (slides) (My First Line Plot) (My First Flourish Story)\nTypes of variables and univariate plots (slides) (colab)\nPopular graphs for multiple variables (slides)\nStatistical graphs"
+  },
+  {
+    "objectID": "index.slides.html#about-the-author",
+    "href": "index.slides.html#about-the-author",
+    "title": "IN2039 Data Visualization for Decision Making",
+    "section": "About the author",
+    "text": "About the author\nAlan R. Vazquez (website) is a Research Professor at the Department of Industrial Engineering at Tecnologico de Monterrey, Monterrey campus."
+  },
+  {
+    "objectID": "index.slides.html#license",
+    "href": "index.slides.html#license",
+    "title": "IN2039 Data Visualization for Decision Making",
+    "section": "License",
+    "text": "License\n\nIN2039 Data Visualization for Decision Making by Alan R. Vazquez is licensed under CC BY-NC-SA 4.0"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "IN2039 Data Visualization for Decision Making",
+    "section": "",
+    "text": "Course topics\n\nIntroduction (slides)\nTools for Data Manipulation (slides) (colab)\nTidy Data (slides) (colab)\nWeb Scraping (slides) (colab)\nIntroduction to Flourish Studio (slides) (My First Line Plot) (My First Flourish Story)\nTypes of variables and univariate plots (slides) (colab)\nPopular graphs for multiple variables (slides)\nStatistical graphs\n\n\n\nAbout the author\nAlan R. Vazquez (website) is a Research Professor at the Department of Industrial Engineering at Tecnologico de Monterrey, Monterrey campus.\n\n\nLicense\n\nIN2039 Data Visualization for Decision Making by Alan R. Vazquez is licensed under CC BY-NC-SA 4.0"
+  },
+  {
     "objectID": "T4_WebScraping/WebScraping.slides.html#agenda",
     "href": "T4_WebScraping/WebScraping.slides.html#agenda",
     "title": "Web Scraping",
@@ -355,5 +2217,348 @@
     "title": "Web Scraping",
     "section": "",
     "text": "Another thing to consider is the legal aspect of web scraping. Always review the website’s terms of service before collecting data. For example, review the Wikipedia Terms of Use and the Fox Sports Terms of Use\n\n\n\nScraping without permission can violate intellectual property rights or privacy regulations, depending on the jurisdiction"
+  },
+  {
+    "objectID": "T6_TypesofVariables/TypesVariables.slides.html#agenda",
+    "href": "T6_TypesofVariables/TypesVariables.slides.html#agenda",
+    "title": "Types of Variables and Univariate Plots",
+    "section": "Agenda",
+    "text": "Agenda\n\n\nTypes of Variables\nOne Categorical Variable\nOne Numerical Variable"
+  },
+  {
+    "objectID": "T6_TypesofVariables/TypesVariables.slides.html#types-of-variables",
+    "href": "T6_TypesofVariables/TypesVariables.slides.html#types-of-variables",
+    "title": "Types of Variables and Univariate Plots",
+    "section": "Types of variables",
+    "text": "Types of variables\n\nBefore creating a graph, we must examine the type of values that our dataset variables take.\n\nThere are two main types of variables:\n\nNumerical variables.\nCategorical variables."
+  },
+  {
+    "objectID": "T6_TypesofVariables/TypesVariables.slides.html#numerical-variables",
+    "href": "T6_TypesofVariables/TypesVariables.slides.html#numerical-variables",
+    "title": "Types of Variables and Univariate Plots",
+    "section": "Numerical variables",
+    "text": "Numerical variables\n\nThese take values that represent numerical measurements or quantities.\n\nHeight (in centimeters).\nWeight (in kilograms).\nAge (in years).\nPrice (in dollars).\nTime (in hours or seconds).\nExam score (number of points on a 100-point scale)."
+  },
+  {
+    "objectID": "T6_TypesofVariables/TypesVariables.slides.html#types-of-numerical-variables",
+    "href": "T6_TypesofVariables/TypesVariables.slides.html#types-of-numerical-variables",
+    "title": "Types of Variables and Univariate Plots",
+    "section": "Types of numerical variables",
+    "text": "Types of numerical variables\n\nNumerical variables are divided into two types:\n\nDiscrete: variables that take integer values.\n\n\nExamples:\n\nNumber of children (0, 1, 2, or 3)\nNumber of students in a class (20, 30, or 35)\nNumber of books in a library (10,000, 15,000, 20,000)"
+  },
+  {
+    "objectID": "T6_TypesofVariables/TypesVariables.slides.html#section",
+    "href": "T6_TypesofVariables/TypesVariables.slides.html#section",
+    "title": "Types of Variables and Univariate Plots",
+    "section": "",
+    "text": "Continuous: variables that have a large range of possible values.\n\n\nExamples:\n\nA person’s height (could be within the range of 1.60 m to 1.85 m)\nAmbient temperature (could be within the range of -30 \\(^\\circ\\)C to 50 \\(^\\circ\\)C)\nTime for an Uber to arrive (between 5 and 60 minutes)"
+  },
+  {
+    "objectID": "T6_TypesofVariables/TypesVariables.slides.html#categorical-variables",
+    "href": "T6_TypesofVariables/TypesVariables.slides.html#categorical-variables",
+    "title": "Types of Variables and Univariate Plots",
+    "section": "Categorical variables",
+    "text": "Categorical variables\n\nThese take values that fall into categories.\n\n\nA category is a class or division of people or things that share particular characteristics.\n\n\n\n\n\n\n\n\n\n\nVariable\nCategories\n\n\nAmazon review\n1\\(\\bigstar\\), 2\\(\\bigstar\\), 3\\(\\bigstar\\), 4\\(\\bigstar\\), 5\\(\\bigstar\\)\n\n\nCountry of origin\nMéxico, Canadá, EUA\n\n\nPostal code\n72703, 90034, 3000, …"
+  },
+  {
+    "objectID": "T6_TypesofVariables/TypesVariables.slides.html#classification-of-categorical-variables",
+    "href": "T6_TypesofVariables/TypesVariables.slides.html#classification-of-categorical-variables",
+    "title": "Types of Variables and Univariate Plots",
+    "section": "Classification of categorical variables",
+    "text": "Classification of categorical variables\n\n\nCategorical variables are divided into two important types:\n\nNominal\nOrdinal\n\n\nThe distinction depends on whether the categories have a meaningful order or not."
+  },
+  {
+    "objectID": "T6_TypesofVariables/TypesVariables.slides.html#nominal-categorical-variables",
+    "href": "T6_TypesofVariables/TypesVariables.slides.html#nominal-categorical-variables",
+    "title": "Types of Variables and Univariate Plots",
+    "section": "Nominal categorical variables",
+    "text": "Nominal categorical variables\n\nA categorical variable is nominal if its categories do not have a specific order.\n\nExamples:\n\nPolitical party affiliation (Democrat or Republican).\nDog breed (Shepherd, Hound, Terrier, Other).\nComputer operating system (Windows, macOS, Linux)."
+  },
+  {
+    "objectID": "T6_TypesofVariables/TypesVariables.slides.html#ordinal-categorical-variables",
+    "href": "T6_TypesofVariables/TypesVariables.slides.html#ordinal-categorical-variables",
+    "title": "Types of Variables and Univariate Plots",
+    "section": "Ordinal categorical variables",
+    "text": "Ordinal categorical variables\n\nA categorical variable is ordinal if its categories do have a meaningful order.\n\nExamples:\n\nT-shirt size (Small, Medium, Large).\nEducation level (High School, University, Postgraduate).\nIncome level (Less than $250K, $250K-$500K, More than $500K)\n\n\nIt is important to note that with an ordinal variable, the difference between, say, small and medium is not necessarily the same as the difference between medium and large. Additionally, the differences between consecutive categories may not be quantifiable. Think about star ratings in a restaurant review—how much better is one star compared to two stars?"
+  },
+  {
+    "objectID": "T6_TypesofVariables/TypesVariables.slides.html#interesting-fact",
+    "href": "T6_TypesofVariables/TypesVariables.slides.html#interesting-fact",
+    "title": "Types of Variables and Univariate Plots",
+    "section": "Interesting fact…",
+    "text": "Interesting fact…\n\nInteger values (e.g., 1, 2, 3, …, 5) can represent nominal or ordinal categorical variables.\n\n\n\nRepresentation\n1\n2\n3\n4\n\n\nBlood Type\nA\nB\nAB\nO\n\n\nReview\nBad\nFair\nGood\nVery Good\n\n\n\n\n\nIn practice, boolean values (TRUE and FALSE) often represent nominal categories."
+  },
+  {
+    "objectID": "T6_TypesofVariables/TypesVariables.slides.html#remember",
+    "href": "T6_TypesofVariables/TypesVariables.slides.html#remember",
+    "title": "Types of Variables and Univariate Plots",
+    "section": "Remember",
+    "text": "Remember"
+  },
+  {
+    "objectID": "T6_TypesofVariables/TypesVariables.slides.html#a-general-difference-is",
+    "href": "T6_TypesofVariables/TypesVariables.slides.html#a-general-difference-is",
+    "title": "Types of Variables and Univariate Plots",
+    "section": "A general difference is …",
+    "text": "A general difference is …\n\n\nQuantitative variables (discrete or continuous) are those where addition or subtraction makes sense.\nCategorical variables (nominal or ordinal) are those where addition or subtraction does NOT make sense."
+  },
+  {
+    "objectID": "T6_TypesofVariables/TypesVariables.slides.html#example-1-penguins-dataset",
+    "href": "T6_TypesofVariables/TypesVariables.slides.html#example-1-penguins-dataset",
+    "title": "Types of Variables and Univariate Plots",
+    "section": "Example 1: Penguins dataset",
+    "text": "Example 1: Penguins dataset\nWe will illustrate the concepts using the penguins.xlsx dataset. We will focus on visualizing the categorical variable species.\n\nimport pandas as pd\npenguins_data = pd.read_excel(\"penguins.xlsx\")\npenguins_data.filter([\"species\", \"island\", \"sex\"])\n\n       species     island     sex\n0       Adelie  Torgersen    male\n1       Adelie  Torgersen  female\n2       Adelie  Torgersen  female\n3       Adelie  Torgersen     NaN\n4       Adelie  Torgersen  female\n..         ...        ...     ...\n339  Chinstrap      Dream    male\n340  Chinstrap      Dream  female\n341  Chinstrap      Dream    male\n342  Chinstrap      Dream    male\n343  Chinstrap      Dream  female\n\n[344 rows x 3 columns]"
+  },
+  {
+    "objectID": "T6_TypesofVariables/TypesVariables.slides.html#principle-2-turn-data-into-information",
+    "href": "T6_TypesofVariables/TypesVariables.slides.html#principle-2-turn-data-into-information",
+    "title": "Types of Variables and Univariate Plots",
+    "section": "Principle 2: Turn data into information",
+    "text": "Principle 2: Turn data into information\n\nAs a starting point,we compute the frequencies of each category of species using the pandas functions .filter(), .groupby() and .agg().\n\nThe .groupby() function takes an existing table and converts it into a grouped table where operations are performed “by group”.\nThe .size() function counts the values in a category.\n\n\n\nfrequencies_species = (penguins_data \n                      .groupby(\"species\")\n                      .size()\n                      )"
+  },
+  {
+    "objectID": "T6_TypesofVariables/TypesVariables.slides.html#frequency-table",
+    "href": "T6_TypesofVariables/TypesVariables.slides.html#frequency-table",
+    "title": "Types of Variables and Univariate Plots",
+    "section": "Frequency table",
+    "text": "Frequency table\n\n\nfrequencies_species\n\nspecies\nAdelie       152\nChinstrap     68\nGentoo       124\ndtype: int64\n\n\n\nWe save the frequency table for further processing with Flourish studio using the command below.\n\n# frequencies_species.to_excel(\"PenguinsDataFlourish.xlsx\")"
+  },
+  {
+    "objectID": "T6_TypesofVariables/TypesVariables.slides.html#bar-chart",
+    "href": "T6_TypesofVariables/TypesVariables.slides.html#bar-chart",
+    "title": "Types of Variables and Univariate Plots",
+    "section": "Bar chart",
+    "text": "Bar chart\nShows frequencies of the categories of a categorical variable."
+  },
+  {
+    "objectID": "T6_TypesofVariables/TypesVariables.slides.html#construct-a-bar-chart-in-flourish",
+    "href": "T6_TypesofVariables/TypesVariables.slides.html#construct-a-bar-chart-in-flourish",
+    "title": "Types of Variables and Univariate Plots",
+    "section": "Construct a bar chart in Flourish",
+    "text": "Construct a bar chart in Flourish"
+  },
+  {
+    "objectID": "T6_TypesofVariables/TypesVariables.slides.html#section-1",
+    "href": "T6_TypesofVariables/TypesVariables.slides.html#section-1",
+    "title": "Types of Variables and Univariate Plots",
+    "section": "",
+    "text": "In the visualization gallery, choose Bar Chart."
+  },
+  {
+    "objectID": "T6_TypesofVariables/TypesVariables.slides.html#replace-the-data-with-your-own",
+    "href": "T6_TypesofVariables/TypesVariables.slides.html#replace-the-data-with-your-own",
+    "title": "Types of Variables and Univariate Plots",
+    "section": "Replace the data with your own",
+    "text": "Replace the data with your own"
+  },
+  {
+    "objectID": "T6_TypesofVariables/TypesVariables.slides.html#select-the-correct-variables",
+    "href": "T6_TypesofVariables/TypesVariables.slides.html#select-the-correct-variables",
+    "title": "Types of Variables and Univariate Plots",
+    "section": "Select the correct variables",
+    "text": "Select the correct variables\nMake sure that you uploaded the file “PenguinsDataFlourish.xlsx” and not the original one.\nNow, we assign the variable species to Labels/time, and Frequency to Values."
+  },
+  {
+    "objectID": "T6_TypesofVariables/TypesVariables.slides.html#section-2",
+    "href": "T6_TypesofVariables/TypesVariables.slides.html#section-2",
+    "title": "Types of Variables and Univariate Plots",
+    "section": "",
+    "text": "The preview plot has all bars at the same height. To replace the height for the frequencies of the categories, we change the Agregation mode to None.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWe also change the Height mode to Standard to enhance the visualization."
+  },
+  {
+    "objectID": "T6_TypesofVariables/TypesVariables.slides.html#principle-1-define-the-message",
+    "href": "T6_TypesofVariables/TypesVariables.slides.html#principle-1-define-the-message",
+    "title": "Types of Variables and Univariate Plots",
+    "section": "Principle 1: Define the message",
+    "text": "Principle 1: Define the message\nFollowing Principle 1 of data visualization, we add a header or title to the plot by going to the section Header."
+  },
+  {
+    "objectID": "T6_TypesofVariables/TypesVariables.slides.html#final-bar-chart",
+    "href": "T6_TypesofVariables/TypesVariables.slides.html#final-bar-chart",
+    "title": "Types of Variables and Univariate Plots",
+    "section": "Final bar chart",
+    "text": "Final bar chart\n\nWe see that most penguins are Adelie."
+  },
+  {
+    "objectID": "T6_TypesofVariables/TypesVariables.slides.html#example-2-boston-housing-dataset",
+    "href": "T6_TypesofVariables/TypesVariables.slides.html#example-2-boston-housing-dataset",
+    "title": "Types of Variables and Univariate Plots",
+    "section": "Example 2: Boston Housing Dataset",
+    "text": "Example 2: Boston Housing Dataset\nThis dataset contains information collected by the U.S. Census Bureau on housing in the Boston, Massachusetts area. The dataset is in Boston_dataset.xlsx."
+  },
+  {
+    "objectID": "T6_TypesofVariables/TypesVariables.slides.html#section-3",
+    "href": "T6_TypesofVariables/TypesVariables.slides.html#section-3",
+    "title": "Types of Variables and Univariate Plots",
+    "section": "",
+    "text": "We concentrate on the following variables:\n\nchas : Whether the house is next to the Charles River (1: Yes and 0: No)\nrad : Index of accessibility to radial highways (0: Low, 1: Medium, 2: High)."
+  },
+  {
+    "objectID": "T6_TypesofVariables/TypesVariables.slides.html#data-wrangling-with-python",
+    "href": "T6_TypesofVariables/TypesVariables.slides.html#data-wrangling-with-python",
+    "title": "Types of Variables and Univariate Plots",
+    "section": "Data wrangling with Python",
+    "text": "Data wrangling with Python\n\n\n\nTo create a effective bar plots in Flourish, we must wrangle the variables chas and rad a little bit.\nSpecifically, we must ensure that these variables are categorical and their categories have the appropriate names.\n\n\n(Boston_dataset\n.filter([\"chas\", \"rad\"])\n)\n\n     chas  rad\n0       0    0\n1       0    0\n2       0    0\n3       0    0\n4       0    0\n..    ...  ...\n501     0    0\n502     0    0\n503     0    0\n504     0    0\n505     0    0\n\n[506 rows x 2 columns]"
+  },
+  {
+    "objectID": "T6_TypesofVariables/TypesVariables.slides.html#section-4",
+    "href": "T6_TypesofVariables/TypesVariables.slides.html#section-4",
+    "title": "Types of Variables and Univariate Plots",
+    "section": "",
+    "text": "To this end, we replace the 0 and 1 of chas for the label “No” and “Yes”, respectively, using .replace().\n\nBoston_dataset['chas'] = Boston_dataset['chas'].replace(0, 'No')\nBoston_dataset['chas'] = Boston_dataset['chas'].replace(1, 'Yes')\n\n\nUsing this function, we replace the 0, 1, and 2 in the variable rad by “Low”, “Medium”, and “High”, respectively.\n\nBoston_dataset['rad'] = Boston_dataset['rad'].replace(0, 'Low')\nBoston_dataset['rad'] = Boston_dataset['rad'].replace(1, 'Medium')\nBoston_dataset['rad'] = Boston_dataset['rad'].replace(2, 'High')"
+  },
+  {
+    "objectID": "T6_TypesofVariables/TypesVariables.slides.html#section-5",
+    "href": "T6_TypesofVariables/TypesVariables.slides.html#section-5",
+    "title": "Types of Variables and Univariate Plots",
+    "section": "",
+    "text": "Now, the columns show the actual category labels instead of the coded (or number) labels.\n\nBoston_dataset.filter([\"chas\", \"rad\"]) \n\n    chas  rad\n0     No  Low\n1     No  Low\n2     No  Low\n3     No  Low\n4     No  Low\n..   ...  ...\n501   No  Low\n502   No  Low\n503   No  Low\n504   No  Low\n505   No  Low\n\n[506 rows x 2 columns]"
+  },
+  {
+    "objectID": "T6_TypesofVariables/TypesVariables.slides.html#section-6",
+    "href": "T6_TypesofVariables/TypesVariables.slides.html#section-6",
+    "title": "Types of Variables and Univariate Plots",
+    "section": "",
+    "text": "For the bar chart, we compute the frequencies of the categories of chas and rad.\n\nfrequencies_Boston_chas = (Boston_dataset \n                          .groupby(\"chas\")\n                          .size())\n\nfrequencies_Boston_rad = (Boston_dataset \n                          .groupby(\"rad\")\n                          .size())"
+  },
+  {
+    "objectID": "T6_TypesofVariables/TypesVariables.slides.html#section-7",
+    "href": "T6_TypesofVariables/TypesVariables.slides.html#section-7",
+    "title": "Types of Variables and Univariate Plots",
+    "section": "",
+    "text": "We save the new datasets using the function .to_excel() from the pandas.\n\n#frequencies_Boston_chas.to_excel(\"BostonDataFlourishChas.xlsx\")\n#frequencies_Boston_rad.to_excel(\"BostonDataFlourishRad.xlsx\")\n\nWe then proceed to visualize the processed data using Flourish."
+  },
+  {
+    "objectID": "T6_TypesofVariables/TypesVariables.slides.html#lets-create-a-bar-chart-for-chas.",
+    "href": "T6_TypesofVariables/TypesVariables.slides.html#lets-create-a-bar-chart-for-chas.",
+    "title": "Types of Variables and Univariate Plots",
+    "section": "Let’s create a bar chart for chas.",
+    "text": "Let’s create a bar chart for chas.\nWe load the dataset “BostonDataFlourishChas.xlsx” into Flourish."
+  },
+  {
+    "objectID": "T6_TypesofVariables/TypesVariables.slides.html#section-8",
+    "href": "T6_TypesofVariables/TypesVariables.slides.html#section-8",
+    "title": "Types of Variables and Univariate Plots",
+    "section": "",
+    "text": "We assign the chas variable to the Labels/time and Frequency to Values."
+  },
+  {
+    "objectID": "T6_TypesofVariables/TypesVariables.slides.html#section-9",
+    "href": "T6_TypesofVariables/TypesVariables.slides.html#section-9",
+    "title": "Types of Variables and Univariate Plots",
+    "section": "",
+    "text": "Now, we go back to the Preview tab and set Aggregation mode to None."
+  },
+  {
+    "objectID": "T6_TypesofVariables/TypesVariables.slides.html#section-10",
+    "href": "T6_TypesofVariables/TypesVariables.slides.html#section-10",
+    "title": "Types of Variables and Univariate Plots",
+    "section": "",
+    "text": "In the menu of the Preview tab, we add a title and a good label for the horizontal axis."
+  },
+  {
+    "objectID": "T6_TypesofVariables/TypesVariables.slides.html#bar-chart-for-chas",
+    "href": "T6_TypesofVariables/TypesVariables.slides.html#bar-chart-for-chas",
+    "title": "Types of Variables and Univariate Plots",
+    "section": "Bar chart for chas",
+    "text": "Bar chart for chas"
+  },
+  {
+    "objectID": "T6_TypesofVariables/TypesVariables.slides.html#similarly-we-create-a-bar-chart-for-rad",
+    "href": "T6_TypesofVariables/TypesVariables.slides.html#similarly-we-create-a-bar-chart-for-rad",
+    "title": "Types of Variables and Univariate Plots",
+    "section": "Similarly, we create a bar chart for rad",
+    "text": "Similarly, we create a bar chart for rad"
+  },
+  {
+    "objectID": "T6_TypesofVariables/TypesVariables.slides.html#collapsing-categories",
+    "href": "T6_TypesofVariables/TypesVariables.slides.html#collapsing-categories",
+    "title": "Types of Variables and Univariate Plots",
+    "section": "Collapsing categories",
+    "text": "Collapsing categories\n\nSome categorical variables tend to have many categories. For example, states in a country or postal codes. In these cases, it can be difficult to visualize all the categories in a single graph.\nOne strategy for developing an effective visualization is to collapse categories.\nFor example, in the variable rad, we can collapse the categories Medium and High into a single category called Other."
+  },
+  {
+    "objectID": "T6_TypesofVariables/TypesVariables.slides.html#section-11",
+    "href": "T6_TypesofVariables/TypesVariables.slides.html#section-11",
+    "title": "Types of Variables and Univariate Plots",
+    "section": "",
+    "text": "We collapse categories using the function called .where().\n\nBoston_dataset_simple = Boston_dataset.copy()\nBoston_dataset_simple[\"rad\"] = (Boston_dataset_simple\n                                .filter([\"rad\"])\n                                .where(Boston_dataset_simple[\"rad\"] == \"Low\", \"Other\")\n                                )\n\nCollapsing categories simplifies the graph and allows us to emphasize a category like Low and see how it compares to the other categories (as a whole).\n\nWe save the new dataset using the function .to_excel().\n\n# Boston_dataset_simple.to_excel(\"BostonCollapsed.xlsx\")\n\nWe then proceed to visualize the processed data using Flourish."
+  },
+  {
+    "objectID": "T6_TypesofVariables/TypesVariables.slides.html#the-resulting-bar-chart",
+    "href": "T6_TypesofVariables/TypesVariables.slides.html#the-resulting-bar-chart",
+    "title": "Types of Variables and Univariate Plots",
+    "section": "The resulting bar chart",
+    "text": "The resulting bar chart"
+  },
+  {
+    "objectID": "T6_TypesofVariables/TypesVariables.slides.html#example-3",
+    "href": "T6_TypesofVariables/TypesVariables.slides.html#example-3",
+    "title": "Types of Variables and Univariate Plots",
+    "section": "Example 3",
+    "text": "Example 3\n\n\nA piston is a mechanical device found in most engines.\n\n\n\nOne measure of a piston’s performance is the time it takes to complete a cycle, which we call “cycle time” and is measured in seconds.\nThe file “CYLT.xlsx” contains 50 cycle times of a piston operating under fixed conditions."
+  },
+  {
+    "objectID": "T6_TypesofVariables/TypesVariables.slides.html#beeswarm",
+    "href": "T6_TypesofVariables/TypesVariables.slides.html#beeswarm",
+    "title": "Types of Variables and Univariate Plots",
+    "section": "Beeswarm",
+    "text": "Beeswarm\n\nVisualizes the distribution of individual observations along a numeric axis.\n\n\nEach point represents one data value, and the points are arranged to avoid overlapping—similar to bees clustering around a hive.\nThis makes it easy to see where observations are dense or sparse, while still showing every individual data point."
+  },
+  {
+    "objectID": "T6_TypesofVariables/TypesVariables.slides.html#section-13",
+    "href": "T6_TypesofVariables/TypesVariables.slides.html#section-13",
+    "title": "Types of Variables and Univariate Plots",
+    "section": "",
+    "text": "Unlike histograms, which aggregate counts into bars, beeswarm plots preserve every point, giving a more detailed picture of the underlying distribution."
+  },
+  {
+    "objectID": "T6_TypesofVariables/TypesVariables.slides.html#beeswarm-in-flourish",
+    "href": "T6_TypesofVariables/TypesVariables.slides.html#beeswarm-in-flourish",
+    "title": "Types of Variables and Univariate Plots",
+    "section": "Beeswarm in Flourish",
+    "text": "Beeswarm in Flourish\nBeeswarm is in the section Scatter of the catalog of visualizations in Flourish."
+  },
+  {
+    "objectID": "T6_TypesofVariables/TypesVariables.slides.html#section-14",
+    "href": "T6_TypesofVariables/TypesVariables.slides.html#section-14",
+    "title": "Types of Variables and Univariate Plots",
+    "section": "",
+    "text": "In the Beeswarm plot, we replace the current data with the data in “CYLT.xlsx” in the Data tab."
+  },
+  {
+    "objectID": "T6_TypesofVariables/TypesVariables.slides.html#section-15",
+    "href": "T6_TypesofVariables/TypesVariables.slides.html#section-15",
+    "title": "Types of Variables and Univariate Plots",
+    "section": "",
+    "text": "In the Data tab, we only assign the cycle_time variable to the X values section."
+  },
+  {
+    "objectID": "T6_TypesofVariables/TypesVariables.slides.html#section-16",
+    "href": "T6_TypesofVariables/TypesVariables.slides.html#section-16",
+    "title": "Types of Variables and Univariate Plots",
+    "section": "",
+    "text": "Let’s go back to the Preview tab."
+  },
+  {
+    "objectID": "T6_TypesofVariables/TypesVariables.slides.html#section-17",
+    "href": "T6_TypesofVariables/TypesVariables.slides.html#section-17",
+    "title": "Types of Variables and Univariate Plots",
+    "section": "",
+    "text": "There, we modify the label of the horizontal axis X and header in the sections X axis and Header."
+  },
+  {
+    "objectID": "T6_TypesofVariables/TypesVariables.slides.html#beeswarm-plot",
+    "href": "T6_TypesofVariables/TypesVariables.slides.html#beeswarm-plot",
+    "title": "Types of Variables and Univariate Plots",
+    "section": "Beeswarm plot",
+    "text": "Beeswarm plot"
+  },
+  {
+    "objectID": "T6_TypesofVariables/TypesVariables.slides.html#what-to-look-for-in-a-beeswarm-plot",
+    "href": "T6_TypesofVariables/TypesVariables.slides.html#what-to-look-for-in-a-beeswarm-plot",
+    "title": "Types of Variables and Univariate Plots",
+    "section": "What to look for in a beeswarm plot?",
+    "text": "What to look for in a beeswarm plot?\n\n\nClusters of points that reveal dense regions in the distribution.\nAreas where points are more spread out, indicating low-frequency regions.\nGaps along the axis where no observations appear.\nOutliers, visible as isolated points far from the main cluster.\nThe overall shape of the distribution formed by the pattern of points."
   }
 ]

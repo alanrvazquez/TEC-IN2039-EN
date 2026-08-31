@@ -228,7 +228,7 @@ Alan R. Vazquez
 <h2>Load the libraries</h2>
 <p><br><br><br></p>
 <p>Remember to load the Python libraries into Google Colab before we start:</p>
-<div id="8d2d2d30" class="cell" data-execution_count="1">
+<div id="3e0fa990" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a></a><span class="im">import</span> pandas <span class="im">as</span> pd</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
@@ -466,7 +466,7 @@ Alan R. Vazquez
 </div>
 </div></div>
 <p>Load it into Google Colab with the following code.</p>
-<div id="1feadb35" class="cell" data-execution_count="2">
+<div id="25a1e0aa" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a></a><span class="im">import</span> requests</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
@@ -490,7 +490,7 @@ Alan R. Vazquez
 </div>
 </div></div>
 <p>Load it to Google Colab with the following code.</p>
-<div id="6326a59b" class="cell" data-execution_count="3">
+<div id="7406013b" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a></a><span class="im">from</span> bs4 <span class="im">import</span> BeautifulSoup</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
@@ -504,7 +504,7 @@ Alan R. Vazquez
 <p><br><br></p>
 <p>Using <strong>requests</strong>, we first download the HTML code of the webpage.</p>
 <p>Then, we use <strong>BeautifulSoup</strong> to parse the HTML document.</p>
-<div id="83ab2f45" class="cell" data-execution_count="4">
+<div id="4b05aac2" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a></a>url <span class="op">=</span> <span class="st">"https://www.foxsports.com/nfl-super-bowl-winners-and-results"</span></span>
 <span id="cb6-2"><a></a></span>
 <span id="cb6-3"><a></a>response <span class="op">=</span> requests.get(url)</span>
@@ -514,7 +514,7 @@ Alan R. Vazquez
 </section>
 <section id="the-output" class="slide level2">
 <h2>The output</h2>
-<div id="c553e392" class="cell" data-execution_count="5">
+<div id="7cde50bd" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a></a>superbowl_website</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="5">
 <pre><code>&lt;!DOCTYPE html&gt;
@@ -1071,7 +1071,7 @@ Alan R. Vazquez
 <h2></h2>
 <p>We scrape elements of a website stored in <code>superbowl_website</code> using the <code>select()</code> function.</p>
 <p>For example, we can retrieve all paragraph elements (<code>&lt;p&gt;content&lt;\p&gt;</code>). To this end, we set the CSS selector to “p”.</p>
-<div id="03d2df8f" class="cell" data-execution_count="6">
+<div id="b577226a" class="cell" data-execution_count="6">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a></a>sb_web_p <span class="op">=</span> superbowl_website.select(<span class="st">"p"</span>)</span>
 <span id="cb9-2"><a></a></span>
 <span id="cb9-3"><a></a>sb_web_p</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -1089,7 +1089,7 @@ Alan R. Vazquez
 <p><br></p>
 <p>However, the scraped elements are in HTML code.</p>
 <p>To turn them into actual text for Python, we use the <code>get_text()</code> function.</p>
-<div id="86dfd615" class="cell" data-execution_count="7">
+<div id="8001c52a" class="cell" data-execution_count="7">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a></a><span class="co"># Start a list to store paragraphs</span></span>
 <span id="cb11-2"><a></a>superbowl_web_paragraph <span class="op">=</span> []</span>
 <span id="cb11-3"><a></a></span>
@@ -1116,7 +1116,7 @@ Alan R. Vazquez
 <section id="section-11" class="slide level2">
 <h2></h2>
 <p>We retrieve the table using the <code>select()</code> function.</p>
-<div id="a2e5edd9" class="cell" data-execution_count="8">
+<div id="ae3926b3" class="cell" data-execution_count="8">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a></a>sb_table_data <span class="op">=</span> superbowl_website.select(<span class="st">".data-table"</span>)</span>
 <span id="cb13-2"><a></a></span>
 <span id="cb13-3"><a></a>sb_table_data</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -1130,7 +1130,7 @@ Alan R. Vazquez
 <section id="section-12" class="slide level2">
 <h2></h2>
 <p>Again, the tables are in HTML format. We can turn them into pandas DataFrames using the function <code>pd.read_html()</code> from <strong>pandas</strong>.</p>
-<div id="975c615c" class="cell" data-execution_count="9">
+<div id="a6b51cec" class="cell" data-execution_count="9">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a></a>superbowl_tables <span class="op">=</span> pd.read_html(<span class="bu">str</span>(sb_table_data))</span>
 <span id="cb15-2"><a></a></span>
 <span id="cb15-3"><a></a>superbowl_tables</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -1294,7 +1294,7 @@ Alan R. Vazquez
 <h2></h2>
 <p>To retrieve one table from the list, we use square brackets.</p>
 <p>For example, the first table is</p>
-<div id="ba5b58c6" class="cell" data-execution_count="10">
+<div id="a330afe3" class="cell" data-execution_count="10">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a></a>superbowl_tables[<span class="dv">0</span>].head()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="10">
 <div>
@@ -1369,7 +1369,7 @@ Alan R. Vazquez
 <h2></h2>
 <p><br></p>
 <p>The second table is</p>
-<div id="b865b3c5" class="cell" data-execution_count="11">
+<div id="23641c64" class="cell" data-execution_count="11">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a></a>superbowl_tables[<span class="dv">1</span>].head()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="11">
 <div>
@@ -1432,7 +1432,7 @@ Alan R. Vazquez
 <section id="section-15" class="title-slide slide level1 center">
 <h1></h1>
 <p>Let’s continue with the table corresponding to the super bowl dates and results.</p>
-<div id="7949a9d0" class="cell" data-execution_count="12">
+<div id="84afaca5" class="cell" data-execution_count="12">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a></a>superbowl_data <span class="op">=</span> superbowl_tables[<span class="dv">0</span>]</span>
 <span id="cb19-2"><a></a></span>
 <span id="cb19-3"><a></a>superbowl_data.head()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -1510,7 +1510,7 @@ Alan R. Vazquez
 <p><br><br></p>
 <p>To make the data easier to work with, we will create a separate column for the year.</p>
 <p>To do this, we use the <code>str.split()</code> function from <strong>pandas</strong>.</p>
-<div id="06658343" class="cell" data-execution_count="13">
+<div id="22896112" class="cell" data-execution_count="13">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a></a>superbowl_data_wr <span class="op">=</span> superbowl_data.copy()</span>
 <span id="cb20-2"><a></a></span>
 <span id="cb20-3"><a></a>superbowl_data_wr[[<span class="st">"Day"</span>, <span class="st">"Year"</span>]] <span class="op">=</span> (</span>
@@ -1521,7 +1521,7 @@ Alan R. Vazquez
 </section>
 <section id="section-16" class="slide level2">
 <h2></h2>
-<div id="46099e3e" class="cell" data-execution_count="14">
+<div id="27acd535" class="cell" data-execution_count="14">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a></a>superbowl_data_wr.head()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="14">
 <div>
@@ -1608,7 +1608,7 @@ Alan R. Vazquez
 <h2>Be careful…</h2>
 <p><br><br></p>
 <p>The new column <code>Year</code> is character, so we turn it into numeric using the code below.</p>
-<div id="795af721" class="cell" data-execution_count="15">
+<div id="2e270227" class="cell" data-execution_count="15">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a></a>superbowl_data_wr[<span class="st">"Year"</span>] <span class="op">=</span> (</span>
 <span id="cb22-2"><a></a>    pd.to_numeric(superbowl_data_wr[<span class="st">"Year"</span>])</span>
 <span id="cb22-3"><a></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -1618,7 +1618,7 @@ Alan R. Vazquez
 <h2></h2>
 <p><br><br></p>
 <p>Further, let’s separate the column <code>TEAMS &amp; RESULT</code> into two columns “W Team” and “L Team”.</p>
-<div id="97593936" class="cell" data-execution_count="16">
+<div id="80dbe898" class="cell" data-execution_count="16">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a></a>superbowl_data_wr[[<span class="st">"W Team"</span>, <span class="st">"L Team"</span>]] <span class="op">=</span> (</span>
 <span id="cb23-2"><a></a>    superbowl_data_wr[<span class="st">"TEAMS &amp; RESULT"</span>]</span>
 <span id="cb23-3"><a></a>    .<span class="bu">str</span>.split(<span class="st">","</span>, expand<span class="op">=</span><span class="va">True</span>)</span>
@@ -1627,7 +1627,7 @@ Alan R. Vazquez
 </section>
 <section id="the-result" class="slide level2">
 <h2>The result</h2>
-<div id="29496c89" class="cell" data-execution_count="17">
+<div id="d7807076" class="cell" data-execution_count="17">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a></a>superbowl_data_wr.head()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="17">
 <div>
@@ -1727,7 +1727,7 @@ Alan R. Vazquez
 <div style="font-size: 80%;">
 <p>After that, we can separate the score of each team into corresponding columns. Note that we must also ensure that the new columns are numeric. All these steps are carried out using the pipeline below.</p>
 </div>
-<div id="c23ad5ff" class="cell" data-execution_count="18">
+<div id="1aa64d38" class="cell" data-execution_count="18">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a></a>superbowl_data_wr[[<span class="st">"W Team"</span>, <span class="st">"W Score"</span>]] <span class="op">=</span> (</span>
 <span id="cb25-2"><a></a>    superbowl_data_wr[<span class="st">"W Team"</span>]</span>
 <span id="cb25-3"><a></a>    .<span class="bu">str</span>.split(<span class="vs">r"</span><span class="kw">(</span><span class="fu">?&lt;</span><span class="vs">=</span><span class="dv">\D</span><span class="kw">)</span><span class="ex">(</span><span class="fu">?=</span><span class="dv">\d</span><span class="ex">)</span><span class="vs">"</span>, expand<span class="op">=</span><span class="va">True</span>)</span>
@@ -1756,7 +1756,7 @@ Alan R. Vazquez
 </section>
 <section id="the-final-dataset" class="slide level2">
 <h2>The final dataset</h2>
-<div id="9e11c235" class="cell" data-execution_count="19">
+<div id="43f85663" class="cell" data-execution_count="19">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a></a>superbowl_data_wr.head(<span class="dv">4</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="19">
 <div>
@@ -1903,7 +1903,7 @@ Alan R. Vazquez
 <p><br><br></p>
 <p>To check whether scraping or crawling a website is allowed, Python provides the <strong>urllib.robotparser</strong> library.</p>
 <p>Let’s load it into Google Colab.</p>
-<div id="dfe0ea36" class="cell" data-execution_count="20">
+<div id="2aa35c1e" class="cell" data-execution_count="20">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a></a><span class="im">from</span> urllib.robotparser <span class="im">import</span> RobotFileParser</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="fragment">
@@ -1913,7 +1913,7 @@ Alan R. Vazquez
 <section id="example-3" class="slide level2">
 <h2>Example 3</h2>
 <p>For instance, let’s confirm that we can scrape the website <a href="https://www.foxsports.com/nfl-super-bowl-winners-and-results" class="uri">https://www.foxsports.com/nfl-super-bowl-winners-and-results</a></p>
-<div id="9dd03dd5" class="cell" data-execution_count="21">
+<div id="02f58142" class="cell" data-execution_count="21">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a></a>robots <span class="op">=</span> RobotFileParser()</span>
 <span id="cb28-2"><a></a></span>
 <span id="cb28-3"><a></a>robots.set_url(<span class="st">"https://www.foxsports.com/robots.txt"</span>)</span>
@@ -1940,7 +1940,7 @@ Alan R. Vazquez
 <section id="what-abut-the-industrial-engineering-wikipedia-site" class="slide level2">
 <h2>What abut the industrial engineering Wikipedia site?</h2>
 <p><br></p>
-<div id="043748f3" class="cell" data-execution_count="22">
+<div id="8d4109c1" class="cell" data-execution_count="22">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a></a>robots <span class="op">=</span> RobotFileParser()</span>
 <span id="cb30-2"><a></a></span>
 <span id="cb30-3"><a></a>robots.set_url(<span class="st">"https://en.wikipedia.org/robots.txt"</span>)</span>
