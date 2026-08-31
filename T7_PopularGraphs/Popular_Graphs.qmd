@@ -22,8 +22,8 @@ editor: visual
 </br>
 
 1.  Introduction to Multivariate Data
-2.  Scatter Plots
-3.  Line Plots
+2.  Plots for Numerical Variables
+3.  Plots for Numerical and Categorical Variables
 4.  Plots for Categorical Variables
 
 # Introduction to Multivariate Data
@@ -50,15 +50,15 @@ Consider data from 392 cars, including miles per gallon, number of cylinders, ho
 
 ![](images/AutoData.png){fig-align="center"}
 
-```{r}
+```{python}
 #| echo: false
 #| output: false
 
-library(readxl)
-library(tidyverse)
-library(ggformula)
-auto_data = read_excel("auto_dataset.xlsx") 
-auto_data %>% head()
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+auto_data = pd.read_excel("auto_dataset.xlsx") 
 ```
 
 ## Principle 1: Define the question
@@ -86,12 +86,14 @@ There are various types of graphs that help us explore relationships between two
 |:------------|:----------------------------------------|
 | Numerical   | Scatter plot, line graph                |
 | Categorical | Side-by-side bar plot, stacked bar plot |
-| Mixed       | Bar Plot                                |
+| Mixed       | Beeswarm plot                                |
 :::
 
 ::: notes
 For two features, the combination of types (both quantitative, both qualitative, or a mix) matters.
 :::
+
+# Plots for Numerical Variables
 
 ## Independent and dependent variables
 
@@ -108,8 +110,6 @@ The other variable is called the *independent* or *predictor variable*, denoted 
 . . .
 
 > Our goal is to determine whether changes in $X$ are associated with changes in $Y$, and the nature of this association.
-
-# Scatter plot
 
 ## Scatter plot
 
@@ -139,35 +139,54 @@ Variables $X$ and $Y$ are placed on the horizontal and vertical axes, respective
 
 ## Individual graphs
 
-</br></br>
-
 Individual variable graphs (such as histograms) do not allow us to study the relationship between two variables. They only provide information on the *distribution* of each variable.
 
 ::::: columns
 ::: {.column width="50%"}
-```{r}
+```{python}
 #| fig-align: center
 #| echo: false
 #| output: true
 
-histogram_mpg = gf_histogram( ~ mpg, data = auto_data, fill = "darkblue", color = "black") 
-histogram_mpg = histogram_mpg + labs(title = "Distribution of MPG", x = "Miles Per Gallon (MPG)", y = "Frequency")
-histogram_mpg = histogram_mpg + theme(axis.text=element_text(size=20), axis.title=element_text(size=20),
-                                       plot.title=element_text(size=25))
-histogram_mpg
+plt.figure(figsize=(6,4))
+sns.histplot(
+    data=auto_data,
+    x="mpg",
+    color="darkblue",
+    edgecolor="black"
+)
+
+plt.title("Distribution of MPG", fontsize=25)
+plt.xlabel("Miles Per Gallon (MPG)", fontsize=20)
+plt.ylabel("Frequency", fontsize=20)
+plt.xticks(fontsize=20)
+plt.yticks(fontsize=20)
+
+plt.show()
 ```
 :::
 
 ::: {.column width="50%"}
-```{r}
+```{python}
 #| fig-align: center
 #| echo: false
 #| output: true
 
-histogram_weight = gf_histogram( ~ weight, data = auto_data, fill = "darkblue", color = "black") 
-histogram_weight = histogram_weight + labs(title = "Distribution of Weight", x = "Weight (lb)", y = "Frequency")
-histogram_weight = histogram_weight + theme(axis.text=element_text(size=20), axis.title=element_text(size=20), plot.title=element_text(size=25))
-histogram_weight
+plt.figure(figsize=(6,4))
+sns.histplot(
+    data=auto_data,
+    x="weight",
+    color="darkblue",
+    edgecolor="black"
+)
+
+plt.title("Distribution of Weight", fontsize=25)
+plt.xlabel("Weight (lb)", fontsize=20)
+plt.ylabel("Frequency", fontsize=20)
+plt.xticks(fontsize=15)
+plt.yticks(fontsize=20)
+
+plt.show()
 ```
 :::
 :::::
@@ -252,8 +271,6 @@ We can enhance the plot by reducing the minimum and maximum sizes for the bubble
 
 ![](images/FinalBubblePlot.png){fig-align="center"}
 
-# Line Plots
-
 ## Line plot
 
 A line plot is a visual representation of data where data points are connected by a line. Axes:
@@ -319,7 +336,7 @@ To this end, simply go back to the **Data** tab and set a range of variables in 
 <noscript><img src="https://public.flourish.studio/visualisation/26430359/thumbnail" alt="chart visualization" width="100%"/></noscript>
 :::
 
-# Plots for Categorical Variables
+# Plots for Numerical and Categorical Variables
 
 ## Plotting the average by groups
 
@@ -358,6 +375,66 @@ Load the "auto_dataset.xlsx" into Flourish. Set the variables under study `origi
 Go to the **Preview** tab and set *Average* in **Aggregation mode**.
 
 ![](images/FormatBarChartMPG.png){fig-align="center"}
+
+## Beeswarm plot
+
+A **beeswarm plot** shows every observation as a point and places the points so they do not overlap.
+
+It allows us to see both the [**individual observations**]{style="color:darkblue;"} and the [**distribution**]{style="color:darkblue;"} of the numerical variable within each category.
+
+. . .
+
+**Why use it?**
+
+- Easy to see the actual observations.
+- Makes differences between groups visible.
+- Works particularly well with small and medium-sized datasets.
+
+## Beeswarm plot
+
+::: {.flourish-embed .flourish-chart data-src="visualisation/30113726"}
+```{=html}
+<div class="flourish-embed flourish-scatter" data-src="visualisation/30113726"><script src="https://public.flourish.studio/resources/embed.js"></script>
+```
+
+<noscript><img src="https://public.flourish.studio/visualisation/30113726/thumbnail" width="100%" alt="scatter visualization" /></noscript></div>
+:::
+
+## Creating a beeswarm plot in Flourish
+
+Select *Beeswarm* in the catalog of visualizations.
+
+![](images/beeswarmOne.png){fig-align="center"}
+
+## 
+
+Load the "auto_dataset.xlsx" into Flourish. Set the variables under study `origin` and `mpg` and assign them to **X** and **Y**, respectively.
+
+![](images/beeswarmTwo.png){fig-align="center"}
+
+## 
+
+Improve the plot by adding a title and axis labels.
+
+![](images/beeswarmThree.png){fig-align="center"}
+
+## Bar chart or beeswarm plot?
+
+| **Bar chart of averages** | **Beeswarm plot** |
+|:--------------------------|:------------------|
+| Shows **one value per category**: the mean. | Shows **every observation** within each category. |
+| Makes it easy to compare the **average** between groups. | Allows us to compare the **distribution** between groups. |
+| Hides variation within each category. | Shows variation, concentration, gaps, and unusual observations. |
+
+## What should we look for?
+
+- In a bar chart, focus on the differences between the [**average values**]{style="color:darkblue;"} of the categories.
+
+- In a beeswarm plot, look at how much the [**distributions overlap**]{style="color:darkblue;"}. Little or no overlap suggests that the categorical variable can clearly [**distinguish between values**]{style="color:darkblue;"} of the numerical variable.
+
+- A large difference in averages does *not necessarily* mean that the groups are completely different. The beeswarm plot can reveal whether their individual observations actually overlap.
+
+# Plots for Categorical Variables
 
 ## Two Categorical Variables
 
