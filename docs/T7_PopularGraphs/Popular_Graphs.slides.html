@@ -6,8 +6,8 @@
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.7.32">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.9.38">
 
   <meta name="author" content="Alan R. Vazquez">
   <title>IN2039 Data Visualization for Decision Making – Popular Graphs for Multiple Variables</title>
@@ -17,6 +17,9 @@
   <link rel="stylesheet" href="../site_libs/revealjs/dist/reset.css">
   <link rel="stylesheet" href="../site_libs/revealjs/dist/reveal.css">
   <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
     div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -29,7 +32,7 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-f563837468303362081e247dddd440d0.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-2740581606dc327e82f18f789b69d8a0.css">
   <link rel="stylesheet" href="style.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
@@ -208,7 +211,7 @@ Alan R. Vazquez
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Mixed</td>
-<td style="text-align: left;">Bar Plot</td>
+<td style="text-align: left;">Beeswarm plot</td>
 </tr>
 </tbody>
 </table>
@@ -272,25 +275,24 @@ Alan R. Vazquez
 </section>
 <section id="individual-graphs" class="slide level2">
 <h2>Individual graphs</h2>
-<p><br><br></p>
 <p>Individual variable graphs (such as histograms) do not allow us to study the relationship between two variables. They only provide information on the <em>distribution</em> of each variable.</p>
 <div class="columns">
 <div class="column" style="width:50%;">
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
+<div id="2ef28875" class="cell" data-execution_count="2">
+<div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="Popular_Graphs_files/figure-revealjs/unnamed-chunk-2-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+<p><img data-src="Popular_Graphs_files/figure-revealjs/cell-3-output-1.png" class="quarto-figure quarto-figure-center" width="540" height="416"></p>
 </figure>
 </div>
 </div>
 </div>
 </div><div class="column" style="width:50%;">
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
+<div id="d3cf0a2b" class="cell" data-execution_count="3">
+<div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="Popular_Graphs_files/figure-revealjs/unnamed-chunk-3-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+<p><img data-src="Popular_Graphs_files/figure-revealjs/cell-4-output-1.png" class="quarto-figure quarto-figure-center" width="540" height="410"></p>
 </figure>
 </div>
 </div>
@@ -431,8 +433,8 @@ Alan R. Vazquez
 </div>
 </section></section>
 <section>
-<section id="plots-for-categorical-variables" class="title-slide slide level1 center">
-<h1>Plots for Categorical Variables</h1>
+<section id="plots-for-numerical-and-categorical-variables" class="title-slide slide level1 center">
+<h1>Plots for Numerical and Categorical Variables</h1>
 
 </section>
 <section id="plotting-the-average-by-groups" class="slide level2">
@@ -468,6 +470,34 @@ Alan R. Vazquez
 <p>Go to the <strong>Preview</strong> tab and set <em>Average</em> in <strong>Aggregation mode</strong>.</p>
 
 <img data-src="images/FormatBarChartMPG.png" class="quarto-figure quarto-figure-center r-stretch"></section>
+<section id="beeswarm-plot" class="slide level2">
+<h2>Beeswarm plot</h2>
+<p>A <strong>beeswarm plot</strong> shows every observation as a point and places the points so they do not overlap.</p>
+<p>It allows us to see both the <span style="color:darkblue;"><strong>individual observations</strong></span> and the <span style="color:darkblue;"><strong>distribution</strong></span> of the numerical variable within each category.</p>
+<div class="fragment">
+<p><strong>Why use it?</strong></p>
+<ul>
+<li>Easy to see the actual observations.</li>
+<li>Makes differences between groups visible.</li>
+<li>Works particularly well with small and medium-sized datasets.</li>
+</ul>
+</div>
+</section>
+<section id="beeswarm-plot-1" class="slide level2">
+<h2>Beeswarm plot</h2>
+<div class="flourish-embed flourish-chart" data-src="visualisation/30113726">
+<div class="flourish-embed flourish-scatter" data-src="visualisation/30113726"><script src="https://public.flourish.studio/resources/embed.js"></script>
+<noscript>
+<img src="https://public.flourish.studio/visualisation/30113726/thumbnail" width="100%" alt="scatter visualization">
+</noscript>
+</div>
+</div>
+</section></section>
+<section>
+<section id="plots-for-categorical-variables" class="title-slide slide level1 center">
+<h1>Plots for Categorical Variables</h1>
+
+</section>
 <section id="two-categorical-variables" class="slide level2">
 <h2>Two Categorical Variables</h2>
 <p>With two categorical variables, we compare the distribution of one variable across subgroups defined by the other variable.</p>
@@ -778,44 +808,6 @@ Alan R. Vazquez
         ]
       });
     </script>
-    
-    <script>
-      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
-      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
-      // slide changes (different for each slide format).
-      (function () {
-        // dispatch for htmlwidgets
-        function fireSlideEnter() {
-          const event = window.document.createEvent("Event");
-          event.initEvent("slideenter", true, true);
-          window.document.dispatchEvent(event);
-        }
-
-        function fireSlideChanged(previousSlide, currentSlide) {
-          fireSlideEnter();
-
-          // dispatch for shiny
-          if (window.jQuery) {
-            if (previousSlide) {
-              window.jQuery(previousSlide).trigger("hidden");
-            }
-            if (currentSlide) {
-              window.jQuery(currentSlide).trigger("shown");
-            }
-          }
-        }
-
-        // hookup for slidy
-        if (window.w3c_slidy) {
-          window.w3c_slidy.add_observer(function (slide_num) {
-            // slide_num starts at position 1
-            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
-          });
-        }
-
-      })();
-    </script>
-
     <script id="quarto-html-after-body" type="application/javascript">
       window.document.addEventListener("DOMContentLoaded", function (event) {
         const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
@@ -864,13 +856,14 @@ Alan R. Vazquez
           e.clearSelection();
         }
         const getTextToCopy = function(trigger) {
-            const codeEl = trigger.previousElementSibling.cloneNode(true);
-            for (const childEl of codeEl.children) {
-              if (isCodeAnnotation(childEl)) {
-                childEl.remove();
-              }
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
             }
-            return codeEl.innerText;
+          }
+          return codeEl.innerText;
         }
         const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
           text: getTextToCopy

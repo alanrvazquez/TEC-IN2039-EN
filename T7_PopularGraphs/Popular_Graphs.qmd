@@ -35,9 +35,9 @@ editor: visual
 Multivariate data consists of datasets that contain observations of two or more variables.
 
 ::: incremental
--   Variables can be numerical or categorical.
+- Variables can be numerical or categorical.
 
--   Variables may or may not depend on each other.
+- Variables may or may not depend on each other.
 :::
 
 . . .
@@ -50,15 +50,15 @@ Consider data from 392 cars, including miles per gallon, number of cylinders, ho
 
 ![](images/AutoData.png){fig-align="center"}
 
-```{r}
+```{python}
 #| echo: false
 #| output: false
 
-library(readxl)
-library(tidyverse)
-library(ggformula)
-auto_data = read_excel("auto_dataset.xlsx") 
-auto_data %>% head()
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+auto_data = pd.read_excel("auto_dataset.xlsx") 
 ```
 
 ## Principle 1: Define the question
@@ -66,13 +66,13 @@ auto_data %>% head()
 In the context of multiple-variable data, typical questions to study include:
 
 ::: incremental
--   How are variable $X$ and variable $Y$ related?
+- How are variable $X$ and variable $Y$ related?
 
--   Is the distribution of variable $X$ the same across all subgroups defined by variable $Z$?
+- Is the distribution of variable $X$ the same across all subgroups defined by variable $Z$?
 
--   Are there any unusual observations in the combination of values for variables $X$ and $Y$?
+- Are there any unusual observations in the combination of values for variables $X$ and $Y$?
 
--   Are there any unusual observations in $X$ for a subgroup of variable $Z$?
+- Are there any unusual observations in $X$ for a subgroup of variable $Z$?
 :::
 
 ## Principle 2: Turn data into information
@@ -86,7 +86,7 @@ There are various types of graphs that help us explore relationships between two
 |:------------|:----------------------------------------|
 | Numerical   | Scatter plot, line graph                |
 | Categorical | Side-by-side bar plot, stacked bar plot |
-| Mixed       | Bar Plot                                |
+| Mixed       | Beeswarm plot                                |
 :::
 
 ::: notes
@@ -139,35 +139,54 @@ Variables $X$ and $Y$ are placed on the horizontal and vertical axes, respective
 
 ## Individual graphs
 
-</br></br>
-
 Individual variable graphs (such as histograms) do not allow us to study the relationship between two variables. They only provide information on the *distribution* of each variable.
 
 ::::: columns
 ::: {.column width="50%"}
-```{r}
+```{python}
 #| fig-align: center
 #| echo: false
 #| output: true
 
-histogram_mpg = gf_histogram( ~ mpg, data = auto_data, fill = "darkblue", color = "black") 
-histogram_mpg = histogram_mpg + labs(title = "Distribution of MPG", x = "Miles Per Gallon (MPG)", y = "Frequency")
-histogram_mpg = histogram_mpg + theme(axis.text=element_text(size=20), axis.title=element_text(size=20),
-                                       plot.title=element_text(size=25))
-histogram_mpg
+plt.figure(figsize=(6,4))
+sns.histplot(
+    data=auto_data,
+    x="mpg",
+    color="darkblue",
+    edgecolor="black"
+)
+
+plt.title("Distribution of MPG", fontsize=25)
+plt.xlabel("Miles Per Gallon (MPG)", fontsize=20)
+plt.ylabel("Frequency", fontsize=20)
+plt.xticks(fontsize=20)
+plt.yticks(fontsize=20)
+
+plt.show()
 ```
 :::
 
 ::: {.column width="50%"}
-```{r}
+```{python}
 #| fig-align: center
 #| echo: false
 #| output: true
 
-histogram_weight = gf_histogram( ~ weight, data = auto_data, fill = "darkblue", color = "black") 
-histogram_weight = histogram_weight + labs(title = "Distribution of Weight", x = "Weight (lb)", y = "Frequency")
-histogram_weight = histogram_weight + theme(axis.text=element_text(size=20), axis.title=element_text(size=20), plot.title=element_text(size=25))
-histogram_weight
+plt.figure(figsize=(6,4))
+sns.histplot(
+    data=auto_data,
+    x="weight",
+    color="darkblue",
+    edgecolor="black"
+)
+
+plt.title("Distribution of Weight", fontsize=25)
+plt.xlabel("Weight (lb)", fontsize=20)
+plt.ylabel("Frequency", fontsize=20)
+plt.xticks(fontsize=15)
+plt.yticks(fontsize=20)
+
+plt.show()
 ```
 :::
 :::::
@@ -194,11 +213,11 @@ Go back to the **Preview** tab and add text to the axes and title.
 
 </br>
 
--   When examining a distribution or relationship, we often want to compare it across data subgroups.
+- When examining a distribution or relationship, we often want to compare it across data subgroups.
 
--   This process of conditioning on additional variables leads to visualizations involving three or more variables.
+- This process of conditioning on additional variables leads to visualizations involving three or more variables.
 
--   We now illustrate how to extend the scatter plot to visualize multiple variables.
+- We now illustrate how to extend the scatter plot to visualize multiple variables.
 
 ## Scatter plot by color
 
@@ -258,8 +277,8 @@ We can enhance the plot by reducing the minimum and maximum sizes for the bubble
 
 A line plot is a visual representation of data where data points are connected by a line. Axes:
 
--   $X$ (horizontal): Represents time or the independent variable.
--   $Y$ (vertical): Represents the dependent variable.
+- $X$ (horizontal): Represents time or the independent variable.
+- $Y$ (vertical): Represents the dependent variable.
 
 Each point represents a value at a given moment.
 
@@ -319,17 +338,17 @@ To this end, simply go back to the **Data** tab and set a range of variables in 
 <noscript><img src="https://public.flourish.studio/visualisation/26430359/thumbnail" alt="chart visualization" width="100%"/></noscript>
 :::
 
-# Plots for Categorical Variables
+# Plots for Numerical and Categorical Variables
 
 ## Plotting the average by groups
 
--   We can summarize the values of the numerical variable $Y$ for each category of a categorical variable $X$ using the *mean* or *average*.
+- We can summarize the values of the numerical variable $Y$ for each category of a categorical variable $X$ using the *mean* or *average*.
 
--   For example, let's plot the average miles per gallon of cars produced in America, Europe, and Japan.
+- For example, let's plot the average miles per gallon of cars produced in America, Europe, and Japan.
 
--   A common visualization for plotting a numerical and a discrete variable when there is only one value per category is the **bar plot**.
+- A common visualization for plotting a numerical and a discrete variable when there is only one value per category is the **bar plot**.
 
--   The bar plot encodes quantitative data across different categories.
+- The bar plot encodes quantitative data across different categories.
 
 ## Bar plot for averages
 
@@ -359,6 +378,32 @@ Go to the **Preview** tab and set *Average* in **Aggregation mode**.
 
 ![](images/FormatBarChartMPG.png){fig-align="center"}
 
+## Beeswarm plot
+
+A **beeswarm plot** shows every observation as a point and places the points so they do not overlap.
+
+It allows us to see both the [**individual observations**]{style="color:darkblue;"} and the [**distribution**]{style="color:darkblue;"} of the numerical variable within each category.
+
+. . .
+
+**Why use it?**
+
+- Easy to see the actual observations.
+- Makes differences between groups visible.
+- Works particularly well with small and medium-sized datasets.
+
+## Beeswarm plot 
+
+::: {.flourish-embed .flourish-chart data-src="visualisation/30113726"}
+```{=html}
+<div class="flourish-embed flourish-scatter" data-src="visualisation/30113726"><script src="https://public.flourish.studio/resources/embed.js"></script>
+```
+
+<noscript><img src="https://public.flourish.studio/visualisation/30113726/thumbnail" width="100%" alt="scatter visualization" /></noscript></div>
+:::
+
+# Plots for Categorical Variables
+
 ## Two Categorical Variables
 
 With two categorical variables, we compare the distribution of one variable across subgroups defined by the other variable.
@@ -369,9 +414,9 @@ In fact, we keep one variable constant and plot the distribution of the other.
 
 To do this, there are old and new plots:
 
--   Hierarchical bar plot
--   Tree map plot
--   Circle packing plot
+- Hierarchical bar plot
+- Tree map plot
+- Circle packing plot
 
 ## Example 3
 
@@ -447,14 +492,14 @@ The chart shows the frequency of species and island name.
 
 Visualizations such as hierarchy bars, tree maps, and circle packing plots help us explore how two categorical variables relate through *nested structure*.
 
--   **Hierarchy bar charts** are easy to read when one category has only a few levels. The show a clear sense of order from parent → child categories.
+- **Hierarchy bar charts** are easy to read when one category has only a few levels. The show a clear sense of order from parent → child categories.
 
--   **Tree maps** are excellent use of space when there are many subcategories. The area encodes quantity, helping highlight dominant groups.
+- **Tree maps** are excellent use of space when there are many subcategories. The area encodes quantity, helping highlight dominant groups.
 
 ## 
 
 </br></br></br>
 
--   **Circle packing plots** are more visually appealing and intuitive for showing nested groups. They are helpful when emphasizing *clusters* rather than exact magnitudes.
+- **Circle packing plots** are more visually appealing and intuitive for showing nested groups. They are helpful when emphasizing *clusters* rather than exact magnitudes.
 
 # [Return to main page](https://alanrvazquez.github.io/TEC-IN2039-EN/)

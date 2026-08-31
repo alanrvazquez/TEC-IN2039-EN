@@ -7,3 +7,5 @@
 /.quarto/
 .DS_Store
 T2_Type_of_Variables/.DS_Store
+
+**/*.quarto_ipynb
