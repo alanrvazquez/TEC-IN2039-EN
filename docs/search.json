@@ -991,7 +991,7 @@
     "href": "T7_PopularGraphs/Popular_Graphs.slides.html#agenda",
     "title": "Popular Graphs for Multiple Variables",
     "section": "Agenda",
-    "text": "Agenda\n\n\nIntroduction to Multivariate Data\nScatter Plots\nLine Plots\nPlots for Categorical Variables"
+    "text": "Agenda\n\n\nIntroduction to Multivariate Data\nPlots for Numerical Variables\nPlots for Numerical and Categorical Variables\nPlots for Categorical Variables"
   },
   {
     "objectID": "T7_PopularGraphs/Popular_Graphs.slides.html#multivariate-data",
@@ -1019,7 +1019,7 @@
     "href": "T7_PopularGraphs/Popular_Graphs.slides.html#principle-2-turn-data-into-information",
     "title": "Popular Graphs for Multiple Variables",
     "section": "Principle 2: Turn data into information",
-    "text": "Principle 2: Turn data into information\nThere are various types of graphs that help us explore relationships between two or more variables.\n\n\n\n\n\nType\nGraph Type\n\n\n\n\nNumerical\nScatter plot, line graph\n\n\nCategorical\nSide-by-side bar plot, stacked bar plot\n\n\nMixed\nBar Plot\n\n\n\n\n\nFor two features, the combination of types (both quantitative, both qualitative, or a mix) matters."
+    "text": "Principle 2: Turn data into information\nThere are various types of graphs that help us explore relationships between two or more variables.\n\n\n\n\n\nType\nGraph Type\n\n\n\n\nNumerical\nScatter plot, line graph\n\n\nCategorical\nSide-by-side bar plot, stacked bar plot\n\n\nMixed\nBeeswarm plot\n\n\n\n\n\nFor two features, the combination of types (both quantitative, both qualitative, or a mix) matters."
   },
   {
     "objectID": "T7_PopularGraphs/Popular_Graphs.slides.html#independent-and-dependent-variables",
@@ -1033,7 +1033,7 @@
     "href": "T7_PopularGraphs/Popular_Graphs.slides.html#scatter-plot-1",
     "title": "Popular Graphs for Multiple Variables",
     "section": "Scatter plot",
-    "text": "Scatter plot\n\nThe most common graph for examining the relationship between two numerical variables is the scatter plot.\n\nVariables \\(X\\) and \\(Y\\) are placed on the horizontal and vertical axes, respectively. Each point on the graph represents a pair of \\(X\\) and \\(Y\\) values.\n\n\n\n\nThe goal is to explore linear or non-linear relationships between variables."
+    "text": "Scatter plot"
   },
   {
     "objectID": "T7_PopularGraphs/Popular_Graphs.slides.html#scatter-plot-2",
@@ -1047,7 +1047,7 @@
     "href": "T7_PopularGraphs/Popular_Graphs.slides.html#individual-graphs",
     "title": "Popular Graphs for Multiple Variables",
     "section": "Individual graphs",
-    "text": "Individual graphs\n\nIndividual variable graphs (such as histograms) do not allow us to study the relationship between two variables. They only provide information on the distribution of each variable."
+    "text": "Individual graphs\nIndividual variable graphs (such as histograms) do not allow us to study the relationship between two variables. They only provide information on the distribution of each variable."
   },
   {
     "objectID": "T7_PopularGraphs/Popular_Graphs.slides.html#generate-scatter-plot-in-flourish",
@@ -1250,14 +1250,14 @@
     "href": "T7_PopularGraphs/Popular_Graphs.slides.html#section-7",
     "title": "Popular Graphs for Multiple Variables",
     "section": "",
-    "text": "After you load the “penguins.xlsx” data, select two categorical variables in the Categories/nesting section."
+    "text": "Load the “auto_dataset.xlsx” into Flourish. Set the variables under study origin and mpg and assign them to X and Y, respectively."
   },
   {
     "objectID": "T7_PopularGraphs/Popular_Graphs.slides.html#section-8",
     "href": "T7_PopularGraphs/Popular_Graphs.slides.html#section-8",
     "title": "Popular Graphs for Multiple Variables",
     "section": "",
-    "text": "To enhance the plot, switch off the automatic height"
+    "text": "Improve the plot by adding a title and axis labels."
   },
   {
     "objectID": "T7_PopularGraphs/Popular_Graphs.slides.html#final-hierarchical-bar-plot-with-titles",
@@ -1306,7 +1306,7 @@
     "href": "T7_PopularGraphs/Popular_Graphs.slides.html#section-9",
     "title": "Popular Graphs for Multiple Variables",
     "section": "",
-    "text": "Circle packing plots are more visually appealing and intuitive for showing nested groups. They are helpful when emphasizing clusters rather than exact magnitudes."
+    "text": "After you load the “penguins.xlsx” data, select two categorical variables in the Categories/nesting section."
   },
   {
     "objectID": "T5_FlourishStudio/FlourishStudio.slides.html#agenda",
@@ -2511,5 +2511,61 @@
     "title": "Types of Variables and Univariate Plots",
     "section": "What to look for in a beeswarm plot?",
     "text": "What to look for in a beeswarm plot?\n\n\nClusters of points that reveal dense regions in the distribution.\nAreas where points are more spread out, indicating low-frequency regions.\nGaps along the axis where no observations appear.\nOutliers, visible as isolated points far from the main cluster.\nThe overall shape of the distribution formed by the pattern of points."
+  },
+  {
+    "objectID": "T7_PopularGraphs/Popular_Graphs.slides.html#scatter-plot",
+    "href": "T7_PopularGraphs/Popular_Graphs.slides.html#scatter-plot",
+    "title": "Popular Graphs for Multiple Variables",
+    "section": "Scatter plot",
+    "text": "Scatter plot\n\nThe most common graph for examining the relationship between two numerical variables is the scatter plot.\n\nVariables \\(X\\) and \\(Y\\) are placed on the horizontal and vertical axes, respectively. Each point on the graph represents a pair of \\(X\\) and \\(Y\\) values.\n\n\n\n\nThe goal is to explore linear or non-linear relationships between variables."
+  },
+  {
+    "objectID": "T7_PopularGraphs/Popular_Graphs.slides.html#beeswarm-plot",
+    "href": "T7_PopularGraphs/Popular_Graphs.slides.html#beeswarm-plot",
+    "title": "Popular Graphs for Multiple Variables",
+    "section": "Beeswarm plot",
+    "text": "Beeswarm plot\nA beeswarm plot shows every observation as a point and places the points so they do not overlap.\nIt allows us to see both the individual observations and the distribution of the numerical variable within each category.\n\nWhy use it?\n\nEasy to see the actual observations.\nMakes differences between groups visible.\nWorks particularly well with small and medium-sized datasets."
+  },
+  {
+    "objectID": "T7_PopularGraphs/Popular_Graphs.slides.html#beeswarm-plot-1",
+    "href": "T7_PopularGraphs/Popular_Graphs.slides.html#beeswarm-plot-1",
+    "title": "Popular Graphs for Multiple Variables",
+    "section": "Beeswarm plot",
+    "text": "Beeswarm plot"
+  },
+  {
+    "objectID": "T7_PopularGraphs/Popular_Graphs.slides.html#creating-a-beeswarm-plot-in-flourish",
+    "href": "T7_PopularGraphs/Popular_Graphs.slides.html#creating-a-beeswarm-plot-in-flourish",
+    "title": "Popular Graphs for Multiple Variables",
+    "section": "Creating a beeswarm plot in Flourish",
+    "text": "Creating a beeswarm plot in Flourish\nSelect Beeswarm in the catalog of visualizations."
+  },
+  {
+    "objectID": "T7_PopularGraphs/Popular_Graphs.slides.html#bar-chart-or-beeswarm-plot",
+    "href": "T7_PopularGraphs/Popular_Graphs.slides.html#bar-chart-or-beeswarm-plot",
+    "title": "Popular Graphs for Multiple Variables",
+    "section": "Bar chart or beeswarm plot?",
+    "text": "Bar chart or beeswarm plot?\n\n\n\n\n\n\n\nBar chart of averages\nBeeswarm plot\n\n\n\n\nShows one value per category: the mean.\nShows every observation within each category.\n\n\nMakes it easy to compare the average between groups.\nAllows us to compare the distribution between groups.\n\n\nHides variation within each category.\nShows variation, concentration, gaps, and unusual observations."
+  },
+  {
+    "objectID": "T7_PopularGraphs/Popular_Graphs.slides.html#what-should-we-look-for",
+    "href": "T7_PopularGraphs/Popular_Graphs.slides.html#what-should-we-look-for",
+    "title": "Popular Graphs for Multiple Variables",
+    "section": "What should we look for?",
+    "text": "What should we look for?\n\nIn a bar chart, focus on the differences between the average values of the categories.\nIn a beeswarm plot, look at how much the distributions overlap. Little or no overlap suggests that the categorical variable can clearly distinguish between values of the numerical variable.\nA large difference in averages does not necessarily mean that the groups are completely different. The beeswarm plot can reveal whether their individual observations actually overlap."
+  },
+  {
+    "objectID": "T7_PopularGraphs/Popular_Graphs.slides.html#section-10",
+    "href": "T7_PopularGraphs/Popular_Graphs.slides.html#section-10",
+    "title": "Popular Graphs for Multiple Variables",
+    "section": "",
+    "text": "To enhance the plot, switch off the automatic height"
+  },
+  {
+    "objectID": "T7_PopularGraphs/Popular_Graphs.slides.html#section-11",
+    "href": "T7_PopularGraphs/Popular_Graphs.slides.html#section-11",
+    "title": "Popular Graphs for Multiple Variables",
+    "section": "",
+    "text": "Circle packing plots are more visually appealing and intuitive for showing nested groups. They are helpful when emphasizing clusters rather than exact magnitudes."
   }
 ]

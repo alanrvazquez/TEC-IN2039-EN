@@ -86,7 +86,7 @@ There are various types of graphs that help us explore relationships between two
 |:------------|:----------------------------------------|
 | Numerical   | Scatter plot, line graph                |
 | Categorical | Side-by-side bar plot, stacked bar plot |
-| Mixed       | Beeswarm plot                                |
+| Mixed       | Beeswarm plot                           |
 :::
 
 ::: notes
@@ -397,7 +397,9 @@ It allows us to see both the [**individual observations**]{style="color:darkblue
 <div class="flourish-embed flourish-scatter" data-src="visualisation/30113726"><script src="https://public.flourish.studio/resources/embed.js"></script>
 ```
 
-<noscript><img src="https://public.flourish.studio/visualisation/30113726/thumbnail" width="100%" alt="scatter visualization" /></noscript></div>
+<noscript><img src="https://public.flourish.studio/visualisation/30113726/thumbnail" alt="scatter visualization" width="100%"/></noscript>
+
+</div>
 :::
 
 ## Creating a beeswarm plot in Flourish
@@ -421,7 +423,7 @@ Improve the plot by adding a title and axis labels.
 ## Bar chart or beeswarm plot?
 
 | **Bar chart of averages** | **Beeswarm plot** |
-|:--------------------------|:------------------|
+|:---|:---|
 | Shows **one value per category**: the mean. | Shows **every observation** within each category. |
 | Makes it easy to compare the **average** between groups. | Allows us to compare the **distribution** between groups. |
 | Hides variation within each category. | Shows variation, concentration, gaps, and unusual observations. |
