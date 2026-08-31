@@ -6,8 +6,8 @@
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.7.32">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.9.38">
 
   <meta name="author" content="Alan R. Vazquez">
   <title>IN2039 Data Visualization for Decision Making – Web Scraping</title>
@@ -17,6 +17,9 @@
   <link rel="stylesheet" href="../site_libs/revealjs/dist/reset.css">
   <link rel="stylesheet" href="../site_libs/revealjs/dist/reveal.css">
   <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
     div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -95,7 +98,7 @@
     code span.vs { color: #20794d; } /* VerbatimString */
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-f563837468303362081e247dddd440d0.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-2740581606dc327e82f18f789b69d8a0.css">
   <link rel="stylesheet" href="style.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
@@ -223,9 +226,9 @@ Alan R. Vazquez
 <p><br><br><br></p>
 <p>Remember to load the R libraries into Google Colab before we start:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">library</span>(readxl)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">library</span>(readxl)</span>
 <span id="cb1-2"><a></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb1-3"><a></a><span class="fu">library</span>(tidyr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-3"><a></a><span class="fu">library</span>(tidyr)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section>
@@ -247,7 +250,7 @@ Alan R. Vazquez
 <section id="html-basics-1" class="slide level2">
 <h2>HTML basics</h2>
 <p>HTML means “HyperText Markup Language” and looks like this</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource html number-lines code-with-copy"><code class="sourceCode html"><span id="cb2-1"><a></a><span class="dt">&lt;</span><span class="kw">html</span><span class="dt">&gt;</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource html number-lines code-with-copy"><code class="sourceCode html"><span id="cb2-1"><a></a><span class="dt">&lt;</span><span class="kw">html</span><span class="dt">&gt;</span></span>
 <span id="cb2-2"><a></a><span class="dt">&lt;</span><span class="kw">head</span><span class="dt">&gt;</span></span>
 <span id="cb2-3"><a></a>  <span class="dt">&lt;</span><span class="kw">title</span><span class="dt">&gt;</span>Page title<span class="dt">&lt;/</span><span class="kw">title</span><span class="dt">&gt;</span></span>
 <span id="cb2-4"><a></a><span class="dt">&lt;/</span><span class="kw">head</span><span class="dt">&gt;</span></span>
@@ -256,7 +259,7 @@ Alan R. Vazquez
 <span id="cb2-7"><a></a>  <span class="dt">&lt;</span><span class="kw">p</span><span class="dt">&gt;</span>Some text <span class="dv">&amp;amp;</span> <span class="dt">&lt;</span><span class="kw">b</span><span class="dt">&gt;</span>some bold text.<span class="dt">&lt;/</span><span class="kw">b</span><span class="dt">&gt;&lt;/</span><span class="kw">p</span><span class="dt">&gt;</span></span>
 <span id="cb2-8"><a></a>  <span class="dt">&lt;</span><span class="kw">img</span><span class="ot"> src</span><span class="op">=</span><span class="st">'myimg.png'</span><span class="ot"> width</span><span class="op">=</span><span class="st">'100'</span><span class="ot"> height</span><span class="op">=</span><span class="st">'100'</span><span class="dt">&gt;</span></span>
 <span id="cb2-9"><a></a><span class="dt">&lt;/</span><span class="kw">body</span><span class="dt">&gt;</span></span>
-<span id="cb2-10"><a></a><span class="dt">&lt;/</span><span class="kw">html</span><span class="dt">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-10"><a></a><span class="dt">&lt;/</span><span class="kw">html</span><span class="dt">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>HTML has a hierarchical structure formed by elements which consist of a start tag (<code>&lt;tag&gt;</code>), optional attributes (<code>id='first'</code>), an end tag1 (like <code>&lt;/tag&gt;</code>), and contents (everything in between the start and end tag).</p>
 </section>
 <section id="elements" class="slide level2">
@@ -330,7 +333,7 @@ Alan R. Vazquez
 <section id="contents" class="slide level2">
 <h2>Contents</h2>
 <p>Most elements can have content (text or more elements) in between their start and end tags. For example, the following HTML contains paragraph of text, with a word in bold.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource html number-lines code-with-copy"><code class="sourceCode html"><span id="cb3-1"><a></a><span class="dt">&lt;</span><span class="kw">p</span><span class="dt">&gt;</span>Hi! My name is <span class="dt">&lt;</span><span class="kw">b</span><span class="dt">&gt;</span>Hadley<span class="dt">&lt;/</span><span class="kw">b</span><span class="dt">&gt;</span>.<span class="dt">&lt;/</span><span class="kw">p</span><span class="dt">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource html number-lines code-with-copy"><code class="sourceCode html"><span id="cb3-1"><a></a><span class="dt">&lt;</span><span class="kw">p</span><span class="dt">&gt;</span>Hi! My name is <span class="dt">&lt;</span><span class="kw">b</span><span class="dt">&gt;</span>Hadley<span class="dt">&lt;/</span><span class="kw">b</span><span class="dt">&gt;</span>.<span class="dt">&lt;/</span><span class="kw">p</span><span class="dt">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <ul>
 <li class="fragment"><p>The <code>&lt;p&gt;</code> element is the parent node that contains text and one child element, <code>&lt;b&gt;</code>.</p></li>
 <li class="fragment"><p>The <code>&lt;b&gt;</code> element wraps the word Hadley and gives it bold formatting.</p></li>
@@ -461,7 +464,7 @@ Alan R. Vazquez
 </div></div>
 <p>Load it to Google Colab with the following code.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a><span class="fu">library</span>(rvest)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a><span class="fu">library</span>(rvest)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="example-2" class="slide level2">
@@ -474,8 +477,8 @@ Alan R. Vazquez
 <p><br><br></p>
 <p>Using <strong>rvest</strong>, we load the HTML code of the website using the function <code>read_html()</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a>superbowl_website <span class="ot">=</span> <span class="fu">read_html</span>(<span class="st">"https://www.foxsports.com/nfl-super-bowl-winners-and-results"</span>)</span>
-<span id="cb5-2"><a></a>superbowl_website </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a>superbowl_website <span class="ot">=</span> <span class="fu">read_html</span>(<span class="st">"https://www.foxsports.com/nfl-super-bowl-winners-and-results"</span>)</span>
+<span id="cb5-2"><a></a>superbowl_website </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>{html_document}
 &lt;html lang="en-US" prefix="og: "http://ogp.me/ns# fb: http://ogp.me/ns/fb#""&gt;
@@ -494,15 +497,14 @@ Alan R. Vazquez
 <p>We scrape elements of a website stored in <code>superbowl_website</code> using the function <code>html_elements()</code>.</p>
 <p>For example, we can retrieve all paragraph elements (<code>&lt;p&gt;content&lt;\p&gt;</code>). To this end, we set the CSS selector to “p”.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a>sb_web_p <span class="ot">=</span> superbowl_website <span class="sc">%&gt;%</span> </span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a>sb_web_p <span class="ot">=</span> superbowl_website <span class="sc">%&gt;%</span> </span>
 <span id="cb7-2"><a></a>  <span class="fu">html_elements</span>(<span class="at">css =</span> <span class="st">"p"</span>)</span>
-<span id="cb7-3"><a></a>sb_web_p</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb7-3"><a></a>sb_web_p</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>{xml_nodeset (4)}
+<pre><code>{xml_nodeset (3)}
 [1] &lt;p class="subnav-title ff-ffc bold fs-23 lh-25 uc pd-b-10"&gt;\n             ...
-[2] &lt;p class="subnav-title ff-ffc bold fs-23 lh-25 uc pd-b-10"&gt;\n             ...
-[3] &lt;p style="margin-top:10px;"&gt;Super Bowl History of each of the Super Bowl  ...
-[4] &lt;p style="margin-bottom:15px;margin-top:40px;"&gt;&lt;span class="fs-18"&gt;&amp;lt;&amp;l ...</code></pre>
+[2] &lt;p style="margin-top:10px;"&gt;Super Bowl History of each of the Super Bowl  ...
+[3] &lt;p style="margin-bottom:15px;margin-top:40px;"&gt;&lt;span class="fs-18"&gt;&amp;lt;&amp;l ...</code></pre>
 </div>
 </div>
 </section>
@@ -512,14 +514,13 @@ Alan R. Vazquez
 <p>However, the scraped elements are in HTML code.</p>
 <p>To turn them into actual text for R, we use the <code>html_text2()</code> function.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a>superbowl_web_paragraph <span class="ot">=</span> sb_web_p <span class="sc">%&gt;%</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a>superbowl_web_paragraph <span class="ot">=</span> sb_web_p <span class="sc">%&gt;%</span></span>
 <span id="cb9-2"><a></a>  <span class="fu">html_text2</span>()</span>
-<span id="cb9-3"><a></a>superbowl_web_paragraph</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb9-3"><a></a>superbowl_web_paragraph</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "POPULAR SEARCHES"                                                                                                                                                                                   
-[2] "BROWSE BY"                                                                                                                                                                                          
-[3] "Super Bowl History of each of the Super Bowl winning and losing teams throughout NFL professional football history. The Super Bowl locations, dates and final scores are also included (1967-2024)."
-[4] "&lt;&lt; SUPER BOWL PAGE"                                                                                                                                                                                 </code></pre>
+<pre><code>[1] "BROWSE BY"                                                                                                                                                                                          
+[2] "Super Bowl History of each of the Super Bowl winning and losing teams throughout NFL professional football history. The Super Bowl locations, dates and final scores are also included (1967-2026)."
+[3] "&lt;&lt; SUPER BOWL PAGE"                                                                                                                                                                                 </code></pre>
 </div>
 </div>
 </section></section>
@@ -535,9 +536,9 @@ Alan R. Vazquez
 <p><br><br></p>
 <p>We retrieve the data in the table by setting <code>css = data-table</code> in the <code>html_elements()</code> function.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a>sb_table_data <span class="ot">=</span> superbowl_website <span class="sc">%&gt;%</span> </span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a>sb_table_data <span class="ot">=</span> superbowl_website <span class="sc">%&gt;%</span> </span>
 <span id="cb11-2"><a></a>  <span class="fu">html_elements</span>(<span class="at">css =</span> <span class="st">".data-table"</span>)</span>
-<span id="cb11-3"><a></a>sb_table_data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb11-3"><a></a>sb_table_data</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>{xml_nodeset (2)}
 [1] &lt;table class="data-table"&gt;\n&lt;thead class="data-header fs-11 ls-pt25"&gt;&lt;tr  ...
@@ -550,11 +551,11 @@ Alan R. Vazquez
 <h2></h2>
 <p>Again, the tables are in HTML format. We can turn them into standard R tables using the function <code>html_table()</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a>superbowl_tables <span class="ot">=</span> sb_table_data <span class="sc">%&gt;%</span> <span class="fu">html_table</span>()</span>
-<span id="cb13-2"><a></a>superbowl_tables</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a>superbowl_tables <span class="ot">=</span> sb_table_data <span class="sc">%&gt;%</span> <span class="fu">html_table</span>()</span>
+<span id="cb13-2"><a></a>superbowl_tables</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[[1]]
-# A tibble: 59 × 4
+# A tibble: 60 × 4
    NO.   LOCATION                      DATE          `TEAMS &amp; RESULT`           
    &lt;chr&gt; &lt;chr&gt;                         &lt;chr&gt;         &lt;chr&gt;                      
  1 I     Los Angeles Memorial Coliseum Jan. 15, 1967 Green Bay 35, Kansas City …
@@ -567,7 +568,7 @@ Alan R. Vazquez
  8 VIII  Rice Stadium                  Jan. 13, 1974 Miami 24, Minnesota 7      
  9 IX    Tulane Stadium                Jan. 12, 1975 Pittsburgh 16, Minnesota 6 
 10 X     Miami Orange Bowl             Jan. 18, 1976 Pittsburgh 21, Dallas 17   
-# ℹ 49 more rows
+# ℹ 50 more rows
 
 [[2]]
 # A tibble: 20 × 2
@@ -589,7 +590,7 @@ Alan R. Vazquez
 14 Baltimore Ravens          2
 15 Tampa Bay Buccaneers      2
 16 Philadelphia Eagles       2
-17 Seattle Seahawks          1
+17 Seattle Seahawks          2
 18 Chicago Bears             1
 19 New York Jets             1
 20 New Orleans Saints        1</code></pre>
@@ -608,7 +609,7 @@ Alan R. Vazquez
 <p><br></p>
 <p>To retrieve one table, we select the elements of the resulting list <code>superbowl_tables</code>. For instance, to display the first table we use…</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a>superbowl_tables[[<span class="dv">1</span>]] <span class="sc">%&gt;%</span>  <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a>superbowl_tables[[<span class="dv">1</span>]] <span class="sc">%&gt;%</span>  <span class="fu">head</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 4
   NO.   LOCATION                      DATE          `TEAMS &amp; RESULT`            
@@ -627,7 +628,7 @@ Alan R. Vazquez
 <p><br></p>
 <p>To retrieve the second table, we use…</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a>superbowl_tables[[<span class="dv">2</span>]] <span class="sc">%&gt;%</span>  <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a>superbowl_tables[[<span class="dv">2</span>]] <span class="sc">%&gt;%</span>  <span class="fu">head</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 2
   TEAM                  WINS
@@ -646,8 +647,8 @@ Alan R. Vazquez
 <h1></h1>
 <p>Let’s continue with the table corresponding to the super bowl dates and results.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a></a>superbowl_data <span class="ot">=</span> superbowl_tables[[<span class="dv">1</span>]] </span>
-<span id="cb19-2"><a></a>superbowl_data <span class="sc">%&gt;%</span>  <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a></a>superbowl_data <span class="ot">=</span> superbowl_tables[[<span class="dv">1</span>]] </span>
+<span id="cb19-2"><a></a>superbowl_data <span class="sc">%&gt;%</span>  <span class="fu">head</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 4
   NO.   LOCATION                      DATE          `TEAMS &amp; RESULT`            
@@ -665,9 +666,9 @@ Alan R. Vazquez
 <h2>Data wrangling</h2>
 <p>To make the data easier to work, we will create a separate column for year. To this end, we use <code>separate()</code> from <strong>tidyr</strong>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a></a>superbowl_data_wr <span class="ot">=</span> superbowl_data <span class="sc">%&gt;%</span> </span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a></a>superbowl_data_wr <span class="ot">=</span> superbowl_data <span class="sc">%&gt;%</span> </span>
 <span id="cb21-2"><a></a>  <span class="fu">separate</span>(DATE, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">"Day"</span>, <span class="st">"Year"</span>), <span class="at">sep =</span> <span class="st">","</span>)</span>
-<span id="cb21-3"><a></a>superbowl_data_wr <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb21-3"><a></a>superbowl_data_wr <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 5
   NO.   LOCATION                      Day     Year    `TEAMS &amp; RESULT`          
@@ -685,9 +686,9 @@ Alan R. Vazquez
 <h2>Be careful…</h2>
 <p>The new column <code>Year</code> is character, so we turn it into numeric using the code below.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a></a>superbowl_data_wr <span class="ot">=</span> superbowl_data_wr <span class="sc">%&gt;%</span> </span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a></a>superbowl_data_wr <span class="ot">=</span> superbowl_data_wr <span class="sc">%&gt;%</span> </span>
 <span id="cb23-2"><a></a>  <span class="fu">mutate</span>(<span class="st">`</span><span class="at">Year</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">as.numeric</span>(<span class="st">`</span><span class="at">Year</span><span class="st">`</span>))</span>
-<span id="cb23-3"><a></a>superbowl_data_wr <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb23-3"><a></a>superbowl_data_wr <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 5
   NO.   LOCATION                      Day      Year `TEAMS &amp; RESULT`            
@@ -705,9 +706,9 @@ Alan R. Vazquez
 <h2></h2>
 <p>Further, let’s separate the column <code>TEAMS &amp; RESULT</code> into two columns “W Team” and “L Team”.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a></a>superbowl_data_wr <span class="ot">=</span> superbowl_data_wr <span class="sc">%&gt;%</span> </span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a></a>superbowl_data_wr <span class="ot">=</span> superbowl_data_wr <span class="sc">%&gt;%</span> </span>
 <span id="cb25-2"><a></a>  <span class="fu">separate</span>(<span class="st">`</span><span class="at">TEAMS &amp; RESULT</span><span class="st">`</span>, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">"W Team"</span>, <span class="st">"L Team"</span>), <span class="at">sep =</span> <span class="st">","</span>)</span>
-<span id="cb25-3"><a></a>superbowl_data_wr <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb25-3"><a></a>superbowl_data_wr <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 6
   NO.   LOCATION                      Day      Year `W Team`         `L Team`   
@@ -726,11 +727,11 @@ Alan R. Vazquez
 <p><br></p>
 <p>After that, we can separate the score of each team into corresponding columns. Note that we must also ensure that the new columns are numeric. All these steps are carried out using the pipeline below.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a></a>superbowl_data_final <span class="ot">=</span> superbowl_data_wr <span class="sc">%&gt;%</span> </span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a></a>superbowl_data_final <span class="ot">=</span> superbowl_data_wr <span class="sc">%&gt;%</span> </span>
 <span id="cb27-2"><a></a>  <span class="fu">separate</span>(<span class="st">`</span><span class="at">W Team</span><span class="st">`</span>, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">"W Team"</span>, <span class="st">"W Score"</span>), <span class="at">sep =</span> <span class="st">"(?&lt;=</span><span class="sc">\\</span><span class="st">D)(?=</span><span class="sc">\\</span><span class="st">d)"</span>) <span class="sc">%&gt;%</span> </span>
 <span id="cb27-3"><a></a>  <span class="fu">separate</span>(<span class="st">`</span><span class="at">L Team</span><span class="st">`</span>, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">"L Team"</span>, <span class="st">"L Score"</span>), <span class="at">sep =</span> <span class="st">"(?&lt;=</span><span class="sc">\\</span><span class="st">D)(?=</span><span class="sc">\\</span><span class="st">d)"</span>) <span class="sc">%&gt;%</span> </span>
 <span id="cb27-4"><a></a>  <span class="fu">mutate</span>(<span class="st">`</span><span class="at">W Score</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">as.numeric</span>(<span class="st">`</span><span class="at">W Score</span><span class="st">`</span>),</span>
-<span id="cb27-5"><a></a>         <span class="st">`</span><span class="at">L Score</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">as.numeric</span>(<span class="st">`</span><span class="at">L Score</span><span class="st">`</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb27-5"><a></a>         <span class="st">`</span><span class="at">L Score</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">as.numeric</span>(<span class="st">`</span><span class="at">L Score</span><span class="st">`</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <blockquote>
 <p>The <code>sep = "(?&lt;=\\D)(?=\\d)"</code> tells R that we want to isolate the numbers into a new column.</p>
@@ -739,7 +740,7 @@ Alan R. Vazquez
 <section id="the-final-dataset" class="slide level2">
 <h2>The final dataset</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a></a>superbowl_data_final <span class="sc">%&gt;%</span> <span class="fu">head</span>(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a></a>superbowl_data_final <span class="sc">%&gt;%</span> <span class="fu">head</span>(<span class="dv">10</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 10 × 8
    NO.   LOCATION              Day    Year `W Team` `W Score` `L Team` `L Score`
@@ -809,7 +810,7 @@ Alan R. Vazquez
 <h2>The robotstxt package</h2>
 <p>To check if scraping/crawling a specific website is allowed, we use the R package called <strong>robotstxt</strong>. Let’s load it into R.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a></a><span class="fu">library</span>(robotstxt)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a></a><span class="fu">library</span>(robotstxt)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="fragment">
 <p>The package has a function called <code>paths_allowed()</code> that tells you whether a website can be scraped or not.</p>
@@ -817,7 +818,7 @@ Alan R. Vazquez
 <div class="fragment">
 <p>For instance, let’s confirm that we can scrape the website <a href="https://www.foxsports.com/nfl-super-bowl-winners-and-results" class="uri">https://www.foxsports.com/nfl-super-bowl-winners-and-results</a></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a></a><span class="fu">paths_allowed</span>(<span class="st">"https://www.foxsports.com/nfl-super-bowl-winners-and-results"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a></a><span class="fu">paths_allowed</span>(<span class="st">"https://www.foxsports.com/nfl-super-bowl-winners-and-results"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] TRUE</code></pre>
 </div>
@@ -836,7 +837,7 @@ Alan R. Vazquez
 <h2>What abut the industrial engineering Wikipedia site?</h2>
 <p><br><br></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a></a><span class="fu">paths_allowed</span>(<span class="st">"https://en.wikipedia.org/wiki/Industrial_engineering"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a></a><span class="fu">paths_allowed</span>(<span class="st">"https://en.wikipedia.org/wiki/Industrial_engineering"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] TRUE</code></pre>
 </div>
@@ -1170,13 +1171,14 @@ Alan R. Vazquez
           e.clearSelection();
         }
         const getTextToCopy = function(trigger) {
-            const codeEl = trigger.previousElementSibling.cloneNode(true);
-            for (const childEl of codeEl.children) {
-              if (isCodeAnnotation(childEl)) {
-                childEl.remove();
-              }
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
             }
-            return codeEl.innerText;
+          }
+          return codeEl.innerText;
         }
         const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
           text: getTextToCopy
