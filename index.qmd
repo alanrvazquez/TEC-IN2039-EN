@@ -17,7 +17,7 @@ author:
 5.  Introduction to [Flourish Studio](https://flourish.studio/) ([slides](/T5_FlourishStudio/FlourishStudio.slides.html)) ([My First Line Plot](https://public.flourish.studio/visualisation/26339799/)) ([My First Flourish Story](https://public.flourish.studio/story/3455881/))
 6.  Types of variables and univariate plots ([slides](/T6_TypesofVariables/TypesVariables.slides.html)) ([colab](https://colab.research.google.com/drive/1RcfDesiqhqetPZxFvyMtfFxp2m4tZpAq?usp=sharing))
 7.  Popular graphs for multiple variables ([slides](/T7_PopularGraphs/Popular_Graphs.slides.html))
-8.  Statistical graphs
+8.  Create your first website
 
 ## About the author
 

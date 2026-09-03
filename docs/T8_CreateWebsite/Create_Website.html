@@ -1,0 +1,1689 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.38">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Alan R. Vazquez">
+
+<title>Creating Your Personal Website with Quarto – IN2039 Data Visualization for Decision Making</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-158031087360bce0ff56dc785ce39e06.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">
+      IN2039 Data Visualization for Decision Making
+      </li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">IN2039 Data Visualization for Decision Making</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../TEC-IN2039-EN-index.qmd" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Home</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul class="collapse">
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">1</span> Introduction</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Creating Your Personal Website with Quarto</h1>
+<p class="subtitle lead">From GitHub to a professional online CV</p>
+</div>
+
+
+<div class="quarto-title-meta-author">
+  <div class="quarto-title-meta-heading">Author</div>
+  <div class="quarto-title-meta-heading">Affiliation</div>
+  
+    <div class="quarto-title-meta-contents">
+    <p class="author">Alan R. Vazquez </p>
+  </div>
+  <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            Department of Industrial Engineering
+          </p>
+      </div>
+  </div>
+
+<div class="quarto-title-meta">
+
+      
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="introduction" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">1</span> Introduction</h2>
+<p>In this activity, you will create and publish your own <strong>personal professional website</strong>.</p>
+<p>The goal is not to become a web developer. Instead, you will learn a simple workflow that allows you to create and maintain a professional website using tools that are widely used for data science, research, and technical work.</p>
+<p>By the end of this activity, you will have a website that can contain:</p>
+<ul>
+<li>Your professional profile</li>
+<li>Your CV</li>
+<li>Your education and work experience</li>
+<li>Your skills</li>
+<li>Links to projects</li>
+<li>Links to your GitHub repositories</li>
+<li>Links to other professional profiles</li>
+<li>Additional pages that you may add in the future</li>
+</ul>
+<p>Your website will be publicly available on the Internet through <strong>GitHub Pages</strong>.</p>
+<p>The basic workflow will be:</p>
+<pre class="text"><code>GitHub account
+      ↓
+GitHub repository
+      ↓
+GitHub Desktop
+      ↓
+R + RStudio
+      ↓
+Quarto website
+      ↓
+GitHub
+      ↓
+GitHub Pages
+      ↓
+Your personal website</code></pre>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>What you will accomplish
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>At the end of this activity, you should be able to create, modify, and publish a simple personal website without needing to know HTML or CSS.</p>
+<section id="before-you-start" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="before-you-start"><span class="header-section-number">2</span> Before You Start</h2>
+<p>You will need to install several free tools.</p>
+<section id="tools" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="tools"><span class="header-section-number">2.1</span> Tools</h3>
+<p>You will use:</p>
+<ol type="1">
+<li><strong>GitHub</strong> — to store your website files online.</li>
+<li><strong>GitHub Desktop</strong> — to synchronize files between your computer and GitHub.</li>
+<li><strong>R</strong> — the programming language used by RStudio.</li>
+<li><strong>RStudio</strong> — the environment where you will create and edit your Quarto website.</li>
+<li><strong>Quarto</strong> — the system that transforms your <code>.qmd</code> files into a website.</li>
+</ol>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>You will need an Internet connection when creating your GitHub account, creating the repository, and publishing the website.</p>
+<p>You will also need to use an email address that you can access because GitHub may ask you to verify your account.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="part-1-create-a-github-account" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="part-1-create-a-github-account"><span class="header-section-number">3</span> Part 1 — Create a GitHub Account</h2>
+<section id="what-is-github" class="level3" data-number="3.1">
+<h3 data-number="3.1" class="anchored" data-anchor-id="what-is-github"><span class="header-section-number">3.1</span> What is GitHub?</h3>
+<p>GitHub is an online platform for storing and managing files using <strong>Git</strong>.</p>
+<p>For this activity, you can think of GitHub as a place where you will store the source files that make up your website.</p>
+<p>GitHub will also allow you to keep a history of the changes you make to your website.</p>
+<p>You do <strong>not</strong> need to learn Git commands for this activity. We will use GitHub Desktop to make the process easier.</p>
+</section>
+<section id="create-your-account" class="level3" data-number="3.2">
+<h3 data-number="3.2" class="anchored" data-anchor-id="create-your-account"><span class="header-section-number">3.2</span> Create your account</h3>
+<p>Go to:</p>
+<p><a href="https://github.com/">https://github.com/</a></p>
+<p>Select <strong>Sign up</strong> and create your account.</p>
+<p>Choose your GitHub username carefully.</p>
+<p>Your username will appear in your website address.</p>
+<p>For example:</p>
+<pre class="text"><code>github.com/alanrvazquez</code></pre>
+<p>could potentially lead to a website such as:</p>
+<pre class="text"><code>https://alanrvazquez.github.io/</code></pre>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Choosing your username
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Try to choose a professional username.</p>
+<p>For example:</p>
+<pre class="text"><code>johndoe
+john-smith
+johnsmith</code></pre>
+<p>are generally better choices for a professional website than usernames such as:</p>
+<pre class="text"><code>john12345
+cooldude2026
+xXjohnXx</code></pre>
+<p>You will potentially use this username on your CV, job applications, and professional profiles.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="part-2-install-github-desktop" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="part-2-install-github-desktop"><span class="header-section-number">4</span> Part 2 — Install GitHub Desktop</h2>
+<section id="what-is-github-desktop" class="level3" data-number="4.1">
+<h3 data-number="4.1" class="anchored" data-anchor-id="what-is-github-desktop"><span class="header-section-number">4.1</span> What is GitHub Desktop?</h3>
+<p>GitHub Desktop provides a graphical interface for working with GitHub.</p>
+<p>Instead of typing Git commands into a terminal, you can use buttons and menus to:</p>
+<ul>
+<li>Download repositories</li>
+<li>Save changes</li>
+<li>Create commits</li>
+<li>Upload changes to GitHub</li>
+<li>Download changes from GitHub</li>
+</ul>
+<p>GitHub describes Desktop as a graphical interface that simplifies common Git operations. (<a href="https://docs.github.com/en/desktop?utm_source=chatgpt.com" title="GitHub Desktop documentation - GitHub Docs">GitHub Docs</a>)</p>
+<p>Download GitHub Desktop from:</p>
+<p><a href="https://desktop.github.com/">https://desktop.github.com/</a></p>
+<p>Install the application following the instructions for your operating system.</p>
+</section>
+<section id="sign-in" class="level3" data-number="4.2">
+<h3 data-number="4.2" class="anchored" data-anchor-id="sign-in"><span class="header-section-number">4.2</span> Sign in</h3>
+<p>Open GitHub Desktop and sign in using the GitHub account you created in Part 1.</p>
+<p>Make sure that you sign in with the <strong>same GitHub account</strong> that you will use for your website.</p>
+</section>
+</section>
+<section id="part-3-create-your-first-repository" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="part-3-create-your-first-repository"><span class="header-section-number">5</span> Part 3 — Create Your First Repository</h2>
+<section id="what-is-a-repository" class="level3" data-number="5.1">
+<h3 data-number="5.1" class="anchored" data-anchor-id="what-is-a-repository"><span class="header-section-number">5.1</span> What is a repository?</h3>
+<p>A <strong>repository</strong>, or <em>repo</em>, is a folder that is managed by Git.</p>
+<p>For this project, your repository will contain all the files needed to create your website.</p>
+<p>For example:</p>
+<pre class="text"><code>my-personal-website/
+│
+├── _quarto.yml
+├── index.qmd
+├── cv.qmd
+├── projects.qmd
+├── images/
+└── ...</code></pre>
+<p>The repository will exist both:</p>
+<ul>
+<li>On your computer</li>
+<li>On GitHub</li>
+</ul>
+<p>GitHub Desktop helps keep these two versions synchronized.</p>
+</section>
+<section id="create-the-repository" class="level3" data-number="5.2">
+<h3 data-number="5.2" class="anchored" data-anchor-id="create-the-repository"><span class="header-section-number">5.2</span> Create the repository</h3>
+<p>Open GitHub Desktop.</p>
+<p>Select:</p>
+<p><strong>File → New repository</strong></p>
+<p>Enter:</p>
+<p><strong>Name</strong></p>
+<pre class="text"><code>my-personal-website</code></pre>
+<p>You may use another name if your instructor specifies one.</p>
+<p>For example:</p>
+<pre class="text"><code>alan-personal-website</code></pre>
+<p>Select a location on your computer where you want to save the repository.</p>
+<p>For example:</p>
+<pre class="text"><code>Documents/GitHub/</code></pre>
+<p>Make sure that <strong>Initialize this repository with a README</strong> is selected.</p>
+<p>Then select:</p>
+<p><strong>Create repository</strong></p>
+</section>
+<section id="publish-the-repository" class="level3" data-number="5.3">
+<h3 data-number="5.3" class="anchored" data-anchor-id="publish-the-repository"><span class="header-section-number">5.3</span> Publish the repository</h3>
+<p>After creating the repository, GitHub Desktop will show the new repository.</p>
+<p>Select:</p>
+<p><strong>Publish repository</strong></p>
+<p>Make sure the repository is published to your GitHub account.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>Do not confuse the repository with the website
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>At this point, you have created a GitHub repository.</p>
+<p>You have <strong>not created your website yet</strong>.</p>
+<p>The repository is simply the place where your website’s files will live.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="part-4-install-r-and-rstudio" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="part-4-install-r-and-rstudio"><span class="header-section-number">6</span> Part 4 — Install R and RStudio</h2>
+<section id="install-r" class="level3" data-number="6.1">
+<h3 data-number="6.1" class="anchored" data-anchor-id="install-r"><span class="header-section-number">6.1</span> Install R</h3>
+<p>Download R from:</p>
+<p><a href="https://cran.r-project.org/">https://cran.r-project.org/</a></p>
+<p>Choose the version appropriate for your operating system and follow the installation instructions.</p>
+</section>
+<section id="install-rstudio" class="level3" data-number="6.2">
+<h3 data-number="6.2" class="anchored" data-anchor-id="install-rstudio"><span class="header-section-number">6.2</span> Install RStudio</h3>
+<p>RStudio is an Integrated Development Environment (IDE) that makes it easier to work with R and Quarto.</p>
+<p>Download RStudio from:</p>
+<p><a href="https://posit.co/download/rstudio-desktop/">https://posit.co/download/rstudio-desktop/</a></p>
+<p>Install RStudio after installing R.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Install <strong>R first</strong> and <strong>RStudio second</strong>.</p>
+<p>R is the programming language.</p>
+<p>RStudio is the application that provides an interface for working with R.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="part-5-install-quarto" class="level2" data-number="7">
+<h2 data-number="7" class="anchored" data-anchor-id="part-5-install-quarto"><span class="header-section-number">7</span> Part 5 — Install Quarto</h2>
+<section id="what-is-quarto" class="level3" data-number="7.1">
+<h3 data-number="7.1" class="anchored" data-anchor-id="what-is-quarto"><span class="header-section-number">7.1</span> What is Quarto?</h3>
+<p><strong>Quarto</strong> is a publishing system that allows you to create documents, presentations, reports, books, and websites using plain-text files.</p>
+<p>A Quarto website is usually created from files with the extension:</p>
+<pre class="text"><code>.qmd</code></pre>
+<p>For example:</p>
+<pre class="text"><code>index.qmd
+cv.qmd
+projects.qmd</code></pre>
+<p>Quarto converts these files into HTML pages that can be displayed in a web browser.</p>
+<p>Quarto websites can also include navigation, different pages, images, links, code, tables, and other content. (<a href="https://quarto.org/docs/websites/?utm_source=chatgpt.com" title="Creating a Website – Quarto">Quarto</a>)</p>
+</section>
+<section id="install-quarto" class="level3" data-number="7.2">
+<h3 data-number="7.2" class="anchored" data-anchor-id="install-quarto"><span class="header-section-number">7.2</span> Install Quarto</h3>
+<p>Download Quarto from:</p>
+<p><a href="https://quarto.org/docs/get-started/">https://quarto.org/docs/get-started/</a></p>
+<p>Install the version appropriate for your operating system.</p>
+<p>After installation, restart RStudio.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Check your installation
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Open RStudio and create a new Quarto document.</p>
+<p>If you can create and render a Quarto document, your installation is probably working correctly.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="part-6-create-your-quarto-website" class="level2" data-number="8">
+<h2 data-number="8" class="anchored" data-anchor-id="part-6-create-your-quarto-website"><span class="header-section-number">8</span> Part 6 — Create Your Quarto Website</h2>
+<p>Now we will create the actual website.</p>
+<section id="create-a-new-quarto-project" class="level3" data-number="8.1">
+<h3 data-number="8.1" class="anchored" data-anchor-id="create-a-new-quarto-project"><span class="header-section-number">8.1</span> Create a new Quarto project</h3>
+<p>Open RStudio.</p>
+<p>Select:</p>
+<p><strong>File → New Project → New Directory → Quarto Website</strong></p>
+<p>You should see a window similar to the following:</p>
+<ul>
+<li>Project type: <strong>Quarto Website</strong></li>
+<li>Directory name: <code>my-personal-website</code></li>
+<li>Create project as subdirectory of: choose your GitHub repository folder</li>
+</ul>
+<p>For example:</p>
+<pre class="text"><code>Documents/GitHub/my-personal-website</code></pre>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>Be careful with the location
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Your Quarto website should be created <strong>inside the GitHub repository folder</strong>.</p>
+<p>You want the following relationship:</p>
+<pre class="text"><code>GitHub repository
+        │
+        ├── _quarto.yml
+        ├── index.qmd
+        ├── cv.qmd
+        └── projects.qmd</code></pre>
+<p>Do not accidentally create a separate folder somewhere else on your computer.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="part-7-understand-the-website-files" class="level2" data-number="9">
+<h2 data-number="9" class="anchored" data-anchor-id="part-7-understand-the-website-files"><span class="header-section-number">9</span> Part 7 — Understand the Website Files</h2>
+<p>After creating the Quarto website, you will see several files.</p>
+<p>The most important ones are:</p>
+<pre class="text"><code>_quarto.yml
+index.qmd</code></pre>
+<section id="quarto.yml" class="level3" data-number="9.1">
+<h3 data-number="9.1" class="anchored" data-anchor-id="quarto.yml"><span class="header-section-number">9.1</span> <code>_quarto.yml</code></h3>
+<p>This file contains the configuration of your website.</p>
+<p>For example:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">project</span><span class="kw">:</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">type</span><span class="kw">:</span><span class="at"> website</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="fu">website</span><span class="kw">:</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"John Smith"</span></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="at">  </span></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">html</span><span class="kw">:</span></span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">theme</span><span class="kw">:</span><span class="at"> cosmo</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>You can think of <code>_quarto.yml</code> as the <strong>control panel for your website</strong>.</p>
+<p>It determines things such as:</p>
+<ul>
+<li>Website title</li>
+<li>Navigation</li>
+<li>Theme</li>
+<li>Pages</li>
+<li>Appearance</li>
+<li>Other website settings</li>
+</ul>
+</section>
+<section id="index.qmd" class="level3" data-number="9.2">
+<h3 data-number="9.2" class="anchored" data-anchor-id="index.qmd"><span class="header-section-number">9.2</span> <code>index.qmd</code></h3>
+<p>This is the homepage of your website.</p>
+<p>The filename:</p>
+<pre class="text"><code>index.qmd</code></pre>
+<p>is important because it becomes the main page of your website.</p>
+<p>For example, your homepage could contain:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "John Smith"</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="fu"># Welcome!</span></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>I am a student of Industrial Engineering interested in</span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>data analytics, process improvement, and decision making.</span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a><span class="fu">## About me</span></span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>I am currently studying Industrial Engineering at</span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a>Tecnológico de Monterrey.</span>
+<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a><span class="fu">## What I do</span></span>
+<span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-17"><a href="#cb17-17" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Data analysis</span>
+<span id="cb17-18"><a href="#cb17-18" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Process improvement</span>
+<span id="cb17-19"><a href="#cb17-19" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Data visualization</span>
+<span id="cb17-20"><a href="#cb17-20" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Operations research</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>You can write your content using simple Markdown.</p>
+</section>
+</section>
+<section id="part-8-create-your-website-structure" class="level2" data-number="10">
+<h2 data-number="10" class="anchored" data-anchor-id="part-8-create-your-website-structure"><span class="header-section-number">10</span> Part 8 — Create Your Website Structure</h2>
+<p>Your website should contain at least three pages:</p>
+<pre class="text"><code>Homepage
+CV
+Projects</code></pre>
+<p>A possible structure is:</p>
+<pre class="text"><code>my-personal-website/
+│
+├── _quarto.yml
+├── index.qmd
+├── cv.qmd
+├── projects.qmd
+└── images/</code></pre>
+<section id="create-the-cv-page" class="level3" data-number="10.1">
+<h3 data-number="10.1" class="anchored" data-anchor-id="create-the-cv-page"><span class="header-section-number">10.1</span> Create the CV page</h3>
+<p>Create a new Quarto document called:</p>
+<pre class="text"><code>cv.qmd</code></pre>
+<p>You could start with:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb21"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Curriculum Vitae"</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="fu"># Education</span></span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a><span class="fu">### B.S. in Industrial Engineering</span></span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>Tecnológico de Monterrey</span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a>2023–2027</span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a><span class="fu"># Experience</span></span>
+<span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-15"><a href="#cb21-15" aria-hidden="true" tabindex="-1"></a><span class="fu">### Internship — Company Name</span></span>
+<span id="cb21-16"><a href="#cb21-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-17"><a href="#cb21-17" aria-hidden="true" tabindex="-1"></a>2026</span>
+<span id="cb21-18"><a href="#cb21-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-19"><a href="#cb21-19" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Description of your responsibilities</span>
+<span id="cb21-20"><a href="#cb21-20" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Description of your accomplishments</span>
+<span id="cb21-21"><a href="#cb21-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-22"><a href="#cb21-22" aria-hidden="true" tabindex="-1"></a><span class="fu"># Skills</span></span>
+<span id="cb21-23"><a href="#cb21-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-24"><a href="#cb21-24" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Python</span>
+<span id="cb21-25"><a href="#cb21-25" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>R</span>
+<span id="cb21-26"><a href="#cb21-26" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Data Visualization</span>
+<span id="cb21-27"><a href="#cb21-27" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Excel</span>
+<span id="cb21-28"><a href="#cb21-28" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Statistics</span>
+<span id="cb21-29"><a href="#cb21-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-30"><a href="#cb21-30" aria-hidden="true" tabindex="-1"></a><span class="fu"># Languages</span></span>
+<span id="cb21-31"><a href="#cb21-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-32"><a href="#cb21-32" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Spanish</span>
+<span id="cb21-33"><a href="#cb21-33" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>English</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Replace the example information with your own information.</p>
+</section>
+</section>
+<section id="part-9-add-a-projects-page" class="level2" data-number="11">
+<h2 data-number="11" class="anchored" data-anchor-id="part-9-add-a-projects-page"><span class="header-section-number">11</span> Part 9 — Add a Projects Page</h2>
+<p>Create another Quarto document:</p>
+<pre class="text"><code>projects.qmd</code></pre>
+<p>For example:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb23"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Projects"</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a><span class="fu"># Data Visualization Project</span></span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>A project analyzing data related to ________.</span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">View the project</span><span class="co">](https://github.com/username/project)</span></span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a><span class="fu"># Data Analysis Project</span></span>
+<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a>A project where I used Python to ________.</span>
+<span id="cb23-14"><a href="#cb23-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-15"><a href="#cb23-15" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">View the project</span><span class="co">](https://github.com/username/project)</span></span>
+<span id="cb23-16"><a href="#cb23-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-17"><a href="#cb23-17" aria-hidden="true" tabindex="-1"></a><span class="fu"># Other Projects</span></span>
+<span id="cb23-18"><a href="#cb23-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-19"><a href="#cb23-19" aria-hidden="true" tabindex="-1"></a>More projects will be added here as I develop them.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The purpose of this page is to create a <strong>portfolio</strong>.</p>
+<p>As you complete projects during your degree, you can continue adding them to this page.</p>
+</section>
+<section id="part-10-create-website-navigation" class="level2" data-number="12">
+<h2 data-number="12" class="anchored" data-anchor-id="part-10-create-website-navigation"><span class="header-section-number">12</span> Part 10 — Create Website Navigation</h2>
+<p>Now we will connect the pages.</p>
+<p>Open:</p>
+<pre class="text"><code>_quarto.yml</code></pre>
+<p>and modify it to include navigation.</p>
+<p>For example:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb25"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">project</span><span class="kw">:</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">type</span><span class="kw">:</span><span class="at"> website</span></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="fu">website</span><span class="kw">:</span></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"John Smith"</span></span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a><span class="at">  </span></span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">navbar</span><span class="kw">:</span></span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">left</span><span class="kw">:</span></span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">href</span><span class="kw">:</span><span class="at"> index.qmd</span></span>
+<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">text</span><span class="kw">:</span><span class="at"> Home</span></span>
+<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">href</span><span class="kw">:</span><span class="at"> cv.qmd</span></span>
+<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">text</span><span class="kw">:</span><span class="at"> CV</span></span>
+<span id="cb25-13"><a href="#cb25-13" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">href</span><span class="kw">:</span><span class="at"> projects.qmd</span></span>
+<span id="cb25-14"><a href="#cb25-14" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">text</span><span class="kw">:</span><span class="at"> Projects</span></span>
+<span id="cb25-15"><a href="#cb25-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-16"><a href="#cb25-16" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span></span>
+<span id="cb25-17"><a href="#cb25-17" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">html</span><span class="kw">:</span></span>
+<span id="cb25-18"><a href="#cb25-18" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">theme</span><span class="kw">:</span><span class="at"> cosmo</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Your website will now have a navigation bar similar to:</p>
+<pre class="text"><code>John Smith     Home     CV     Projects</code></pre>
+<p>Quarto supports several navigation structures, including top navigation and side navigation. (<a href="https://quarto.org/docs/websites/website-navigation?utm_source=chatgpt.com" title="Website Navigation – Quarto">Quarto</a>)</p>
+</section>
+<section id="part-11-add-links" class="level2" data-number="13">
+<h2 data-number="13" class="anchored" data-anchor-id="part-11-add-links"><span class="header-section-number">13</span> Part 11 — Add Links</h2>
+<p>A professional website should make it easy for visitors to find your other professional profiles.</p>
+<p>For example:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb27"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">## Connect with me</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">GitHub</span><span class="co">](https://github.com/username)</span></span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">LinkedIn</span><span class="co">](https://www.linkedin.com/in/username)</span></span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Email</span><span class="co">](mailto:your-email@example.com)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>You can also add links to:</p>
+<ul>
+<li>GitHub repositories</li>
+<li>LinkedIn</li>
+<li>Google Scholar</li>
+<li>ResearchGate</li>
+<li>Personal projects</li>
+<li>Data visualization projects</li>
+<li>Publications</li>
+<li>Competition results</li>
+<li>Professional organizations</li>
+</ul>
+</section>
+<section id="part-12-add-an-image" class="level2" data-number="14">
+<h2 data-number="14" class="anchored" data-anchor-id="part-12-add-an-image"><span class="header-section-number">14</span> Part 12 — Add an Image</h2>
+<p>Create a folder inside your repository called:</p>
+<pre class="text"><code>images</code></pre>
+<p>Place a professional photograph inside the folder.</p>
+<p>For example:</p>
+<pre class="text"><code>images/profile.jpg</code></pre>
+<p>You can then include it in your homepage:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb30"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/profile.jpg)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>You can also control its size:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb31"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/profile.jpg)</span>{width=200}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Professional photograph
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Use a photograph appropriate for a professional website.</p>
+<p>Avoid using a heavily edited photograph, party photograph, or informal social-media picture.</p>
+</div>
+</div>
+</section>
+<section id="part-13-preview-your-website" class="level2" data-number="15">
+<h2 data-number="15" class="anchored" data-anchor-id="part-13-preview-your-website"><span class="header-section-number">15</span> Part 13 — Preview Your Website</h2>
+<p>Before publishing your website, you should check how it looks.</p>
+<p>Open:</p>
+<pre class="text"><code>index.qmd</code></pre>
+<p>in RStudio.</p>
+<p>Select:</p>
+<p><strong>Render</strong></p>
+<p>Quarto will generate the HTML version of your website and open a preview.</p>
+<p>Check:</p>
+<ul>
+<li>Are all pages working?</li>
+<li>Are the navigation links correct?</li>
+<li>Are there spelling mistakes?</li>
+<li>Are the images displayed?</li>
+<li>Do external links work?</li>
+<li>Is the CV easy to read?</li>
+<li>Does the website look professional?</li>
+</ul>
+<p>Quarto is designed so that you can preview your website locally before publishing it. (<a href="https://quarto.org/docs/websites/?utm_source=chatgpt.com" title="Creating a Website – Quarto">Quarto</a>)</p>
+</section>
+<section id="part-14-save-your-changes-with-github-desktop" class="level2" data-number="16">
+<h2 data-number="16" class="anchored" data-anchor-id="part-14-save-your-changes-with-github-desktop"><span class="header-section-number">16</span> Part 14 — Save Your Changes with GitHub Desktop</h2>
+<p>Now we need to send your website files to GitHub.</p>
+<p>Open <strong>GitHub Desktop</strong>.</p>
+<p>You should see a list of the files that you have changed.</p>
+<p>For example:</p>
+<pre class="text"><code>_quarto.yml
+index.qmd
+cv.qmd
+projects.qmd</code></pre>
+<section id="commit-your-changes" class="level3" data-number="16.1">
+<h3 data-number="16.1" class="anchored" data-anchor-id="commit-your-changes"><span class="header-section-number">16.1</span> Commit your changes</h3>
+<p>At the bottom of GitHub Desktop, write a short description of your changes.</p>
+<p>For example:</p>
+<pre class="text"><code>Create personal website</code></pre>
+<p>Select:</p>
+<p><strong>Commit to main</strong></p>
+<p>A <strong>commit</strong> is essentially a saved version of your work.</p>
+</section>
+<section id="push-your-changes" class="level3" data-number="16.2">
+<h3 data-number="16.2" class="anchored" data-anchor-id="push-your-changes"><span class="header-section-number">16.2</span> Push your changes</h3>
+<p>After committing, select:</p>
+<p><strong>Push origin</strong></p>
+<p>This sends your changes from your computer to GitHub.</p>
+<p>The workflow is:</p>
+<pre class="text"><code>Edit files
+     ↓
+Save files
+     ↓
+GitHub Desktop
+     ↓
+Commit
+     ↓
+Push
+     ↓
+GitHub</code></pre>
+</section>
+</section>
+<section id="part-15-publish-your-website-with-github-pages" class="level2" data-number="17">
+<h2 data-number="17" class="anchored" data-anchor-id="part-15-publish-your-website-with-github-pages"><span class="header-section-number">17</span> Part 15 — Publish Your Website with GitHub Pages</h2>
+<p>Now we will make the website publicly available.</p>
+<p>GitHub Pages is a hosting service that publishes content from a GitHub repository as a website. (<a href="https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site?apiVersion=2022-11-28&amp;utm_source=chatgpt.com" title="Configuring a publishing source for your GitHub Pages site - GitHub Docs">GitHub Docs</a>)</p>
+<p>There are several ways to publish a Quarto website to GitHub Pages.</p>
+<p>For this activity, we will use the <strong>Quarto <code>gh-pages</code> publishing method</strong> because it is relatively simple for students.</p>
+<section id="first-make-sure-your-website-works" class="level3" data-number="17.1">
+<h3 data-number="17.1" class="anchored" data-anchor-id="first-make-sure-your-website-works"><span class="header-section-number">17.1</span> First, make sure your website works</h3>
+<p>Before publishing:</p>
+<ol type="1">
+<li>Render the website in RStudio.</li>
+<li>Check all pages.</li>
+<li>Save your files.</li>
+<li>Commit your changes using GitHub Desktop.</li>
+<li>Push your changes to GitHub.</li>
+</ol>
+</section>
+<section id="publish-with-quarto" class="level3" data-number="17.2">
+<h3 data-number="17.2" class="anchored" data-anchor-id="publish-with-quarto"><span class="header-section-number">17.2</span> Publish with Quarto</h3>
+<p>Open the <strong>Terminal</strong> in RStudio.</p>
+<p>You can usually find it under:</p>
+<p><strong>Tools → Terminal → New Terminal</strong></p>
+<p>Make sure that the terminal is located inside your website repository.</p>
+<p>Then run:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb36"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> publish gh-pages</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Quarto will render your website and publish it to a special branch called:</p>
+<pre class="text"><code>gh-pages</code></pre>
+<p>The Quarto documentation describes <code>quarto publish gh-pages</code> as a way to publish a locally rendered website to GitHub Pages. (<a href="https://quarto.org/docs/publishing/github-pages.html?utm_source=chatgpt.com" title="GitHub Pages – Quarto">Quarto</a>)</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>Do not use the <code>gh-pages</code> branch for editing
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Your source files should remain in your normal working branch, usually:</p>
+<pre class="text"><code>main</code></pre>
+<p>The <code>gh-pages</code> branch contains the published version of your website.</p>
+<p>Continue editing your <code>.qmd</code> files in your normal branch.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="part-16-find-your-website" class="level2" data-number="18">
+<h2 data-number="18" class="anchored" data-anchor-id="part-16-find-your-website"><span class="header-section-number">18</span> Part 16 — Find Your Website</h2>
+<p>After publishing, your website will normally have an address similar to:</p>
+<pre class="text"><code>https://YOUR-USERNAME.github.io/YOUR-REPOSITORY/</code></pre>
+<p>For example:</p>
+<pre class="text"><code>https://johnsmith.github.io/my-personal-website/</code></pre>
+<p>The exact address depends on your GitHub username and repository name.</p>
+<p>GitHub Pages also provides a <strong>Visit site</strong> link in the repository’s Pages settings. (<a href="https://github.com/github/docs/blob/main/content/pages/getting-started-with-github-pages/creating-a-github-pages-site.md?utm_source=chatgpt.com" title="docs/content/pages/getting-started-with-github-pages/creating-a-github-pages-site.md at main · github/docs · GitHub">GitHub</a>)</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Your first publication
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The first publication can take a few minutes.</p>
+<p>If the website does not appear immediately, wait a little and refresh the page.</p>
+</div>
+</div>
+</section>
+<section id="part-17-make-your-website-professional" class="level2" data-number="19">
+<h2 data-number="19" class="anchored" data-anchor-id="part-17-make-your-website-professional"><span class="header-section-number">19</span> Part 17 — Make Your Website Professional</h2>
+<p>Creating a website is only the first step.</p>
+<p>The objective is to create a website that you would be comfortable sharing with:</p>
+<ul>
+<li>Employers</li>
+<li>Internship recruiters</li>
+<li>Professors</li>
+<li>Researchers</li>
+<li>Professional contacts</li>
+<li>Potential collaborators</li>
+</ul>
+<section id="your-homepage" class="level3" data-number="19.1">
+<h3 data-number="19.1" class="anchored" data-anchor-id="your-homepage"><span class="header-section-number">19.1</span> Your homepage</h3>
+<p>Your homepage should answer three questions quickly:</p>
+<section id="who-are-you" class="level4" data-number="19.1.1">
+<h4 data-number="19.1.1" class="anchored" data-anchor-id="who-are-you"><span class="header-section-number">19.1.1</span> Who are you?</h4>
+<p>For example:</p>
+<blockquote class="blockquote">
+<p>I am an Industrial Engineering student at Tecnológico de Monterrey.</p>
+</blockquote>
+</section>
+<section id="what-do-you-do" class="level4" data-number="19.1.2">
+<h4 data-number="19.1.2" class="anchored" data-anchor-id="what-do-you-do"><span class="header-section-number">19.1.2</span> What do you do?</h4>
+<p>For example:</p>
+<blockquote class="blockquote">
+<p>I am interested in data analytics, process improvement, and operations research.</p>
+</blockquote>
+</section>
+<section id="where-can-i-learn-more" class="level4" data-number="19.1.3">
+<h4 data-number="19.1.3" class="anchored" data-anchor-id="where-can-i-learn-more"><span class="header-section-number">19.1.3</span> Where can I learn more?</h4>
+<p>Provide links to your:</p>
+<ul>
+<li>CV</li>
+<li>Projects</li>
+<li>GitHub</li>
+<li>LinkedIn</li>
+<li>Other relevant profiles</li>
+</ul>
+</section>
+</section>
+</section>
+<section id="part-18-recommended-website-structure" class="level2" data-number="20">
+<h2 data-number="20" class="anchored" data-anchor-id="part-18-recommended-website-structure"><span class="header-section-number">20</span> Part 18 — Recommended Website Structure</h2>
+<p>A good starting structure is:</p>
+<pre class="text"><code>Home
+│
+├── About Me
+│
+├── CV
+│
+├── Projects
+│     ├── Project 1
+│     ├── Project 2
+│     └── Project 3
+│
+└── Contact</code></pre>
+<p>However, your website does not need to contain all of these pages immediately.</p>
+<p>Start simple.</p>
+<p>You can add pages later.</p>
+</section>
+<section id="part-19-your-cv" class="level2" data-number="21">
+<h2 data-number="21" class="anchored" data-anchor-id="part-19-your-cv"><span class="header-section-number">21</span> Part 19 — Your CV</h2>
+<p>Your CV should contain information that is relevant to your professional goals.</p>
+<p>At minimum, consider including:</p>
+<section id="education" class="level3" data-number="21.1">
+<h3 data-number="21.1" class="anchored" data-anchor-id="education"><span class="header-section-number">21.1</span> Education</h3>
+<ul>
+<li>Degree</li>
+<li>University</li>
+<li>Expected graduation date</li>
+</ul>
+</section>
+<section id="experience" class="level3" data-number="21.2">
+<h3 data-number="21.2" class="anchored" data-anchor-id="experience"><span class="header-section-number">21.2</span> Experience</h3>
+<ul>
+<li>Internships</li>
+<li>Jobs</li>
+<li>Research experience</li>
+<li>Relevant volunteer experience</li>
+</ul>
+</section>
+<section id="skills" class="level3" data-number="21.3">
+<h3 data-number="21.3" class="anchored" data-anchor-id="skills"><span class="header-section-number">21.3</span> Skills</h3>
+<p>Examples:</p>
+<ul>
+<li>Python</li>
+<li>R</li>
+<li>Excel</li>
+<li>SQL</li>
+<li>Tableau</li>
+<li>Power BI</li>
+<li>Statistics</li>
+<li>Data visualization</li>
+</ul>
+<p>Only include skills that you actually have.</p>
+</section>
+<section id="projects" class="level3" data-number="21.4">
+<h3 data-number="21.4" class="anchored" data-anchor-id="projects"><span class="header-section-number">21.4</span> Projects</h3>
+<p>Include projects that demonstrate your abilities.</p>
+<p>For example:</p>
+<pre class="text"><code>Project
+Problem
+Methods
+Results
+Link</code></pre>
+</section>
+<section id="awards-and-certifications" class="level3" data-number="21.5">
+<h3 data-number="21.5" class="anchored" data-anchor-id="awards-and-certifications"><span class="header-section-number">21.5</span> Awards and Certifications</h3>
+<p>Include relevant:</p>
+<ul>
+<li>Awards</li>
+<li>Scholarships</li>
+<li>Certifications</li>
+<li>Competitions</li>
+</ul>
+</section>
+<section id="languages" class="level3" data-number="21.6">
+<h3 data-number="21.6" class="anchored" data-anchor-id="languages"><span class="header-section-number">21.6</span> Languages</h3>
+<p>Include languages and your level of proficiency.</p>
+</section>
+</section>
+<section id="part-20-your-project-portfolio" class="level2" data-number="22">
+<h2 data-number="22" class="anchored" data-anchor-id="part-20-your-project-portfolio"><span class="header-section-number">22</span> Part 20 — Your Project Portfolio</h2>
+<p>One of the most useful features of your website is the ability to show your work.</p>
+<p>Instead of simply writing:</p>
+<blockquote class="blockquote">
+<p>I know Python.</p>
+</blockquote>
+<p>you can demonstrate it by writing:</p>
+<blockquote class="blockquote">
+<p>I used Python to analyze customer churn data and developed a model to identify customers at risk of leaving.</p>
+</blockquote>
+<p>Then provide a link to the project.</p>
+<p>For example:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb43"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">## Customer Churn Analysis</span></span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>I analyzed customer characteristics to identify factors</span>
+<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a>associated with customer churn.</span>
+<span id="cb43-5"><a href="#cb43-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-6"><a href="#cb43-6" aria-hidden="true" tabindex="-1"></a>**Tools:** Python, pandas, scikit-learn</span>
+<span id="cb43-7"><a href="#cb43-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-8"><a href="#cb43-8" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">View project</span><span class="co">](https://github.com/username/project)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>This turns your website into a <strong>portfolio</strong>, not simply an online CV.</p>
+</section>
+<section id="part-21-updating-your-website" class="level2" data-number="23">
+<h2 data-number="23" class="anchored" data-anchor-id="part-21-updating-your-website"><span class="header-section-number">23</span> Part 21 — Updating Your Website</h2>
+<p>One of the advantages of this workflow is that you can continue updating your website throughout your studies.</p>
+<p>The process is:</p>
+<pre class="text"><code>1. Edit your .qmd files
+        ↓
+2. Preview the website
+        ↓
+3. Commit changes
+        ↓
+4. Push changes to GitHub
+        ↓
+5. Publish the updated website</code></pre>
+<p>For example, after completing a new project:</p>
+<pre class="text"><code>projects.qmd</code></pre>
+<p>could be updated with:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb46"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># New Data Visualization Project</span></span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a>I developed an interactive visualization of ________.</span>
+<span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-5"><a href="#cb46-5" aria-hidden="true" tabindex="-1"></a>**Tools:** Python, pandas, Flourish</span>
+<span id="cb46-6"><a href="#cb46-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-7"><a href="#cb46-7" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">View project</span><span class="co">](...)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="part-22-suggested-final-website" class="level2" data-number="24">
+<h2 data-number="24" class="anchored" data-anchor-id="part-22-suggested-final-website"><span class="header-section-number">24</span> Part 22 — Suggested Final Website</h2>
+<p>By the end of this activity, your website should contain at least:</p>
+<pre class="text"><code>┌─────────────────────────────────────────┐
+│ Your Name     Home   CV   Projects      │
+├─────────────────────────────────────────┤
+│                                         │
+│              Your Photo                 │
+│                                         │
+│              YOUR NAME                  │
+│                                         │
+│        Industrial Engineering Student   │
+│                                         │
+│  Short professional introduction        │
+│                                         │
+│  GitHub | LinkedIn | Email              │
+│                                         │
+└─────────────────────────────────────────┘</code></pre>
+<p>Your <strong>CV</strong> page should contain your professional information.</p>
+<p>Your <strong>Projects</strong> page should contain links to at least some of the work you have completed.</p>
+</section>
+<section id="part-23-troubleshooting" class="level2" data-number="25">
+<h2 data-number="25" class="anchored" data-anchor-id="part-23-troubleshooting"><span class="header-section-number">25</span> Part 23 — Troubleshooting</h2>
+<section id="my-quarto-website-does-not-render" class="level3" data-number="25.1">
+<h3 data-number="25.1" class="anchored" data-anchor-id="my-quarto-website-does-not-render"><span class="header-section-number">25.1</span> My Quarto website does not render</h3>
+<p>Check:</p>
+<ul>
+<li>Is Quarto installed?</li>
+<li>Is R installed?</li>
+<li>Is RStudio updated?</li>
+<li>Are there errors in <code>_quarto.yml</code>?</li>
+<li>Are the filenames correct?</li>
+<li>Are you working inside the correct repository?</li>
+</ul>
+<p>Try rendering again.</p>
+</section>
+<section id="my-image-does-not-appear" class="level3" data-number="25.2">
+<h3 data-number="25.2" class="anchored" data-anchor-id="my-image-does-not-appear"><span class="header-section-number">25.2</span> My image does not appear</h3>
+<p>Check that the image is inside your repository.</p>
+<p>For example:</p>
+<pre class="text"><code>my-personal-website/
+│
+├── index.qmd
+└── images/
+    └── profile.jpg</code></pre>
+<p>Then use:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb49"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/profile.jpg)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Check the capitalization of the filename.</p>
+<p>For example:</p>
+<pre class="text"><code>profile.jpg</code></pre>
+<p>and</p>
+<pre class="text"><code>Profile.jpg</code></pre>
+<p>are not necessarily treated as the same filename.</p>
+</section>
+<section id="my-page-does-not-appear-in-the-navigation-bar" class="level3" data-number="25.3">
+<h3 data-number="25.3" class="anchored" data-anchor-id="my-page-does-not-appear-in-the-navigation-bar"><span class="header-section-number">25.3</span> My page does not appear in the navigation bar</h3>
+<p>Check <code>_quarto.yml</code>.</p>
+<p>For example:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb52"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="fu">navbar</span><span class="kw">:</span></span>
+<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">left</span><span class="kw">:</span></span>
+<span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">href</span><span class="kw">:</span><span class="at"> index.qmd</span></span>
+<span id="cb52-4"><a href="#cb52-4" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">text</span><span class="kw">:</span><span class="at"> Home</span></span>
+<span id="cb52-5"><a href="#cb52-5" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">href</span><span class="kw">:</span><span class="at"> cv.qmd</span></span>
+<span id="cb52-6"><a href="#cb52-6" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">text</span><span class="kw">:</span><span class="at"> CV</span></span>
+<span id="cb52-7"><a href="#cb52-7" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">href</span><span class="kw">:</span><span class="at"> projects.qmd</span></span>
+<span id="cb52-8"><a href="#cb52-8" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">text</span><span class="kw">:</span><span class="at"> Projects</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Make sure that the <code>.qmd</code> filename exactly matches the filename in your folder.</p>
+</section>
+<section id="my-website-is-not-updating" class="level3" data-number="25.4">
+<h3 data-number="25.4" class="anchored" data-anchor-id="my-website-is-not-updating"><span class="header-section-number">25.4</span> My website is not updating</h3>
+<p>First check that you:</p>
+<ol type="1">
+<li>Saved your changes.</li>
+<li>Committed the changes in GitHub Desktop.</li>
+<li>Pushed the changes to GitHub.</li>
+<li>Published the website again if necessary.</li>
+</ol>
+<p>Also remember that GitHub Pages may take a short amount of time to deploy a new version.</p>
+</section>
+<section id="github-pages-shows-an-error" class="level3" data-number="25.5">
+<h3 data-number="25.5" class="anchored" data-anchor-id="github-pages-shows-an-error"><span class="header-section-number">25.5</span> GitHub Pages shows an error</h3>
+<p>Go to your GitHub repository and open:</p>
+<p><strong>Settings → Pages</strong></p>
+<p>Check the publishing configuration and deployment status.</p>
+<p>GitHub provides the Pages settings under the repository’s <strong>Settings → Pages</strong> area. (<a href="https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site?apiVersion=2022-11-28&amp;utm_source=chatgpt.com" title="Configuring a publishing source for your GitHub Pages site - GitHub Docs">GitHub Docs</a>)</p>
+</section>
+</section>
+<section id="part-24-final-checklist" class="level2" data-number="26">
+<h2 data-number="26" class="anchored" data-anchor-id="part-24-final-checklist"><span class="header-section-number">26</span> Part 24 — Final Checklist</h2>
+<p>Before submitting your website, check every item.</p>
+<section id="github" class="level3" data-number="26.1">
+<h3 data-number="26.1" class="anchored" data-anchor-id="github"><span class="header-section-number">26.1</span> GitHub</h3>
+<ul class="task-list">
+<li><label><input type="checkbox">I created a GitHub account.</label></li>
+<li><label><input type="checkbox">I installed GitHub Desktop.</label></li>
+<li><label><input type="checkbox">I created a repository.</label></li>
+<li><label><input type="checkbox">My repository is connected to GitHub.</label></li>
+<li><label><input type="checkbox">I understand the difference between my local repository and the GitHub repository.</label></li>
+</ul>
+</section>
+<section id="quarto" class="level3" data-number="26.2">
+<h3 data-number="26.2" class="anchored" data-anchor-id="quarto"><span class="header-section-number">26.2</span> Quarto</h3>
+<ul class="task-list">
+<li><label><input type="checkbox">I installed R.</label></li>
+<li><label><input type="checkbox">I installed RStudio.</label></li>
+<li><label><input type="checkbox">I installed Quarto.</label></li>
+<li><label><input type="checkbox">I created a Quarto website.</label></li>
+<li><label><input type="checkbox">I can render my website locally.</label></li>
+<li><label><input type="checkbox">My website has a homepage.</label></li>
+<li><label><input type="checkbox">My website has a CV page.</label></li>
+<li><label><input type="checkbox">My website has a Projects page.</label></li>
+<li><label><input type="checkbox">My navigation works.</label></li>
+<li><label><input type="checkbox">My images work.</label></li>
+<li><label><input type="checkbox">My external links work.</label></li>
+</ul>
+</section>
+<section id="github-pages" class="level3" data-number="26.3">
+<h3 data-number="26.3" class="anchored" data-anchor-id="github-pages"><span class="header-section-number">26.3</span> GitHub Pages</h3>
+<ul class="task-list">
+<li><label><input type="checkbox">I committed my website files.</label></li>
+<li><label><input type="checkbox">I pushed my changes to GitHub.</label></li>
+<li><label><input type="checkbox">I published the website using GitHub Pages.</label></li>
+<li><label><input type="checkbox">I can access my website through a public URL.</label></li>
+<li><label><input type="checkbox">My website looks correct when opened in a browser.</label></li>
+</ul>
+</section>
+<section id="professional-content" class="level3" data-number="26.4">
+<h3 data-number="26.4" class="anchored" data-anchor-id="professional-content"><span class="header-section-number">26.4</span> Professional content</h3>
+<ul class="task-list">
+<li><label><input type="checkbox">My name is clearly visible.</label></li>
+<li><label><input type="checkbox">My professional area is clearly stated.</label></li>
+<li><label><input type="checkbox">My CV is available.</label></li>
+<li><label><input type="checkbox">I have included relevant projects.</label></li>
+<li><label><input type="checkbox">I have links to my professional profiles.</label></li>
+<li><label><input type="checkbox">There are no spelling errors.</label></li>
+<li><label><input type="checkbox">The website looks professional.</label></li>
+<li><label><input type="checkbox">I have not published private or sensitive information.</label></li>
+</ul>
+</section>
+</section>
+<section id="part-25-going-further" class="level2" data-number="27">
+<h2 data-number="27" class="anchored" data-anchor-id="part-25-going-further"><span class="header-section-number">27</span> Part 25 — Going Further</h2>
+<p>Once your basic website is working, you can continue improving it.</p>
+<p>Quarto provides many options for customizing websites, including:</p>
+<ul>
+<li>Themes</li>
+<li>Navigation</li>
+<li>Sidebars</li>
+<li>Search</li>
+<li>Images</li>
+<li>Icons</li>
+<li>Custom CSS</li>
+<li>Social links</li>
+<li>GitHub repository links</li>
+<li>Custom domains</li>
+</ul>
+<p>You do <strong>not</strong> need to learn all of these features now.</p>
+<p>The most important objective is to establish the complete workflow:</p>
+<pre class="text"><code>Create
+   ↓
+Edit
+   ↓
+Preview
+   ↓
+Commit
+   ↓
+Push
+   ↓
+Publish
+   ↓
+Share</code></pre>
+<p>Once you understand this workflow, you can gradually make your website more sophisticated.</p>
+</section>
+<section id="final-activity" class="level2" data-number="28">
+<h2 data-number="28" class="anchored" data-anchor-id="final-activity"><span class="header-section-number">28</span> Final Activity</h2>
+<section id="your-challenge" class="level3" data-number="28.1">
+<h3 data-number="28.1" class="anchored" data-anchor-id="your-challenge"><span class="header-section-number">28.1</span> Your challenge</h3>
+<p>Create your own professional personal website using <strong>Quarto and GitHub Pages</strong>.</p>
+<p>Your website must contain:</p>
+<ol type="1">
+<li><p><strong>Homepage</strong></p>
+<ul>
+<li>Your name</li>
+<li>A professional photograph</li>
+<li>A short professional introduction</li>
+<li>Links to at least two professional profiles</li>
+</ul></li>
+<li><p><strong>CV</strong></p>
+<ul>
+<li>Education</li>
+<li>Experience</li>
+<li>Skills</li>
+<li>Other relevant professional information</li>
+</ul></li>
+<li><p><strong>Projects</strong></p>
+<ul>
+<li>At least two projects</li>
+<li>A short description of each project</li>
+<li>A link to the project or its repository</li>
+</ul></li>
+<li><p><strong>Navigation</strong></p>
+<ul>
+<li>Home</li>
+<li>CV</li>
+<li>Projects</li>
+</ul></li>
+<li><p><strong>GitHub</strong></p>
+<ul>
+<li>Your Quarto source files must be stored in a GitHub repository.</li>
+</ul></li>
+<li><p><strong>GitHub Pages</strong></p>
+<ul>
+<li>Your website must be publicly accessible.</li>
+</ul></li>
+</ol>
+</section>
+<section id="final-submission" class="level3" data-number="28.2">
+<h3 data-number="28.2" class="anchored" data-anchor-id="final-submission"><span class="header-section-number">28.2</span> Final submission</h3>
+<p>Submit:</p>
+<p><strong>1. Your website URL</strong></p>
+<pre class="text"><code>https://YOUR-USERNAME.github.io/YOUR-REPOSITORY/</code></pre>
+<p><strong>2. Your GitHub repository URL</strong></p>
+<pre class="text"><code>https://github.com/YOUR-USERNAME/YOUR-REPOSITORY</code></pre>
+</section>
+<section id="the-objective" class="level3" data-number="28.3">
+<h3 data-number="28.3" class="anchored" data-anchor-id="the-objective"><span class="header-section-number">28.3</span> The objective</h3>
+<p>The objective is not to create the most beautiful website.</p>
+<p>The objective is to create a website that is:</p>
+<p><strong>Professional + Simple + Useful + Easy to Maintain</strong></p>
+<p>Your website should be something that you can continue using and improving throughout your university studies and professional career.</p>
+<hr>
+</section>
+</section>
+<section id="references" class="level2" data-number="29">
+<h2 data-number="29" class="anchored" data-anchor-id="references"><span class="header-section-number">29</span> References</h2>
+<ul>
+<li><p><a href="https://quarto.org/docs/websites/">Quarto — Creating a Website</a></p></li>
+<li><p><a href="https://quarto.org/docs/publishing/github-pages.html">Quarto — GitHub Pages</a></p></li>
+<li><p><a href="https://docs.github.com/en/pages">GitHub — GitHub Pages</a></p></li>
+<li><p><a href="https://docs.github.com/en/desktop">GitHub Desktop Documentation</a></p></li>
+<li><p><a href="https://posit.co/download/rstudio-desktop/">RStudio</a></p></li>
+<li><p><a href="https://cran.r-project.org/">R</a></p>
+<p>:::</p></li>
+</ul>
+
+
+</section>
+</div>
+</div>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

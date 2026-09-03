@@ -1,0 +1,2134 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.38">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Alan R. Vazquez">
+
+<title>Tidy Data – IN2039 Data Visualization for Decision Making</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2" crossorigin="anonymous"></script><script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-45431c2918bd31147ddb3fa7038bb99f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="https://cdn.jsdelivr.net/npm/requirejs@2.3.6/require.min.js" integrity="sha384-c9c+LnTbwQ3aujuU7ULEPVvgLs+Fn6fJUvIGTsuu1ZcCf11fiEubah0ttpca4ntM sha384-6V1/AdqZRWk1KAlWbKBlGhN7VG4iE/yAZcO6NZPMF8od0vukrvr0tg4qY6NSrItx" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">
+      IN2039 Data Visualization for Decision Making
+      </li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">IN2039 Data Visualization for Decision Making</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../TEC-IN2039-EN-index.qmd" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Home</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#agenda" id="toc-agenda" class="nav-link active" data-scroll-target="#agenda">Agenda</a></li>
+  <li><a href="#load-the-libraries" id="toc-load-the-libraries" class="nav-link" data-scroll-target="#load-the-libraries">Load the libraries</a></li>
+  <li><a href="#tidy-data" id="toc-tidy-data" class="nav-link" data-scroll-target="#tidy-data">Tidy Data</a>
+  <ul class="collapse">
+  <li><a href="#data-science-workflow" id="toc-data-science-workflow" class="nav-link" data-scroll-target="#data-science-workflow">Data science workflow</a></li>
+  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"></a></li>
+  <li><a href="#section-1" id="toc-section-1" class="nav-link" data-scroll-target="#section-1"></a></li>
+  <li><a href="#why-do-we-need-tidy-data" id="toc-why-do-we-need-tidy-data" class="nav-link" data-scroll-target="#why-do-we-need-tidy-data">Why do we need tidy data?</a></li>
+  <li><a href="#tidy-data-1" id="toc-tidy-data-1" class="nav-link" data-scroll-target="#tidy-data-1">Tidy Data</a></li>
+  <li><a href="#section-2" id="toc-section-2" class="nav-link" data-scroll-target="#section-2"></a></li>
+  <li><a href="#example-1" id="toc-example-1" class="nav-link" data-scroll-target="#example-1">Example 1</a></li>
+  <li><a href="#section-3" id="toc-section-3" class="nav-link" data-scroll-target="#section-3"></a></li>
+  <li><a href="#section-4" id="toc-section-4" class="nav-link" data-scroll-target="#section-4"></a></li>
+  <li><a href="#section-5" id="toc-section-5" class="nav-link" data-scroll-target="#section-5"></a></li>
+  <li><a href="#section-6" id="toc-section-6" class="nav-link" data-scroll-target="#section-6"></a></li>
+  </ul></li>
+  <li><a href="#pandas-for-tidy-data" id="toc-pandas-for-tidy-data" class="nav-link" data-scroll-target="#pandas-for-tidy-data">pandas for Tidy Data</a>
+  <ul class="collapse">
+  <li><a href="#the-role-of-the-pandas-library" id="toc-the-role-of-the-pandas-library" class="nav-link" data-scroll-target="#the-role-of-the-pandas-library">The role of the pandas library</a></li>
+  <li><a href="#common-functions-for-tidy-data" id="toc-common-functions-for-tidy-data" class="nav-link" data-scroll-target="#common-functions-for-tidy-data">Common functions for tidy data</a></li>
+  <li><a href="#example-2" id="toc-example-2" class="nav-link" data-scroll-target="#example-2">Example 2</a></li>
+  <li><a href="#section-7" id="toc-section-7" class="nav-link" data-scroll-target="#section-7"></a></li>
+  <li><a href="#melt" id="toc-melt" class="nav-link" data-scroll-target="#melt"><code>.melt()</code></a></li>
+  <li><a href="#remark-on-column-names" id="toc-remark-on-column-names" class="nav-link" data-scroll-target="#remark-on-column-names">Remark on column names</a></li>
+  <li><a href="#the-long-version-of-the-data" id="toc-the-long-version-of-the-data" class="nav-link" data-scroll-target="#the-long-version-of-the-data">The long version of the data</a></li>
+  <li><a href="#pivot" id="toc-pivot" class="nav-link" data-scroll-target="#pivot"><code>.pivot()</code></a></li>
+  <li><a href="#the-result" id="toc-the-result" class="nav-link" data-scroll-target="#the-result">The result</a></li>
+  <li><a href="#example-3" id="toc-example-3" class="nav-link" data-scroll-target="#example-3">Example 3</a></li>
+  <li><a href="#lets-preview-the-data." id="toc-lets-preview-the-data." class="nav-link" data-scroll-target="#lets-preview-the-data.">Let’s preview the data.</a></li>
+  <li><a href="#str.split" id="toc-str.split" class="nav-link" data-scroll-target="#str.split"><code>.str.split()</code></a></li>
+  <li><a href="#section-8" id="toc-section-8" class="nav-link" data-scroll-target="#section-8"></a></li>
+  <li><a href="#section-9" id="toc-section-9" class="nav-link" data-scroll-target="#section-9"></a></li>
+  <li><a href="#section-10" id="toc-section-10" class="nav-link" data-scroll-target="#section-10"></a></li>
+  <li><a href="#section-11" id="toc-section-11" class="nav-link" data-scroll-target="#section-11"></a></li>
+  <li><a href="#str.cat" id="toc-str.cat" class="nav-link" data-scroll-target="#str.cat"><code>.str.cat()</code></a></li>
+  <li><a href="#remove-columns-with-.drop" id="toc-remove-columns-with-.drop" class="nav-link" data-scroll-target="#remove-columns-with-.drop">Remove columns with <code>.drop()</code></a></li>
+  <li><a href="#section-12" id="toc-section-12" class="nav-link" data-scroll-target="#section-12"></a></li>
+  </ul></li>
+  <li><a href="#basic-data-wrangling" id="toc-basic-data-wrangling" class="nav-link" data-scroll-target="#basic-data-wrangling">Basic data wrangling</a>
+  <ul class="collapse">
+  <li><a href="#data-wrangling" id="toc-data-wrangling" class="nav-link" data-scroll-target="#data-wrangling">Data wrangling</a></li>
+  <li><a href="#remove-duplicate-rows" id="toc-remove-duplicate-rows" class="nav-link" data-scroll-target="#remove-duplicate-rows">Remove duplicate rows</a></li>
+  <li><a href="#section-13" id="toc-section-13" class="nav-link" data-scroll-target="#section-13"></a></li>
+  <li><a href="#fill-blank-cells" id="toc-fill-blank-cells" class="nav-link" data-scroll-target="#fill-blank-cells">Fill blank cells</a></li>
+  <li><a href="#section-14" id="toc-section-14" class="nav-link" data-scroll-target="#section-14"></a></li>
+  <li><a href="#section-15" id="toc-section-15" class="nav-link" data-scroll-target="#section-15"></a></li>
+  <li><a href="#replace-values" id="toc-replace-values" class="nav-link" data-scroll-target="#replace-values">Replace values</a></li>
+  <li><a href="#section-16" id="toc-section-16" class="nav-link" data-scroll-target="#section-16"></a></li>
+  <li><a href="#section-17" id="toc-section-17" class="nav-link" data-scroll-target="#section-17"></a></li>
+  <li><a href="#remove-characters" id="toc-remove-characters" class="nav-link" data-scroll-target="#remove-characters">Remove characters</a></li>
+  <li><a href="#section-18" id="toc-section-18" class="nav-link" data-scroll-target="#section-18"></a></li>
+  <li><a href="#section-19" id="toc-section-19" class="nav-link" data-scroll-target="#section-19"></a></li>
+  <li><a href="#transform-text-case" id="toc-transform-text-case" class="nav-link" data-scroll-target="#transform-text-case">Transform text case</a></li>
+  <li><a href="#remove-extra-spaces" id="toc-remove-extra-spaces" class="nav-link" data-scroll-target="#remove-extra-spaces">Remove extra spaces</a></li>
+  <li><a href="#change-to-lowercase-letters" id="toc-change-to-lowercase-letters" class="nav-link" data-scroll-target="#change-to-lowercase-letters">Change to lowercase letters</a></li>
+  <li><a href="#change-to-uppercase-letters" id="toc-change-to-uppercase-letters" class="nav-link" data-scroll-target="#change-to-uppercase-letters">Change to uppercase letters</a></li>
+  <li><a href="#capitalize-the-first-letter" id="toc-capitalize-the-first-letter" class="nav-link" data-scroll-target="#capitalize-the-first-letter">Capitalize the first letter</a></li>
+  <li><a href="#more-functions-of-pandas" id="toc-more-functions-of-pandas" class="nav-link" data-scroll-target="#more-functions-of-pandas">More functions of pandas</a></li>
+  </ul></li>
+  <li><a href="#return-to-main-page" id="toc-return-to-main-page" class="nav-link" data-scroll-target="#return-to-main-page">Return to main page</a></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="TidyData.slides.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Tidy Data</h1>
+<p class="subtitle lead">IN2039: Data Visualization for Decision Making</p>
+</div>
+
+
+<div class="quarto-title-meta-author">
+  <div class="quarto-title-meta-heading">Author</div>
+  <div class="quarto-title-meta-heading">Affiliation</div>
+  
+    <div class="quarto-title-meta-contents">
+    <p class="author">Alan R. Vazquez </p>
+  </div>
+  <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            Department of Industrial Engineering
+          </p>
+      </div>
+  </div>
+
+<div class="quarto-title-meta">
+
+      
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="agenda" class="level3">
+<h3 class="anchored" data-anchor-id="agenda">Agenda</h3>
+<p><br></p>
+<ol type="1">
+<li>Tidy Data</li>
+<li><strong>pandas</strong> for Tidy data</li>
+<li>Data Wrangling</li>
+</ol>
+</section>
+<section id="load-the-libraries" class="level3">
+<h3 class="anchored" data-anchor-id="load-the-libraries">Load the libraries</h3>
+<p><br><br><br></p>
+<p>Remember to load the Python libraries into Google Colab before we start:</p>
+<div id="c0788a22" class="cell" data-execution_count="1">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="tidy-data" class="level2">
+<h2 class="anchored" data-anchor-id="tidy-data">Tidy Data</h2>
+<section id="data-science-workflow" class="level3">
+<h3 class="anchored" data-anchor-id="data-science-workflow">Data science workflow</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/data-science-workflow.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<ul>
+<li>Every data science project involves <span style="color:darkblue;"><strong>importing</strong></span>, <span style="color:darkblue;"><strong>tidying</strong></span>, <span style="color:darkblue;"><strong>transforming</strong></span>, <span style="color:darkblue;"><strong>visualizing</strong></span>, <span style="color:darkblue;"><strong>modeling</strong></span>, and <span style="color:darkblue;"><strong>communicating</strong></span> data.</li>
+</ul>
+</section>
+<section id="section" class="level3">
+<h3 class="anchored" data-anchor-id="section"></h3>
+<p><br><br></p>
+<ol type="1">
+<li><span style="color:darkblue;"><strong>Import:</strong></span> Bring raw data into Python.</li>
+<li><span style="color:darkblue;"><strong>Tidy:</strong></span> Reshape into a consistent format.</li>
+<li><span style="color:darkblue;"><strong>Transform:</strong></span> Create new variables and summaries.</li>
+<li><span style="color:darkblue;"><strong>Visualize:</strong></span> Explore patterns visually.</li>
+<li><span style="color:darkblue;"><strong>Model:</strong></span> Fit statistical or machine learning models.</li>
+<li><span style="color:darkblue;"><strong>Communicate:</strong></span> Share insights clearly.</li>
+</ol>
+</section>
+<section id="section-1" class="level3">
+<h3 class="anchored" data-anchor-id="section-1"></h3>
+<p><br><br></p>
+<ol type="1">
+<li><span style="color:darkblue;"><strong>Import:</strong></span> Bring raw data into Python. (<strong>pandas</strong>)</li>
+<li><span style="color:darkblue;"><strong>Tidy:</strong></span> Reshape into a consistent format. (<strong>pandas</strong>)</li>
+<li><span style="color:darkblue;"><strong>Transform:</strong></span> Create new variables and summaries. (<strong>pandas</strong>)</li>
+<li><span style="color:darkblue;"><strong>Visualize:</strong></span> Explore patterns visually.</li>
+<li><span style="color:darkblue;"><strong>Model:</strong></span> Fit statistical or machine learning models.</li>
+<li><span style="color:darkblue;"><strong>Communicate:</strong></span> Share insights clearly.</li>
+</ol>
+</section>
+<section id="why-do-we-need-tidy-data" class="level3">
+<h3 class="anchored" data-anchor-id="why-do-we-need-tidy-data">Why do we need tidy data?</h3>
+<blockquote class="blockquote">
+<p>“Tidy datasets are easy to manipulate, model, and visualize.” — <em>Hadley Wickham</em></p>
+</blockquote>
+<p><br></p>
+<div class="incremental">
+<ul class="incremental">
+<li>Tidy data make Python tools work together smoothly.</li>
+<li>Each tidy dataset is like a well-organized spreadsheet.</li>
+<li>Making your data tidy allows you to avoid common errors that occurred in the data analysis.</li>
+<li>The <strong>pandas</strong> package has functions to make your data <em>tidy</em>.</li>
+</ul>
+</div>
+</section>
+<section id="tidy-data-1" class="level3">
+<h3 class="anchored" data-anchor-id="tidy-data-1">Tidy Data</h3>
+<p><br></p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>In tidy data:</p>
+<ul>
+<li>Each variable is in a column</li>
+<li>Each observation is in a row</li>
+<li>Each cell is a single measurement.</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/example_tidy_data.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="section-2" class="level3">
+<h3 class="anchored" data-anchor-id="section-2"></h3>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/tidydata_2.jpg" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<div style="font-size: 50%;">
+<p><a href="https://openscapes.org/blog/2020-10-12-tidy-data/" class="uri">https://openscapes.org/blog/2020-10-12-tidy-data/</a></p>
+</div>
+</section>
+<section id="example-1" class="level3">
+<h3 class="anchored" data-anchor-id="example-1">Example 1</h3>
+<div style="font-size: 90%;">
+<p>Consider four datasets with the same values of four variables <code>country</code>, <code>year</code>, <code>population</code>, and <code>cases</code>. First, this is <em>tidy</em> version.</p>
+</div>
+<div id="a7463b24" class="cell" data-execution_count="3">
+<div class="cell-output cell-output-display" data-execution_count="3">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">country</th>
+<th data-quarto-table-cell-role="th">year</th>
+<th data-quarto-table-cell-role="th">cases</th>
+<th data-quarto-table-cell-role="th">population</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">0</th>
+<td>Afghanistan</td>
+<td>1999</td>
+<td>745</td>
+<td>19987071</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">1</th>
+<td>Afghanistan</td>
+<td>2000</td>
+<td>2666</td>
+<td>20595360</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">2</th>
+<td>Brazil</td>
+<td>1999</td>
+<td>37737</td>
+<td>172006362</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">3</th>
+<td>Brazil</td>
+<td>2000</td>
+<td>80488</td>
+<td>174504898</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">4</th>
+<td>China</td>
+<td>1999</td>
+<td>212258</td>
+<td>1272915272</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">5</th>
+<td>China</td>
+<td>2000</td>
+<td>213766</td>
+<td>1280428583</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
+<section id="section-3" class="level3">
+<h3 class="anchored" data-anchor-id="section-3"></h3>
+<p><br></p>
+<p>This is <em>tidy</em> data because each variable is in a column , each observation is in a row, and each cell is a single measurement.</p>
+<div id="cddf584c" class="cell" data-execution_count="4">
+<div class="cell-output cell-output-display" data-execution_count="4">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">country</th>
+<th data-quarto-table-cell-role="th">year</th>
+<th data-quarto-table-cell-role="th">cases</th>
+<th data-quarto-table-cell-role="th">population</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">0</th>
+<td>Afghanistan</td>
+<td>1999</td>
+<td>745</td>
+<td>19987071</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">1</th>
+<td>Afghanistan</td>
+<td>2000</td>
+<td>2666</td>
+<td>20595360</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">2</th>
+<td>Brazil</td>
+<td>1999</td>
+<td>37737</td>
+<td>172006362</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">3</th>
+<td>Brazil</td>
+<td>2000</td>
+<td>80488</td>
+<td>174504898</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">4</th>
+<td>China</td>
+<td>1999</td>
+<td>212258</td>
+<td>1272915272</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">5</th>
+<td>China</td>
+<td>2000</td>
+<td>213766</td>
+<td>1280428583</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
+<section id="section-4" class="level3">
+<h3 class="anchored" data-anchor-id="section-4"></h3>
+<p>Consider another version:</p>
+<div id="17c9d50c" class="cell" data-execution_count="5">
+<div class="cell-output cell-output-display" data-execution_count="5">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">country</th>
+<th data-quarto-table-cell-role="th">year</th>
+<th data-quarto-table-cell-role="th">type</th>
+<th data-quarto-table-cell-role="th">count</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">0</th>
+<td>Afghanistan</td>
+<td>1999</td>
+<td>cases</td>
+<td>745</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">1</th>
+<td>Afghanistan</td>
+<td>1999</td>
+<td>population</td>
+<td>19987071</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">2</th>
+<td>Afghanistan</td>
+<td>2000</td>
+<td>cases</td>
+<td>2666</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">3</th>
+<td>Afghanistan</td>
+<td>2000</td>
+<td>population</td>
+<td>20595360</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">4</th>
+<td>Brazil</td>
+<td>1999</td>
+<td>cases</td>
+<td>37737</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">5</th>
+<td>Brazil</td>
+<td>1999</td>
+<td>population</td>
+<td>172006362</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p><span style="color:purple;">Not <em>tidy</em> because the last column is a summary statistic (<code>count</code>) of two variables.</span></p>
+</section>
+<section id="section-5" class="level3">
+<h3 class="anchored" data-anchor-id="section-5"></h3>
+<p>Consider another version:</p>
+<div id="1a29b454" class="cell" data-execution_count="6">
+<div class="cell-output cell-output-display" data-execution_count="6">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">country</th>
+<th data-quarto-table-cell-role="th">year</th>
+<th data-quarto-table-cell-role="th">rate</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">0</th>
+<td>Afghanistan</td>
+<td>1999</td>
+<td>745/19987071</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">1</th>
+<td>Afghanistan</td>
+<td>2000</td>
+<td>2666/20595360</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">2</th>
+<td>Brazil</td>
+<td>1999</td>
+<td>37737/172006362</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">3</th>
+<td>Brazil</td>
+<td>2000</td>
+<td>80488/174504898</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">4</th>
+<td>China</td>
+<td>1999</td>
+<td>212258/1272915272</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">5</th>
+<td>China</td>
+<td>2000</td>
+<td>213766/1280428583</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p><span style="color:purple;">Not <em>tidy</em> because the last column is a summary statistic (<code>rate</code>) of two variables, or there are two measurements involved in this column.</span></p>
+</section>
+<section id="section-6" class="level3">
+<h3 class="anchored" data-anchor-id="section-6"></h3>
+<p>Consider one last version involving two datasets.</p>
+<div id="bc586c41" class="cell" data-execution_count="7">
+<div class="cell-output cell-output-display" data-execution_count="7">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">country</th>
+<th data-quarto-table-cell-role="th">1999</th>
+<th data-quarto-table-cell-role="th">2000</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">0</th>
+<td>Afghanistan</td>
+<td>745</td>
+<td>2666</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">1</th>
+<td>Brazil</td>
+<td>37737</td>
+<td>80488</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">2</th>
+<td>China</td>
+<td>212258</td>
+<td>213766</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div id="a9ca066b" class="cell" data-execution_count="8">
+<div class="cell-output cell-output-display" data-execution_count="8">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">country</th>
+<th data-quarto-table-cell-role="th">1999</th>
+<th data-quarto-table-cell-role="th">2000</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">0</th>
+<td>Afghanistan</td>
+<td>19987071</td>
+<td>20595360</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">1</th>
+<td>Brazil</td>
+<td>172006362</td>
+<td>174504898</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">2</th>
+<td>China</td>
+<td>1272915272</td>
+<td>1280428583</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p><span style="color:purple;">Not <em>tidy</em> data!</span></p>
+</section>
+</section>
+<section id="pandas-for-tidy-data" class="level2">
+<h2 class="anchored" data-anchor-id="pandas-for-tidy-data">pandas for Tidy Data</h2>
+<section id="the-role-of-the-pandas-library" class="level3">
+<h3 class="anchored" data-anchor-id="the-role-of-the-pandas-library">The role of the pandas library</h3>
+<p><br></p>
+<div class="incremental">
+<ul class="incremental">
+<li><strong>pandas</strong> provides functions to manipulate both the structure and the contents of a dataset.<br>
+</li>
+<li>It includes tools for filtering, reshaping, cleaning, and combining data.<br>
+</li>
+<li>Together with visualization and machine learning libraries, <strong>pandas</strong> prepares your data for analysis.</li>
+</ul>
+</div>
+</section>
+<section id="common-functions-for-tidy-data" class="level3">
+<h3 class="anchored" data-anchor-id="common-functions-for-tidy-data">Common functions for tidy data</h3>
+<p>The <strong>pandas</strong> library provides several functions for reshaping, organizing, and completing datasets.</p>
+<p><br></p>
+<p>Here, we will discuss some of the most common ones:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Purpose</th>
+<th style="text-align: left;">Function 1</th>
+<th style="text-align: left;">Function 2</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Pivoting</strong></td>
+<td style="text-align: left;"><code>melt()</code></td>
+<td style="text-align: left;"><code>pivot()</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Splitting / Combining</strong></td>
+<td style="text-align: left;"><code>str.split()</code></td>
+<td style="text-align: left;"><code>str.cat()</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Missing values</strong></td>
+<td style="text-align: left;"><code>fillna()</code></td>
+<td style="text-align: left;"><code>dropna()</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Combining tables</strong></td>
+<td style="text-align: left;"><code>merge()</code></td>
+<td style="text-align: left;"><code>concat()</code></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="example-2" class="level3">
+<h3 class="anchored" data-anchor-id="example-2">Example 2</h3>
+<p><br></p>
+<p>Consider the data in the file “spotify.xlsx”. This dataset contains the global daily plays of the five most popular songs on the Spotify music streaming service in 2017.</p>
+<p><br></p>
+<p>Let’s read the dataset using the <code>.read_excel()</code> function from the <strong>pandas</strong> library.</p>
+<div id="212c746a" class="cell" data-execution_count="9">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>spotify_data <span class="op">=</span> pd.read_excel(<span class="st">"spotify.xlsx"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="section-7" class="level3">
+<h3 class="anchored" data-anchor-id="section-7"></h3>
+<p>Let’s preview the dataset.</p>
+<div id="0e917e36" class="cell" data-execution_count="10">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>spotify_data.head(<span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="10">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Date</th>
+<th data-quarto-table-cell-role="th">Day</th>
+<th data-quarto-table-cell-role="th">Shape of You</th>
+<th data-quarto-table-cell-role="th">Despacito</th>
+<th data-quarto-table-cell-role="th">Something Just Like This</th>
+<th data-quarto-table-cell-role="th">HUMBLE.</th>
+<th data-quarto-table-cell-role="th">Unforgettable</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">0</th>
+<td>2017-01-06</td>
+<td>1</td>
+<td>12287078</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">1</th>
+<td>2017-01-07</td>
+<td>2</td>
+<td>13190270</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">2</th>
+<td>2017-01-08</td>
+<td>3</td>
+<td>13099919</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
+<section id="melt" class="level3">
+<h3 class="anchored" data-anchor-id="melt"><code>.melt()</code></h3>
+<p>A common problem is a dataset where some of the column names are not names of variables, but <em>values</em> of a variable.</p>
+<p>The <code>.melt()</code> function transforms columns into rows (converts data from <strong>wide</strong> to <strong>long</strong> format). Let’s apply it to <code>spotify_data</code>.</p>
+<div id="fb8da802" class="cell" data-execution_count="11">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>spotify_long <span class="op">=</span> (spotify_data</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>                .melt(id_vars<span class="op">=</span>[<span class="st">"Date"</span>],</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>                value_vars<span class="op">=</span>[<span class="st">"Shape of You"</span>, <span class="st">"Despacito"</span>, </span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>                <span class="st">"Something Just Like This"</span>, <span class="st">"HUMBLE."</span>, <span class="st">"Unforgettable"</span>],</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>                var_name<span class="op">=</span><span class="st">"Song"</span>,</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>                value_name<span class="op">=</span><span class="st">"Plays"</span>)</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>                )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="remark-on-column-names" class="level3">
+<h3 class="anchored" data-anchor-id="remark-on-column-names">Remark on column names</h3>
+<p><br><br></p>
+<p>Python allows column names to contain spaces and special characters because they are stored as <strong>strings</strong>.</p>
+<p>For example, columns such as <code>"Shape of You"</code> or <code>"Something Just Like This"</code> can be referenced directly inside quotation marks.</p>
+<blockquote class="blockquote">
+<p>When using <strong>pandas</strong>, column names are almost always written as strings enclosed in quotation marks.</p>
+</blockquote>
+</section>
+<section id="the-long-version-of-the-data" class="level3">
+<h3 class="anchored" data-anchor-id="the-long-version-of-the-data">The long version of the data</h3>
+<ul>
+<li>A <code>Song</code> column with the names of the songs.</li>
+<li>A <code>Plays</code> column with the number of plays for each song and date.</li>
+</ul>
+<div id="9b4aa8b2" class="cell" data-execution_count="12">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>spotify_long.head(<span class="dv">4</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="12">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Date</th>
+<th data-quarto-table-cell-role="th">Song</th>
+<th data-quarto-table-cell-role="th">Plays</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">0</th>
+<td>2017-01-06</td>
+<td>Shape of You</td>
+<td>12287078.0</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">1</th>
+<td>2017-01-07</td>
+<td>Shape of You</td>
+<td>13190270.0</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">2</th>
+<td>2017-01-08</td>
+<td>Shape of You</td>
+<td>13099919.0</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">3</th>
+<td>2017-01-09</td>
+<td>Shape of You</td>
+<td>14506351.0</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
+<section id="pivot" class="level3">
+<h3 class="anchored" data-anchor-id="pivot"><code>.pivot()</code></h3>
+<p><br><br></p>
+<p>The <code>.pivot()</code> function is the opposite of <code>melt()</code>. We use it when an observation is scattered across multiple rows and we want to convert the dataset back to a <em>wide</em> format.</p>
+<p><br></p>
+<div id="ed22f1d4" class="cell" data-execution_count="13">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>spotify_wide <span class="op">=</span> (spotify_long</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>                .pivot(index<span class="op">=</span><span class="st">"Date"</span>, columns<span class="op">=</span><span class="st">"Song"</span>, values<span class="op">=</span><span class="st">"Plays"</span>)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>                .reset_index()</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>                )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="the-result" class="level3">
+<h3 class="anchored" data-anchor-id="the-result">The result</h3>
+<div id="c91e7ed9" class="cell" data-execution_count="14">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>spotify_wide.head()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="14">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th">Song</th>
+<th data-quarto-table-cell-role="th">Date</th>
+<th data-quarto-table-cell-role="th">Despacito</th>
+<th data-quarto-table-cell-role="th">HUMBLE.</th>
+<th data-quarto-table-cell-role="th">Shape of You</th>
+<th data-quarto-table-cell-role="th">Something Just Like This</th>
+<th data-quarto-table-cell-role="th">Unforgettable</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">0</th>
+<td>2017-01-06</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>12287078.0</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">1</th>
+<td>2017-01-07</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>13190270.0</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">2</th>
+<td>2017-01-08</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>13099919.0</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">3</th>
+<td>2017-01-09</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>14506351.0</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">4</th>
+<td>2017-01-10</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>14275628.0</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
+<section id="example-3" class="level3">
+<h3 class="anchored" data-anchor-id="example-3">Example 3</h3>
+<p><br></p>
+<p>Consider an industrial engineer who receives a messy Excel file from a manufacturing client. The data file is called “industrial_dataset.xlsx”, which file includes data about machine maintenance logs, production output, and operator comments.</p>
+<div id="b06dcdb4" class="cell" data-execution_count="15">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>industrial_data <span class="op">=</span> pd.read_excel(<span class="st">"industrial_dataset.xlsx"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p><br></p>
+<p>We use this dataset to illustrate the functions <code>.str.split()</code> and <code>.str.cat()</code>.</p>
+</section>
+<section id="lets-preview-the-data." class="level3">
+<h3 class="anchored" data-anchor-id="lets-preview-the-data.">Let’s preview the data.</h3>
+<div id="7d715a6e" class="cell" data-execution_count="16">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>industrial_data.head()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="16">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Machine ID</th>
+<th data-quarto-table-cell-role="th">Output (units)</th>
+<th data-quarto-table-cell-role="th">Maintenance Date</th>
+<th data-quarto-table-cell-role="th">Operator</th>
+<th data-quarto-table-cell-role="th">Comment</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">0</th>
+<td>101</td>
+<td>1200</td>
+<td>2023-01-10</td>
+<td>Ana</td>
+<td>ok</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">1</th>
+<td>101</td>
+<td>1200</td>
+<td>2023-01-10</td>
+<td>Ana</td>
+<td>ok</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">2</th>
+<td>102</td>
+<td>1050</td>
+<td>2023-01-12</td>
+<td>Bob</td>
+<td>Needs oil!</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">3</th>
+<td>103</td>
+<td>error</td>
+<td>2023-01-13</td>
+<td>Charlie</td>
+<td>All good\n</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">4</th>
+<td>103</td>
+<td>950</td>
+<td>2023-01-13</td>
+<td>Charlie</td>
+<td>All good\n</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
+<section id="str.split" class="level3">
+<h3 class="anchored" data-anchor-id="str.split"><code>.str.split()</code></h3>
+<p>The <code>.str.split()</code> function separates the contents of one column into multiple columns by splitting the text wherever a separator appears. Consider the <code>Comment</code> column.</p>
+<div id="284d8ea5" class="cell" data-execution_count="17">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>industrial_data[<span class="st">'Comment'</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="17">
+<pre><code>0                       ok
+1                       ok
+2               Needs oil!
+3               All good\n
+4               All good\n
+              ...         
+95    Requires part: valve
+96                      ok
+97    Delay: maintenance\n
+98              Needs oil!
+99              All good\n
+Name: Comment, Length: 100, dtype: object</code></pre>
+</div>
+</div>
+</section>
+<section id="section-8" class="level3">
+<h3 class="anchored" data-anchor-id="section-8"></h3>
+<p><br></p>
+<p>The column has some values such as “Requires part: valve” and “Delay: maintenance” that we may want to split into columns.</p>
+<div id="fcd819d4" class="cell" data-execution_count="18">
+<div class="cell-output cell-output-display" data-execution_count="18">
+<pre><code>0                       ok
+1                       ok
+2               Needs oil!
+3               All good\n
+4               All good\n
+              ...         
+95    Requires part: valve
+96                      ok
+97    Delay: maintenance\n
+98              Needs oil!
+99              All good\n
+Name: Comment, Length: 100, dtype: object</code></pre>
+</div>
+</div>
+</section>
+<section id="section-9" class="level3">
+<h3 class="anchored" data-anchor-id="section-9"></h3>
+<p>We can split the values in the column according to “:”.</p>
+<p><br></p>
+<p>That is, everything before the colon will be in a column. Everything after the colon will be in another column. To achieve this, we use the function <code>.str.split()</code>.</p>
+<p><br></p>
+<p>One input of the function is the symbol or character for which we cant to make a split. The other input, <code>expand = True</code> tells Python that we want to create new columns.</p>
+<div id="b5084164" class="cell" data-execution_count="19">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>industrial_data[<span class="st">'Comment'</span>].<span class="bu">str</span>.split(<span class="st">':'</span>, expand <span class="op">=</span> <span class="va">True</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="section-10" class="level3">
+<h3 class="anchored" data-anchor-id="section-10"></h3>
+<p><br><br></p>
+<p>The result is two columns.</p>
+<div id="7e7cfbf7" class="cell" data-execution_count="20">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>split_column <span class="op">=</span> industrial_data[<span class="st">'Comment'</span>].<span class="bu">str</span>.split(<span class="st">':'</span>, expand <span class="op">=</span> <span class="va">True</span>)</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>split_column.head()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="20">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">0</th>
+<th data-quarto-table-cell-role="th">1</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">0</th>
+<td>ok</td>
+<td>None</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">1</th>
+<td>ok</td>
+<td>None</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">2</th>
+<td>Needs oil!</td>
+<td>None</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">3</th>
+<td>All good\n</td>
+<td>None</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">4</th>
+<td>All good\n</td>
+<td>None</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
+<section id="section-11" class="level3">
+<h3 class="anchored" data-anchor-id="section-11"></h3>
+<p>We can assign them to new columns in the dataset using the following code.</p>
+<div id="6a07c3ef" class="cell" data-execution_count="21">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>augmented_data <span class="op">=</span> (industrial_data</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>                  .assign(First_comment <span class="op">=</span> split_column.<span class="bu">filter</span>([<span class="dv">0</span>]),</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>                  Second_comment <span class="op">=</span> split_column.<span class="bu">filter</span>([<span class="dv">1</span>]))</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>                  )</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>augmented_data.head(<span class="dv">4</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="21">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Machine ID</th>
+<th data-quarto-table-cell-role="th">Output (units)</th>
+<th data-quarto-table-cell-role="th">Maintenance Date</th>
+<th data-quarto-table-cell-role="th">Operator</th>
+<th data-quarto-table-cell-role="th">Comment</th>
+<th data-quarto-table-cell-role="th">First_comment</th>
+<th data-quarto-table-cell-role="th">Second_comment</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">0</th>
+<td>101</td>
+<td>1200</td>
+<td>2023-01-10</td>
+<td>Ana</td>
+<td>ok</td>
+<td>ok</td>
+<td>None</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">1</th>
+<td>101</td>
+<td>1200</td>
+<td>2023-01-10</td>
+<td>Ana</td>
+<td>ok</td>
+<td>ok</td>
+<td>None</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">2</th>
+<td>102</td>
+<td>1050</td>
+<td>2023-01-12</td>
+<td>Bob</td>
+<td>Needs oil!</td>
+<td>Needs oil!</td>
+<td>None</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">3</th>
+<td>103</td>
+<td>error</td>
+<td>2023-01-13</td>
+<td>Charlie</td>
+<td>All good\n</td>
+<td>All good\n</td>
+<td>None</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
+<section id="str.cat" class="level3">
+<h3 class="anchored" data-anchor-id="str.cat"><code>.str.cat()</code></h3>
+<p><br><br></p>
+<p>The <code>.str.cat()</code> function performs the opposite operation. It combines multiple text columns into a single column.</p>
+<div id="18c5ec76" class="cell" data-execution_count="22">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>combined_column <span class="op">=</span> (augmented_data[<span class="st">"First_comment"</span>]</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>                  .<span class="bu">str</span>.cat(augmented_data[<span class="st">"Second_comment"</span>], sep<span class="op">=</span><span class="st">": "</span>)</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>                  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>The first object is the column that starts the concatenation, and the remaining columns are added using <code>str.cat()</code>.</p>
+</section>
+<section id="remove-columns-with-.drop" class="level3">
+<h3 class="anchored" data-anchor-id="remove-columns-with-.drop">Remove columns with <code>.drop()</code></h3>
+<p><br><br></p>
+<p>Next, we add the new column to the original dataset and remove the other columns <code>First_comment</code> and <code>Second_comment</code> using the function <code>.drop()</code> from <strong>pandas</strong>.</p>
+<div id="e8dabb8b" class="cell" data-execution_count="23">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>combined_data <span class="op">=</span> (augmented_data</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>                .assign(Comment <span class="op">=</span> combined_column)</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>                .drop([<span class="st">"First_comment"</span>, <span class="st">"Second_comment"</span>], axis <span class="op">=</span> <span class="dv">1</span>)</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>                )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="section-12" class="level3">
+<h3 class="anchored" data-anchor-id="section-12"></h3>
+<p><br><br></p>
+<p>The result is in the <code>combined_data</code> dataframe.</p>
+<div id="23c6412c" class="cell" data-execution_count="24">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>combined_data[<span class="st">"Comment"</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="24">
+<pre><code>0                       NaN
+1                       NaN
+2                       NaN
+3                       NaN
+4                       NaN
+              ...          
+95    Requires part:  valve
+96                      NaN
+97    Delay:  maintenance\n
+98                      NaN
+99                      NaN
+Name: Comment, Length: 100, dtype: object</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="basic-data-wrangling" class="level2">
+<h2 class="anchored" data-anchor-id="basic-data-wrangling">Basic data wrangling</h2>
+<section id="data-wrangling" class="level3">
+<h3 class="anchored" data-anchor-id="data-wrangling">Data wrangling</h3>
+<p><br></p>
+<ul>
+<li><p>Data wrangling is the process of transforming raw data into a clean and structured format.</p></li>
+<li><p>It involves merging, reshaping, filtering, and organizing data for analysis.</p></li>
+<li><p>Here, we illustrate some special functions of the <strong>pandas</strong> for cleaning common issues with a dataset.</p></li>
+</ul>
+</section>
+<section id="remove-duplicate-rows" class="level3">
+<h3 class="anchored" data-anchor-id="remove-duplicate-rows">Remove duplicate rows</h3>
+<p><br><br></p>
+<p>Duplicate or identical rows are rows that have the same entries in every column in the dataset.</p>
+<p>If only one row is needed for the analysis, we can remove the duplicates using the <code>.drop_duplicates()</code> function.</p>
+<div id="3d071c56" class="cell" data-execution_count="25">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>industrial_data_single <span class="op">=</span> (industrial_data</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>                     .drop_duplicates()</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>                      )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="section-13" class="level3">
+<h3 class="anchored" data-anchor-id="section-13"></h3>
+<p>The <code>industrial_data_single</code> does not have duplicate rows.</p>
+<div id="2544ff52" class="cell" data-execution_count="26">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>industrial_data_single.head()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="26">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Machine ID</th>
+<th data-quarto-table-cell-role="th">Output (units)</th>
+<th data-quarto-table-cell-role="th">Maintenance Date</th>
+<th data-quarto-table-cell-role="th">Operator</th>
+<th data-quarto-table-cell-role="th">Comment</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">0</th>
+<td>101</td>
+<td>1200</td>
+<td>2023-01-10</td>
+<td>Ana</td>
+<td>ok</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">1</th>
+<td>101</td>
+<td>1200</td>
+<td>2023-01-10</td>
+<td>Ana</td>
+<td>ok</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">2</th>
+<td>102</td>
+<td>1050</td>
+<td>2023-01-12</td>
+<td>Bob</td>
+<td>Needs oil!</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">3</th>
+<td>103</td>
+<td>error</td>
+<td>2023-01-13</td>
+<td>Charlie</td>
+<td>All good\n</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">4</th>
+<td>103</td>
+<td>950</td>
+<td>2023-01-13</td>
+<td>Charlie</td>
+<td>All good\n</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
+<section id="fill-blank-cells" class="level3">
+<h3 class="anchored" data-anchor-id="fill-blank-cells">Fill blank cells</h3>
+<div class="columns">
+<div class="column" style="width:70%;">
+<p>Sometimes there are columns with missing values. <span style="color:purple;">In Python, missing values are denoted by <code>NaN</code> (<em>Not a Number</em>).</span></p>
+<p>If we would like to fill them with a value or text, we use the <code>.fillna()</code> function. In this function, we use the syntaxis <code>'Variable': 'Replace'</code>, where the <code>Variable</code> is the column in the dataset and <code>Replace</code> is the text or number to fill the entry in.</p>
+</div><div class="column" style="width:30%;">
+<div id="69aa45aa" class="cell" data-execution_count="27">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>industrial_data_single[<span class="st">'Operator'</span>].head(<span class="dv">10</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="27">
+<pre><code>0       Ana 
+1        Ana
+2        Bob
+3    Charlie
+4    Charlie
+5        NaN
+6       DAVE
+7       dave
+8    Charlie
+9    Charlie
+Name: Operator, dtype: object</code></pre>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="section-14" class="level3">
+<h3 class="anchored" data-anchor-id="section-14"></h3>
+<p><br><br><br></p>
+<p>Let’s fill in the missing entries of the columns <code>Operator</code>, <code>Maintenance Date</code>, and <code>Comment</code>.</p>
+<div id="66ed6a68" class="cell" data-execution_count="28">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>complete_data <span class="op">=</span> (industrial_data_single</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>                .fillna({<span class="st">'Operator'</span>: <span class="st">'Unknown'</span>, </span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>                <span class="st">'Maintenance Date'</span>: <span class="st">'2023-01-01'</span>,</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>                <span class="st">'Comment'</span>: <span class="st">'None'</span>})</span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>                ) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="section-15" class="level3">
+<h3 class="anchored" data-anchor-id="section-15"></h3>
+<div id="be7ff164" class="cell" data-execution_count="29">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>complete_data.head()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="29">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Machine ID</th>
+<th data-quarto-table-cell-role="th">Output (units)</th>
+<th data-quarto-table-cell-role="th">Maintenance Date</th>
+<th data-quarto-table-cell-role="th">Operator</th>
+<th data-quarto-table-cell-role="th">Comment</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">0</th>
+<td>101</td>
+<td>1200</td>
+<td>2023-01-10</td>
+<td>Ana</td>
+<td>ok</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">1</th>
+<td>101</td>
+<td>1200</td>
+<td>2023-01-10</td>
+<td>Ana</td>
+<td>ok</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">2</th>
+<td>102</td>
+<td>1050</td>
+<td>2023-01-12</td>
+<td>Bob</td>
+<td>Needs oil!</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">3</th>
+<td>103</td>
+<td>error</td>
+<td>2023-01-13</td>
+<td>Charlie</td>
+<td>All good\n</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">4</th>
+<td>103</td>
+<td>950</td>
+<td>2023-01-13</td>
+<td>Charlie</td>
+<td>All good\n</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
+<section id="replace-values" class="level3">
+<h3 class="anchored" data-anchor-id="replace-values">Replace values</h3>
+<p><br></p>
+<p>There are some cases in which columns have some undesired or unwatned values. Consider the <code>Output (units)</code> as an example.</p>
+<div id="4f87f470" class="cell" data-execution_count="30">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>complete_data[<span class="st">'Output (units)'</span>].head()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="30">
+<pre><code>0     1200
+1     1200
+2     1050
+3    error
+4      950
+Name: Output (units), dtype: object</code></pre>
+</div>
+</div>
+<p>The column has the numbers of units but also text such as “error”.</p>
+</section>
+<section id="section-16" class="level3">
+<h3 class="anchored" data-anchor-id="section-16"></h3>
+<p><br></p>
+<p>We can replace the “error” in this column by a user-specified value, say, <code>NaN</code>. To this end, we use the function <code>.replace()</code>. The function has two inputs. The first one is the value to replace and the second one is the replacement value.</p>
+<p><br></p>
+<div id="10f2a600" class="cell" data-execution_count="31">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>complete_data[<span class="st">'Output (units)'</span>] <span class="op">=</span> complete_data[<span class="st">'Output (units)'</span>].replace(<span class="st">'error'</span>, <span class="bu">float</span>(<span class="st">'nan'</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p><br></p>
+<blockquote class="blockquote">
+<p>The <code>float('nan')</code> allows the column to be numeric.</p>
+</blockquote>
+</section>
+<section id="section-17" class="level3">
+<h3 class="anchored" data-anchor-id="section-17"></h3>
+<p><br></p>
+<p>Let’s check the new column’s information.</p>
+<div id="1a5aee14" class="cell" data-execution_count="32">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>complete_data[<span class="st">'Output (units)'</span>].info()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;class 'pandas.core.series.Series'&gt;
+RangeIndex: 100 entries, 0 to 99
+Series name: Output (units)
+Non-Null Count  Dtype  
+--------------  -----  
+84 non-null     float64
+dtypes: float64(1)
+memory usage: 928.0 bytes</code></pre>
+</div>
+</div>
+<p>Note that the new column is now numeric.</p>
+</section>
+<section id="remove-characters" class="level3">
+<h3 class="anchored" data-anchor-id="remove-characters">Remove characters</h3>
+<p><br></p>
+<p>Something that we notice is that the column <code>First_Comment</code> has some extra characters like “” that may be useless when working with the data.</p>
+<p>We can remove them using the function <code>.str.strip()</code>. The input of the function is the character to remove.</p>
+<div id="85bce8aa" class="cell" data-execution_count="33">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>augmented_data[<span class="st">'First_comment'</span>] <span class="op">=</span> augmented_data[<span class="st">'First_comment'</span>].<span class="bu">str</span>.strip(<span class="st">"</span><span class="ch">\n</span><span class="st">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="section-18" class="level3">
+<h3 class="anchored" data-anchor-id="section-18"></h3>
+<p><br></p>
+<p>Let’s see the cleaned column.</p>
+<div id="dd9596f1" class="cell" data-execution_count="34">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>augmented_data[<span class="st">'First_comment'</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="34">
+<pre><code>0                ok
+1                ok
+2        Needs oil!
+3          All good
+4          All good
+          ...      
+95    Requires part
+96               ok
+97            Delay
+98       Needs oil!
+99         All good
+Name: First_comment, Length: 100, dtype: object</code></pre>
+</div>
+</div>
+</section>
+<section id="section-19" class="level3">
+<h3 class="anchored" data-anchor-id="section-19"></h3>
+<p><br></p>
+<p>We can also remove other characters.</p>
+<div id="61852054" class="cell" data-execution_count="35">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>augmented_data[<span class="st">'First_comment'</span>].<span class="bu">str</span>.strip(<span class="st">"!"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="35">
+<pre><code>0                ok
+1                ok
+2         Needs oil
+3          All good
+4          All good
+          ...      
+95    Requires part
+96               ok
+97            Delay
+98        Needs oil
+99         All good
+Name: First_comment, Length: 100, dtype: object</code></pre>
+</div>
+</div>
+</section>
+<section id="transform-text-case" class="level3">
+<h3 class="anchored" data-anchor-id="transform-text-case">Transform text case</h3>
+<p>When working with text columns such as those containing names, it might be possible to have different ways of writing. A common case is when having lower case or upper case names or a combination thereof.</p>
+<p>For example, consider the column <code>Operator</code> containing the names of the operators.</p>
+<div id="2b2996dc" class="cell" data-execution_count="36">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>complete_data[<span class="st">'Operator'</span>].head()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="36">
+<pre><code>0       Ana 
+1        Ana
+2        Bob
+3    Charlie
+4    Charlie
+Name: Operator, dtype: object</code></pre>
+</div>
+</div>
+</section>
+<section id="remove-extra-spaces" class="level3">
+<h3 class="anchored" data-anchor-id="remove-extra-spaces">Remove extra spaces</h3>
+<p><br></p>
+<p>To deal with names, we first use the <code>.str.strip()</code> to remove leading and trailing characters from strings.</p>
+<div id="d3edd4e0" class="cell" data-execution_count="37">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>complete_data[<span class="st">'Operator'</span>] <span class="op">=</span> complete_data[<span class="st">'Operator'</span>].<span class="bu">str</span>.strip()</span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>complete_data[<span class="st">'Operator'</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="37">
+<pre><code>0         Ana
+1         Ana
+2         Bob
+3     Charlie
+4     Charlie
+       ...   
+95    Charlie
+96        Ana
+97        Ana
+98    Charlie
+99        ana
+Name: Operator, Length: 100, dtype: object</code></pre>
+</div>
+</div>
+</section>
+<section id="change-to-lowercase-letters" class="level3">
+<h3 class="anchored" data-anchor-id="change-to-lowercase-letters">Change to lowercase letters</h3>
+<p><br></p>
+<p>We can turn all names to lowercase using the function <code>str.lower()</code>.</p>
+<div id="dd25c302" class="cell" data-execution_count="38">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>complete_data[<span class="st">'Operator'</span>].<span class="bu">str</span>.lower()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="38">
+<pre><code>0         ana
+1         ana
+2         bob
+3     charlie
+4     charlie
+       ...   
+95    charlie
+96        ana
+97        ana
+98    charlie
+99        ana
+Name: Operator, Length: 100, dtype: object</code></pre>
+</div>
+</div>
+</section>
+<section id="change-to-uppercase-letters" class="level3">
+<h3 class="anchored" data-anchor-id="change-to-uppercase-letters">Change to uppercase letters</h3>
+<p><br></p>
+<p>We can turn all names to lowercase using the function <code>str.upper()</code>.</p>
+<div id="50c1cfb6" class="cell" data-execution_count="39">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>complete_data[<span class="st">'Operator'</span>].<span class="bu">str</span>.upper()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="39">
+<pre><code>0         ANA
+1         ANA
+2         BOB
+3     CHARLIE
+4     CHARLIE
+       ...   
+95    CHARLIE
+96        ANA
+97        ANA
+98    CHARLIE
+99        ANA
+Name: Operator, Length: 100, dtype: object</code></pre>
+</div>
+</div>
+</section>
+<section id="capitalize-the-first-letter" class="level3">
+<h3 class="anchored" data-anchor-id="capitalize-the-first-letter">Capitalize the first letter</h3>
+<p><br></p>
+<p>We can convert all names to title case using the function <code>str.title()</code>.</p>
+<div id="f811e7d4" class="cell" data-execution_count="40">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>complete_data[<span class="st">'Operator'</span>].<span class="bu">str</span>.title()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="40">
+<pre><code>0         Ana
+1         Ana
+2         Bob
+3     Charlie
+4     Charlie
+       ...   
+95    Charlie
+96        Ana
+97        Ana
+98    Charlie
+99        Ana
+Name: Operator, Length: 100, dtype: object</code></pre>
+</div>
+</div>
+</section>
+<section id="more-functions-of-pandas" class="level3">
+<h3 class="anchored" data-anchor-id="more-functions-of-pandas">More functions of pandas</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/python_book.jpg" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<div style="font-size: 50%;">
+<p><a href="https://wesmckinney.com/book/" class="uri">https://wesmckinney.com/book/</a></p>
+</div>
+</section>
+</section>
+<section id="return-to-main-page" class="level2">
+<h2 class="anchored" data-anchor-id="return-to-main-page"><a href="https://alanrvazquez.github.io/TEC-IN2039-EN/">Return to main page</a></h2>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
