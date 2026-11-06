@@ -739,7 +739,7 @@
     "href": "T2_Tools/Tools.slides.html#python-libraries",
     "title": "Tools for Data Manipulation",
     "section": "Python libraries",
-    "text": "Python libraries\n\nLibraries are the fundamental units of reproducible Python code. They include reusable Python functions, documentation describing how to use them, and sample data.\n\nIn this course, we will be working mostly with pandas for data manipulation and wrangling"
+    "text": "Python libraries\n\nLibraries are the fundamental units of reproducible Python code. They include reusable Python functions, documentation describing how to use them, and sample data.\n\nIn this course, we will be working mostly with the following libraries:\n\npandas for data manipulation and wrangling\nmatplotlib and seaborn for data visualization"
   },
   {
     "objectID": "T2_Tools/Tools.slides.html#loading-data-in-python",
