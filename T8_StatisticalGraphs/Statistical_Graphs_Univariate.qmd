@@ -58,10 +58,8 @@ Let's load the data in "penguins.xlsx".
 ```{python}
 #| echo: true
 
-# Load pandas.
 import pandas as pd
 
-# Load the Excel file into a pandas DataFrame.
 penguins_data = pd.read_excel("penguins.xlsx")
 
 # Print the first 4 rows of the dataset.
@@ -82,13 +80,15 @@ penguins_data.info()
 
 ## General Python formats
 
-</br>
+</br></br>
 
 - `float64` format for numerical variables with decimals.
 - `int64` format for numerical variables with integers.
 - `object` format for general variables with characters.
 
 ## Define categorical variables
+
+</br>
 
 Technically, the variable `sex` in `penguins_data` is [**categorical**]{style="color:pink;"}. To explicitly tell this to Python, we use the following code.
 
@@ -391,7 +391,9 @@ Summarizes a categorical variable by calculating the *proportion of values* per 
 :::
 :::::
 
+::: {style="font-size: 90%;"}
 - **Relative frequency**: Number of observations in each category divided by the total.
+:::
 
 ::: notes
 La ventaja de la frequencia relativa es que se puede interpretar como una probabilidad. Lo que da mas información.
@@ -411,7 +413,7 @@ There are nine predictors, including refractive index and percentages of eight e
 
 ## 
 
-</br>
+</br></br>
 
 The dataset is in the file "glass.xlsx". Let's load it using **pandas**.
 

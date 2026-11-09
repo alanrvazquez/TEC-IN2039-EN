@@ -1418,7 +1418,7 @@
     "href": "T8_StatisticalGraphs/Statistical_Graphs_Univariate.slides.html#example-1",
     "title": "Visualizations for One Variable",
     "section": "Example 1",
-    "text": "Example 1\nLet’s load the data in “penguins.xlsx”.\n\n# Load pandas.\nimport pandas as pd\n\n# Load the Excel file into a pandas DataFrame.\npenguins_data = pd.read_excel(\"penguins.xlsx\")\n\n# Print the first 4 rows of the dataset.\npenguins_data.head(4)\n\n\n\n\n\n\n\n\nspecies\nisland\nbill_length_mm\nbill_depth_mm\nflipper_length_mm\nbody_mass_g\nsex\nyear\n\n\n\n\n0\nAdelie\nTorgersen\n39.1\n18.7\n181.0\n3750.0\nmale\n2007\n\n\n1\nAdelie\nTorgersen\n39.5\n17.4\n186.0\n3800.0\nfemale\n2007\n\n\n2\nAdelie\nTorgersen\n40.3\n18.0\n195.0\n3250.0\nfemale\n2007\n\n\n3\nAdelie\nTorgersen\nNaN\nNaN\nNaN\nNaN\nNaN\n2007"
+    "text": "Example 1\nLet’s load the data in “penguins.xlsx”.\n\nimport pandas as pd\n\npenguins_data = pd.read_excel(\"penguins.xlsx\")\n\n# Print the first 4 rows of the dataset.\npenguins_data.head(4)\n\n\n\n\n\n\n\n\nspecies\nisland\nbill_length_mm\nbill_depth_mm\nflipper_length_mm\nbody_mass_g\nsex\nyear\n\n\n\n\n0\nAdelie\nTorgersen\n39.1\n18.7\n181.0\n3750.0\nmale\n2007\n\n\n1\nAdelie\nTorgersen\n39.5\n17.4\n186.0\n3800.0\nfemale\n2007\n\n\n2\nAdelie\nTorgersen\n40.3\n18.0\n195.0\n3250.0\nfemale\n2007\n\n\n3\nAdelie\nTorgersen\nNaN\nNaN\nNaN\nNaN\nNaN\n2007"
   },
   {
     "objectID": "T8_StatisticalGraphs/Statistical_Graphs_Univariate.slides.html#section",
@@ -1439,7 +1439,7 @@
     "href": "T8_StatisticalGraphs/Statistical_Graphs_Univariate.slides.html#define-categorical-variables",
     "title": "Visualizations for One Variable",
     "section": "Define categorical variables",
-    "text": "Define categorical variables\nTechnically, the variable sex in penguins_data is categorical. To explicitly tell this to Python, we use the following code.\n\npenguins_data['sex'] = pd.Categorical(penguins_data['sex'])\n\nSetting sex to categorical allows us to use effective visualization for this data.\nWe do the same for the other categorical variables species and island.\n\npenguins_data['species'] = pd.Categorical(penguins_data['species'])\npenguins_data['island'] = pd.Categorical(penguins_data['island'])"
+    "text": "Define categorical variables\n\nTechnically, the variable sex in penguins_data is categorical. To explicitly tell this to Python, we use the following code.\n\npenguins_data['sex'] = pd.Categorical(penguins_data['sex'])\n\nSetting sex to categorical allows us to use effective visualization for this data.\nWe do the same for the other categorical variables species and island.\n\npenguins_data['species'] = pd.Categorical(penguins_data['species'])\npenguins_data['island'] = pd.Categorical(penguins_data['island'])"
   },
   {
     "objectID": "T8_StatisticalGraphs/Statistical_Graphs_Univariate.slides.html#section-1",
@@ -1544,7 +1544,7 @@
     "href": "T8_StatisticalGraphs/Statistical_Graphs_Univariate.slides.html#relative-frequency-table",
     "title": "Visualizations for One Variable",
     "section": "Relative Frequency Table",
-    "text": "Relative Frequency Table\nSummarizes a categorical variable by calculating the proportion of values per category.\n\n\n\n(penguins_data\n .filter(['species'], axis = 1)\n .value_counts(normalize = True)\n)\n\nspecies  \nAdelie       0.441860\nGentoo       0.360465\nChinstrap    0.197674\nName: proportion, dtype: float64\n\n\n\n\n\n\nSpecie\nRelative Frequency\n\n\n\n\nAdelie\n0.4418605\n\n\nChinstrap\n0.1976744\n\n\nGentoo\n0.3604651\n\n\nSum\n1\n\n\n\n\n\nRelative frequency: Number of observations in each category divided by the total.\n\n\nLa ventaja de la frequencia relativa es que se puede interpretar como una probabilidad. Lo que da mas información."
+    "text": "Relative Frequency Table\nSummarizes a categorical variable by calculating the proportion of values per category.\n\n\n\n(penguins_data\n .filter(['species'], axis = 1)\n .value_counts(normalize = True)\n)\n\nspecies  \nAdelie       0.441860\nGentoo       0.360465\nChinstrap    0.197674\nName: proportion, dtype: float64\n\n\n\n\n\n\nSpecie\nRelative Frequency\n\n\n\n\nAdelie\n0.4418605\n\n\nChinstrap\n0.1976744\n\n\nGentoo\n0.3604651\n\n\nSum\n1\n\n\n\n\n\n\nRelative frequency: Number of observations in each category divided by the total.\n\n\n\nLa ventaja de la frequencia relativa es que se puede interpretar como una probabilidad. Lo que da mas información."
   },
   {
     "objectID": "T8_StatisticalGraphs/Statistical_Graphs_Univariate.slides.html#example-2",
