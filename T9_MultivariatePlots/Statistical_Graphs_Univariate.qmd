@@ -96,7 +96,7 @@ Several types of graphs help us explore relationships between two or more variab
 
 ::: center
 | Variable types | Common graphs |
-|:-----------------------------------|:-----------------------------------|
+|:---|:---|
 | Two numerical variables | Scatter plot, line graph |
 | Two categorical variables | Side-by-side bar chart, stacked bar chart |
 | Numerical and categorical variables | Side-by-side boxplots, dot plot, bar chart |
@@ -151,7 +151,6 @@ The variables $X$ and $Y$ are placed on the horizontal and vertical axes, respec
 </br></br>
 
 To create a scatter plot with **seaborn**, we use `sns.scatterplot()`.
-
 
 </br>
 
@@ -216,10 +215,11 @@ To change the symbol used for the points, set `marker` to a symbol such as `"o"`
 ::: {.column width="50%"}
 ![](images/markers1.png){fig-align="center" width="605"}
 :::
+
 ::: {.column width="50%"}
 ![](images/markers2.png){fig-align="center" width="605"}
 :::
-:::
+:::::
 
 ## Improving the scatter plot
 
@@ -388,7 +388,6 @@ plt.grid()
 plt.show()
 ```
 
-
 # One Categorical and One Numerical Variable
 
 ## Divide the data into groups!
@@ -411,7 +410,6 @@ In this context:
 </br></br>
 
 Side-by-side boxplots compare the distribution of a numerical variable across different groups.
-
 
 </br>
 
@@ -718,7 +716,7 @@ count_data = (penguins_data
 count_data
 ```
 
-##
+## 
 
 ```{python}
 #| echo: true
@@ -766,7 +764,6 @@ count_data["proportion"] = (
 )
 count_data
 ```
-
 
 # Three or More Variables
 
@@ -822,7 +819,6 @@ plt.show()
 
 ::::: columns
 ::: {.column width="50%"}
-
 </br></br>
 
 The function creates a grid with **one column and three rows**. Each row corresponds to one category of `origin`.
@@ -840,6 +836,7 @@ sns.relplot(data=auto_data,
 plt.show()
 ```
 :::
+
 ::: {.column width="50%"}
 ```{python}
 #| fig-align: center
@@ -851,8 +848,7 @@ sns.relplot(data=auto_data, x="weight", y="mpg",
 plt.show()
 ```
 :::
-:::
-
+:::::
 
 ## 
 
@@ -970,7 +966,7 @@ plt.grid()
 plt.show()
 ```
 
-##
+## 
 
 </br></br>
 
@@ -989,7 +985,6 @@ plt.tight_layout()
 plt.grid()
 plt.show()
 ```
-
 
 ## Graphs for four variables
 

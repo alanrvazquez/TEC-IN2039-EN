@@ -2847,5 +2847,425 @@
     "title": "Visualizations for Multiple Variables",
     "section": "",
     "text": "plt.figure(figsize=(7, 4))\nsns.scatterplot(data=penguins_data,\n                x=\"bill_depth_mm\", y=\"bill_length_mm\",\n                hue=\"species\", size=\"island\", sizes=(40, 170))\nplt.title(\"Penguin bill dimensions by species and island\")\nplt.xlabel(\"Bill depth (mm)\")\nplt.ylabel(\"Bill length (mm)\")\nplt.grid()\nplt.show()\n\n\n\n\n\n\n\n\n\nUsing size for categories is possible, but the ordering can suggest a quantitative ranking. Consider faceting by island when a clearer categorical comparison is needed."
+  },
+  {
+    "objectID": "T9_MultivariatePlots/Statistical_Graphs_Univariate.slides.html#agenda",
+    "href": "T9_MultivariatePlots/Statistical_Graphs_Univariate.slides.html#agenda",
+    "title": "Visualizations for Multiple Variables",
+    "section": "Agenda",
+    "text": "Agenda\n\n\nData with more than one variable\nTwo numerical variables\nOne numerical and one categorical variable\nTwo categorical variables\nThree or more variables"
+  },
+  {
+    "objectID": "T9_MultivariatePlots/Statistical_Graphs_Univariate.slides.html#load-the-libraries",
+    "href": "T9_MultivariatePlots/Statistical_Graphs_Univariate.slides.html#load-the-libraries",
+    "title": "Visualizations for Multiple Variables",
+    "section": "Load the libraries",
+    "text": "Load the libraries\n\nWe will use pandas to work with data, seaborn to create graphs, and matplotlib to customize them.\n\nLet’s import these libraries in Google Colab before starting.\n\nimport pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt"
+  },
+  {
+    "objectID": "T9_MultivariatePlots/Statistical_Graphs_Univariate.slides.html#multivariate-data",
+    "href": "T9_MultivariatePlots/Statistical_Graphs_Univariate.slides.html#multivariate-data",
+    "title": "Visualizations for Multiple Variables",
+    "section": "Multivariate data",
+    "text": "Multivariate data\n\nMultivariate data consists of datasets that contain observations of two or more variables.\n\nVariables can be numerical or categorical.\nVariables may or may not be associated with each other.\n\n\n\nThe goal is to determine whether the variables are related and to explore the type of relationship."
+  },
+  {
+    "objectID": "T9_MultivariatePlots/Statistical_Graphs_Univariate.slides.html#example-1",
+    "href": "T9_MultivariatePlots/Statistical_Graphs_Univariate.slides.html#example-1",
+    "title": "Visualizations for Multiple Variables",
+    "section": "Example 1",
+    "text": "Example 1\nConsider data from 392 cars, including miles per gallon, number of cylinders, horsepower, weight, acceleration, model year, and origin.\nThe data are available in the file “auto_dataset.xlsx”.\n\nauto_data = pd.read_excel(\"auto_dataset.xlsx\")\nauto_data.head()\n\n\n\n\n\n\n\n\nmpg\ncylinders\ndisplacement\nhorsepower\nweight\nacceleration\nyear\norigin\ncar name\n\n\n\n\n0\n18.0\n8\n307.0\n130\n3504\n12.0\n70\nAmerican\nchevrolet chevelle malibu\n\n\n1\n15.0\n8\n350.0\n165\n3693\n11.5\n70\nAmerican\nbuick skylark 320\n\n\n2\n18.0\n8\n318.0\n150\n3436\n11.0\n70\nAmerican\nplymouth satellite\n\n\n3\n16.0\n8\n304.0\n150\n3433\n12.0\n70\nAmerican\namc rebel sst\n\n\n4\n17.0\n8\n302.0\n140\n3449\n10.5\n70\nAmerican\nford torino"
+  },
+  {
+    "objectID": "T9_MultivariatePlots/Statistical_Graphs_Univariate.slides.html#principle-1-define-the-question",
+    "href": "T9_MultivariatePlots/Statistical_Graphs_Univariate.slides.html#principle-1-define-the-question",
+    "title": "Visualizations for Multiple Variables",
+    "section": "Principle 1: Define the question",
+    "text": "Principle 1: Define the question\nWhen working with multiple variables, typical questions include:\n\nHow are variables \\(X\\) and \\(Y\\) related?\nIs the distribution of \\(X\\) the same across the subgroups defined by \\(Z\\)?\nAre there any unusual observations when considering \\(X\\) and \\(Y\\) together?\nAre there any unusual values of \\(X\\) within a subgroup defined by \\(Z\\)?"
+  },
+  {
+    "objectID": "T9_MultivariatePlots/Statistical_Graphs_Univariate.slides.html#principle-2-turn-data-into-information",
+    "href": "T9_MultivariatePlots/Statistical_Graphs_Univariate.slides.html#principle-2-turn-data-into-information",
+    "title": "Visualizations for Multiple Variables",
+    "section": "Principle 2: Turn data into information",
+    "text": "Principle 2: Turn data into information\nSeveral types of graphs help us explore relationships between two or more variables.\n\n\n\n\n\n\n\n\nVariable types\nCommon graphs\n\n\n\n\nTwo numerical variables\nScatter plot, line graph\n\n\nTwo categorical variables\nSide-by-side bar chart, stacked bar chart\n\n\nNumerical and categorical variables\nSide-by-side boxplots, dot plot, bar chart\n\n\n\n\n\nThe types of variables determine which visualizations are appropriate."
+  },
+  {
+    "objectID": "T9_MultivariatePlots/Statistical_Graphs_Univariate.slides.html#independent-and-dependent-variables",
+    "href": "T9_MultivariatePlots/Statistical_Graphs_Univariate.slides.html#independent-and-dependent-variables",
+    "title": "Visualizations for Multiple Variables",
+    "section": "Independent and dependent variables",
+    "text": "Independent and dependent variables\nWhen investigating a relationship between two variables, we often use specific terminology.\n\nThe dependent or response variable is denoted by \\(Y\\).\n\n\nThe independent or predictor variable is denoted by \\(X\\).\n\n\n\n\nOur goal is to explore whether changes in \\(X\\) are associated with changes in \\(Y\\), and the nature of this association.\n\n\nAn association does not, by itself, imply causation."
+  },
+  {
+    "objectID": "T9_MultivariatePlots/Statistical_Graphs_Univariate.slides.html#scatter-plot",
+    "href": "T9_MultivariatePlots/Statistical_Graphs_Univariate.slides.html#scatter-plot",
+    "title": "Visualizations for Multiple Variables",
+    "section": "Scatter plot",
+    "text": "Scatter plot\n\nThe most common graph for examining the relationship between two numerical variables is a scatter plot.\n\nThe variables \\(X\\) and \\(Y\\) are placed on the horizontal and vertical axes, respectively. Each point represents a pair of values \\((X,Y)\\).\n\n\n\n\nThe goal is to explore linear or nonlinear relationships between the variables."
+  },
+  {
+    "objectID": "T9_MultivariatePlots/Statistical_Graphs_Univariate.slides.html#scatter-plot-in-python",
+    "href": "T9_MultivariatePlots/Statistical_Graphs_Univariate.slides.html#scatter-plot-in-python",
+    "title": "Visualizations for Multiple Variables",
+    "section": "Scatter plot in Python",
+    "text": "Scatter plot in Python\n\nTo create a scatter plot with seaborn, we use sns.scatterplot().\n\nFor example, let’s explore the relationship between a car’s weight (weight) and its fuel efficiency (mpg).\n\nplt.figure(figsize=(9, 5))\nsns.scatterplot(data=auto_data, x=\"weight\", y=\"mpg\")\nplt.show()"
+  },
+  {
+    "objectID": "T9_MultivariatePlots/Statistical_Graphs_Univariate.slides.html#section",
+    "href": "T9_MultivariatePlots/Statistical_Graphs_Univariate.slides.html#section",
+    "title": "Visualizations for Multiple Variables",
+    "section": "",
+    "text": "plt.figure(figsize=(9, 5))\nsns.scatterplot(data=auto_data, x=\"weight\", y=\"mpg\")\nplt.show()"
+  },
+  {
+    "objectID": "T9_MultivariatePlots/Statistical_Graphs_Univariate.slides.html#principle-3-apply-graphic-design-principles",
+    "href": "T9_MultivariatePlots/Statistical_Graphs_Univariate.slides.html#principle-3-apply-graphic-design-principles",
+    "title": "Visualizations for Multiple Variables",
+    "section": "Principle 3: Apply graphic design principles",
+    "text": "Principle 3: Apply graphic design principles\nWe can modify the default appearance of the graph to improve its readability.\n\nFor example, color, marker, and s control the color, shape, and size of the points, respectively.\n\nsns.scatterplot(data=data_set, x=\"X\", y=\"Y\", color=..., marker=..., s=...)"
+  },
+  {
+    "objectID": "T9_MultivariatePlots/Statistical_Graphs_Univariate.slides.html#section-1",
+    "href": "T9_MultivariatePlots/Statistical_Graphs_Univariate.slides.html#section-1",
+    "title": "Visualizations for Multiple Variables",
+    "section": "",
+    "text": "plt.figure(figsize=(9, 5))\nsns.scatterplot(data=auto_data, x=\"weight\", y=\"mpg\",\n                color=\"blue\", marker=\"x\", s=100)\nplt.show()"
+  },
+  {
+    "objectID": "T9_MultivariatePlots/Statistical_Graphs_Univariate.slides.html#possible-point-shapes",
+    "href": "T9_MultivariatePlots/Statistical_Graphs_Univariate.slides.html#possible-point-shapes",
+    "title": "Visualizations for Multiple Variables",
+    "section": "Possible point shapes",
+    "text": "Possible point shapes\n\nTo change the symbol used for the points, set marker to a symbol such as \"o\", \"x\", \"s\", or \"^\"."
+  },
+  {
+    "objectID": "T9_MultivariatePlots/Statistical_Graphs_Univariate.slides.html#improving-the-scatter-plot",
+    "href": "T9_MultivariatePlots/Statistical_Graphs_Univariate.slides.html#improving-the-scatter-plot",
+    "title": "Visualizations for Multiple Variables",
+    "section": "Improving the scatter plot",
+    "text": "Improving the scatter plot\nWe can also add a title and axis labels.\n\n\nCode\nplt.figure(figsize=(9, 5))\nsns.scatterplot(data=auto_data, x=\"weight\", y=\"mpg\",\n                color=\"darkblue\", s=50)\nplt.title(\"Car weight and fuel efficiency\")\nplt.xlabel(\"Weight (lb)\")\nplt.ylabel(\"Miles per gallon\")\nplt.grid()\nplt.show()"
+  },
+  {
+    "objectID": "T9_MultivariatePlots/Statistical_Graphs_Univariate.slides.html#include-zero",
+    "href": "T9_MultivariatePlots/Statistical_Graphs_Univariate.slides.html#include-zero",
+    "title": "Visualizations for Multiple Variables",
+    "section": "Include zero",
+    "text": "Include zero\nIn the previous graph, the vertical axis starts above zero. If we want the vertical axis to start at zero, we can use plt.ylim().\n\nplt.figure(figsize=(5.5, 2.5))\nsns.scatterplot(data=auto_data, x=\"weight\", y=\"mpg\",\n                color=\"darkblue\", s=50)\nplt.xlabel(\"Weight (lb)\")\nplt.ylabel(\"Miles per gallon\")\nplt.ylim(0, 50)\nplt.grid()\nplt.show()"
+  },
+  {
+    "objectID": "T9_MultivariatePlots/Statistical_Graphs_Univariate.slides.html#section-2",
+    "href": "T9_MultivariatePlots/Statistical_Graphs_Univariate.slides.html#section-2",
+    "title": "Visualizations for Multiple Variables",
+    "section": "",
+    "text": "If necessary, we can also make the horizontal axis start at zero by using plt.xlim().\n\nplt.figure(figsize=(6, 3))\nsns.scatterplot(data=auto_data, x=\"weight\", y=\"mpg\",\n                color=\"darkblue\", s=50)\nplt.xlabel(\"Weight (lb)\")\nplt.ylabel(\"Miles per gallon\")\nplt.xlim(0, 5500)\nplt.ylim(0, 50)\nplt.grid()\nplt.show()\n\n\n\n\n\n\n\n\n\nUnlike bar charts, scatter plots do not always need axes to start at zero. Choose limits that support accurate interpretation."
+  },
+  {
+    "objectID": "T9_MultivariatePlots/Statistical_Graphs_Univariate.slides.html#individual-graphs",
+    "href": "T9_MultivariatePlots/Statistical_Graphs_Univariate.slides.html#individual-graphs",
+    "title": "Visualizations for Multiple Variables",
+    "section": "Individual graphs",
+    "text": "Individual graphs\nGraphs of individual variables (like histograms) do not allow us to examine the relationship between two variables. They only provide information about the distribution of each variable.\n\n\n\n\nCode\nplt.figure(figsize=(4, 3))\nsns.histplot(data=auto_data, x=\"mpg\", color=\"darkblue\")\nplt.title(\"Distribution of fuel efficiency\")\nplt.xlabel(\"Miles per gallon\")\nplt.ylabel(\"Frequency\")\nplt.show()\n\n\n\n\n\n\n\n\n\n\n\n\nCode\nplt.figure(figsize=(4, 3))\nsns.histplot(data=auto_data, x=\"weight\", color=\"darkblue\")\nplt.title(\"Distribution of car weight\")\nplt.xlabel(\"Weight (lb)\")\nplt.ylabel(\"Frequency\")\nplt.show()"
+  },
+  {
+    "objectID": "T9_MultivariatePlots/Statistical_Graphs_Univariate.slides.html#line-graph",
+    "href": "T9_MultivariatePlots/Statistical_Graphs_Univariate.slides.html#line-graph",
+    "title": "Visualizations for Multiple Variables",
+    "section": "Line graph",
+    "text": "Line graph\nA line graph connects data points with lines.\n\n\\(X\\) (horizontal): usually time or another ordered variable.\n\\(Y\\) (vertical): the numerical variable being measured.\n\nEach point represents a value at a particular point in time or along the horizontal axis.\n\n\nThe goal is to explore trends over time or changes in a continuous variable."
+  },
+  {
+    "objectID": "T9_MultivariatePlots/Statistical_Graphs_Univariate.slides.html#example-2",
+    "href": "T9_MultivariatePlots/Statistical_Graphs_Univariate.slides.html#example-2",
+    "title": "Visualizations for Multiple Variables",
+    "section": "Example 2",
+    "text": "Example 2\nConsider the data in “spotify.xlsx”, which contains global daily streams of five popular songs on Spotify in 2017.\n\nspotify_data = pd.read_excel(\"spotify.xlsx\")\nspotify_data[\"Date\"] = pd.to_datetime(spotify_data[\"Date\"])\nspotify_data.head(3)\n\n\n\n\n\n\n\n\nDate\nDay\nShape of You\nDespacito\nSomething Just Like This\nHUMBLE.\nUnforgettable\n\n\n\n\n0\n2017-01-06\n1\n12287078\nNaN\nNaN\nNaN\nNaN\n\n\n1\n2017-01-07\n2\n13190270\nNaN\nNaN\nNaN\nNaN\n\n\n2\n2017-01-08\n3\n13099919\nNaN\nNaN\nNaN\nNaN"
+  },
+  {
+    "objectID": "T9_MultivariatePlots/Statistical_Graphs_Univariate.slides.html#line-graph-in-python",
+    "href": "T9_MultivariatePlots/Statistical_Graphs_Univariate.slides.html#line-graph-in-python",
+    "title": "Visualizations for Multiple Variables",
+    "section": "Line graph in Python",
+    "text": "Line graph in Python\nLet’s focus on Despacito by Luis Fonsi. To create a line graph with seaborn, we use sns.lineplot().\n\nplt.figure(figsize=(7, 4))\nsns.lineplot(data=spotify_data, x=\"Date\", y=\"Despacito\")\nplt.show()"
+  },
+  {
+    "objectID": "T9_MultivariatePlots/Statistical_Graphs_Univariate.slides.html#applying-principle-3",
+    "href": "T9_MultivariatePlots/Statistical_Graphs_Univariate.slides.html#applying-principle-3",
+    "title": "Visualizations for Multiple Variables",
+    "section": "Applying Principle 3",
+    "text": "Applying Principle 3\n\nWe can customize the line using linestyle, linewidth, and color.\n\nsns.lineplot(data=data_set, x=\"X\", y=\"Y\", linestyle=..., linewidth=..., color=...)\n\nTo change the appearance of the line, use a value of linestyle such as \"-\", \"--\", \":\", or \"-.\"."
+  },
+  {
+    "objectID": "T9_MultivariatePlots/Statistical_Graphs_Univariate.slides.html#section-3",
+    "href": "T9_MultivariatePlots/Statistical_Graphs_Univariate.slides.html#section-3",
+    "title": "Visualizations for Multiple Variables",
+    "section": "",
+    "text": "Code\nplt.figure(figsize=(9, 6))\nsns.lineplot(data=spotify_data, x=\"Date\", y=\"Despacito\", \n              color=\"darkblue\", linewidth=2)\nplt.title(\"Popularity of Despacito by Luis Fonsi\")\nplt.xlabel(\"Date\")\nplt.ylabel(\"Daily Spotify streams\")\nplt.xticks(rotation=45)\nplt.tight_layout()\nplt.grid()\nplt.show()"
+  },
+  {
+    "objectID": "T9_MultivariatePlots/Statistical_Graphs_Univariate.slides.html#divide-the-data-into-groups",
+    "href": "T9_MultivariatePlots/Statistical_Graphs_Univariate.slides.html#divide-the-data-into-groups",
+    "title": "Visualizations for Multiple Variables",
+    "section": "Divide the data into groups!",
+    "text": "Divide the data into groups!\nTo examine the relationship between a numerical and a categorical variable, we use the categorical variable to divide observations into groups. Then, we compare the distribution of the numerical variable across groups.\n\nIn this context:\n\n\\(X\\) is the categorical variable.\n\\(Y\\) is the numerical variable.\n\n\n\nSide-by-side boxplots are especially useful for comparing distributions across groups."
+  },
+  {
+    "objectID": "T9_MultivariatePlots/Statistical_Graphs_Univariate.slides.html#boxplots-by-groups",
+    "href": "T9_MultivariatePlots/Statistical_Graphs_Univariate.slides.html#boxplots-by-groups",
+    "title": "Visualizations for Multiple Variables",
+    "section": "Boxplots by groups",
+    "text": "Boxplots by groups\n\nSide-by-side boxplots compare the distribution of a numerical variable across different groups.\n\nWe create them using seaborn:\nsns.boxplot(data=data_set, x=\"X\", y=\"Y\")"
+  },
+  {
+    "objectID": "T9_MultivariatePlots/Statistical_Graphs_Univariate.slides.html#section-4",
+    "href": "T9_MultivariatePlots/Statistical_Graphs_Univariate.slides.html#section-4",
+    "title": "Visualizations for Multiple Variables",
+    "section": "",
+    "text": "For example, let’s compare the distributions of fuel efficiency for cars built in America, Europe, and Japan.\n\nplt.figure(figsize=(9, 5))\nsns.boxplot(data=auto_data, x=\"origin\", y=\"mpg\")\nplt.show()"
+  },
+  {
+    "objectID": "T9_MultivariatePlots/Statistical_Graphs_Univariate.slides.html#applying-principle-3-1",
+    "href": "T9_MultivariatePlots/Statistical_Graphs_Univariate.slides.html#applying-principle-3-1",
+    "title": "Visualizations for Multiple Variables",
+    "section": "Applying Principle 3",
+    "text": "Applying Principle 3\n\n\nCode\nplt.figure(figsize=(9, 6))\nsns.boxplot(data=auto_data, x=\"origin\", y=\"mpg\",\n            color=\"lightblue\")\nplt.xlabel(\"Origin\")\nplt.ylabel(\"Miles per gallon\")\nplt.grid()\nplt.show()"
+  },
+  {
+    "objectID": "T9_MultivariatePlots/Statistical_Graphs_Univariate.slides.html#section-5",
+    "href": "T9_MultivariatePlots/Statistical_Graphs_Univariate.slides.html#section-5",
+    "title": "Visualizations for Multiple Variables",
+    "section": "",
+    "text": "We can customize the appearance of outliers using the flierprops argument.\n\n\nCode\nplt.figure(figsize=(7, 5))\nsns.boxplot(data=auto_data, x=\"origin\", y=\"mpg\",\n            color=\"lightblue\",\n            flierprops={\"marker\": \"x\", \"markeredgecolor\": \"red\",\n                        \"markersize\": 8})\nplt.xlabel(\"Origin\")\nplt.ylabel(\"Miles per gallon\")\nplt.grid()\nplt.show()"
+  },
+  {
+    "objectID": "T9_MultivariatePlots/Statistical_Graphs_Univariate.slides.html#plotting-statistical-summaries-by-group",
+    "href": "T9_MultivariatePlots/Statistical_Graphs_Univariate.slides.html#plotting-statistical-summaries-by-group",
+    "title": "Visualizations for Multiple Variables",
+    "section": "Plotting statistical summaries by group",
+    "text": "Plotting statistical summaries by group\n\nAlternatively, we can summarize the numerical variable \\(Y\\) for each category of \\(X\\) using a statistic such as the mean or median.\nFor example, let’s calculate average fuel efficiency by car origin using groupby() and mean() from pandas.\n\nmean_mpg = auto_data.groupby(\"origin\", as_index=False)[\"mpg\"].mean()\nmean_mpg = mean_mpg.rename(columns={\"mpg\": \"mean_mpg\"})"
+  },
+  {
+    "objectID": "T9_MultivariatePlots/Statistical_Graphs_Univariate.slides.html#section-6",
+    "href": "T9_MultivariatePlots/Statistical_Graphs_Univariate.slides.html#section-6",
+    "title": "Visualizations for Multiple Variables",
+    "section": "",
+    "text": "The summary data are:\n\nmean_mpg\n\n\n\n\n\n\n\n\norigin\nmean_mpg\n\n\n\n\n0\nAmerican\n20.083534\n\n\n1\nEuropean\n27.891429\n\n\n2\nJapanese\n30.450633\n\n\n\n\n\n\n\nTwo common ways to visualize one summary value per category are:\n\nCleveland dot plot\nBar chart"
+  },
+  {
+    "objectID": "T9_MultivariatePlots/Statistical_Graphs_Univariate.slides.html#cleveland-dot-plot",
+    "href": "T9_MultivariatePlots/Statistical_Graphs_Univariate.slides.html#cleveland-dot-plot",
+    "title": "Visualizations for Multiple Variables",
+    "section": "Cleveland dot plot",
+    "text": "Cleveland dot plot\nA Cleveland dot plot shows numerical values for different categories using points. It is an alternative to a bar chart.\n\nplt.figure(figsize=(7, 4))\nsns.scatterplot(data=mean_mpg, x=\"mean_mpg\", y=\"origin\")\nplt.show()"
+  },
+  {
+    "objectID": "T9_MultivariatePlots/Statistical_Graphs_Univariate.slides.html#improving-the-plot",
+    "href": "T9_MultivariatePlots/Statistical_Graphs_Univariate.slides.html#improving-the-plot",
+    "title": "Visualizations for Multiple Variables",
+    "section": "Improving the plot",
+    "text": "Improving the plot\nApply Principle 3 to improve the appearance of the plot.\n\n\nCode\nplt.figure(figsize=(8, 5))\nsns.scatterplot(data=mean_mpg, x=\"mean_mpg\", y=\"origin\",\n                color=\"deeppink\", s=120)\nplt.title(\"Average fuel efficiency by car origin\")\nplt.xlabel(\"Average miles per gallon\")\nplt.ylabel(\"Origin\")\nplt.xlim(0, 35)\nplt.grid(axis=\"x\")\nplt.show()"
+  },
+  {
+    "objectID": "T9_MultivariatePlots/Statistical_Graphs_Univariate.slides.html#bar-chart",
+    "href": "T9_MultivariatePlots/Statistical_Graphs_Univariate.slides.html#bar-chart",
+    "title": "Visualizations for Multiple Variables",
+    "section": "Bar chart",
+    "text": "Bar chart\nTo create a bar chart whose bar lengths represent specified numerical values, we use sns.barplot().\n\nplt.figure(figsize=(6, 4))\nsns.barplot(data=mean_mpg, x=\"mean_mpg\", y=\"origin\",\n            color=\"steelblue\")\nplt.show()"
+  },
+  {
+    "objectID": "T9_MultivariatePlots/Statistical_Graphs_Univariate.slides.html#section-7",
+    "href": "T9_MultivariatePlots/Statistical_Graphs_Univariate.slides.html#section-7",
+    "title": "Visualizations for Multiple Variables",
+    "section": "",
+    "text": "We can use similar commands to improve the appearance of the bar chart.\n\n\nCode\nplt.figure(figsize=(8, 5))\nsns.barplot(data=mean_mpg, x=\"mean_mpg\", y=\"origin\",\n            color=\"lightblue\")\nplt.title(\"Average fuel efficiency by car origin\")\nplt.xlabel(\"Average miles per gallon\")\nplt.ylabel(\"Origin\")\nplt.xlim(0, 35)\nplt.grid(axis=\"x\")\nplt.show()"
+  },
+  {
+    "objectID": "T9_MultivariatePlots/Statistical_Graphs_Univariate.slides.html#divide-the-data-into-groups-1",
+    "href": "T9_MultivariatePlots/Statistical_Graphs_Univariate.slides.html#divide-the-data-into-groups-1",
+    "title": "Visualizations for Multiple Variables",
+    "section": "Divide the data into groups!",
+    "text": "Divide the data into groups!\n\nWith two categorical variables, we compare the distribution of one variable across subgroups defined by the other variable.\nIn other words, we examine the distribution of one variable while grouping observations by another.\n\nTwo common visualizations are:\n\nStacked bar charts\nSide-by-side bar charts"
+  },
+  {
+    "objectID": "T9_MultivariatePlots/Statistical_Graphs_Univariate.slides.html#example-3",
+    "href": "T9_MultivariatePlots/Statistical_Graphs_Univariate.slides.html#example-3",
+    "title": "Visualizations for Multiple Variables",
+    "section": "Example 3",
+    "text": "Example 3\nConsider the data in “penguins.xlsx”.\n\npenguins_data = pd.read_excel(\"penguins.xlsx\")\npenguins_data.head()\n\n\n\n\n\n\n\n\nspecies\nisland\nbill_length_mm\nbill_depth_mm\nflipper_length_mm\nbody_mass_g\nsex\nyear\n\n\n\n\n0\nAdelie\nTorgersen\n39.1\n18.7\n181.0\n3750.0\nmale\n2007\n\n\n1\nAdelie\nTorgersen\n39.5\n17.4\n186.0\n3800.0\nfemale\n2007\n\n\n2\nAdelie\nTorgersen\n40.3\n18.0\n195.0\n3250.0\nfemale\n2007\n\n\n3\nAdelie\nTorgersen\nNaN\nNaN\nNaN\nNaN\nNaN\n2007\n\n\n4\nAdelie\nTorgersen\n36.7\n19.3\n193.0\n3450.0\nfemale\n2007"
+  },
+  {
+    "objectID": "T9_MultivariatePlots/Statistical_Graphs_Univariate.slides.html#section-8",
+    "href": "T9_MultivariatePlots/Statistical_Graphs_Univariate.slides.html#section-8",
+    "title": "Visualizations for Multiple Variables",
+    "section": "",
+    "text": "The dataset contains two categorical variables:\n\nPenguin species (species).\nIsland where the penguin was observed (island).\n\nWe can store categorical variables using the pandas category type.\n\npenguins_data[[\"species\", \"island\", \"sex\"]] = (\n    penguins_data[[\"species\", \"island\", \"sex\"]].astype(\"category\")\n)"
+  },
+  {
+    "objectID": "T9_MultivariatePlots/Statistical_Graphs_Univariate.slides.html#stacked-bar-chart",
+    "href": "T9_MultivariatePlots/Statistical_Graphs_Univariate.slides.html#stacked-bar-chart",
+    "title": "Visualizations for Multiple Variables",
+    "section": "Stacked bar chart",
+    "text": "Stacked bar chart\nA stacked bar chart represents counts for each category, with bars divided into segments according to a second categorical variable.\nIn seaborn, we can create this chart using sns.histplot() and multiple=\"stack\".\n\nFor example, let’s examine the number of penguins of each species across the three islands.\n\nplt.figure(figsize=(7, 4))\nsns.histplot(data=penguins_data, x=\"species\", hue=\"island\",\n             multiple=\"stack\", discrete=True)\nplt.show()"
+  },
+  {
+    "objectID": "T9_MultivariatePlots/Statistical_Graphs_Univariate.slides.html#section-9",
+    "href": "T9_MultivariatePlots/Statistical_Graphs_Univariate.slides.html#section-9",
+    "title": "Visualizations for Multiple Variables",
+    "section": "",
+    "text": "The chart shows the frequency of each penguin species, with each bar divided by island.\n\nplt.figure(figsize=(7, 4))\nsns.histplot(data=penguins_data, x=\"species\", hue=\"island\",\n             multiple=\"stack\", discrete=True)\nplt.xlabel(\"Species\")\nplt.ylabel(\"Frequency\")\nplt.show()"
+  },
+  {
+    "objectID": "T9_MultivariatePlots/Statistical_Graphs_Univariate.slides.html#side-by-side-bar-chart",
+    "href": "T9_MultivariatePlots/Statistical_Graphs_Univariate.slides.html#side-by-side-bar-chart",
+    "title": "Visualizations for Multiple Variables",
+    "section": "Side-by-side bar chart",
+    "text": "Side-by-side bar chart\n\nAn alternative is to place the bars side by side within each category of the horizontal axis.\nWe can use sns.countplot() with hue to create these grouped bars.\n\nsns.countplot(data=penguins_data, x=\"species\", hue=\"island\")\nplt.show()"
+  },
+  {
+    "objectID": "T9_MultivariatePlots/Statistical_Graphs_Univariate.slides.html#section-10",
+    "href": "T9_MultivariatePlots/Statistical_Graphs_Univariate.slides.html#section-10",
+    "title": "Visualizations for Multiple Variables",
+    "section": "",
+    "text": "plt.figure(figsize=(7, 5))\nsns.countplot(data=penguins_data, x=\"species\", hue=\"island\")\nplt.xlabel(\"Species\")\nplt.ylabel(\"Frequency\")\nplt.show()"
+  },
+  {
+    "objectID": "T9_MultivariatePlots/Statistical_Graphs_Univariate.slides.html#stacked-or-side-by-side",
+    "href": "T9_MultivariatePlots/Statistical_Graphs_Univariate.slides.html#stacked-or-side-by-side",
+    "title": "Visualizations for Multiple Variables",
+    "section": "Stacked or side-by-side?",
+    "text": "Stacked or side-by-side?\n\nThe main difference is that side-by-side bar charts show each subgroup in a separate bar, whereas stacked bar charts combine subgroups into one bar for each category.\nAdvantages of stacked bars:\n\nThey show how each total is divided into segments.\nThey make it easy to see overall totals."
+  },
+  {
+    "objectID": "T9_MultivariatePlots/Statistical_Graphs_Univariate.slides.html#section-11",
+    "href": "T9_MultivariatePlots/Statistical_Graphs_Univariate.slides.html#section-11",
+    "title": "Visualizations for Multiple Variables",
+    "section": "",
+    "text": "Advantages of side-by-side bars:\n\nThey make it easier to compare the heights of individual bars.\nThey are useful for comparing subgroups across categories."
+  },
+  {
+    "objectID": "T9_MultivariatePlots/Statistical_Graphs_Univariate.slides.html#statistical-summaries",
+    "href": "T9_MultivariatePlots/Statistical_Graphs_Univariate.slides.html#statistical-summaries",
+    "title": "Visualizations for Multiple Variables",
+    "section": "Statistical summaries",
+    "text": "Statistical summaries\n\nFor categorical variables, common statistical summaries are frequency and relative frequency.\nWith pandas, groupby() and size() count observations in each combination of categories.\n\ncount_data = (penguins_data\n              .groupby([\"island\", \"species\"], observed=True)\n              .size()\n              .reset_index(name=\"count\"))\ncount_data"
+  },
+  {
+    "objectID": "T9_MultivariatePlots/Statistical_Graphs_Univariate.slides.html#section-12",
+    "href": "T9_MultivariatePlots/Statistical_Graphs_Univariate.slides.html#section-12",
+    "title": "Visualizations for Multiple Variables",
+    "section": "",
+    "text": "count_data = (penguins_data\n              .groupby([\"island\", \"species\"], observed=True)\n              .size()\n              .reset_index(name=\"count\"))\ncount_data\n\n\n\n\n\n\n\n\nisland\nspecies\ncount\n\n\n\n\n0\nBiscoe\nAdelie\n44\n\n\n1\nBiscoe\nGentoo\n124\n\n\n2\nDream\nAdelie\n56\n\n\n3\nDream\nChinstrap\n68\n\n\n4\nTorgersen\nAdelie\n52"
+  },
+  {
+    "objectID": "T9_MultivariatePlots/Statistical_Graphs_Univariate.slides.html#section-13",
+    "href": "T9_MultivariatePlots/Statistical_Graphs_Univariate.slides.html#section-13",
+    "title": "Visualizations for Multiple Variables",
+    "section": "",
+    "text": "To calculate relative frequencies within each island, divide each count by the total number of penguins observed on that island.\n\ncount_data[\"proportion\"] = (\n    count_data[\"count\"] /\n    count_data.groupby(\"island\", observed=True)[\"count\"].transform(\"sum\")\n)\ncount_data\n\n\nFor each island, the proportions across species add up to 1. Dividing by the grand total instead would answer a different question."
+  },
+  {
+    "objectID": "T9_MultivariatePlots/Statistical_Graphs_Univariate.slides.html#section-14",
+    "href": "T9_MultivariatePlots/Statistical_Graphs_Univariate.slides.html#section-14",
+    "title": "Visualizations for Multiple Variables",
+    "section": "",
+    "text": "count_data[\"proportion\"] = (\n    count_data[\"count\"] /\n    count_data.groupby(\"island\", observed=True)[\"count\"].transform(\"sum\")\n)\ncount_data\n\n\n\n\n\n\n\n\nisland\nspecies\ncount\nproportion\n\n\n\n\n0\nBiscoe\nAdelie\n44\n0.261905\n\n\n1\nBiscoe\nGentoo\n124\n0.738095\n\n\n2\nDream\nAdelie\n56\n0.451613\n\n\n3\nDream\nChinstrap\n68\n0.548387\n\n\n4\nTorgersen\nAdelie\n52\n1.000000"
+  },
+  {
+    "objectID": "T9_MultivariatePlots/Statistical_Graphs_Univariate.slides.html#graphs-for-three-variables",
+    "href": "T9_MultivariatePlots/Statistical_Graphs_Univariate.slides.html#graphs-for-three-variables",
+    "title": "Visualizations for Multiple Variables",
+    "section": "Graphs for three variables",
+    "text": "Graphs for three variables\n\n\nWhen examining a distribution or relationship, we may want to compare it across subgroups.\nConditioning on an additional variable leads to graphs involving three or more variables.\nLet’s explore some common ways to visualize multiple variables."
+  },
+  {
+    "objectID": "T9_MultivariatePlots/Statistical_Graphs_Univariate.slides.html#scatter-plot-with-color",
+    "href": "T9_MultivariatePlots/Statistical_Graphs_Univariate.slides.html#scatter-plot-with-color",
+    "title": "Visualizations for Multiple Variables",
+    "section": "Scatter plot with color",
+    "text": "Scatter plot with color\nTo visualize two numerical variables and one categorical variable, we can represent the categorical variable through color using hue.\n\nplt.figure(figsize=(5, 3))\nsns.scatterplot(data=auto_data, x=\"weight\", y=\"mpg\", hue=\"origin\")\nplt.xlabel(\"Weight (lb)\")\nplt.ylabel(\"Miles per gallon\")\nplt.show()"
+  },
+  {
+    "objectID": "T9_MultivariatePlots/Statistical_Graphs_Univariate.slides.html#faceted-or-lattice-plot",
+    "href": "T9_MultivariatePlots/Statistical_Graphs_Univariate.slides.html#faceted-or-lattice-plot",
+    "title": "Visualizations for Multiple Variables",
+    "section": "Faceted or lattice plot",
+    "text": "Faceted or lattice plot\n\nA faceted plot visualizes the relationship or distribution of one or two variables for each subgroup defined by a third variable \\(Z\\).\n\nIdea: Create a separate plot for each category of \\(Z\\).\n\n\nWe can use the relplot() function from seaborn with row or col.\n\nplt.figure(figsize=(5, 3))\nsns.relplot(data=auto_data, x=\"weight\", y=\"mpg\",\n            row=\"origin\", kind=\"scatter\")\nplt.show()"
+  },
+  {
+    "objectID": "T9_MultivariatePlots/Statistical_Graphs_Univariate.slides.html#section-15",
+    "href": "T9_MultivariatePlots/Statistical_Graphs_Univariate.slides.html#section-15",
+    "title": "Visualizations for Multiple Variables",
+    "section": "",
+    "text": "The function creates a grid with one column and three rows. Each row corresponds to one category of origin.\n\nplt.figure(figsize=(5, 3))\nsns.relplot(data=auto_data, \n            x=\"weight\", y=\"mpg\",\n            row=\"origin\", kind=\"scatter\", \n            height=2.3, aspect=1.8)\nplt.show()\n\n\n\n\n&lt;Figure size 480x288 with 0 Axes&gt;"
+  },
+  {
+    "objectID": "T9_MultivariatePlots/Statistical_Graphs_Univariate.slides.html#section-16",
+    "href": "T9_MultivariatePlots/Statistical_Graphs_Univariate.slides.html#section-16",
+    "title": "Visualizations for Multiple Variables",
+    "section": "",
+    "text": "If we use col=\"origin\" instead of row=\"origin\", we get three columns and one row.\n\nplt.figure(figsize=(7, 5))\nsns.relplot(data=auto_data, x=\"weight\", y=\"mpg\",\n            col=\"origin\", kind=\"scatter\", height=3, aspect=1.1)\nplt.show()\n\n&lt;Figure size 672x480 with 0 Axes&gt;"
+  },
+  {
+    "objectID": "T9_MultivariatePlots/Statistical_Graphs_Univariate.slides.html#multiple-line-graphs",
+    "href": "T9_MultivariatePlots/Statistical_Graphs_Univariate.slides.html#multiple-line-graphs",
+    "title": "Visualizations for Multiple Variables",
+    "section": "Multiple line graphs",
+    "text": "Multiple line graphs\n\nWe can use sns.lineplot() and seaborn’s faceting options to visualize how the daily streams of the five songs in “spotify.xlsx” change over time.\nHowever, we first need to reshape the data into a format that is suitable for these graphs."
+  },
+  {
+    "objectID": "T9_MultivariatePlots/Statistical_Graphs_Univariate.slides.html#the-required-format",
+    "href": "T9_MultivariatePlots/Statistical_Graphs_Univariate.slides.html#the-required-format",
+    "title": "Visualizations for Multiple Variables",
+    "section": "The required format",
+    "text": "The required format\n\nWe need to combine the columns Shape of You, Despacito, Something Just Like This, HUMBLE., and Unforgettable into two columns:\n\nOne column will contain the song title.\nThe other column will contain the number of streams.\n\nThe date will remain in the Date column."
+  },
+  {
+    "objectID": "T9_MultivariatePlots/Statistical_Graphs_Univariate.slides.html#a-useful-pandas-function",
+    "href": "T9_MultivariatePlots/Statistical_Graphs_Univariate.slides.html#a-useful-pandas-function",
+    "title": "Visualizations for Multiple Variables",
+    "section": "A useful pandas function",
+    "text": "A useful pandas function\n\nThe melt() function in pandas transforms data from wide format into long format.\nLong-format data are particularly useful for seaborn plots with grouping (hue) and faceting (col).\npd.melt(data, id_vars=..., var_name=..., value_name=...)"
+  },
+  {
+    "objectID": "T9_MultivariatePlots/Statistical_Graphs_Univariate.slides.html#reshape-the-spotify-data",
+    "href": "T9_MultivariatePlots/Statistical_Graphs_Univariate.slides.html#reshape-the-spotify-data",
+    "title": "Visualizations for Multiple Variables",
+    "section": "Reshape the Spotify data",
+    "text": "Reshape the Spotify data\n\nsong_columns = [\"Shape of You\", \"Despacito\",\n                \"Something Just Like This\", \"HUMBLE.\", \"Unforgettable\"]\n\ndata_lines = spotify_data.melt(\n    id_vars=\"Date\",\n    value_vars=song_columns,\n    var_name=\"Song\",\n    value_name=\"Streams\"\n)\ndata_lines.head()\n\n\n\n\n\n\n\n\nDate\nSong\nStreams\n\n\n\n\n0\n2017-01-06\nShape of You\n12287078.0\n\n\n1\n2017-01-07\nShape of You\n13190270.0\n\n\n2\n2017-01-08\nShape of You\n13099919.0\n\n\n3\n2017-01-09\nShape of You\n14506351.0\n\n\n4\n2017-01-10\nShape of You\n14275628.0"
+  },
+  {
+    "objectID": "T9_MultivariatePlots/Statistical_Graphs_Univariate.slides.html#faceted-line-graphs",
+    "href": "T9_MultivariatePlots/Statistical_Graphs_Univariate.slides.html#faceted-line-graphs",
+    "title": "Visualizations for Multiple Variables",
+    "section": "Faceted line graphs",
+    "text": "Faceted line graphs\n\nNow we can create a line graph for each song.\n\nplt.figure(figsize=(5, 2))\nsns.relplot(data=data_lines, x=\"Date\", y=\"Streams\",\n            col=\"Song\", col_wrap=3, kind=\"line\",\n            height=3, aspect=1.1)\nplt.show()"
+  },
+  {
+    "objectID": "T9_MultivariatePlots/Statistical_Graphs_Univariate.slides.html#section-17",
+    "href": "T9_MultivariatePlots/Statistical_Graphs_Univariate.slides.html#section-17",
+    "title": "Visualizations for Multiple Variables",
+    "section": "",
+    "text": "&lt;Figure size 480x192 with 0 Axes&gt;"
+  },
+  {
+    "objectID": "T9_MultivariatePlots/Statistical_Graphs_Univariate.slides.html#multiple-lines-in-one-graph",
+    "href": "T9_MultivariatePlots/Statistical_Graphs_Univariate.slides.html#multiple-lines-in-one-graph",
+    "title": "Visualizations for Multiple Variables",
+    "section": "Multiple lines in one graph",
+    "text": "Multiple lines in one graph\n\nAlternatively, we can draw all five lines in a single graph using hue=\"Song\".\n\nplt.figure(figsize=(9, 5))\nsns.lineplot(data=data_lines, x=\"Date\", y=\"Streams\", hue=\"Song\")\nplt.title(\"Daily Spotify streams by song\")\nplt.xlabel(\"Date\")\nplt.ylabel(\"Daily streams\")\nplt.xticks(rotation=45)\nplt.tight_layout()\nplt.grid()\nplt.show()"
+  },
+  {
+    "objectID": "T9_MultivariatePlots/Statistical_Graphs_Univariate.slides.html#graphs-for-four-variables",
+    "href": "T9_MultivariatePlots/Statistical_Graphs_Univariate.slides.html#graphs-for-four-variables",
+    "title": "Visualizations for Multiple Variables",
+    "section": "Graphs for four variables",
+    "text": "Graphs for four variables\nA scatter plot can display four variables by mapping two numerical variables to the axes and using color and point size to represent two additional variables.\nHere, both additional variables are categorical (species and island).\n\nplt.figure(figsize=(7, 4))\nsns.scatterplot(data=penguins_data,\n                x=\"bill_depth_mm\", y=\"bill_length_mm\",\n                hue=\"species\", size=\"island\")\nplt.show()"
+  },
+  {
+    "objectID": "T9_MultivariatePlots/Statistical_Graphs_Univariate.slides.html#section-19",
+    "href": "T9_MultivariatePlots/Statistical_Graphs_Univariate.slides.html#section-19",
+    "title": "Visualizations for Multiple Variables",
+    "section": "",
+    "text": "plt.figure(figsize=(7, 4))\nsns.scatterplot(data=penguins_data,\n                x=\"bill_depth_mm\", y=\"bill_length_mm\",\n                hue=\"species\", size=\"island\", sizes=(40, 170))\nplt.title(\"Penguin bill dimensions by species and island\")\nplt.xlabel(\"Bill depth (mm)\")\nplt.ylabel(\"Bill length (mm)\")\nplt.grid()\nplt.show()\n\n\n\n\n\n\n\n\n\nUsing size for categories is possible, but the ordering can suggest a quantitative ranking. Consider faceting by island when a clearer categorical comparison is needed."
   }
 ]
