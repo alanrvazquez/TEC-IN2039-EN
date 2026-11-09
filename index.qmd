@@ -14,8 +14,8 @@ author:
 2.  Tools for Data Manipulation ([slides](/T2_Tools/Tools.slides.html)) ([colab](https://colab.research.google.com/drive/1ROp2vCpFgZ8WbHFS_6bN3O3n2FBmlnEP?usp=sharing)) 
 3.  Tidy Data ([slides](/T3_TidyData/TidyData.slides.html)) ([colab](https://colab.research.google.com/drive/16cYGecv-evCSmXgmqSMfHu2Gv0OlEWmt?usp=sharing)) 
 4.  Visualizations for One Variable ([slides](/T8_StatisticalGraphs/Statistical_Graphs_Univariate.slides.html)) ([colab](https://colab.research.google.com/drive/1KnrUfS9oUkQa2gHUkrNiMgQ1YNNrbvKt?usp=sharing))
-4.  Visualizations for Multiple Variables ([slides](/T9_MultivariatePlots/Statistical_Graphs_Multivariate.slides.html)) ([colab](https://drive.google.com/file/d/1WMPEHejV8z_0Ms1vnklyyO0fmZUifNBQ/view?usp=sharing))
-5.  Web Scraping ([slides](/T4_WebScraping/WebScraping.slides.html)) ([colab](https://colab.research.google.com/drive/1dOjPuUb6qklBqyZ1IfBmIxt6wzgn9Xsy?usp=sharing))
+5.  Visualizations for Multiple Variables ([slides](/T9_MultivariatePlots/Statistical_Graphs_Multivariate.slides.html)) ([colab](https://drive.google.com/file/d/1WMPEHejV8z_0Ms1vnklyyO0fmZUifNBQ/view?usp=sharing))
+6.  Web Scraping ([slides](/T4_WebScraping/WebScraping.slides.html)) ([colab](https://colab.research.google.com/drive/1dOjPuUb6qklBqyZ1IfBmIxt6wzgn9Xsy?usp=sharing))
 7.  Popular graphs for multiple variables ([slides](/T7_PopularGraphs/Popular_Graphs.slides.html))
 
 ## About the author
