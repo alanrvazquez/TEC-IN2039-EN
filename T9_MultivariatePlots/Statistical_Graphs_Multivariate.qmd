@@ -96,7 +96,7 @@ Several types of graphs help us explore relationships between two or more variab
 
 ::: center
 | Variable types | Common graphs |
-|:---|:---|
+|:-----------------------------------|:-----------------------------------|
 | Two numerical variables | Scatter plot, line graph |
 | Two categorical variables | Side-by-side bar chart, stacked bar chart |
 | Numerical and categorical variables | Side-by-side boxplots, dot plot, bar chart |
