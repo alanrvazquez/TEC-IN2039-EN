@@ -323,7 +323,7 @@ Alan R. Vazquez
 <p>Fortunately, the <strong>pandas</strong> library is already pre-installed in Google Colab.</p>
 <p><br></p>
 <p>However, we need to inform Google Colab that we want to use <strong>pandas</strong> and its functions using the following command:</p>
-<div id="d16df82f" class="cell" data-execution_count="1">
+<div id="0524462f" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a aria-label="1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p><br></p>
@@ -333,7 +333,7 @@ Alan R. Vazquez
 <h2>Loading data using pandas</h2>
 <p><br></p>
 <p>The following code shows how to read the data in the file “penguins.xlsx” into Python.</p>
-<div id="7413a26e" class="cell" data-execution_count="2">
+<div id="086e928d" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a aria-label="1"></a><span class="co"># Load the Excel file into a pandas DataFrame.</span></span>
 <span id="cb2-2"><a aria-label="2"></a>penguins_data <span class="op">=</span> pd.read_excel(<span class="st">"penguins.xlsx"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
@@ -341,7 +341,7 @@ Alan R. Vazquez
 <section id="the-function-head" class="slide level2">
 <h2>The function head()</h2>
 <p>The function <code>head()</code> allows you to print the first rows of a pandas data frame.</p>
-<div id="ae12c9f9" class="cell" data-execution_count="3">
+<div id="ff8bc4bd" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a aria-label="1"></a><span class="co"># Print the first 4 rows of the dataset.</span></span>
 <span id="cb3-2"><a aria-label="2"></a>penguins_data.head(<span class="dv">4</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="3">
@@ -429,7 +429,7 @@ Alan R. Vazquez
 <section id="indexing-variables-a-dataset" class="slide level2">
 <h2>Indexing variables a dataset</h2>
 <p>We can select a specific variables of a data frame using the syntaxis below.</p>
-<div id="01e42eb5" class="cell" data-execution_count="4">
+<div id="5c439740" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a aria-label="1"></a>penguins_data[<span class="st">'bill_length_mm'</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="4">
 <pre><code>0      39.1
@@ -451,7 +451,7 @@ Name: bill_length_mm, Length: 344, dtype: float64</code></pre>
 <section id="section-1" class="slide level2">
 <h2></h2>
 <p>To index multiple variables of a data frame, we put the names of the variables in a list object. For example, we select <code>bill_length_mm</code>, <code>species</code>, and <code>island</code> as follows:</p>
-<div id="ca84fbd2" class="cell" data-execution_count="5">
+<div id="2b68fb0e" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a aria-label="1"></a>sub_penguins_data <span class="op">=</span> penguins_data[ [<span class="st">'bill_length_mm'</span>,  <span class="st">'species'</span>, <span class="st">'island'</span>] ]</span>
 <span id="cb6-2"><a aria-label="2"></a>sub_penguins_data.head()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="5">
@@ -520,7 +520,7 @@ Name: bill_length_mm, Length: 344, dtype: float64</code></pre>
 <section id="indexing-rows" class="slide level2">
 <h2>Indexing rows</h2>
 <p>To index rows in a dataset, we use the argument <code>loc</code> from <strong>pandas</strong>. For example, we select the rows 3 to 6 of the <code>penguins_dataset</code> dataset:</p>
-<div id="d0ad4824" class="cell" data-execution_count="6">
+<div id="daac1dd2" class="cell" data-execution_count="6">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a aria-label="1"></a>rows_penguins_data <span class="op">=</span> penguins_data.loc[<span class="dv">2</span>:<span class="dv">5</span>]</span>
 <span id="cb7-2"><a aria-label="2"></a>rows_penguins_data</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="6">
@@ -608,7 +608,7 @@ Name: bill_length_mm, Length: 344, dtype: float64</code></pre>
 <section id="section-2" class="slide level2">
 <h2></h2>
 <p><br></p>
-<div id="7d764983" class="cell" data-execution_count="7">
+<div id="afca2e8c" class="cell" data-execution_count="7">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a aria-label="1"></a>rows_penguins_data</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="7">
 <div>
@@ -696,7 +696,7 @@ Name: bill_length_mm, Length: 344, dtype: float64</code></pre>
 <section id="indexing-rows-and-columns" class="slide level2">
 <h2>Indexing rows and columns</h2>
 <p>Using <code>loc</code>, we can also retrieve a subset from the dataset by selecting specific columns and rows.</p>
-<div id="61e13cc6" class="cell" data-execution_count="8">
+<div id="35347dbc" class="cell" data-execution_count="8">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a aria-label="1"></a>sub_rows_pdata <span class="op">=</span> penguins_data.loc[<span class="dv">2</span>:<span class="dv">5</span>, [<span class="st">'bill_length_mm'</span>,  <span class="st">'species'</span>, <span class="st">'island'</span>] ]</span>
 <span id="cb9-2"><a aria-label="2"></a>sub_rows_pdata</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="8">
@@ -786,7 +786,7 @@ Name: bill_length_mm, Length: 344, dtype: float64</code></pre>
 <section id="example" class="slide level2">
 <h2>Example</h2>
 <p>Let’s load the dataset and the <strong>pandas</strong> library.</p>
-<div id="877905af" class="cell" data-execution_count="9">
+<div id="221d53f6" class="cell" data-execution_count="9">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a aria-label="1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb10-2"><a aria-label="2"></a></span>
 <span id="cb10-3"><a aria-label="3"></a><span class="co"># Load the Excel file into a pandas DataFrame.</span></span>
@@ -879,7 +879,7 @@ Name: bill_length_mm, Length: 344, dtype: float64</code></pre>
 <section id="selecting-columns-with-.filter" class="slide level2">
 <h2>Selecting columns with <code>.filter()</code></h2>
 <p>Select the columns <code>species</code>, <code>body_mass_g</code> and <code>sex</code>.</p>
-<div id="fff3643f" class="cell" data-execution_count="10">
+<div id="8d3b6c35" class="cell" data-execution_count="10">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a aria-label="1"></a>(penguins_data</span>
 <span id="cb11-2"><a aria-label="2"></a>  .<span class="bu">filter</span>([<span class="st">"species"</span>, <span class="st">"body_mass_g"</span>, <span class="st">"sex"</span>], axis <span class="op">=</span> <span class="dv">1</span>)</span>
 <span id="cb11-3"><a aria-label="3"></a>).head()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -950,7 +950,7 @@ Name: bill_length_mm, Length: 344, dtype: float64</code></pre>
 <h2></h2>
 <p><br></p>
 <p>The <code>axis</code> argument tells <code>.filter()</code> whether to select rows (<code>0</code>) or columns (<code>1</code>) from the dataframe.</p>
-<div id="1cf0e0b0" class="cell" data-execution_count="11">
+<div id="07182880" class="cell" data-execution_count="11">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a aria-label="1"></a>(penguins_data</span>
 <span id="cb12-2"><a aria-label="2"></a>  .<span class="bu">filter</span>([<span class="st">"species"</span>, <span class="st">"body_mass_g"</span>, <span class="st">"sex"</span>], axis <span class="op">=</span> <span class="dv">1</span>)</span>
 <span id="cb12-3"><a aria-label="3"></a>).head()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -964,7 +964,7 @@ Name: bill_length_mm, Length: 344, dtype: float64</code></pre>
 <h2></h2>
 <p><br></p>
 <p>We can also use <code>.filter()</code> to select rows too. To this end, we set <code>axis = 1</code>. We can select specific rows, such as 0 and 10.</p>
-<div id="6adc3c78" class="cell" data-execution_count="12">
+<div id="50176b80" class="cell" data-execution_count="12">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a aria-label="1"></a>(penguins_data</span>
 <span id="cb13-2"><a aria-label="2"></a>  .<span class="bu">filter</span>([<span class="dv">0</span>, <span class="dv">10</span>], axis <span class="op">=</span> <span class="dv">0</span>)</span>
 <span id="cb13-3"><a aria-label="3"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -1031,7 +1031,7 @@ Name: bill_length_mm, Length: 344, dtype: float64</code></pre>
 <section id="section-6" class="slide level2">
 <h2></h2>
 <p>Or, we can select a set of rows using the function <code>range()</code>. For example, let’s select the first 5 rows.</p>
-<div id="3ffeec36" class="cell" data-execution_count="13">
+<div id="3e244898" class="cell" data-execution_count="13">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a aria-label="1"></a>(penguins_data</span>
 <span id="cb14-2"><a aria-label="2"></a>  .<span class="bu">filter</span>(<span class="bu">range</span>(<span class="dv">5</span>), axis <span class="op">=</span> <span class="dv">0</span>)</span>
 <span id="cb14-3"><a aria-label="3"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -1134,7 +1134,7 @@ Name: bill_length_mm, Length: 344, dtype: float64</code></pre>
 <p>An alternative way of selecting rows is <code>.query()</code>. Compared to <code>.filter()</code>, <code>.query()</code> allows us to filter the data using statements or <em>queries</em> involving the variables.</p>
 <p><br></p>
 <p>For example, let’s filter the data for the species “Gentoo.”</p>
-<div id="bb0e2bcd" class="cell" data-execution_count="14">
+<div id="14d99666" class="cell" data-execution_count="14">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a aria-label="1"></a>(penguins_data</span>
 <span id="cb15-2"><a aria-label="2"></a>  .query(<span class="st">"species == 'Gentoo'"</span>)</span>
 <span id="cb15-3"><a aria-label="3"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -1143,7 +1143,7 @@ Name: bill_length_mm, Length: 344, dtype: float64</code></pre>
 <section id="section-7" class="slide level2">
 <h2></h2>
 <p><br></p>
-<div id="8e3d81f7" class="cell" data-execution_count="15">
+<div id="7eb9c27a" class="cell" data-execution_count="15">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a aria-label="1"></a>(penguins_data</span>
 <span id="cb16-2"><a aria-label="2"></a>  .query(<span class="st">"species == 'Gentoo'"</span>)</span>
 <span id="cb16-3"><a aria-label="3"></a>).head()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -1243,7 +1243,7 @@ Name: bill_length_mm, Length: 344, dtype: float64</code></pre>
 <section id="section-8" class="slide level2">
 <h2></h2>
 <p>We can also filter the data to get penguins with a body mass greater than 5000g.</p>
-<div id="efa7cd3d" class="cell" data-execution_count="16">
+<div id="dd5f4dfd" class="cell" data-execution_count="16">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a aria-label="1"></a>(penguins_data</span>
 <span id="cb17-2"><a aria-label="2"></a>  .query(<span class="st">"body_mass_g &gt; 5000"</span>)</span>
 <span id="cb17-3"><a aria-label="3"></a>).head()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -1343,7 +1343,7 @@ Name: bill_length_mm, Length: 344, dtype: float64</code></pre>
 <section id="section-9" class="slide level2">
 <h2></h2>
 <p>We can even <strong>combine</strong> <code>.filter()</code> and <code>.query()</code>. For example, let’s select the columns <code>species</code>, <code>body_mass_g</code> and <code>sex</code>, then filter the data for the “Gentoo” species.</p>
-<div id="11211dfa" class="cell" data-execution_count="17">
+<div id="35ae1966" class="cell" data-execution_count="17">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a aria-label="1"></a>(penguins_data</span>
 <span id="cb18-2"><a aria-label="2"></a>  .<span class="bu">filter</span>([<span class="st">"species"</span>, <span class="st">"body_mass_g"</span>, <span class="st">"sex"</span>], axis <span class="op">=</span> <span class="dv">1</span>)</span>
 <span id="cb18-3"><a aria-label="3"></a>  .query(<span class="st">"species == 'Gentoo'"</span>)</span>
@@ -1411,7 +1411,7 @@ Name: bill_length_mm, Length: 344, dtype: float64</code></pre>
 <p>With <code>.assign()</code>, we can create new columns (variables) that are functions of existing ones. This function uses a special Python keyword called <code>lambda</code>. Technically, this keyword defines an <em>anonymous</em> function.</p>
 <p><br></p>
 <p>For example, we create a new variable <code>LDRatio</code> equaling the ratio of <code>bill_length_mm</code> and <code>bill_depth_mm</code>.</p>
-<div id="a38ccb31" class="cell" data-execution_count="18">
+<div id="91a3b888" class="cell" data-execution_count="18">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a aria-label="1"></a>(penguins_data</span>
 <span id="cb19-2"><a aria-label="2"></a>  .assign(LDRatio <span class="op">=</span> <span class="kw">lambda</span> df: df[<span class="st">"bill_length_mm"</span>] <span class="op">/</span> df[<span class="st">"bill_depth_mm"</span>])</span>
 <span id="cb19-3"><a aria-label="3"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -1421,7 +1421,7 @@ Name: bill_length_mm, Length: 344, dtype: float64</code></pre>
 <h2></h2>
 <p><br><br></p>
 <p>In this code, the <code>df</code> after <code>lambda</code> indicates that the dataframe (<code>penguins_data</code>) will be referred to as <code>df</code> inside the function. The colon <code>:</code> sets the start of the function.</p>
-<div id="37a4187e" class="cell" data-execution_count="19">
+<div id="2ce9b304" class="cell" data-execution_count="19">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a aria-label="1"></a>(penguins_data</span>
 <span id="cb20-2"><a aria-label="2"></a>  .assign(LDRatio <span class="op">=</span> <span class="kw">lambda</span> df: df[<span class="st">"bill_length_mm"</span>] <span class="op">/</span> df[<span class="st">"bill_depth_mm"</span>])</span>
 <span id="cb20-3"><a aria-label="3"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -1431,7 +1431,7 @@ Name: bill_length_mm, Length: 344, dtype: float64</code></pre>
 <section id="section-11" class="slide level2">
 <h2></h2>
 <p>We can see the new variable using <code>.filter()</code>.</p>
-<div id="74d9ad81" class="cell" data-execution_count="20">
+<div id="a4c684b2" class="cell" data-execution_count="20">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a aria-label="1"></a>(penguins_data</span>
 <span id="cb21-2"><a aria-label="2"></a>  .assign(LDRatio <span class="op">=</span> <span class="kw">lambda</span> df: df[<span class="st">"bill_length_mm"</span>] <span class="op">/</span> df[<span class="st">"bill_depth_mm"</span>])</span>
 <span id="cb21-3"><a aria-label="3"></a>  .<span class="bu">filter</span>([<span class="st">"bill_length_mm"</span>, <span class="st">"bill_depth_mm"</span>, <span class="st">"LDRatio"</span>], axis <span class="op">=</span> <span class="dv">1</span>)</span>
@@ -1502,7 +1502,7 @@ Name: bill_length_mm, Length: 344, dtype: float64</code></pre>
 <section id="sorting-with-.sort_values" class="slide level2">
 <h2>Sorting with <code>.sort_values()</code></h2>
 <p>We can sort the data based on a column like <code>bill_length_mm</code>.</p>
-<div id="0d8daa5e" class="cell" data-execution_count="21">
+<div id="98ab55e4" class="cell" data-execution_count="21">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a aria-label="1"></a>(penguins_data</span>
 <span id="cb22-2"><a aria-label="2"></a>  .sort_values(<span class="st">"bill_length_mm"</span>)</span>
 <span id="cb22-3"><a aria-label="3"></a>).head(<span class="dv">4</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -1591,7 +1591,7 @@ Name: bill_length_mm, Length: 344, dtype: float64</code></pre>
 <section id="section-12" class="slide level2">
 <h2></h2>
 <p>To sort in descending order, use <code>ascending=False</code> inside <code>sort_values()</code>.</p>
-<div id="8d63b052" class="cell" data-execution_count="22">
+<div id="837e4932" class="cell" data-execution_count="22">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a aria-label="1"></a>(penguins_data</span>
 <span id="cb23-2"><a aria-label="2"></a>  .sort_values(<span class="st">"bill_length_mm"</span>, ascending<span class="op">=</span><span class="va">False</span>)</span>
 <span id="cb23-3"><a aria-label="3"></a>).head()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -1691,7 +1691,7 @@ Name: bill_length_mm, Length: 344, dtype: float64</code></pre>
 <section id="summarizing-with-.agg" class="slide level2">
 <h2>Summarizing with <code>.agg()</code></h2>
 <p>We can calculate summary statistics of the columns <code>bill_length_mm</code>, <code>bill_depth_mm</code>, and <code>body_mass_g</code>.</p>
-<div id="f7edeec2" class="cell" data-execution_count="23">
+<div id="7c6727cc" class="cell" data-execution_count="23">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a aria-label="1"></a>(penguins_data</span>
 <span id="cb24-2"><a aria-label="2"></a>  .<span class="bu">filter</span>([<span class="st">"bill_length_mm"</span>, <span class="st">"bill_depth_mm"</span>, <span class="st">"body_mass_g"</span>], axis <span class="op">=</span> <span class="dv">1</span>)</span>
 <span id="cb24-3"><a aria-label="3"></a>  .agg([<span class="st">"mean"</span>])</span>
@@ -1743,7 +1743,7 @@ Name: bill_length_mm, Length: 344, dtype: float64</code></pre>
 <h2>Saving results in new objects</h2>
 <p><br></p>
 <p>After performing operations on our data, we can save the modified dataset as a new object.</p>
-<div id="3c239a89" class="cell" data-execution_count="24">
+<div id="2a8ed40b" class="cell" data-execution_count="24">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a aria-label="1"></a>mean_penguins_data <span class="op">=</span> (penguins_data</span>
 <span id="cb25-2"><a aria-label="2"></a>  .<span class="bu">filter</span>([<span class="st">"bill_length_mm"</span>, <span class="st">"bill_depth_mm"</span>, <span class="st">"body_mass_g"</span>], axis <span class="op">=</span> <span class="dv">1</span>)</span>
 <span id="cb25-3"><a aria-label="3"></a>  .agg([<span class="st">"mean"</span>])</span>
@@ -1793,7 +1793,7 @@ Name: bill_length_mm, Length: 344, dtype: float64</code></pre>
 <h2>Saving pandas dataframes into Excel</h2>
 <p><br><br></p>
 <p>Finally, we can save the <strong>pandas</strong> objects into an Excel file using the function <code>.to_excel()</code> as follows.</p>
-<div id="86287bd3" class="cell" data-execution_count="25">
+<div id="3d7acbb1" class="cell" data-execution_count="25">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a aria-label="1"></a><span class="co"># mean_penguins_data.to_excel("mean_penguins_data.xlsx")</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p><br></p>
