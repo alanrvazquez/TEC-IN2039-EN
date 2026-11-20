@@ -285,6 +285,17 @@ set_quantiles = [0.25, 0.5, 0.75]
 )
 ```
 
+
+## Mean versus median
+
+The sample mean is used when the data is symmetrically or uniformly distributed and there are no significant outliers. For example, the height of a large sample of people in a homogeneous population.
+
+The sample median is used when there are outliers that could skew the mean. For example:
+
+- Annual household income in a country (where there are a few billionaires who distort the mean).
+
+- Housing prices in a city (where a few very expensive properties can inflate the mean).
+
 ## Sample maximum and minimum
 
 Other relevant summary statistics are the **maximum** and **minimum**, which are calculated using the functions `max()` and `min()`, respectively.
@@ -310,6 +321,9 @@ bill_length_min = (penguins_data
                   )
 print(bill_length_min)
 ```
+
+
+
 
 ## Summary statistics for categorical data
 
@@ -400,6 +414,39 @@ La ventaja de la frequencia relativa es que se puede interpretar como una probab
 :::
 
 # Data visualizations
+
+## Principle 1
+
+> Formulate the question of interest.
+
+. . . 
+
+Typical questions about a numerical variable $X$ are:
+
+::: incremental
+- What is the shape of the observations of variable $X$?
+
+- Are there any unusual or atypical observations in variable $X$?
+
+- Does the shape of the observations of variable $X$ resemble a bell curve?
+
+:::
+
+## Principle 2
+
+> Transform data into information.
+
+. . . 
+
+Two common types of graphs for visualizing a numerical variable are:
+
+- Histogram.
+
+- Box plot.
+
+. . . 
+
+Basically, these are different ways of visualizing the "shape" or distribution of the variable.
 
 ## Example 2
 
@@ -496,6 +543,40 @@ plt.xlabel("Na") # X label
 plt.show() # Display the plot
 ```
 
+## What to look for in a histogram?
+
+</br></br>
+
+- The symmetry and asymmetry of the distribution
+- The number, location and size of high frequency regions (intervals).
+- Gaps where values are not observed.
+- Unusually large or abnormal values.
+- A [**bell**]{style="color:#1e3f5a;"} shape.
+
+## The obsession with bells
+
+</br>
+
+::::: columns
+::: {.column width="50%"}
+The **normal distribution** is a very important probability distribution in statistics.
+:::
+
+::: {.column width="50%"}
+![](images/clipboard-2759719598.png)
+:::
+:::::
+
+It is characterized by having a symmetrical bell shape around its mean, with the highest probability density centered on the mean and decreasing symmetrically towards the extremes.
+
+##
+
+Basically, if your observations follow a normal distribution, you can use statistical methods to draw conclusions supported by mathematical theory.
+
+![](images/clipboard-983817526.png){fig-align="center" width="554" height="278"}
+
+[*What many people don't know is that this condition is needed only if you have few observations (less than 50).*]{style="color:darkred;"}
+
 ## Box plot
 
 </br>
@@ -537,34 +618,6 @@ Outliers are points that are much larger or smaller than the rest of the sample 
 Outliers may be data entry errors or they may be points that really are different from the rest.
 
 Outliers should not be deleted without considerable thought—sometimes calculations and analyses will be done with and without outliers and then compared.
-
-## Scatter plot
-
-</br>
-
-Data for which items consists of a pair of numeric values is called bivariate. The graphical summary for bivariate data is a *scatterplot*.
-
-The variables $X$ and $Y$ are placed on the horizontal and vertical axes, respectively. Each point on the graph marks the position of a pair of values of $X$ and $Y$.
-
-A scatterplot allows us to explore lineal and nonlinear relationships between two variables.
-
-## Scatter plot of Na versus RI
-
-To create a scatter plot, we use the function `scatter()` from **seabron**. In this function, you must state the
-
-```{python}
-#| echo: true
-#| output: true
-#| fig-align: center
-#| code-fold: true
-
-plt.figure(figsize=(7,4)) # Create space for the plot.
-sns.scatterplot(data = glass_data, x = 'Na', y = 'RI') # Show the plot.
-plt.title("Scatter plot of Na vs RI") # Set plot title.
-plt.xlabel("Na") # Set label for X axis.
-plt.ylabel("RI") # Set label for Y axis.
-plt.show() # Show plot.
-```
 
 ## Bar charts
 

@@ -2069,7 +2069,7 @@
     "href": "T8_StatisticalGraphs/Statistical_Graphs_Univariate.slides.html#section-8",
     "title": "Visualizations for One Variable",
     "section": "",
-    "text": "We create the bar chart using the function countplot() from seaborn.\n\n\nCode\n# Create plot.\nplt.figure(figsize=(7,4)) # Create space for the plot.\nsns.countplot(data = glass_data, x = 'Type') # Show the plot.\nplt.title(\"Bar chart of Type of Glasses\") # Set plot title.\nplt.ylabel(\"Frequency\") # Set label for Y axis.\nplt.show() # Show plot."
+    "text": "Basically, if your observations follow a normal distribution, you can use statistical methods to draw conclusions supported by mathematical theory.\n\n\n\n\n\nWhat many people don’t know is that this condition is needed only if you have few observations (less than 50)."
   },
   {
     "objectID": "T8_StatisticalGraphs/Statistical_Graphs_Univariate.slides.html#saving-plots",
@@ -2090,7 +2090,7 @@
     "href": "T8_StatisticalGraphs/Statistical_Graphs_Univariate.slides.html#section-9",
     "title": "Visualizations for One Variable",
     "section": "",
-    "text": "plt.figure(figsize=(5, 5))\nsns.countplot(data = glass_data, x = 'Type')\nplt.title('Relative Frequency of Each Category', fontsize = 12)\nplt.ylabel('Relative Frequency', fontsize = 12)\nplt.xlabel('Category', fontsize = 15)\nplt.xticks(fontsize = 12)\nplt.yticks(fontsize = 12)\nplt.savefig('bar_chart.png',dpi=300)"
+    "text": "We create the bar chart using the function countplot() from seaborn.\n\n\nCode\n# Create plot.\nplt.figure(figsize=(7,4)) # Create space for the plot.\nsns.countplot(data = glass_data, x = 'Type') # Show the plot.\nplt.title(\"Bar chart of Type of Glasses\") # Set plot title.\nplt.ylabel(\"Frequency\") # Set label for Y axis.\nplt.show() # Show plot."
   },
   {
     "objectID": "index.slides.html#course-topics",
@@ -3162,5 +3162,54 @@
     "title": "Types of Variables and Univariate Plots",
     "section": "Return to main page",
     "text": "Return to main page"
+  },
+  {
+    "objectID": "T8_StatisticalGraphs/Statistical_Graphs_Univariate.slides.html#average-versus-median",
+    "href": "T8_StatisticalGraphs/Statistical_Graphs_Univariate.slides.html#average-versus-median",
+    "title": "Visualizations for One Variable",
+    "section": "Average versus median",
+    "text": "Average versus median\nThe average is used when the data is symmetrically or uniformly distributed and there are no significant outliers. For example, the height of a large sample of people in a homogeneous population.\nThe median is used when there are outliers that could skew the mean. For example:\n\nAnnual household income in a country (where there are a few billionaires who distort the mean).\nHousing prices in a city (where a few very expensive properties can inflate the mean)."
+  },
+  {
+    "objectID": "T8_StatisticalGraphs/Statistical_Graphs_Univariate.slides.html#mean-versus-median",
+    "href": "T8_StatisticalGraphs/Statistical_Graphs_Univariate.slides.html#mean-versus-median",
+    "title": "Visualizations for One Variable",
+    "section": "Mean versus median",
+    "text": "Mean versus median\nThe sample mean is used when the data is symmetrically or uniformly distributed and there are no significant outliers. For example, the height of a large sample of people in a homogeneous population.\nThe sample median is used when there are outliers that could skew the mean. For example:\n\nAnnual household income in a country (where there are a few billionaires who distort the mean).\nHousing prices in a city (where a few very expensive properties can inflate the mean)."
+  },
+  {
+    "objectID": "T8_StatisticalGraphs/Statistical_Graphs_Univariate.slides.html#principle-1",
+    "href": "T8_StatisticalGraphs/Statistical_Graphs_Univariate.slides.html#principle-1",
+    "title": "Visualizations for One Variable",
+    "section": "Principle 1",
+    "text": "Principle 1\n\nFormulate the question of interest.\n\n\nTypical questions about a numerical variable \\(X\\) are:\n\nWhat is the shape of the observations of variable \\(X\\)?\nAre there any unusual or atypical observations in variable \\(X\\)?\nDoes the shape of the observations of variable \\(X\\) resemble a bell curve?"
+  },
+  {
+    "objectID": "T8_StatisticalGraphs/Statistical_Graphs_Univariate.slides.html#principle-2",
+    "href": "T8_StatisticalGraphs/Statistical_Graphs_Univariate.slides.html#principle-2",
+    "title": "Visualizations for One Variable",
+    "section": "Principle 2",
+    "text": "Principle 2\n\nTransform data into information.\n\n\nTwo common types of graphs for visualizing a numerical variable are:\n\nHistogram.\nBox plot.\n\n\n\nBasically, these are different ways of visualizing the “shape” or distribution of the variable."
+  },
+  {
+    "objectID": "T8_StatisticalGraphs/Statistical_Graphs_Univariate.slides.html#what-to-look-for-in-a-histogram",
+    "href": "T8_StatisticalGraphs/Statistical_Graphs_Univariate.slides.html#what-to-look-for-in-a-histogram",
+    "title": "Visualizations for One Variable",
+    "section": "What to look for in a histogram?",
+    "text": "What to look for in a histogram?\n\n\nThe symmetry and asymmetry of the distribution\nThe number, location and size of high frequency regions (intervals).\nGaps where values are not observed.\nUnusually large or abnormal values.\nA bell shape."
+  },
+  {
+    "objectID": "T8_StatisticalGraphs/Statistical_Graphs_Univariate.slides.html#the-obsession-with-bells",
+    "href": "T8_StatisticalGraphs/Statistical_Graphs_Univariate.slides.html#the-obsession-with-bells",
+    "title": "Visualizations for One Variable",
+    "section": "The obsession with bells",
+    "text": "The obsession with bells\n\n\n\nThe normal distribution is a very important probability distribution in statistics.\n\n\n\nIt is characterized by having a symmetrical bell shape around its mean, with the highest probability density centered on the mean and decreasing symmetrically towards the extremes."
+  },
+  {
+    "objectID": "T8_StatisticalGraphs/Statistical_Graphs_Univariate.slides.html#section-10",
+    "href": "T8_StatisticalGraphs/Statistical_Graphs_Univariate.slides.html#section-10",
+    "title": "Visualizations for One Variable",
+    "section": "",
+    "text": "plt.figure(figsize=(5, 5))\nsns.countplot(data = glass_data, x = 'Type')\nplt.title('Relative Frequency of Each Category', fontsize = 12)\nplt.ylabel('Relative Frequency', fontsize = 12)\nplt.xlabel('Category', fontsize = 15)\nplt.xticks(fontsize = 12)\nplt.yticks(fontsize = 12)\nplt.savefig('bar_chart.png',dpi=300)"
   }
 ]
