@@ -68,9 +68,7 @@ The **goal** is to determine whether the variables are related and to explore th
 
 ## Example 1
 
-Consider data from 392 cars, including miles per gallon, number of cylinders, horsepower, weight, acceleration, model year, and origin.
-
-The data are available in the file "auto_dataset.xlsx".
+Consider data from 392 cars, including miles per gallon, number of cylinders, horsepower, weight, acceleration, model year, and origin. The data are in the file "auto_dataset.xlsx".
 
 ```{python}
 #| echo: true
