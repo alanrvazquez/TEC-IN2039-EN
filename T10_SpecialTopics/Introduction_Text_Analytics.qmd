@@ -26,8 +26,9 @@ editor: visual
 
 1.  Introduction to text analytics
 2.  Text cleaning and word clouds
-3.  Topic modeling with Latent Dirichlet Allocation
-4.  Conclusions
+3.  Document-Term Matrix
+4.  Topic modeling with Latent Dirichlet Allocation
+5.  Conclusions
 
 # Introduction to Text Analytics
 
@@ -410,7 +411,7 @@ plt.show()
 
 ## Principle 3: Apply graphic design 
 
-We can improve the word cloud using additional commands
+We can improve the word cloud using additional commands.
 
 ```{python}
 #| fig-align: center
@@ -426,8 +427,109 @@ plt.show()
 ```
 
 
-# Topic Modeling
+# Document-Term Matrix
 
+## From text to numerical data
+
+</br></br>
+
+Consider three short documents:
+
+- Document 1: funny movie funny
+- Document 2: funny actor
+- Document 3: action movie
+
+. . .
+
+We count the number of times each term occurs in each document.
+
+## Document-term matrix
+
+</br>
+
+| Document | action | actor | funny | movie |
+|:---------|-------:|------:|------:|------:|
+| 1        |      0 |     0 |     2 |     1 |
+| 2        |      0 |     1 |     1 |     0 |
+| 3        |      1 |     0 |     0 |     1 |
+
+</br>
+
+Each row represents a document, and each column represents a term.
+
+. . .
+
+Each entry is the frequency of a term in a document.
+
+## Bag of words
+
+</br></br>
+
+The document-term matrix is an example of the [**bag-of-words**]{style="color:#174062;"} representation.
+
+- We retain the frequency of each term.
+- We lose the order of the words.
+
+. . .
+
+For example, `dog bites man` and `man bites dog` have the same bag-of-words representation.
+
+## Document-term matrix in Python
+
+We use `CountVectorizer()` from **scikit-learn**.
+
+```{python}
+
+example_docs = ["funny movie funny", "funny actor", "action movie"]
+vectorizer = CountVectorizer()
+X_example = vectorizer.fit_transform(example_docs)
+
+pd.DataFrame(X_example.toarray(),
+             columns=vectorizer.get_feature_names_out())
+```
+
+## Create the matrix for the reviews
+
+</br>
+
+We join the cleaned terms to obtain one string per review.
+
+```{python}
+movie_review_data["text"] = movie_review_data["terms"].str.join(" ")
+vectorizer = CountVectorizer(min_df=5, max_df=0.8, max_features=3000, 
+                            stop_words='english',  lowercase=True, token_pattern=r"(?u)\b\w\w+\b")
+X = vectorizer.fit_transform(movie_review_data["text"])
+X.shape # Shape of the DTM
+```
+
+
+
+::: notes
+We use unstemmed terms for interpretable topic labels. The matrix is sparse; avoid converting the full matrix to a dense table. min_df removes terms in fewer than five documents; max_df removes terms in more than 80% of documents; max_features caps vocabulary size by corpus frequency.
+:::
+
+##
+
+</br>
+
+The basic parameters of this function are:
+ 
+- `min_df`: The minimum document frequency required for a term to be included in the vocabulary, ignoring rare words that appear in fewer documents than this threshold (specified as an integer count or a proportion).
+- `max_df`: The maximum document frequency allowed for a term, ignoring overly common corpus-specific words that appear in more documents than this threshold (specified as an integer count or a proportion).
+- `max_features`: The maximum number of top terms to keep in the vocabulary, ordered by their overall frequency across the entire corpus. 
+- `stop_words='english'`: removes the English stop words (`ENGLISH_STOP_WORDS`)
+- `token_pattern=r"(?u)\b\w\w+\b"`: Keeps only alphanumeric words of 2+ characters, ignoring punctuation and single letters.
+
+## Inspect the matrix
+
+```{python}
+terms = vectorizer.get_feature_names_out()
+pd.DataFrame(X[:5, :8].toarray(), columns=terms[:8])
+```
+
+The matrix contains many zeros because most documents contain only a small subset of all terms.
+
+# Topic Modeling
 
 ## Latent Dirichlet Allocation (LDA)
 
@@ -487,11 +589,11 @@ We fit the LDA model with a user-specified number of topics to all the reviews.
 
 ```{python}
 
-best_k = 5
+n_topics = 5
 vectorizer = CountVectorizer(min_df=5, max_df=0.8, max_features=3000)
 X = vectorizer.fit_transform(movie_review_data["review"])
 terms = vectorizer.get_feature_names_out()
-lda = LatentDirichletAllocation(n_components = best_k, max_iter = 10, 
+lda = LatentDirichletAllocation(n_components = n_topics, max_iter = 10, 
                                 random_state = 301655)
 lda.fit(X)
 ```
@@ -507,7 +609,7 @@ The attribute `.components_` contains the fitted weights of terms for each topic
 ```{python}
 topic_terms = pd.DataFrame(lda.components_, columns=terms)
 topic_terms = topic_terms.div(topic_terms.sum(axis=1), axis=0)
-topic_terms.index = range(1, best_k + 1)
+topic_terms.index = range(1, n_topics + 1)
 topic_terms.iloc[:, :5]
 ```
 
@@ -567,7 +669,7 @@ for topic, ax in zip(topic_terms.index, axes.flat):
                 color="darkblue", ax=ax)
     ax.set_title(f"Topic {topic}")
     ax.set_ylabel("")
-for ax in list(axes.flat)[best_k:]:
+for ax in list(axes.flat)[n_topics:]:
     ax.set_visible(False)
 plt.tight_layout()
 plt.show()

@@ -2853,7 +2853,7 @@
     "href": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#agenda",
     "title": "Introduction to Text Analytics",
     "section": "Agenda",
-    "text": "Agenda\n\n\nIntroduction to text analytics\nText cleaning and word clouds\nTopic modeling with Latent Dirichlet Allocation\nConclusions"
+    "text": "Agenda\n\n\nIntroduction to text analytics\nText cleaning and word clouds\nDocument-Term Matrix\nTopic modeling with Latent Dirichlet Allocation\nConclusions"
   },
   {
     "objectID": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#text-data",
@@ -3014,7 +3014,7 @@
     "href": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#stemming-in-python",
     "title": "Introduction to Text Analytics",
     "section": "Stemming in Python",
-    "text": "Stemming in Python\n\nWe use the Porter stemmer from nltk.\n\nstemmer = PorterStemmer()\nmovie_review_data[\"stems\"] = (movie_review_data[\"terms\"]\n                              .apply(lambda words: [stemmer.stem(word) for word in words])\n                              )\n\nBefore showing the revised word cloud, recompute the frequency table and update the word cloud.\n\nstem_freq = movie_review_data[\"stems\"].explode().value_counts()\ncloud.generate_from_frequencies(stem_freq.to_dict())\n\n&lt;wordcloud.wordcloud.WordCloud at 0x10c2972b0&gt;"
+    "text": "Stemming in Python\n\nWe use the Porter stemmer from nltk.\n\nstemmer = PorterStemmer()\nmovie_review_data[\"stems\"] = (movie_review_data[\"terms\"]\n                              .apply(lambda words: [stemmer.stem(word) for word in words])\n                              )\n\nBefore showing the revised word cloud, recompute the frequency table and update the word cloud.\n\nstem_freq = movie_review_data[\"stems\"].explode().value_counts()\ncloud.generate_from_frequencies(stem_freq.to_dict())\n\n&lt;wordcloud.wordcloud.WordCloud at 0x1381983a0&gt;"
   },
   {
     "objectID": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#word-cloud-after-stemming",
@@ -3035,7 +3035,7 @@
     "href": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#from-text-to-numerical-data",
     "title": "Introduction to Text Analytics",
     "section": "From text to numerical data",
-    "text": "From text to numerical data\nConsider three short documents:\n\nDocument 1: funny movie funny\nDocument 2: funny actor\nDocument 3: action movie\n\n\nWe count the number of times each term occurs in each document."
+    "text": "From text to numerical data\n\nConsider three short documents:\n\nDocument 1: funny movie funny\nDocument 2: funny actor\nDocument 3: action movie\n\n\nWe count the number of times each term occurs in each document."
   },
   {
     "objectID": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#document-term-matrix",
@@ -3049,28 +3049,28 @@
     "href": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#bag-of-words",
     "title": "Introduction to Text Analytics",
     "section": "Bag of words",
-    "text": "Bag of words\nThe document-term matrix is an example of the bag-of-words representation.\n\nWe retain the frequency of each term.\nWe lose the order of the words.\n\n\nFor example, dog bites man and man bites dog have the same bag-of-words representation."
+    "text": "Bag of words\n\nThe document-term matrix is an example of the bag-of-words representation.\n\nWe retain the frequency of each term.\nWe lose the order of the words.\n\n\nFor example, dog bites man and man bites dog have the same bag-of-words representation."
   },
   {
     "objectID": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#document-term-matrix-in-python",
     "href": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#document-term-matrix-in-python",
     "title": "Introduction to Text Analytics",
     "section": "Document-term matrix in Python",
-    "text": "Document-term matrix in Python\nWe use CountVectorizer() from scikit-learn.\n\nfrom sklearn.feature_extraction.text import CountVectorizer\n\nexample_docs = [\"funny movie funny\", \"funny actor\", \"action movie\"]\nvectorizer = CountVectorizer()\nX_example = vectorizer.fit_transform(example_docs)\n\npd.DataFrame(X_example.toarray(),\n             columns=vectorizer.get_feature_names_out())\n\n\n\n\n\n\n\n\naction\nactor\nfunny\nmovie\n\n\n\n\n0\n0\n0\n2\n1\n\n\n1\n0\n1\n1\n0\n\n\n2\n1\n0\n0\n1"
+    "text": "Document-term matrix in Python\nWe use CountVectorizer() from scikit-learn.\n\nexample_docs = [\"funny movie funny\", \"funny actor\", \"action movie\"]\nvectorizer = CountVectorizer()\nX_example = vectorizer.fit_transform(example_docs)\n\npd.DataFrame(X_example.toarray(),\n             columns=vectorizer.get_feature_names_out())\n\n\n\n\n\n\n\n\naction\nactor\nfunny\nmovie\n\n\n\n\n0\n0\n0\n2\n1\n\n\n1\n0\n1\n1\n0\n\n\n2\n1\n0\n0\n1"
   },
   {
     "objectID": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#create-the-matrix-for-the-reviews",
     "href": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#create-the-matrix-for-the-reviews",
     "title": "Introduction to Text Analytics",
     "section": "Create the matrix for the reviews",
-    "text": "Create the matrix for the reviews\nWe join the cleaned terms to obtain one string per review.\n\nreviews[\"text\"] = reviews[\"terms\"].str.join(\" \")\nvectorizer = CountVectorizer(min_df=5, max_df=0.8,\n                             max_features=3000)\nX = vectorizer.fit_transform(reviews[\"text\"])\nX.shape\n\n(2000, 3000)\n\n\n\nWe use unstemmed terms for interpretable topic labels. The matrix is sparse; avoid converting the full matrix to a dense table. min_df removes terms in fewer than five documents; max_df removes terms in more than 80% of documents; max_features caps vocabulary size by corpus frequency."
+    "text": "Create the matrix for the reviews\n\nWe join the cleaned terms to obtain one string per review.\n\nmovie_review_data[\"text\"] = movie_review_data[\"terms\"].str.join(\" \")\nvectorizer = CountVectorizer(min_df=5, max_df=0.8, max_features=3000, \n                            stop_words='english',  lowercase=True, token_pattern=r\"(?u)\\b\\w\\w+\\b\")\nX = vectorizer.fit_transform(movie_review_data[\"text\"])\nX.shape # Shape of the DTM\n\n(64704, 3000)\n\n\n\nWe use unstemmed terms for interpretable topic labels. The matrix is sparse; avoid converting the full matrix to a dense table. min_df removes terms in fewer than five documents; max_df removes terms in more than 80% of documents; max_features caps vocabulary size by corpus frequency."
   },
   {
     "objectID": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#inspect-the-matrix",
     "href": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#inspect-the-matrix",
     "title": "Introduction to Text Analytics",
     "section": "Inspect the matrix",
-    "text": "Inspect the matrix\n\nterms = vectorizer.get_feature_names_out()\npd.DataFrame(X[:5, :8].toarray(), columns=terms[:8])\n\n\n\n\n\n\n\n\nabandoned\nabilities\nability\nable\nabsolute\nabsolutely\nabsurd\nacademy\n\n\n\n\n0\n0\n0\n0\n0\n0\n0\n0\n0\n\n\n1\n0\n0\n0\n0\n0\n0\n0\n0\n\n\n2\n0\n0\n0\n0\n0\n0\n0\n0\n\n\n3\n0\n0\n0\n1\n0\n0\n0\n0\n\n\n4\n0\n0\n0\n0\n0\n0\n0\n0\n\n\n\n\n\n\n\nThe matrix contains many zeros because most documents contain only a small subset of all terms."
+    "text": "Inspect the matrix\n\nterms = vectorizer.get_feature_names_out()\npd.DataFrame(X[:5, :8].toarray(), columns=terms[:8])\n\n\n\n\n\n\n\n\nabandoned\nabilities\nability\nable\nabsolute\nabsolutely\nabsurd\nacademy\n\n\n\n\n0\n0\n0\n0\n0\n0\n0\n0\n0\n\n\n1\n0\n0\n0\n0\n0\n0\n0\n0\n\n\n2\n0\n0\n0\n0\n0\n0\n0\n0\n\n\n3\n0\n0\n0\n0\n0\n0\n0\n0\n\n\n4\n0\n0\n0\n0\n0\n0\n0\n0\n\n\n\n\n\n\n\nThe matrix contains many zeros because most documents contain only a small subset of all terms."
   },
   {
     "objectID": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#term-frequency-tf",
@@ -3203,7 +3203,7 @@
     "href": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#term-probabilities-by-topic",
     "title": "Introduction to Text Analytics",
     "section": "Term probabilities by topic",
-    "text": "Term probabilities by topic\nThe attribute .components_ contains the fitted weights of terms for each topic. We normalize each row so that it sums to one.\n\ntopic_terms = pd.DataFrame(lda.components_, columns=terms)\ntopic_terms = topic_terms.div(topic_terms.sum(axis=1), axis=0)\ntopic_terms.index = range(1, best_k + 1)\ntopic_terms.iloc[:, :5]\n\n\n\n\n\n\n\n\n000\n10\n100\n12\n13\n\n\n\n\n1\n0.000049\n0.000001\n2.050309e-04\n0.000010\n0.000013\n\n\n2\n0.000024\n0.002420\n1.279708e-06\n0.000001\n0.000001\n\n\n3\n0.000011\n0.000001\n1.242043e-06\n0.000039\n0.000001\n\n\n4\n0.000001\n0.000035\n1.178735e-04\n0.000076\n0.000266\n\n\n5\n0.000449\n0.000263\n9.415214e-07\n0.000123\n0.000050"
+    "text": "Term probabilities by topic\nThe attribute .components_ contains the fitted weights of terms for each topic. We normalize each row so that it sums to one.\n\ntopic_terms = pd.DataFrame(lda.components_, columns=terms)\ntopic_terms = topic_terms.div(topic_terms.sum(axis=1), axis=0)\ntopic_terms.index = range(1, n_topics + 1)\ntopic_terms.iloc[:, :5]\n\n\n\n\n\n\n\n\n000\n10\n100\n12\n13\n\n\n\n\n1\n0.000049\n0.000001\n2.050309e-04\n0.000010\n0.000013\n\n\n2\n0.000024\n0.002420\n1.279708e-06\n0.000001\n0.000001\n\n\n3\n0.000011\n0.000001\n1.242043e-06\n0.000039\n0.000001\n\n\n4\n0.000001\n0.000035\n1.178735e-04\n0.000076\n0.000266\n\n\n5\n0.000449\n0.000263\n9.415214e-07\n0.000123\n0.000050"
   },
   {
     "objectID": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#identify-the-main-terms-of-each-topic",
@@ -3231,7 +3231,7 @@
     "href": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#faceted-plot-of-topics",
     "title": "Introduction to Text Analytics",
     "section": "Faceted plot of topics",
-    "text": "Faceted plot of topics\n\n\nCode\nfig, axes = plt.subplots(2, 3, figsize=(10, 5.5), sharex=True)\nfor topic, ax in zip(topic_terms.index, axes.flat):\n    subset = plot_data.query(\"Topic == @topic\")\n    sns.barplot(data=subset, x=\"Probability\", y=\"Term\",\n                color=\"darkblue\", ax=ax)\n    ax.set_title(f\"Topic {topic}\")\n    ax.set_ylabel(\"\")\nfor ax in list(axes.flat)[best_k:]:\n    ax.set_visible(False)\nplt.tight_layout()\nplt.show()\n\n\n\n\n\n\n\n\n\n\nSeparate axes allow each topic to have its own term labels. The common horizontal scale supports comparisons across topics. Inspect whether the terms are distinct and meaningful, not just frequent."
+    "text": "Faceted plot of topics\n\n\nCode\nfig, axes = plt.subplots(2, 3, figsize=(10, 5.5), sharex=True)\nfor topic, ax in zip(topic_terms.index, axes.flat):\n    subset = plot_data.query(\"Topic == @topic\")\n    sns.barplot(data=subset, x=\"Probability\", y=\"Term\",\n                color=\"darkblue\", ax=ax)\n    ax.set_title(f\"Topic {topic}\")\n    ax.set_ylabel(\"\")\nfor ax in list(axes.flat)[n_topics:]:\n    ax.set_visible(False)\nplt.tight_layout()\nplt.show()\n\n\n\n\n\n\n\n\n\n\nSeparate axes allow each topic to have its own term labels. The common horizontal scale supports comparisons across topics. Inspect whether the terms are distinct and meaningful, not just frequent."
   },
   {
     "objectID": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#topic-proportions-by-document",
@@ -3315,14 +3315,14 @@
     "href": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#section-1",
     "title": "Introduction to Text Analytics",
     "section": "",
-    "text": "Let’s recompute the frequency table and update the word cloud.\n\nword_freq = movie_review_data[\"terms\"].explode().value_counts()\ncloud.generate_from_frequencies(word_freq.to_dict())\n\n&lt;wordcloud.wordcloud.WordCloud at 0x10c2972b0&gt;"
+    "text": "Let’s recompute the frequency table and update the word cloud.\n\nword_freq = movie_review_data[\"terms\"].explode().value_counts()\ncloud.generate_from_frequencies(word_freq.to_dict())\n\n&lt;wordcloud.wordcloud.WordCloud at 0x1381983a0&gt;"
   },
   {
     "objectID": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#principle-3-apply-graphic-design",
     "href": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#principle-3-apply-graphic-design",
     "title": "Introduction to Text Analytics",
     "section": "Principle 3: Apply graphic design",
-    "text": "Principle 3: Apply graphic design\nWe can improve the word cloud using additional commands\n\n\nCode\nplt.figure(figsize=(5, 5), dpi=150)\nplt.imshow(cloud, interpolation=\"bilinear\")\nplt.title(\"Most frequent words in movie reviews\",\n          fontsize=18, fontweight=\"bold\", color=\"darkblue\", pad=20)\nplt.axis(\"off\")\nplt.tight_layout()\nplt.show()"
+    "text": "Principle 3: Apply graphic design\nWe can improve the word cloud using additional commands.\n\n\nCode\nplt.figure(figsize=(5, 5), dpi=150)\nplt.imshow(cloud, interpolation=\"bilinear\")\nplt.title(\"Most frequent words in movie reviews\",\n          fontsize=18, fontweight=\"bold\", color=\"darkblue\", pad=20)\nplt.axis(\"off\")\nplt.tight_layout()\nplt.show()"
   },
   {
     "objectID": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#principle-1-can-we-identify-themes",
@@ -3336,7 +3336,7 @@
     "href": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#fit-the-lda-model-in-python",
     "title": "Introduction to Text Analytics",
     "section": "Fit the LDA model in Python",
-    "text": "Fit the LDA model in Python\n\nWe fit the LDA model with a user-specified number of topics to all the reviews.\n\nbest_k = 5\nvectorizer = CountVectorizer(min_df=5, max_df=0.8, max_features=3000)\nX = vectorizer.fit_transform(movie_review_data[\"review\"])\nterms = vectorizer.get_feature_names_out()\nlda = LatentDirichletAllocation(n_components = best_k, max_iter = 10, \n                                random_state = 301655)\nlda.fit(X)\n\nLatentDirichletAllocation(n_components=5, random_state=301655)In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.LatentDirichletAllocation?Documentation for LatentDirichletAllocationiFittedLatentDirichletAllocation(n_components=5, random_state=301655) \n\n\n\nThe validation set was used for model selection; its score is not an independent final test estimate. For a formal predictive study, reserve an additional test set. The modest iteration count is a classroom runtime compromise."
+    "text": "Fit the LDA model in Python\n\nWe fit the LDA model with a user-specified number of topics to all the reviews.\n\nn_topics = 5\nvectorizer = CountVectorizer(min_df=5, max_df=0.8, max_features=3000)\nX = vectorizer.fit_transform(movie_review_data[\"review\"])\nterms = vectorizer.get_feature_names_out()\nlda = LatentDirichletAllocation(n_components = n_topics, max_iter = 10, \n                                random_state = 301655)\nlda.fit(X)\n\nLatentDirichletAllocation(n_components=5, random_state=301655)In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.LatentDirichletAllocation?Documentation for LatentDirichletAllocationiFittedLatentDirichletAllocation(n_components=5, random_state=301655) \n\n\n\nThe validation set was used for model selection; its score is not an independent final test estimate. For a formal predictive study, reserve an additional test set. The modest iteration count is a classroom runtime compromise."
   },
   {
     "objectID": "T10_SpecialTopics/Introduction_Text_Analytics.html",
@@ -3726,6 +3726,20 @@
   {
     "objectID": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#section-2",
     "href": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#section-2",
+    "title": "Introduction to Text Analytics",
+    "section": "",
+    "text": "The basic parameters of this function are:\n\nmin_df: The minimum document frequency required for a term to be included in the vocabulary, ignoring rare words that appear in fewer documents than this threshold (specified as an integer count or a proportion).\nmax_df: The maximum document frequency allowed for a term, ignoring overly common corpus-specific words that appear in more documents than this threshold (specified as an integer count or a proportion).\nmax_features: The maximum number of top terms to keep in the vocabulary, ordered by their overall frequency across the entire corpus.\nstop_words='english': removes the English stop words (ENGLISH_STOP_WORDS)\ntoken_pattern=r\"(?u)\\b\\w\\w+\\b\": Keeps only alphanumeric words of 2+ characters, ignoring punctuation and single letters."
+  },
+  {
+    "objectID": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#document-term-matrix-1",
+    "href": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#document-term-matrix-1",
+    "title": "Introduction to Text Analytics",
+    "section": "Document-term matrix",
+    "text": "Document-term matrix\n\n\n\n\nDocument\naction\nactor\nfunny\nmovie\n\n\n\n\n1\n0\n0\n2\n1\n\n\n2\n0\n1\n1\n0\n\n\n3\n1\n0\n0\n1\n\n\n\n\nEach row represents a document, and each column represents a term.\n\nEach entry is the frequency of a term in a document."
+  },
+  {
+    "objectID": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#section-3",
+    "href": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#section-3",
     "title": "Introduction to Text Analytics",
     "section": "",
     "text": "prevalence = mixtures.mean().sort_values(ascending=False).reset_index()\nprevalence.columns = [\"Topic\", \"Average proportion\"]\nplt.figure(figsize=(7, 3))\nsns.barplot(data=prevalence, x=\"Average proportion\", y=\"Topic\",\n            color=\"darkblue\")\nplt.xlim(0, 1)\nplt.grid()\nplt.title(\"Average topic proportions across movie reviews\")\nplt.show()"
