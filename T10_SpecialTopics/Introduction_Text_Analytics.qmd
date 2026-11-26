@@ -26,9 +26,8 @@ editor: visual
 
 1.  Introduction to text analytics
 2.  Text cleaning and word clouds
-3.  Document-term matrix and TF-IDF
-4.  Topic modeling with Latent Dirichlet Allocation
-5.  Discussion
+3.  Topic modeling with Latent Dirichlet Allocation
+4.  Conclusions
 
 # Introduction to Text Analytics
 
@@ -141,7 +140,6 @@ Let's load the old and new libraries into Python.
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
-import nltk
 from wordcloud import WordCloud
 from nltk.stem import PorterStemmer
 from sklearn.feature_extraction.text import CountVectorizer
@@ -236,6 +234,13 @@ movie_review_data["words"] = movie_review_data["clean"].str.split()
 movie_review_data.filter(["words"], axis = 1).head(1)
 ```
 
+Note: we remove the missing rows in the generated dataset.
+
+```{python}
+
+movie_review_data = movie_review_data.dropna(subset=["words"])
+```
+
 ## A frequency table for words
 
 The function `.explode()` creates one row for each element of a list.
@@ -311,9 +316,9 @@ from sklearn.feature_extraction.text import ENGLISH_STOP_WORDS
 stop_words = set(ENGLISH_STOP_WORDS)
 movie_review_data["terms"] = movie_review_data["words"].apply(
                                 lambda words: [word for word in words
-                                if word not in stop_words and len(word) > 2])
+                                if word not in stop_words and len(word) > 2]
+                                )
                               
-
 ```
 
 The expression inside brackets keeps words that satisfy both conditions.
@@ -372,9 +377,9 @@ We use the Porter stemmer from **NLTK**.
 ```{python}
 
 stemmer = PorterStemmer()
-movie_review_data["stems"] = (movie_review_data
-                              .filter(["terms"], axis = 1)
+movie_review_data["stems"] = (movie_review_data["terms"]
                               .apply(lambda words: [stemmer.stem(word) for word in words])
+                              )
 
 ```
 
@@ -467,6 +472,7 @@ example_mix = pd.DataFrame({"Topic": ["Acting", "Action scenes"],
 plt.figure(figsize=(7, 2.5))
 sns.barplot(data=example_mix, x="Proportion", y="Topic", color="darkblue")
 plt.xlim(0, 1)
+plt.grid()
 plt.show()
 ```
 
@@ -477,10 +483,11 @@ We fit the LDA model with a user-specified number of topics to all the reviews.
 
 ```{python}
 
+best_k = 5
 vectorizer = CountVectorizer(min_df=5, max_df=0.8, max_features=3000)
 X = vectorizer.fit_transform(movie_review_data["review"])
 terms = vectorizer.get_feature_names_out()
-lda = LatentDirichletAllocation(n_components = 5, max_iter = 10, 
+lda = LatentDirichletAllocation(n_components = best_k, max_iter = 10, 
                                 random_state = 301655)
 lda.fit(X)
 ```
@@ -586,6 +593,7 @@ plt.figure(figsize=(7, 3))
 sns.barplot(data=prevalence, x="Average proportion", y="Topic",
             color="darkblue")
 plt.xlim(0, 1)
+plt.grid()
 plt.title("Average topic proportions across movie reviews")
 plt.show()
 ```
@@ -595,7 +603,7 @@ This is a document-weighted average of estimated mixtures, not the percentage of
 :::
 
 
-# Discussion
+# Conclusion
 
 ## Return to our research question
 
@@ -614,20 +622,20 @@ For example, we can read the review with the largest estimated proportion of Top
 
 ```{python}
 review_id = mixtures["Topic 1"].idxmax()
-print(reviews.loc[review_id, "review"][:700])
+print(movie_review_data.loc[review_id, "review"][:700])
 ```
 
 Does the original text support our interpretation of the topic?
 
 ## Limitations
 
-::: incremental
+
 - Cleaning and stop-word choices affect the results.
 - Bag-of-words methods ignore word order and context.
 - Word clouds do not support precise comparisons.
 - LDA topics may overlap or lack a clear interpretation.
 - Results depend on the corpus, vocabulary, number of topics, and model fitting.
-:::
+
 
 
 # [Return to main page](https://alanrvazquez.github.io/TEC-IN2039-EN/)
