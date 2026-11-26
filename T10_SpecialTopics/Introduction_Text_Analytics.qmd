@@ -516,6 +516,11 @@ The basic parameters of this function are:
  
 - `min_df`: The minimum document frequency required for a term to be included in the vocabulary, ignoring rare words that appear in fewer documents than this threshold (specified as an integer count or a proportion).
 - `max_df`: The maximum document frequency allowed for a term, ignoring overly common corpus-specific words that appear in more documents than this threshold (specified as an integer count or a proportion).
+
+## 
+
+</br>
+
 - `max_features`: The maximum number of top terms to keep in the vocabulary, ordered by their overall frequency across the entire corpus. 
 - `stop_words='english'`: removes the English stop words (`ENGLISH_STOP_WORDS`)
 - `token_pattern=r"(?u)\b\w\w+\b"`: Keeps only alphanumeric words of 2+ characters, ignoring punctuation and single letters.

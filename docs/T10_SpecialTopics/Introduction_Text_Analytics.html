@@ -177,7 +177,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#principle-1-define-the-question" id="toc-principle-1-define-the-question" class="nav-link" data-scroll-target="#principle-1-define-the-question">Principle 1: Define the question</a></li>
   <li><a href="#principle-2-turn-data-into-information" id="toc-principle-2-turn-data-into-information" class="nav-link" data-scroll-target="#principle-2-turn-data-into-information">Principle 2: Turn data into information</a></li>
   <li><a href="#scikit-learn-library" id="toc-scikit-learn-library" class="nav-link" data-scroll-target="#scikit-learn-library">scikit-learn library</a></li>
-  <li><a href="#nltk-library" id="toc-nltk-library" class="nav-link" data-scroll-target="#nltk-library">NLTK library</a></li>
+  <li><a href="#nltk-library" id="toc-nltk-library" class="nav-link" data-scroll-target="#nltk-library">nltk library</a></li>
   <li><a href="#wordcloud-library" id="toc-wordcloud-library" class="nav-link" data-scroll-target="#wordcloud-library">wordcloud library</a></li>
   <li><a href="#load-the-libraries" id="toc-load-the-libraries" class="nav-link" data-scroll-target="#load-the-libraries">Load the libraries</a></li>
   <li><a href="#load-the-data" id="toc-load-the-data" class="nav-link" data-scroll-target="#load-the-data">Load the data</a></li>
@@ -186,6 +186,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#text-cleaning-and-word-clouds" id="toc-text-cleaning-and-word-clouds" class="nav-link" data-scroll-target="#text-cleaning-and-word-clouds">Text Cleaning and Word Clouds</a>
   <ul class="collapse">
   <li><a href="#why-clean-text" id="toc-why-clean-text" class="nav-link" data-scroll-target="#why-clean-text">Why clean text?</a></li>
+  <li><a href="#basic-text-cleaning" id="toc-basic-text-cleaning" class="nav-link" data-scroll-target="#basic-text-cleaning">Basic text cleaning</a></li>
   <li><a href="#example-of-text-cleaning" id="toc-example-of-text-cleaning" class="nav-link" data-scroll-target="#example-of-text-cleaning">Example of text cleaning</a></li>
   <li><a href="#clean-the-reviews" id="toc-clean-the-reviews" class="nav-link" data-scroll-target="#clean-the-reviews">Clean the reviews</a></li>
   <li><a href="#tokenization" id="toc-tokenization" class="nav-link" data-scroll-target="#tokenization">Tokenization</a></li>
@@ -202,9 +203,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#word-cloud-after-stemming" id="toc-word-cloud-after-stemming" class="nav-link" data-scroll-target="#word-cloud-after-stemming">Word cloud after stemming</a></li>
   <li><a href="#principle-3-apply-graphic-design" id="toc-principle-3-apply-graphic-design" class="nav-link" data-scroll-target="#principle-3-apply-graphic-design">Principle 3: Apply graphic design</a></li>
   </ul></li>
+  <li><a href="#document-term-matrix" id="toc-document-term-matrix" class="nav-link" data-scroll-target="#document-term-matrix">Document-Term Matrix</a>
+  <ul class="collapse">
+  <li><a href="#from-text-to-numerical-data" id="toc-from-text-to-numerical-data" class="nav-link" data-scroll-target="#from-text-to-numerical-data">From text to numerical data</a></li>
+  <li><a href="#document-term-matrix-1" id="toc-document-term-matrix-1" class="nav-link" data-scroll-target="#document-term-matrix-1">Document-term matrix</a></li>
+  <li><a href="#bag-of-words" id="toc-bag-of-words" class="nav-link" data-scroll-target="#bag-of-words">Bag of words</a></li>
+  <li><a href="#document-term-matrix-in-python" id="toc-document-term-matrix-in-python" class="nav-link" data-scroll-target="#document-term-matrix-in-python">Document-term matrix in Python</a></li>
+  <li><a href="#create-the-matrix-for-the-reviews" id="toc-create-the-matrix-for-the-reviews" class="nav-link" data-scroll-target="#create-the-matrix-for-the-reviews">Create the matrix for the reviews</a></li>
+  <li><a href="#section-2" id="toc-section-2" class="nav-link" data-scroll-target="#section-2"></a></li>
+  <li><a href="#inspect-the-matrix" id="toc-inspect-the-matrix" class="nav-link" data-scroll-target="#inspect-the-matrix">Inspect the matrix</a></li>
+  </ul></li>
   <li><a href="#topic-modeling" id="toc-topic-modeling" class="nav-link" data-scroll-target="#topic-modeling">Topic Modeling</a>
   <ul class="collapse">
-  <li><a href="#principle-1-can-we-identify-themes" id="toc-principle-1-can-we-identify-themes" class="nav-link" data-scroll-target="#principle-1-can-we-identify-themes">Principle 1: Can we identify themes?</a></li>
   <li><a href="#latent-dirichlet-allocation-lda" id="toc-latent-dirichlet-allocation-lda" class="nav-link" data-scroll-target="#latent-dirichlet-allocation-lda">Latent Dirichlet Allocation (LDA)</a></li>
   <li><a href="#a-hypothetical-example" id="toc-a-hypothetical-example" class="nav-link" data-scroll-target="#a-hypothetical-example">A hypothetical example</a></li>
   <li><a href="#a-mixture-of-topics" id="toc-a-mixture-of-topics" class="nav-link" data-scroll-target="#a-mixture-of-topics">A mixture of topics</a></li>
@@ -216,6 +226,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#faceted-plot-of-topics" id="toc-faceted-plot-of-topics" class="nav-link" data-scroll-target="#faceted-plot-of-topics">Faceted plot of topics</a></li>
   <li><a href="#topic-proportions-by-document" id="toc-topic-proportions-by-document" class="nav-link" data-scroll-target="#topic-proportions-by-document">Topic proportions by document</a></li>
   <li><a href="#how-common-are-the-topics" id="toc-how-common-are-the-topics" class="nav-link" data-scroll-target="#how-common-are-the-topics">How common are the topics?</a></li>
+  <li><a href="#section-3" id="toc-section-3" class="nav-link" data-scroll-target="#section-3"></a></li>
   </ul></li>
   <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a>
   <ul class="collapse">
@@ -269,6 +280,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ol type="1">
 <li>Introduction to text analytics</li>
 <li>Text cleaning and word clouds</li>
+<li>Document-Term Matrix</li>
 <li>Topic modeling with Latent Dirichlet Allocation</li>
 <li>Conclusions</li>
 </ol>
@@ -297,8 +309,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Text analytics is the process of extracting useful information from text data.</p>
 </blockquote>
 <p>. . .</p>
-<p>In this topic, we will transform text into numerical data that can be summarized and visualized.</p>
 <p><br></p>
+<p>Here, we will transform text into numerical data that can be summarized and visualized.</p>
 <p>Our goal is not to read every document individually, but to identify patterns across many documents.</p>
 </section>
 <section id="example-movie-reviews" class="level3">
@@ -312,11 +324,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="principle-1-define-the-question" class="level3">
 <h3 class="anchored" data-anchor-id="principle-1-define-the-question">Principle 1: Define the question</h3>
+<p>Typical questions in a basic text analysis are:</p>
 <p><br><br></p>
 <div class="incremental">
 <ul class="incremental">
 <li>What words appear most frequently in movie reviews?</li>
-<li>Which words are particularly informative about a review?</li>
 <li>What are the main themes discussed by viewers?</li>
 <li>How common are these themes across the reviews?</li>
 </ul>
@@ -338,14 +350,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td style="text-align: left;">Word cloud, bar chart</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Which words are informative?</td>
-<td style="text-align: left;">TF-IDF, bar chart</td>
-</tr>
-<tr class="odd">
 <td style="text-align: left;">What themes appear?</td>
 <td style="text-align: left;">Topic modeling, bar charts</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;">How common are the themes?</td>
 <td style="text-align: left;">Topic prevalence plot</td>
 </tr>
@@ -367,12 +375,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </section>
 <section id="nltk-library" class="level3">
-<h3 class="anchored" data-anchor-id="nltk-library">NLTK library</h3>
+<h3 class="anchored" data-anchor-id="nltk-library">nltk library</h3>
 <ul>
-<li><strong>NLTK</strong> (Natural Language Toolkit) is a popular Python library for natural language processing (NLP).</li>
+<li><strong>nltk</strong> (Natural Language Toolkit) is a popular Python library for natural language processing (NLP).</li>
 <li>It provides tools for processing and analyzing textual data.</li>
 <li>It includes functions for tokenization, stemming, and removing stop words.</li>
-<li>It provides access to collections of textual data, known as <em>corpora</em>.</li>
 <li><a href="https://www.nltk.org/" class="uri">https://www.nltk.org/</a></li>
 </ul>
 <div class="quarto-figure quarto-figure-center">
@@ -386,7 +393,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ul>
 <li><strong>wordcloud</strong> is a Python library for creating word clouds from textual data.</li>
 <li>It allows us to visualize the most frequent words in a collection of documents.</li>
-<li>It provides tools to customize the size, color, shape, and appearance of word clouds.</li>
 <li><a href="https://amueller.github.io/word_cloud/" class="uri">https://amueller.github.io/word_cloud/</a></li>
 </ul>
 <div class="quarto-figure quarto-figure-center">
@@ -399,7 +405,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 class="anchored" data-anchor-id="load-the-libraries">Load the libraries</h3>
 <p><br><br></p>
 <p>Let’s load the old and new libraries into Python.</p>
-<div id="d0f45f47" class="cell" data-execution_count="1">
+<div id="4d1cf5bf" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -411,71 +417,42 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="load-the-data" class="level3">
 <h3 class="anchored" data-anchor-id="load-the-data">Load the data</h3>
-<p>We will use the Movie Reviews corpus distributed with <strong>NLTK</strong>, containing 2,000 English-language movie reviews.</p>
-<div id="09083618" class="cell" data-execution_count="2">
+<p>We will use the Movie Reviews corpus distributed with <strong>nltk</strong>, containing many English-language movie reviews.</p>
+<div id="b9172400" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>movie_review_data <span class="op">=</span> pd.read_excel(<span class="st">"movie_review.xlsx"</span>)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>movie_review_data.head()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>(movie_review_data</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  .<span class="bu">filter</span>([<span class="st">"review"</span>], axis <span class="op">=</span> <span class="dv">1</span>)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>).head(<span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="a-document-and-a-corpus" class="level3">
 <h3 class="anchored" data-anchor-id="a-document-and-a-corpus">A document and a corpus</h3>
+<p><br><br></p>
 <ul>
 <li>A <strong>document</strong> is one unit of text under study (one movie review in our example).</li>
 <li>A <strong>corpus</strong> is a collection of documents (all the movie reviews).</li>
 <li>A <strong>token</strong> is a unit of text, such as a word.</li>
 </ul>
-<div id="43cf27a2" class="cell" data-execution_count="3">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>(movie_review_data</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  .<span class="bu">filter</span>([<span class="st">"review"</span>], axis <span class="op">=</span> <span class="dv">1</span>)</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>).head(<span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="3">
-<div>
-
-
-<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">review</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<th data-quarto-table-cell-role="th">0</th>
-<td>films adapted from comic books have had plenty...</td>
-</tr>
-<tr class="even">
-<th data-quarto-table-cell-role="th">1</th>
-<td>for starters , it was created by alan moore ( ...</td>
-</tr>
-<tr class="odd">
-<th data-quarto-table-cell-role="th">2</th>
-<td>to say moore and campbell thoroughly researche...</td>
-</tr>
-</tbody>
-</table>
-
-</div>
-</div>
-</div>
 </section>
 </section>
 <section id="text-cleaning-and-word-clouds" class="level2">
 <h2 class="anchored" data-anchor-id="text-cleaning-and-word-clouds">Text Cleaning and Word Clouds</h2>
 <section id="why-clean-text" class="level3">
 <h3 class="anchored" data-anchor-id="why-clean-text">Why clean text?</h3>
+<p><br><br></p>
 <p>The words <code>Movie</code>, <code>movie</code>, and <code>movie!</code> convey essentially the same information in this example.</p>
 <p>However, a computer may treat them as different strings.</p>
 <p>We need to define how to represent the text before computing summaries.</p>
-<p><strong>Basic text cleaning</strong>:</p>
-<div class="incremental">
-<ul class="incremental">
+</section>
+<section id="basic-text-cleaning" class="level3">
+<h3 class="anchored" data-anchor-id="basic-text-cleaning">Basic text cleaning</h3>
+<p><br><br></p>
+<ul>
 <li>Convert uppercase letters to lowercase.</li>
 <li>Remove punctuation and numbers (when not relevant).</li>
 <li>Remove unnecessary spaces.</li>
 <li>Separate the text into words (tokenization).</li>
 </ul>
-</div>
 <div class="notes">
 <p>These decisions depend on the research question. Numbers, punctuation, emojis and capitalization can be informative in other applications.</p>
 </div>
@@ -483,13 +460,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="example-of-text-cleaning" class="level3">
 <h3 class="anchored" data-anchor-id="example-of-text-cleaning">Example of text cleaning</h3>
 <p><br><br></p>
-<div id="b3415db5" class="cell" data-execution_count="4">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>example <span class="op">=</span> pd.Series([<span class="st">"Great Movie! I watched it 2 times."</span>])</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>example <span class="op">=</span> (example.<span class="bu">str</span>.lower()</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>           .<span class="bu">str</span>.replace(<span class="vs">r"</span><span class="pp">[^a-z</span><span class="dv">\s</span><span class="pp">]</span><span class="vs">"</span>, <span class="st">" "</span>, regex<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>           .<span class="bu">str</span>.replace(<span class="vs">r"</span><span class="dv">\s</span><span class="op">+</span><span class="vs">"</span>, <span class="st">" "</span>, regex<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>           .<span class="bu">str</span>.strip())</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(example.iloc[<span class="dv">0</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="1c902013" class="cell" data-execution_count="3">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>example <span class="op">=</span> pd.Series([<span class="st">"Great Movie! I watched it 2 times."</span>])</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>example <span class="op">=</span> (example.<span class="bu">str</span>.lower()</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>           .<span class="bu">str</span>.replace(<span class="vs">r"</span><span class="pp">[^a-z</span><span class="dv">\s</span><span class="pp">]</span><span class="vs">"</span>, <span class="st">" "</span>, regex<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>           .<span class="bu">str</span>.replace(<span class="vs">r"</span><span class="dv">\s</span><span class="op">+</span><span class="vs">"</span>, <span class="st">" "</span>, regex<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>           .<span class="bu">str</span>.strip())</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(example.iloc[<span class="dv">0</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>great movie i watched it times</code></pre>
 </div>
@@ -500,21 +477,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 class="anchored" data-anchor-id="clean-the-reviews">Clean the reviews</h3>
 <p><br><br></p>
 <p>We apply the same operations to the column <code>review</code>.</p>
-<div id="1786badd" class="cell" data-execution_count="5">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>movie_review_data[<span class="st">"clean"</span>] <span class="op">=</span> (movie_review_data[<span class="st">"review"</span>].<span class="bu">str</span>.lower()</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>                    .<span class="bu">str</span>.replace(<span class="vs">r"</span><span class="pp">[^a-z</span><span class="dv">\s</span><span class="pp">]</span><span class="vs">"</span>, <span class="st">" "</span>, regex<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>                    .<span class="bu">str</span>.replace(<span class="vs">r"</span><span class="dv">\s</span><span class="op">+</span><span class="vs">"</span>, <span class="st">" "</span>, regex<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>                    .<span class="bu">str</span>.strip())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="99f973f5" class="cell" data-execution_count="4">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>movie_review_data[<span class="st">"clean"</span>] <span class="op">=</span> (movie_review_data[<span class="st">"review"</span>].<span class="bu">str</span>.lower()</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>                    .<span class="bu">str</span>.replace(<span class="vs">r"</span><span class="pp">[^a-z</span><span class="dv">\s</span><span class="pp">]</span><span class="vs">"</span>, <span class="st">" "</span>, regex<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>                    .<span class="bu">str</span>.replace(<span class="vs">r"</span><span class="dv">\s</span><span class="op">+</span><span class="vs">"</span>, <span class="st">" "</span>, regex<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>                    .<span class="bu">str</span>.strip())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>We keep the original text so that we can return to it when interpreting our results.</p>
 </section>
 <section id="tokenization" class="level3">
 <h3 class="anchored" data-anchor-id="tokenization">Tokenization</h3>
 <p>We use <code>.str.split()</code> to separate the words in each review.</p>
-<div id="269294a0" class="cell" data-execution_count="6">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>movie_review_data[<span class="st">"words"</span>] <span class="op">=</span> movie_review_data[<span class="st">"clean"</span>].<span class="bu">str</span>.split()</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>movie_review_data.<span class="bu">filter</span>([<span class="st">"words"</span>], axis <span class="op">=</span> <span class="dv">1</span>).head(<span class="dv">1</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="6">
+<div id="2654f2a4" class="cell" data-execution_count="5">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>movie_review_data[<span class="st">"words"</span>] <span class="op">=</span> movie_review_data[<span class="st">"clean"</span>].<span class="bu">str</span>.split()</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>movie_review_data.<span class="bu">filter</span>([<span class="st">"words"</span>], axis <span class="op">=</span> <span class="dv">1</span>).head(<span class="dv">1</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="5">
 <div>
 
 
@@ -536,19 +513,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>Note: we remove the missing rows in the generated dataset.</p>
-<div id="89fcb756" class="cell" data-execution_count="7">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>movie_review_data <span class="op">=</span> movie_review_data.dropna(subset<span class="op">=</span>[<span class="st">"words"</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><br></p>
+<blockquote class="blockquote">
+<p>We remove the missing rows in the generated dataset.</p>
+</blockquote>
+<div id="a213ab4f" class="cell" data-execution_count="6">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>movie_review_data <span class="op">=</span> movie_review_data.dropna(subset<span class="op">=</span>[<span class="st">"words"</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="a-frequency-table-for-words" class="level3">
 <h3 class="anchored" data-anchor-id="a-frequency-table-for-words">A frequency table for words</h3>
 <p>The function <code>.explode()</code> creates one row for each element of a list.</p>
-<div id="7a2284c5" class="cell" data-execution_count="8">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>words <span class="op">=</span> movie_review_data[<span class="st">"words"</span>].explode()</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>word_freq <span class="op">=</span> words.value_counts()</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>word_freq.head(<span class="dv">10</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="8">
+<div id="1c11da5a" class="cell" data-execution_count="7">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>words <span class="op">=</span> movie_review_data[<span class="st">"words"</span>].explode()</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>word_freq <span class="op">=</span> words.value_counts()</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>word_freq.head(<span class="dv">10</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="7">
 <pre><code>words
 the     76570
 a       38107
@@ -571,34 +551,36 @@ Name: count, dtype: int64</code></pre>
 <p>. . .</p>
 <p>In a frequency-based word cloud, words that occur more frequently are displayed using larger fonts.</p>
 <p>. . .</p>
+<p><br></p>
 <blockquote class="blockquote">
 <p>The goal is to quickly identify prominent words in a corpus.</p>
 </blockquote>
 </section>
 <section id="word-cloud-in-python" class="level3">
 <h3 class="anchored" data-anchor-id="word-cloud-in-python">Word cloud in Python</h3>
+<p><br><br></p>
 <p>We use <code>WordCloud()</code> from the <strong>wordcloud</strong> library. The method <code>.generate_from_frequencies()</code> uses our frequency table.</p>
-<div id="1ca35998" class="cell" data-execution_count="9">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Tell Python you want to create a word cloud</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>cloud <span class="op">=</span> WordCloud(width<span class="op">=</span><span class="dv">900</span>, height<span class="op">=</span><span class="dv">450</span>, background_color<span class="op">=</span><span class="st">"white"</span>, </span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>                  max_words<span class="op">=</span><span class="dv">60</span>, random_state<span class="op">=</span><span class="dv">3301655</span>)</span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute the word cloud using the frequency table.</span></span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>cloud.generate_from_frequencies(word_freq.to_dict())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="20823910" class="cell" data-execution_count="8">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Tell Python you want to create a word cloud</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>cloud <span class="op">=</span> WordCloud(width<span class="op">=</span><span class="dv">900</span>, height<span class="op">=</span><span class="dv">450</span>, background_color<span class="op">=</span><span class="st">"white"</span>, </span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>                  max_words<span class="op">=</span><span class="dv">60</span>, random_state<span class="op">=</span><span class="dv">3301655</span>)</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute the word cloud using the frequency table.</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>cloud.generate_from_frequencies(word_freq.to_dict())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>The parameter <code>max_words</code> controls the number of words that appear in the cloud.</p>
 </section>
 <section id="section" class="level3">
 <h3 class="anchored" data-anchor-id="section"></h3>
-<div id="9cbedb5c" class="cell" data-execution_count="10">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">9</span>, <span class="fl">4.5</span>))</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>plt.imshow(cloud)</span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>plt.axis(<span class="st">"off"</span>)</span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="f8466d10" class="cell" data-execution_count="9">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">9</span>, <span class="fl">4.5</span>))</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>plt.imshow(cloud)</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>plt.axis(<span class="st">"off"</span>)</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="Introduction_Text_Analytics_files/figure-revealjs/cell-11-output-1.png" class="quarto-figure quarto-figure-center figure-img" width="684" height="352"></p>
+<p><img src="Introduction_Text_Analytics_files/figure-revealjs/cell-10-output-1.png" class="quarto-figure quarto-figure-center figure-img" width="684" height="352"></p>
 </figure>
 </div>
 </div>
@@ -617,14 +599,14 @@ Name: count, dtype: int64</code></pre>
 <section id="remove-stop-words-in-python" class="level3">
 <h3 class="anchored" data-anchor-id="remove-stop-words-in-python">Remove stop words in Python</h3>
 <p>Scikit-learn provides a list of standard English stop words.</p>
-<div id="11e3b600" class="cell" data-execution_count="11">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.feature_extraction.text <span class="im">import</span> ENGLISH_STOP_WORDS</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>stop_words <span class="op">=</span> <span class="bu">set</span>(ENGLISH_STOP_WORDS)</span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>movie_review_data[<span class="st">"terms"</span>] <span class="op">=</span> movie_review_data[<span class="st">"words"</span>].<span class="bu">apply</span>(</span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>                                <span class="kw">lambda</span> words: [word <span class="cf">for</span> word <span class="kw">in</span> words</span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>                                <span class="cf">if</span> word <span class="kw">not</span> <span class="kw">in</span> stop_words <span class="kw">and</span> <span class="bu">len</span>(word) <span class="op">&gt;</span> <span class="dv">2</span>]</span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>                                )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="1b3ee64e" class="cell" data-execution_count="10">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.feature_extraction.text <span class="im">import</span> ENGLISH_STOP_WORDS</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>stop_words <span class="op">=</span> <span class="bu">set</span>(ENGLISH_STOP_WORDS)</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>movie_review_data[<span class="st">"terms"</span>] <span class="op">=</span> movie_review_data[<span class="st">"words"</span>].<span class="bu">apply</span>(</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>                                <span class="kw">lambda</span> words: [word <span class="cf">for</span> word <span class="kw">in</span> words</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>                                <span class="cf">if</span> word <span class="kw">not</span> <span class="kw">in</span> stop_words <span class="kw">and</span> <span class="bu">len</span>(word) <span class="op">&gt;</span> <span class="dv">2</span>]</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>                                )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>The expression inside brackets keeps words that satisfy both conditions.</p>
 <blockquote class="blockquote">
@@ -635,25 +617,25 @@ Name: count, dtype: int64</code></pre>
 <h3 class="anchored" data-anchor-id="section-1"></h3>
 <p><br><br><br></p>
 <p>Let’s recompute the frequency table and update the word cloud.</p>
-<div id="72a6056c" class="cell" data-execution_count="12">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>word_freq <span class="op">=</span> movie_review_data[<span class="st">"terms"</span>].explode().value_counts()</span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>cloud.generate_from_frequencies(word_freq.to_dict())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="12">
-<pre><code>&lt;wordcloud.wordcloud.WordCloud at 0x136e9dac0&gt;</code></pre>
+<div id="bfab2c05" class="cell" data-execution_count="11">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>word_freq <span class="op">=</span> movie_review_data[<span class="st">"terms"</span>].explode().value_counts()</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>cloud.generate_from_frequencies(word_freq.to_dict())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="11">
+<pre><code>&lt;wordcloud.wordcloud.WordCloud at 0x1381983a0&gt;</code></pre>
 </div>
 </div>
 </section>
 <section id="the-new-word-cloud" class="level3">
 <h3 class="anchored" data-anchor-id="the-new-word-cloud">The new word cloud</h3>
-<div id="5ecc42cb" class="cell" data-execution_count="13">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">9</span>, <span class="fl">4.5</span>))</span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>plt.imshow(cloud, interpolation<span class="op">=</span><span class="st">"bilinear"</span>)</span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>plt.axis(<span class="st">"off"</span>)</span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="d6a98233" class="cell" data-execution_count="12">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">9</span>, <span class="fl">4.5</span>))</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>plt.imshow(cloud, interpolation<span class="op">=</span><span class="st">"bilinear"</span>)</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>plt.axis(<span class="st">"off"</span>)</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="Introduction_Text_Analytics_files/figure-revealjs/cell-14-output-1.png" class="quarto-figure quarto-figure-center figure-img" width="684" height="352"></p>
+<p><img src="Introduction_Text_Analytics_files/figure-revealjs/cell-13-output-1.png" class="quarto-figure quarto-figure-center figure-img" width="684" height="352"></p>
 </figure>
 </div>
 </div>
@@ -692,33 +674,34 @@ Name: count, dtype: int64</code></pre>
 </section>
 <section id="stemming-in-python" class="level3">
 <h3 class="anchored" data-anchor-id="stemming-in-python">Stemming in Python</h3>
-<p>We use the Porter stemmer from <strong>NLTK</strong>.</p>
-<div id="7e4bc30c" class="cell" data-execution_count="14">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>stemmer <span class="op">=</span> PorterStemmer()</span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>movie_review_data[<span class="st">"stems"</span>] <span class="op">=</span> (movie_review_data[<span class="st">"terms"</span>]</span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>                              .<span class="bu">apply</span>(<span class="kw">lambda</span> words: [stemmer.stem(word) <span class="cf">for</span> word <span class="kw">in</span> words])</span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>                              )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><br></p>
+<p>We use the Porter stemmer from <strong>nltk</strong>.</p>
+<div id="9968e8d5" class="cell" data-execution_count="13">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>stemmer <span class="op">=</span> PorterStemmer()</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>movie_review_data[<span class="st">"stems"</span>] <span class="op">=</span> (movie_review_data[<span class="st">"terms"</span>]</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>                              .<span class="bu">apply</span>(<span class="kw">lambda</span> words: [stemmer.stem(word) <span class="cf">for</span> word <span class="kw">in</span> words])</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>                              )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Before showing the revised word cloud, recompute the frequency table and update the word cloud.</p>
-<div id="25b46be6" class="cell" data-execution_count="15">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>stem_freq <span class="op">=</span> movie_review_data[<span class="st">"stems"</span>].explode().value_counts()</span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>cloud.generate_from_frequencies(stem_freq.to_dict())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="15">
-<pre><code>&lt;wordcloud.wordcloud.WordCloud at 0x136e9dac0&gt;</code></pre>
+<div id="71b4a5b9" class="cell" data-execution_count="14">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>stem_freq <span class="op">=</span> movie_review_data[<span class="st">"stems"</span>].explode().value_counts()</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>cloud.generate_from_frequencies(stem_freq.to_dict())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="14">
+<pre><code>&lt;wordcloud.wordcloud.WordCloud at 0x1381983a0&gt;</code></pre>
 </div>
 </div>
 </section>
 <section id="word-cloud-after-stemming" class="level3">
 <h3 class="anchored" data-anchor-id="word-cloud-after-stemming">Word cloud after stemming</h3>
-<div id="bfd5d79e" class="cell" data-execution_count="16">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">9</span>, <span class="fl">4.5</span>))</span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>plt.imshow(cloud)</span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>plt.axis(<span class="st">"off"</span>)</span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="86a202f9" class="cell" data-execution_count="15">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">5</span>))</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>plt.imshow(cloud)</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>plt.axis(<span class="st">"off"</span>)</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="Introduction_Text_Analytics_files/figure-revealjs/cell-17-output-1.png" class="quarto-figure quarto-figure-center figure-img" width="684" height="352"></p>
+<p><img src="Introduction_Text_Analytics_files/figure-revealjs/cell-16-output-1.png" class="quarto-figure quarto-figure-center figure-img" width="758" height="389"></p>
 </figure>
 </div>
 </div>
@@ -726,41 +709,271 @@ Name: count, dtype: int64</code></pre>
 </section>
 <section id="principle-3-apply-graphic-design" class="level3">
 <h3 class="anchored" data-anchor-id="principle-3-apply-graphic-design">Principle 3: Apply graphic design</h3>
-<p>We can improve the word cloud using additional commands</p>
-<div id="296691d9" class="cell" data-execution_count="17">
+<p>We can improve the word cloud using additional commands.</p>
+<div id="6ea06287" class="cell" data-execution_count="16">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">5</span>), dpi<span class="op">=</span><span class="dv">150</span>)</span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>plt.imshow(cloud, interpolation<span class="op">=</span><span class="st">"bilinear"</span>)</span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Most frequent words in movie reviews"</span>,</span>
-<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>          fontsize<span class="op">=</span><span class="dv">18</span>, fontweight<span class="op">=</span><span class="st">"bold"</span>, color<span class="op">=</span><span class="st">"darkblue"</span>, pad<span class="op">=</span><span class="dv">20</span>)</span>
-<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>plt.axis(<span class="st">"off"</span>)</span>
-<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
-<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">5</span>, <span class="dv">5</span>), dpi<span class="op">=</span><span class="dv">150</span>)</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>plt.imshow(cloud, interpolation<span class="op">=</span><span class="st">"bilinear"</span>)</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Most frequent words in movie reviews"</span>,</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>          fontsize<span class="op">=</span><span class="dv">18</span>, fontweight<span class="op">=</span><span class="st">"bold"</span>, color<span class="op">=</span><span class="st">"darkblue"</span>, pad<span class="op">=</span><span class="dv">20</span>)</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>plt.axis(<span class="st">"off"</span>)</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="Introduction_Text_Analytics_files/figure-revealjs/cell-18-output-1.png" class="quarto-figure quarto-figure-center figure-img" width="1300" height="735"></p>
+<p><img src="Introduction_Text_Analytics_files/figure-revealjs/cell-17-output-1.png" class="quarto-figure quarto-figure-center figure-img" width="841" height="452"></p>
 </figure>
 </div>
 </div>
 </div>
 </section>
 </section>
-<section id="topic-modeling" class="level2">
-<h2 class="anchored" data-anchor-id="topic-modeling">Topic Modeling</h2>
-<section id="principle-1-can-we-identify-themes" class="level3">
-<h3 class="anchored" data-anchor-id="principle-1-can-we-identify-themes">Principle 1: Can we identify themes?</h3>
+<section id="document-term-matrix" class="level2">
+<h2 class="anchored" data-anchor-id="document-term-matrix">Document-Term Matrix</h2>
+<section id="from-text-to-numerical-data" class="level3">
+<h3 class="anchored" data-anchor-id="from-text-to-numerical-data">From text to numerical data</h3>
 <p><br><br></p>
+<p>Consider three short documents:</p>
 <ul>
-<li><p>A movie review may discuss several themes, such as acting, special effects, and the story.</p></li>
-<li><p>Instead of defining these themes ourselves, can we identify them from patterns in the text?</p></li>
+<li>Document 1: funny movie funny</li>
+<li>Document 2: funny actor</li>
+<li>Document 3: action movie</li>
+</ul>
+<p>. . .</p>
+<p>We count the number of times each term occurs in each document.</p>
+</section>
+<section id="document-term-matrix-1" class="level3">
+<h3 class="anchored" data-anchor-id="document-term-matrix-1">Document-term matrix</h3>
+<p><br></p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Document</th>
+<th style="text-align: right;">action</th>
+<th style="text-align: right;">actor</th>
+<th style="text-align: right;">funny</th>
+<th style="text-align: right;">movie</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">3</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p>Each row represents a document, and each column represents a term.</p>
+<p>. . .</p>
+<p>Each entry is the frequency of a term in a document.</p>
+</section>
+<section id="bag-of-words" class="level3">
+<h3 class="anchored" data-anchor-id="bag-of-words">Bag of words</h3>
+<p><br><br></p>
+<p>The document-term matrix is an example of the <span style="color:#174062;"><strong>bag-of-words</strong></span> representation.</p>
+<ul>
+<li>We retain the frequency of each term.</li>
+<li>We lose the order of the words.</li>
+</ul>
+<p>. . .</p>
+<p>For example, <code>dog bites man</code> and <code>man bites dog</code> have the same bag-of-words representation.</p>
+</section>
+<section id="document-term-matrix-in-python" class="level3">
+<h3 class="anchored" data-anchor-id="document-term-matrix-in-python">Document-term matrix in Python</h3>
+<p>We use <code>CountVectorizer()</code> from <strong>scikit-learn</strong>.</p>
+<div id="5e827236" class="cell" data-execution_count="17">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>example_docs <span class="op">=</span> [<span class="st">"funny movie funny"</span>, <span class="st">"funny actor"</span>, <span class="st">"action movie"</span>]</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>vectorizer <span class="op">=</span> CountVectorizer()</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>X_example <span class="op">=</span> vectorizer.fit_transform(example_docs)</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>pd.DataFrame(X_example.toarray(),</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>             columns<span class="op">=</span>vectorizer.get_feature_names_out())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="17">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">action</th>
+<th data-quarto-table-cell-role="th">actor</th>
+<th data-quarto-table-cell-role="th">funny</th>
+<th data-quarto-table-cell-role="th">movie</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">0</th>
+<td>0</td>
+<td>0</td>
+<td>2</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">1</th>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">2</th>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
+<section id="create-the-matrix-for-the-reviews" class="level3">
+<h3 class="anchored" data-anchor-id="create-the-matrix-for-the-reviews">Create the matrix for the reviews</h3>
+<p><br></p>
+<p>We join the cleaned terms to obtain one string per review.</p>
+<div id="85eefbf0" class="cell" data-execution_count="18">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>movie_review_data[<span class="st">"text"</span>] <span class="op">=</span> movie_review_data[<span class="st">"terms"</span>].<span class="bu">str</span>.join(<span class="st">" "</span>)</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>vectorizer <span class="op">=</span> CountVectorizer(min_df<span class="op">=</span><span class="dv">5</span>, max_df<span class="op">=</span><span class="fl">0.8</span>, max_features<span class="op">=</span><span class="dv">3000</span>, </span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>                            stop_words<span class="op">=</span><span class="st">'english'</span>,  lowercase<span class="op">=</span><span class="va">True</span>, token_pattern<span class="op">=</span><span class="vs">r"</span><span class="fu">(?u)</span><span class="dv">\b\w\w</span><span class="op">+</span><span class="dv">\b</span><span class="vs">"</span>)</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> vectorizer.fit_transform(movie_review_data[<span class="st">"text"</span>])</span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>X.shape <span class="co"># Shape of the DTM</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="18">
+<pre><code>(64704, 3000)</code></pre>
+</div>
+</div>
+<div class="notes">
+<p>We use unstemmed terms for interpretable topic labels. The matrix is sparse; avoid converting the full matrix to a dense table. min_df removes terms in fewer than five documents; max_df removes terms in more than 80% of documents; max_features caps vocabulary size by corpus frequency.</p>
+</div>
+</section>
+<section id="section-2" class="level3">
+<h3 class="anchored" data-anchor-id="section-2"></h3>
+<p><br></p>
+<p>The basic parameters of this function are:</p>
+<ul>
+<li><code>min_df</code>: The minimum document frequency required for a term to be included in the vocabulary, ignoring rare words that appear in fewer documents than this threshold (specified as an integer count or a proportion).</li>
+<li><code>max_df</code>: The maximum document frequency allowed for a term, ignoring overly common corpus-specific words that appear in more documents than this threshold (specified as an integer count or a proportion).</li>
+<li><code>max_features</code>: The maximum number of top terms to keep in the vocabulary, ordered by their overall frequency across the entire corpus.</li>
+<li><code>stop_words='english'</code>: removes the English stop words (<code>ENGLISH_STOP_WORDS</code>)</li>
+<li><code>token_pattern=r"(?u)\b\w\w+\b"</code>: Keeps only alphanumeric words of 2+ characters, ignoring punctuation and single letters.</li>
 </ul>
 </section>
+<section id="inspect-the-matrix" class="level3">
+<h3 class="anchored" data-anchor-id="inspect-the-matrix">Inspect the matrix</h3>
+<div id="a40eac01" class="cell" data-execution_count="19">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>terms <span class="op">=</span> vectorizer.get_feature_names_out()</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>pd.DataFrame(X[:<span class="dv">5</span>, :<span class="dv">8</span>].toarray(), columns<span class="op">=</span>terms[:<span class="dv">8</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="19">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">abandoned</th>
+<th data-quarto-table-cell-role="th">abilities</th>
+<th data-quarto-table-cell-role="th">ability</th>
+<th data-quarto-table-cell-role="th">able</th>
+<th data-quarto-table-cell-role="th">absolute</th>
+<th data-quarto-table-cell-role="th">absolutely</th>
+<th data-quarto-table-cell-role="th">absurd</th>
+<th data-quarto-table-cell-role="th">academy</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">0</th>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">1</th>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">2</th>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">3</th>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">4</th>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>The matrix contains many zeros because most documents contain only a small subset of all terms.</p>
+</section>
+</section>
+<section id="topic-modeling" class="level2">
+<h2 class="anchored" data-anchor-id="topic-modeling">Topic Modeling</h2>
 <section id="latent-dirichlet-allocation-lda" class="level3">
 <h3 class="anchored" data-anchor-id="latent-dirichlet-allocation-lda">Latent Dirichlet Allocation (LDA)</h3>
-<p><br></p>
+<p><br><br></p>
 <p>LDA is an <strong>unsupervised</strong> statistical model that identifies latent (unobserved) topics in a collection of documents.</p>
 <p>The basic idea is that:</p>
 <ul>
@@ -773,6 +986,7 @@ Name: count, dtype: int64</code></pre>
 </section>
 <section id="a-hypothetical-example" class="level3">
 <h3 class="anchored" data-anchor-id="a-hypothetical-example">A hypothetical example</h3>
+<p><br></p>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -809,12 +1023,13 @@ Name: count, dtype: int64</code></pre>
 </section>
 <section id="a-mixture-of-topics" class="level3">
 <h3 class="anchored" data-anchor-id="a-mixture-of-topics">A mixture of topics</h3>
+<p><br><br><br></p>
 <p>A hypothetical review may contain 70% Topic 1 and 30% Topic 2.</p>
-<div id="1049be14" class="cell" data-execution_count="18">
+<div id="a2c6769f" class="cell" data-execution_count="20">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="Introduction_Text_Analytics_files/figure-revealjs/cell-19-output-1.png" class="quarto-figure quarto-figure-center figure-img" width="670" height="245"></p>
+<p><img src="Introduction_Text_Analytics_files/figure-revealjs/cell-21-output-1.png" class="quarto-figure quarto-figure-center figure-img" width="670" height="466"></p>
 </figure>
 </div>
 </div>
@@ -822,16 +1037,17 @@ Name: count, dtype: int64</code></pre>
 </section>
 <section id="fit-the-lda-model-in-python" class="level3">
 <h3 class="anchored" data-anchor-id="fit-the-lda-model-in-python">Fit the LDA model in Python</h3>
+<p><br></p>
 <p>We fit the LDA model with a user-specified number of topics to all the reviews.</p>
-<div id="8c549f9f" class="cell" data-execution_count="19">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>best_k <span class="op">=</span> <span class="dv">5</span></span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>vectorizer <span class="op">=</span> CountVectorizer(min_df<span class="op">=</span><span class="dv">5</span>, max_df<span class="op">=</span><span class="fl">0.8</span>, max_features<span class="op">=</span><span class="dv">3000</span>)</span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> vectorizer.fit_transform(movie_review_data[<span class="st">"review"</span>])</span>
-<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>terms <span class="op">=</span> vectorizer.get_feature_names_out()</span>
-<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>lda <span class="op">=</span> LatentDirichletAllocation(n_components <span class="op">=</span> best_k, max_iter <span class="op">=</span> <span class="dv">10</span>, </span>
-<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>                                random_state <span class="op">=</span> <span class="dv">301655</span>)</span>
-<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>lda.fit(X)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="19">
+<div id="4a9205c7" class="cell" data-execution_count="21">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>n_topics <span class="op">=</span> <span class="dv">5</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>vectorizer <span class="op">=</span> CountVectorizer(min_df<span class="op">=</span><span class="dv">5</span>, max_df<span class="op">=</span><span class="fl">0.8</span>, max_features<span class="op">=</span><span class="dv">3000</span>)</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> vectorizer.fit_transform(movie_review_data[<span class="st">"review"</span>])</span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>terms <span class="op">=</span> vectorizer.get_feature_names_out()</span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>lda <span class="op">=</span> LatentDirichletAllocation(n_components <span class="op">=</span> n_topics, max_iter <span class="op">=</span> <span class="dv">10</span>, </span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>                                random_state <span class="op">=</span> <span class="dv">301655</span>)</span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>lda.fit(X)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="21">
 <style>#sk-container-id-1 {
   /* Definition of color scheme common for light and dark mode */
   --sklearn-color-text: #000;
@@ -1257,12 +1473,12 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <section id="term-probabilities-by-topic" class="level3">
 <h3 class="anchored" data-anchor-id="term-probabilities-by-topic">Term probabilities by topic</h3>
 <p>The attribute <code>.components_</code> contains the fitted weights of terms for each topic. We normalize each row so that it sums to one.</p>
-<div id="9f8f7a76" class="cell" data-execution_count="20">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>topic_terms <span class="op">=</span> pd.DataFrame(lda.components_, columns<span class="op">=</span>terms)</span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>topic_terms <span class="op">=</span> topic_terms.div(topic_terms.<span class="bu">sum</span>(axis<span class="op">=</span><span class="dv">1</span>), axis<span class="op">=</span><span class="dv">0</span>)</span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>topic_terms.index <span class="op">=</span> <span class="bu">range</span>(<span class="dv">1</span>, best_k <span class="op">+</span> <span class="dv">1</span>)</span>
-<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>topic_terms.iloc[:, :<span class="dv">5</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="20">
+<div id="212f3d69" class="cell" data-execution_count="22">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>topic_terms <span class="op">=</span> pd.DataFrame(lda.components_, columns<span class="op">=</span>terms)</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>topic_terms <span class="op">=</span> topic_terms.div(topic_terms.<span class="bu">sum</span>(axis<span class="op">=</span><span class="dv">1</span>), axis<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>topic_terms.index <span class="op">=</span> <span class="bu">range</span>(<span class="dv">1</span>, n_topics <span class="op">+</span> <span class="dv">1</span>)</span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>topic_terms.iloc[:, :<span class="dv">5</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="22">
 <div>
 
 
@@ -1327,10 +1543,11 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </section>
 <section id="identify-the-main-terms-of-each-topic" class="level3">
 <h3 class="anchored" data-anchor-id="identify-the-main-terms-of-each-topic">Identify the main terms of each topic</h3>
-<div id="c03972ae" class="cell" data-execution_count="21">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> topic <span class="kw">in</span> topic_terms.index:</span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Topic"</span>, topic)</span>
-<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(topic_terms.loc[topic].nlargest(<span class="dv">8</span>).index.tolist())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><br></p>
+<div id="6dae06b1" class="cell" data-execution_count="23">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> topic <span class="kw">in</span> topic_terms.index:</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Topic"</span>, topic)</span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(topic_terms.loc[topic].nlargest(<span class="dv">8</span>).index.tolist())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Topic 1
 ['it', 'the', 'that', 'to', 'this', 'is', 'you', 'but']
@@ -1344,21 +1561,21 @@ Topic 5
 ['the', 'to', 'and', 'of', 'in', 'his', 'is', 'he']</code></pre>
 </div>
 </div>
-<p>Can you assign a meaningful name to each topic?</p>
+<p><strong>Can you assign a meaningful name to each topic?</strong></p>
 </section>
 <section id="plot-the-terms-of-a-topic" class="level3">
 <h3 class="anchored" data-anchor-id="plot-the-terms-of-a-topic">Plot the terms of a topic</h3>
-<div id="dc3c744f" class="cell" data-execution_count="22">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>top <span class="op">=</span> topic_terms.loc[<span class="dv">1</span>].nlargest(<span class="dv">10</span>).reset_index()</span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>top.columns <span class="op">=</span> [<span class="st">"Term"</span>, <span class="st">"Probability"</span>]</span>
-<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">7</span>, <span class="dv">4</span>))</span>
-<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>sns.barplot(data<span class="op">=</span>top, x<span class="op">=</span><span class="st">"Probability"</span>, y<span class="op">=</span><span class="st">"Term"</span>, color<span class="op">=</span><span class="st">"darkblue"</span>)</span>
-<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Most probable terms in Topic 1"</span>)</span>
-<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="069040f1" class="cell" data-execution_count="24">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>top <span class="op">=</span> topic_terms.loc[<span class="dv">1</span>].nlargest(<span class="dv">10</span>).reset_index()</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>top.columns <span class="op">=</span> [<span class="st">"Term"</span>, <span class="st">"Probability"</span>]</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">7</span>, <span class="dv">4</span>))</span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>sns.barplot(data<span class="op">=</span>top, x<span class="op">=</span><span class="st">"Probability"</span>, y<span class="op">=</span><span class="st">"Term"</span>, color<span class="op">=</span><span class="st">"darkblue"</span>)</span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Most probable terms in Topic 1"</span>)</span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="Introduction_Text_Analytics_files/figure-revealjs/cell-23-output-1.png" class="quarto-figure quarto-figure-center figure-img" width="595" height="376"></p>
+<p><img src="Introduction_Text_Analytics_files/figure-revealjs/cell-25-output-1.png" class="quarto-figure quarto-figure-center figure-img" width="595" height="376"></p>
 </figure>
 </div>
 </div>
@@ -1366,39 +1583,40 @@ Topic 5
 </section>
 <section id="plot-the-terms-of-all-topics" class="level3">
 <h3 class="anchored" data-anchor-id="plot-the-terms-of-all-topics">Plot the terms of all topics</h3>
+<p><br><br></p>
 <p>We create a tidy dataset with the ten most probable terms of each topic.</p>
-<div id="c038e41a" class="cell" data-execution_count="23">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>plots <span class="op">=</span> []</span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> topic <span class="kw">in</span> topic_terms.index:</span>
-<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>    top <span class="op">=</span> topic_terms.loc[topic].nlargest(<span class="dv">10</span>).reset_index()</span>
-<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>    top.columns <span class="op">=</span> [<span class="st">"Term"</span>, <span class="st">"Probability"</span>]</span>
-<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>    top[<span class="st">"Topic"</span>] <span class="op">=</span> topic</span>
-<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>    plots.append(top)</span>
-<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a>plot_data <span class="op">=</span> pd.concat(plots, ignore_index<span class="op">=</span><span class="va">True</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="ea40048c" class="cell" data-execution_count="25">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>plots <span class="op">=</span> []</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> topic <span class="kw">in</span> topic_terms.index:</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>    top <span class="op">=</span> topic_terms.loc[topic].nlargest(<span class="dv">10</span>).reset_index()</span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>    top.columns <span class="op">=</span> [<span class="st">"Term"</span>, <span class="st">"Probability"</span>]</span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>    top[<span class="st">"Topic"</span>] <span class="op">=</span> topic</span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>    plots.append(top)</span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a>plot_data <span class="op">=</span> pd.concat(plots, ignore_index<span class="op">=</span><span class="va">True</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="faceted-plot-of-topics" class="level3">
 <h3 class="anchored" data-anchor-id="faceted-plot-of-topics">Faceted plot of topics</h3>
-<div id="80dee3fb" class="cell" data-fig-height="5.5" data-fig-width="10" data-execution_count="24">
+<div id="72b26e38" class="cell" data-fig-height="5.5" data-fig-width="10" data-execution_count="26">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">2</span>, <span class="dv">3</span>, figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="fl">5.5</span>), sharex<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> topic, ax <span class="kw">in</span> <span class="bu">zip</span>(topic_terms.index, axes.flat):</span>
-<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>    subset <span class="op">=</span> plot_data.query(<span class="st">"Topic == @topic"</span>)</span>
-<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>    sns.barplot(data<span class="op">=</span>subset, x<span class="op">=</span><span class="st">"Probability"</span>, y<span class="op">=</span><span class="st">"Term"</span>,</span>
-<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>                color<span class="op">=</span><span class="st">"darkblue"</span>, ax<span class="op">=</span>ax)</span>
-<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>    ax.set_title(<span class="ss">f"Topic </span><span class="sc">{</span>topic<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a>    ax.set_ylabel(<span class="st">""</span>)</span>
-<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> ax <span class="kw">in</span> <span class="bu">list</span>(axes.flat)[best_k:]:</span>
-<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a>    ax.set_visible(<span class="va">False</span>)</span>
-<span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
-<span id="cb28-11"><a href="#cb28-11" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">2</span>, <span class="dv">3</span>, figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="fl">5.5</span>), sharex<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> topic, ax <span class="kw">in</span> <span class="bu">zip</span>(topic_terms.index, axes.flat):</span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>    subset <span class="op">=</span> plot_data.query(<span class="st">"Topic == @topic"</span>)</span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>    sns.barplot(data<span class="op">=</span>subset, x<span class="op">=</span><span class="st">"Probability"</span>, y<span class="op">=</span><span class="st">"Term"</span>,</span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>                color<span class="op">=</span><span class="st">"darkblue"</span>, ax<span class="op">=</span>ax)</span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>    ax.set_title(<span class="ss">f"Topic </span><span class="sc">{</span>topic<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a>    ax.set_ylabel(<span class="st">""</span>)</span>
+<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> ax <span class="kw">in</span> <span class="bu">list</span>(axes.flat)[n_topics:]:</span>
+<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a>    ax.set_visible(<span class="va">False</span>)</span>
+<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb31-11"><a href="#cb31-11" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="Introduction_Text_Analytics_files/figure-revealjs/cell-25-output-1.png" class="quarto-figure quarto-figure-center figure-img" width="950" height="518"></p>
+<p><img src="Introduction_Text_Analytics_files/figure-revealjs/cell-27-output-1.png" class="quarto-figure quarto-figure-center figure-img" width="950" height="518"></p>
 </figure>
 </div>
 </div>
@@ -1410,11 +1628,11 @@ Topic 5
 <section id="topic-proportions-by-document" class="level3">
 <h3 class="anchored" data-anchor-id="topic-proportions-by-document">Topic proportions by document</h3>
 <p>The method <code>.transform()</code> estimates the mixture of topics for each review.</p>
-<div id="045378a1" class="cell" data-execution_count="25">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>mixtures <span class="op">=</span> pd.DataFrame(lda.transform(X),</span>
-<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>                        columns<span class="op">=</span>[<span class="ss">f"Topic </span><span class="sc">{</span>k<span class="sc">}</span><span class="ss">"</span> <span class="cf">for</span> k <span class="kw">in</span> topic_terms.index])</span>
-<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>mixtures.head().<span class="bu">round</span>(<span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="25">
+<div id="09681236" class="cell" data-execution_count="27">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>mixtures <span class="op">=</span> pd.DataFrame(lda.transform(X),</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>                        columns<span class="op">=</span>[<span class="ss">f"Topic </span><span class="sc">{</span>k<span class="sc">}</span><span class="ss">"</span> <span class="cf">for</span> k <span class="kw">in</span> topic_terms.index])</span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>mixtures.head().<span class="bu">round</span>(<span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="27">
 <div>
 
 
@@ -1480,27 +1698,42 @@ Topic 5
 </section>
 <section id="how-common-are-the-topics" class="level3">
 <h3 class="anchored" data-anchor-id="how-common-are-the-topics">How common are the topics?</h3>
+<p><br><br></p>
 <p>We compute the average estimated proportion of each topic across the reviews.</p>
-<div id="50ad6963" class="cell" data-execution_count="26">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>prevalence <span class="op">=</span> mixtures.mean().sort_values(ascending<span class="op">=</span><span class="va">False</span>).reset_index()</span>
-<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>prevalence.columns <span class="op">=</span> [<span class="st">"Topic"</span>, <span class="st">"Average proportion"</span>]</span>
-<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">7</span>, <span class="dv">3</span>))</span>
-<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>sns.barplot(data<span class="op">=</span>prevalence, x<span class="op">=</span><span class="st">"Average proportion"</span>, y<span class="op">=</span><span class="st">"Topic"</span>,</span>
-<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>            color<span class="op">=</span><span class="st">"darkblue"</span>)</span>
-<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>plt.xlim(<span class="dv">0</span>, <span class="dv">1</span>)</span>
-<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a>plt.grid()</span>
-<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Average topic proportions across movie reviews"</span>)</span>
-<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="Introduction_Text_Analytics_files/figure-revealjs/cell-27-output-1.png" class="quarto-figure quarto-figure-center figure-img" width="624" height="302"></p>
-</figure>
-</div>
-</div>
+<div id="cb417e6d" class="cell" data-execution_count="28">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>prevalence <span class="op">=</span> mixtures.mean().sort_values(ascending<span class="op">=</span><span class="va">False</span>).reset_index()</span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>prevalence.columns <span class="op">=</span> [<span class="st">"Topic"</span>, <span class="st">"Average proportion"</span>]</span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">7</span>, <span class="dv">3</span>))</span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>sns.barplot(data<span class="op">=</span>prevalence, x<span class="op">=</span><span class="st">"Average proportion"</span>, y<span class="op">=</span><span class="st">"Topic"</span>,</span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>            color<span class="op">=</span><span class="st">"darkblue"</span>)</span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a>plt.xlim(<span class="dv">0</span>, <span class="dv">1</span>)</span>
+<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a>plt.grid()</span>
+<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Average topic proportions across movie reviews"</span>)</span>
+<span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="notes">
 <p>This is a document-weighted average of estimated mixtures, not the percentage of reviews assigned exclusively to each topic.</p>
+</div>
+</section>
+<section id="section-3" class="level3">
+<h3 class="anchored" data-anchor-id="section-3"></h3>
+<div id="00acffb2" class="cell" data-execution_count="29">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>prevalence <span class="op">=</span> mixtures.mean().sort_values(ascending<span class="op">=</span><span class="va">False</span>).reset_index()</span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>prevalence.columns <span class="op">=</span> [<span class="st">"Topic"</span>, <span class="st">"Average proportion"</span>]</span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">7</span>, <span class="dv">3</span>))</span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>sns.barplot(data<span class="op">=</span>prevalence, x<span class="op">=</span><span class="st">"Average proportion"</span>, y<span class="op">=</span><span class="st">"Topic"</span>,</span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>            color<span class="op">=</span><span class="st">"darkblue"</span>)</span>
+<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a>plt.xlim(<span class="dv">0</span>, <span class="dv">1</span>)</span>
+<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a>plt.grid()</span>
+<span id="cb34-8"><a href="#cb34-8" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Average topic proportions across movie reviews"</span>)</span>
+<span id="cb34-9"><a href="#cb34-9" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Introduction_Text_Analytics_files/figure-revealjs/cell-30-output-1.png" class="quarto-figure quarto-figure-center figure-img" width="624" height="302"></p>
+</figure>
+</div>
+</div>
 </div>
 </section>
 </section>
@@ -1520,10 +1753,11 @@ Topic 5
 </section>
 <section id="verify-the-interpretation" class="level3">
 <h3 class="anchored" data-anchor-id="verify-the-interpretation">Verify the interpretation</h3>
+<p><br><br><br></p>
 <p>For example, we can read the review with the largest estimated proportion of Topic 1.</p>
-<div id="ff04e328" class="cell" data-execution_count="27">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>review_id <span class="op">=</span> mixtures[<span class="st">"Topic 1"</span>].idxmax()</span>
-<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(movie_review_data.loc[review_id, <span class="st">"review"</span>][:<span class="dv">700</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="8cd60a33" class="cell" data-execution_count="30">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>review_id <span class="op">=</span> mixtures[<span class="st">"Topic 1"</span>].idxmax()</span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(movie_review_data.loc[review_id, <span class="st">"review"</span>][:<span class="dv">700</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>after all , apart from the obvious it's-a-holocaust-film and it's-a-spielberg-film , isn't " schindler's list " just a damn brilliant film , not so much a holocaust film as it is a wonderful character study .</code></pre>
 </div>
@@ -1532,6 +1766,7 @@ Topic 5
 </section>
 <section id="limitations" class="level3">
 <h3 class="anchored" data-anchor-id="limitations">Limitations</h3>
+<p><br><br></p>
 <ul>
 <li>Cleaning and stop-word choices affect the results.</li>
 <li>Bag-of-words methods ignore word order and context.</li>
