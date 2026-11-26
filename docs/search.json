@@ -2847,5 +2847,446 @@
     "title": "Types of Variables and Univariate Plots",
     "section": "What to look for in a beeswarm plot?",
     "text": "What to look for in a beeswarm plot?\n\n\nClusters of points that reveal dense regions in the distribution.\nAreas where points are more spread out, indicating low-frequency regions.\nGaps along the axis where no observations appear.\nOutliers, visible as isolated points far from the main cluster.\nThe overall shape of the distribution formed by the pattern of points."
+  },
+  {
+    "objectID": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#agenda",
+    "href": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#agenda",
+    "title": "Introduction to Text Analytics",
+    "section": "Agenda",
+    "text": "Agenda\n\n\nIntroduction to text analytics\nText cleaning and word clouds\nDocument-term matrix and TF-IDF\nTopic modeling with Latent Dirichlet Allocation\nDiscussion"
+  },
+  {
+    "objectID": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#text-data",
+    "href": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#text-data",
+    "title": "Introduction to Text Analytics",
+    "section": "Text data",
+    "text": "Text data\n\nSo far, we have worked mainly with numerical and categorical variables.\n\nHowever, a large amount of information is stored in the form of text.\n\nComments on social media.\nReviews of movies, products, and services.\nResponses to open-ended survey questions.\nCustomer complaints."
+  },
+  {
+    "objectID": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#text-analytics",
+    "href": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#text-analytics",
+    "title": "Introduction to Text Analytics",
+    "section": "Text analytics",
+    "text": "Text analytics\n\nText analytics is the process of extracting useful information from text data.\n\n\nIn this topic, we will transform text into numerical data that can be summarized and visualized.\n\nOur goal is not to read every document individually, but to identify patterns across many documents."
+  },
+  {
+    "objectID": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#example-movie-reviews",
+    "href": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#example-movie-reviews",
+    "title": "Introduction to Text Analytics",
+    "section": "Example: Movie reviews",
+    "text": "Example: Movie reviews\nImagine that you work for a movie streaming platform and have access to thousands of written reviews.\n\nReading all the reviews manually would take a considerable amount of time.\n\nCan we use data visualization to understand what viewers talk about when reviewing movies?"
+  },
+  {
+    "objectID": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#principle-1-define-the-question",
+    "href": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#principle-1-define-the-question",
+    "title": "Introduction to Text Analytics",
+    "section": "Principle 1: Define the question",
+    "text": "Principle 1: Define the question\n\nWhat words appear most frequently in movie reviews?\nWhich words are particularly informative about a review?\nWhat are the main themes discussed by viewers?\nHow common are these themes across the reviews?"
+  },
+  {
+    "objectID": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#principle-2-turn-data-into-information",
+    "href": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#principle-2-turn-data-into-information",
+    "title": "Introduction to Text Analytics",
+    "section": "Principle 2: Turn data into information",
+    "text": "Principle 2: Turn data into information\n\n\n\nQuestion\nMethod or graph\n\n\n\n\nWhat words are frequent?\nWord cloud, bar chart\n\n\nWhich words are informative?\nTF-IDF, bar chart\n\n\nWhat themes appear?\nTopic modeling, bar charts\n\n\nHow common are the themes?\nTopic prevalence plot"
+  },
+  {
+    "objectID": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#load-the-libraries",
+    "href": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#load-the-libraries",
+    "title": "Introduction to Text Analytics",
+    "section": "Load the libraries",
+    "text": "Load the libraries\nWe will continue using pandas, seaborn, and matplotlib.\n\nimport pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\nWe will also use three libraries for text analytics: nltk, wordcloud, and sklearn (scikit-learn).\nIf necessary, install them in Google Colab using:\n!pip install nltk wordcloud scikit-learn"
+  },
+  {
+    "objectID": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#load-the-data",
+    "href": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#load-the-data",
+    "title": "Introduction to Text Analytics",
+    "section": "Load the data",
+    "text": "Load the data\nWe will use the Movie Reviews corpus distributed with NLTK, containing 2,000 English-language movie reviews.\n\nimport nltk\nfrom nltk.corpus import movie_reviews\n\nnltk.download(\"movie_reviews\", quiet=True)\n\n\nThe first download requires an internet connection. The corpus is based on the movie review data of Pang and Lee (2004). The sentiment labels are available but will not be used to fit the topic model."
+  },
+  {
+    "objectID": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#create-a-dataset",
+    "href": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#create-a-dataset",
+    "title": "Introduction to Text Analytics",
+    "section": "Create a dataset",
+    "text": "Create a dataset\n\nreviews = pd.DataFrame({\n    \"review\": [movie_reviews.raw(file)\n               for file in movie_reviews.fileids()]\n})\nreviews.head(3)\n\n\n\n\n\n\n\n\nreview\n\n\n\n\n0\nplot : two teen couples go to a church party ,...\n\n\n1\nthe happy bastard's quick movie review \\ndamn ...\n\n\n2\nit is movies like these that make a jaded movi..."
+  },
+  {
+    "objectID": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#a-document-and-a-corpus",
+    "href": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#a-document-and-a-corpus",
+    "title": "Introduction to Text Analytics",
+    "section": "A document and a corpus",
+    "text": "A document and a corpus\n\nA document is one unit of text under study (one movie review in our example).\nA corpus is a collection of documents (all the movie reviews).\nA token is a unit of text, such as a word.\n\n\nprint(reviews.loc[0, \"review\"][:350])\n\nplot : two teen couples go to a church party , drink and then drive . \nthey get into an accident . \none of the guys dies , but his girlfriend continues to see him in her life , and has nightmares . \nwhat's the deal ? \nwatch the movie and \" sorta \" find out . . . \ncritique : a mind-fuck movie for the teen generation that touches on a very cool idea"
+  },
+  {
+    "objectID": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#why-clean-text",
+    "href": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#why-clean-text",
+    "title": "Introduction to Text Analytics",
+    "section": "Why clean text?",
+    "text": "Why clean text?\nThe words Movie, movie, and movie! convey essentially the same information in this example.\n\nHowever, a computer may treat them as different strings.\n\nWe need to define how to represent the text before computing summaries."
+  },
+  {
+    "objectID": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#basic-text-cleaning",
+    "href": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#basic-text-cleaning",
+    "title": "Introduction to Text Analytics",
+    "section": "Basic text cleaning",
+    "text": "Basic text cleaning\n\nConvert uppercase letters to lowercase.\nRemove punctuation and numbers (when not relevant).\nRemove unnecessary spaces.\nSeparate the text into words (tokenization).\n\n\nThese decisions depend on the research question. Numbers, punctuation, emojis and capitalization can be informative in other applications."
+  },
+  {
+    "objectID": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#example-of-text-cleaning",
+    "href": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#example-of-text-cleaning",
+    "title": "Introduction to Text Analytics",
+    "section": "Example of text cleaning",
+    "text": "Example of text cleaning\n\nexample = pd.Series([\"Great Movie! I watched it 2 times.\"])\nexample = (example.str.lower()\n           .str.replace(r\"[^a-z\\s]\", \" \", regex=True)\n           .str.replace(r\"\\s+\", \" \", regex=True)\n           .str.strip())\nprint(example.iloc[0])\n\ngreat movie i watched it times\n\n\nThe expression [^a-z\\s] identifies characters other than English letters and whitespace."
+  },
+  {
+    "objectID": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#clean-the-reviews",
+    "href": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#clean-the-reviews",
+    "title": "Introduction to Text Analytics",
+    "section": "Clean the reviews",
+    "text": "Clean the reviews\nWe apply the same operations to the column review.\n\nreviews[\"clean\"] = (reviews[\"review\"].str.lower()\n                    .str.replace(r\"[^a-z\\s]\", \" \", regex=True)\n                    .str.replace(r\"\\s+\", \" \", regex=True)\n                    .str.strip())\n\nWe keep the original text so that we can return to it when interpreting our results."
+  },
+  {
+    "objectID": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#tokenization",
+    "href": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#tokenization",
+    "title": "Introduction to Text Analytics",
+    "section": "Tokenization",
+    "text": "Tokenization\nWe use .str.split() to separate the words in each review.\n\nreviews[\"words\"] = reviews[\"clean\"].str.split()\nreviews.loc[0, \"words\"][:15]\n\n['plot',\n 'two',\n 'teen',\n 'couples',\n 'go',\n 'to',\n 'a',\n 'church',\n 'party',\n 'drink',\n 'and',\n 'then',\n 'drive',\n 'they',\n 'get']"
+  },
+  {
+    "objectID": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#a-frequency-table-for-words",
+    "href": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#a-frequency-table-for-words",
+    "title": "Introduction to Text Analytics",
+    "section": "A frequency table for words",
+    "text": "A frequency table for words\nRemember that .explode() creates one row for each element of a list.\n\nwords = reviews[\"words\"].explode()\nword_freq = words.value_counts()\nword_freq.head(10)\n\nwords\nthe     76574\na       38111\nand     35581\nof      34126\nto      31939\nis      25203\nin      21827\ns       18886\nit      16110\nthat    15927\nName: count, dtype: int64"
+  },
+  {
+    "objectID": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#word-cloud",
+    "href": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#word-cloud",
+    "title": "Introduction to Text Analytics",
+    "section": "Word cloud",
+    "text": "Word cloud\n\nA word cloud displays words using different font sizes.\n\nIn a frequency-based word cloud, words that occur more frequently are displayed using larger fonts.\n\n\n\nThe goal is to quickly identify prominent words in a corpus."
+  },
+  {
+    "objectID": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#word-cloud-in-python",
+    "href": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#word-cloud-in-python",
+    "title": "Introduction to Text Analytics",
+    "section": "Word cloud in Python",
+    "text": "Word cloud in Python\nWe use WordCloud() from the wordcloud library. The method .generate_from_frequencies() uses our frequency table.\n\nfrom wordcloud import WordCloud\n\ncloud = WordCloud(width=900, height=450,\n                  background_color=\"white\", max_words=60,\n                  random_state=123)\ncloud.generate_from_frequencies(word_freq.to_dict())"
+  },
+  {
+    "objectID": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#section",
+    "href": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#section",
+    "title": "Introduction to Text Analytics",
+    "section": "",
+    "text": "plt.figure(figsize=(9, 4.5))\nplt.imshow(cloud, interpolation=\"bilinear\")\nplt.axis(\"off\")\nplt.show()\n\n\n\n\n\n\n\n\nDo the largest words help us answer our research question?"
+  },
+  {
+    "objectID": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#stop-words",
+    "href": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#stop-words",
+    "title": "Introduction to Text Analytics",
+    "section": "Stop words",
+    "text": "Stop words\nWords such as the, a, of, and is occur frequently but are often not useful for identifying themes.\n\nWe call such words stop words.\n\nWe can remove them before constructing the word cloud."
+  },
+  {
+    "objectID": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#remove-stop-words-in-python",
+    "href": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#remove-stop-words-in-python",
+    "title": "Introduction to Text Analytics",
+    "section": "Remove stop words in Python",
+    "text": "Remove stop words in Python\nScikit-learn provides a list of English stop words.\n\nfrom sklearn.feature_extraction.text import ENGLISH_STOP_WORDS\n\nstop_words = set(ENGLISH_STOP_WORDS)\nreviews[\"terms\"] = reviews[\"words\"].apply(\n    lambda words: [word for word in words\n                   if word not in stop_words and len(word) &gt; 2]\n)\n\nThe expression inside brackets keeps words that satisfy both conditions.\n\nStop-word lists are not universal. For sentiment analysis, removing words such as ‘not’ can destroy important information. Here we are exploring themes, not classifying sentiment."
+  },
+  {
+    "objectID": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#the-new-word-cloud",
+    "href": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#the-new-word-cloud",
+    "title": "Introduction to Text Analytics",
+    "section": "The new word cloud",
+    "text": "The new word cloud\n\nword_freq = reviews[\"terms\"].explode().value_counts()\ncloud.generate_from_frequencies(word_freq.to_dict())\nplt.figure(figsize=(9, 4.5))\nplt.imshow(cloud, interpolation=\"bilinear\")\nplt.axis(\"off\")\nplt.show()"
+  },
+  {
+    "objectID": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#stemming",
+    "href": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#stemming",
+    "title": "Introduction to Text Analytics",
+    "section": "Stemming",
+    "text": "Stemming\n\nWords with different endings can refer to similar concepts.\n\n\n\nOriginal words\nStem\n\n\n\n\nplay, playing, played\nplay\n\n\nconnect, connected, connecting\nconnect\n\n\nmovies, movie\nmovi\n\n\n\n\nStemming reduces words to a common form using rules for removing or modifying endings.\n\nA stem is not necessarily a valid English word. Lemmatization is an alternative that aims to recover dictionary forms."
+  },
+  {
+    "objectID": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#stemming-in-python",
+    "href": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#stemming-in-python",
+    "title": "Introduction to Text Analytics",
+    "section": "Stemming in Python",
+    "text": "Stemming in Python\nWe use the Porter stemmer from NLTK.\n\nfrom nltk.stem import PorterStemmer\n\nstemmer = PorterStemmer()\nreviews[\"stems\"] = reviews[\"terms\"].apply(\n    lambda words: [stemmer.stem(word) for word in words]\n)\nreviews.loc[0, \"stems\"][:15]\n\n['plot',\n 'teen',\n 'coupl',\n 'church',\n 'parti',\n 'drink',\n 'drive',\n 'accid',\n 'guy',\n 'die',\n 'girlfriend',\n 'continu',\n 'life',\n 'nightmar',\n 'deal']"
+  },
+  {
+    "objectID": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#word-cloud-after-stemming",
+    "href": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#word-cloud-after-stemming",
+    "title": "Introduction to Text Analytics",
+    "section": "Word cloud after stemming",
+    "text": "Word cloud after stemming\n\nstem_freq = reviews[\"stems\"].explode().value_counts()\ncloud.generate_from_frequencies(stem_freq.to_dict())\nplt.figure(figsize=(9, 4.5))\nplt.imshow(cloud, interpolation=\"bilinear\")\nplt.axis(\"off\")\nplt.show()"
+  },
+  {
+    "objectID": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#principle-3-apply-graphic-design-principles",
+    "href": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#principle-3-apply-graphic-design-principles",
+    "title": "Introduction to Text Analytics",
+    "section": "Principle 3: Apply graphic design principles",
+    "text": "Principle 3: Apply graphic design principles\nA word cloud is useful for exploration, but it is difficult to compare word frequencies precisely.\n\nAn alternative is a horizontal bar chart.\n\n\nCode\ntop_words = word_freq.head(12).reset_index()\ntop_words.columns = [\"Term\", \"Frequency\"]\nplt.figure(figsize=(8, 4))\nsns.barplot(data=top_words, x=\"Frequency\", y=\"Term\", color=\"darkblue\")\nplt.title(\"Most frequent terms in movie reviews\")\nplt.show()\n\n\n\n\n\n\n\n\n\n\nWe use unstemmed terms here for readability. Stemming is optional and can merge words with different meanings."
+  },
+  {
+    "objectID": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#from-text-to-numerical-data",
+    "href": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#from-text-to-numerical-data",
+    "title": "Introduction to Text Analytics",
+    "section": "From text to numerical data",
+    "text": "From text to numerical data\nConsider three short documents:\n\nDocument 1: funny movie funny\nDocument 2: funny actor\nDocument 3: action movie\n\n\nWe count the number of times each term occurs in each document."
+  },
+  {
+    "objectID": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#document-term-matrix",
+    "href": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#document-term-matrix",
+    "title": "Introduction to Text Analytics",
+    "section": "Document-term matrix",
+    "text": "Document-term matrix\n\n\n\nDocument\naction\nactor\nfunny\nmovie\n\n\n\n\n1\n0\n0\n2\n1\n\n\n2\n0\n1\n1\n0\n\n\n3\n1\n0\n0\n1\n\n\n\n\nEach row represents a document, and each column represents a term.\n\nEach entry is the frequency of a term in a document."
+  },
+  {
+    "objectID": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#bag-of-words",
+    "href": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#bag-of-words",
+    "title": "Introduction to Text Analytics",
+    "section": "Bag of words",
+    "text": "Bag of words\nThe document-term matrix is an example of the bag-of-words representation.\n\nWe retain the frequency of each term.\nWe lose the order of the words.\n\n\nFor example, dog bites man and man bites dog have the same bag-of-words representation."
+  },
+  {
+    "objectID": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#document-term-matrix-in-python",
+    "href": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#document-term-matrix-in-python",
+    "title": "Introduction to Text Analytics",
+    "section": "Document-term matrix in Python",
+    "text": "Document-term matrix in Python\nWe use CountVectorizer() from scikit-learn.\n\nfrom sklearn.feature_extraction.text import CountVectorizer\n\nexample_docs = [\"funny movie funny\", \"funny actor\", \"action movie\"]\nvectorizer = CountVectorizer()\nX_example = vectorizer.fit_transform(example_docs)\n\npd.DataFrame(X_example.toarray(),\n             columns=vectorizer.get_feature_names_out())\n\n\n\n\n\n\n\n\naction\nactor\nfunny\nmovie\n\n\n\n\n0\n0\n0\n2\n1\n\n\n1\n0\n1\n1\n0\n\n\n2\n1\n0\n0\n1"
+  },
+  {
+    "objectID": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#create-the-matrix-for-the-reviews",
+    "href": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#create-the-matrix-for-the-reviews",
+    "title": "Introduction to Text Analytics",
+    "section": "Create the matrix for the reviews",
+    "text": "Create the matrix for the reviews\nWe join the cleaned terms to obtain one string per review.\n\nreviews[\"text\"] = reviews[\"terms\"].str.join(\" \")\nvectorizer = CountVectorizer(min_df=5, max_df=0.8,\n                             max_features=3000)\nX = vectorizer.fit_transform(reviews[\"text\"])\nX.shape\n\n(2000, 3000)\n\n\n\nWe use unstemmed terms for interpretable topic labels. The matrix is sparse; avoid converting the full matrix to a dense table. min_df removes terms in fewer than five documents; max_df removes terms in more than 80% of documents; max_features caps vocabulary size by corpus frequency."
+  },
+  {
+    "objectID": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#inspect-the-matrix",
+    "href": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#inspect-the-matrix",
+    "title": "Introduction to Text Analytics",
+    "section": "Inspect the matrix",
+    "text": "Inspect the matrix\n\nterms = vectorizer.get_feature_names_out()\npd.DataFrame(X[:5, :8].toarray(), columns=terms[:8])\n\n\n\n\n\n\n\n\nabandoned\nabilities\nability\nable\nabsolute\nabsolutely\nabsurd\nacademy\n\n\n\n\n0\n0\n0\n0\n0\n0\n0\n0\n0\n\n\n1\n0\n0\n0\n0\n0\n0\n0\n0\n\n\n2\n0\n0\n0\n0\n0\n0\n0\n0\n\n\n3\n0\n0\n0\n1\n0\n0\n0\n0\n\n\n4\n0\n0\n0\n0\n0\n0\n0\n0\n\n\n\n\n\n\n\nThe matrix contains many zeros because most documents contain only a small subset of all terms."
+  },
+  {
+    "objectID": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#term-frequency-tf",
+    "href": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#term-frequency-tf",
+    "title": "Introduction to Text Analytics",
+    "section": "Term frequency (TF)",
+    "text": "Term frequency (TF)\nLet \\(n_{dt}\\) be the number of occurrences of term \\(t\\) in document \\(d\\).\nA simple measure of term frequency is\n\\[TF_{dt}=n_{dt}.\\]\n\nHowever, a term can occur frequently in a document simply because it is common in almost all documents."
+  },
+  {
+    "objectID": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#inverse-document-frequency-idf",
+    "href": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#inverse-document-frequency-idf",
+    "title": "Introduction to Text Analytics",
+    "section": "Inverse document frequency (IDF)",
+    "text": "Inverse document frequency (IDF)\nLet \\(N\\) be the number of documents and \\(DF_t\\) the number of documents containing term \\(t\\).\nThe smoothed IDF used by scikit-learn is\n\\[IDF_t=\\log\\left(\\frac{1+N}{1+DF_t}\\right)+1.\\]\n\nTerms occurring in fewer documents receive larger weights."
+  },
+  {
+    "objectID": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#tf-idf",
+    "href": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#tf-idf",
+    "title": "Introduction to Text Analytics",
+    "section": "TF-IDF",
+    "text": "TF-IDF\nWe combine both quantities:\n\\[TF\\text{-}IDF_{dt}=TF_{dt}\\times IDF_t.\\]\n\nA large value indicates that a term occurs frequently in a document and is relatively uncommon across the corpus.\n\nBy default, scikit-learn also normalizes each document vector to have Euclidean norm one. The example below disables normalization to illustrate the formula directly."
+  },
+  {
+    "objectID": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#tf-idf-in-python",
+    "href": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#tf-idf-in-python",
+    "title": "Introduction to Text Analytics",
+    "section": "TF-IDF in Python",
+    "text": "TF-IDF in Python\n\nfrom sklearn.feature_extraction.text import TfidfTransformer\n\ntransformer = TfidfTransformer(norm=None)\nX_tfidf_example = transformer.fit_transform(X_example)\npd.DataFrame(X_tfidf_example.toarray().round(2),\n             columns=[\"action\", \"actor\", \"funny\", \"movie\"])\n\n\n\n\n\n\n\n\naction\nactor\nfunny\nmovie\n\n\n\n\n0\n0.00\n0.00\n2.58\n1.29\n\n\n1\n0.00\n1.69\n1.29\n0.00\n\n\n2\n1.69\n0.00\n0.00\n1.29"
+  },
+  {
+    "objectID": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#tf-idf-for-movie-reviews",
+    "href": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#tf-idf-for-movie-reviews",
+    "title": "Introduction to Text Analytics",
+    "section": "TF-IDF for movie reviews",
+    "text": "TF-IDF for movie reviews\nWe use the default normalization to reduce the effect of document length.\n\ntransformer = TfidfTransformer()\nX_tfidf = transformer.fit_transform(X)\n\nreview_terms = pd.Series(X_tfidf[0].toarray().ravel(),\n                         index=terms)\nreview_terms.nlargest(10)\n\nteen       0.267927\npretty     0.222820\ncrow       0.184494\nhide       0.167978\nmake       0.142521\nmind       0.137020\nmovie      0.127791\nbiggest    0.125236\ncool       0.120385\nsecret     0.120170\ndtype: float64"
+  },
+  {
+    "objectID": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#visualize-informative-terms",
+    "href": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#visualize-informative-terms",
+    "title": "Introduction to Text Analytics",
+    "section": "Visualize informative terms",
+    "text": "Visualize informative terms\n\n\nCode\ntop_terms = review_terms.nlargest(10).reset_index()\ntop_terms.columns = [\"Term\", \"TF-IDF\"]\nplt.figure(figsize=(8, 4))\nsns.barplot(data=top_terms, x=\"TF-IDF\", y=\"Term\", color=\"darkblue\")\nplt.title(\"Terms with the largest TF-IDF in review 1\")\nplt.show()"
+  },
+  {
+    "objectID": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#frequency-versus-tf-idf",
+    "href": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#frequency-versus-tf-idf",
+    "title": "Introduction to Text Analytics",
+    "section": "Frequency versus TF-IDF",
+    "text": "Frequency versus TF-IDF\n\nFrequency tells us how often a term occurs.\nTF-IDF helps us identify terms that distinguish a document from other documents.\nNeither measure directly tells us the meaning or sentiment of a document."
+  },
+  {
+    "objectID": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#can-we-identify-themes",
+    "href": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#can-we-identify-themes",
+    "title": "Introduction to Text Analytics",
+    "section": "Can we identify themes?",
+    "text": "Can we identify themes?\nA movie review may discuss several themes, such as acting, special effects, and the story.\n\nInstead of defining these themes ourselves, can we identify them from patterns in the text?"
+  },
+  {
+    "objectID": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#latent-dirichlet-allocation-lda",
+    "href": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#latent-dirichlet-allocation-lda",
+    "title": "Introduction to Text Analytics",
+    "section": "Latent Dirichlet Allocation (LDA)",
+    "text": "Latent Dirichlet Allocation (LDA)\n\nLDA is an unsupervised statistical model that identifies latent (unobserved) topics in a collection of documents.\n\nThe basic idea is that:\n\nEach document is a mixture of topics.\nEach topic is a probability distribution over terms.\n\n\nLDA here means Latent Dirichlet Allocation, not Linear Discriminant Analysis. Dirichlet distributions are used as priors for the topic mixtures and term probabilities. Mathematical derivations are beyond the scope of this course."
+  },
+  {
+    "objectID": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#a-hypothetical-example",
+    "href": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#a-hypothetical-example",
+    "title": "Introduction to Text Analytics",
+    "section": "A hypothetical example",
+    "text": "A hypothetical example\n\n\n\nTerm\nTopic 1\nTopic 2\n\n\n\n\nactor\n0.40\n0.05\n\n\nperformance\n0.35\n0.05\n\n\nexplosion\n0.10\n0.45\n\n\naction\n0.15\n0.45\n\n\n\n\nEach column sums to one. We might interpret Topic 1 as acting and Topic 2 as action scenes.\nThe names are assigned by the analyst, not by LDA."
+  },
+  {
+    "objectID": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#a-mixture-of-topics",
+    "href": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#a-mixture-of-topics",
+    "title": "Introduction to Text Analytics",
+    "section": "A mixture of topics",
+    "text": "A mixture of topics\nA hypothetical review may contain 70% Topic 1 and 30% Topic 2."
+  },
+  {
+    "objectID": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#how-many-topics",
+    "href": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#how-many-topics",
+    "title": "Introduction to Text Analytics",
+    "section": "How many topics?",
+    "text": "How many topics?\nBefore fitting LDA, we must specify the number of topics \\(K\\).\n\nToo few topics may combine different themes.\nToo many topics may split similar themes into several groups.\n\n\nWe can compare models with different values of \\(K\\)."
+  },
+  {
+    "objectID": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#selecting-the-number-of-topics",
+    "href": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#selecting-the-number-of-topics",
+    "title": "Introduction to Text Analytics",
+    "section": "Selecting the number of topics",
+    "text": "Selecting the number of topics\nOne criterion is perplexity, which measures how well a fitted model predicts the words in documents.\n\nSmaller perplexity values indicate better predictive performance under the model.\n\nWe will evaluate perplexity on reviews that were not used to fit the model.\n\nPerplexity does not measure human interpretability. The best predictive model need not have the most useful topics. Scikit-learn computes an approximate perplexity from the variational bound."
+  },
+  {
+    "objectID": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#divide-the-data",
+    "href": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#divide-the-data",
+    "title": "Introduction to Text Analytics",
+    "section": "Divide the data",
+    "text": "Divide the data\nWe use 80% of the reviews for fitting and 20% for evaluation.\n\nfrom sklearn.model_selection import train_test_split\nfrom sklearn.decomposition import LatentDirichletAllocation\n\ntrain, test = train_test_split(reviews[\"text\"], test_size=0.2,\n                               random_state=123)\nvectorizer = CountVectorizer(min_df=5, max_df=0.8,\n                             max_features=3000)\nX_train = vectorizer.fit_transform(train)\nX_test = vectorizer.transform(test)\n\n\nThe vocabulary is learned only from training reviews. Terms absent from that vocabulary are ignored in evaluation. LDA uses counts, not TF-IDF weights."
+  },
+  {
+    "objectID": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#fit-models-with-different-numbers-of-topics",
+    "href": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#fit-models-with-different-numbers-of-topics",
+    "title": "Introduction to Text Analytics",
+    "section": "Fit models with different numbers of topics",
+    "text": "Fit models with different numbers of topics\n\nresults = []\nfor k in [2, 3, 4, 5, 6]:\n    model = LatentDirichletAllocation(n_components=k,\n                                      max_iter=10,\n                                      random_state=123)\n    model.fit(X_train)\n    results.append({\"Topics\": k,\n                    \"Perplexity\": model.perplexity(X_test)})\n\nscores = pd.DataFrame(results)"
+  },
+  {
+    "objectID": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#plot-the-perplexity",
+    "href": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#plot-the-perplexity",
+    "title": "Introduction to Text Analytics",
+    "section": "Plot the perplexity",
+    "text": "Plot the perplexity\n\nplt.figure(figsize=(7, 4))\nsns.lineplot(data=scores, x=\"Topics\", y=\"Perplexity\",\n             marker=\"o\", color=\"darkblue\")\nplt.xticks(scores[\"Topics\"])\nplt.title(\"Validation perplexity by number of topics\")\nplt.show()\n\n\n\n\n\n\n\n\nLook for a low value or a point beyond which improvements are small."
+  },
+  {
+    "objectID": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#select-a-model",
+    "href": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#select-a-model",
+    "title": "Introduction to Text Analytics",
+    "section": "Select a model",
+    "text": "Select a model\nFor illustration, we choose the number of topics with the smallest validation perplexity among the candidates.\n\nbest_k = int(scores.loc[scores[\"Perplexity\"].idxmin(), \"Topics\"])\nprint(best_k)\n\n2\n\n\n\nWe should also inspect the terms of the topics before deciding whether the model is useful."
+  },
+  {
+    "objectID": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#fit-the-final-lda-model",
+    "href": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#fit-the-final-lda-model",
+    "title": "Introduction to Text Analytics",
+    "section": "Fit the final LDA model",
+    "text": "Fit the final LDA model\nWe fit the selected model using all the reviews.\n\nX = vectorizer.fit_transform(reviews[\"text\"])\nterms = vectorizer.get_feature_names_out()\nlda = LatentDirichletAllocation(n_components=best_k,\n                                max_iter=10, random_state=123)\nlda.fit(X)\n\nLatentDirichletAllocation(n_components=2, random_state=123)In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.LatentDirichletAllocation?Documentation for LatentDirichletAllocationiFittedLatentDirichletAllocation(n_components=2, random_state=123) \n\n\n\nThe validation set was used for model selection; its score is not an independent final test estimate. For a formal predictive study, reserve an additional test set. The modest iteration count is a classroom runtime compromise."
+  },
+  {
+    "objectID": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#term-probabilities-by-topic",
+    "href": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#term-probabilities-by-topic",
+    "title": "Introduction to Text Analytics",
+    "section": "Term probabilities by topic",
+    "text": "Term probabilities by topic\nThe attribute .components_ contains the fitted weights of terms for each topic. We normalize each row so that it sums to one.\n\ntopic_terms = pd.DataFrame(lda.components_, columns=terms)\ntopic_terms = topic_terms.div(topic_terms.sum(axis=1), axis=0)\ntopic_terms.index = range(1, best_k + 1)\ntopic_terms.iloc[:, :5]\n\n\n\n\n\n\n\n\nabandoned\nabilities\nability\nable\nabsolute\n\n\n\n\n1\n0.000051\n0.000153\n0.000180\n0.000646\n0.000056\n\n\n2\n0.000191\n0.000065\n0.000485\n0.000936\n0.000132"
+  },
+  {
+    "objectID": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#identify-the-main-terms-of-each-topic",
+    "href": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#identify-the-main-terms-of-each-topic",
+    "title": "Introduction to Text Analytics",
+    "section": "Identify the main terms of each topic",
+    "text": "Identify the main terms of each topic\n\nfor topic in topic_terms.index:\n    print(\"Topic\", topic)\n    print(topic_terms.loc[topic].nlargest(8).index.tolist())\n\nTopic 1\n['movie', 'like', 'just', 'good', 'time', 'character', 'bad', 'really']\nTopic 2\n['movie', 'like', 'story', 'life', 'time', 'just', 'character', 'characters']\n\n\nCan you assign a meaningful name to each topic?"
+  },
+  {
+    "objectID": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#plot-the-terms-of-a-topic",
+    "href": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#plot-the-terms-of-a-topic",
+    "title": "Introduction to Text Analytics",
+    "section": "Plot the terms of a topic",
+    "text": "Plot the terms of a topic\n\ntop = topic_terms.loc[1].nlargest(10).reset_index()\ntop.columns = [\"Term\", \"Probability\"]\nplt.figure(figsize=(7, 4))\nsns.barplot(data=top, x=\"Probability\", y=\"Term\", color=\"darkblue\")\nplt.title(\"Most probable terms in Topic 1\")\nplt.show()"
+  },
+  {
+    "objectID": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#plot-the-terms-of-all-topics",
+    "href": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#plot-the-terms-of-all-topics",
+    "title": "Introduction to Text Analytics",
+    "section": "Plot the terms of all topics",
+    "text": "Plot the terms of all topics\nWe create a tidy dataset with the ten most probable terms of each topic.\n\nplots = []\nfor topic in topic_terms.index:\n    top = topic_terms.loc[topic].nlargest(10).reset_index()\n    top.columns = [\"Term\", \"Probability\"]\n    top[\"Topic\"] = topic\n    plots.append(top)\n\nplot_data = pd.concat(plots, ignore_index=True)"
+  },
+  {
+    "objectID": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#faceted-plot-of-topics",
+    "href": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#faceted-plot-of-topics",
+    "title": "Introduction to Text Analytics",
+    "section": "Faceted plot of topics",
+    "text": "Faceted plot of topics\n\n\nCode\nfig, axes = plt.subplots(2, 3, figsize=(10, 5.5), sharex=True)\nfor topic, ax in zip(topic_terms.index, axes.flat):\n    subset = plot_data.query(\"Topic == @topic\")\n    sns.barplot(data=subset, x=\"Probability\", y=\"Term\",\n                color=\"darkblue\", ax=ax)\n    ax.set_title(f\"Topic {topic}\")\n    ax.set_ylabel(\"\")\nfor ax in list(axes.flat)[best_k:]:\n    ax.set_visible(False)\nplt.tight_layout()\nplt.show()\n\n\n\n\n\n\n\n\n\n\nSeparate axes allow each topic to have its own term labels. The common horizontal scale supports comparisons across topics. Inspect whether the terms are distinct and meaningful, not just frequent."
+  },
+  {
+    "objectID": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#topic-proportions-by-document",
+    "href": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#topic-proportions-by-document",
+    "title": "Introduction to Text Analytics",
+    "section": "Topic proportions by document",
+    "text": "Topic proportions by document\nThe method .transform() estimates the mixture of topics for each review.\n\nmixtures = pd.DataFrame(lda.transform(X),\n                        columns=[f\"Topic {k}\" for k in topic_terms.index])\nmixtures.head().round(3)\n\n\n\n\n\n\n\n\nTopic 1\nTopic 2\n\n\n\n\n0\n0.907\n0.093\n\n\n1\n0.688\n0.312\n\n\n2\n0.876\n0.124\n\n\n3\n0.047\n0.953\n\n\n4\n0.792\n0.208\n\n\n\n\n\n\n\nEach row sums to one (up to rounding)."
+  },
+  {
+    "objectID": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#plot-the-mixture-of-a-review",
+    "href": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#plot-the-mixture-of-a-review",
+    "title": "Introduction to Text Analytics",
+    "section": "Plot the mixture of a review",
+    "text": "Plot the mixture of a review\n\nmix = mixtures.iloc[0].reset_index()\nmix.columns = [\"Topic\", \"Proportion\"]\nplt.figure(figsize=(7, 3))\nsns.barplot(data=mix, x=\"Proportion\", y=\"Topic\", color=\"darkblue\")\nplt.xlim(0, 1)\nplt.title(\"Estimated topic mixture of review 1\")\nplt.show()"
+  },
+  {
+    "objectID": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#how-common-are-the-topics",
+    "href": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#how-common-are-the-topics",
+    "title": "Introduction to Text Analytics",
+    "section": "How common are the topics?",
+    "text": "How common are the topics?\nWe compute the average estimated proportion of each topic across the reviews.\n\nprevalence = mixtures.mean().sort_values(ascending=False).reset_index()\nprevalence.columns = [\"Topic\", \"Average proportion\"]\nplt.figure(figsize=(7, 3))\nsns.barplot(data=prevalence, x=\"Average proportion\", y=\"Topic\",\n            color=\"darkblue\")\nplt.xlim(0, 1)\nplt.title(\"Average topic proportions across movie reviews\")\nplt.show()\n\n\n\n\n\n\n\n\n\nThis is a document-weighted average of estimated mixtures, not the percentage of reviews assigned exclusively to each topic."
+  },
+  {
+    "objectID": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#return-to-our-research-question",
+    "href": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#return-to-our-research-question",
+    "title": "Introduction to Text Analytics",
+    "section": "Return to our research question",
+    "text": "Return to our research question\nWhat are the main themes that people discuss when reviewing movies?\n\nInspect the terms with the highest probabilities in each topic.\nAssign a descriptive name if the terms suggest a coherent theme.\nRead original reviews with high estimated proportions of that topic.\nCompare the prevalence of the topics."
+  },
+  {
+    "objectID": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#verify-the-interpretation",
+    "href": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#verify-the-interpretation",
+    "title": "Introduction to Text Analytics",
+    "section": "Verify the interpretation",
+    "text": "Verify the interpretation\nFor example, we can read the review with the largest estimated proportion of Topic 1.\n\nreview_id = mixtures[\"Topic 1\"].idxmax()\nprint(reviews.loc[review_id, \"review\"][:700])\n\nmpaa : not rated ( though i feel it would likely be pg , for martial-arts violence . ) \nwith three movies already ( re ) released theatrically in america , and at least three more on their way , jackie chan is one of the newest \" hot properties \" in action adventure stardom , and it's just about time . \nfor over twenty-five years , jackie's been starring in martial arts and action movies in hong kong , thrilling audiences with both an incredible grasp of acrobatics and martial arts and a wonderful sense of comedy . \n \" drunken master \" has the distinction of being the first jackie chan movie to \" make it big \" --this is the movie that supposedly set jackie up for big stardom in hong kong . \n\n\n\nDoes the original text support our interpretation of the topic?"
+  },
+  {
+    "objectID": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#limitations",
+    "href": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#limitations",
+    "title": "Introduction to Text Analytics",
+    "section": "Limitations",
+    "text": "Limitations\n\nCleaning and stop-word choices affect the results.\nBag-of-words methods ignore word order and context.\nWord clouds do not support precise comparisons.\nLDA topics may overlap or lack a clear interpretation.\nResults depend on the corpus, vocabulary, number of topics, and model fitting."
+  },
+  {
+    "objectID": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#activity-cooperative-mode",
+    "href": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#activity-cooperative-mode",
+    "title": "Introduction to Text Analytics",
+    "section": "Activity (cooperative mode)",
+    "text": "Activity (cooperative mode)\nIn teams, revisit the movie review analysis.\n\nDefine a question about the reviews.\nCompare word clouds before and after removing stop words.\nCompare the topics obtained with two different values of \\(K\\).\nPropose names for the topics and justify them using terms and original reviews.\nPresent one graph and explain what it tells us about your question."
+  },
+  {
+    "objectID": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#references",
+    "href": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#references",
+    "title": "Introduction to Text Analytics",
+    "section": "References",
+    "text": "References\n\nPang, B., & Lee, L. (2004). A sentimental education: Sentiment analysis using subjectivity summarization based on minimum cuts. ACL. https://aclanthology.org/P04-1035/\nBlei, D. M., Ng, A. Y., & Jordan, M. I. (2003). Latent Dirichlet allocation. Journal of Machine Learning Research, 3, 993–1022. https://www.jmlr.org/papers/v3/blei03a.html\nScikit-learn: https://scikit-learn.org/stable/modules/feature_extraction.html\nNLTK: https://www.nltk.org/\nWordCloud: https://amueller.github.io/word_cloud/"
   }
 ]
