@@ -51,6 +51,8 @@ However, a large amount of information is stored in the form of **text**.
 
 ## Text analytics
 
+</br>
+
 > Text analytics is the process of extracting useful information from text data.
 
 . . .
@@ -63,17 +65,21 @@ Our goal is not to read every document individually, but to identify patterns ac
 
 ## Example: Movie reviews
 
-Imagine that you work for a movie streaming platform and have access to thousands of written reviews.
-
 </br>
+
+Imagine that you work for a movie streaming platform and have access to thousands of written reviews.
 
 Reading all the reviews manually would take a considerable amount of time.
 
 . . .
 
-Can we use data visualization to understand what viewers talk about when reviewing movies?
+</br>
+
+[**Can we use data visualization to understand what viewers talk about when reviewing movies?**]{style="color:#174062;"}
 
 ## Principle 1: Define the question
+
+</br></br>
 
 ::: incremental
 - What words appear most frequently in movie reviews?
@@ -84,6 +90,8 @@ Can we use data visualization to understand what viewers talk about when reviewi
 
 ## Principle 2: Turn data into information
 
+</br></br>
+
 | Question                     | Method or graph            |
 |:-----------------------------|:---------------------------|
 | What words are frequent?     | Word cloud, bar chart      |
@@ -91,24 +99,55 @@ Can we use data visualization to understand what viewers talk about when reviewi
 | What themes appear?          | Topic modeling, bar charts |
 | How common are the themes?   | Topic prevalence plot      |
 
+
+## scikit-learn library
+
+- **scikit-learn** is a robust and popular library for machine learning in Python
+- It provides simple, efficient tools for data mining and data analysis
+- It is built on top of libraries such as **NumPy**, **SciPy**, and **Matplotlib**
+- <https://scikit-learn.org/stable/>
+
+![](images/scikitlearn.png){fig-align="center"}
+
+## NLTK library
+
+- **NLTK** (Natural Language Toolkit) is a popular Python library for natural language processing (NLP).
+- It provides tools for processing and analyzing textual data.
+- It includes functions for tokenization, stemming, and removing stop words.
+- It provides access to collections of textual data, known as *corpora*.
+- <https://www.nltk.org/>
+
+![](images/nltk.png){fig-align="center"}
+
+
+## wordcloud library
+
+- **wordcloud** is a Python library for creating word clouds from textual data.
+- It allows us to visualize the most frequent words in a collection of documents.
+- It provides tools to customize the size, color, shape, and appearance of word clouds.
+- <https://amueller.github.io/word_cloud/>
+
+![](images/wordcloud.png){fig-align="center"}
+
+
 ## Load the libraries
 
-We will continue using **pandas**, **seaborn**, and **matplotlib**.
+</br></br>
+
+Let's load the old and new libraries into Python.
 
 ```{python}
 #| output: false
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
+import nltk
+from wordcloud import WordCloud
+from nltk.stem import PorterStemmer
+from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.decomposition import LatentDirichletAllocation
 ```
 
-We will also use three libraries for text analytics: `nltk`, `wordcloud`, and `sklearn` (scikit-learn).
-
-If necessary, install them in Google Colab using:
-
-``` python
-!pip install nltk wordcloud scikit-learn
-```
 
 ## Load the data
 
@@ -116,26 +155,11 @@ We will use the Movie Reviews corpus distributed with **NLTK**, containing 2,000
 
 ```{python}
 #| output: false
-import nltk
-from nltk.corpus import movie_reviews
 
-nltk.download("movie_reviews", quiet=True)
+movie_review_data = pd.read_excel("movie_review.xlsx")
+movie_review_data.head()
 ```
 
-::: notes
-The first download requires an internet connection. The corpus is based on the movie review data of Pang and Lee (2004). The sentiment labels are available but will not be used to fit the topic model.
-:::
-
-## Create a dataset
-
-```{python}
-#| output: true
-reviews = pd.DataFrame({
-    "review": [movie_reviews.raw(file)
-               for file in movie_reviews.fileids()]
-})
-reviews.head(3)
-```
 
 ## A document and a corpus
 
@@ -144,7 +168,10 @@ reviews.head(3)
 - A **token** is a unit of text, such as a word.
 
 ```{python}
-print(reviews.loc[0, "review"][:350])
+
+(movie_review_data
+  .filter(["review"], axis = 1)
+).head(3)
 ```
 
 # Text Cleaning and Word Clouds
@@ -153,15 +180,11 @@ print(reviews.loc[0, "review"][:350])
 
 The words `Movie`, `movie`, and `movie!` convey essentially the same information in this example.
 
-. . .
-
 However, a computer may treat them as different strings.
-
-</br>
 
 We need to define how to represent the text before computing summaries.
 
-## Basic text cleaning
+**Basic text cleaning**:
 
 ::: incremental
 - Convert uppercase letters to lowercase.
@@ -176,6 +199,8 @@ These decisions depend on the research question. Numbers, punctuation, emojis an
 
 ## Example of text cleaning
 
+</br></br>
+
 ```{python}
 example = pd.Series(["Great Movie! I watched it 2 times."])
 example = (example.str.lower()
@@ -189,10 +214,12 @@ The expression `[^a-z\s]` identifies characters other than English letters and w
 
 ## Clean the reviews
 
+</br></br>
+
 We apply the same operations to the column `review`.
 
 ```{python}
-reviews["clean"] = (reviews["review"].str.lower()
+movie_review_data["clean"] = (movie_review_data["review"].str.lower()
                     .str.replace(r"[^a-z\s]", " ", regex=True)
                     .str.replace(r"\s+", " ", regex=True)
                     .str.strip())
@@ -205,23 +232,23 @@ We keep the original text so that we can return to it when interpreting our resu
 We use `.str.split()` to separate the words in each review.
 
 ```{python}
-reviews["words"] = reviews["clean"].str.split()
-reviews.loc[0, "words"][:15]
+movie_review_data["words"] = movie_review_data["clean"].str.split()
+movie_review_data.filter(["words"], axis = 1).head(1)
 ```
 
 ## A frequency table for words
 
-Remember that `.explode()` creates one row for each element of a list.
+The function `.explode()` creates one row for each element of a list.
 
 ```{python}
-words = reviews["words"].explode()
+words = movie_review_data["words"].explode()
 word_freq = words.value_counts()
 word_freq.head(10)
 ```
 
 ## Word cloud
 
-</br>
+</br></br>
 
 A [**word cloud**]{style="color:#174062;"} displays words using different font sizes.
 
@@ -237,71 +264,87 @@ In a frequency-based word cloud, words that occur more frequently are displayed 
 
 We use `WordCloud()` from the **wordcloud** library. The method `.generate_from_frequencies()` uses our frequency table.
 
+
 ```{python}
 #| output: false
-from wordcloud import WordCloud
 
-cloud = WordCloud(width=900, height=450,
-                  background_color="white", max_words=60,
-                  random_state=123)
+# Tell Python you want to create a word cloud
+cloud = WordCloud(width=900, height=450, background_color="white", 
+                  max_words=60, random_state=3301655)
+
+# Compute the word cloud using the frequency table.
 cloud.generate_from_frequencies(word_freq.to_dict())
 ```
+
+The parameter `max_words` controls the number of words that appear in the cloud.
 
 ## 
 
 ```{python}
 #| fig-align: center
 plt.figure(figsize=(9, 4.5))
-plt.imshow(cloud, interpolation="bilinear")
+plt.imshow(cloud)
 plt.axis("off")
 plt.show()
 ```
 
-Do the largest words help us answer our research question?
+**Do the largest words help us answer our research question?**
 
 ## Stop words
 
-Words such as `the`, `a`, `of`, and `is` occur frequently but are often not useful for identifying themes.
 
-</br>
+</br></br>
 
-We call such words [**stop words**]{style="color:#D70040;"}.
+- Words such as `the`, `a`, `of`, and `is` occur frequently but are often not useful for identifying themes.
 
-. . .
+- We call such words [**stop words**]{style="color:#D70040;"}.
 
-We can remove them before constructing the word cloud.
+- We can remove them before constructing the word cloud.
 
 ## Remove stop words in Python
 
-Scikit-learn provides a list of English stop words.
+Scikit-learn provides a list of standard English stop words.
 
 ```{python}
 from sklearn.feature_extraction.text import ENGLISH_STOP_WORDS
 
 stop_words = set(ENGLISH_STOP_WORDS)
-reviews["terms"] = reviews["words"].apply(
-    lambda words: [word for word in words
-                   if word not in stop_words and len(word) > 2]
-)
+movie_review_data["terms"] = movie_review_data["words"].apply(
+                                lambda words: [word for word in words
+                                if word not in stop_words and len(word) > 2])
+                              
+
 ```
 
 The expression inside brackets keeps words that satisfy both conditions.
 
-::: notes
-Stop-word lists are not universal. For sentiment analysis, removing words such as 'not' can destroy important information. Here we are exploring themes, not classifying sentiment.
-:::
+
+> Stop-word lists are not universal. For some analyses, removing words such as 'not' can destroy important information! 
+
+
+## 
+
+</br></br></br>
+
+Let's recompute the frequency table and update the word cloud.
+
+```{python}
+
+word_freq = movie_review_data["terms"].explode().value_counts()
+cloud.generate_from_frequencies(word_freq.to_dict())
+```
 
 ## The new word cloud
 
 ```{python}
 #| fig-align: center
-word_freq = reviews["terms"].explode().value_counts()
-cloud.generate_from_frequencies(word_freq.to_dict())
+
 plt.figure(figsize=(9, 4.5))
 plt.imshow(cloud, interpolation="bilinear")
 plt.axis("off")
 plt.show()
 ```
+
 
 ## Stemming
 
@@ -315,7 +358,6 @@ Words with different endings can refer to similar concepts.
 | connect, connected, connecting | connect |
 | movies, movie                  | movi    |
 
-. . .
 
 [**Stemming**]{style="color:#174062;"} reduces words to a common form using rules for removing or modifying endings.
 
@@ -328,231 +370,67 @@ A stem is not necessarily a valid English word. Lemmatization is an alternative 
 We use the Porter stemmer from **NLTK**.
 
 ```{python}
-from nltk.stem import PorterStemmer
 
 stemmer = PorterStemmer()
-reviews["stems"] = reviews["terms"].apply(
-    lambda words: [stemmer.stem(word) for word in words]
-)
-reviews.loc[0, "stems"][:15]
+movie_review_data["stems"] = (movie_review_data
+                              .filter(["terms"], axis = 1)
+                              .apply(lambda words: [stemmer.stem(word) for word in words])
+
+```
+
+Before showing the revised word cloud, recompute the frequency table and update the word cloud.
+
+```{python}
+#| fig-align: center
+
+stem_freq = movie_review_data["stems"].explode().value_counts()
+cloud.generate_from_frequencies(stem_freq.to_dict())
 ```
 
 ## Word cloud after stemming
 
 ```{python}
 #| fig-align: center
-stem_freq = reviews["stems"].explode().value_counts()
-cloud.generate_from_frequencies(stem_freq.to_dict())
+
 plt.figure(figsize=(9, 4.5))
-plt.imshow(cloud, interpolation="bilinear")
+plt.imshow(cloud)
 plt.axis("off")
 plt.show()
 ```
 
-## Principle 3: Apply graphic design principles
+## Principle 3: Apply graphic design 
 
-A word cloud is useful for exploration, but it is difficult to compare word frequencies precisely.
-
-</br>
-
-An alternative is a horizontal bar chart.
+We can improve the word cloud using additional commands
 
 ```{python}
 #| fig-align: center
 #| code-fold: true
-top_words = word_freq.head(12).reset_index()
-top_words.columns = ["Term", "Frequency"]
-plt.figure(figsize=(8, 4))
-sns.barplot(data=top_words, x="Frequency", y="Term", color="darkblue")
-plt.title("Most frequent terms in movie reviews")
+
+plt.figure(figsize=(10, 5), dpi=150)
+plt.imshow(cloud, interpolation="bilinear")
+plt.title("Most frequent words in movie reviews",
+          fontsize=18, fontweight="bold", color="darkblue", pad=20)
+plt.axis("off")
+plt.tight_layout()
 plt.show()
 ```
 
-::: notes
-We use unstemmed terms here for readability. Stemming is optional and can merge words with different meanings.
-:::
-
-# Document-Term Matrix and TF-IDF
-
-## From text to numerical data
-
-Consider three short documents:
-
-- Document 1: funny movie funny
-- Document 2: funny actor
-- Document 3: action movie
-
-. . .
-
-We count the number of times each term occurs in each document.
-
-## Document-term matrix
-
-| Document | action | actor | funny | movie |
-|:---------|-------:|------:|------:|------:|
-| 1        |      0 |     0 |     2 |     1 |
-| 2        |      0 |     1 |     1 |     0 |
-| 3        |      1 |     0 |     0 |     1 |
-
-</br>
-
-Each row represents a document, and each column represents a term.
-
-. . .
-
-Each entry is the frequency of a term in a document.
-
-## Bag of words
-
-The document-term matrix is an example of the [**bag-of-words**]{style="color:#174062;"} representation.
-
-- We retain the frequency of each term.
-- We lose the order of the words.
-
-. . .
-
-For example, `dog bites man` and `man bites dog` have the same bag-of-words representation.
-
-## Document-term matrix in Python
-
-We use `CountVectorizer()` from **scikit-learn**.
-
-```{python}
-from sklearn.feature_extraction.text import CountVectorizer
-
-example_docs = ["funny movie funny", "funny actor", "action movie"]
-vectorizer = CountVectorizer()
-X_example = vectorizer.fit_transform(example_docs)
-
-pd.DataFrame(X_example.toarray(),
-             columns=vectorizer.get_feature_names_out())
-```
-
-## Create the matrix for the reviews
-
-We join the cleaned terms to obtain one string per review.
-
-```{python}
-reviews["text"] = reviews["terms"].str.join(" ")
-vectorizer = CountVectorizer(min_df=5, max_df=0.8,
-                             max_features=3000)
-X = vectorizer.fit_transform(reviews["text"])
-X.shape
-```
-
-::: notes
-We use unstemmed terms for interpretable topic labels. The matrix is sparse; avoid converting the full matrix to a dense table. min_df removes terms in fewer than five documents; max_df removes terms in more than 80% of documents; max_features caps vocabulary size by corpus frequency.
-:::
-
-## Inspect the matrix
-
-```{python}
-terms = vectorizer.get_feature_names_out()
-pd.DataFrame(X[:5, :8].toarray(), columns=terms[:8])
-```
-
-The matrix contains many zeros because most documents contain only a small subset of all terms.
-
-## Term frequency (TF)
-
-Let $n_{dt}$ be the number of occurrences of term $t$ in document $d$.
-
-A simple measure of term frequency is
-
-$$TF_{dt}=n_{dt}.$$
-
-. . .
-
-However, a term can occur frequently in a document simply because it is common in almost all documents.
-
-## Inverse document frequency (IDF)
-
-Let $N$ be the number of documents and $DF_t$ the number of documents containing term $t$.
-
-The smoothed IDF used by scikit-learn is
-
-$$IDF_t=\log\left(\frac{1+N}{1+DF_t}\right)+1.$$
-
-. . .
-
-Terms occurring in fewer documents receive larger weights.
-
-## TF-IDF
-
-We combine both quantities:
-
-$$TF\text{-}IDF_{dt}=TF_{dt}\times IDF_t.$$
-
-</br>
-
-A large value indicates that a term occurs frequently in a document and is relatively uncommon across the corpus.
-
-::: notes
-By default, scikit-learn also normalizes each document vector to have Euclidean norm one. The example below disables normalization to illustrate the formula directly.
-:::
-
-## TF-IDF in Python
-
-```{python}
-from sklearn.feature_extraction.text import TfidfTransformer
-
-transformer = TfidfTransformer(norm=None)
-X_tfidf_example = transformer.fit_transform(X_example)
-pd.DataFrame(X_tfidf_example.toarray().round(2),
-             columns=["action", "actor", "funny", "movie"])
-```
-
-## TF-IDF for movie reviews
-
-We use the default normalization to reduce the effect of document length.
-
-```{python}
-transformer = TfidfTransformer()
-X_tfidf = transformer.fit_transform(X)
-
-review_terms = pd.Series(X_tfidf[0].toarray().ravel(),
-                         index=terms)
-review_terms.nlargest(10)
-```
-
-## Visualize informative terms
-
-```{python}
-#| fig-align: center
-#| code-fold: true
-top_terms = review_terms.nlargest(10).reset_index()
-top_terms.columns = ["Term", "TF-IDF"]
-plt.figure(figsize=(8, 4))
-sns.barplot(data=top_terms, x="TF-IDF", y="Term", color="darkblue")
-plt.title("Terms with the largest TF-IDF in review 1")
-plt.show()
-```
-
-## Frequency versus TF-IDF
-
-::: incremental
-- Frequency tells us how often a term occurs.
-- TF-IDF helps us identify terms that distinguish a document from other documents.
-- Neither measure directly tells us the meaning or sentiment of a document.
-:::
 
 # Topic Modeling
 
-## Can we identify themes?
+## Principle 1: Can we identify themes?
 
-A movie review may discuss several themes, such as acting, special effects, and the story.
+</br></br>
 
-. . .
+- A movie review may discuss several themes, such as acting, special effects, and the story.
 
-Instead of defining these themes ourselves, can we identify them from patterns in the text?
+- Instead of defining these themes ourselves, can we identify them from patterns in the text?
 
 ## Latent Dirichlet Allocation (LDA)
 
 </br>
 
 LDA is an **unsupervised** statistical model that identifies latent (unobserved) topics in a collection of documents.
-
-. . .
 
 The basic idea is that:
 
@@ -572,7 +450,6 @@ LDA here means Latent Dirichlet Allocation, not Linear Discriminant Analysis. Di
 | explosion   |    0.10 |    0.45 |
 | action      |    0.15 |    0.45 |
 
-</br>
 
 Each column sums to one. We might interpret Topic 1 as acting and Topic 2 as action scenes.
 
@@ -593,105 +470,18 @@ plt.xlim(0, 1)
 plt.show()
 ```
 
-## How many topics?
 
-Before fitting LDA, we must specify the number of topics $K$.
+## Fit the LDA model in Python
 
-- Too few topics may combine different themes.
-- Too many topics may split similar themes into several groups.
-
-. . .
-
-We can compare models with different values of $K$.
-
-## Selecting the number of topics
-
-One criterion is **perplexity**, which measures how well a fitted model predicts the words in documents.
-
-</br>
-
-Smaller perplexity values indicate better predictive performance under the model.
-
-. . .
-
-We will evaluate perplexity on reviews that were not used to fit the model.
-
-::: notes
-Perplexity does not measure human interpretability. The best predictive model need not have the most useful topics. Scikit-learn computes an approximate perplexity from the variational bound.
-:::
-
-## Divide the data
-
-We use 80% of the reviews for fitting and 20% for evaluation.
+We fit the LDA model with a user-specified number of topics to all the reviews.
 
 ```{python}
-from sklearn.model_selection import train_test_split
-from sklearn.decomposition import LatentDirichletAllocation
 
-train, test = train_test_split(reviews["text"], test_size=0.2,
-                               random_state=123)
-vectorizer = CountVectorizer(min_df=5, max_df=0.8,
-                             max_features=3000)
-X_train = vectorizer.fit_transform(train)
-X_test = vectorizer.transform(test)
-```
-
-::: notes
-The vocabulary is learned only from training reviews. Terms absent from that vocabulary are ignored in evaluation. LDA uses counts, not TF-IDF weights.
-:::
-
-## Fit models with different numbers of topics
-
-```{python}
-#| output: false
-results = []
-for k in [2, 3, 4, 5, 6]:
-    model = LatentDirichletAllocation(n_components=k,
-                                      max_iter=10,
-                                      random_state=123)
-    model.fit(X_train)
-    results.append({"Topics": k,
-                    "Perplexity": model.perplexity(X_test)})
-
-scores = pd.DataFrame(results)
-```
-
-## Plot the perplexity
-
-```{python}
-#| fig-align: center
-plt.figure(figsize=(7, 4))
-sns.lineplot(data=scores, x="Topics", y="Perplexity",
-             marker="o", color="darkblue")
-plt.xticks(scores["Topics"])
-plt.title("Validation perplexity by number of topics")
-plt.show()
-```
-
-Look for a low value or a point beyond which improvements are small.
-
-## Select a model
-
-For illustration, we choose the number of topics with the smallest validation perplexity among the candidates.
-
-```{python}
-best_k = int(scores.loc[scores["Perplexity"].idxmin(), "Topics"])
-print(best_k)
-```
-
-. . .
-
-We should also inspect the terms of the topics before deciding whether the model is useful.
-
-## Fit the final LDA model
-
-We fit the selected model using all the reviews.
-
-```{python}
-X = vectorizer.fit_transform(reviews["text"])
+vectorizer = CountVectorizer(min_df=5, max_df=0.8, max_features=3000)
+X = vectorizer.fit_transform(movie_review_data["review"])
 terms = vectorizer.get_feature_names_out()
-lda = LatentDirichletAllocation(n_components=best_k,
-                                max_iter=10, random_state=123)
+lda = LatentDirichletAllocation(n_components = 5, max_iter = 10, 
+                                random_state = 301655)
 lda.fit(X)
 ```
 
@@ -784,19 +574,6 @@ mixtures.head().round(3)
 
 Each row sums to one (up to rounding).
 
-## Plot the mixture of a review
-
-```{python}
-#| fig-align: center
-mix = mixtures.iloc[0].reset_index()
-mix.columns = ["Topic", "Proportion"]
-plt.figure(figsize=(7, 3))
-sns.barplot(data=mix, x="Proportion", y="Topic", color="darkblue")
-plt.xlim(0, 1)
-plt.title("Estimated topic mixture of review 1")
-plt.show()
-```
-
 ## How common are the topics?
 
 We compute the average estimated proportion of each topic across the reviews.
@@ -816,6 +593,7 @@ plt.show()
 ::: notes
 This is a document-weighted average of estimated mixtures, not the percentage of reviews assigned exclusively to each topic.
 :::
+
 
 # Discussion
 
@@ -851,22 +629,5 @@ Does the original text support our interpretation of the topic?
 - Results depend on the corpus, vocabulary, number of topics, and model fitting.
 :::
 
-## Activity (cooperative mode)
-
-In teams, revisit the movie review analysis.
-
-1.  Define a question about the reviews.
-2.  Compare word clouds before and after removing stop words.
-3.  Compare the topics obtained with two different values of $K$.
-4.  Propose names for the topics and justify them using terms and original reviews.
-5.  Present one graph and explain what it tells us about your question.
-
-## References
-
-- Pang, B., & Lee, L. (2004). A sentimental education: Sentiment analysis using subjectivity summarization based on minimum cuts. ACL. <https://aclanthology.org/P04-1035/>
-- Blei, D. M., Ng, A. Y., & Jordan, M. I. (2003). Latent Dirichlet allocation. *Journal of Machine Learning Research*, 3, 993–1022. <https://www.jmlr.org/papers/v3/blei03a.html>
-- Scikit-learn: <https://scikit-learn.org/stable/modules/feature_extraction.html>
-- NLTK: <https://www.nltk.org/>
-- WordCloud: <https://amueller.github.io/word_cloud/>
 
 # [Return to main page](https://alanrvazquez.github.io/TEC-IN2039-EN/)
