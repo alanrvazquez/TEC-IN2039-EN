@@ -16,7 +16,8 @@ author:
 4.  Web Scraping ([slides](/T4_WebScraping/WebScraping.slides.html)) ([colab](https://colab.research.google.com/drive/1dOjPuUb6qklBqyZ1IfBmIxt6wzgn9Xsy?usp=sharing))
 5.  Visualizations for One Variable ([slides](/T8_StatisticalGraphs/Statistical_Graphs_Univariate.slides.html)) ([colab](https://colab.research.google.com/drive/1K1ZmwBJog2pOVk_d2fEuPDEK0NZ2o1XW?usp=sharing))
 6.  Visualizations for Multiple Variables ([slides](/T9_MultivariatePlots/Statistical_Graphs_Multivariate.slides.html)) ([colab](https://drive.google.com/file/d/1WMPEHejV8z_0Ms1vnklyyO0fmZUifNBQ/view?usp=sharing))
-
+7.  Special Topics
+    - Introduction to Text Analytics ([slides](/T10_SpecialTopics/Introduction_Text_Analytics.slides.html)) ([colab](https://colab.research.google.com/drive/1zboU_8Upws2aRjKzSAUMd4xjsUKhpMMa?usp=sharing))
 
 ## About the author
 

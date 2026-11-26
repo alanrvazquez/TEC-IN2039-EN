@@ -56,9 +56,9 @@ However, a large amount of information is stored in the form of **text**.
 
 . . .
 
-In this topic, we will transform text into numerical data that can be summarized and visualized.
-
 </br>
+
+Here, we will transform text into numerical data that can be summarized and visualized.
 
 Our goal is not to read every document individually, but to identify patterns across many documents.
 
@@ -78,11 +78,12 @@ Reading all the reviews manually would take a considerable amount of time.
 
 ## Principle 1: Define the question
 
+Typical questions in a basic text analysis are:
+
 </br></br>
 
 ::: incremental
 - What words appear most frequently in movie reviews?
-- Which words are particularly informative about a review?
 - What are the main themes discussed by viewers?
 - How common are these themes across the reviews?
 :::
@@ -94,7 +95,6 @@ Reading all the reviews manually would take a considerable amount of time.
 | Question                     | Method or graph            |
 |:-----------------------------|:---------------------------|
 | What words are frequent?     | Word cloud, bar chart      |
-| Which words are informative? | TF-IDF, bar chart          |
 | What themes appear?          | Topic modeling, bar charts |
 | How common are the themes?   | Topic prevalence plot      |
 
@@ -108,12 +108,11 @@ Reading all the reviews manually would take a considerable amount of time.
 
 ![](images/scikitlearn.png){fig-align="center"}
 
-## NLTK library
+## nltk library
 
-- **NLTK** (Natural Language Toolkit) is a popular Python library for natural language processing (NLP).
+- **nltk** (Natural Language Toolkit) is a popular Python library for natural language processing (NLP).
 - It provides tools for processing and analyzing textual data.
 - It includes functions for tokenization, stemming, and removing stop words.
-- It provides access to collections of textual data, known as *corpora*.
 - <https://www.nltk.org/>
 
 ![](images/nltk.png){fig-align="center"}
@@ -123,7 +122,6 @@ Reading all the reviews manually would take a considerable amount of time.
 
 - **wordcloud** is a Python library for creating word clouds from textual data.
 - It allows us to visualize the most frequent words in a collection of documents.
-- It provides tools to customize the size, color, shape, and appearance of word clouds.
 - <https://amueller.github.io/word_cloud/>
 
 ![](images/wordcloud.png){fig-align="center"}
@@ -149,47 +147,48 @@ from sklearn.decomposition import LatentDirichletAllocation
 
 ## Load the data
 
-We will use the Movie Reviews corpus distributed with **NLTK**, containing 2,000 English-language movie reviews.
+We will use the Movie Reviews corpus distributed with **nltk**, containing many English-language movie reviews.
 
 ```{python}
 #| output: false
 
 movie_review_data = pd.read_excel("movie_review.xlsx")
-movie_review_data.head()
-```
-
-
-## A document and a corpus
-
-- A **document** is one unit of text under study (one movie review in our example).
-- A **corpus** is a collection of documents (all the movie reviews).
-- A **token** is a unit of text, such as a word.
-
-```{python}
-
 (movie_review_data
   .filter(["review"], axis = 1)
 ).head(3)
 ```
 
+
+## A document and a corpus
+
+</br></br>
+
+- A **document** is one unit of text under study (one movie review in our example).
+- A **corpus** is a collection of documents (all the movie reviews).
+- A **token** is a unit of text, such as a word.
+
 # Text Cleaning and Word Clouds
 
 ## Why clean text?
 
-The words `Movie`, `movie`, and `movie!` convey essentially the same information in this example.
+</br></br>
+
+The words `Movie`, `movie`, and `movie!` convey essentially the same information in this example. 
 
 However, a computer may treat them as different strings.
 
 We need to define how to represent the text before computing summaries.
 
-**Basic text cleaning**:
 
-::: incremental
+## Basic text cleaning
+
+</br></br>
+
 - Convert uppercase letters to lowercase.
 - Remove punctuation and numbers (when not relevant).
 - Remove unnecessary spaces.
 - Separate the text into words (tokenization).
-:::
+
 
 ::: notes
 These decisions depend on the research question. Numbers, punctuation, emojis and capitalization can be informative in other applications.
@@ -234,7 +233,9 @@ movie_review_data["words"] = movie_review_data["clean"].str.split()
 movie_review_data.filter(["words"], axis = 1).head(1)
 ```
 
-Note: we remove the missing rows in the generated dataset.
+</br>
+
+> We remove the missing rows in the generated dataset.
 
 ```{python}
 
@@ -263,9 +264,13 @@ In a frequency-based word cloud, words that occur more frequently are displayed 
 
 . . .
 
+</br>
+
 > The goal is to quickly identify prominent words in a corpus.
 
 ## Word cloud in Python
+
+</br></br>
 
 We use `WordCloud()` from the **wordcloud** library. The method `.generate_from_frequencies()` uses our frequency table.
 
@@ -318,7 +323,6 @@ movie_review_data["terms"] = movie_review_data["words"].apply(
                                 lambda words: [word for word in words
                                 if word not in stop_words and len(word) > 2]
                                 )
-                              
 ```
 
 The expression inside brackets keeps words that satisfy both conditions.
@@ -372,7 +376,9 @@ A stem is not necessarily a valid English word. Lemmatization is an alternative 
 
 ## Stemming in Python
 
-We use the Porter stemmer from **NLTK**.
+</br>
+
+We use the Porter stemmer from **nltk**.
 
 ```{python}
 
@@ -380,7 +386,6 @@ stemmer = PorterStemmer()
 movie_review_data["stems"] = (movie_review_data["terms"]
                               .apply(lambda words: [stemmer.stem(word) for word in words])
                               )
-
 ```
 
 Before showing the revised word cloud, recompute the frequency table and update the word cloud.
@@ -397,7 +402,7 @@ cloud.generate_from_frequencies(stem_freq.to_dict())
 ```{python}
 #| fig-align: center
 
-plt.figure(figsize=(9, 4.5))
+plt.figure(figsize=(10, 5))
 plt.imshow(cloud)
 plt.axis("off")
 plt.show()
@@ -411,7 +416,7 @@ We can improve the word cloud using additional commands
 #| fig-align: center
 #| code-fold: true
 
-plt.figure(figsize=(10, 5), dpi=150)
+plt.figure(figsize=(5, 5), dpi=150)
 plt.imshow(cloud, interpolation="bilinear")
 plt.title("Most frequent words in movie reviews",
           fontsize=18, fontweight="bold", color="darkblue", pad=20)
@@ -423,17 +428,10 @@ plt.show()
 
 # Topic Modeling
 
-## Principle 1: Can we identify themes?
-
-</br></br>
-
-- A movie review may discuss several themes, such as acting, special effects, and the story.
-
-- Instead of defining these themes ourselves, can we identify them from patterns in the text?
 
 ## Latent Dirichlet Allocation (LDA)
 
-</br>
+</br></br>
 
 LDA is an **unsupervised** statistical model that identifies latent (unobserved) topics in a collection of documents.
 
@@ -447,6 +445,8 @@ LDA here means Latent Dirichlet Allocation, not Linear Discriminant Analysis. Di
 :::
 
 ## A hypothetical example
+
+</br>
 
 | Term        | Topic 1 | Topic 2 |
 |:------------|--------:|--------:|
@@ -462,6 +462,8 @@ The names are assigned by the analyst, not by LDA.
 
 ## A mixture of topics
 
+</br></br></br>
+
 A hypothetical review may contain 70% Topic 1 and 30% Topic 2.
 
 ```{python}
@@ -469,7 +471,7 @@ A hypothetical review may contain 70% Topic 1 and 30% Topic 2.
 #| fig-align: center
 example_mix = pd.DataFrame({"Topic": ["Acting", "Action scenes"],
                             "Proportion": [0.7, 0.3]})
-plt.figure(figsize=(7, 2.5))
+plt.figure(figsize=(7, 5.5))
 sns.barplot(data=example_mix, x="Proportion", y="Topic", color="darkblue")
 plt.xlim(0, 1)
 plt.grid()
@@ -478,6 +480,8 @@ plt.show()
 
 
 ## Fit the LDA model in Python
+
+</br>
 
 We fit the LDA model with a user-specified number of topics to all the reviews.
 
@@ -509,13 +513,15 @@ topic_terms.iloc[:, :5]
 
 ## Identify the main terms of each topic
 
+</br>
+
 ```{python}
 for topic in topic_terms.index:
     print("Topic", topic)
     print(topic_terms.loc[topic].nlargest(8).index.tolist())
 ```
 
-Can you assign a meaningful name to each topic?
+**Can you assign a meaningful name to each topic?**
 
 ## Plot the terms of a topic
 
@@ -530,6 +536,8 @@ plt.show()
 ```
 
 ## Plot the terms of all topics
+
+</br></br>
 
 We create a tidy dataset with the ten most probable terms of each topic.
 
@@ -583,10 +591,13 @@ Each row sums to one (up to rounding).
 
 ## How common are the topics?
 
+</br></br>
+
 We compute the average estimated proportion of each topic across the reviews.
 
 ```{python}
 #| fig-align: center
+#| output: false
 prevalence = mixtures.mean().sort_values(ascending=False).reset_index()
 prevalence.columns = ["Topic", "Average proportion"]
 plt.figure(figsize=(7, 3))
@@ -602,6 +613,21 @@ plt.show()
 This is a document-weighted average of estimated mixtures, not the percentage of reviews assigned exclusively to each topic.
 :::
 
+##
+
+```{python}
+#| fig-align: center
+#| output: true
+prevalence = mixtures.mean().sort_values(ascending=False).reset_index()
+prevalence.columns = ["Topic", "Average proportion"]
+plt.figure(figsize=(7, 3))
+sns.barplot(data=prevalence, x="Average proportion", y="Topic",
+            color="darkblue")
+plt.xlim(0, 1)
+plt.grid()
+plt.title("Average topic proportions across movie reviews")
+plt.show()
+```
 
 # Conclusion
 
@@ -618,6 +644,8 @@ What are the main themes that people discuss when reviewing movies?
 
 ## Verify the interpretation
 
+</br></br></br>
+
 For example, we can read the review with the largest estimated proportion of Topic 1.
 
 ```{python}
@@ -629,6 +657,7 @@ Does the original text support our interpretation of the topic?
 
 ## Limitations
 
+</br></br>
 
 - Cleaning and stop-word choices affect the results.
 - Bag-of-words methods ignore word order and context.
