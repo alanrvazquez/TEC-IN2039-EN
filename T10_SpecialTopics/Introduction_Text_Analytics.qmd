@@ -148,19 +148,19 @@ from sklearn.decomposition import LatentDirichletAllocation
 
 ## Load the data
 
-We will use the Movie Reviews corpus distributed with **nltk**, containing many English-language movie reviews.
+The Movie Reviews corpus is a collection of movie reviews written in English. The corpus contains positive and negative reviews, originally collected from the Internet Movie Database (IMDb). A copy of the dataset is in "movie_review.xlsx".
+
+Let's load the data.
 
 ```{python}
 #| output: false
 
 movie_review_data = pd.read_excel("movie_review.xlsx")
-(movie_review_data
-  .filter(["review"], axis = 1)
-).head(3)
+movie_review_data.head()
 ```
 
 
-## A document and a corpus
+## Basic terminology
 
 </br></br>
 
@@ -178,7 +178,7 @@ The words `Movie`, `movie`, and `movie!` convey essentially the same information
 
 However, a computer may treat them as different strings.
 
-We need to define how to represent the text before computing summaries.
+So, ee need to define how to represent the text before computing summaries.
 
 
 ## Basic text cleaning
@@ -188,7 +188,7 @@ We need to define how to represent the text before computing summaries.
 - Convert uppercase letters to lowercase.
 - Remove punctuation and numbers (when not relevant).
 - Remove unnecessary spaces.
-- Separate the text into words (tokenization).
+- Separate the text into words (*tokenization*).
 
 
 ::: notes
@@ -197,7 +197,6 @@ These decisions depend on the research question. Numbers, punctuation, emojis an
 
 ## Example of text cleaning
 
-</br></br>
 
 ```{python}
 example = pd.Series(["Great Movie! I watched it 2 times."])
@@ -208,7 +207,9 @@ example = (example.str.lower()
 print(example.iloc[0])
 ```
 
-The expression `[^a-z\s]` identifies characters other than English letters and whitespace.
+- `.str.replace(r"[^a-z\s]", " ", regex=True)` replaces `!`, `2`, and `.` with spaces: "great movie  i watched it   times ".
+
+- `.str.replace(r"\s+", " ", regex=True)`: Collapses those multiple spaces down to single spaces:"great movie i watched it times "
 
 ## Clean the reviews
 
@@ -227,6 +228,8 @@ We keep the original text so that we can return to it when interpreting our resu
 
 ## Tokenization
 
+</br>
+
 We use `.str.split()` to separate the words in each review.
 
 ```{python}
@@ -234,22 +237,36 @@ movie_review_data["words"] = movie_review_data["clean"].str.split()
 movie_review_data.filter(["words"], axis = 1).head(1)
 ```
 
+The result is a new column called "words" where each row is a *list* of the tokens (words) in a comment.
+
+## 
+
 </br>
 
-> We remove the missing rows in the generated dataset.
+Unfortunately, in this dataset, there are some comments which, after standardization and cleaning, become empty. To exclude them from the analysis, we remove them using the function `.dropna()`.
 
 ```{python}
 
 movie_review_data = movie_review_data.dropna(subset=["words"])
 ```
 
-## A frequency table for words
+The `subset` parameter above allows us to concentrate on identifying missing values in a specific column.
 
-The function `.explode()` creates one row for each element of a list.
+## Compile all words in a single array
+
+Now, we will compile all words into a single array called `words`. To this end, we use the `.explote()` function, which transforms each element of a list-like value in a cell into its own separate row, duplicating the index and all other column values for that row.
 
 ```{python}
-words = movie_review_data["words"].explode()
-word_freq = words.value_counts()
+words = movie_review_data["words"].explode() 
+words.head()
+```
+
+## A frequency table for words
+
+The `word` array is very useful because we can use it to produce some summary statistics, such as a frequency table using `value_counts()`.
+
+```{python}
+word_freq = words.value_counts() 
 word_freq.head(10)
 ```
 
@@ -273,23 +290,43 @@ In a frequency-based word cloud, words that occur more frequently are displayed 
 
 </br></br>
 
-We use `WordCloud()` from the **wordcloud** library. The method `.generate_from_frequencies()` uses our frequency table.
+To construct a word cloud, we first tell Python our goal using the function `WordCloud()`. That is, we first define the requirements for the plot and save them in an object with a specific name, say, `cloud`.
 
 
 ```{python}
 #| output: false
 
-# Tell Python you want to create a word cloud
+
 cloud = WordCloud(width=900, height=450, background_color="white", 
                   max_words=60, random_state=3301655)
+```
+
+##
+
+In the previous code, we use the basic parameters of this `WordCloud()`:
+
+- `width`: Sets the width of the generated word cloud image in pixels.
+- `height`: Sets the height of the generated word cloud image in pixels.
+- `background_color`: Sets the canvas background color behind the words to white instead of the default black.
+- `max_words`: Maximum number of most frequent words to display so the visual stays clean and readable.
+- `random_state`: Fixes the random seed so the word placement and colors remain identical every time you run the code.
+
+##
+
+</br>
+
+Once we have set our demands, we construct the word cloud using the frequency table contained in `word_freq`. 
+
+```{python}
+#| output: false
 
 # Compute the word cloud using the frequency table.
 cloud.generate_from_frequencies(word_freq.to_dict())
 ```
 
-The parameter `max_words` controls the number of words that appear in the cloud.
+> Above, we input the `word_freq` as a *dictionary*, which is another common Python object. Each element consists of the actual word and its frequency.
 
-## 
+## The word cloud
 
 ```{python}
 #| fig-align: center
@@ -379,7 +416,7 @@ A stem is not necessarily a valid English word. Lemmatization is an alternative 
 
 </br>
 
-We use the Porter stemmer from **nltk**.
+We use the Porter stemmer from **nltk**. This function takes a single word string and strips its suffixes using a sequential set of heuristic rules to return its root form (for example, turning "running" or "runs" into "run").
 
 ```{python}
 
@@ -389,7 +426,7 @@ movie_review_data["stems"] = (movie_review_data["terms"]
                               )
 ```
 
-Before showing the revised word cloud, recompute the frequency table and update the word cloud.
+Before showing the revised word cloud, we recompute the frequency table and update the word cloud.
 
 ```{python}
 #| fig-align: center
@@ -420,7 +457,7 @@ We can improve the word cloud using additional commands.
 plt.figure(figsize=(5, 5), dpi=150)
 plt.imshow(cloud, interpolation="bilinear")
 plt.title("Most frequent words in movie reviews",
-          fontsize=18, fontweight="bold", color="darkblue", pad=20)
+          fontsize=15, fontweight="bold", color="darkblue", pad=20)
 plt.axis("off")
 plt.tight_layout()
 plt.show()

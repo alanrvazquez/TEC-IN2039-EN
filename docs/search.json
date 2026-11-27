@@ -74,7 +74,7 @@
     "href": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#load-the-data",
     "title": "Introduction to Text Analytics",
     "section": "Load the data",
-    "text": "Load the data\nWe will use the Movie Reviews corpus distributed with nltk, containing many English-language movie reviews.\n\nmovie_review_data = pd.read_excel(\"movie_review.xlsx\")\n(movie_review_data\n  .filter([\"review\"], axis = 1)\n).head(3)"
+    "text": "Load the data\nThe Movie Reviews corpus is a collection of movie reviews written in English. The corpus contains positive and negative reviews, originally collected from the Internet Movie Database (IMDb). A copy of the dataset is in “movie_review.xlsx”.\nLet’s load the data.\n\nmovie_review_data = pd.read_excel(\"movie_review.xlsx\")\nmovie_review_data.head()"
   },
   {
     "objectID": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#a-document-and-a-corpus",
@@ -88,7 +88,7 @@
     "href": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#why-clean-text",
     "title": "Introduction to Text Analytics",
     "section": "Why clean text?",
-    "text": "Why clean text?\n\nThe words Movie, movie, and movie! convey essentially the same information in this example.\nHowever, a computer may treat them as different strings.\nWe need to define how to represent the text before computing summaries."
+    "text": "Why clean text?\n\nThe words Movie, movie, and movie! convey essentially the same information in this example.\nHowever, a computer may treat them as different strings.\nSo, ee need to define how to represent the text before computing summaries."
   },
   {
     "objectID": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#basic-text-cleaning",
@@ -102,7 +102,7 @@
     "href": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#example-of-text-cleaning",
     "title": "Introduction to Text Analytics",
     "section": "Example of text cleaning",
-    "text": "Example of text cleaning\n\n\nexample = pd.Series([\"Great Movie! I watched it 2 times.\"])\nexample = (example.str.lower()\n           .str.replace(r\"[^a-z\\s]\", \" \", regex=True)\n           .str.replace(r\"\\s+\", \" \", regex=True)\n           .str.strip())\nprint(example.iloc[0])\n\ngreat movie i watched it times\n\n\nThe expression [^a-z\\s] identifies characters other than English letters and whitespace."
+    "text": "Example of text cleaning\n\nexample = pd.Series([\"Great Movie! I watched it 2 times.\"])\nexample = (example.str.lower()\n           .str.replace(r\"[^a-z\\s]\", \" \", regex=True)\n           .str.replace(r\"\\s+\", \" \", regex=True)\n           .str.strip())\nprint(example.iloc[0])\n\ngreat movie i watched it times\n\n\n\n.str.replace(r\"[^a-z\\s]\", \" \", regex=True) replaces !, 2, and . with spaces: “great movie i watched it times”.\n.str.replace(r\"\\s+\", \" \", regex=True): Collapses those multiple spaces down to single spaces:“great movie i watched it times”"
   },
   {
     "objectID": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#clean-the-reviews",
@@ -116,14 +116,14 @@
     "href": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#tokenization",
     "title": "Introduction to Text Analytics",
     "section": "Tokenization",
-    "text": "Tokenization\nWe use .str.split() to separate the words in each review.\n\nmovie_review_data[\"words\"] = movie_review_data[\"clean\"].str.split()\nmovie_review_data.filter([\"words\"], axis = 1).head(1)\n\n\n\n\n\n\n\n\nwords\n\n\n\n\n0\n[films, adapted, from, comic, books, have, had...\n\n\n\n\n\n\n\n\n\nWe remove the missing rows in the generated dataset.\n\n\nmovie_review_data = movie_review_data.dropna(subset=[\"words\"])"
+    "text": "Tokenization\n\nWe use .str.split() to separate the words in each review.\n\nmovie_review_data[\"words\"] = movie_review_data[\"clean\"].str.split()\nmovie_review_data.filter([\"words\"], axis = 1).head(1)\n\n\n\n\n\n\n\n\nwords\n\n\n\n\n0\n[films, adapted, from, comic, books, have, had...\n\n\n\n\n\n\n\nThe result is a new column called “words” where each row is a list of the tokens (words) in a comment."
   },
   {
     "objectID": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#a-frequency-table-for-words",
     "href": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#a-frequency-table-for-words",
     "title": "Introduction to Text Analytics",
     "section": "A frequency table for words",
-    "text": "A frequency table for words\nThe function .explode() creates one row for each element of a list.\n\nwords = movie_review_data[\"words\"].explode()\nword_freq = words.value_counts()\nword_freq.head(10)\n\nwords\nthe     76570\na       38107\nand     35578\nof      34124\nto      31938\nis      25202\nin      21825\ns       18886\nit      16110\nthat    15926\nName: count, dtype: int64"
+    "text": "A frequency table for words\nThe word array is very useful because we can use it to produce some summary statistics, such as a frequency table using value_counts().\n\nword_freq = words.value_counts() \nword_freq.head(10)\n\nwords\nthe     76570\na       38107\nand     35578\nof      34124\nto      31938\nis      25202\nin      21825\ns       18886\nit      16110\nthat    15926\nName: count, dtype: int64"
   },
   {
     "objectID": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#word-cloud",
@@ -137,14 +137,14 @@
     "href": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#word-cloud-in-python",
     "title": "Introduction to Text Analytics",
     "section": "Word cloud in Python",
-    "text": "Word cloud in Python\n\nWe use WordCloud() from the wordcloud library. The method .generate_from_frequencies() uses our frequency table.\n\n# Tell Python you want to create a word cloud\ncloud = WordCloud(width=900, height=450, background_color=\"white\", \n                  max_words=60, random_state=3301655)\n\n# Compute the word cloud using the frequency table.\ncloud.generate_from_frequencies(word_freq.to_dict())\n\nThe parameter max_words controls the number of words that appear in the cloud."
+    "text": "Word cloud in Python\n\nTo construct a word cloud, we first tell Python our goal using the function WordCloud(). That is, we first define the requirements for the plot and save them in an object with a specific name, say, cloud.\n\ncloud = WordCloud(width=900, height=450, background_color=\"white\", \n                  max_words=60, random_state=3301655)"
   },
   {
     "objectID": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#section",
     "href": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#section",
     "title": "Introduction to Text Analytics",
     "section": "",
-    "text": "plt.figure(figsize=(9, 4.5))\nplt.imshow(cloud)\nplt.axis(\"off\")\nplt.show()\n\n\n\n\n\n\n\n\nDo the largest words help us answer our research question?"
+    "text": "Unfortunately, in this dataset, there are some comments which, after standardization and cleaning, become empty. To exclude them from the analysis, we remove them using the function .dropna().\n\nmovie_review_data = movie_review_data.dropna(subset=[\"words\"])\n\nThe subset parameter above allows us to concentrate on identifying missing values in a specific column."
   },
   {
     "objectID": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#stop-words",
@@ -165,7 +165,7 @@
     "href": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#section-1",
     "title": "Introduction to Text Analytics",
     "section": "",
-    "text": "Let’s recompute the frequency table and update the word cloud.\n\nword_freq = movie_review_data[\"terms\"].explode().value_counts()\ncloud.generate_from_frequencies(word_freq.to_dict())\n\n&lt;wordcloud.wordcloud.WordCloud at 0x13a633400&gt;"
+    "text": "In the previous code, we use the basic parameters of this WordCloud():\n\nwidth: Sets the width of the generated word cloud image in pixels.\nheight: Sets the height of the generated word cloud image in pixels.\nbackground_color: Sets the canvas background color behind the words to white instead of the default black.\nmax_words: Maximum number of most frequent words to display so the visual stays clean and readable.\nrandom_state: Fixes the random seed so the word placement and colors remain identical every time you run the code."
   },
   {
     "objectID": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#the-new-word-cloud",
@@ -186,7 +186,7 @@
     "href": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#stemming-in-python",
     "title": "Introduction to Text Analytics",
     "section": "Stemming in Python",
-    "text": "Stemming in Python\n\nWe use the Porter stemmer from nltk.\n\nstemmer = PorterStemmer()\nmovie_review_data[\"stems\"] = (movie_review_data[\"terms\"]\n                              .apply(lambda words: [stemmer.stem(word) for word in words])\n                              )\n\nBefore showing the revised word cloud, recompute the frequency table and update the word cloud.\n\nstem_freq = movie_review_data[\"stems\"].explode().value_counts()\ncloud.generate_from_frequencies(stem_freq.to_dict())\n\n&lt;wordcloud.wordcloud.WordCloud at 0x13a633400&gt;"
+    "text": "Stemming in Python\n\nWe use the Porter stemmer from nltk. This function takes a single word string and strips its suffixes using a sequential set of heuristic rules to return its root form (for example, turning “running” or “runs” into “run”).\n\nstemmer = PorterStemmer()\nmovie_review_data[\"stems\"] = (movie_review_data[\"terms\"]\n                              .apply(lambda words: [stemmer.stem(word) for word in words])\n                              )\n\nBefore showing the revised word cloud, we recompute the frequency table and update the word cloud.\n\nstem_freq = movie_review_data[\"stems\"].explode().value_counts()\ncloud.generate_from_frequencies(stem_freq.to_dict())\n\n&lt;wordcloud.wordcloud.WordCloud at 0x1389dae80&gt;"
   },
   {
     "objectID": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#word-cloud-after-stemming",
@@ -200,7 +200,7 @@
     "href": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#principle-3-apply-graphic-design",
     "title": "Introduction to Text Analytics",
     "section": "Principle 3: Apply graphic design",
-    "text": "Principle 3: Apply graphic design\nWe can improve the word cloud using additional commands.\n\n\nCode\nplt.figure(figsize=(5, 5), dpi=150)\nplt.imshow(cloud, interpolation=\"bilinear\")\nplt.title(\"Most frequent words in movie reviews\",\n          fontsize=18, fontweight=\"bold\", color=\"darkblue\", pad=20)\nplt.axis(\"off\")\nplt.tight_layout()\nplt.show()"
+    "text": "Principle 3: Apply graphic design\nWe can improve the word cloud using additional commands.\n\n\nCode\nplt.figure(figsize=(5, 5), dpi=150)\nplt.imshow(cloud, interpolation=\"bilinear\")\nplt.title(\"Most frequent words in movie reviews\",\n          fontsize=15, fontweight=\"bold\", color=\"darkblue\", pad=20)\nplt.axis(\"off\")\nplt.tight_layout()\nplt.show()"
   },
   {
     "objectID": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#from-text-to-numerical-data",
@@ -242,14 +242,14 @@
     "href": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#section-2",
     "title": "Introduction to Text Analytics",
     "section": "",
-    "text": "The basic parameters of this function are:\n\nmin_df: The minimum document frequency required for a term to be included in the vocabulary, ignoring rare words that appear in fewer documents than this threshold (specified as an integer count or a proportion).\nmax_df: The maximum document frequency allowed for a term, ignoring overly common corpus-specific words that appear in more documents than this threshold (specified as an integer count or a proportion)."
+    "text": "Once we have set our demands, we construct the word cloud using the frequency table contained in word_freq.\n\n# Compute the word cloud using the frequency table.\ncloud.generate_from_frequencies(word_freq.to_dict())\n\n\nAbove, we input the word_freq as a dictionary, which is another common Python object. Each element consists of the actual word and its frequency."
   },
   {
     "objectID": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#section-3",
     "href": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#section-3",
     "title": "Introduction to Text Analytics",
     "section": "",
-    "text": "max_features: The maximum number of top terms to keep in the vocabulary, ordered by their overall frequency across the entire corpus.\nstop_words='english': removes the English stop words (ENGLISH_STOP_WORDS)\ntoken_pattern=r\"(?u)\\b\\w\\w+\\b\": Keeps only alphanumeric words of 2+ characters, ignoring punctuation and single letters."
+    "text": "Let’s recompute the frequency table and update the word cloud.\n\nword_freq = movie_review_data[\"terms\"].explode().value_counts()\ncloud.generate_from_frequencies(word_freq.to_dict())\n\n&lt;wordcloud.wordcloud.WordCloud at 0x1389dae80&gt;"
   },
   {
     "objectID": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#inspect-the-matrix",
@@ -340,7 +340,7 @@
     "href": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#section-4",
     "title": "Introduction to Text Analytics",
     "section": "",
-    "text": "prevalence = mixtures.mean().sort_values(ascending=False).reset_index()\nprevalence.columns = [\"Topic\", \"Average proportion\"]\nplt.figure(figsize=(7, 3))\nsns.barplot(data=prevalence, x=\"Average proportion\", y=\"Topic\",\n            color=\"darkblue\")\nplt.xlim(0, 1)\nplt.grid()\nplt.title(\"Average topic proportions across movie reviews\")\nplt.show()"
+    "text": "The basic parameters of this function are:\n\nmin_df: The minimum document frequency required for a term to be included in the vocabulary, ignoring rare words that appear in fewer documents than this threshold (specified as an integer count or a proportion).\nmax_df: The maximum document frequency allowed for a term, ignoring overly common corpus-specific words that appear in more documents than this threshold (specified as an integer count or a proportion)."
   },
   {
     "objectID": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#return-to-our-research-question",
@@ -3211,5 +3211,40 @@
     "title": "Introduction to Data Visualization",
     "section": "Activity 1.2 (Solo mode and take-home)",
     "text": "Activity 1.2 (Solo mode and take-home)\nPrepare a short presentation (up to 3 minutes) about any topic you’re passionate about.\nGuidelines:\n\nUse slides (PowerPoint, Google Slides, or Canva).\n\nUpload your slides to CANVAS before next class.\n\nA few students will be randomly selected to present live.\n\nWe won’t judge your topic. We’re looking for clarity, connection, and passion."
+  },
+  {
+    "objectID": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#basic-terminology",
+    "href": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#basic-terminology",
+    "title": "Introduction to Text Analytics",
+    "section": "Basic terminology",
+    "text": "Basic terminology\n\n\nA document is one unit of text under study (one movie review in our example).\nA corpus is a collection of documents (all the movie reviews).\nA token is a unit of text, such as a word."
+  },
+  {
+    "objectID": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#compile-all-words-in-a-single-array",
+    "href": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#compile-all-words-in-a-single-array",
+    "title": "Introduction to Text Analytics",
+    "section": "Compile all words in a single array",
+    "text": "Compile all words in a single array\nNow, we will compile all words into a single array called words. To this end, we use the .explote() function, which transforms each element of a list-like value in a cell into its own separate row, duplicating the index and all other column values for that row.\n\nwords = movie_review_data[\"words\"].explode() \nwords.head()\n\n0      films\n0    adapted\n0       from\n0      comic\n0      books\nName: words, dtype: object"
+  },
+  {
+    "objectID": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#the-word-cloud",
+    "href": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#the-word-cloud",
+    "title": "Introduction to Text Analytics",
+    "section": "The word cloud",
+    "text": "The word cloud\n\nplt.figure(figsize=(9, 4.5))\nplt.imshow(cloud)\nplt.axis(\"off\")\nplt.show()\n\n\n\n\n\n\n\n\nDo the largest words help us answer our research question?"
+  },
+  {
+    "objectID": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#section-5",
+    "href": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#section-5",
+    "title": "Introduction to Text Analytics",
+    "section": "",
+    "text": "max_features: The maximum number of top terms to keep in the vocabulary, ordered by their overall frequency across the entire corpus.\nstop_words='english': removes the English stop words (ENGLISH_STOP_WORDS)\ntoken_pattern=r\"(?u)\\b\\w\\w+\\b\": Keeps only alphanumeric words of 2+ characters, ignoring punctuation and single letters."
+  },
+  {
+    "objectID": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#section-6",
+    "href": "T10_SpecialTopics/Introduction_Text_Analytics.slides.html#section-6",
+    "title": "Introduction to Text Analytics",
+    "section": "",
+    "text": "prevalence = mixtures.mean().sort_values(ascending=False).reset_index()\nprevalence.columns = [\"Topic\", \"Average proportion\"]\nplt.figure(figsize=(7, 3))\nsns.barplot(data=prevalence, x=\"Average proportion\", y=\"Topic\",\n            color=\"darkblue\")\nplt.xlim(0, 1)\nplt.grid()\nplt.title(\"Average topic proportions across movie reviews\")\nplt.show()"
   }
 ]
