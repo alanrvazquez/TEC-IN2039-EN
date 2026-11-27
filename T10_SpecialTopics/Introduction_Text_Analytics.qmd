@@ -241,7 +241,7 @@ The result is a new column called "words" where each row is a *list* of the toke
 
 ## 
 
-</br>
+</br></br>
 
 Unfortunately, in this dataset, there are some comments which, after standardization and cleaning, become empty. To exclude them from the analysis, we remove them using the function `.dropna()`.
 
@@ -303,6 +303,7 @@ cloud = WordCloud(width=900, height=450, background_color="white",
 
 ##
 
+::: {style="font-size: 80%;"}
 In the previous code, we use the basic parameters of this `WordCloud()`:
 
 - `width`: Sets the width of the generated word cloud image in pixels.
@@ -310,6 +311,7 @@ In the previous code, we use the basic parameters of this `WordCloud()`:
 - `background_color`: Sets the canvas background color behind the words to white instead of the default black.
 - `max_words`: Maximum number of most frequent words to display so the visual stays clean and readable.
 - `random_state`: Fixes the random seed so the word placement and colors remain identical every time you run the code.
+:::
 
 ##
 
@@ -425,6 +427,12 @@ movie_review_data["stems"] = (movie_review_data["terms"]
                               .apply(lambda words: [stemmer.stem(word) for word in words])
                               )
 ```
+
+
+
+##
+
+</br></br>
 
 Before showing the revised word cloud, we recompute the frequency table and update the word cloud.
 
@@ -606,8 +614,6 @@ The names are assigned by the analyst, not by LDA.
 
 ## A mixture of topics
 
-</br></br></br>
-
 A hypothetical review may contain 70% Topic 1 and 30% Topic 2.
 
 ```{python}
@@ -632,9 +638,6 @@ We fit the LDA model with a user-specified number of topics to all the reviews.
 ```{python}
 
 n_topics = 5
-vectorizer = CountVectorizer(min_df=5, max_df=0.8, max_features=3000)
-X = vectorizer.fit_transform(movie_review_data["review"])
-terms = vectorizer.get_feature_names_out()
 lda = LatentDirichletAllocation(n_components = n_topics, max_iter = 10, 
                                 random_state = 301655)
 lda.fit(X)
@@ -646,7 +649,7 @@ The validation set was used for model selection; its score is not an independent
 
 ## Term probabilities by topic
 
-The attribute `.components_` contains the fitted weights of terms for each topic. We normalize each row so that it sums to one.
+The attribute `.components_` has the fitted weights of terms for each topic. We normalize each row so that it sums to one.
 
 ```{python}
 topic_terms = pd.DataFrame(lda.components_, columns=terms)
@@ -744,7 +747,7 @@ We compute the average estimated proportion of each topic across the reviews.
 #| output: false
 prevalence = mixtures.mean().sort_values(ascending=False).reset_index()
 prevalence.columns = ["Topic", "Average proportion"]
-plt.figure(figsize=(7, 3))
+plt.figure(figsize=(8, 4))
 sns.barplot(data=prevalence, x="Average proportion", y="Topic",
             color="darkblue")
 plt.xlim(0, 1)
